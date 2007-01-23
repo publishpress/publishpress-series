@@ -54,7 +54,7 @@ li.catlist-li {
 	padding: 6px 6px 12px 6px;
 	border: 1px dotted #1E3A96;
 	border-bottom: 2px solid #1E3A96;
-	width: 125px;
+	min-width: 125px;
 }
 
 .seriesbox img {
