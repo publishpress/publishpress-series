@@ -2,8 +2,8 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 0.65 Beta
-Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. This plugin also makes use of (optionally) the <a href="http://devcorner.georgievi.net/wp-plugins/wp-category-icons/">Category Icons</a> plugin by <a href="http://devcorner.georgievi.net/">Ivan Georgiev</a>. As far as I can tell this plugin is compatible with 1.5+ (including 2.1).  I have only tested it on 2.0.1-2.0.6 though so no guarantees.
+Version: 1.0
+Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. This plugin also makes use of (optionally) the <a href="http://devcorner.georgievi.net/wp-plugins/wp-category-icons/">Category Icons</a> plugin by <a href="http://devcorner.georgievi.net/">Ivan Georgiev</a>. As far as I can tell this plugin is compatible with 1.5+ (including 2.1). 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
 */
@@ -38,6 +38,11 @@ Author URI: http://www.unfoldingneurons.com
 ######################################
 /* Changelog
 
+++Version. 1.0: Minor Fix and Stable release
+	- fixed incorrect links to help documents on plugin page
+	- fixed incorrect "</div>" location that affected display of the post list in the series display box when the category icon display option was unchecked.
+	- fixed default .css for the series list box that caused the category icon to go beyond the box borders if the category icon was set for a width larger than the box.  
+
 ++Version .65R1: One step up from the first version - 1st release.
 	- Added admin options menu for plugin allowing you to customize alot of the display of the plugin
 	- Added custom .css file (orgSeries.css) for plugin
@@ -55,15 +60,7 @@ Author URI: http://www.unfoldingneurons.com
 #####################################
 
 #####################################
-// TO-DO (Feature additions to add in future versions) [do a search on TO-DO for inline notes]
-
-# Add instructions to the admin panel
-
-# Detect if category-icons plugin is installed and if not give a link to the download for it.  Possibly provide documentation for how to install it and/or why it's beneficial (include screenshots?).
-
-# Create a sidebar widget/tag that shows the latest series. Make this a "tag" so it can be included in a widget or standalone...also include options in admin panel for layout/auto insertion.
-
-# I'd like for the autotag to auto-magically insert the necessary code into a custom category page for the list of series.  However, I haven't the faintest idea (yet) how to go about doing that!
+// TO-DO (Feature additions to add in future versions) --moved to plugin page.
 #####################################
 
 //*** Add .css to header if enabled via options ***//
@@ -132,12 +129,13 @@ function wp_postlist_display() {
 		?> 
 		<?php if ($settings['cat_icon_chk_post_page']) { ?>
 		<div class="center">
-		<?php get_cat_icon('cat=' . $catID . '&fit_width=' . $settings['cat_icon_width_post_page'] . '&height=-1&expand=true'); ?> <?php } } ?>
+		<?php get_cat_icon('cat=' . $catID . '&fit_width=' . $settings['cat_icon_width_post_page'] . '&height=-1&expand=true'); ?>
 		</div>
+		 <?php } } ?>
 	<?php if ($settings['text_chk_post_page']) { ?>
 	
 		<?php if ($settings['cat_title_chk_post_page']) { ?>
-			<?php echo stripslashes($settings['before_series_title_post_page']); ?><?php echo '<a href="' . get_category_link(	$catID) . '">' . $seriestitle . '</a>'; ?><?php echo stripslashes($settings['after_series_title_post_page']); ?>
+			<?php echo stripslashes($settings['before_series_title_post_page']); ?><?php echo '<a href="' . get_category_link(	$catID ) . '">' . $seriestitle . '</a>'; ?><?php echo stripslashes($settings['after_series_title_post_page']); ?>
 		<?php } ?>
 		<?php if ($settings['cat_description_cat_post_page']) { ?>
 			<?php
