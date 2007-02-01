@@ -166,7 +166,7 @@ function wp_serieslist_display() {
 	$num_per_page = $settings['perpage_cat_page'];
 	
 	####PAGING RELATED####
-	if ($settings['paging_cat_page']) {
+	if ($settings['paging_cat_page']==1) {
 		//by default we show first page
 		$pageNum = 1;
 		
@@ -194,7 +194,7 @@ function wp_serieslist_display() {
 			
 	$get_subcats_result = mysql_query($get_subcats);
 	
-	if ($settings['paging_cat_page']) {
+	if ($settings['paging_cat_page']==1) {
 		//find out how many rows in database
 		$get_numrows = mysql_num_rows($get_subcats_result);
 		
@@ -232,7 +232,7 @@ function wp_serieslist_display() {
 
 // fetch query arrays and display
 	 
-	if ($settings['paging_cat_page']) {
+	if ($settings['paging_cat_page']==1) {
 		$get_subcats .= "LIMIT $offset, $num_per_page ";
 	}
 	$get_subcats_result2 = mysql_query($get_subcats);
@@ -265,7 +265,7 @@ function wp_serieslist_display() {
 		  <?php echo stripslashes($settings['afterdisplay_cat_page']); ?><?php  } ?>
 <?php
 // DISPLAY PAGING LINKS (if paging enabled)
-if ($settings['paging_cat_page']) {
+if ($settings['paging_cat_page'] == 1) {
 	echo '<div align="center">' . $first . $prev . ' Showing page <strong>' . $pageNum . '</strong> of <strong>' . $maxPage . '</strong> pages ' . $next . $last . '</div>';
 }
 	
@@ -297,4 +297,5 @@ add_action('admin_menu', 'series_organize_options');
 
 //add filter to automatically add the tag for showing other posts in a series in a single post of that series.  Conditional upon "autotags" being selected in the admin options menu.
 add_action('the_content', 'add_series_post_list_box');
+
 ?>
