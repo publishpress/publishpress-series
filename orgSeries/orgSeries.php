@@ -180,8 +180,6 @@ function wp_serieslist_display() {
 	
 	}
 
-	//redefine parent_cat and num_per_page variables so easily insert into query
-		
 	$get_subcats = "SELECT $wpdb->categories.cat_ID, $wpdb->categories.cat_name, $wpdb->categories.category_description, $wpdb->categories.category_parent, $wpdb->categories.category_count, ";
 	$get_subcats .= "$wpdb->posts.ID, $wpdb->posts.post_date, ";
 	$get_subcats .= "$wpdb->post2cat.post_id, $wpdb->post2cat.category_id ";
@@ -278,7 +276,7 @@ function add_series_post_list_box($content) {
 	$settings = get_option('org_series_options');
 	
 	if ($settings['auto_tag_toggle']) {
-		if ((in_category($settings['series_cats']) && is_single())) {
+		if (is_single()) {
 			$addcontent = $content;
 			$content = wp_postlist_display() . $addcontent;
 		}
