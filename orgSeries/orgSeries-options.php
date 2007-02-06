@@ -49,7 +49,10 @@ function org_series_init($reset = false) {
 		'cat_before_title_post_page' => '<h3 class="cat-title-post-page">',
 		'cat_after_title_post_page' => '</h3>',
 		'cat_before_description_post_page' => '<p class="cat-description">',
-		'cat_after_description_post_page' => '</p>');
+		'cat_after_description_post_page' => '</p>',
+		'before_series_meta' => '<div class="seriesmeta">',
+		'after_series_meta' => '</div>',
+		'series_meta_word' => 'entry');
 		
 		if (!empty($settings)) {
 			$newSettings = array_merge($init_settings, $settings);
@@ -112,7 +115,9 @@ function org_series_option_update() {
 	if( isset($_POST['cat_after_title_post_page']) )  $settings['cat_after_title_post_page'] = urldecode($_POST['cat_after_title_post_page']);
 	if( isset($_POST['cat_before_description_post_page']) )  $settings['cat_before_description_post_page'] = urldecode($_POST['cat_before_description_post_page']);
 	if( isset($_POST['cat_after_description_post_page']) )  $settings['cat_after_description_post_page'] = urldecode($_POST['cat_after_description_post_page']);
-	
+	if( isset($_POST['before_series_meta']) )  $settings['before_series_meta'] = urldecode($_POST['before_series_meta']);
+	if( isset($_POST['after_series_meta']) )  $settings['after_series_meta'] = urldecode($_POST['after_series_meta']);
+	if( isset($_POST['series_meta_word']) )  $settings['series_meta_word'] = urldecode($_POST['series_meta_word']);
 	$settings['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	update_option('org_series_options', $settings, 'Array of options for the Organize Series plugin',1);
 	
@@ -153,6 +158,8 @@ function org_series_admin_page() {
 		<?php org_series_echo_series_settings($settings); ?>
 		<hr />
 		<?php org_series_echo_fieldset_series_post_page($settings); ?>
+		<hr />
+		<?php org_series_echo_fieldset_series_meta($settings); ?>
 		<div class="submit">
 			<input type="submit" name="update_orgseries" value="<?php _e('Update Options') ?>" />
 		</div>
@@ -456,5 +463,34 @@ function org_series_echo_fieldset_series_post_page($settings) {
 		</fieldset> <?php
 }
 
+function org_series_echo_fieldset_series_meta($settings) {
+	?>
+	<fieldset class="options"><legend>Settings for the series meta display</legend>
+	<p>These settings will affect how the series meta information is displayed for each post that is part of a series (meta = what part the post is the series and how many total posts there are in the series)</p>
+	<table width = "100%" cellspacing="2" cellpadding="5" class="editform">
+		<tr>
+			<th width="30%" valign="top" scope="row"><label for="before_series_meta">HTML tag to enter before the meta info:</label></th>
+			<td width="5%">
+			<input name="before_series_meta" id="before_series_meta" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['before_series_meta'])); ?>" size="15" />
+			</td>
+			<td><small>What opening tag do you want before the series meta information displayed with each post in a series?</small></td>
+		</tr>
+		<tr>
+			<th width="30%" valign="top" scope="row"><label for="after_series_meta">HTML tag to enter after the meta info:</label></th>
+			<td width="5%">
+			<input name="after_series_meta" id="after_series_meta" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['after_series_meta'])); ?>" size="15" />
+			</td>
+			<td><small>What closing tag do you want after the series meta information displayed with each post in a series?</small></td>
+		</tr>
+		<tr>
+			<th width="30%" valign="top" scope="row"><label for="series_meta_word">What word do you want to describe your posts (i.e. post, article, entry?)</label></th>
+			<td width="5%">
+			<input name="series_meta_word" id="series_meta_word" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['series_meta_word'])); ?>" size="15" />
+			</td>
+			<td></td>
+		</tr>
+		</table>
+		</fieldset> <?php
+}
 org_series_admin_page();
 ?>

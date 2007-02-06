@@ -84,8 +84,7 @@ function series_organize_options() {
 		add_options_page('Organize Series Options', 'Series Options', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
 	}
 
-function get_cat_posts( $cat_ID ) {
-	
+function post_cat_query( $cat_ID ) {
 	global $wpdb;
 		
 	$settings = get_option('org_series_options');
@@ -100,14 +99,84 @@ function get_cat_posts( $cat_ID ) {
 		$get_posts_in_cat .= "ASC ";
 				
 		$get_posts_in_cat_result = mysql_query($get_posts_in_cat);
-
+		return $get_posts_in_cat_result;
+}
+	
+function get_cat_posts( $cat_ID ) {
+ 	
+	$settings = get_option('org_series_options');
+	$get_posts_in_cat_result = post_cat_query($cat_ID);
 	while ($posts_in_cat_row = mysql_fetch_assoc($get_posts_in_cat_result)) {	
-	  $post_title = $posts_in_cat_row['post_title'];
-		$postID = $posts_in_cat_row['ID'];	
+	 $post_title = $posts_in_cat_row['post_title'];
+	 $postID = $posts_in_cat_row['ID'];	
 				
 		echo $settings['before_title_post_page'] . '<a href="' . get_permalink($postID) . '">' . $post_title . '</a>' . $settings['after_title_post_page'];
 		}		
 }
+
+function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
+	$settings = get_option('org_series_options');
+	
+	foreach(get_the_category() as $cat) {
+		if ($cat->category_parent == $settings['series_cats']) {
+			$catarray = array('id' => $cat->cat_ID, 'title' => $cat->cat_name, 'description' => $cat->category_description); 
+		}
+	}
+	 if (isset($catarray['id'])) { return $catarray;  } else { $catarray = 0; return $catarray; }
+}
+
+function wp_postlist_count() {  //counts the number of posts in the series the post belongs to IF it belongs to a series.
+	$catarray = wp_seriespost_check();
+	if ($catarray !=0) {
+		$catID = $catarray['id'];
+		$postlist_count = post_cat_query($catID);
+		$postlist_count = mysql_num_rows($postlist_count);
+	} else {
+		$postlist_count = 0;
+	}
+	return $postlist_count;
+}
+
+function wp_series_part( $ser_post_id ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
+	$catarray = wp_seriespost_check();
+	if ($catarray !=0) {
+		$catID = $catarray['id'];
+	}
+	if (isset($catID)) {
+		$post_part = post_cat_query($catID);
+		$count = 0;
+		while ($part = mysql_fetch_assoc($post_part)) {
+		$count++;
+			if ($part['ID'] == $ser_post_id) {
+				break;
+			}
+		}
+		return $count;
+	}
+}
+
+##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops.  It would be neat to have this tag insert (this is Part x of x of the series). 
+
+function wp_seriesmeta_write($postID) {
+	global $wp_query; 
+	
+	$settings = get_option('org_series_options');
+	
+	$catarray = wp_seriespost_check();
+	if ($catarray != 0) {
+	$catID = $catarray['id'];
+	$seriestitle = $catarray['title'];
+	$seriesdescription = $catarray['description'];
+	}
+	$postID = $wp_query->post->ID;
+	$post_part = wp_series_part($postID);
+	if (isset($catID)) { ?>
+	<?php echo stripslashes($settings['before_series_meta']); ?>
+	<?php echo "This " . $settings['series_meta_word'] . " is part " . $post_part . " of " . wp_postlist_count() . " in the series, " . $seriestitle . "."; ?>
+	<?php echo stripslashes($settings['after_series_meta']);
+	}
+}
+
 
 ## SERIES CATEGORY POSTS TEMPLATE TAG ##
 ## Place this tag in the loop.  It "discovers" the series a post belongs to and then echoes a list of other posts in that category. Place this tag in the loop. ##
@@ -115,11 +184,11 @@ function get_cat_posts( $cat_ID ) {
 function wp_postlist_display() { 
 	$settings = get_option('org_series_options');
 	
-	foreach((get_the_category()) as $cat) {
-		if ($cat->category_parent == $settings['series_cats']) {
-			$catID = $cat->cat_ID;
-			$seriestitle = $cat->cat_name;
-			$seriesdescription = $cat->category_description; }
+	$catarray = wp_seriespost_check();
+	if ($catarray != 0) {
+	$catID = $catarray['id'];
+	$seriestitle = $catarray['title'];
+	$seriesdescription = $catarray['description'];
 	}
 	
 	if (isset($catID)) : ?>
@@ -285,6 +354,17 @@ function add_series_post_list_box($content) {
 	return $content;
 }
 
+#####Filter function for adding series meta information to posts in series#####
+
+function add_series_meta($content) {
+	$settings = get_option('org_series_options');
+	
+	if($settings['auto_tag_toggle']) {
+	$content = wp_seriesmeta_write($postID) . $content;
+	return $content;
+	}
+}
+
 ##########ADD ACTIONS TO WP###########
 
 //insert .css in header if needed
@@ -295,5 +375,8 @@ add_action('admin_menu', 'series_organize_options');
 
 //add filter to automatically add the tag for showing other posts in a series in a single post of that series.  Conditional upon "autotags" being selected in the admin options menu.
 add_action('the_content', 'add_series_post_list_box');
+
+//add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
+add_action('the_content', 'add_series_meta');
 
 ?>
