@@ -48,6 +48,9 @@ Author URI: http://www.unfoldingneurons.com
 	6. Split out the auto-tag toggle in the options panel so that the "post-list-box" auto-insert (the container displayed on single page views of posts belonging to series) and the "series-meta-box" auto-insert are individual settings rather than one master auto-tag toggle.
 	7. Redid the layout of the admin options page for the plugin so it's organized a bit better and a "little" bit more prettier.  I recognize that more work still needs to be done.
 	8. Added to the admin options page for the plugin a feed from unfoldingneurons.com that displays posts related to the Organize Series Wordpress Plugin so that users can see at a glance if there are any updates available.
+	9. FIXED: You no longer have to have the main parent series category selected on posts in order for the plugin to output the series related displays properly.  
+	10. ADDED: <?php wp_seriesmeta_write(); ?> This tag calls and displays the series meta information for a post (i.e. "This post is part x of x in the series, 'Title of Series Here'"). IT MUST be placed in the WordPress Loop for it to work properly.
+	11. ADDED <?php wp_series_part($ser_post_id); ?> For a post that is part of a series, this function returns the value for what part this post is in the series.  Note for this to work properly there must a parameter added for the $ser_post_id variable.  If the tag is used within the WordPress Loop you can use the following to echo what part the post is if it is part of a series (note: the function already checks if the post is part of a series): <?php echo wp_series_part($post->ID); ?>
 	
 ++Version. 1.0: Minor Fix and Stable release
 	- fixed incorrect links to help documents on plugin page
