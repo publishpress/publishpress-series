@@ -76,7 +76,6 @@ function orgSeries_header() {
 	
 	echo $text;
 }
-	
 
 ###### CREATE ADMIN PANEL FUNCTION #######
 function series_organize_options() {
@@ -344,7 +343,7 @@ function add_series_post_list_box($content) {
 	
 	$settings = get_option('org_series_options');
 	
-	if ($settings['auto_tag_toggle']) {
+	if ($settings['auto_tag_postlist_toggle']) {
 		if (is_single()) {
 			$addcontent = $content;
 			$content = wp_postlist_display() . $addcontent;
@@ -359,7 +358,7 @@ function add_series_post_list_box($content) {
 function add_series_meta($content) {
 	$settings = get_option('org_series_options');
 	
-	if($settings['auto_tag_toggle']) {
+	if($settings['auto_tag_seriesmeta_toggle']) {
 	$content = wp_seriesmeta_write($postID) . $content;
 	return $content;
 	}
