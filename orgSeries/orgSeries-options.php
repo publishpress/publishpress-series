@@ -8,7 +8,7 @@ function org_series_init($reset = false) {
 		|| $reset) {
 		$init_settings = array(
 	//these options are not optional and must be set for the plug-in to work as expected.
-		'auto_tag_postlist_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series
+		'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series
 		'auto_tag_seriesmeta_toggle' =>1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 		'series_cats' => 1, //sets the main category that is used to contain all the series. 
 		'custom_css' => 1, //toggles whether the custom .css file included with this plugin will be used or if a users own .css (added to the style.css in the theme directory) will be used.
@@ -78,7 +78,7 @@ function org_series_option_update() {
 	global $wpdb;
 	$settings = get_option('org_series_options');
 	$settings['last_modified'] = gmdate("D, d M Y H:i:s", time());
-	$settings['auto_tag_postlist_toggle'] = isset($_POST['auto_tag_postlist_toggle']) ? 1 : 0;
+	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
 	$settings['auto_tag_seriesmeta_toggle'] = isset($_POST['auto_tag_seriesmeta_toggle']) ? 1 : 0;
 	$settings['custom_css'] = isset($_POST['custom_css']) ? 1 : 0;
 	if( isset($_POST['series_cats']) ) $settings['series_cats'] = $_POST['series_cats'];
@@ -260,9 +260,9 @@ function org_series_echo_fieldset_mainsettings($settings){
 			<td><small>Enter in this field the category id for the category that is your main series category (you can get the category id via the "Manage=>Categories" menu).</small></td>
 		</tr>
 		<tr>
-			<th width="30%" valign="top" scope="row"><label for="auto_tag_postlist_toggle">Post List Auto Tag toggle:</label></th>
+			<th width="30%" valign="top" scope="row"><label for="auto_tag_toggle">Post List Auto Tag toggle:</label></th>
 			<td width="5%">
-				<input name="auto_tag_postlist_toggle" id="auto_tag_postlist_toggle" type="checkbox" value="<?php echo $setttings['auto_tag_postlist_toggle']; ?>" <?php checked('1', $settings['auto_tag_postlist_toggle']); ?> />
+				<input name="auto_tag_toggle" id="auto_tag_toggle" type="checkbox" value="<?php echo $setttings['auto_tag_toggle']; ?>" <?php checked('1', $settings['auto_tag_toggle']); ?> />
 			</td>
 			<td><small>Checking this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  If you want more control over the way your series related posts look then leave this checkbox unchecked and enter in the tags manually (see plugin documents for instructions).</small></td>
 		</tr>
@@ -583,21 +583,21 @@ function org_series_echo_fieldset_series_meta($settings) {
 		<tr>
 			<th width="30%" valign="top" scope="row"><label for="before_series_meta">HTML tag to enter before the meta info:</label></th>
 			<td width="5%">
-			<input name="before_series_meta" id="before_series_meta" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['before_series_meta'])); ?>" size="15" />
+			<input name="before_series_meta" id="before_series_meta" type="text" value="<?php if (!isset($settings['before_series_meta'])) echo '<div class=\"seriesmeta\">'; else echo htmlspecialchars(stripslashes($settings['before_series_meta'])); ?>" size="15" />
 			</td>
 			<td><small>What opening tag do you want before the series meta information displayed with each post in a series?</small></td>
 		</tr>
 		<tr>
 			<th width="30%" valign="top" scope="row"><label for="after_series_meta">HTML tag to enter after the meta info:</label></th>
 			<td width="5%">
-			<input name="after_series_meta" id="after_series_meta" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['after_series_meta'])); ?>" size="15" />
+			<input name="after_series_meta" id="after_series_meta" type="text" value="<?php if (!isset($settings['after_series_meta'])) echo '</div>'; else echo htmlspecialchars(stripslashes($settings['after_series_meta'])); ?>" size="15" />
 			</td>
 			<td><small>What closing tag do you want after the series meta information displayed with each post in a series?</small></td>
 		</tr>
 		<tr>
 			<th width="30%" valign="top" scope="row"><label for="series_meta_word">What word do you want to describe your posts (i.e. post, article, entry?)</label></th>
 			<td width="5%">
-			<input name="series_meta_word" id="series_meta_word" type="text" value="<?php echo htmlspecialchars(stripslashes($settings['series_meta_word'])); ?>" size="15" />
+			<input name="series_meta_word" id="series_meta_word" type="text" value="<?php if (!isset($settings['series_meta_word'])) echo 'entry'; else echo htmlspecialchars(stripslashes($settings['series_meta_word'])); ?>" size="15" />
 			</td>
 			<td></td>
 		</tr>

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 1.0
+Version: 1.5
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. This plugin also makes use of (optionally) the <a href="http://devcorner.georgievi.net/wp-plugins/wp-category-icons/">Category Icons</a> plugin by <a href="http://devcorner.georgievi.net/">Ivan Georgiev</a>. As far as I can tell this plugin is compatible with 1.5+ (including 2.1). 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -11,6 +11,7 @@ Author URI: http://www.unfoldingneurons.com
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
+
 ######################################
 
 ######################################
@@ -38,6 +39,16 @@ Author URI: http://www.unfoldingneurons.com
 ######################################
 /* Changelog
 
+++Version 1.5: Enhancement Update (February 12, 2007)
+	1. restructured functions so that the plugin is more forward thinking friendly. Main changes were in placing query calls in individual functions.
+	2. Added a function for counting the number of posts in a series. (tag returns a value).  For manual insertion use the following tag where you want the number of posts in a series to be displayed: <?php echo wp_postlist_count(); ?>  NOTE - this tag must be included in the WordPress Loop.
+	3. Added a function for writing series_meta information to the posts that belong to a series. This tag can be inserted automatically (at the top of the content) or manually depending on whether the auto-tag option is checked in the options panel.  For manual insertion use the following tag where you want the series meta information to be displayed: <?php wp_seriesmeta_write(); ?> NOTE - this tag must be included in the WordPress Loop.
+	4. Added options for the html tags surrounding the series_meta and for the post description word. Added to the options panel.
+	5. Added new .css code to the default file (.seriesmeta class)
+	6. Split out the auto-tag toggle in the options panel so that the "post-list-box" auto-insert (the container displayed on single page views of posts belonging to series) and the "series-meta-box" auto-insert are individual settings rather than one master auto-tag toggle.
+	7. Redid the layout of the admin options page for the plugin so it's organized a bit better and a "little" bit more prettier.  I recognize that more work still needs to be done.
+	8. Added to the admin options page for the plugin a feed from unfoldingneurons.com that displays posts related to the Organize Series Wordpress Plugin so that users can see at a glance if there are any updates available.
+	
 ++Version. 1.0: Minor Fix and Stable release
 	- fixed incorrect links to help documents on plugin page
 	- fixed incorrect "</div>" location that affected display of the post list in the series display box when the category icon display option was unchecked.
@@ -154,9 +165,9 @@ function wp_series_part( $ser_post_id ) { //For a post that is part of a series,
 	}
 }
 
-##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops.  It would be neat to have this tag insert (this is Part x of x of the series). 
+##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops (if auto-tag insert is enabled in the options panel). 
 
-function wp_seriesmeta_write($postID) {
+function wp_seriesmeta_write() {
 	global $wp_query; 
 	
 	$settings = get_option('org_series_options');
@@ -343,7 +354,7 @@ function add_series_post_list_box($content) {
 	
 	$settings = get_option('org_series_options');
 	
-	if ($settings['auto_tag_postlist_toggle']) {
+	if ($settings['auto_tag_toggle']) {
 		if (is_single()) {
 			$addcontent = $content;
 			$content = wp_postlist_display() . $addcontent;
