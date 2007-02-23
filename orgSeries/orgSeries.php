@@ -376,6 +376,7 @@ function add_series_meta($content) {
 	$content = wp_seriesmeta_write($postID) . $content;
 	return $content;
 	}
+	return $content;
 }
 
 ##########ADD ACTIONS TO WP###########
