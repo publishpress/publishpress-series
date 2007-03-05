@@ -127,6 +127,23 @@ function get_cat_posts( $cat_ID ) {
 		}		
 }
 
+function wp_seriescat_check() {
+	//this checks if the category archive page being displayed is a subcategory of the parent series category.  If it is it returns a value of true otherwise false.
+	global $wp_query;
+	$cat_obj = $wp_query->get_queried_object();
+	$catid = $cat_obj->cat_ID;
+	$cat = $cat_obj->category_parent;
+	
+	if (is_category()) {
+		$settings = get_option('org_series_options');
+			
+		if ($cat == $settings['series_cats']) {
+			return true;
+		} else {
+	
+	return false; } }
+}
+
 function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
 	$settings = get_option('org_series_options');
 	
@@ -379,6 +396,19 @@ function add_series_meta($content) {
 	return $content;
 }
 
+######Filter function for selecting how posts are displayed on the series posts table of contents page.#############
+
+function sort_series_page_options($q) {
+	$settings = get_option('org_series_options');
+	$orderby = 'post_' . $settings['order_by_series_page'] . ' ';
+	$order = $settings['order'];
+	if(wp_seriescat_check()) {
+		$q = $orderby.$order;
+		return $q;
+	}
+	return $q;
+}
+
 ##########ADD ACTIONS TO WP###########
 
 //insert .css in header if needed
@@ -392,5 +422,8 @@ add_action('the_content', 'add_series_post_list_box');
 
 //add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
 add_action('the_content', 'add_series_meta');
+
+//add filter for sort_series_page_options
+add_filter('posts_orderby','sort_series_page_options');
 
 ?>

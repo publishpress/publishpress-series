@@ -34,6 +34,8 @@ function org_series_init($reset = false) {
 		'afterdisplay_cat_page' => '</div>',
 		'paging_cat_page' => 1, //1=on, 0=off
 		'perpage_cat_page' => 5,
+		'order_by_series_page' => 'date', //can be author, date, category, title, or modified
+		'order_series_page' => 'DESC', //can be ASC, or DESC
 		'before_series_title_post_page' => '<h2 class="series-title">',
 		'after_series_title_post_page' => '</h2>',
 		'before_post_title_list_post_page' => '<ul class="catlist-ul">',
@@ -100,6 +102,8 @@ function org_series_option_update() {
 	if( isset($_POST['afterdisplay_cat_page']) )  $settings['afterdisplay_cat_page'] = urldecode($_POST['afterdisplay_cat_page']);
 	$settings['paging_cat_page'] = isset($_POST['paging_cat_page']) ? 1 : 0;
 	if( isset($_POST['perpage_cat_page']) )  $settings['perpage_cat_page'] = $_POST['perpage_cat_page'];
+	if( isset($_POST['order_by_series_page']) ) $settings['order_by_series_page'] = urldecode($_POST['order_by_series_page']);
+	if( isset($_POST['order_series_page']) ) $settings['order_series_page'] = urldecode($_POST['order_series_page']);
 	if( isset($_POST['before_series_title_post_page']) )  $settings['before_series_title_post_page'] = urldecode($_POST['before_series_title_post_page']);
 	if( isset($_POST['after_series_title_post_page']) )  $settings['after_series_title_post_page'] = urldecode($_POST['after_series_title_post_page']);
 	if( isset($_POST['before_post_title_list_post_page']) )  $settings['before_post_title_list_post_page'] = urldecode($_POST['before_post_title_list_post_page']);
@@ -221,6 +225,8 @@ function org_series_admin_page() {
 	<?php org_series_echo_fieldset_mainsettings($settings); ?>
 		
 		<?php org_series_echo_series_settings($settings); ?>
+		
+		<?php org_series_echo_series_tc_page($settings); ?>
 		
 		<?php org_series_echo_fieldset_series_post_page($settings); ?>
 		
@@ -416,6 +422,47 @@ function org_series_echo_series_settings($settings) {
 				<input name="perpage_cat_page" id="perpage_cat_page" type="text" value="<?php echo $settings['perpage_cat_page']; ?>" size="15" />
 			</td>
 			<td><small>Insert the number of category listings on the series page you want to be shown (if paging is turned on it will divide the listings into pages if there are more than the number in this field).</small></td>
+		</tr>
+		</table>
+		</div>
+		</div>
+		</fieldset>
+		</div>
+		 <?php
+}
+
+function org_series_echo_series_tc_page($settings) {
+	?>
+	<div class="dbx-b-ox-wrapper">
+	<fieldset id="series-tc-page-options" class="dbx-box">
+	<div class="dbx-h-andle-wrapper">
+	<h3 class="dbx-handle"><?php _e('Settings for the series post-list (table of contents) page display') ?></h3>
+	</div>
+	<div class="dbx-c-ontent-wrapper">
+	<div class="dbx-content">
+	<table width="100%" cellspacing="2" cellpadding="5" class="editform">
+		<tr>
+			<th width="30%" valign="top" scope="row"><label for="order_by_series_page">How do you want the posts to be ordered?:</label></th>
+			<td width="5%">
+				<select name="order_by_series_page">
+					<option value = "date" <?php if (htmlspecialchars(stripslashes($settings['order_by_series_page'])) == 'date') echo 'selected'; ?>>by post date</option>
+					<option value = "title" <?php if (htmlspecialchars(stripslashes($settings['order_by_series_page'])) == 'title') echo 'selected'; ?>>by title</option>
+					<option value = "category" <?php if (htmlspecialchars(stripslashes($settings['order_by_series_page'])) == 'category') echo 'selected'; ?>>by category</option>
+					<option value = "author" <?php if (htmlspecialchars(stripslashes($settings['order_by_series_page'])) == 'author') echo 'selected'; ?>>by author</option>
+					<option value = "modified" <?php if (htmlspecialchars(stripslashes($settings['order_by_series_page'])) == 'modified') echo 'selected'; ?>>by modified date</option>
+				</select>
+			</td>
+			<td><small>You can select how you want the posts listed on the series table of contents page.</small></td>
+		</tr>
+		<tr>
+			<th width="30%" valign="top" scope="row"><label for="order_series_page">Ordered ascending or descending?:</label></th>
+			<td width="5%">
+				<select name="order_series_page">
+					<option value = "ASC" <?php if (htmlspecialchars(stripslashes($settings['order_series_page'])) == 'ASC') echo 'selected'; ?>>ascending</option>
+					<option value = "DESC" <?php if (htmlspecialchars(stripslashes($settings['order_series_page'])) == 'DESC') echo 'selected'; ?>>descending</option>
+				</select>
+			</td>
+			<td><small>This setting affects whether the posts are listed ascending or descending according to the 'order-by' setting you chose in the above option.  For example, if your you indicated that you want the posts to be ordered by date in the previous option and indicate in this option that you want it to be DESC - then  you are instructing the plugin to order the posts by date from newest to oldest.</small></td>
 		</tr>
 		</table>
 		</div>
