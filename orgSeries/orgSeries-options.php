@@ -208,10 +208,18 @@ function org_series_admin_page() {
 </form>
 		</div>
 	</fieldset>
-		
+	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
 			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed.php'); ?>
 		</div> <?php /*rss feed related */ ?>
+		<?php } else { ?>
+		<fieldset id="orgSeriesupdatefeed" class="dbx-box">
+		<h3 class="dbx-handle"><?php _e('Organize Series News'); ?></h3>
+		<div class="dbx-content">
+		<p>Upgrade to Wordpress 2.1+ to gain the News Feed feature for the Organize Series Plugin.  This feature checks with the plugin related posts on <a href="http://unfoldingneurons.com">UnfoldingNeurons.com</a> and pulls the titles to display on this page for a quick way to see if there are any updates to the plugin.</p>
+		</div>
+		</fieldset>
+		<?php } ?>
 		</div>
 	</div>
 		<form action="" method="post">
