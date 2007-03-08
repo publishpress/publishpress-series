@@ -401,7 +401,7 @@ function add_series_meta($content) {
 function sort_series_page_options($q) {
 	$settings = get_option('org_series_options');
 	$orderby = 'post_' . $settings['order_by_series_page'] . ' ';
-	$order = $settings['order'];
+	$order = $settings['order_series_page'];
 	if(wp_seriescat_check()) {
 		$q = $orderby.$order;
 		return $q;
