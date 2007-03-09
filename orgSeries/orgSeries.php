@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 1.5
+Version: 1.6
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. This plugin also makes use of (optionally) the <a href="http://devcorner.georgievi.net/wp-plugins/wp-category-icons/">Category Icons</a> plugin by <a href="http://devcorner.georgievi.net/">Ivan Georgiev</a>. As far as I can tell this plugin is compatible with 1.5+ (including 2.1). 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -38,6 +38,11 @@ Author URI: http://www.unfoldingneurons.com
 
 ######################################
 /* Changelog
+
+++Version 1.6: Fix and New Feature (March 9, 2007)
+	1. BUG FIX: Blank screen/errors in the options panel when plugin installed in WordPress versions below 2.1.
+	2. NEW FEATURE: You can now set how posts will be displayed on the series "table of contents" page (i.e. ascending or descending, ordered by date, author, title etc.)  This can be selected via the new options panel on the plugin options page.  (NOTE:  This appears to only work with WP 2.1+ for now - I'm still investigating if it works with other versions) 
+	3. NEW TEMPLATE TAG:  "is_series()" This tag will check for if the displayed category archive page is a series category.  Returns true if it is, false if it isn't.
 
 ++Version 1.5: Enhancement Update (February 12, 2007)
 	1. restructured functions so that the plugin is more forward thinking friendly. Main changes were in placing query calls in individual functions.
@@ -127,7 +132,7 @@ function get_cat_posts( $cat_ID ) {
 		}		
 }
 
-function wp_seriescat_check() {
+function is_series() {
 	//this checks if the category archive page being displayed is a subcategory of the parent series category.  If it is it returns a value of true otherwise false.
 	global $wp_query;
 	$cat_obj = $wp_query->get_queried_object();
@@ -402,7 +407,7 @@ function sort_series_page_options($q) {
 	$settings = get_option('org_series_options');
 	$orderby = 'post_' . $settings['order_by_series_page'] . ' ';
 	$order = $settings['order_series_page'];
-	if(wp_seriescat_check()) {
+	if(is_series()) {
 		$q = $orderby.$order;
 		return $q;
 	}
