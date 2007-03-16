@@ -9,11 +9,11 @@ A plugin for managing the article series you write.
 
 == Description ==
 
-The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. Used with the [Category Icons Plugin]: http://devcorner.georgievi.net/wp-plugins/wp-category-icons/ (optional and not required) by Ivan Georgiev you can even add attractive graphics/logos (designed by yourself or someone else of course) to accompany your series. 
+The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. Used with the [Category Icons Plugin](http://devcorner.georgievi.net/wp-plugins/wp-category-icons/) (optional and not required) by Ivan Georgiev you can even add attractive graphics/logos (designed by yourself or someone else of course) to accompany your series. 
 
 == Installation ==
 
-For installation, support, and usage instructions visit the [Plugin Page on UnfoldingNeurons.com] (http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
+For installation, support, and usage instructions visit the [Plugin Page on UnfoldingNeurons.com](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
 
 == Screenshots ==
 
@@ -31,8 +31,8 @@ For installation, support, and usage instructions visit the [Plugin Page on Unfo
 
 **NEW FEATURES AS OF 1.5**
 
-* Added a function/tag for counting the number of posts in a series. (tag returns a value). See usage instructions on the [plugin page] (http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/) (it is automatically included in the auto-tag insertion for series meta information)
-* Added a function for writing series meta information (”This entry is part x of x in the series, “The name of my series”) to the posts that belong to a series. This is automatically added by default to your blog but it can be disabled for manual insertion via the new option on the options page for the plugin. See usage instructions on the [plugin page] (http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
+* Added a function/tag for counting the number of posts in a series. (tag returns a value). See usage instructions on the [plugin page](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/) (it is automatically included in the auto-tag insertion for series meta information)
+* Added a function for writing series meta information (”This entry is part x of x in the series, “The name of my series”) to the posts that belong to a series. This is automatically added by default to your blog but it can be disabled for manual insertion via the new option on the options page for the plugin. See usage instructions on the [plugin page](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
 * Added options for the html tags surrounding the series meta and for the post description word. Added to the options page for the plugin.
 * Redid the layout of the admin options page for the plugin so it’s organized a bit better and a “little” bit more prettier. I recognize that more work still needs to be done of course ;) .
 * Added to the admin options page for the plugin a feed from this blog that displays posts related to the Organize Series Wordpress Plugin so that users can see at a glance if there are any updates available.
