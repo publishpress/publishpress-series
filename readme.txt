@@ -15,10 +15,6 @@ The *Organize Series plugin* helps with the organization and presentation of art
 
 For installation, support, and usage instructions visit the [Plugin Page on UnfoldingNeurons.com](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
 
-== Screenshots ==
-
-1. The Plugin Options page in the WordPress admin panel provides a number of different ways to customize the output of your series related posts.
-
 == Features ==
 
 * Integrates with the category system of WordPress
