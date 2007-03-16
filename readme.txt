@@ -9,7 +9,7 @@ A plugin for managing the article series you write.
 
 == Description ==
 
-The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. Used with the [Category Icons Plugin] (http://devcorner.georgievi.net/wp-plugins/wp-category-icons/) (optional and not required) by Ivan Georgiev you can even add attractive graphics/logos (designed by yourself or someone else of course) to accompany your series. 
+The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. Used with the [Category Icons Plugin]: http://devcorner.georgievi.net/wp-plugins/wp-category-icons/ (optional and not required) by Ivan Georgiev you can even add attractive graphics/logos (designed by yourself or someone else of course) to accompany your series. 
 
 == Installation ==
 
