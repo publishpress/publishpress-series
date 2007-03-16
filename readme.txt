@@ -1,4 +1,4 @@
-=== Organize Series Wordpress Plugin ===
+=== Organize Series WordPress Plugin ===
 Contributors: nerrad
 Tags: category, series, organize, post
 Requires at least: 2.0
