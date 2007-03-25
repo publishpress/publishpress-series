@@ -147,6 +147,7 @@ function is_series() {
 		} else {
 	
 	return false; } }
+	return false;
 }
 
 function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
