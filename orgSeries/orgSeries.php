@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 1.6
+Version: 1.6.1
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. This plugin also makes use of (optionally) the <a href="http://devcorner.georgievi.net/wp-plugins/wp-category-icons/">Category Icons</a> plugin by <a href="http://devcorner.georgievi.net/">Ivan Georgiev</a>. As far as I can tell this plugin is compatible with 1.5+ (including 2.1). 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -38,6 +38,7 @@ Author URI: http://www.unfoldingneurons.com
 
 ######################################
 /* Changelog
+++Version 1.6.1: Minor Bug Fix (March 26, 2007)
 
 ++Version 1.6: Fix and New Feature (March 9, 2007)
 	1. BUG FIX: Blank screen/errors in the options panel when plugin installed in WordPress versions below 2.1.
