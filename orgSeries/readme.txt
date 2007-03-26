@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post
 Requires at least: 2.0
 Tested up to: 2.1.2
-Stable tag: 1.6
+Stable tag: 1.6.1
 
 A plugin for managing the article series you write.
 
@@ -13,7 +13,11 @@ The *Organize Series plugin* helps with the organization and presentation of art
 
 == Installation ==
 
-For installation, support, and usage instructions visit the [Plugin Page on UnfoldingNeurons.com](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
+For installation, support, change-log,  and usage instructions visit the [Plugin Page on UnfoldingNeurons.com](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
+
+== Screenshots ==
+
+1. Organize Series Options page
 
 == Features ==
 
