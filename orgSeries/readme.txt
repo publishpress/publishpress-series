@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post
 Requires at least: 2.0
 Tested up to: 2.1.2
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 
 A plugin for managing the article series you write.
 
