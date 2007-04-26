@@ -412,12 +412,13 @@ function sort_series_page_options($q) {
 	$settings = get_option('org_series_options');
 	$orderby = 'post_' . $settings['order_by_series_page'] . ' ';
 	$order = $settings['order_series_page'];
-	if(is_series()) {
+	if(is_series() && !is_feed()) {
 		$q = $orderby.$order;
 		return $q;
 	}
 	return $q;
 }
+
 
 ##########ADD ACTIONS TO WP###########
 
@@ -435,5 +436,4 @@ add_action('the_content', 'add_series_meta');
 
 //add filter for sort_series_page_options
 add_filter('posts_orderby','sort_series_page_options');
-
 ?>
