@@ -197,7 +197,7 @@ function org_series_admin_page() {
 	<fieldset id="pluginmetadiv" class="dbx-box">
 		<h3 class="dbx-handle"><?php _e('Plugin Info') ?></h3>
 		<div class="dbx-content">
-		<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize_series_wordpress_plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
+		<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
 		<p>If you'd like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier's (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick" />

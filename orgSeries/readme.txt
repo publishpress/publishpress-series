@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post
 Requires at least: 2.0
 Tested up to: 2.1.2
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 A plugin for managing the article series you write.
 
@@ -41,3 +41,6 @@ For installation, support, change-log,  and usage instructions visit the [Plugin
 
 * New Template Tag - in_series() - this will check to see if the displayed category archive is a series category.
 * Can set the way the posts will be displayed on the series "tables of contents" page (category archive for a series category) via the plugin options panel. (for example, have the posts ordered by date, title, author etc. - ascending or descending). NOTE: It appears that the settings will only apply when using WordPress 2.1+ - it doesn’t seem to apply on a blog that I have that is WP 2.0+, I’m still investigating this.
+
+**1.6.3**
+* Fixed incorrect link in admin panel for Docs/Help
