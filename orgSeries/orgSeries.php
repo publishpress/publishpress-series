@@ -63,11 +63,33 @@ require (ABSPATH . '/wp-content/plugins/orgSeries/series.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
 
 function org_series_install() {
-          global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies;
+          global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
          register_taxonomy($org_series_term, $org_series_type, $org_series_args);
-         add_option("org_series_version", $org_series_version);
-		  //TO-DO Create table for category-icons && optionally transfer existing category icons in previous version over to this version.
-		  //TO-DO Do a test for any previous versions of orgSeries and provide the option to import settings from old versions into the new version.
+         
+		 //do test to see if older version of orgSeries exists and if so set oldversion number so that any necessary import changes can be done. 
+		 if ( $options = get_option('org_series_options') && !( $oldversion = get_option('org_series_version') ) ) { //for versions prior to 2.0
+			add_option('org_series_oldversion', '1.6');
+		}
+		
+		if ( $oldversion = get_option('org_series_version') ) { //for versions after 2.0
+			update_option('org_series_oldversion', $oldversion);
+		} else { //for versions prior to 2.0
+			add_option('org_series_oldverison', '1.6');
+		}
+		
+		add_option("org_series_version", $org_series_version);
+		
+		//create table for series icons
+		$table_name = $wpdb->prefix . "orgSeriesIcons";
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+			$sql = "CREATE TABLE " . $table_name . " (
+				term_id INT NOT NULL,
+				url VARCHAR(100) NOT NULL,
+				PRIMARY KEY term_id (term_id)
+			);";
+			require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
+			dbDelta($sql);
+		}
 }
 
 //*** Add .css to header if enabled via options ***//
