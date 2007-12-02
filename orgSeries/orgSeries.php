@@ -176,7 +176,7 @@ function wp_series_part( $ser_post_id ) { //For a post that is part of a series,
 
 ##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops (if auto-tag insert is enabled in the options panel). 
 
-function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rather than the existing options setup. ALSO modify so that if a post belongs to more than one series it will display series meta's for each series.
+function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rather than the existing options setup. 
 	global $post; 
 	$settings = get_option('org_series_options');
 	$serarray = get_the_series();

@@ -388,20 +388,12 @@ function wp_create_single_series($series_name) {
 }
 
 function wp_create_series($series, $post_id = '') { // this function could be used in a versions prior to 2.0 import as well.
-	//$series_ids = array ();
 	$series_ids = '';
 	if ($id = series_exists($series) ) 
 		$series_ids = $id;
 	else
 		if ($id = wp_create_single_series($series) )
 			$series_ids = $id;
-	/*foreach ($series as $serial) {
-		if ($id = series_exists($serial))
-			$series_ids[] = $id;
-		else
-			if ($id = wp_create_single_series($serial))
-				$series_ids[] = $id;
-	} */
 	
 	if ($post_id)
 		wp_set_post_series($post_id, $series_ids);

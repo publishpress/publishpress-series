@@ -74,6 +74,7 @@ function org_series_init($reset = false) {
 		<?php }
 		return;
 	}
+	return;
 }
 
 function org_series_option_update() {
