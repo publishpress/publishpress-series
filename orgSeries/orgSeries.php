@@ -84,12 +84,15 @@ function org_series_install() {
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 			$sql = "CREATE TABLE " . $table_name . " (
 				term_id INT NOT NULL,
-				url VARCHAR(100) NOT NULL,
+				icon VARCHAR(100) NOT NULL,
 				PRIMARY KEY term_id (term_id)
 			);";
 			require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 			dbDelta($sql);
 		}
+		add_option('series_icon_path', '');
+		add_option('series_icon_path', '');
+		add_option('series_icon_filetypes', 'jpg gif jpeg png');
 }
 
 //*** Add .css to header if enabled via options ***//

@@ -7,12 +7,23 @@
 ** do i want separate pages for options?
 ** after setting this up I will have to do an overhal of the postlist display and the series meta code.
 */
+function default_seriesicons_upload() {
+	$def_path = str_replace(ABSPATH, '', get_settings('upload_path'));
+	$def_url = trailingslashit(get_settings('siteurl')) . $def_path;
+	$return array($def_path, $def_url);
+}
 
 function org_series_import($import_series = false, $delete_series_cats = false, $import_cat_icons = false, $import_options = false, $do_nothing = false) {
-	//this will contain the actual query and code for importing from version 1.6 -> 2.0.  It is called from if conditions for it being called are met.
+	//this will contain the actual query and code for importing from version 1.6 -> 2.0+.  It is called from if conditions for it being called are met.
+	global $wpdb;
 	$oldsettings = get_option('org_series_options');
 	$series_cats = $oldsettings['series_cats'];
-	$message = '';  //TODO - add in message indicators so that the return will list what categories were imported and whatelse was successfully completed (thus giving an indicator to the user if it worked properly or not).
+	$message = '<div class="updated"><p>The following imports have been completed successfully:</p>';  
+	
+	if ( $import_cat_icons  && !(function_exists('ig_caticons_get_icons')) ) {
+		return $message = '<div class="updated"><p><strong>You indicated your desire to import category icons.  However, the category-icons plugin is not installed and is necessary for the import to continue.  Please activate the category-icons plugin before doing the import or don\'t select to import the icons.</strong></p></div>';
+		}
+	
 	if ( empty( $series_cats ) || $series_cats == 0 )  { 
 		return $message = '<div class="updated"><p><strong>Something went wrong with the import...are you sure you had a previous version of OrgSeries installed?</strong></p></div>';
 	}
@@ -20,7 +31,8 @@ function org_series_import($import_series = false, $delete_series_cats = false, 
 	if ( $import_series ) {
 		$old_series_cats_args = array('child_of' => $series_cats, 'hide_empty' => false);
 		$old_series_cats = get_terms('category', $old_series_cats_args);
-		
+		$message .= '<p>Series from the old category structure:</p><ul>';
+				
 		foreach ( $old_series_cats as $old_series ) {
 			$oldseries_id = $old_series->term_id;
 			$series_slug = $old_series->slug;
@@ -28,18 +40,42 @@ function org_series_import($import_series = false, $delete_series_cats = false, 
 			$series_description = $old_series->description;
 			$posts = get_posts($series_id);
 			$series_id = wp_insert_series( array('series_name' => $series_name, 'series_nicename' = $series_slug, 'series_description' => $series_description) );
+			$message .='<li>' . $series_name . 'added (';
+			$postcount = 0;
 			
 			foreach ($posts as $post) {
 				$id = $post->ID;
 				wp_set_post_series($id, $series_id);
+				$postcount++;				
 			}
 			
-			if ( $delete_series_cats ) wp_delete_category($oldseries_id);
+			if ( $postcount == 1 ) $word = 'post' : $word = 'posts';
+			$message .= $postcount . ' ' . $word . ' in the series).<br />'; 
+			
+			if ( $delete_series_cats )  { 
+				wp_delete_category($oldseries_id);
+				$message .= 'Old series category deleted.<br />';
+			}
 			
 			if ( $import_cat_icons ) {
-				//TODO ...write the new series-icon code so I can do the imports!
+				list($icon, $small_icon) = ig_caticons_get_icons($oldseries_id);
+				$write = $seriesicons_write($series_id,$icon);
+				if ( $write ) {
+					$message .='Series Icon imported';
+					
+					if ( $delete_series_cats ) {
+						$cat = $wpdb->escape($oldseries_id);
+						$wpdb->query("DELETE FROM $wpdb->ig_caticons WHERE cat_id='$cat'");
+					}
+				} else { 
+					$message .='Something went wrong with the series icon import!';
+				}
 			}
+			
+			$message .= '</li>';
 		}
+		
+		$message .= '</ul>';
 	}
 	
 	if ( $import_options ) {
@@ -90,7 +126,7 @@ function org_series_import($import_series = false, $delete_series_cats = false, 
 			//series_icon related settings
 			$series_icon_width_series_page = $cat_icon_width_series_page;
 			$series_icon_width_post_page = $cat_icon_width_series_page;
-		
+					
 		//build new options array
 		$new_options = array(
 			'custom_css' => $custom_css,
@@ -102,32 +138,24 @@ function org_series_import($import_series = false, $delete_series_cats = false, 
 			'series_meta_template' => $series_meta_template,
 			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
 			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page);
+			'series_icon_width_post_page' => $series_icon_width_post_page,
+			'series_icon_path' => $series_icon_path,
+			'series_icon_url' => $series_icon_url,
+			'series_icon_filetypes' => $series_icon_filetypes);
 		
 		delete_option('org_series_options');
-		add_option('org_series_options', $new_options, 'Array of optoins for the Organize Series plugin');
+		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
+		$message .= '<p>Option settings have been imported and old option/value pairs deleted.</p>';
 	}
 		
 	if ($do_nothing) {
-		//TODO return message indicating that nothing has been done!	Do check to see if there was any other selection - because if there was then obviously something WAS done!!
+		$message .= '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
 	}
 	
 	update_option('org_series_oldversion', '0'); //this will prevent the import from being called again?
-}
-			
-			
-				
-			
-			
-				
-				
-	##option - import series from earlier version (transfer from category schema to new series schema)
-		##option - delete category associations after import?
-		##option - delete old series related categories.
-	##option - import category-icons from category icon plugin into new series table schema (after import be sure to erase old category-icon tables)
-	##option - import options from previous plugin (after import be sure to erase old option tables)
-	##option - do nothing I want to start from scratch (this will delete old option tables that are not being used by the new version but will leave the old series category structure intact)
-}
+	$message .= '</div>';
+	return $message;
+}				
 
 function org_series_init($reset = false) {
 	if (!$reset)  { 
@@ -136,6 +164,8 @@ function org_series_init($reset = false) {
 	}
 	
 	if (!($is_initialized=get_option('org_series_is_initialized')) || empty ($settings) || $reset) {
+		list($default_seriesicons_path, $default_seriesicons_url) = default_seriesicons_upload();
+		$types = seriesicons_filetypes();
 		$init_settings = array( //options for the orgSeries plugin
 		//main settings
 			'custom_css' => 1, 
@@ -149,7 +179,10 @@ function org_series_init($reset = false) {
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div></div>',
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
-		'series_icon_width_post_page' =>100 );
+		'series_icon_width_post_page' =>100,
+		'series_icon_path' => $default_seriesicons_path,
+		'series_icon_url' => $default_series_icons_url,
+		'series_icon_filetypes' => $types );
 			
 		if (!empty ($settings)) {
 			$newSettings = array_merge($init_settings, $settings);

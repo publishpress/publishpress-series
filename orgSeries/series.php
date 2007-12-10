@@ -4,8 +4,11 @@ Please note:  I followed various WP core files for structuring code which made i
  */
 //these defines need to be moved to the orgSeries.php
  define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
- define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying tag queries.
+ define('SERIES_URL', 'series'); //URL to use when querying series
+ define('SERIES_TEMPLATE', 'series-template.php'); //template file to use for displaying series queries.
+ define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
  define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
+ define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
  
 /* functions referenced by other files */
 function &get_series($args = '') {
@@ -35,14 +38,20 @@ function &get_orgserial($orgserial, $output = OBJECT, $filter = 'raw') {
 //permalinks , rewrite rules etc.//
 function get_series_permastruct() {
 	global $wp_rewrite;
+	
+	if (empty($wp_rewrite->permalink_structure)) {
+		$series_structure = '';
+		return false;
+	}
+	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->root . SERIES_QUERYVAR . "/$series_token";
+	$series_structure = $wp_rewrite->root . '/' . SERIES_QUERYVAR . "/$series_token";
 	return $series_structure;
 }
 
 //the following needs to be added/called in orgseries_install() to the plugin init (or WP init - is there a difference) in the orgSeries.php
 
-function series_createRewriteRules() {
+function series_createRewriteRules($rewrite) {
 	global $wp_rewrite;
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
@@ -76,6 +85,7 @@ add_action('init', 'series_init');
 
 /* ---------- SERIES TEMPLATE TAGS (maybe add to a series-template.php file?) --------------------------*/
 //url constructor/function template tags.
+//TODO = fix...this isn't returning the correct links
 function get_series_link( $series_id ) {
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	$serieslink = get_series_permastruct();
@@ -84,15 +94,16 @@ function get_series_link( $series_id ) {
 	if (is_wp_error( $series ) )
 		return $series;
 	$slug = $series->slug;
+	$id = $series->term_id;
 	
 	if ( empty($serieslink) ) {
 		$file = get_option('home') . '/';
-		$serieslink = $file . '?series=' . $slug;
+		$serieslink = $file . '?series=' . $id;
 	} else {
 		$serieslink = str_replace($series_token, $slug, $serieslink);
-		$serieslink = get_option('home') . user_trailingslashit($serieslink, 'category');
+		$serieslink = get_settings('home') . user_trailingslashit($serieslink, 'category');
 	}
-	return apply_filters('series_link', $serieslink, $series_id); // I THINK THIS MEANS THAT FOLKS WILL BE ABLE TO HOOK INTO THE SERIES LINK VIA A FILTERS HOOK IN THEIR OWN PLUGINS FOR ORGSERIES? if so...cool!
+	return apply_filters('series_link', $serieslink, $series_id); 
 }
 	
 function get_the_series( $id = false ) { 
