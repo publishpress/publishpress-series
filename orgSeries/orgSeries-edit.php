@@ -58,6 +58,8 @@ function series_edit_box() {
 			<ul id="serieschecklist">	<?php get_series_to_select(); ?></ul>
 		
 		<p id="jax-posts-in-series"></p> <?php /* place holder for calling up the other posts in a series that is selected...ajaxified */ ?> 
+		<input type="text" name="series_part" id="series_part" size="10" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /> What part is this post in the series?<br />
+			<p class="small">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
 		</div>
 	</fieldset>
 	<?php

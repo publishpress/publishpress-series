@@ -10,7 +10,45 @@ Please note:  I followed various WP core files for structuring code which made i
  define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
  define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
  
-/* functions referenced by other files */
+/*utitlity functions -- perhaps add to their own file for better organization? */
+
+//This function will sort multi-dimensional arrays (courtesy of alishahnovin@hotmail.com via comment on "sort" info page on the php.net site)
+function msort($array, $id="id") {
+        $temp_array = array();
+        while(count($array)>0) {
+            $lowest_id = 0;
+            $index=0;
+            foreach ($array as $item) {
+                if (isset($item[$id]) && $array[$lowest_id][$id]) {
+                    if ($item[$id]<$array[$lowest_id][$id]) {
+                        $lowest_id = $index;
+                    }
+                }
+                $index++;
+            }
+            $temp_array[] = $array[$lowest_id];
+            $array = array_merge(array_slice($array, 0,$lowest_id), array_slice($array, $lowest_id+1));
+        }
+        return $temp_array;
+    }
+	
+//This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
+function get_series_order ($posts) {
+	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
+	
+	$spost_id = $spost->object_id;
+		$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
+		$series_posts[$key]['id'] = $spost_id;
+		$series_posts[$key]['part'] = $current_part;
+		$key++;
+	}
+	
+	msort($series_posts, $id = "part");
+	
+	return $series_posts;
+}
+ 
+ /* functions referenced by other files */
 function &get_series($args = '') {
 	global $wpdb, $category_links;
 	
@@ -85,7 +123,6 @@ add_action('init', 'series_init');
 
 /* ---------- SERIES TEMPLATE TAGS (maybe add to a series-template.php file?) --------------------------*/
 //url constructor/function template tags.
-//TODO = fix...this isn't returning the correct links
 function get_series_link( $series_id ) {
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	$serieslink = get_series_permastruct();
@@ -225,8 +262,59 @@ function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
 	return $post;
 }
 
-function wp_update_series_order_meta_cache ($post_id_list = '') {
-	//needs completed.  The purpose of this function will be to rearrange the order of the series when a post has been deleted from or added to a series.  i.e. the existing posts in a series will have to have the associated meta order changed to refelct the new order. For help in writing this code look at line 1777 of post.php file.
+//function to set the order that the post is in a series.
+function set_series_order($postid = 0, $series_part = 0) {
+	$series_id = wp_get_post_series($postid);
+	
+	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
+	
+	$post_ids_in_series = get_objects_in_term($series_id, 'series');
+	$total_posts = count(intval($posts_ids_in_series));
+	
+	if (!isset($total_posts) ||($total_posts + 1) >= $series_part ) || $series_part = 0) {
+		delete_post_meta($postid, SERIES_PART_KEY);
+		$series_part = $total_posts + 1;
+		add_post_meta($postid, SERIES_PART_KEY, $series_part);
+		return true;
+		}
+		
+	$series_posts = array();
+	$key = 0;
+	
+	$series_posts = get_series_order($posts_ids_in_series);
+		
+	$addvalue = 1;
+	
+	foreach ($series_posts as $spost) {
+		$currentpart = $sposts->part //POSSIBLE BUG - use $spost['part'] instead?
+		if ($series_part =< $currentpart) {
+			continue;
+		}
+		$newpart = $currentpart + $addvalue;
+		delete_post_meta($spost->id, SERIES_PART_KEY); //POSSIBLE BUG - use $spost['id'] instead?
+		add_post_meta($spost->id, SERIES_PART_KEY, $newpart);
+		$addvalue ++;
+	}
+	return true;
+}
+
+function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
+	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
+	
+	$post_ids_in_series = get_objects_in_term($series_id, 'series');
+	
+	$addvalue = '1';
+	
+	$series_posts = get_series_order($posts_ids_in_series);
+	
+	foreach ($series_posts as $spost) {
+		$newpart = $addvalue;
+		delete_post_meta($spost->id, SERIES_PART_KEY);
+		add_post_meta($spost->id, SERIES_PART_KEY, $newpart);
+		$addvalue++
+	}
+	
+	return true;
 }
 
 //following function will have to be hooked into the wp_title so that when displaying a series archive (table of contents page) it will be reflected in the browser title display okay.
@@ -349,28 +437,29 @@ function series_includeTemplate() {
 	return;
 }
 
-//NEED TO ADD TEMPLATE FOR SERIES//
+//TODO: NEED TO ADD TEMPLATE FOR SERIES TOC//
 
-//NEED TO ADD CODE FOR THE POST WRITE/EDIT PANEL IN ADMIN (see post.php file)//
-//todo function for adding new series when a series is added via the post write panel....actually I think this is automatically done by the wp_set_object_terms function...we'll have to test
 function wp_set_post_series( $post_ID = 0) {
 	global $wpdb;
 	$post_ID = (int) $post_ID;
 	$post_series = (int) $_POST['post_series'];
+	$series_part = (int) $_POST['series_part'];
 	
 	if ( $post_series == '' ||0 == $post_series  )
-		return wp_delete_post_series_relationship ($post_ID);
+		return wp_delete_post_series_relationship($post_ID);
 	
 	return wp_set_object_terms($post_ID, $post_series, 'series');
+	set_series_order($postid, $series_part);
 }
 
 function wp_delete_post_series_relationship( $id = 0 ) {
 	//TODO  will have to consider caching...
-	//TODO will have to consider how deleting a post will change the order of other posts in the series...
 	global $wpdb, $wp_rewrite;
 	$postid = (int) $id;
-	
+	$series = get_the_series($postid);
+	$seriesid = $series->term_id;
 	wp_delete_object_term_relationships($postid, array('series'));
+	wp_reset_series_order_meta_cache($postid, $seriesid);
 }
 
 //add_action('edit_post','wp_set_post_series');

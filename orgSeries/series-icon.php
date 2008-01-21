@@ -163,3 +163,5 @@ function seriesicons_delete($series, $icon) {
 	$wpdb->query("DELETE FROM $tablename WHERE term_id='$series'");
 	return true;
 }
+
+//TODO: Series Icon management page for adding-editing icon and series relationships.  ALSO - possibility to add an icon via the write post/add series section?
