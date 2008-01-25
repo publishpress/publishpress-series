@@ -61,7 +61,7 @@ $org_series_term = "series";
 $org_series_type = "post";
 require (ABSPATH . '/wp-content/plugins/orgSeries/series.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
-//TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings)
+//TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings) - CHECK how the category.php template works in the default wp install and see if there is code that could be modified for a default series.php template (will want to do a check for if the request address is ....www.myaddress.com/series to see if the series TOC should be displayed OR the regular series template (similar to how category templates are displayed.
 
 function org_series_install() {
           global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
@@ -137,6 +137,14 @@ wp_print_scripts( 'ajaxseries' );
 	
 function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO: Add "current" class for the post that is currently displayed on the page so people can tweak the way it displays -- REQUIRES adding class to the default .css as well.  IF THIS DOESN'T WORK - it might be better to use the get_objects_in_term() function in the taxonomy.php file.
  	global $post;
+	if (!isset($ser_ID)) {
+		$serarray = get_the_series();
+		if (!empty($serarray) ) {
+			foreach ($serarray as $series) {
+				$ser_ID = $series->term_id;
+			}
+		}
+	}
 	$settings = get_option('org_series_options');
 	$args = 'series=' . (int) $ser_ID;  //if doesn't work try category=
 	$posts_in_series = get_posts( $args );
@@ -166,8 +174,8 @@ function wp_postlist_count() {  //counts the number of posts in the series the p
 }
 
 function wp_series_part( $ser_post_id ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
-
-	$serarray = get_the_series($ser_post_id);
+	global $post;  //if this doesn't work try $post= &get_post($ser_post_id); $postid=$post->ID;
+	if (!isset($ser_post_id)) $ser_post_id = $post->ID;
 	$part_key = SERIES_PART_KEY;
 	$series_part = '';
 	
@@ -446,6 +454,6 @@ add_action('the_content', 'add_series_meta');
 //add action for admin-series.css
 add_action('admin_head', 'orgSeries_admin_header');
 
-//add filter for sort_series_page_options ...TODO: Check to see if this would work.
+//add filter for sort_series_page_options ...TODO: Check to see if this would work. Don't think I'll add this in ver 2.0
 //add_filter('posts_orderby','sort_series_page_options');
 ?>

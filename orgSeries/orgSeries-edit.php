@@ -65,8 +65,6 @@ function series_edit_box() {
 	<?php
 }
 	
-//TODO add in custom-field box for determining the order that this post will be in the series...this will be tricky because I will have to have default settings for append and prepend.  Perhapse there should just be a 'dropdown' selection box?  But then that would have to be "ajaxified" to cull the numbers as selections from the results of the posts in series list.  Also this should only display as an option IF there is more than one post in a series...
-
-
 //TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post.
 
+//TODO add series-icon related information - and selection control for series icon?  Should there be a "browse" button for uploading the series icon (the upload path would be taken from the series-icon options.)  OR  should all series-icon related infor be determined in the manage series page (the better option).

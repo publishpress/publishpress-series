@@ -15,19 +15,19 @@
  *
  * @return boolean True if image found.
  */
- function get_series_icon ($params='') {
+ function get_series_icon($params='') {
 	parse_str($params, $p);
 	if (!isset($p['fit_width'])) $p['fit_width']=-1;
 	if (!isset($p['fit_height'])) $p['fit_height']=-1;
 	if (!isset($p['expand'])) $p['expand']=false;
-	if (!isset($p['series'])) $p['series']=$GLOBALS['cat'];
+	if (!isset($p['series'])) $p['series']=$GLOBALS['SERIES_QUERYVAR']; // might need to be $GLOBALS['cat']
 	if (!isset($p['prefix'])) $p['prefix'] = '';
 	if (!isset($p['suffix'])) $p['suffix'] = '';
 	if (!isset($p['class'])) $p['class'] = '';
 	if (!isset($p['link'])) $p['link'] = 1;
 	stripslaghes_gpc_arr($p);
 	
-	if (empty($p['series']) && isset($GLOBALS['series'])) {
+	if (empty($p['series']) && isset($GLOBALS['SERIES_QUERYVAR'])) {
 		$serieslist = get_the_series($GLOBALS['post']->ID);
 		if ( is_array($serieslist) ) $p['series'] = $serieslist[0]->series_ID;
 	}
@@ -75,7 +75,8 @@ function series_get_icons($series) {
 */
 
 function seriesicons_path() {
-	$path = get_option('series_icon_path');
+	$settings = get_option('org_series_options');
+	$path = $settings['series_icon_path'];
 	$def = default_seriesicons_upload();
 	if ( '' == $path )
 		return ABSPATH . $def[0];
@@ -84,7 +85,8 @@ function seriesicons_path() {
 }
 
 function seriesicons_url() {
-	$url = get_option('series_icon_url');
+	$settings = get_option('org_series_options');
+	$url = $settings['series_icon_url'];
 	$def = default_seriesicons_upload();
 	if ( '' == $url )
 		return $def[1];

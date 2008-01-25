@@ -348,9 +348,7 @@ function org_series_admin_page() {
 				<dt>%series_title_linked%</dt>
 					<dd>Same as %series_title% except that it will also be linked to the series page</dd>
 				<dt>%post_title_list%</dt>
-					<dd>Will be replaced with the list of posts (titles) belonging to a series.  Each post title is surrounded by "li" tags</dd>
-				<dt>%post_title_list_linked%</dt>
-					<dd>Same %post_title_list% with the addition of each post title being linked to the post</dd>
+					<dd>Will be replaced with the list of posts (titles) belonging to a series.  Each post title is surrounded by "li" tags and is linked to the post</dd>
 				<dt>%postcontent%</dt>
 					<dd>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</dd>
 				<dt>%series_part%</dt>

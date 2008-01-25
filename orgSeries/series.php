@@ -36,12 +36,13 @@ function msort($array, $id="id") {
 function get_series_order ($posts) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
 	
-	$spost_id = $spost->object_id;
-		$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
-		$series_posts[$key]['id'] = $spost_id;
-		$series_posts[$key]['part'] = $current_part;
-		$key++;
-	}
+		foreach ($posts as $spost) {
+			$spost_id = $spost->object_id;
+			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
+			$series_posts[$key]['id'] = $spost_id;
+			$series_posts[$key]['part'] = $current_part;
+			$key++;
+		}
 	
 	msort($series_posts, $id = "part");
 	
@@ -86,8 +87,6 @@ function get_series_permastruct() {
 	$series_structure = $wp_rewrite->root . '/' . SERIES_QUERYVAR . "/$series_token";
 	return $series_structure;
 }
-
-//the following needs to be added/called in orgseries_install() to the plugin init (or WP init - is there a difference) in the orgSeries.php
 
 function series_createRewriteRules($rewrite) {
 	global $wp_rewrite;
@@ -216,12 +215,30 @@ function in_series( $series_term ) { //check if the current post is in the given
 }
 
 function series_description($series_id = 0) {
-	global $ser;
+	global $series;
 	if ( !$series_id )
-		$series_id = $ser;
+		$series_id = $series;
 		
 	return get_term_field('description', $series_id, 'series');
 }
+
+/** Replaces tokens (set in orgSeries options) with the relevant values **/
+/** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
+function token_replace($replace, $referral) {
+	$settings = get_option('org_series_options');
+	if ('post-list' == $referral) $ser_width = $settings['series_icon_width_post_page'] : $ser_width = $settings['series_icon_width_series_page'];
+	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0'), $replace);
+	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width'), $replace);
+	$replace = str_replace('%series_title%', single_series_title(), $replace);
+	$replace = str_replace('%series_title_linked%', the_series($before='', $sep='', $after=''), $replace);
+	$replace = str_replace('%post_title_list%', get_series_posts(), $replace);
+	$replace = str_replace('%series_part%', wp_series_part(), $replace);
+	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
+	$replace = str_replace('%series_description%', series_description(), $replace);
+	return $replace;
+	}
+
+	//TODO - modify all the related series display functions in orgSeries.php using the token_replace function and the new codes.
 	
 /*----------------------POST RELATED FUNCTIONS (i.e. query etc. see post.php)--------------------*/
 //will have to add the following function for deleting the series relationship when a post is deleted.
@@ -241,11 +258,9 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 	return $series;
 }
 
-//have to figure out how to get this added to the wp_get_single_post call (post.php - line 577)
+//TODO ? have to figure out how to get this added to the wp_get_single_post call (post.php - line 577)
 function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
 	global $wpdb;
-	$postid = (int) $postid;
-	
 	$postid = (int) $postid;
 	
 	$post = get_post($postid, $mode);
@@ -317,7 +332,6 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
 	return true;
 }
 
-//following function will have to be hooked into the wp_title so that when displaying a series archive (table of contents page) it will be reflected in the browser title display okay.
 function add_series_wp_title( $title ) {
 	global $wpdb, $wp_locale, $wp_query;
 	$series = get_query_var('series');
@@ -332,7 +346,7 @@ function add_series_wp_title( $title ) {
 		}
 	return $title;
 }
-//possible hook code?
+
 add_filter('wp_title', 'add_series_wp_title');
 
 function single_series_title($prefix = '', $display = true) {
