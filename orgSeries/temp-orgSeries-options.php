@@ -153,7 +153,7 @@ function org_series_import() {
 				if (1 == $cat_title_chk_post_page ) $series_post_list_template .= $before_series_title_post_page . '%series_title_linked%' . $after_series_title_post_page;
 				if (1 == $cat_description_cat_post_page ) $series_post_list_template .= $before_description_post_page . '%series_description%' . $after_description_post_page;
 			}
-			$series_post_list_template .= $before_post_title_list_post_page . '%post_title_list_linked%' . $after_post_title_list_post_page;
+			$series_post_list_template .= $before_post_title_list_post_page . '%post_title_list%' . $after_post_title_list_post_page;
 			$series_post_list_template .= $afterlistbox_post_page . '%postcontent%';
 			$series_post_list_template = trim(stripslashes($series_post_list_template));
 			
@@ -227,9 +227,9 @@ function org_series_init($reset = false) {
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 		//new template options
-			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list_linked%</ul></div>%postcontent%',
+			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
-			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div></div>',
+			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" />tabl</div>',
 		//TODO: Add in "next/previous page" linking template
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,

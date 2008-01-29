@@ -214,6 +214,34 @@ function in_series( $series_term ) { //check if the current post is in the given
 		return false;
 }
 
+function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
+	if( 0==$series_id )
+		return;
+	
+	$series_id = intval( $series_id );
+	
+	if ( !empty($series_id) ) {
+		$my_series = &get_term($series_id, 'series', OBJECT, 'display');
+		if ( is_wp_error( $my_series ) )
+			return false;
+		$prefix = '';
+		$suffix = '';
+		$my_series_name = $my_series->name;
+		if ( !empty($my_series_name) ) {
+			if ( $linked ) {
+				$series_link = get_series_link($series_id);
+				$prefix = '<a href="' . $series_link . '" title="series-' . $series_id . '">';
+				$suffix = '</a>';
+			}
+			
+			if ( $display )
+				echo $prefix, $my_series_name, $suffix;
+			else
+				return $my_series_name;
+		}
+	}
+}
+
 function series_description($series_id = 0) {
 	global $series;
 	if ( !$series_id )
@@ -224,17 +252,17 @@ function series_description($series_id = 0) {
 
 /** Replaces tokens (set in orgSeries options) with the relevant values **/
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
-function token_replace($replace, $referral) {
+function token_replace($replace, $referral = 'other', $seriesid = 0) {
 	$settings = get_option('org_series_options');
 	if ('post-list' == $referral) $ser_width = $settings['series_icon_width_post_page'] : $ser_width = $settings['series_icon_width_series_page'];
-	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0'), $replace);
-	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width'), $replace);
-	$replace = str_replace('%series_title%', single_series_title(), $replace);
-	$replace = str_replace('%series_title_linked%', the_series($before='', $sep='', $after=''), $replace);
-	$replace = str_replace('%post_title_list%', get_series_posts(), $replace);
+	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$seriesid'), $replace);
+	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$seriesid'), $replace);
+	$replace = str_replace('%series_title%', the_series_title($seriesid, FALSE), $replace);
+	$replace = str_replace('%series_title_linked%', the_series_title($seriesid), $replace);
+	$replace = str_replace('%post_title_list%', get_series_posts($seriesid), $replace);
 	$replace = str_replace('%series_part%', wp_series_part(), $replace);
 	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
-	$replace = str_replace('%series_description%', series_description(), $replace);
+	$replace = str_replace('%series_description%', series_description($series_id), $replace);
 	return $replace;
 	}
 
@@ -334,7 +362,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
 
 function add_series_wp_title( $title ) {
 	global $wpdb, $wp_locale, $wp_query;
-	$series = get_query_var('series');
+	$series = get_query_var(SERIES_QUERYVAR);
 	$title = '';
 	
 	if ( !empty($series) ) {
@@ -352,7 +380,7 @@ add_filter('wp_title', 'add_series_wp_title');
 function single_series_title($prefix = '', $display = true) {
 	if( !is_series() )
 		return;
-	$series_id = intval( get_query_var('series_id') );
+	$series_id = intval( get_query_var(SERIES_QUERYVAR) );
 	
 	if ( !empty($series_id) ) {
 		$my_series = &get_term($series_id, 'series', OBJECT, 'display');

@@ -151,14 +151,16 @@ function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which i
 	$result = '';
 	foreach($posts_in_series as $post) :
 		setup_postdata($post); ?>
-		<?php echo stripslashes($settings['before_title_post_page']); ?>
+		<li>
 			<a href="<?php the_permalink(); ?>" rel="permalink"><?php the_title(); ?></a>
-		<?php echo stripslashes($settings['after_title_post_page']); 
+		</li>  
+	<?php
 	endforeach; 
 }
 
 function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
 	//deprecated - use get_the_series( $id = 0 ) instead now.
+	return get_the_series();
 }
 
 function wp_postlist_count() {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  TODO: modify this in future versions so that a post can belong to multiple series.
@@ -177,11 +179,7 @@ function wp_series_part( $ser_post_id ) { //For a post that is part of a series,
 	global $post;  //if this doesn't work try $post= &get_post($ser_post_id); $postid=$post->ID;
 	if (!isset($ser_post_id)) $ser_post_id = $post->ID;
 	$part_key = SERIES_PART_KEY;
-	$series_part = '';
-	
-	if (!empty($serarrray) ) {
-		$series_part = get_post_meta($ser_post_id, $part_key, true);
-	}
+	$series_part = get_post_meta($ser_post_id, $part_key, true);
 	
 	return $series_part;
 }
@@ -195,17 +193,21 @@ function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rath
 	if (!empty($serarray) ) {
 		foreach ($serarray as $series) {
 		$serID = $series->term_id; 
-		$seriestitle = $series->name;
-		$seriesdescription = $series->description;
 		}
 	}
 	
-	$post_part = wp_series_part($post->ID);
-	if (isset($serID)) { ?>
+	if (isset($serID)) { 
+		$series_meta = token_replace(stripslashes($settings['series_meta_template']), 'other', $serID);
+		return $series_meta;
+	
+	/*
+	
 	<?php echo stripslashes($settings['before_series_meta']); ?>
 	<?php echo "This " . $settings['series_meta_word'] . " is part " . $post_part . " of " . wp_postlist_count() . " in the series, " . $seriestitle . "."; ?>
-	<?php echo stripslashes($settings['after_series_meta']);
+	<?php echo stripslashes($settings['after_series_meta']); */
 	}
+	
+	return false;
 }
 
 ## SERIES CATEGORY POSTS TEMPLATE TAG ##
@@ -213,8 +215,21 @@ function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rath
 
 function wp_postlist_display() { //TODO - change to make it in line with the new series options set up (%tokens% etc.).  Also, change to reflect new series_icon integration.
 	$settings = get_option('org_series_options');
-	
 	$serarray = get_the_series();
+		if (!empty($serarray)) {
+			foreach ($serarray as $series) {
+				$serID = $series->term_id;
+			}
+		}
+	if (isset($serID)) {
+		$postlist = token_replace(stripslashes($settings['series_post_list_template']), 'post-list', $serID);
+		return $postlist;
+	}
+	
+	return false;
+
+	
+	/*$serarray = get_the_series(); //OLD CODE  COMMENTED OUT (LEFT IN CASE NEEDED FOR DEBUG)
 	if (!empty($serarray) ) {
 		foreach ($serarray as $series) {
 			$serID = $series->term_id;
@@ -250,7 +265,7 @@ function wp_postlist_display() { //TODO - change to make it in line with the new
 	<?php get_series_posts($serID); ?>
 	<?php echo stripslashes($settings['after_post_title_list_post_page']); ?>
 	<?php echo stripslashes($settings['afterlistbox_post_page']); ?>
-	<?php endif;
+	<?php endif;*/
 }
 #########################################
 
@@ -258,115 +273,22 @@ function wp_postlist_display() { //TODO - change to make it in line with the new
 ##Place this tag in a custom page called category-xxx.php where xxx is the category number for the series category. When users view the category page for this series they will be presented with a list of all the available series they can read (sub-categories under the main series category). Also there are a number of parameters that can be adjusted depending on what you want to do: ##
 function wp_serieslist_display_code($series) { //reusable function for display of series information
 		$settings = get_option('org_series_options');
-		$cat_title = $series->name;
-		$cat_ID = $series->term_id;
-		$cat_description = $series->description; 
-				// LAYOUT AND DISPLAY ?>
-		<?php echo stripslashes($settings['beforedisplay_cat_page']); ?>
-			<?php if ($settings['cat_icon_chk_cat_page']) { ?>
-		 		<?php if (function_exists(get_cat_icon)) { ?>
-		 		<?php echo stripslashes($settings['before_cat_icon_cat_page']); ?>	
-		 		<?php get_cat_icon('cat=' . $cat_ID . '&fit_width=' . $settings['cat_icon_width_cat_page'] . '&height=-1&expand=true');  ?>
-		 		<?php echo stripslashes($settings['after_cat_icon_cat_page']); ?>
-		 	<?php } } ?>
-		 	
-		 	<?php if ($settings['text_chk_cat_page']) { ?>
-		 	
-			 	<?php echo stripslashes($settings['before_catlist-content_cat_page']); ?>
-			 	<?php if ($settings['cat_title_chk_cat_page']) { ?>
-			 		<?php echo stripslashes($settings['beforetitle_cat_page']); ?><?php echo '<a href="' . get_series_link($cat_ID) . '">' . $cat_title . '</a>'; ?><?php echo stripslashes($settings['aftertitle_cat_page']); ?>
-			 	<?php } ?>
-			 	<?php if ($settings['cat_description_cat_page']) { ?>
-			 		<?php echo stripslashes($settings['beforedescript_cat_page']); ?><?php echo $cat_description; ?><?php echo stripslashes($settings['afterdescript_cat_page']); ?>
-			 	<?php } ?>
-			 <?php echo stripslashes($settings['after_catlist-content_cat_page']); ?>
-			 <?php } ?>
-			 <hr style="clear: left; border:none" />
-		  <?php echo stripslashes($settings['afterdisplay_cat_page']); ?>
-<?php
+		$serID = $series->term_id;
+		if (isset($serID) {
+			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'other', $serID);
+			return $series_display;
+		}
+		return false;
 }
  
 function wp_serieslist_display() {  
 	global $wpdb, $post;
-	
 	$settings = get_option('org_series_options');
-			
-	$num_per_page = $settings['perpage_cat_page'];
-	
-	####PAGING RELATED####
-	if ($settings['paging_cat_page']==1) {
-		//by default we show first page
-		$pageNum = 1;
-		
-		//if $_GET['scpage'] defined, use it as page number
-		if(isset($_GET['scpage'])) {
-	    	$pageNum = $_GET['scpage'];
-		}
-	}
-
 	$series_list = get_series('hide_empty=0');
-	$num_objects = count($series_list->term_id); // Will return the number of series in the array which is needed for doing paging.
 	
-	if ($settings['paging_cat_page']==1) {
-		//find out how many rows in database
-		$get_numrows = $num_objects;
-		
-		//how many pages we have when using paging?
-		$maxPage = ceil($get_numrows/$num_per_page);
-		
-		$self =  get_series_link($GLOBALS['series']); // TODO -  okay to do this (I think): On plugin init create a series called "TOC" and do excludes for that series in any function I don't want it called in (i.e. series list).  Then the table of contents will be located @ (...series_permalink...)/toc and on series .php I can do a 'if (is_series('toc')' for determining whether the series_list_display() gets done or not.  Alternatively, look at the permalink for series (cross reference how tags and categories work).  Is there a way of displaying the sereis toc when located at /blog_address/series/ (series are located at /blog_address/series/series_name)?
-		
-		//creating paging links
-				if ($pageNum > 1) {
-				    $tocpage = $pageNum - 1;
-				    $prev = " <a href=\"$self?tocpage=$tocpage\">[Prev]</a> ";
-				    
-				    $first = " <a href=\"$self?tocpage=1\">[First Page]</a> ";
-				    
-				} else {
-				    $prev  = '';       // we're on page one, don't enable 'previous' link
-				    $first = ''; // nor 'first page' link
-				}
-			
-			// print 'next' link only if we're not
-			// on the last page
-				if ($pageNum < $maxPage) {
-				    $tocpage = $pageNum + 1;
-				    $next = " <a href=\"$self?tocpage=$tocpage\">[Next]</a> ";
-				    
-				    $last = " <a href=\"$self?tocpage=$maxPage\">[Last Page]</a> ";
-				    
-				} else	{
-				    $next = '';      // we're on the last page, don't enable 'next' link
-				    $last = ''; // nor 'last page' link
-				}
-	}	
-// fetch query arrays and display
-	if ($settings['paging_cat_page']==1) { //do if paging is enabled via the plugin options
-	$pagecheck = ($pageNum-1) * $num_per_page; //this will give me how many rows I want to skip in the array
-	$pagebreak = '0'; //sets the var we'll use for breaking out of the foreach loop when we've reached the number of series we want per page.
-	$startdisplay = '1'; //sets the var we'll use for indicating when we can start displaying array results.
 	foreach ($series_list as $series) {  
-	if ($startdisplay < $pagecheck) {
-		$startdisplay++;
-		continue; // This will continue the loop skipping the display code IF the offset isn't right.
-		}
-	if ($pagebreak > $num_per_page)
-		break; //if we've reached the number we want on the page
-		}
 	wp_serieslist_display_code($series); //layout code
-	$pagebreak++;
-	} else {
-		foreach ($series_list as $series) { //for when paging is disabled
-		wp_serieslist_display_code($series);
-		}
 	}
-			
-// DISPLAY PAGING LINKS (if paging enabled)
-	if ($settings['paging_cat_page'] == 1) {
-		echo '<div align="center">' . $first . $prev . ' Showing page <strong>' . $pageNum . '</strong> of <strong>' . $maxPage . '</strong> pages ' . $next . $last . '</div>';
-	}
-	
 }
 #####Filter function for adding series post-list box to a post in that series####
 
@@ -376,8 +298,9 @@ function add_series_post_list_box($content) {
 	
 	if ($settings['auto_tag_toggle']) {
 		if (is_single()) {
+			$postlist = wp_postlist_display();
 			$addcontent = $content;
-			$content = wp_postlist_display() . $addcontent;
+			$content = str_replace('%postcontent%', $addcontent, $postlist);
 		}
 	}
 	
@@ -390,7 +313,9 @@ function add_series_meta($content) {
 	$settings = get_option('org_series_options');
 	
 	if($settings['auto_tag_seriesmeta_toggle']) {
-	$content = wp_seriesmeta_write($postID) . $content;
+	$series_meta = wp_seriesmeta_write($postID);
+	$addcontent = $content;
+	$content = str_replace('%postcontent%', $addcontent, $series_meta);
 	return $content;
 	}
 	return $content;
