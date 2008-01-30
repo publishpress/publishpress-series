@@ -61,6 +61,7 @@ $org_series_term = "series";
 $org_series_type = "post";
 require (ABSPATH . '/wp-content/plugins/orgSeries/series.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
+require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
 //TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings) - CHECK how the category.php template works in the default wp install and see if there is code that could be modified for a default series.php template (will want to do a check for if the request address is ....www.myaddress.com/series to see if the series TOC should be displayed OR the regular series template (similar to how category templates are displayed.
 
 function org_series_install() {
@@ -75,7 +76,7 @@ function org_series_install() {
 		if ( $oldversion = get_option('org_series_version') ) { //for versions after 2.0
 			update_option('org_series_oldversion', $oldversion);
 		} else { //for versions prior to 2.0
-			add_option('org_series_oldverison', '1.6');
+			add_option('org_series_oldversion', '1.6');
 		}
 		
 		add_option("org_series_version", $org_series_version);
@@ -146,16 +147,15 @@ function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which i
 		}
 	}
 	$settings = get_option('org_series_options');
-	$args = 'series=' . (int) $ser_ID;  //if doesn't work try category=
+	$args = 'category=' . (int) $ser_ID;  //if doesn't work try category=
 	$posts_in_series = get_posts( $args );
 	$result = '';
 	foreach($posts_in_series as $post) :
-		setup_postdata($post); ?>
-		<li>
-			<a href="<?php the_permalink(); ?>" rel="permalink"><?php the_title(); ?></a>
-		</li>  
-	<?php
+		$link = get_permalink($post->ID);
+		$title = get_the_title($post->ID);
+		$result .= '<li><a href="' . $link . '" rel="permalink">' . $title . '</a></li>'; 
 	endforeach; 
+	return $result;
 }
 
 function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
@@ -175,9 +175,9 @@ function wp_postlist_count() {  //counts the number of posts in the series the p
 	return $postlist_count;
 }
 
-function wp_series_part( $ser_post_id ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
-	global $post;  //if this doesn't work try $post= &get_post($ser_post_id); $postid=$post->ID;
-	if (!isset($ser_post_id)) $ser_post_id = $post->ID;
+function wp_series_part( $id = 0 ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
+	$post = &get_post($id);
+	$ser_post_id = $post->ID;
 	$part_key = SERIES_PART_KEY;
 	$series_part = get_post_meta($ser_post_id, $part_key, true);
 	
@@ -200,11 +200,6 @@ function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rath
 		$series_meta = token_replace(stripslashes($settings['series_meta_template']), 'other', $serID);
 		return $series_meta;
 	
-	/*
-	
-	<?php echo stripslashes($settings['before_series_meta']); ?>
-	<?php echo "This " . $settings['series_meta_word'] . " is part " . $post_part . " of " . wp_postlist_count() . " in the series, " . $seriestitle . "."; ?>
-	<?php echo stripslashes($settings['after_series_meta']); */
 	}
 	
 	return false;
@@ -227,45 +222,6 @@ function wp_postlist_display() { //TODO - change to make it in line with the new
 	}
 	
 	return false;
-
-	
-	/*$serarray = get_the_series(); //OLD CODE  COMMENTED OUT (LEFT IN CASE NEEDED FOR DEBUG)
-	if (!empty($serarray) ) {
-		foreach ($serarray as $series) {
-			$serID = $series->term_id;
-			$seriestitle = $series->name;
-			$seriesdescription = $series->description;
-		}
-	}
-	
-	if (isset($serID)) : ?>
-	<?php echo stripslashes($settings['beforelistbox_post_page']); ?>
-	<?php echo stripslashes($settings['series_intro_text_post_page']); ?>
-	<?php if (function_exists(get_cat_icon)) { //NEW SERIES ICON INTEGRATION NEEDS TO GO HERE.
-		?> 
-		<?php if ($settings['cat_icon_chk_post_page']) { ?>
-		<div class="center">
-		<?php get_cat_icon('cat=' . $ser_ID . '&fit_width=' . $settings['cat_icon_width_post_page'] . '&height=-1&expand=true'); ?>
-		</div>
-		 <?php } } ?>
-	<?php if ($settings['text_chk_post_page']) { ?>
-	
-		<?php if ($settings['cat_title_chk_post_page']) { ?>
-			<?php echo stripslashes($settings['before_series_title_post_page']); ?><?php echo '<a href="' . get_series_link(	$serID ) . '">' . $seriestitle . '</a>'; ?><?php echo stripslashes($settings['after_series_title_post_page']); ?>
-		<?php } ?>
-		<?php if ($settings['cat_description_cat_post_page']) { ?>
-			<?php
-				 echo stripslashes($settings['cat_before_description_post_page']);
-				 echo $seriesdescription;
-				 echo stripslashes($settings['cat_after_description_post_page']);
-				 ?>
-				 <?php }
-	} ?>
-	<?php echo stripslashes($settings['before_post_title_list_post_page']); ?>
-	<?php get_series_posts($serID); ?>
-	<?php echo stripslashes($settings['after_post_title_list_post_page']); ?>
-	<?php echo stripslashes($settings['afterlistbox_post_page']); ?>
-	<?php endif;*/
 }
 #########################################
 
@@ -274,7 +230,7 @@ function wp_postlist_display() { //TODO - change to make it in line with the new
 function wp_serieslist_display_code($series) { //reusable function for display of series information
 		$settings = get_option('org_series_options');
 		$serID = $series->term_id;
-		if (isset($serID) {
+		if (isset($serID)) {
 			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'other', $serID);
 			return $series_display;
 		}
@@ -316,7 +272,7 @@ function add_series_meta($content) {
 	$series_meta = wp_seriesmeta_write($postID);
 	$addcontent = $content;
 	$content = str_replace('%postcontent%', $addcontent, $series_meta);
-	return $content;
+	
 	}
 	return $content;
 }

@@ -139,7 +139,8 @@ function get_series_link( $series_id ) {
 		$serieslink = str_replace($series_token, $slug, $serieslink);
 		$serieslink = get_settings('home') . user_trailingslashit($serieslink, 'category');
 	}
-	return apply_filters('series_link', $serieslink, $series_id); 
+	return $serieslink;
+	//return apply_filters('series_link', $serieslink, $series_id); 
 }
 	
 function get_the_series( $id = false ) { 
@@ -214,7 +215,7 @@ function in_series( $series_term ) { //check if the current post is in the given
 		return false;
 }
 
-function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
+function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 	if( 0==$series_id )
 		return;
 	
@@ -234,8 +235,9 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 				$suffix = '</a>';
 			}
 			
-			if ( $display )
-				echo $prefix, $my_series_name, $suffix;
+			$result = $prefix . $my_series_name . $suffix;
+			if ( $display ) 
+				return $result;
 			else
 				return $my_series_name;
 		}
@@ -254,7 +256,11 @@ function series_description($series_id = 0) {
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
 function token_replace($replace, $referral = 'other', $seriesid = 0) {
 	$settings = get_option('org_series_options');
-	if ('post-list' == $referral) $ser_width = $settings['series_icon_width_post_page'] : $ser_width = $settings['series_icon_width_series_page'];
+	if ('post-list' == $referral) {
+		$ser_width = $settings['series_icon_width_post_page']; 
+		 } else {
+		 $ser_width = $settings['series_icon_width_series_page'];
+		 }
 	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$seriesid'), $replace);
 	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$seriesid'), $replace);
 	$replace = str_replace('%series_title%', the_series_title($seriesid, FALSE), $replace);
@@ -314,11 +320,14 @@ function set_series_order($postid = 0, $series_part = 0) {
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$total_posts = count(intval($posts_ids_in_series));
 	
-	if (!isset($total_posts) ||($total_posts + 1) >= $series_part ) || $series_part = 0) {
+	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
 		delete_post_meta($postid, SERIES_PART_KEY);
-		$series_part = $total_posts + 1;
+		($total_posts > 1) ? $series_part = $total_posts + 1 : $series_part = $total_posts;
 		add_post_meta($postid, SERIES_PART_KEY, $series_part);
 		return true;
+		} else {
+		delete_post_meta($postid, SERIES_PART_KEY);
+		add_post_meta($postid, SERIES_PART_KEY, $series_part);
 		}
 		
 	$series_posts = array();
@@ -329,8 +338,8 @@ function set_series_order($postid = 0, $series_part = 0) {
 	$addvalue = 1;
 	
 	foreach ($series_posts as $spost) {
-		$currentpart = $sposts->part //POSSIBLE BUG - use $spost['part'] instead?
-		if ($series_part =< $currentpart) {
+		$currentpart = $sposts->part; //POSSIBLE BUG - use $spost['part'] instead?
+		if ($series_part <= $currentpart) {
 			continue;
 		}
 		$newpart = $currentpart + $addvalue;
@@ -354,7 +363,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
 		$newpart = $addvalue;
 		delete_post_meta($spost->id, SERIES_PART_KEY);
 		add_post_meta($spost->id, SERIES_PART_KEY, $newpart);
-		$addvalue++
+		$addvalue++;
 	}
 	
 	return true;
@@ -490,8 +499,8 @@ function wp_set_post_series( $post_ID = 0) {
 	if ( $post_series == '' ||0 == $post_series  )
 		return wp_delete_post_series_relationship($post_ID);
 	
+	set_series_order($post_ID, $series_part);
 	return wp_set_object_terms($post_ID, $post_series, 'series');
-	set_series_order($postid, $series_part);
 }
 
 function wp_delete_post_series_relationship( $id = 0 ) {
@@ -500,8 +509,8 @@ function wp_delete_post_series_relationship( $id = 0 ) {
 	$postid = (int) $id;
 	$series = get_the_series($postid);
 	$seriesid = $series->term_id;
-	wp_delete_object_term_relationships($postid, array('series'));
 	wp_reset_series_order_meta_cache($postid, $seriesid);
+	return wp_delete_object_term_relationships($postid, array('series'));
 }
 
 //add_action('edit_post','wp_set_post_series');

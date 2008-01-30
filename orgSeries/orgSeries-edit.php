@@ -49,6 +49,8 @@ function get_series_to_select( $default = 0 ) {//This will call up a list of exi
 
 add_action('dbx_post_sidebar', 'series_edit_box');
 function series_edit_box() {
+global $post, $postdata, $content;
+$id = isset($post) ? $post->ID : $postdata->ID;
 ?>
 	<fieldset id="seriesdiv" class="dbx-box">
 		<h3 class="dbx-handle"><?php _e("Organize Series") ?></h3>

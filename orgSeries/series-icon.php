@@ -52,6 +52,12 @@
 	return false;
 }
 
+function default_seriesicons_upload() {
+	$def_path = str_replace(ABSPATH, '', get_option('upload_path'));
+	$def_url = trailingslashit(get_bloginfo('wpurl')) . $def_path;
+	return array($def_path, $def_url);
+}
+
 /**
 * Get series icons from database
 * @param int $series Series ID
@@ -125,6 +131,17 @@ function series_fit_rect($width, $height, $max_width=-1, $max_height=-1, $expand
 }
 
 /**
+* Utility function to take in a referenced variable and sanitize the contents.  First seen in the category-icons plugin by Ivan Georgiev (ivan@georgievi.net)
+*/
+if (!function_exists('stripslaghes_gpc_arr')) {
+function stripslaghes_gpc_arr(&$arr) {
+	if (get_magic_quotes_gpc()) {
+		foreach(array_keys($arr) as $k) $arr[$k] = stripslashes($arr[$k]);
+	}
+}
+}
+
+/**
 * Database write function to add the series icon/series relationship to the database
 * @param int $series Series ID
 * @param string $icon Series icon
@@ -134,7 +151,7 @@ function seriesicons_write($series, $icon) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'orgSeriesIcons'; 
 	
-	if ( empty($series)  || '' = $series || empty($icon) || '' = $icon )	return false;
+	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
 		
 	$series = $wpdb->escape($series);
 	$icon = $wpdb->escape($icon);
@@ -157,7 +174,7 @@ function seriesicons_delete($series, $icon) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'orgSeriesIcons';
 	
-	if ( empty($series)  || '' = $series || empty($icon) || '' = $icon )	return false;
+	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
 
 	$series = $wpdb->escape($series);
 	$icon = $wpdb->escape($icon);
