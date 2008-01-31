@@ -35,16 +35,18 @@ function msort($array, $id="id") {
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
+	$series_posts = array();
+	$key = 0;
 	
-		foreach ($posts as $spost) {
-			$spost_id = $spost->object_id;
+	foreach ($posts as $spost) {
+			$spost_id = $spost['object_id'];
 			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
 			$series_posts[$key]['id'] = $spost_id;
 			$series_posts[$key]['part'] = $current_part;
 			$key++;
 		}
 	
-	msort($series_posts, $id = "part");
+	msort($series_posts, "part");
 	
 	return $series_posts;
 }
@@ -255,6 +257,8 @@ function series_description($series_id = 0) {
 /** Replaces tokens (set in orgSeries options) with the relevant values **/
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
 function token_replace($replace, $referral = 'other', $seriesid = 0) {
+	global $post;
+	$id = $post->ID;
 	$settings = get_option('org_series_options');
 	if ('post-list' == $referral) {
 		$ser_width = $settings['series_icon_width_post_page']; 
@@ -266,7 +270,7 @@ function token_replace($replace, $referral = 'other', $seriesid = 0) {
 	$replace = str_replace('%series_title%', the_series_title($seriesid, FALSE), $replace);
 	$replace = str_replace('%series_title_linked%', the_series_title($seriesid), $replace);
 	$replace = str_replace('%post_title_list%', get_series_posts($seriesid), $replace);
-	$replace = str_replace('%series_part%', wp_series_part(), $replace);
+	$replace = str_replace('%series_part%', wp_series_part($id), $replace);
 	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
 	$replace = str_replace('%series_description%', series_description($series_id), $replace);
 	return $replace;
@@ -312,41 +316,42 @@ function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
 }
 
 //function to set the order that the post is in a series.
-function set_series_order($postid = 0, $series_part = 0) {
-	$series_id = wp_get_post_series($postid);
+function set_series_order($postid = 0, $series_part = 0, $series_id) {
+//TODO Bug - when setting the post order this method isn't rearranging the other posts in the series as expected (it looks like nothing is happening.  CURRENT STATUS:  I think it has something to do with the fact that I could get a conflict with two posts having the samenumbers?
 	
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
-	
+	$test_value = 5;
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
-	$total_posts = count(intval($posts_ids_in_series));
+	$total_posts = count($post_ids_in_series);
 	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
+		if ($total_posts >1) $series_part = $total_posts;
 		delete_post_meta($postid, SERIES_PART_KEY);
-		($total_posts > 1) ? $series_part = $total_posts + 1 : $series_part = $total_posts;
 		add_post_meta($postid, SERIES_PART_KEY, $series_part);
 		return true;
-		} else {
-		delete_post_meta($postid, SERIES_PART_KEY);
-		add_post_meta($postid, SERIES_PART_KEY, $series_part);
-		}
-		
+		} 
+				
 	$series_posts = array();
 	$key = 0;
 	
-	$series_posts = get_series_order($posts_ids_in_series);
+	$series_posts = get_series_order($post_ids_in_series);
 		
 	$addvalue = 1;
+	$count = count($series_posts);
 	
-	foreach ($series_posts as $spost) {
-		$currentpart = $sposts->part; //POSSIBLE BUG - use $spost['part'] instead?
-		if ($series_part <= $currentpart) {
+	foreach ($series_posts as $sposts) {
+		$currentpart = $sposts['part']; //POSSIBLE BUG - use $spost['part'] instead?
+		if ($series_part <  $currentpart) {
+			$addvalue++;
 			continue;
 		}
 		$newpart = $currentpart + $addvalue;
-		delete_post_meta($spost->id, SERIES_PART_KEY); //POSSIBLE BUG - use $spost['id'] instead?
-		add_post_meta($spost->id, SERIES_PART_KEY, $newpart);
-		$addvalue ++;
+		delete_post_meta($sposts['id'], SERIES_PART_KEY); //POSSIBLE BUG - use $spost['id'] instead?
+		add_post_meta($sposts['id'], SERIES_PART_KEY, $newpart);
+		$addvalue++;
 	}
+	delete_post_meta($postid, SERIES_PART_KEY);
+	add_post_meta($postid, SERIES_PART_KEY, $series_part);
 	return true;
 }
 
@@ -499,8 +504,8 @@ function wp_set_post_series( $post_ID = 0) {
 	if ( $post_series == '' ||0 == $post_series  )
 		return wp_delete_post_series_relationship($post_ID);
 	
-	set_series_order($post_ID, $series_part);
-	return wp_set_object_terms($post_ID, $post_series, 'series');
+	wp_set_object_terms($post_ID, $post_series, 'series');
+	return set_series_order($post_ID, $series_part, $post_series);
 }
 
 function wp_delete_post_series_relationship( $id = 0 ) {

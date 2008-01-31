@@ -176,11 +176,11 @@ function wp_postlist_count() {  //counts the number of posts in the series the p
 }
 
 function wp_series_part( $id = 0 ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
-	$post = &get_post($id);
-	$ser_post_id = $post->ID;
+	global $post;
+	//$post = &get_post($id);
+	$ser_post_id = $id;
 	$part_key = SERIES_PART_KEY;
 	$series_part = get_post_meta($ser_post_id, $part_key, true);
-	
 	return $series_part;
 }
 
