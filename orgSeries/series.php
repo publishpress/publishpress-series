@@ -33,16 +33,17 @@ function msort($array, $id="id") {
     }
 	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
-function get_series_order ($posts) {
+function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
 	$series_posts = array();
 	$key = 0;
 	
 	foreach ($posts as $spost) {
 			$spost_id = $spost['object_id'];
+		if ($skip && $spost_id == $postid) continue;
 			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
 			$series_posts[$key]['id'] = $spost_id;
-			$series_posts[$key]['part'] = $current_part;
+			$series_posts[$key]['part'] = $currentpart;
 			$key++;
 		}
 	
@@ -320,35 +321,47 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 //TODO Bug - when setting the post order this method isn't rearranging the other posts in the series as expected (it looks like nothing is happening.  CURRENT STATUS:  I think it has something to do with the fact that I could get a conflict with two posts having the samenumbers?
 	
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
-	$test_value = 5;
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$total_posts = count($post_ids_in_series);
 	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
-		if ($total_posts >1) $series_part = $total_posts;
-		delete_post_meta($postid, SERIES_PART_KEY);
-		add_post_meta($postid, SERIES_PART_KEY, $series_part);
-		return true;
-		} 
+		if ($total_posts >=1) $series_part = $total_posts;
+	} 
 				
 	$series_posts = array();
 	$key = 0;
 	
-	$series_posts = get_series_order($post_ids_in_series);
+	$series_posts = get_series_order($post_ids_in_series, $postid);
 		
 	$addvalue = 1;
+	$ticker = 1;
 	$count = count($series_posts);
-	
-	foreach ($series_posts as $sposts) {
-		$currentpart = $sposts['part']; //POSSIBLE BUG - use $spost['part'] instead?
-		if ($series_part <  $currentpart) {
+	if ($count >= 1) {
+		foreach ($series_posts as $sposts) {
+			$currentpart = $sposts['part']; 
+			$spostid = $sposts['id'];
+			if (($series_part >  $currentpart) && ($series_part - $currentpart) > 1) continue;
+			
+			if ((($series_part - $currentpart) == 1) && ($currentpart > 1)) {
+				$newpart = ($seriespart - 1);
+			}
+			
+			if (($series_part == $currentpart) && ($series_part == 2) && ($ticker==1)) {
+				$newpart = ($currentpart - 1);
+			}
+			
+			if (($series_part < $currentpart) || ($series_part == 1) || (($series_part == 2) && ($ticker > 1))) {
+			$newpart = ($addvalue + $series_part);
 			$addvalue++;
-			continue;
+			}
+			
+			if (!isset($newpart)) $newpart = $currentpart;
+			
+			delete_post_meta($spostid, SERIES_PART_KEY); 
+			add_post_meta($spostid, SERIES_PART_KEY, $newpart);
+			$ticker++;
+			//$bugcheck = 'BUGCHECK' . $spostid . 'and part' . $currentpart;
 		}
-		$newpart = $currentpart + $addvalue;
-		delete_post_meta($sposts['id'], SERIES_PART_KEY); //POSSIBLE BUG - use $spost['id'] instead?
-		add_post_meta($sposts['id'], SERIES_PART_KEY, $newpart);
-		$addvalue++;
 	}
 	delete_post_meta($postid, SERIES_PART_KEY);
 	add_post_meta($postid, SERIES_PART_KEY, $series_part);
@@ -360,14 +373,14 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
 	
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	
-	$addvalue = '1';
+	$addvalue = 1;
 	
-	$series_posts = get_series_order($posts_ids_in_series);
+	$series_posts = get_series_order($post_ids_in_series, $post_id);
 	
 	foreach ($series_posts as $spost) {
 		$newpart = $addvalue;
-		delete_post_meta($spost->id, SERIES_PART_KEY);
-		add_post_meta($spost->id, SERIES_PART_KEY, $newpart);
+		delete_post_meta($spost['id'], SERIES_PART_KEY);
+		add_post_meta($spost['id'], SERIES_PART_KEY, $newpart);
 		$addvalue++;
 	}
 	
@@ -500,12 +513,17 @@ function wp_set_post_series( $post_ID = 0) {
 	$post_ID = (int) $post_ID;
 	$post_series = (int) $_POST['post_series'];
 	$series_part = (int) $_POST['series_part'];
+	$old_series = wp_get_post_series($post_ID);
+	$match = in_array($post_series, $old_series);
 	
-	if ( $post_series == '' ||0 == $post_series  )
+	if ( !$match ) wp_reset_series_order_meta_cache($post_ID, $old_series);
+	
+	if ( $post_series == '' ||0 == $post_series )
 		return wp_delete_post_series_relationship($post_ID);
 	
-	wp_set_object_terms($post_ID, $post_series, 'series');
-	return set_series_order($post_ID, $series_part, $post_series);
+	$success = wp_set_object_terms($post_ID, $post_series, 'series');
+	if ( $success ) return set_series_order($post_ID, $series_part, $post_series);
+	else return FALSE;
 }
 
 function wp_delete_post_series_relationship( $id = 0 ) {
@@ -514,8 +532,9 @@ function wp_delete_post_series_relationship( $id = 0 ) {
 	$postid = (int) $id;
 	$series = get_the_series($postid);
 	$seriesid = $series->term_id;
-	wp_reset_series_order_meta_cache($postid, $seriesid);
-	return wp_delete_object_term_relationships($postid, array('series'));
+	$success = wp_delete_object_term_relationships($postid, array('series'));
+	if ( $success ) return wp_reset_series_order_meta_cache($postid, $seriesid);
+	else return FALSE;
 }
 
 //add_action('edit_post','wp_set_post_series');
