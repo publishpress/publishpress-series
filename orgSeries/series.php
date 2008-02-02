@@ -13,6 +13,15 @@ Please note:  I followed various WP core files for structuring code which made i
 /*utitlity functions -- perhaps add to their own file for better organization? */
 
 //This function will sort multi-dimensional arrays (courtesy of alishahnovin@hotmail.com via comment on "sort" info page on the php.net site)
+function _usort_series_by_part($a, $b) {
+	if ($a['part'] > $b['part'] )
+		return 1;
+	elseif ( $a['part'] < $b['part'] )
+		return -1;
+	else
+		return 0;
+	}
+	
 function msort($array, $id="id") {
         $temp_array = array();
         while(count($array)>0) {
@@ -47,7 +56,8 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 			$key++;
 		}
 	
-	msort($series_posts, "part");
+	usort( $series_posts, '_usort_series_by_part' );
+	//msort($series_posts, "part");
 	
 	return $series_posts;
 }
@@ -340,22 +350,46 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
 			$spostid = $sposts['id'];
-			if (($series_part >  $currentpart) && ($series_part - $currentpart) > 1) continue;
 			
-			if ((($series_part - $currentpart) == 1) && ($currentpart > 1)) {
-				$newpart = ($seriespart - 1);
-			}
-			
-			if (($series_part == $currentpart) && ($series_part == 2) && ($ticker==1)) {
+			//when there is no part 1 and all the parts below the $series_part have to drop 1
+			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && $drop )  {
 				$newpart = ($currentpart - 1);
+				$drop = TRUE;
+			}
+				
+			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($series_part > $count) ) {
+				$newpart = ($currentpart - 1);
+				$drop = TRUE;
 			}
 			
-			if (($series_part < $currentpart) || ($series_part == 1) || (($series_part == 2) && ($ticker > 1))) {
-			$newpart = ($addvalue + $series_part);
-			$addvalue++;
+			if ( ( $ticker == 1 ) && ( $series_part == $currentpart ) && ( $series_part == 2 ) )  {
+				$newpart = ($currentpart - 1);
+				$drop = TRUE;
 			}
+				
+			// for when the series part is something greater than what it was before and the parts underneath drop in value (because of no part 1.  the current_part equal to series part must drop too.
+			if ( ($series_part == $currentpart) && ( $series_part < ( $count - 1 ) ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) 
+				$newpart = ($currentpart - 1);
+				
 			
-			if (!isset($newpart)) $newpart = $currentpart;
+			//for when the starting series is part 1 and the new series is made part 1.  We want the starting series to be part 2 now and the rest to follow in order.
+			if ( ( ($series_part == 1 ) && ($series_part >= $currentpart) ) ||  ( ( $series_part == $currentpart )  && !$drop ) || ( ( $series_part < $currentpart ) && ( $currentpart <= $count ) && !$drop ) ) {
+				$newpart = ($currentpart + 1);
+				//$addvalue++;
+			}
+			 
+			//for when the new $series_part is the same as the last exisitng part in a series we want the last existing part to drop 1.
+			if ( ($series_part == $currentpart) && ($series_part == ($count - 1) ) && ($series_part != 1) )
+				$newpart = ($currentpart - 1);
+						
+			// for when there is no change in the currentpart (no other conditions are met);
+			if (!isset($newpart)) 
+				$newpart = $currentpart;
+			
+			if ( ($ticker == 2) && ( $currentpart == 3 ) && ( $series_part >= $currentpart) && ($series_part != ( $count - 1 ) ) ) {
+				$newpart = ($currentpart - 1);
+				$drop = TRUE;
+			}
 			
 			delete_post_meta($spostid, SERIES_PART_KEY); 
 			add_post_meta($spostid, SERIES_PART_KEY, $newpart);
