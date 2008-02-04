@@ -356,7 +356,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 				$drop = TRUE;
 			}
 			
-			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count > 2 ) && !$rise ) {
+			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count >= 2 ) && !$rise ) {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
@@ -571,6 +571,7 @@ function wp_delete_post_series_relationship( $id = 0 ) {
 	$postid = (int) $id;
 	$series = get_the_series($postid);
 	$seriesid = $series->term_id;
+	delete_post_meta($postid, SERIES_PART_KEY);
 	$success = wp_delete_object_term_relationships($postid, array('series'));
 	if ( $success ) return wp_reset_series_order_meta_cache($postid, $seriesid);
 	else return FALSE;
