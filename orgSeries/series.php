@@ -385,14 +385,13 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 				$newpart = ($currentpart - 1);
 						
 			// for when there is no change in the currentpart (no other conditions are met);
-						
-			if (!isset($newpart)) {
-				$newpart = $currentpart;
-				if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1) ) ) {
+			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop  && ($newpart != ($count + 1) ) ) {
 					$newpart = ($currentpart - 1);
 					$drop = TRUE;
-					}
-			}
+					}			
+			
+			if (!isset($newpart)) 
+				$newpart = $currentpart;
 			
 			delete_post_meta($spostid, SERIES_PART_KEY); 
 			add_post_meta($spostid, SERIES_PART_KEY, $newpart);
