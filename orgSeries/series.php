@@ -351,7 +351,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			$spostid = $sposts['id'];
 			
 			//when there is no part 1 and all the parts below the $series_part have to drop 1
-			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && $drop )  {
+			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && !$rise )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
@@ -367,7 +367,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			}
 				
 			// for when the series part is something greater than what it was before and the parts underneath drop in value (because of no part 1.  the current_part equal to series part must drop too.
-			if ( ($series_part == $currentpart) && ( $series_part < ( $count ) ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) 
+			if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) 
 				$newpart = ($currentpart - 1);
 				
 			
