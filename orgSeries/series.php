@@ -351,7 +351,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			$spostid = $sposts['id'];
 			
 			//when there is no part 1 and all the parts below the $series_part have to drop 1
-			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && !$rise )  {
+			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && !$drop )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
@@ -372,26 +372,30 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 				
 			
 			//for when the starting series is part 1 and the new series is made part 1.  We want the starting series to be part 2 now and the rest to follow in order.
-			if ( ( ($series_part == 1 ) && ($series_part >= $currentpart) ) ||  ( ( $series_part == $currentpart )  && !$drop ) || ( ( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop ) ) {
+			if ( ( ($series_part == 1 ) && ($series_part >= $currentpart) ) ||  ( ( $series_part == $currentpart )  && !$drop && ($currentpart - $oldpart) < 2 ) || ( ( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop ) ) {
 				$newpart = ($currentpart + 1);
 				$rise = TRUE;
 			}
 			 
 			//for when the new $series_part is the same as the last exisitng part in a series we want the last existing part to drop 1.
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise )
+			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise ) {
 				$newpart = ($currentpart - 1);
+				$drop = TRUE;
+			}
 				
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($ticker == $count ) && ($series_part != 1) && !$rise )
+			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($ticker == $count ) && ($series_part != 1) && !$rise ) {
 				$newpart = ($currentpart - 1);
-						
-			// for when there is no change in the currentpart (no other conditions are met);
-			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop  && ($newpart != ($count + 1) ) ) {
-					$newpart = ($currentpart - 1);
-					$drop = TRUE;
-					}			
+				$drop = TRUE;		
+			}
 			
 			if (!isset($newpart)) 
 				$newpart = $currentpart;
+				
+			// for when there is no change in the currentpart (no other conditions are met);
+			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise  && ($newpart != ($count + 1) ) ) {
+					$newpart = ($currentpart - 1);
+					$drop = TRUE;
+					}			
 			
 			delete_post_meta($spostid, SERIES_PART_KEY); 
 			add_post_meta($spostid, SERIES_PART_KEY, $newpart);
