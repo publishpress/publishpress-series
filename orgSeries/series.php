@@ -339,8 +339,6 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	} 
 				
 	$series_posts = array();
-	$key = 0;
-	
 	$series_posts = get_series_order($post_ids_in_series, $postid);
 		
 	$ticker = 1;
@@ -351,7 +349,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			$spostid = $sposts['id'];
 			
 			//when there is no part 1 and all the parts below the $series_part have to drop 1
-			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && !$drop )  {
+			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && $drop )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
