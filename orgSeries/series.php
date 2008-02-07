@@ -328,7 +328,6 @@ function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
 
 //function to set the order that the post is in a series.
 function set_series_order($postid = 0, $series_part = 0, $series_id) {
-//TODO Bug - when setting the post order this method isn't rearranging the other posts in the series as expected (it looks like nothing is happening.  CURRENT STATUS:  I think it has something to do with the fact that I could get a conflict with two posts having the samenumbers?
 	
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
@@ -348,7 +347,6 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			$currentpart = $sposts['part']; 
 			$spostid = $sposts['id'];
 			
-			//when there is no part 1 and all the parts below the $series_part have to drop 1
 			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && $drop )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
@@ -364,18 +362,14 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 				$drop = TRUE;
 			}
 				
-			// for when the series part is something greater than what it was before and the parts underneath drop in value (because of no part 1.  the current_part equal to series part must drop too.
 			if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) 
 				$newpart = ($currentpart - 1);
 				
-			
-			//for when the starting series is part 1 and the new series is made part 1.  We want the starting series to be part 2 now and the rest to follow in order.
 			if ( ( ($series_part == 1 ) && ($series_part >= $currentpart) ) ||  ( ( $series_part == $currentpart )  && !$drop && ($currentpart - $oldpart) < 2 ) || ( ( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop ) ) {
 				$newpart = ($currentpart + 1);
 				$rise = TRUE;
 			}
 			 
-			//for when the new $series_part is the same as the last exisitng part in a series we want the last existing part to drop 1.
 			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise ) {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
@@ -389,7 +383,6 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			if (!isset($newpart)) 
 				$newpart = $currentpart;
 				
-			// for when there is no change in the currentpart (no other conditions are met);
 			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise  && ($newpart != ($count + 1) ) ) {
 					$newpart = ($currentpart - 1);
 					$drop = TRUE;
@@ -400,7 +393,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 			$ticker++;
 			$oldpart = $newpart;
 			unset($newpart);
-			//$bugcheck = 'BUGCHECK' . $spostid . 'and part' . $testvalue;
+			
 		}
 	}
 	delete_post_meta($postid, SERIES_PART_KEY);
