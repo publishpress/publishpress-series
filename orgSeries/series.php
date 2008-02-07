@@ -22,25 +22,6 @@ function _usort_series_by_part($a, $b) {
 		return 0;
 	}
 	
-function msort($array, $id="id") {
-        $temp_array = array();
-        while(count($array)>0) {
-            $lowest_id = 0;
-            $index=0;
-            foreach ($array as $item) {
-                if (isset($item[$id]) && $array[$lowest_id][$id]) {
-                    if ($item[$id]<$array[$lowest_id][$id]) {
-                        $lowest_id = $index;
-                    }
-                }
-                $index++;
-            }
-            $temp_array[] = $array[$lowest_id];
-            $array = array_merge(array_slice($array, 0,$lowest_id), array_slice($array, $lowest_id+1));
-        }
-        return $temp_array;
-    }
-	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
@@ -57,8 +38,7 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 		}
 	
 	usort( $series_posts, '_usort_series_by_part' );
-	//msort($series_posts, "part");
-	
+		
 	return $series_posts;
 }
  
@@ -228,6 +208,12 @@ function in_series( $series_term ) { //check if the current post is in the given
 		return false;
 }
 
+function get_series_name($series_id) {
+	$series_id = (int) $series_id;
+	$series = &get_series($series_id);
+	return $series->name;
+}
+
 function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 	if( 0==$series_id )
 		return;
@@ -235,24 +221,24 @@ function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 	$series_id = intval( $series_id );
 	
 	if ( !empty($series_id) ) {
-		$my_series = &get_term($series_id, 'series', OBJECT, 'display');
+		$series_name = get_series_name($series_id)
 		if ( is_wp_error( $my_series ) )
 			return false;
 		$prefix = '';
 		$suffix = '';
-		$my_series_name = $my_series->name;
-		if ( !empty($my_series_name) ) {
+		
+		if ( !empty($series_name) ) {
 			if ( $linked ) {
 				$series_link = get_series_link($series_id);
 				$prefix = '<a href="' . $series_link . '" title="series-' . $series_id . '">';
 				$suffix = '</a>';
 			}
 			
-			$result = $prefix . $my_series_name . $suffix;
+			$result = $prefix . $series_name . $suffix;
 			if ( $display ) 
 				return $result;
 			else
-				return $my_series_name;
+				return $series_name;
 		}
 	}
 }
@@ -287,8 +273,6 @@ function token_replace($replace, $referral = 'other', $seriesid = 0) {
 	return $replace;
 	}
 
-	//TODO - modify all the related series display functions in orgSeries.php using the token_replace function and the new codes.
-	
 /*----------------------POST RELATED FUNCTIONS (i.e. query etc. see post.php)--------------------*/
 //will have to add the following function for deleting the series relationship when a post is deleted.
 function delete_series_post_relationship($postid) {
@@ -560,7 +544,6 @@ function wp_set_post_series( $post_ID = 0) {
 }
 
 function wp_delete_post_series_relationship( $id = 0 ) {
-	//TODO  will have to consider caching...
 	global $wpdb, $wp_rewrite;
 	$postid = (int) $id;
 	$series = get_the_series($postid);
@@ -637,13 +620,24 @@ function wp_insert_series($serarr) {
 	$name = $series_name;
 	$description = $series_description;
 	$slug = $series_nicename;
+	$overrides = array('action' => 'editseries');
+	$iconfile = wp_handle_upload ( $_FILES['series_icon'], $overrides );
+	
+	if ($message = $iconfile['error']) return FALSE;
+	$iconname = $iconfile['url'];
+	
+	//take the $iconname which contains the full url of the series
+	$iconname = explode('/', $iconname);
+	$icon = $icon[count($iconname) - 1];
 	
 	$args = compact('name','slug','description');
 	
 	if ( $update )
 		$series_ID = wp_update_term($series_ID, 'series', $args);
+		$series_icon = 	seriesicons_write($series_ID, $icon);
 	else
 		$series_ID = wp_insert_term($series_name,'series',$args);
+		$series_icon = seriesicons_write($series_ID, $icon);
 	
 	if ( is_wp_error($series_ID) )
 		return 0;

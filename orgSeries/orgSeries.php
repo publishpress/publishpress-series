@@ -67,6 +67,7 @@ require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
 function org_series_install() {
           global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
          register_taxonomy($org_series_term, $org_series_type, $org_series_args);
+		 orgSeries_roles(); 
          
 		 //do test to see if older version of orgSeries exists and if so set oldversion number so that any necessary import changes can be done. 
 		 if ( $options = get_option('org_series_options') && !( $oldversion = get_option('org_series_version') ) ) { //for versions prior to 2.0
@@ -335,6 +336,17 @@ add_action('the_content', 'add_series_meta');
 //add action for admin-series.css
 add_action('admin_head', 'orgSeries_admin_header');
 
+//Roles and Capabilities Stuff
+function orgSeries_roles() {
+global $wp_roles;
+$roles = array('administrator', 'editor');
+$capability = 'manage_series';
+
+foreach ($roles as $role) {
+	$wp_roles->add_cap($role, $capability, true);
+}
+return true;
+}
 //add filter for sort_series_page_options ...TODO: Check to see if this would work. Don't think I'll add this in ver 2.0
 //add_filter('posts_orderby','sort_series_page_options');
 ?>

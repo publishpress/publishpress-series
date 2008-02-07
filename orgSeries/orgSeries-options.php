@@ -174,10 +174,6 @@ function org_series_import() {
 			$series_table_of_contents_box_template .= $afterdisplay_cat_page;
 			$series_table_of_contents_box_template = trim(stripslashes($series_table_of_contents_box_template));
 			
-			//series_icon related settings
-			$series_icon_width_series_page = $cat_icon_width_series_page;
-			$series_icon_width_post_page = $cat_icon_width_series_page;
-					
 		//build new options array
 		$new_options = array(
 			'custom_css' => $custom_css,
@@ -187,10 +183,7 @@ function org_series_import() {
 			'series_meta_template' => $series_meta_template,
 			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
 			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page,
-			'series_icon_path' => $series_icon_path,
-			'series_icon_url' => $series_icon_url,
-			'series_icon_filetypes' => $series_icon_filetypes);
+			'series_icon_width_post_page' => $series_icon_width_post_page;
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -214,8 +207,6 @@ function org_series_init($reset = false) {
 	}
 	
 	if (!($is_initialized=get_option('org_series_is_initialized')) || empty ($settings) || $reset || '1.6' == $oldversion) {
-		list($default_seriesicons_path, $default_seriesicons_url) = default_seriesicons_upload();
-		$types = seriesicons_filetypes();
 		$init_settings = array( //options for the orgSeries plugin
 		//main settings
 			'custom_css' => 1, 
@@ -228,10 +219,7 @@ function org_series_init($reset = false) {
 		//TODO: Add in "next/previous page" linking template
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
-		'series_icon_width_post_page' =>100,
-		'series_icon_path' => $default_seriesicons_path,
-		'series_icon_url' => $default_series_icons_url,
-		'series_icon_filetypes' => $types );
+		'series_icon_width_post_page' =>100;
 			
 		if (!empty ($settings)) {
 			$newSettings = array_merge($init_settings, $settings);
@@ -276,10 +264,7 @@ function org_series_option_update() {
 	//series-icon related settings
 	if ( isset($_POST['series_icon_width_series_page']) ) $settings['series_icon_width_series_page'] = $_POST['series_icon_width_series_page'];
 	if ( isset($_POST['series_icon_width_post_page']) ) $settings['series_icon_width_post_page'] = $_POST['series_icon_width_post_page'];
-	if ( isset($_POST['series_icon_path']) ) $settings['series_icon_path'] = trim(stripslashes($_POST['series_icon_path']));
-	if ( isset($_POST['series_icon_url']) ) $settings['series_icon_url'] = trim(stripslashes($_POST['series_icon_url']));
-	if ( isset($_POST['series_icon_filetypes'] ) ) $settings['series_icon_filetypes'] = $_POST['series_icon_filetypes'];
-	
+		
 	$settings['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	update_option('org_series_options', $settings);
 }
@@ -492,22 +477,13 @@ function org_series_echo_series_icon($settings) {
 	</div>
 	<div class="dbx-c-ontent-wrapper">
 		<div class="dbx-content">
-			<p>This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed</p>
+			<p>This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed. All images for series-icons will upload into your default wordpress upload directory.</p>
 			<div class="org-option">
 				<input name="series_icon_width_series_page" id="series_icon_width_series_page" type="text" value="<?php echo $settings['series_icon_width_series_page']; ?>" size="10" /> Width for icon on series table of contents page (in pixels).
 			</div>
 			<div class="org-option">
 				<input name="series_icon_width_post_page" id="series_icon_width_post_page" type="text" value="<?php echo $settings['series_icon_width_post_page']; ?>" size="10" /> Width for icon on a post page (in pixels).
-			</div>
-			<div class="org-option">
-				<input name="series_icon_path" id="series_icon_path" type="text" value="<?php echo htmlspecialchars($settings['series_icon_path']); ?>" size="30" /> Path for location of uploaded series icons on server. Initial setting is the default upload path for images on your blog. (if unsure leave as is - and you can upload images using the built in uploader on the write post screen)
-			</div>
-			<div class="org-option">
-				<input name="series_icon_url" id="series_icon_url" type="text" value="<?php echo htmlspecialchars($settings['series_icon_url']); ?>" size="30" /> URL path for location of uploaded series icons on server. Initial setting is the default URL for images on your blog. (If unsure leave as is and you can upload images using the built in uploader on the write post screen)
-			</div>
-			<div class="org-option">
-				<input name="series_icon_filetypes" id="series_icon_filetypes" type="text" value="<?php echo htmlspecialchars($settings['series_icon_filetypes']); ?>" size="30" /> The allowable filetypes for images.  Leave alone unless you know what you are doing.
-			</div>
+			</div>			
 		</div>
 	</div>
 	</fieldset>

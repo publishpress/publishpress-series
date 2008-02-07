@@ -81,35 +81,13 @@ function series_get_icons($series) {
 */
 
 function seriesicons_path() {
-	$settings = get_option('org_series_options');
-	$path = $settings['series_icon_path'];
 	$def = default_seriesicons_upload();
-	if ( '' == $path )
-		return ABSPATH . $def[0];
-	else
-		return ABSPATH . $path;
+	return ABSPATH . $def[0];
 }
 
 function seriesicons_url() {
-	$settings = get_option('org_series_options');
-	$url = $settings['series_icon_url'];
 	$def = default_seriesicons_upload();
-	if ( '' == $url )
-		return $def[1];
-	else
-		return $url;
-}
-
-/**
-* Get file types to show when selecting icons
-* @return types
-*/
-function seriesicons_filetypes() {
-	$types = get_option('series_icon_filetypes');
-	if (''==$types)
-		return get_option('fileupload_allowedtypes');
-	else
-		return $types;
+	return $def[1];
 }
 
 /**
@@ -182,5 +160,3 @@ function seriesicons_delete($series, $icon) {
 	$wpdb->query("DELETE FROM $tablename WHERE term_id='$series'");
 	return true;
 }
-
-//TODO: Series Icon management page for adding-editing icon and series relationships.  ALSO - possibility to add an icon via the write post/add series section?
