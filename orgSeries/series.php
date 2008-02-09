@@ -385,7 +385,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	return true;
 }
 
-function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
+function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset = FALSE) {
+		
 	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
 	
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
@@ -393,6 +394,13 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0) {
 	$addvalue = 1;
 	
 	$series_posts = get_series_order($post_ids_in_series, $post_id);
+	
+	if ($reset) {
+		foreach ($post_ids_in_series as $spost) {
+			delete_post_meta($spost['object_id'], SERIES_PART_KEY);
+		}
+		return true;
+	}
 	
 	foreach ($series_posts as $spost) {
 		$newpart = $addvalue;
@@ -525,10 +533,13 @@ function series_includeTemplate() {
 
 //TODO: NEED TO ADD TEMPLATE FOR SERIES TOC//
 
-function wp_set_post_series( $post_ID = 0) {
+function wp_set_post_series( $post_ID = 0, $series_id) {
 	global $wpdb;
 	$post_ID = (int) $post_ID;
-	$post_series = (int) $_POST['post_series'];
+	if (isset($series_id) ) 
+		$post_series = (int) $series_id;
+	else
+		$post_series = (int) $_POST['post_series'];
 	$series_part = (int) $_POST['series_part'];
 	$old_series = wp_get_post_series($post_ID);
 	$match = in_array($post_series, $old_series);
@@ -593,14 +604,18 @@ function wp_create_series($series, $post_id = '') { // this function could be us
 	return $series_ids;
 }
 
+// note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
 function wp_delete_series($series_ID) {
 	global $wpdb;
-	$default = '';
 	$series_ID = (int) $series_ID;
-	return wp_delete_term($series_ID, 'series', "default=$default");
+		
+	seriesicons_delete($series_ID);
+	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
+	
+	return wp_delete_term($series_ID, 'series');
 }
 
-function wp_insert_series($serarr) {
+function wp_insert_series($serarr, $file) {
 	global $wpdb;
 	
 	extract($serarr, EXTR_SKIP);
@@ -620,10 +635,13 @@ function wp_insert_series($serarr) {
 	$name = $series_name;
 	$description = $series_description;
 	$slug = $series_nicename;
-	$overrides = array('action' => 'editseries');
-	$iconfile = wp_handle_upload ( $_FILES['series_icon'], $overrides );
+	$action = $action;
+	$overrides = array('action' => $action);
 	
-	if ($message = $iconfile['error']) return FALSE;
+	if (isset($file))
+		$iconfile = wp_handle_upload ( $file, $overrides );
+	
+	if ($message = $iconfile['error']) return FALSE; //TODO - remove the RETURN FALSE check and instead return an array for wp_insert_series containing $message, and $series_id.  This would require going back over all the files to update any calls to wp_insert_series so that returned variable is used correctly.
 	$iconname = $iconfile['url'];
 	
 	//take the $iconname which contains the full url of the series

@@ -15,8 +15,8 @@ case 'addseries':
 	if ( !current_user_can('manage_series') ) 
 		wp_die(__('Cheatin&#8217; uh?'));
 		
-	if( wp_insert_series($_POST) ) { //TODO - create (or see if I've already written it and compare) the wp_insert_series method (look up wp_insert_category)
-		wp_redirect('orgSeries-manage.php?message=1#addseries'); //TODO - don't think this will work...see post-teaser and header( ) for alternate option
+	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
+		wp_redirect('orgSeries-manage.php?message=1#addseries'); //TODO - don't think this will work...see post-teaser and header( ) for alternate option IF it indeed doesn't work.
 	} else {
 		wp_redirect('orgSeries-manage.php?message=4#addseries');
 	}
@@ -30,10 +30,7 @@ case 'delete':
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
 		
-	$series_name = get_series_name($series_ID);
-	
-	wp_delete_series($series_ID); // TODO - create the wp_delete_series method (or see if I've already written it and compare) (look up wp_delete_category)  ALSO - will have to automatically delete all the post associations from the series and the relevant post-order metas with each post.
-	
+	wp_delete_series($series_ID); 
 	wp_redirect('orgSeries-manage.php?message=2'); //TODO - see LINE 19
 	exit;
 break;
@@ -54,7 +51,7 @@ case 'editedseries':
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
 	
-	if ( wp_update_series($_POST) ) // TODO check to see that wp_update_series I've already written matches the wp_update_category code and that it does all the necessary updates.
+	if ( wp_update_series($_POST, $_FILES['series_icon']) ) // TODO check to see that wp_update_series I've already written matches the wp_update_category code and that it does all the necessary updates.
 		wp_redirect('orgSeries-manage.php?message=3');
 	else
 		wp_redirect('orgSeries-manage.php?message=5');

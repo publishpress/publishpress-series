@@ -68,7 +68,7 @@ function series_get_icons($series) {
 	$tablename = $wpdb->prefix . 'orgSeriesIcons';
 	$series = $wpdb->escape($series);
 	if ($row = $wpdb->get_row("SELECT icon FROM $tablename WHERE term_id='$series'")) {
-		return $row->url;
+		return $row->icon;
 	} else return false;
 }
 
@@ -148,15 +148,14 @@ function seriesicons_write($series, $icon) {
 * @param string $icon Series Icon
 * @return boolean true if db delete is successful
 */
-function seriesicons_delete($series, $icon) {
+function seriesicons_delete($series) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'orgSeriesIcons';
 	
-	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
+	if ( empty($series)  || '' == $series  )	return false;
 
 	$series = $wpdb->escape($series);
-	$icon = $wpdb->escape($icon);
-	
+		
 	$wpdb->query("DELETE FROM $tablename WHERE term_id='$series'");
 	return true;
 }
