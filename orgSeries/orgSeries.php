@@ -130,6 +130,7 @@ add_action('admin_head','orgSeries_admin_script');
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
 wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
+wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js', array('listman'), '20071201' );
 wp_localize_script('ajaxseries','seriesL10n',array(
 	'add' => attribute_escape(__('Add')),
 	'how' => __('Add the series name in this box')
@@ -292,9 +293,9 @@ function sort_series_page_options($q) {
 }
 
 ######ON THE FLY ADD SERIES########
-function admin_ajax_series() { //TODO integrate series with the "roles" features of the admin.
-	/*if ( !current_user_can( 'manage_categories' ) )
-		die('-1');*/
+function admin_ajax_series() { 
+	if ( !current_user_can( 'manage_series' ) )
+		die('-1');
 	global $wp_taxonomies;
 	//$series_test = $wp_taxonomies['series'];
 	$name = $_POST['newseries'];
@@ -313,6 +314,36 @@ function admin_ajax_series() { //TODO integrate series with the "roles" features
 	$x->send();
 }
 
+//AJAX for manage series page (Manage->Series)
+function admin_ajax_series_add() {
+	if (!current_user_can( 'manage_series' ) )
+		die('-1');
+	if (!$series = wp_insert_series( $_POST, $_FILES['series_icon'] ) )
+		die('0');
+	if ( !$series = get_series( $series ) )
+		die('0');
+	$series_full_name = $series->series_name;
+	$series_full_name = attribute_escape($series_full_name);
+	$x = new WP_Ajax_Response();
+	$x->add( array(
+		'what' => 'series',
+		'id' => $series->series_ID,
+		'data' => _series_row( $series, $series_full_name ),
+		'supplemental' => array('name' => $series_full_name, 'show-link' => sprintf(__('Series <a href="#%s">%s</a> added' ), "series-$series->series_ID", $series_full_name))
+		) );
+		$x->send();
+}
+
+//delete series ajax
+function admin_ajax_delete_series() {
+	if ( !current_user_can( 'manage_series' ) )
+		die('-1');
+	
+	if ( wp_delete_series( $id ) )
+		die('1')
+	else die ('0');
+}
+
 ##########ADD ACTIONS TO WP###########
 //initialize plugin
 register_taxonomy($org_series_term, $org_series_type, $org_series_args);
@@ -320,6 +351,8 @@ add_action('activate_orgSeries/orgSeries.php','org_series_install');
 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
+add_action('wp_ajax_series-add', 'admin_ajax_series_add');
+add_action('wp_ajax_delete-series', 'admin_ajax_delete_series');
 
 //insert .css in header if needed
 add_action('wp_head', 'orgSeries_header');

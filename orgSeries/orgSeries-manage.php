@@ -1,6 +1,8 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
 
+//TODO add_action on orgSeries-manage.php so it gets added to the manage submenu system in the WP Admin panel.
+
 $title = __('Series');
 $parent_file = 'edit.php';
 
@@ -10,7 +12,7 @@ switch($action) {
 	
 case 'addseries':
 	
-	check_admin_referer('addseries');
+	check_admin_referer('series-add');
 	
 	if ( !current_user_can('manage_series') ) 
 		wp_die(__('Cheatin&#8217; uh?'));
@@ -40,7 +42,7 @@ case 'edit':
 	//require_once('admin-header.php');  TODO - DON'T THINK I NEED THIS.
 	$series_ID = (int) $_GET['series_ID'];
 	$series = get_series_to_edit($series_ID);
-	include(get_settings('siteurl') . '/wp-content/plugins/orgSeries/edit-series-form.php'); //TODO write the edit-series-form.php file (see edit-category-form.php) -- DON'T forget to add to this form the series icon information.
+	include(get_settings('siteurl') . '/wp-content/plugins/orgSeries/edit-series-form.php'); 
 	
 break;
 
@@ -51,7 +53,7 @@ case 'editedseries':
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
 	
-	if ( wp_update_series($_POST, $_FILES['series_icon']) ) // TODO check to see that wp_update_series I've already written matches the wp_update_category code and that it does all the necessary updates.
+	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
 		wp_redirect('orgSeries-manage.php?message=3');
 	else
 		wp_redirect('orgSeries-manage.php?message=5');
@@ -61,7 +63,7 @@ break;
 
 default:
 
-wp_enqueue_script( 'admin-series' );  //I think I would have to use the add_action('wp_ajax_... action instead or the add_action('admin_header... //see the code for adding javascript to the post-edit screen adding series stuff.  NOW...also notice I need to write a series.js script different from the existing one I have to match the categories.js script except applied to series of course.
+wp_enqueue_script( 'admin-series' );  
 //require_once ('admin-header.php'); //TODO: I don't think I need to use this.
 
 $messages[1] = __('Series added.');
@@ -94,7 +96,7 @@ $messages[5] = __('Series not updated.');
 	</thead>
 	<tbody id="the-list">
 <?php
-	series-rows(); //TODO is this function written?  if not see cat_rows() and do similar -- DON'T forget to add a column for the series icon.
+	series_rows(); //TODO is this function written?  if not see cat_rows() and do similar -- DON'T forget to add a column for the series icon.
 ?>
 	</tbody>
 </table>

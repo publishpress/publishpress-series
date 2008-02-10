@@ -11,7 +11,7 @@ if ( ! empty($series_ID) ) {
 	$submit_text = __('Add Series &raquo;');
 	$form = '<form enctype="multipart/form-data" id="addseries" name="addseries" method="post" action="orgSeries-manage.php">'; //TODO see line 5
 	$action = 'addseries';
-	$nonce_action = 'add-series';
+	$nonce_action = 'series-add';
 	do_action('add_series_form_pre', $series); //TODO - see line 8
 }
 ?>
@@ -34,7 +34,7 @@ if ( ! empty($series_ID) ) {
 		</tr>
 		<tr>
 			<th scope="row" valign="top"><label for="series_description"><?php _e('Description: (optional)') ?></label></th>
-			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($category->description); ?></textarea></td>
+			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($series->description); ?></textarea></td>
 		</tr>
 		<tr>
 			<th scope="row" valign="top"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>

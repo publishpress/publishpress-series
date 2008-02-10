@@ -679,5 +679,56 @@ function wp_update_series($serarr) {
 	
 	return wp_insert_series($serarr);
 }
+
+function series_rows( $series = 0 ) {
+	if ( !$series )
+		$series = get_series( 'hide_empty=0' );
 	
+	if ( $series ) {
+		ob_start();
+		foreach ( $series as $serial ) {
+			echo "\t" . _series_row( $serial );
+		}
+		$output = ob_get_contents();
+		ob_end_clean();
+		
+		$output = apply_filters('series_rows', $output);
+		
+		echo $output;
+	} else {
+		return false;
+	}
+}
+
+function _series_row($series) {
+	global $class;
+	$series_icon = series_get_icons($series);
+	$series_url = seriesicons_url();
+	$icon = $series_url . "/" . $series_icon;
+	
+	if ( current_user_can( 'manage_series' ) ) {
+		$edit = "<a href='orgSeries-manage.php?action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";
+		$edit .= "<td><a href='" . wp_nonce_url("orgSeries-manage.php?action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('series', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
+	} else
+		$edit = '';
+	
+	$class = ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || " class='alternate'" == $class ) ? '' : " class='alternate'";
+	$series->count = number_format_i18n( $series->count );
+	$posts_count = ( $series->count > 0 ) ? "<a href='edit.php?series=$series->term_id'>$series->count</a>" : $series->count;
+	$output = "<tr id='series-$series->term_id'$class>
+		<th scope='row' style='text-align: center'>$series->term_id</th>
+		<td>" . $category->name . "</td>
+		<td>$category->description</td>
+		<td align='center'>$posts_count</td>
+		<td>";
+		if ($series_icon) {
+			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50'>";
+			} else {
+			$output .= "No icon selected";
+			}
+	$output .= "</td>
+		<td>$edit</td>\n\t</tr>\n";
+	
+	return apply_filters('series_row', $output);
+}
 ?>
