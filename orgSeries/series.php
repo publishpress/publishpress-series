@@ -221,7 +221,7 @@ function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 	$series_id = intval( $series_id );
 	
 	if ( !empty($series_id) ) {
-		$series_name = get_series_name($series_id)
+		$series_name = get_series_name($series_id);
 		if ( is_wp_error( $my_series ) )
 			return false;
 		$prefix = '';
@@ -579,7 +579,7 @@ function series_exists($series_name) {
 }
 
 function get_series_to_edit ( $id ) {
-	$series = get_series( $id, OBJECT, 'series' );
+	$series = get_orgserial( $id, OBJECT, 'edit' );
 	return $series;
 }
 
@@ -639,45 +639,44 @@ function wp_insert_series($serarr, $file) {
 	$overrides = array('action' => $action);
 	
 	if (isset($file))
-		$iconfile = wp_handle_upload ( $file, $overrides );
+		$iconfile = wp_handle_upload( $file, $overrides );
 	
 	if ($message = $iconfile['error']) return FALSE; //TODO - remove the RETURN FALSE check and instead return an array for wp_insert_series containing $message, and $series_id.  This would require going back over all the files to update any calls to wp_insert_series so that returned variable is used correctly.
 	$iconname = $iconfile['url'];
 	
 	//take the $iconname which contains the full url of the series
 	$iconname = explode('/', $iconname);
-	$icon = $icon[count($iconname) - 1];
+	$icon = $iconname[count($iconname) - 1];
 	
 	$args = compact('name','slug','description');
 	
-	if ( $update )
-		$series_ID = wp_update_term($series_ID, 'series', $args);
-		$series_icon = 	seriesicons_write($series_ID, $icon);
-	else
-		$series_ID = wp_insert_term($series_name,'series',$args);
+	if ( $update ) {
 		$series_icon = seriesicons_write($series_ID, $icon);
-	
-	if ( is_wp_error($series_ID) )
+		$ser_ID = wp_update_term($series_ID, 'series', $args);
+	} else {
+		$series_icon = seriesicons_write($series_ID, $icon);
+		$ser_ID = wp_insert_term($series_name,'series',$args);
+	}
+	if ( is_wp_error($ser_ID) )
 		return 0;
 	
-	return $series_ID['term_id'];
+	return $ser_ID['term_id'];
 }
 
-function wp_update_series($serarr) {
+function wp_update_series($serarr, $file) {
 	global $wpdb;
 	
 	$series_ID = (int) $serarr['series_ID'];
 	
 	// First, get all of the original fields
-	$series = get_series($series_ID, ARRAY_A);
+	$series = get_orgserial($series_ID, ARRAY_A);
 	
 	// Escape stuff pulled from DB.
 	$series = add_magic_quotes($series);
 	
 	//Merge old and new fields with fields overwriting old ones.
 	$serarr = array_merge($series, $serarr);
-	
-	return wp_insert_series($serarr);
+	return wp_insert_series($serarr, $file);
 }
 
 function series_rows( $series = 0 ) {
@@ -702,13 +701,14 @@ function series_rows( $series = 0 ) {
 
 function _series_row($series) {
 	global $class;
-	$series_icon = series_get_icons($series);
+	
+	$series_icon = series_get_icons($series->term_id);
 	$series_url = seriesicons_url();
 	$icon = $series_url . "/" . $series_icon;
 	
 	if ( current_user_can( 'manage_series' ) ) {
-		$edit = "<a href='orgSeries-manage.php?action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";
-		$edit .= "<td><a href='" . wp_nonce_url("orgSeries-manage.php?action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('series', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
+		$edit = "<a href='edit.php?page=orgSeries/orgSeries-manage.php&amp;action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";
+		$edit .= "<td><a href='" . wp_nonce_url("edit.php?page=orgSeries/orgSeries-manage.php&amp;action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('series', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
 	} else
 		$edit = '';
 	
@@ -717,14 +717,14 @@ function _series_row($series) {
 	$posts_count = ( $series->count > 0 ) ? "<a href='edit.php?series=$series->term_id'>$series->count</a>" : $series->count;
 	$output = "<tr id='series-$series->term_id'$class>
 		<th scope='row' style='text-align: center'>$series->term_id</th>
-		<td>" . $category->name . "</td>
-		<td>$category->description</td>
+		<td>" . $series->name . "</td>
+		<td>$series->description</td>
 		<td align='center'>$posts_count</td>
 		<td>";
-		if ($series_icon) {
-			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50'>";
-			} else {
+		if (!$series_icon) {
 			$output .= "No icon selected";
+			} else {
+			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50'>";
 			}
 	$output .= "</td>
 		<td>$edit</td>\n\t</tr>\n";

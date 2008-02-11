@@ -1,12 +1,10 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
+//TODO - the addseries form on the manage->series page isn't working as expected.  Need to troubleshoot.  Suspect there is something up with the ajax.
+require_once('orgSeries_includes.php');
 
-//TODO add_action on orgSeries-manage.php so it gets added to the manage submenu system in the WP Admin panel.
-
-$title = __('Series');
-$parent_file = 'edit.php';
-
-wp_reset_vars(array('action', 'series'));
+wp_reset_vars(array('action','series'));
+//require_once('../admin.php');
 
 switch($action) {
 	
@@ -18,9 +16,9 @@ case 'addseries':
 		wp_die(__('Cheatin&#8217; uh?'));
 		
 	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
-		wp_redirect('orgSeries-manage.php?message=1#addseries'); //TODO - don't think this will work...see post-teaser and header( ) for alternate option IF it indeed doesn't work.
+		wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=1#addseries'); //TODO - don't think this will work...see post-teaser and header( ) for alternate option IF it indeed doesn't work.
 	} else {
-		wp_redirect('orgSeries-manage.php?message=4#addseries');
+		wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=4#addseries');
 	}
 	exit;
 break;
@@ -33,30 +31,30 @@ case 'delete':
 		wp_die(__('Cheatin&#8217; uh?'));
 		
 	wp_delete_series($series_ID); 
-	wp_redirect('orgSeries-manage.php?message=2'); //TODO - see LINE 19
+	wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); //TODO - see LINE 19
 	exit;
 break;
 
 case 'edit':
 	
-	//require_once('admin-header.php');  TODO - DON'T THINK I NEED THIS.
 	$series_ID = (int) $_GET['series_ID'];
 	$series = get_series_to_edit($series_ID);
-	include(get_settings('siteurl') . '/wp-content/plugins/orgSeries/edit-series-form.php'); 
+	include( '../wp-content/plugins/orgSeries/edit-series-form.php'); 
 	
 break;
 
 case 'editedseries':
+	
 	$series_ID = (int) $_POST['series_ID'];
 	check_admin_referer('update-series_' . $series_ID);
 	
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
-	
+		
 	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
-		wp_redirect('orgSeries-manage.php?message=3');
+			wp_redirect(get_settings('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=3');
 	else
-		wp_redirect('orgSeries-manage.php?message=5');
+		wp_redirect(get_settings('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=5');
 	
 	exit;
 break;
@@ -108,7 +106,7 @@ $messages[5] = __('Series not updated.');
 <p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.')) ?></p>
 </div>
 
-<?php include('edit-series-form.php'); ?>
+<?php include('../wp-content/plugins/orgSeries/edit-series-form.php'); ?>
 <?php endif; ?>
 
 <?php

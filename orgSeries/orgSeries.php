@@ -94,7 +94,7 @@ function org_series_install() {
 			dbDelta($sql);
 		}
 		add_option('series_icon_path', '');
-		add_option('series_icon_path', '');
+		add_option('series_icon_url', '');
 		add_option('series_icon_filetypes', 'jpg gif jpeg png');
 }
 
@@ -123,6 +123,8 @@ function orgSeries_admin_header() {
 function series_organize_options() {
 	if (function_exists('add_options_page')) 
 		add_options_page('Organize Series Options', 'Series Options', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
+	if (function_exists('add_management_page'))	
+		add_management_page('Organize Series Management', 'Manage Series', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
 }
 
 ##ADMIN-Write/Edit Post Script loader
@@ -326,7 +328,7 @@ function admin_ajax_series_add() {
 	$series_full_name = attribute_escape($series_full_name);
 	$x = new WP_Ajax_Response();
 	$x->add( array(
-		'what' => 'series',
+		'what' => 'serial',
 		'id' => $series->series_ID,
 		'data' => _series_row( $series, $series_full_name ),
 		'supplemental' => array('name' => $series_full_name, 'show-link' => sprintf(__('Series <a href="#%s">%s</a> added' ), "series-$series->series_ID", $series_full_name))
@@ -336,11 +338,12 @@ function admin_ajax_series_add() {
 
 //delete series ajax
 function admin_ajax_delete_series() {
+	$id = (int) $_POST['id'];
 	if ( !current_user_can( 'manage_series' ) )
 		die('-1');
 	
 	if ( wp_delete_series( $id ) )
-		die('1')
+		die('1');
 	else die ('0');
 }
 
@@ -351,7 +354,7 @@ add_action('activate_orgSeries/orgSeries.php','org_series_install');
 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
-add_action('wp_ajax_series-add', 'admin_ajax_series_add');
+add_action('wp_ajax_add-serial', 'admin_ajax_series_add');
 add_action('wp_ajax_delete-series', 'admin_ajax_delete_series');
 
 //insert .css in header if needed

@@ -183,7 +183,7 @@ function org_series_import() {
 			'series_meta_template' => $series_meta_template,
 			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
 			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page;
+			'series_icon_width_post_page' => $series_icon_width_post_page);
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -219,7 +219,7 @@ function org_series_init($reset = false) {
 		//TODO: Add in "next/previous page" linking template
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
-		'series_icon_width_post_page' =>100;
+		'series_icon_width_post_page' =>100);
 			
 		if (!empty ($settings)) {
 			$newSettings = array_merge($init_settings, $settings);
