@@ -1,10 +1,10 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
-//TODO - the addseries form on the manage->series page isn't working as expected.  Need to troubleshoot.  Suspect there is something up with the ajax.
+//TODO - For future versions - figure out some way to have the file-upload with the "Add-Series" form.  I don't have it now because I don't know of a way to use ajax & <input type=file>.
+//TODO - For future versions - Add a dropdown list of existing images on the server for the user to pick from (the list would be created from the default series-icons uploads directory.
+//TODO - change the current setup so people can set their own default upload directory - currently they can only use the default directory of WordPress with date/folder organization disabled. (perhaps by setting an override for the $uploads variable in wp_handle_upload()
 require_once('orgSeries_includes.php');
-
-wp_reset_vars(array('action','series'));
-//require_once('../admin.php');
+wp_reset_vars(array('action','serial'));
 
 switch($action) {
 	
@@ -16,9 +16,9 @@ case 'addseries':
 		wp_die(__('Cheatin&#8217; uh?'));
 		
 	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
-		wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=1#addseries'); //TODO - don't think this will work...see post-teaser and header( ) for alternate option IF it indeed doesn't work.
+		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=1#addseries'); 
 	} else {
-		wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=4#addseries');
+		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=4#addseries');
 	}
 	exit;
 break;
@@ -31,7 +31,7 @@ case 'delete':
 		wp_die(__('Cheatin&#8217; uh?'));
 		
 	wp_delete_series($series_ID); 
-	wp_redirect('edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); //TODO - see LINE 19
+	wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); //TODO - see LINE 19
 	exit;
 break;
 
@@ -60,9 +60,8 @@ case 'editedseries':
 break;
 
 default:
-
-wp_enqueue_script( 'admin-series' );  
-//require_once ('admin-header.php'); //TODO: I don't think I need to use this.
+//wp_enqueue_script( 'admin-series' );  
+//require_once(ABSPATH . 'wp-admin/admin-header.php'); //TODO: I don't think I need to use this.
 
 $messages[1] = __('Series added.');
 $messages[2] = __('Series deleted.');
@@ -103,7 +102,7 @@ $messages[5] = __('Series not updated.');
 
 <?php if ( current_user_can('manage_series') ) : ?>
 <div class="wrap">
-<p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.')) ?></p>
+<p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.<br /><strong>Also: </strong><br />You add series icons to a series by clicking the edit link.')) ?></p>
 </div>
 
 <?php include('../wp-content/plugins/orgSeries/edit-series-form.php'); ?>
@@ -113,5 +112,4 @@ $messages[5] = __('Series not updated.');
 break;
 }
 
-//include('admin-footer.php');  TODO - don't think this will be necessary.  BUT will have to add orgSeries-manage.php to an add-action() related to the manage section of the admin site?
-?>	
+?>

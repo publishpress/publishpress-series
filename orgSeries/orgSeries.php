@@ -128,16 +128,28 @@ function series_organize_options() {
 }
 
 ##ADMIN-Write/Edit Post Script loader
-add_action('admin_head','orgSeries_admin_script');
+add_action('admin_head','orgSeries_admin_script'); 
+//add_action filter for the manage_series page...
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
-wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
-wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js', array('listman'), '20071201' );
-wp_localize_script('ajaxseries','seriesL10n',array(
-	'add' => attribute_escape(__('Add')),
-	'how' => __('Add the series name in this box')
-	));
-wp_print_scripts( 'ajaxseries' );
+global $pagenow;
+	if (isset($_GET['page']))
+		$pagenow = $_GET['page'];
+	if ('post-new.php' == $pagenow) {
+		wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
+		wp_localize_script('ajaxseries','seriesL10n',array(
+			'add' => attribute_escape(__('Add')),
+			'how' => __('Add the series name in this box')
+			));
+		wp_print_scripts( 'ajaxseries' );
+	}
+	if ('orgSeries/orgSeries-manage.php' == $pagenow)
+		orgSeries_manage_script();
+}
+
+function orgSeries_manage_script() {
+wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js',array('listman'), '20070125' );
+wp_print_scripts('admin-series');
 }
 	
 function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO: Add "current" class for the post that is currently displayed on the page so people can tweak the way it displays -- REQUIRES adding class to the default .css as well.  IF THIS DOESN'T WORK - it might be better to use the get_objects_in_term() function in the taxonomy.php file.
@@ -322,16 +334,16 @@ function admin_ajax_series_add() {
 		die('-1');
 	if (!$series = wp_insert_series( $_POST, $_FILES['series_icon'] ) )
 		die('0');
-	if ( !$series = get_series( $series ) )
+	if ( !$series = get_orgserial( $series ) )
 		die('0');
-	$series_full_name = $series->series_name;
+	$series_full_name = $series->name;
 	$series_full_name = attribute_escape($series_full_name);
 	$x = new WP_Ajax_Response();
 	$x->add( array(
 		'what' => 'serial',
-		'id' => $series->series_ID,
-		'data' => _series_row( $series, $series_full_name ),
-		'supplemental' => array('name' => $series_full_name, 'show-link' => sprintf(__('Series <a href="#%s">%s</a> added' ), "series-$series->series_ID", $series_full_name))
+		'id' => $series->term_ID,
+		'data' => _series_row( $series ),
+		'supplemental' => array('name' => $series_full_name, 'show-link' => sprintf(__('Series <a href="#%s">%s</a> added' ), "serial-$series->term_ID", $series_full_name))
 		) );
 		$x->send();
 }
@@ -355,7 +367,7 @@ add_action('activate_orgSeries/orgSeries.php','org_series_install');
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
 add_action('wp_ajax_add-serial', 'admin_ajax_series_add');
-add_action('wp_ajax_delete-series', 'admin_ajax_delete_series');
+add_action('wp_ajax_delete-serial', 'admin_ajax_delete_series');
 
 //insert .css in header if needed
 add_action('wp_head', 'orgSeries_header');

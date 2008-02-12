@@ -615,7 +615,7 @@ function wp_delete_series($series_ID) {
 	return wp_delete_term($series_ID, 'series');
 }
 
-function wp_insert_series($serarr, $file) {
+function wp_insert_series($serarr, $file='') {
 	global $wpdb;
 	
 	extract($serarr, EXTR_SKIP);
@@ -637,6 +637,7 @@ function wp_insert_series($serarr, $file) {
 	$slug = $series_nicename;
 	$action = $action;
 	$overrides = array('action' => $action);
+	if (empty($file) || $file=='') unset($file);
 	
 	if (isset($file))
 		$iconfile = wp_handle_upload( $file, $overrides );
@@ -654,8 +655,8 @@ function wp_insert_series($serarr, $file) {
 		$series_icon = seriesicons_write($series_ID, $icon);
 		$ser_ID = wp_update_term($series_ID, 'series', $args);
 	} else {
-		$series_icon = seriesicons_write($series_ID, $icon);
 		$ser_ID = wp_insert_term($series_name,'series',$args);
+		$series_icon = seriesicons_write($ser_ID['term_id'], $icon);
 	}
 	if ( is_wp_error($ser_ID) )
 		return 0;
@@ -708,14 +709,14 @@ function _series_row($series) {
 	
 	if ( current_user_can( 'manage_series' ) ) {
 		$edit = "<a href='edit.php?page=orgSeries/orgSeries-manage.php&amp;action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";
-		$edit .= "<td><a href='" . wp_nonce_url("edit.php?page=orgSeries/orgSeries-manage.php&amp;action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('series', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
+		$edit .= "<td><a href='" . wp_nonce_url("edit.php?page=orgSeries/orgSeries-manage.php&amp;action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('serial', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
 	} else
 		$edit = '';
 	
 	$class = ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || " class='alternate'" == $class ) ? '' : " class='alternate'";
 	$series->count = number_format_i18n( $series->count );
 	$posts_count = ( $series->count > 0 ) ? "<a href='edit.php?series=$series->term_id'>$series->count</a>" : $series->count;
-	$output = "<tr id='series-$series->term_id'$class>
+	$output = "<tr id='serial-$series->term_id'$class>
 		<th scope='row' style='text-align: center'>$series->term_id</th>
 		<td>" . $series->name . "</td>
 		<td>$series->description</td>
@@ -724,7 +725,7 @@ function _series_row($series) {
 		if (!$series_icon) {
 			$output .= "No icon selected";
 			} else {
-			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50'>";
+			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50' alt='" . $icon . "' />";
 			}
 	$output .= "</td>
 		<td>$edit</td>\n\t</tr>\n";
