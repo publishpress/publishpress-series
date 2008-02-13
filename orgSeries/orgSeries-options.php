@@ -6,6 +6,7 @@
 ** If first install of orgSeries -> initialize default options.
 ** do i want separate pages for options?
 ** after setting this up I will have to do an overhal of the postlist display and the series meta code.
+//TODO - for the post-list box there needs to be a template for current post.  That way users can specifiy something different for the current post if they so choose.  Then I'll have to modify the post-list code in orgSeries.php to check for whether the called post matches the displayed post and executes the new template for a match.
 */
 
 function org_series_options_js() {

@@ -139,7 +139,7 @@ global $pagenow;
 		wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
 		wp_localize_script('ajaxseries','seriesL10n',array(
 			'add' => attribute_escape(__('Add')),
-			'how' => __('Add the series name in this box')
+			'how' => __('Select "Not...series" to remove any series data from post')
 			));
 		wp_print_scripts( 'ajaxseries' );
 	}

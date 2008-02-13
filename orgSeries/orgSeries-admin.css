@@ -19,7 +19,7 @@
 }
 
 #serieschecklist {
-	height: 12em;
+	height: 8em;
 	overflow: auto;
 	margin-top: 8px;
 	margin-right: 6px;
@@ -34,12 +34,28 @@
 	border: 1px solid #ccc;
 }
 
+#serieshowto {
+	font-size: 11px;
+	margin: 0 5px;
+	display: block;
+	}
+	
+#part-description {
+	font-size: 11px;
+	margin: 0 5px;
+	display: block;
+}
+
+#seriespart input, #seriespart input:focus {
+	border: 1px solid #ccc;
+	}
+
 #newseries {
 	width: 120px;
 	margin-right: 5px;
 }
 
-input $seriesadd {
+input #seriesadd {
 	background: #a4a4a4;
 	border-bottom: 1px solid #898989;
 	border-left: 1px solid #bcbcbc;

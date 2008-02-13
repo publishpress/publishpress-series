@@ -5,7 +5,7 @@ function newSeriesAddIn() {
 	var jaxseries = $('jaxseries');
 	if ( !jaxseries )
 		return false;
-	Element.update(jaxseries,'<span id="ajaxseries"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" id="seriesadd" value="' + seriesL10n.add + '"/><input type="hidden"/><span id=serieshowto">' + seriesL10n.how + '</span></span>');
+	Element.update(jaxseries,'<span id="ajaxseries"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" id="seriesadd" value="' + seriesL10n.add + '"/><input type="hidden"/><span id="serieshowto">' + seriesL10n.how + '</span></span>');
 	$('newseries').onkeypress = function(e) { return killSubmit("seriesList.ajaxAdder('series','jaxseries');", e); };
 	$('seriesadd').onclick = function() {seriesList.ajaxAdder('series','jaxseries'); };
 }

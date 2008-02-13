@@ -36,7 +36,7 @@ function get_series_list( $default = 0 ) { //copied from get_nested_categories i
 }
 
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked=checked>Not part of a series</label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />Not part of a series</label></li>';
 		foreach ( $series as $serial ) {
 			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , wp_specialchars( $serial['ser_name'] ), "</label></li>";
 			
@@ -56,17 +56,13 @@ $id = isset($post) ? $post->ID : $postdata->ID;
 		<h3 class="dbx-handle"><?php _e("Organize Series") ?></h3>
 		<div class="dbx-content">
 			<p id="jaxseries"></p>
-			<?php _e("Manage the addition of this post to a series here") ?><br />
-			<ul id="serieschecklist">	<?php get_series_to_select(); ?></ul>
-		
-		<p id="jax-posts-in-series"></p> <?php /* place holder for calling up the other posts in a series that is selected...ajaxified */ ?> 
-		<input type="text" name="series_part" id="series_part" size="10" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /> What part is this post in the series?<br />
-			<p class="small">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
+		<ul id="serieschecklist">	<?php get_series_to_select(); ?></ul>
+		<span id="seriespart"><strong> Series Part:   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
 		</div>
 	</fieldset>
 	<?php
 }
 	
-//TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post.
-
-//TODO add series-icon related information - and selection control for series icon?  Should there be a "browse" button for uploading the series icon (the upload path would be taken from the series-icon options.)  OR  should all series-icon related infor be determined in the manage series page (the better option).
+//TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post. - to add in future version
+?>
