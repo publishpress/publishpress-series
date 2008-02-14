@@ -63,6 +63,7 @@ require (ABSPATH . '/wp-content/plugins/orgSeries/series.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
 //TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings) - CHECK how the category.php template works in the default wp install and see if there is code that could be modified for a default series.php template (will want to do a check for if the request address is ....www.myaddress.com/series to see if the series TOC should be displayed OR the regular series template (similar to how category templates are displayed.
+//TODO - Create a way for the user to select how the series posts are displayed on the series archive page:  Options:  chronologically (ASC||DESC), series-part (ASC||DESC).
 
 function org_series_install() {
           global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
@@ -135,7 +136,7 @@ function orgSeries_admin_script() {
 global $pagenow;
 	if (isset($_GET['page']))
 		$pagenow = $_GET['page'];
-	if ('post-new.php' == $pagenow) {
+	if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
 		wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
 		wp_localize_script('ajaxseries','seriesL10n',array(
 			'add' => attribute_escape(__('Add')),
@@ -143,6 +144,7 @@ global $pagenow;
 			));
 		wp_print_scripts( 'ajaxseries' );
 	}
+	
 	if ('orgSeries/orgSeries-manage.php' == $pagenow)
 		orgSeries_manage_script();
 }
@@ -151,9 +153,14 @@ function orgSeries_manage_script() {
 wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js',array('listman'), '20070125' );
 wp_print_scripts('admin-series');
 }
-	
-function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO: Add "current" class for the post that is currently displayed on the page so people can tweak the way it displays -- REQUIRES adding class to the default .css as well.  IF THIS DOESN'T WORK - it might be better to use the get_objects_in_term() function in the taxonomy.php file.
+
+function get_cat_posts( $ser_ID ) { //deprecated: see get_series_posts()
+		get_series_posts( $ser_ID );
+}
+
+function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO - order the posts that are called by their part number.
  	global $post;
+	$cur_id = $post->ID; //to get the id of the current post being displayed.
 	if (!isset($ser_ID)) {
 		$serarray = get_the_series();
 		if (!empty($serarray) ) {
@@ -163,14 +170,17 @@ function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which i
 		}
 	}
 	$settings = get_option('org_series_options');
-	$args = 'category=' . (int) $ser_ID;  //if doesn't work try category=
-	$posts_in_series = get_posts( $args );
+	$series_post = get_objects_in_term($ser_ID, 'series');
+	$posts_in_series = array();
+	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
-	foreach($posts_in_series as $post) :
-		$link = get_permalink($post->ID);
-		$title = get_the_title($post->ID);
-		$result .= '<li><a href="' . $link . '" rel="permalink">' . $title . '</a></li>'; 
-	endforeach; 
+	foreach($posts_in_series as $seriespost) {
+		if ($cur_id == $seriespost['id']) {
+			$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
+			continue;
+		}
+		$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $series``post['id']);
+	}
 	return $result;
 }
 
@@ -179,7 +189,7 @@ function wp_seriespost_check() {  //this checks if the post is a part of a serie
 	return get_the_series();
 }
 
-function wp_postlist_count() {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  TODO: modify this in future versions so that a post can belong to multiple series.
+function wp_postlist_count() {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  
 	$serarray = get_the_series();
 	if (!empty($serarray)) {
 		foreach ($serarray as $series) {

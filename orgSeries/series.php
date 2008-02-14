@@ -12,7 +12,6 @@ Please note:  I followed various WP core files for structuring code which made i
  
 /*utitlity functions -- perhaps add to their own file for better organization? */
 
-//This function will sort multi-dimensional arrays (courtesy of alishahnovin@hotmail.com via comment on "sort" info page on the php.net site)
 function _usort_series_by_part($a, $b) {
 	if ($a['part'] > $b['part'] )
 		return 1;
@@ -210,19 +209,19 @@ function in_series( $series_term ) { //check if the current post is in the given
 
 function get_series_name($series_id) {
 	$series_id = (int) $series_id;
-	$series = &get_series($series_id);
+	$series = &get_orgserial($series_id);
 	return $series->name;
 }
 
 function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 	if( 0==$series_id )
-		return;
+		return false;
 	
-	$series_id = intval( $series_id );
+	$series_id = (int) $series_id ;
 	
 	if ( !empty($series_id) ) {
 		$series_name = get_series_name($series_id);
-		if ( is_wp_error( $my_series ) )
+		if ( is_wp_error( $series_name ) )
 			return false;
 		$prefix = '';
 		$suffix = '';
@@ -251,27 +250,45 @@ function series_description($series_id = 0) {
 	return get_term_field('description', $series_id, 'series');
 }
 
+function series_post_title($post_ID, $linked=TRUE) {
+	global $post;
+	if (!isset($post_ID))
+		$post_ID = (int)$post->ID;
+	$title = get_the_title($post_ID);
+	if ($linked) {
+		$link = get_permalink($post_ID);
+		$return = '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+	} else {
+		$return = $title;
+	}
+	return $return;
+}
+		
+
 /** Replaces tokens (set in orgSeries options) with the relevant values **/
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
-function token_replace($replace, $referral = 'other', $seriesid = 0) {
+function token_replace($replace, $referral = 'other', $id = 0) {
 	global $post;
-	$id = $post->ID;
+	$p_id = $post->ID;
 	$settings = get_option('org_series_options');
 	if ('post-list' == $referral) {
 		$ser_width = $settings['series_icon_width_post_page']; 
 		 } else {
 		 $ser_width = $settings['series_icon_width_series_page'];
 		 }
-	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$seriesid'), $replace);
-	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$seriesid'), $replace);
-	$replace = str_replace('%series_title%', the_series_title($seriesid, FALSE), $replace);
-	$replace = str_replace('%series_title_linked%', the_series_title($seriesid), $replace);
-	$replace = str_replace('%post_title_list%', get_series_posts($seriesid), $replace);
-	$replace = str_replace('%series_part%', wp_series_part($id), $replace);
+	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$id'), $replace);
+	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$id'), $replace);
+	$replace = str_replace('%series_title%', the_series_title($id, FALSE), $replace);
+	$replace = str_replace('%series_title_linked%', the_series_title($id), $replace);
+	$replace = str_replace('%post_title_list%', get_series_posts($id), $replace);
+	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
+	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
+	$replace = str_replace('%series_part%', wp_series_part($p_id), $replace);
 	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
-	$replace = str_replace('%series_description%', series_description($series_id), $replace);
+	$replace = str_replace('%series_description%', series_description($id), $replace);
 	return $replace;
 	}
+
 
 /*----------------------POST RELATED FUNCTIONS (i.e. query etc. see post.php)--------------------*/
 //will have to add the following function for deleting the series relationship when a post is deleted.
@@ -533,7 +550,7 @@ function series_includeTemplate() {
 
 //TODO: NEED TO ADD TEMPLATE FOR SERIES TOC//
 
-function wp_set_post_series( $post_ID = 0, $series_id) {
+function wp_set_post_series( $post_ID = 0, $series_id=NULL) {
 	global $wpdb;
 	$post_ID = (int) $post_ID;
 	if (isset($series_id) ) 
@@ -594,9 +611,10 @@ function wp_create_series($series, $post_id = '') { // this function could be us
 	$series_ids = '';
 	if ($id = series_exists($series) ) 
 		$series_ids = $id;
-	else
-		if ($id = wp_create_single_series($series) )
+	elseif ($id = wp_create_single_series($series) )
 			$series_ids = $id;
+	
+	else $id = $_POST['post_series'];
 	
 	if ($post_id)
 		wp_set_post_series($post_id, $series_ids);

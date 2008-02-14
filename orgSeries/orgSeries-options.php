@@ -153,6 +153,11 @@ function org_series_import() {
 			$series_post_list_template .= $afterlistbox_post_page . '%postcontent%';
 			$series_post_list_template = trim(stripslashes($series_post_list_template));
 			
+			$series_post_list_post_template = $before_title_post_page . '%post_title_linked%' . $after_title_post_page;
+			$series_post_list_post_template = trim(stripslashes($series_post_list_post_template));
+			
+			$series_post_list_currentpost_template = '<li class="catlist-li-current">%post_title%</li>';
+			
 			//build series-meta-template
 			$series_meta_template = $before_series_meta . 'This' . $series_meta_word . 'is part %series_part% of %total_posts_in_series% in the series %series_title_linked%' . $after_series_meta . '%postcontent%';
 			$series_meta_template = trim(stripslashes($series_meta_template));
@@ -175,16 +180,26 @@ function org_series_import() {
 			$series_table_of_contents_box_template .= $afterdisplay_cat_page;
 			$series_table_of_contents_box_template = trim(stripslashes($series_table_of_contents_box_template));
 			
+		//add new next/previous post template
+			$series_post_nav_template = '%postcontent%<div class="series-post-nav"><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></div>';
+			$series_nextpost_nav_custom_text = 'Next Post in Series';
+			$series_prevpost_nav_custom_text = 'Previous Post in Series';
+			
 		//build new options array
 		$new_options = array(
 			'custom_css' => $custom_css,
 			'auto_tag_toggle' => $auto_tag_toggle,
 			'auto_tag_seriesmeta_toggle' => $auto_tag_seriesmeta_toggle,
-			'series_post_list_template' => $series_post_list_template,
+			'series_post_list_box_template' => $series_post_list_template,
+			'series_post_list_post_template' => $series_post_list_post_template,
+			'series_post_list_currentpost_template' => $series_post_list_currentpost_template,
 			'series_meta_template' => $series_meta_template,
 			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
 			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page);
+			'series_icon_width_post_page' => $series_icon_width_post_page),
+			'series_post_nav_template' => $series_post_nav_template,
+			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
+			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text;
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -214,9 +229,14 @@ function org_series_init($reset = false) {
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 		//new template options
-			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
+			'series_post_list_box_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
+			'series_post_list_post_template' => '<li class="catlist-li">%post_title_linked%</li>',
+			'series_post_list_currentpost_template' => '<li class="catlist-li-current">%post_title%</li>',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
+			'series_post_nav_template' => '%postcontent%<div class="series-post-nav"><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></div>',
+			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
+			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
 		//TODO: Add in "next/previous page" linking template
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
@@ -259,8 +279,13 @@ function org_series_option_update() {
 		
 	//template options
 	if ( isset($_POST['series_post_list_template']) ) $settings['series_post_list_template'] = trim(stripslashes($_POST['series_post_list_template']));
+	if ( isset($_POST['series_post_list_post_template']) ) $settings['series_post_list_post_template'] = trim(stripslashes($_POST['series_post_list_post_template']));
+	if ( isset($_POST['series_post_list_currentpost_template']) ) $settings['series_post_list_currentpost_template'] = trim(stripslashes($_POST['series_post_list_currentpost_template']));
 	if ( isset($_POST['series_meta_template']) ) $settings['series_meta_template'] = trim(stripslashes($_POST['series_meta_template']));
 	if ( isset($_POST['series_table_of_contents_box_template']) ) $settings['series_table_of_contents_box_template'] = trim(stripslashes($_POST['series_table_of_contents_box_template']));
+	if ( isset($_POST['series_post_nav_template']) ) $settings['series_post_nav_template'] = trim(stripslashes($_POST['series_post_nav_template']));
+	if ( isset($_POST['series_nextpost_nav_custom_text']) ) $settings['series_nextpost_nav_custom_text'] = trim(stripslashes($_POST['series_nextpost_nav_custom_text']));
+	if ( isset($_POST['series_prevpost_nav_custom_text']) ) $settings['series_prevpost_nav_custom_text']));
 	
 	//series-icon related settings
 	if ( isset($_POST['series_icon_width_series_page']) ) $settings['series_icon_width_series_page'] = $_POST['series_icon_width_series_page'];
@@ -330,7 +355,19 @@ function org_series_admin_page() {
 				<dt>%series_title_linked%</dt>
 					<dd>Same as %series_title% except that it will also be linked to the series page</dd>
 				<dt>%post_title_list%</dt>
-					<dd>Will be replaced with the list of posts (titles) belonging to a series.  Each post title is surrounded by "li" tags and is linked to the post</dd>
+					<dd>Is the location token for where the contents of the post list post templates will appear.</dd>
+				<dt>%post_title%</dt>
+					<dd>Will be replaced with the post title of a post in the series</dd>
+				<dt>%post_title_linked%</dt>
+					<dd>Will be replaced with the post title of a post in the series linked to the page view of that post.</dd>
+				<dt>%previous_post%</dt>
+					<dd>Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.</dd>
+				<dt>%previous_post_custom%</dt>
+					<dd>Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.</dd>
+				<dt>%next_post%</dt>
+					<dd>Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.</dd>
+				<dt>%next_post_custom%</dt>
+					<dd>Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.</dd>
 				<dt>%postcontent%</dt>
 					<dd>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</dd>
 				<dt>%series_part%</dt>
@@ -454,6 +491,20 @@ function org_series_echo_series_templates($settings) {
 				<p>This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]</p>
 				<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea>
 				<br />
+				<p>Series Post List Post Title Template:</p>
+				<p>Use this to indicate what html tags will surround the post title in the series post list.</p>
+				<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea>
+				<br />
+				<p>Series Post List Current Post Title Template:</p>
+				<p>Use this to style how you want the post title in the post list that is the same as the current post to be displayed.</p>
+				<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea>
+				<br />
+				<p>Series Post Navigation Template:</p>
+				<p>Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don't forget to use the %postcontent% token to indicate where you want the navigation to show).</p>
+				<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea>
+				<br />
+				<input name="series_nextpost_nav_custom_text" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $settings['series_nextpost_nav_custom_text']; ?>" size="40" /> Custom next post navigation text.<br />
+				<input name="series_prevpost_nav_custom_text" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $settings['series_prevpost_nav_custom_text']; ?>" size="40" /> Custom previous post navigation text.<br />
 				<p>Series Table of Contents Listings:</p>
 				<p>This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]</p>
 				<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea>
