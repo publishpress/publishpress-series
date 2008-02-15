@@ -36,7 +36,8 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 			$key++;
 		}
 	
-	usort( $series_posts, '_usort_series_by_part' );
+	if (count($series_posts) > 1)
+		usort( $series_posts, '_usort_series_by_part' );
 		
 	return $series_posts;
 }
@@ -286,6 +287,11 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 	$replace = str_replace('%series_part%', wp_series_part($p_id), $replace);
 	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
 	$replace = str_replace('%series_description%', series_description($id), $replace);
+	$replace = str_replace('%next_post%', wp_series_nav($id), $replace);
+	$replace = str_replace('%previous_post%', wp_series_nav($id, FALSE), $replace);
+	$replace = str_replace('%next_post_custom%', wp_series_nav($id, TRUE, TRUE), $replace);
+	$replace = str_replace('%previous_post_custom%', wp_series_nav($id, FALSE, TRUE), $replace);
+	
 	return $replace;
 	}
 

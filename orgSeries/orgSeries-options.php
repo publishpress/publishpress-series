@@ -196,10 +196,10 @@ function org_series_import() {
 			'series_meta_template' => $series_meta_template,
 			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
 			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page),
+			'series_icon_width_post_page' => $series_icon_width_post_page,
 			'series_post_nav_template' => $series_post_nav_template,
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
-			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text;
+			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text);
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -285,7 +285,7 @@ function org_series_option_update() {
 	if ( isset($_POST['series_table_of_contents_box_template']) ) $settings['series_table_of_contents_box_template'] = trim(stripslashes($_POST['series_table_of_contents_box_template']));
 	if ( isset($_POST['series_post_nav_template']) ) $settings['series_post_nav_template'] = trim(stripslashes($_POST['series_post_nav_template']));
 	if ( isset($_POST['series_nextpost_nav_custom_text']) ) $settings['series_nextpost_nav_custom_text'] = trim(stripslashes($_POST['series_nextpost_nav_custom_text']));
-	if ( isset($_POST['series_prevpost_nav_custom_text']) ) $settings['series_prevpost_nav_custom_text']));
+	if ( isset($_POST['series_prevpost_nav_custom_text']) ) $settings['series_prevpost_nav_custom_text'] = trim(stripslashes($_POST['series_prevpost_nav_custom_text']) );
 	
 	//series-icon related settings
 	if ( isset($_POST['series_icon_width_series_page']) ) $settings['series_icon_width_series_page'] = $_POST['series_icon_width_series_page'];

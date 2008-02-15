@@ -70,6 +70,7 @@ function org_series_install() {
          register_taxonomy($org_series_term, $org_series_type, $org_series_args);
 		 orgSeries_roles(); 
          
+		 //TODO - do test to make sure the WordPress version is greater than or equal to 2.3 and gracefully "die" if it isn't (outputting an error message using WP_Error?
 		 //do test to see if older version of orgSeries exists and if so set oldversion number so that any necessary import changes can be done. 
 		 if ( $options = get_option('org_series_options') && !( $oldversion = get_option('org_series_version') ) ) { //for versions prior to 2.0
 			add_option('org_series_oldversion', '1.6');
@@ -179,7 +180,7 @@ function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which i
 			$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
 			continue;
 		}
-		$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $series``post['id']);
+		$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id']);
 	}
 	return $result;
 }
@@ -303,6 +304,84 @@ function add_series_meta($content) {
 	return $content;
 }
 
+//series navigation strip on single-post display pages.
+function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE) {
+	global $post;
+	$cur_id = $post->ID;
+	$cur_part = get_post_meta($cur_id, SERIES_PART_KEY, true);
+	$setttings = get_option('org_series_options');
+	$custom_next = $settings['series_nextpost_nav_custom_text'];
+	$custom_prev = $settings['series_prevpost_nav_custom_text'];
+	
+	if (!isset($series_ID)) {
+		$series = get_the_series();
+		if (!empty($series) ) {
+			foreach ($series as $ser) {
+				$series_ID = $series->term_ID;
+			}
+		}
+	}
+	$series_posts = get_objects_in_term($series_ID, 'series');
+	$posts_in_series = array();
+	$posts_in_series = get_series_order($series_posts, $cur_id);
+	$result = '';
+	
+	foreach ($posts_in_series as $seriespost) {
+		if ($next) {
+			if ($seriespost['part'] > $cur_part && ($seriespost['part'] - $cur_part) > 1) {
+					continue;
+				} else {
+					if ($customtext) $title = $custom_next;
+						else $title = get_the_title($seriespost['id']);
+					$link = get_permalink($seriespost['id']);
+					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+					}
+		}
+		
+		if (!next) {
+			if ($cur_part > $seriespost['part'] && ($cur_part - $seriespost['part']) > 1) {
+				continue;
+				} else {
+					if ($customtext) $title = $custom_prev;
+						else $title = get_the_title($seriespost['id']);
+					$link = get_permalink($seriespost['id']);
+					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				}
+		}
+	}
+		if ($display) echo $result;
+			else return $result;	
+}
+
+//filter for assembling the navigation strip
+function wp_assemble_series_nav() {
+	$settings = get_option('org_series_options');
+	$series = get_the_series();
+		if (!empty($series)) {
+			foreach ($series as $ser) {
+				$series_id = $ser->term_id;
+			}
+		}
+		if (isset($series_id)) {
+			$nav = token_replace(stripslashes($settings['series_post_nav_template']), 'other', $series_id);
+			return $nav;
+		}
+	
+	return FALSE;
+}
+		
+//filter function for showing the navigation strip for posts that are part of a series  on the page of a post that is part of a series.
+function series_nav_filter($content) {
+	$settings = get_option('org_series_options');
+	if (is_single()) {
+		if($settings['auto_tag_toggle']) {
+			$series_nav = wp_assemble_series_nav();
+			$addcontent = $content;
+			$content = str_replace('%postcontent%', $addcontent, $series_nav);
+		}
+	}
+	return $content;
+}
 ######Filter function for selecting how posts are displayed on the series posts table of contents page.############# // TODO: CHECK TO SEE IF WILL WORK...I THINK THAT THIS WON'T WORK NOW...
 
 function sort_series_page_options($q) {
@@ -390,6 +469,9 @@ add_action('the_content', 'add_series_post_list_box');
 
 //add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
 add_action('the_content', 'add_series_meta');
+
+//add filter to automatically add the series-post-navigation strip
+add_action('the_content', 'series_nav_filter');
 
 //add action for admin-series.css
 add_action('admin_head', 'orgSeries_admin_header');
