@@ -59,7 +59,7 @@ $org_series_version = "2.0";
 $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count');
 $org_series_term = "series";
 $org_series_type = "post";
-require (ABSPATH . '/wp-content/plugins/orgSeries/series.php');
+require (ABSPATH . '/wp-content/plugins/orgSeries/series-taxonomy.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
 //TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings) - CHECK how the category.php template works in the default wp install and see if there is code that could be modified for a default series.php template (will want to do a check for if the request address is ....www.myaddress.com/series to see if the series TOC should be displayed OR the regular series template (similar to how category templates are displayed.
