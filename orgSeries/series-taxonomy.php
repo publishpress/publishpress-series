@@ -20,6 +20,7 @@ function _usort_series_by_part($a, $b) {
 	else
 		return 0;
 	}
+
 	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts, $postid = 0, $skip = TRUE) {

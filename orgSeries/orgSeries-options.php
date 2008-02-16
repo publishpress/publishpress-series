@@ -185,6 +185,10 @@ function org_series_import() {
 			$series_nextpost_nav_custom_text = 'Next Post in Series';
 			$series_prevpost_nav_custom_text = 'Previous Post in Series';
 			
+		//sorting options
+			$series_posts_orderby = 'meta_value';
+			$series_posts_order = 'ASC';
+			
 		//build new options array
 		$new_options = array(
 			'custom_css' => $custom_css,
@@ -199,7 +203,9 @@ function org_series_import() {
 			'series_icon_width_post_page' => $series_icon_width_post_page,
 			'series_post_nav_template' => $series_post_nav_template,
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
-			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text);
+			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
+			'series_posts_orderby' => $series_posts_orderby,
+			'series_posts_order' => $series_posts_order);
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -237,10 +243,13 @@ function org_series_init($reset = false) {
 			'series_post_nav_template' => '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
 			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
-		//TODO: Add in "next/previous page" linking template
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
-		'series_icon_width_post_page' =>100);
+		'series_icon_width_post_page' =>100,
+		//series posts order options
+		'series_posts_orderby' => 'meta_value',
+		'series_posts_order' => 'ASC');
+		
 			
 		if (!empty ($settings)) {
 			$newSettings = array_merge($init_settings, $settings);
@@ -286,6 +295,8 @@ function org_series_option_update() {
 	if ( isset($_POST['series_post_nav_template']) ) $settings['series_post_nav_template'] = trim(stripslashes($_POST['series_post_nav_template']));
 	if ( isset($_POST['series_nextpost_nav_custom_text']) ) $settings['series_nextpost_nav_custom_text'] = trim(stripslashes($_POST['series_nextpost_nav_custom_text']));
 	if ( isset($_POST['series_prevpost_nav_custom_text']) ) $settings['series_prevpost_nav_custom_text'] = trim(stripslashes($_POST['series_prevpost_nav_custom_text']) );
+	if ( isset($_POST['series_posts_orderby']) ) $settings['series_posts_orderby'] = trim(stripslashes($_POST['series_posts_orderby']) );
+	if ( isset($_POST['series_posts_order']) ) $settings['series_posts_order'] = trim(stripslashes($_POST['series_posts_order']) );
 	
 	//series-icon related settings
 	if ( isset($_POST['series_icon_width_series_page']) ) $settings['series_icon_width_series_page'] = $_POST['series_icon_width_series_page'];
@@ -468,6 +479,16 @@ function org_series_echo_fieldset_mainsettings($settings) {
 			</div>
 			<div class="org-description">
 				<p>Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]</p>
+			</div>
+			<div class="org-option">
+				<input name="series_posts_orderby" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $settings['series_posts_orderby']); ?> />Order by series part
+				<input name="series_posts_orderby" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $settings['series_posts_orderby']); ?> />Order by date <br />
+				<input name="series_posts_order" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $settings['series_posts_order']); ?> />Ascending
+				<input name="series_posts_order" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $settings['series_posts_order']); ?> />Descending
+			</div>
+			<div class="org-description">
+				<p>You can choose what order you want the posts on a series archive page to be displayed.  Default is by date, descending.
+				</p>
 			</div>
 		</div>
 	</div>

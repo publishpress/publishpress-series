@@ -379,18 +379,39 @@ function series_nav_filter($content) {
 	}
 	return $content;
 }
-######Filter function for selecting how posts are displayed on the series posts table of contents page.############# // TODO: CHECK TO SEE IF WILL WORK...I THINK THAT THIS WON'T WORK NOW...
+######Filter functions for selecting how posts are displayed on the series posts table of contents page.############# // TODO: - needs rewritten
+//first: check if the page displayed is_series()
+// second step: add series part information to the $post OBJECT. (via filter)
+// reorder the $post OBJECT by series part via what the user indicated in the series optoins preferences.
 
-function sort_series_page_options($q) {
-	$settings = get_option('org_series_options');
-	$orderby = 'post_' . $settings['order_by_series_page'] . ' ';
-	$order = $settings['order_series_page'];
-	if(is_series() && !is_feed()) {
-		$q = $orderby.$order;
-		return $q;
-	}
-	return $q;
+function sort_series_page_join($join) {
+	global $wpdb;
+	if (!is_series()) return $join;
+	$join .= "LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
+	return $join;
 }
+add_filter('posts_join_paged','sort_series_page_join');
+
+function sort_series_page_where($where) {
+	global $wpdb;
+	if(!is_series()) return $where;
+	$part_key = SERIES_PART_KEY;
+	$where .= " AND $wpdb->postmeta.meta_key = '$part_key' ";
+	return $where;
+}
+add_filter('posts_where', 'sort_series_page_where');
+
+function sort_series_page_orderby($ordering) {
+	if (!is_series()) return $ordering;
+	$settings = get_option('org_series_options');
+	$orderby = $settings['series_posts_orderby'];
+	$order = $settings['series_posts_order'];
+	if (!isset($orderby)) $orderby = "post_date";
+	if (!isset($order)) $order = "DESC";
+	$ordering = " $orderby $order ";
+	return $ordering;	
+}
+add_filter('posts_orderby','sort_series_page_orderby');
 
 ######ON THE FLY ADD SERIES########
 function admin_ajax_series() { 
