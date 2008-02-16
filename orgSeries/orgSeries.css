@@ -75,4 +75,12 @@ p.cat-description {
 	background-color: #E5F3FF;
 	font-size: .8em;
 }
+
+.series-nav-left {
+	float: left;
+}
+
+.series-nav-right {
+	float: right;
+}
 	

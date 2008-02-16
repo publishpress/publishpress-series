@@ -181,7 +181,7 @@ function org_series_import() {
 			$series_table_of_contents_box_template = trim(stripslashes($series_table_of_contents_box_template));
 			
 		//add new next/previous post template
-			$series_post_nav_template = '%postcontent%<div class="series-post-nav"><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></div>';
+			$series_post_nav_template = '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>';
 			$series_nextpost_nav_custom_text = 'Next Post in Series';
 			$series_prevpost_nav_custom_text = 'Previous Post in Series';
 			
@@ -234,7 +234,7 @@ function org_series_init($reset = false) {
 			'series_post_list_currentpost_template' => '<li class="catlist-li-current">%post_title%</li>',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
-			'series_post_nav_template' => '%postcontent%<div class="series-post-nav"><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></div>',
+			'series_post_nav_template' => '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
 			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
 		//TODO: Add in "next/previous page" linking template

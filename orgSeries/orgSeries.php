@@ -321,6 +321,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 			}
 		}
 	}
+	
 	$series_posts = get_objects_in_term($series_ID, 'series');
 	$posts_in_series = array();
 	$posts_in_series = get_series_order($series_posts, $cur_id);
@@ -328,22 +329,18 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 	
 	foreach ($posts_in_series as $seriespost) {
 		if ($next) {
-			if ($seriespost['part'] > $cur_part && ($seriespost['part'] - $cur_part) > 1) {
-					continue;
-				} else {
-					if ($customtext) $title = $custom_next;
-						else $title = get_the_title($seriespost['id']);
+			if ( ($seriespost['part'] - $cur_part) == 1) {
+					if ($customtext) $title = $custom_next . '&raquo;';
+						else $title = get_the_title($seriespost['id']) . '&raquo;';
 					$link = get_permalink($seriespost['id']);
 					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 					}
 		}
 		
-		if (!next) {
-			if ($cur_part > $seriespost['part'] && ($cur_part - $seriespost['part']) > 1) {
-				continue;
-				} else {
-					if ($customtext) $title = $custom_prev;
-						else $title = get_the_title($seriespost['id']);
+		if (!$next) {
+			if (($cur_part - $seriespost['part']) == 1) {
+					if ($customtext) $title = '&laquo;' . $custom_prev;
+						else $title = '&laquo;' . get_the_title($seriespost['id']);
 					$link = get_permalink($seriespost['id']);
 					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 				}
