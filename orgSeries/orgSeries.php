@@ -126,7 +126,7 @@ function series_organize_options() {
 	if (function_exists('add_options_page')) 
 		add_options_page('Organize Series Options', 'Series Options', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
 	if (function_exists('add_management_page'))	
-		add_management_page('Organize Series Management', 'Manage Series', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
+		add_management_page('Organize Series Management', 'Series', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
 }
 
 ##ADMIN-Write/Edit Post Script loader

@@ -50,7 +50,7 @@ case 'editedseries':
 	
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
-		
+	
 	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
 			wp_redirect(get_settings('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=3');
 	else

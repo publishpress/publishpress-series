@@ -29,7 +29,7 @@
 	
 	if (empty($p['series']) && isset($GLOBALS['SERIES_QUERYVAR'])) {
 		$serieslist = get_the_series($GLOBALS['post']->ID);
-		if ( is_array($serieslist) ) $p['series'] = $serieslist[0]->series_ID;
+		if ( is_array($serieslist) ) $p['series'] = $serieslist[0]->term_id;
 	}
 	
 	if (!isset($p['series'])) return;

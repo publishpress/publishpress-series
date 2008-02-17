@@ -63,6 +63,44 @@ $id = isset($post) ? $post->ID : $postdata->ID;
 	</fieldset>
 	<?php
 }
-	
+
+add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
+function orgSeries_custom_column_filter($defaults) {
+	$defaults['series'] = __('Series');
+	return $defaults;
+}
+
+add_action('manage_posts_custom_column','orgSeries_custom_column_action', 10, 2);
+function orgSeries_custom_column_action($column_name, $id) {
+	global $wpdb;
+	if ($column_name == 'series') {
+		$series = get_the_series($id);
+		$seriesid = $series[0]->term_id;
+		$series_name = $series[0]->name;
+		$series_link = get_series_link($seriesid);
+		$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
+		$count = $series[0]->count;
+		if ($series) {
+			$column_content = 'Part ' . $series_part . ' of ' . $count . ' the series, <a href="' . $series_link . '" title="' . $series_name . '">' . $series_name . '</a>';
+			echo  $column_content;
+		} else {
+			echo '<em>No Series</em>';
+		}
+	}
+}
+
+add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+function orgSeries_custom_manage_posts_filter() {
+	$_GET['series'] = (int) $_GET['series'];
+	//$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in&#8220;%s&#8221;'), single_series_title('' , false) ) : ''; //TODO: Keeping an eye out for a hook into the page title in future versions of WordPress
+	?>
+	<form name="searchform" id="seriessearchform" action="" method="get">
+		<fieldset><legend><?php _e('Series&hellip;') ?></legend>
+			<?php wp_dropdown_series('show_option_all='.__('All').'&hide_empty=1&show_count=1&selected='.$_GET['series']);?>
+		</fieldset>
+		<input type="submit" id="post-query-submit2" value="<?php _e('Filter by Series &#187;'); ?>" class="button" />
+	</form>
+<?php
+}
 //TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post. - to add in future version
 ?>

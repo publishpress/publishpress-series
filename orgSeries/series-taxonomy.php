@@ -472,6 +472,70 @@ function single_series_title($prefix = '', $display = true) {
 	}
 }
 
+//following is modified from wp_dropdown_categories()
+function wp_dropdown_series($args = '') {
+	$defaults = array(
+		'show_option_all' => '', 'show_option_none' => '',
+		'orderby' => 'ID', 'order' => 'ASC',
+		'show_last_update' => 0, 'show_count' => 0,
+		'hide_empty' => 1, 
+		'exclude' => '', 'echo' => 1,
+		'selected' => 0,
+		'name' => 'series', 'class' => 'postform'
+	);
+	
+	$defaults['selected'] = ( is_series() ) ? get_query_var('series') : 0;
+	
+	$r = wp_parse_args( $args, $defaults );
+	$r['include_last_update_time'] = $r['show_last_update'];
+	extract( $r );
+	
+	$serieslist = get_series($r);
+	
+	$output = '';
+	if ( ! empty($serieslist) ) {
+		$output = "<select name='$name' id='$name' class='$class'>\n";
+		
+		if ( $show_option_all ) {
+			$show_option_all = apply_filters('list_series', $show_option_all);
+			$output .= "\t<option value='0'>$show_option_all</option>\n";
+		}
+		
+		if ( $show_option_none) {
+			$show_option_none = apply_filters('list_series', $show_option_none);
+			$output .= "\t<option value='-1'>$show_option_none</option>\n";
+		}
+		foreach ($serieslist as $listseries) {		
+			$output .= walk_series_dropdown_tree($listseries, $r);
+		}
+		$output .= "</select>\n";
+	}
+	
+	$output = apply_filters('wp_dropdown_series', $output);
+	
+	if ( $echo )
+		echo $output;
+		
+	return $output;
+}
+
+function walk_series_dropdown_tree($serieslist, $r) {
+	$series_name = apply_filters('list_series', $serieslist->name, $serieslist);
+	$output .= '<option value="' . $serieslist->term_id . '"';
+	if ( $serieslist->term_id == $r['selected'] )
+		$output .= ' selected="selected"';
+	$output .= '>';
+	$output .= $series_name;
+	if ( $r['show_count'] )
+		$output .= '&nbsp;&nbsp;(' . $serieslist->count .')';
+	if ( $r['show_last_update'] ) {
+		$format = 'Y-m-d';
+		$output .= '&nbsp; &nbsp;' . gmdate($format, $serieslist->last_update_timestamp);
+	}
+	$output .= '</option>';
+	
+	return $output;
+}
 //wp_query stuff (see query.php) -- help for this came from examples gleaned in jeromes-keywords.php
 function series_addQueryVar($wpvar_array) {
 	$wpvar_array[] = SERIES_QUERYVAR;
@@ -640,7 +704,7 @@ function wp_delete_series($series_ID) {
 	return wp_delete_term($series_ID, 'series');
 }
 
-function wp_insert_series($serarr, $file='') {
+function wp_insert_series($serarr, $file = FALSE) {
 	global $wpdb;
 	
 	extract($serarr, EXTR_SKIP);
@@ -662,12 +726,12 @@ function wp_insert_series($serarr, $file='') {
 	$slug = $series_nicename;
 	$action = $action;
 	$overrides = array('action' => $action);
-	if (empty($file) || $file=='') unset($file);
+	if (!($file) || $file=='') unset($file);
 	
 	if (isset($file))
 		$iconfile = wp_handle_upload( $file, $overrides );
 	
-	if ($message = $iconfile['error']) return FALSE; //TODO - remove the RETURN FALSE check and instead return an array for wp_insert_series containing $message, and $series_id.  This would require going back over all the files to update any calls to wp_insert_series so that returned variable is used correctly.
+	//if ($message = $iconfile['error']) return FALSE; //TODO - remove the RETURN FALSE check and instead return an array for wp_insert_series containing $message, and $series_id.  This would require going back over all the files to update any calls to wp_insert_series so that returned variable is used correctly.
 	$iconname = $iconfile['url'];
 	
 	//take the $iconname which contains the full url of the series
@@ -689,7 +753,7 @@ function wp_insert_series($serarr, $file='') {
 	return $ser_ID['term_id'];
 }
 
-function wp_update_series($serarr, $file) {
+function wp_update_series($serarr, $file = FALSE) {
 	global $wpdb;
 	
 	$series_ID = (int) $serarr['series_ID'];
@@ -740,7 +804,7 @@ function _series_row($series) {
 	
 	$class = ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || " class='alternate'" == $class ) ? '' : " class='alternate'";
 	$series->count = number_format_i18n( $series->count );
-	$posts_count = ( $series->count > 0 ) ? "<a href='edit.php?series=$series->term_id'>$series->count</a>" : $series->count;
+	$posts_count = ( $series->count > 0 ) ? "<a href='edit.php?series=$series->term_id'>$series->count</a>" : $series->count;  
 	$output = "<tr id='serial-$series->term_id'$class>
 		<th scope='row' style='text-align: center'>$series->term_id</th>
 		<td>" . $series->name . "</td>
