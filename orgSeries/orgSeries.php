@@ -190,15 +190,23 @@ function wp_seriespost_check() {  //this checks if the post is a part of a serie
 	return get_the_series();
 }
 
-function wp_postlist_count() {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  
-	$serarray = get_the_series();
-	if (!empty($serarray)) {
-		foreach ($serarray as $series) {
-		$postlist_count = $series->count;
+function wp_postlist_count($ser_id = false) {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  If a $series_id is passed to the function then the function will use that to get the postlist count for a particular series.
+	if (!$ser_id) {
+		$series = get_the_series();
+		if (!empty($series)) {
+			$postlist_count = $series[0]->count;
+		} else {
+			$postlist_count = 0;
 		}
 	} else {
-		$postlist_count = 0;
-	}
+		$series = get_orgserial($ser_id);
+		if (!empty($series)) {
+			$postlist_count = $series->count;
+		} else {
+			$postlist_count = 0;
+		}
+	}	
+		
 	return $postlist_count;
 }
 
@@ -258,19 +266,17 @@ function wp_serieslist_display_code($series) { //reusable function for display o
 		$settings = get_option('org_series_options');
 		$serID = $series->term_id;
 		if (isset($serID)) {
-			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'other', $serID);
-			return $series_display;
+			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
+			echo $series_display;
 		}
 		return false;
 }
  
 function wp_serieslist_display() {  
-	global $wpdb, $post;
-	$settings = get_option('org_series_options');
 	$series_list = get_series('hide_empty=0');
 	
 	foreach ($series_list as $series) {  
-	wp_serieslist_display_code($series); //layout code
+		wp_serieslist_display_code($series); //layout code
 	}
 }
 #####Filter function for adding series post-list box to a post in that series####

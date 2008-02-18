@@ -82,16 +82,19 @@ function get_series_permastruct() {
 	return $series_structure;
 }
 
-function series_createRewriteRules($rewrite) {
+function series_createRewriteRules($rules) {
 	global $wp_rewrite;
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
+	$wp_rewrite->add_rewrite_tag($series_token, '(.*)', SERIES_QUERYVAR . '=');
 	
+	//without trailing slash
 	$series_structure = $wp_rewrite->root . SERIES_QUERYVAR . "/$series_token";
-	$series_rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
+	$rules += $wp_rewrite->generate_rewrite_rules($series_structure);
 	
-	return ( $rewrite + $series_rewrite );
+	//with traling slash
+	$rules += $wp_rewrite->generate_rewrite_rules($series_structure . '/');
+	return $rules;
 }
 
 function series_init() {
@@ -109,7 +112,40 @@ function series_init() {
 	//generate rewrite rules for series queries 
 	
 	if (SERIES_REWRITEON && SERIES_REWRITERULES)
-		add_filter('search_rewrite_rules', 'series_createRewriteRules');
+		add_filter('rewrite_rules_array', 'series_createRewriteRules');
+	
+	//setting up the series_toc_page redirect
+	$settings = get_option('org_series_options');
+	$series_toc_url = $settings['series_toc_url'];
+	if ($series_toc_url && (strpos($_SERVER['REQUEST_URI'], $series_toc_url) === 0) && (strlen($_SERVER['REQUEST_URI']) == strlen($series_toc_url))) {
+		status_header(200); 
+		add_filter('request', 'orgSeries_request');
+		add_action('parse_query', 'orgSeries_parse_query');
+		add_action('template_redirect', 'orgSeries_toc_template');
+	}
+}
+
+function orgSeries_parse_query($wp_query) {
+	$wp_query->is_404 = false;
+}
+
+function orgSeries_request($query_vars) {
+	$query_vars['error'] = false;
+	return $query_vars;
+}
+
+function orgSeries_toc_template() {
+	if (file_exists(TEMPLATEPATH . '/seriestoc.php')) {
+		$template =  TEMPLATEPATH . '/seriestoc.php';
+	} else {
+		$template = ABSPATH . 'wp-content/plugins/orgSeries/seriestoc.php';
+	}
+	
+	if ($template) {
+		load_template($template);
+		exit;
+	}
+	return;
 }
 add_action('init', 'series_init');
 
@@ -278,6 +314,11 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 		 } else {
 		 $ser_width = $settings['series_icon_width_series_page'];
 		 }
+	if ('series-toc' == $referral) {
+		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($id), $replace);
+	} else {
+		$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
+	}
 	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$id'), $replace);
 	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$id'), $replace);
 	$replace = str_replace('%series_title%', the_series_title($id, FALSE), $replace);
@@ -286,7 +327,6 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
 	$replace = str_replace('%series_part%', wp_series_part($p_id), $replace);
-	$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
 	$replace = str_replace('%series_description%', series_description($id), $replace);
 	$replace = str_replace('%next_post%', wp_series_nav($id), $replace);
 	$replace = str_replace('%previous_post%', wp_series_nav($id, FALSE), $replace);
@@ -454,9 +494,12 @@ function add_series_wp_title( $title ) {
 add_filter('wp_title', 'add_series_wp_title');
 
 function single_series_title($prefix = '', $display = true) {
-	if( !is_series() )
-		return;
-	$series_id = intval( get_query_var(SERIES_QUERYVAR) );
+	$series_id = get_query_var(SERIES_QUERYVAR);
+	$serchk = is_term( $series_id, SERIES_QUERYVAR );
+	
+	if ( !empty($serchk) ) {
+		$series_id = $serchk['term_id'];
+	}
 	
 	if ( !empty($series_id) ) {
 		$my_series = &get_term($series_id, 'series', OBJECT, 'display');
@@ -555,6 +598,7 @@ function series_parseQuery($query) {
 		$wp_query->is_archive = false;
 		$wp_query->is_search = false;
 		$wp_query->is_home = false;
+		$wp_query->is_series = true;
 		
 		add_filter('posts_where', 'series_postsWhere');
 		add_filter('posts_join', 'series_postsJoin');
@@ -575,17 +619,19 @@ function is_series() {
 function series_postsWhere($where) { 
 	global $wpdb;
 	$series_var = get_query_var(SERIES_QUERYVAR);
+	$token = "'" . SERIES_QUERYVAR . "'";
+	//convert to series id if permalinks turned on.
+	$serchk = is_term( $series_var, SERIES_QUERYVAR );
+	if ( !empty($serchk) ) 
+		$series_var = $serchk['term_id'];
 	$whichseries = '';
 	
 	if ( !empty($series_var) ) {
-		$whichseries .= " AND $wpdb->term_taxonomy.taxonomy = 'series' ";
+		$whichseries .= " AND $wpdb->term_taxonomy.taxonomy = $token ";
 		$whichseries .= " AND $wpdb->term_taxonomy.term_id = $series_var ";
-		$reqser = is_term( $series_var, 'series' );
-		if ( !empty($reqser) )
-			$q['ser_id'] = $reqser['term_id'];
 	}
 		
-	$where .= "AND $wpdb->term_taxonomy.taxonomy = 'series' ";
+	$where .= "AND $wpdb->term_taxonomy.taxonomy = $token ";
 	$where .= $whichseries;
 	return ($where);
 }
@@ -606,8 +652,7 @@ function series_includeTemplate() {
 		
 		if ( file_exists(TEMPLATEPATH. "/" . SERIES_TEMPLATE) )
 			$template = TEMPLATEPATH . "/" . SERIES_TEMPLATE;
-		else if ( file_exists(TEMPLATEPATE . "/series.php") )
-			$template = TEMPLATEPATH . "/series.php";
+		
 		else
 			$template = get_archive_template();
 		

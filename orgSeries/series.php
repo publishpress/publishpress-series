@@ -2,22 +2,23 @@
 ######################################
 /* EXAMPLE SERIES-TEMPLATE FOR SERIES DISPLAY PAGES
 This is an example template file that WordPress would load when a reader clicks the link for a series.  By default the orgSeries plugin will load the default archives template (either archive.php or index.php - depending on what theme is activated) when a series link is clicked.  If you want to use this file instead:
-1. Modify it so that it matches the layout of your current theme (take a look at your category.php or archive.php or index.php file in your theme template folder and mirror it in this file - when finished the only difference between the two files will be that instead of the category template tags you'll use the series template tags).
 2. Copy the new series.php file into your theme directory on the server your WordPress is hosted.
 3. That's it!  */
 ########################################
 
-get_header(); ?>
+get_header(); 
+$settings= get_option('org_series_options');
+$toc = $settings['series_toc_url'];
+$request = $_SERVER['REQUEST_URI'];?>
 
 	<div id="content" class="narrowcolumn">
 <?php is_tag(); ?>
 		<?php if (have_posts()) : ?>
- 	    <?php /* If this is a series archive*/  if (is_series()) { ?>
-		<h2 class="pagetitle">Archive for the &#8216;<?php single_series_title(); ?>&#8217; Series</h2>
+ 	    <h2 class="pagetitle">Archive for the &#8216;<?php single_series_title(); ?>&#8217; Series</h2>
+		
 		<p><?php echo series_description(); ?></p>
- 	   	  <?php } ?>
-
-
+		<p><?php echo $toc . '   REQUEST: ' . $request; ?></p>
+ 	   
 		<div class="navigation">
 			<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>

@@ -140,6 +140,8 @@ function org_series_import() {
 			$custom_css = $custom_css;
 			$auto_tag_toggle = $auto_tag_toggle;
 			$auto_tag_seriesmeta_toggle = $auto_tag_seriesmeta_toggle;
+			$url = parse_url(get_bloginfo('siteurl'));
+			$series_toc_url = $url['path'] . '/series/';
 						
 			//build series-post-list-template
 			$series_post_list_template = $beforelistbox_post_page;
@@ -194,6 +196,7 @@ function org_series_import() {
 			'custom_css' => $custom_css,
 			'auto_tag_toggle' => $auto_tag_toggle,
 			'auto_tag_seriesmeta_toggle' => $auto_tag_seriesmeta_toggle,
+			'series_toc_url' => $series_toc_url,
 			'series_post_list_box_template' => $series_post_list_template,
 			'series_post_list_post_template' => $series_post_list_post_template,
 			'series_post_list_currentpost_template' => $series_post_list_currentpost_template,
@@ -229,11 +232,13 @@ function org_series_init($reset = false) {
 	}
 	
 	if (!($is_initialized=get_option('org_series_is_initialized')) || empty ($settings) || $reset || '1.6' == $oldversion) {
+		$url = parse_url(get_bloginfo('siteurl'));
 		$init_settings = array( //options for the orgSeries plugin
 		//main settings
 			'custom_css' => 1, 
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
+			'series_toc_url' => $url['path'] . '/series/',
 		//new template options
 			'series_post_list_box_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="catlist-li">%post_title_linked%</li>',
@@ -280,11 +285,15 @@ function org_series_init($reset = false) {
 
 function org_series_option_update() {
 	global $wpdb;
-		
+	
+	$url = parse_url(get_bloginfo('siteurl'));
 	//toggles and paging info
 	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
 	$settings['auto_tag_seriesmeta_toggle'] = isset($_POST['auto_tag_seriesmeta_toggle']) ? 1 : 0;
 	$settings['custom_css'] = isset($_POST['custom_css']) ? 1 : 0;
+	if ( isset($_POST['series_toc_url']) ) $settings['series_toc_url'] = $url['path'] . '/' . $_POST['series_toc_url'];
+	if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
+	if (strlen($_POST['series_toc_url']) <=0) $settings['series_toc_url'] = FALSE;
 		
 	//template options
 	if ( isset($_POST['series_post_list_template']) ) $settings['series_post_list_template'] = trim(stripslashes($_POST['series_post_list_template']));
@@ -453,6 +462,8 @@ function org_series_import_form() {
 }
 
 function org_series_echo_fieldset_mainsettings($settings) {
+	$url = parse_url(get_bloginfo('siteurl'));
+	$url = $url['path'] . '/';
 	?>
 	<div class="dbx-b-ox-wrapper">
 	<fieldset id="main-options" class="dbx-box">
@@ -480,6 +491,13 @@ function org_series_echo_fieldset_mainsettings($settings) {
 			<div class="org-description">
 				<p>Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]</p>
 			</div>
+			<div class="org-option">
+				Series Table of Contents URL:<br />
+				<?php bloginfo('siteurl') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
+			</div>
+			<div class="org-description">
+				<p>Enter the path where you want the Series Table of Contents to be shown</p>
+			</div>				
 			<div class="org-option">
 				<input name="series_posts_orderby" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $settings['series_posts_orderby']); ?> />Order by series part
 				<input name="series_posts_orderby" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $settings['series_posts_orderby']); ?> />Order by date <br />
