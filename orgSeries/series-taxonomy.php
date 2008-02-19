@@ -309,7 +309,7 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 	global $post;
 	$p_id = $post->ID;
 	$settings = get_option('org_series_options');
-	if ('post-list' == $referral) {
+	if ( 'post-list' == $referral ) {
 		$ser_width = $settings['series_icon_width_post_page']; 
 		 } else {
 		 $ser_width = $settings['series_icon_width_series_page'];
@@ -319,8 +319,8 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 	} else {
 		$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
 	}
-	$replace = str_replace('%series_icon%', get_series_icon('fit_width=$ser_width, link=0, series=$id'), $replace);
-	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width=$ser_width, series=$id'), $replace);
+	$replace = str_replace('%series_icon%', get_series_icon('fit_width=' .  $ser_width . '&link=0&series=' . $id . '&display=0'), $replace);
+	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width= ' . $ser_width . '&series=' . $id . '&display=0'), $replace);
 	$replace = str_replace('%series_title%', the_series_title($id, FALSE), $replace);
 	$replace = str_replace('%series_title_linked%', the_series_title($id), $replace);
 	$replace = str_replace('%post_title_list%', get_series_posts($id), $replace);

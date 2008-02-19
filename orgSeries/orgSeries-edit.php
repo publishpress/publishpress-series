@@ -102,5 +102,25 @@ function orgSeries_custom_manage_posts_filter() {
 	</form>
 <?php
 }
+//BELOW FOR IF MY patch [ticket #5899] get's accepted for future version of WP
+/*add_action('manage_posts_title','orgSeries_manage_posts_title');
+function orgSeries_manage_posts_title() {
+	$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in &#8220;%s&#8221;'), single_series_title('', false) ) : '';
+	}
+	
+add_filter('edit_manage_posts_reorder', 'orgSeries_manage_posts_reorder');
+function orgSeries_manage_posts_reorder($order) {
+	$order = '';
+	$order = _c('%1$s%2$s%3$s%4$s%5$s%6$s|You can reorder these: 1: Posts, 2: by {s}, 3: matching {s}, 4: in {s}, 5: and the series {s}, 6: during {s}');
+	return $order;
+}
+
+add_filter('edit_manage_posts_titles', 'orgSeries_manage_posts_titles');
+function orgSeries_manage_posts_titles($titles) {
+	$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in &#8220;%s&#8221;'), single_series_title('', false) ) : '';
+	array_push($titles, $h2_series);
+	
+	return $titles;
+}*/
 //TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post. - to add in future version
 ?>

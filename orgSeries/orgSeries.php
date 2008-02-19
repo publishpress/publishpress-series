@@ -161,7 +161,10 @@ function get_cat_posts( $ser_ID ) { //deprecated: see get_series_posts()
 
 function get_series_posts( $ser_ID ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO - order the posts that are called by their part number.
  	global $post;
-	$cur_id = $post->ID; //to get the id of the current post being displayed.
+	if (is_single())
+		$cur_id = $post->ID; //to get the id of the current post being displayed.
+	else
+		$cur_id = -1;
 	if (!isset($ser_ID)) {
 		$serarray = get_the_series();
 		if (!empty($serarray) ) {

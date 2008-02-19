@@ -20,14 +20,15 @@
 	if (!isset($p['fit_width'])) $p['fit_width']=-1;
 	if (!isset($p['fit_height'])) $p['fit_height']=-1;
 	if (!isset($p['expand'])) $p['expand']=false;
-	if (!isset($p['series'])) $p['series']=$GLOBALS['SERIES_QUERYVAR']; // might need to be $GLOBALS['cat']
+	if (!isset($p['series'])) $p['series']=$GLOBALS['SERIES_QUERYVAR']; 
 	if (!isset($p['prefix'])) $p['prefix'] = '';
 	if (!isset($p['suffix'])) $p['suffix'] = '';
-	if (!isset($p['class'])) $p['class'] = '';
+	if (!isset($p['class'])) $p['class'] = 'series-icon-' . $p['series'];
 	if (!isset($p['link'])) $p['link'] = 1;
+	if (!isset($p['display'])) $p['display'] = 1;
 	stripslaghes_gpc_arr($p);
 	
-	if (empty($p['series']) && isset($GLOBALS['SERIES_QUERYVAR'])) {
+	if (empty($p['series']) && isset($GLOBALS['post'])) {
 		$serieslist = get_the_series($GLOBALS['post']->ID);
 		if ( is_array($serieslist) ) $p['series'] = $serieslist[0]->term_id;
 	}
@@ -35,8 +36,8 @@
 	if (!isset($p['series'])) return;
 	
 	$icon = series_get_icons($p['series']);
-	$file = seriesicons_path() . '/$icon';
-	$url = seriesicons_url() . '/$icon';
+	$file = seriesicons_path() . '/' . $icon;
+	$url = seriesicons_url() . '/' . $icon;
 	
 	if ($p['link']) {
 		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
@@ -46,9 +47,15 @@
 	if (is_file($file)) {
 		list($width, $height, $type, $attr) = getimagesize($file);
 		list($w, $h) = series_fit_rect($width, $height, $p['fit_width'], $p['fit_height'], $p['expand']);
-		echo("$p[prefix]<img class=\"$p[class]\" src=\"$url\" width=\"$w\" height=\"$h\" />$p[suffix]");
-		return true;
-	}
+		$series_icon = $p['prefix'] . '<img class="' . $p['class'] . '" src="' . $url . '" width="' . $w . '" height="' . $h . '" />' . $p['suffix'];
+		if ($p['display'] == 1) {
+			echo $series_icon;
+			return true;
+		 } else {
+			return $series_icon;
+		}
+		}
+	
 	return false;
 }
 
