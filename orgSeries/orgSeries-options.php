@@ -9,58 +9,6 @@
 //TODO - for the post-list box there needs to be a template for current post.  That way users can specifiy something different for the current post if they so choose.  Then I'll have to modify the post-list code in orgSeries.php to check for whether the called post matches the displayed post and executes the new template for a match.
 */
 
-function org_series_options_js() {
-	?>
-	<script type="text/javascript" src="../wp-includes/js/tw-sack.js"></script>
-	<script type="text/javascript" src="list-manipulation.js"></script>
-	<script type="text/javascript" src="../wp-includes/js/dbx.js"></script>
-	<script type="text/javascript">
-	//<![CDATA[
-				addLoadEvent( function() {
-					var manager = new dbxManager('orgSeries_options_meta');
-					
-					//create new docking boxes group
-					var meta = new dbxGroup(
-						'grabit', 		// container ID [/-_a-zA-Z0-9/]
-						'vertical', 	// orientation ['vertical'|'horizontal']
-						'10', 			// drag threshold ['n' pixels]
-						'no',			// restrict drag movement to container axis ['yes'|'no']
-						'10', 			// animate re-ordering [frames per transition, or '0' for no effect]
-						'yes', 			// include open/close toggle buttons ['yes'|'no']
-						'open', 		// default state ['open'|'closed']
-						<?php echo "'" . js_escape(__('open')); ?>', 		// word for "open", as in "open this box"
-						<?php echo "'" . js_escape(__('close')); ?>', 		// word for "close", as in "close this box"
-						<?php echo "'" . js_escape(__('click-down and drag to move this box')); ?>', // sentence for "move this box" by mouse
-						<?php echo "'" . js_escape(__('click to %toggle% this box')); ?>', // pattern-match sentence for "(open|close) this box" by mouse
-						<?php echo "'" . js_escape(__('use the arrow keys to move this box')); ?>', // sentence for "move this box" by keyboard
-						<?php echo "'" . js_escape(__(', or press the enter key to %toggle% it')); ?>',  // pattern-match sentence-fragment for "(open|close) this box" by keyboard
-						'%mytitle%  [%dbxtitle%]' // pattern-match syntax for title-attribute conflicts
-						);
-
-					var advanced = new dbxGroup(
-						'advancedstuff', 		// container ID [/-_a-zA-Z0-9/]
-						'vertical', 		// orientation ['vertical'|'horizontal']
-						'10', 			// drag threshold ['n' pixels]
-						'yes',			// restrict drag movement to container axis ['yes'|'no']
-						'10', 			// animate re-ordering [frames per transition, or '0' for no effect]
-						'yes', 			// include open/close toggle buttons ['yes'|'no']
-						'open', 		// default state ['open'|'closed']
-						<?php echo "'" . js_escape(__('open')); ?>', 		// word for "open", as in "open this box"
-						<?php echo "'" . js_escape(__('close')); ?>', 		// word for "close", as in "close this box"
-						<?php echo "'" . js_escape(__('click-down and drag to move this box')); ?>', // sentence for "move this box" by mouse
-						<?php echo "'" . js_escape(__('click to %toggle% this box')); ?>', // pattern-match sentence for "(open|close) this box" by mouse
-						<?php echo "'" . js_escape(__('use the arrow keys to move this box')); ?>', // sentence for "move this box" by keyboard
-						<?php echo "'" . js_escape(__(', or press the enter key to %toggle% it')); ?>',  // pattern-match sentence-fragment for "(open|close) this box" by keyboard
-						'%mytitle%  [%dbxtitle%]' // pattern-match syntax for title-attribute conflicts
-						);
-				});
-				//]]>
-				</script>
-	<?php
-}
-
-add_action('admin_head-series_organize_options','org_series_options_js');
-
 function org_series_import() {
 	//this will contain the actual query and code for importing from version 1.6 -> 2.0+.  It is called from if conditions for it being called are met.
 	global $wpdb;
@@ -370,6 +318,8 @@ function org_series_admin_page() {
 					<dd>This will be replaced with the series icon for a series.</dd>
 				<dt>%series_icon_linked%</dt>
 					<dd>Same as %series_icon% except that the series icon will be linked to the series page</dd>
+				<dt>%series_list%</dt>
+					<dd>This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.</dd>
 				<dt>%series_title%</dt>
 					<dd>This will be replaced with the title of a series</dd>
 				<dt>%series_title_linked%</dt>
@@ -392,7 +342,7 @@ function org_series_admin_page() {
 					<dd>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</dd>
 				<dt>%series_part%</dt>
 					<dd>Will display what part of a series the post is</dd>
-				<dt>%total_posts_in_series</dt>
+				<dt>%total_posts_in_series%</dt>
 					<dd>Will display the total number of posts in a series</dd>
 				<dt>%series_description%</dt>
 					<dd>Will display the description for the series</dd>
