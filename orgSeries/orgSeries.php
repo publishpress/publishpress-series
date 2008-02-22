@@ -598,7 +598,9 @@ function orgSeries_widget_seriestoc_init() {
 			<?php
 				$series_args = "orderby=name&show_count={$c}&hide_empty={$e}&echo=1";
 				if ( $options['list-type'] == 'list' ) {
-						echo '<ul>' . get_the_series_list('<li>','','</li>') . '</ul>';
+						echo '<ul>';
+						wp_list_series($series_args . '&title_li=');
+						echo '</ul>';
 					}
 					if ( $options['list-type'] == 'dropdown' ) {
 						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series'));
@@ -617,7 +619,7 @@ var seriesdropdown = document.getElementById("series");
 <?php
 				}
 					if ( is_single() && $showpostlist ) {
-						echo '<ul>' . wp_list_series($series_args . '&title_li=') .  '</ul>';
+						echo '<ul>' . get_series_posts('', 'widget') .  '</ul>';
 					}
 				
 ?>

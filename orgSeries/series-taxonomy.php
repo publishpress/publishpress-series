@@ -638,8 +638,8 @@ function wp_list_series($args = '') {
 		if ( is_series() )
 			$r['current_series'] = $wp_query->get_queried_object_id();
 			
-		foreach ( $series as $serieslist )
-			$output .= walk_series_tree($series, $r);
+		foreach ( $serieslist as $listseries )
+			$output .= walk_series_tree($listseries, $r);
 	}
 	
 	if ( $title_li && 'list' == $style )
@@ -662,6 +662,7 @@ function walk_series_tree( $series, $args) {
 	$series_name = attribute_escape( $series->name );
 	$series_name = apply_filters( 'list_series' , $series_name, $series );
 	$link = '<a href="' . get_series_link( $series->term_id ) . '" ';
+	$output = '';
 	if ( $use_desc_for_title == 0 || empty($category->description) )
 		$link .= 'title="' . sprintf(__( 'View all posts filed under %s' ), $series_name) . '"';
 	else
@@ -704,9 +705,6 @@ function walk_series_tree( $series, $args) {
 		$link .= ' ' . gmdate('Y-m-d', $series->last_update_timestamp);
 	}
 	
-	if ( $current_series )
-		$_current_series = get_orgSerial ( $current_series );
-		
 	if ( 'list' == $args['style'] ) {
 		$output .= "\t<li";
 		$class = 'series-item series-item-'.$series->term_id;
