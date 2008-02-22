@@ -247,11 +247,11 @@ function in_series( $series_term ) { //check if the current post is in the given
 
 function get_series_name($series_id) {
 	$series_id = (int) $series_id;
-	$series = &get_orgserial($series_id);
+	$series = get_orgserial($series_id);
 	return $series->name;
 }
 
-function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
+function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 	if( 0==$series_id )
 		return false;
 	
@@ -273,11 +273,12 @@ function the_series_title($series_id=0, $linked=TRUE, $display=TRUE) {
 			
 			$result = $prefix . $series_name . $suffix;
 			if ( $display ) 
-				return $result;
+				echo $result;
 			else
-				return $series_name;
+				return $result;
 		}
 	}
+	return false;
 }
 
 function series_description($series_id = 0) {
@@ -314,26 +315,37 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 		 } else {
 		 $ser_width = $settings['series_icon_width_series_page'];
 		 }
-	if ('series-toc' == $referral || 'widget' == $referral) {
+	if ( 'series-toc' == $referral ) {
 		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($id), $replace);
 	} else {
 		$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
 	}
-	if ('widget' == $referral)  
-	$replace = str_replace('%series_list%', wp_serieslist_display('widget'), $replace);
 		
+	if( stristr($replace, '%series_icon%') ) 
 	$replace = str_replace('%series_icon%', get_series_icon('fit_width=' .  $ser_width . '&link=0&series=' . $id . '&display=0'), $replace);
+	if( stristr($replace, '%series_icon_linked%') ) 
 	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width= ' . $ser_width . '&series=' . $id . '&display=0'), $replace);
+	if( stristr($replace, '%series_title%') ) 
 	$replace = str_replace('%series_title%', the_series_title($id, FALSE), $replace);
+	if( stristr($replace, '%series_title_linked%') ) 
 	$replace = str_replace('%series_title_linked%', the_series_title($id), $replace);
+	if( stristr($replace, '%post_title_list%') ) 
 	$replace = str_replace('%post_title_list%', get_series_posts($id, $referral), $replace);
+	if( stristr($replace, '%post_title%') ) 
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
+	if( stristr($replace, '%post_title_linked%') ) 
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
+	if( stristr($replace, '%series_part%') ) 
 	$replace = str_replace('%series_part%', wp_series_part($p_id), $replace);
+	if( stristr($replace, '%series_description%') ) 
 	$replace = str_replace('%series_description%', series_description($id), $replace);
+	if( stristr($replace, '%next_post%') ) 
 	$replace = str_replace('%next_post%', wp_series_nav($id), $replace);
+	if( stristr($replace, '%previous_post%') ) 
 	$replace = str_replace('%previous_post%', wp_series_nav($id, FALSE), $replace);
+	if( stristr($replace, '%next_post_custom%') ) 
 	$replace = str_replace('%next_post_custom%', wp_series_nav($id, TRUE, TRUE), $replace);
+	if( stristr($replace, '%previous_post_custom%') ) 
 	$replace = str_replace('%previous_post_custom%', wp_series_nav($id, FALSE, TRUE), $replace);
 	
 	return $replace;
@@ -567,7 +579,7 @@ function wp_dropdown_series($args = '') {
 
 function walk_series_dropdown_tree($serieslist, $r) {
 	$series_name = apply_filters('list_series', $serieslist->name, $serieslist);
-	$output .= '<option value="' . $serieslist->term_id . '"';
+	$output .= "\t<option value=\"" . $serieslist->term_id . "\"";
 	if ( $serieslist->term_id == $r['selected'] )
 		$output .= ' selected="selected"';
 	$output .= '>';
@@ -578,10 +590,138 @@ function walk_series_dropdown_tree($serieslist, $r) {
 		$format = 'Y-m-d';
 		$output .= '&nbsp; &nbsp;' . gmdate($format, $serieslist->last_update_timestamp);
 	}
-	$output .= '</option>';
+	$output .= "</option>\n";
 	
 	return $output;
 }
+
+function wp_list_series($args = '') {
+	$defaults = array(
+	'show_option_all' => '', 'orderby' => 'name',
+		'order' => 'ASC', 'show_last_update' => 0,
+		'style' => 'list', 'show_count' => 0,
+		'hide_empty' => 1, 'use_desc_for_title' => 1,
+		'feed' => '', 'feed_image' => '', 'exclude' => '',
+		'title_li' => __('Series'),
+		'echo' => 1
+	);
+	
+	$r = wp_parse_args( $args, $defaults );
+	
+	if ( isset( $r['show_date'] ) ) {
+		$r['include_last_update_time'] = $r['show_date'];
+	}
+	
+	extract( $r );
+	
+	$serieslist = get_series($r);
+	
+	$output = '';
+	if ( $title_li && 'list' == $style )
+		$output = '<li class="series">' . $r['title_li'] . '<ul>';
+		
+	if ( empty($serieslist) ) {
+		if ( 'list' == $style )
+			$output .= '<li>' .__("No series") . '</li>';
+		else
+			$output .= __("No Series");
+	
+	} else {
+		global $wp_query;
+		
+		if (!empty($show_option_all) )
+			if ('list' == $style )
+				$output .= '<li><a href="' . get_bloginfo('url') . '".' . $show_option_all . '</a></li>';
+			else
+				$output .= '<a href="' . get_bloginfo('url') . '".' . $show_option_all . '</a>';
+				
+		if ( is_series() )
+			$r['current_series'] = $wp_query->get_queried_object_id();
+			
+		foreach ( $series as $serieslist )
+			$output .= walk_series_tree($series, $r);
+	}
+	
+	if ( $title_li && 'list' == $style )
+		$output .= '</ul></li>';
+		
+	$output = apply_filters('wp_list_series', $output);
+	
+	if ( $echo )
+		echo $output;
+	else
+		return $output;
+}
+
+function walk_series_tree( $series, $args) {
+	if ( 'list' != $args['style'] )
+		return $series;
+	
+	extract($args);
+	
+	$series_name = attribute_escape( $series->name );
+	$series_name = apply_filters( 'list_series' , $series_name, $series );
+	$link = '<a href="' . get_series_link( $series->term_id ) . '" ';
+	if ( $use_desc_for_title == 0 || empty($category->description) )
+		$link .= 'title="' . sprintf(__( 'View all posts filed under %s' ), $series_name) . '"';
+	else
+		$link .= 'title="' . attribute_escape( apply_filters( 'series_description' , $series->description, $series )) . '"';
+	$link .= '>';
+	$link .= $series_name . '</a>';
+	
+	if ( (! empty($feed_image)) || (!empty($feed)) ) {
+		$link .= ' ';
+		
+		if ( empty($feed_image) )
+			$link .= '(';
+		
+		$link .= '<a href="' . get_series_rss_link( 0, $series->term_id, $series->slug ) . '"';
+		
+		if ( empty($feed) )
+			$alt = ' alt="' . sprintf(__( 'Feed for all posts belonging to %s' ), $series_name ) . '"';
+		else {
+			$title = ' title="' . $feed . '"';
+			$alt = ' alt="' . $feed . '"';
+			$name = $feed;
+			$link .= $title;
+		}
+		
+		$link .= '>';
+		
+		if ( empty($feed_image) )
+			$link .= $name;
+		else
+			$link .= "<img src='$feed_image'$alt$title" . ' />';
+		$link .= '</a>';
+		if ( empty($feed_image) )
+			$link .= ')';
+	}
+	
+	if ( isset($show_count) && $show_count )
+		$link .= ' (' . intval($series->count) . ')';
+		
+	if ( isset($show_date) && $show_date ) {
+		$link .= ' ' . gmdate('Y-m-d', $series->last_update_timestamp);
+	}
+	
+	if ( $current_series )
+		$_current_series = get_orgSerial ( $current_series );
+		
+	if ( 'list' == $args['style'] ) {
+		$output .= "\t<li";
+		$class = 'series-item series-item-'.$series->term_id;
+		if ( $current_series && ($series->term_id == $current_series) )
+			$class .= ' current-series';
+		$output .= ' class="'.$class.'"';
+		$output .= ">$link\n";
+	} else {
+		$output .= "\t$link<br />\n";
+	}
+	
+	$output .= "</li>\n";
+	return $output;
+}
+		
 //wp_query stuff (see query.php) -- help for this came from examples gleaned in jeromes-keywords.php
 function series_addQueryVar($wpvar_array) {
 	$wpvar_array[] = SERIES_QUERYVAR;

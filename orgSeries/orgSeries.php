@@ -62,8 +62,7 @@ $org_series_type = "post";
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-taxonomy.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
-//TODO - CREATE A PAGE FOR THE SERIES TABLE OF CONTENTS AND DISPLAY LIST OF SERIES (using series toc display tag - pulling display options from orgseries settings) - CHECK how the category.php template works in the default wp install and see if there is code that could be modified for a default series.php template (will want to do a check for if the request address is ....www.myaddress.com/series to see if the series TOC should be displayed OR the regular series template (similar to how category templates are displayed.
-//TODO - Create a way for the user to select how the series posts are displayed on the series archive page:  Options:  chronologically (ASC||DESC), series-part (ASC||DESC).
+require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-rss.php');
 
 function org_series_install() {
           global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
@@ -217,7 +216,11 @@ function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_ca
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
 	else
 		$cur_id = -1;
-	if (!isset($ser_ID)) {
+		
+	if ( !is_single() && !isset($ser_ID) )
+		return false;
+		
+	if ( !isset($ser_ID) || $ser_ID == '' ) {
 		$serarray = get_the_series();
 		if (!empty($serarray) ) {
 			foreach ($serarray as $series) {
@@ -226,22 +229,21 @@ function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_ca
 		}
 	}
 	$settings = get_option('org_series_options');
-	if ( 'widget' == $referral )
-		$settings = get_option('orgSeries_widget');
 	$series_post = get_objects_in_term($ser_ID, 'series');
 	$posts_in_series = array();
 	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
+	
 	foreach($posts_in_series as $seriespost) {
 		if ($cur_id == $seriespost['id']) {
 			if ( 'widget' == $referral )
-				$result .= token_replace(stripslashes($settings['postlist-current-title-template']), 'widget', $seriespost['id']);
+				$result .= '<li class="catlist-current-li">' . series_post_title($seriespost['id']) . '</li>';
 			else
 				$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
 			continue;
 		}
 		if ( 'widget' == $referral )
-			$result .= token_replace(stripslashes($settings['postlist-title-template']), 'widget', $seriespost['id']);
+			$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
 		else
 			$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id']);
 	}
@@ -329,11 +331,6 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
 		$settings = get_option('org_series_options');
 		$serID = $series->term_id;
 		if (isset($serID)) {
-			if ( 'widget' == $referral ) {
-				$settings = get_option('orgSeries_widget');
-				$series_display = token_replace(stripslashes($settings['series-toc-title-template']), 'widget', $serID);
-				return $series_display;
-			}
 			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
 			echo $series_display;
 		}
@@ -342,13 +339,7 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
  
 function wp_serieslist_display( $referral = false ) {  
 	$series_list = get_series('hide_empty=0');
-	if ( 'widget' == $referral ) {
-		$list_item = '';
-		foreach ( $series_list as $series ) {
-			$list_item .= wp_serieslist_display_code($series, 'widget');
-		}
-		return $list_item;
-	}
+	
 	foreach ($series_list as $series) {  
 		wp_serieslist_display_code($series); //layout code
 	}
@@ -546,40 +537,47 @@ function admin_ajax_delete_series() {
 	else die ('0');
 }
 
-#########WIDGETS####################
+#########WIDGETS####################	
 function orgSeries_widget_seriestoc_init() {
 	//Check for widget API
 	if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
 		return;
-	
+			
 	//Save options and print widget's config form.
 	function orgSeries_widget_control() {
-		$options = $newoptions = get_option('orgSeries_widget');
+		$options = $newoptions = (array) get_option('orgSeries_widget');
+		$defaults = array(
+			'orgSeries-widget-title' => 'Series',
+			'list-type' => 'list',
+			'show-count' => 1,
+			'hide-empty' => 1,
+			'postlistdisplay-toggle' => 1);
+			
+			foreach ( $defaults as $key => $value )
+			if ( !isset($newoptions[$key]) )
+				$newoptions[$key] = $defaults[$key];
+			
 		if ( $_POST['orgSeries-widget-submit'] ) {
-			$newoptions['orgSeries-widget-title'] = strip_tags(stripslashes($_POST['orgSeries-widget-title']));
-			$newoptions['series-toc-template'] = strip_tags(stripslashes($_POST['series-toc-template']));
-			$newoptions['series-toc-title-template'] = strip_tags(stripslashes($_POST['series-toc-title-template']));
-			$newoptions['postlistdisplay-toggle'] = (int) $_POST['postlist-toc-template'];
-			$newoptions['postlist-template'] = strip_tags(stripslashes($_POST['postlist-template']));
-			$newoptions['postlist-title-template'] = strip_tags(stripslashes($_POST['postlist-title-template']));
-			$newoptions['postlist-current-title-template'] = strip_tags(stripslashes($_POST['postlist-current-title-template']));
-			wp_cache_delete('orgSeries-widget-content');
+			$newoptions['orgSeries-widget-title'] = trim(stripslashes($_POST['orgSeries-widget-title']));
+			$newoptions['list-type'] = trim(stripslashes($_POST['list-type']));
+			$newoptions['show-count'] = (int) $_POST['show-count'];
+			$newoptions['hide-empty'] = (int) $_POST['hide-empty'];
+			$newoptions['postlistdisplay-toggle'] = (int) $_POST['postlistdisplay-toggle'];
 		}
+		
 		if ( $options != $newoptions ) {
 			$options = $newoptions;
 			update_option('orgSeries_widget', $options);
 		}
 	?>
 		<div style="text-align:right">
-		<p><small>Leave everything blank and save to get the defaults</small></p>
 		<label for="orgSeries-widget-title" style="line-height:35px; display:block;">Widget title: <input type="text" id="orgSeries-widget-title" name="orgSeries-widget-title" value="<?php echo htmlspecialchars($options['orgSeries-widget-title']); ?>" /></label>
-		<p><small>For the templates (series-toc, postlist) see the <a href="<?php echo get_settings('siteurl') . '/wp-admin/options-general.php?page=orgSeries/orgSeries-options.php'; ?>" title="orgSeries-options">series options page</a> for %tokens% you can use.</small></p>
-		<label for="series-toc-template" style="line-height:35px; display: block;"> Series Table of Contents template: <br /><textarea name="series-toc-template" id="series-toc-template" rows="2" cols="50"><?php echo htmlspecialchars($options['series-toc-template']); ?></textarea></label>
-		<label for="series-toc-title-template" style="line-height:35px; display: block;">Series Titles in toc list: <input type="text" id="series-toc-title-template" name="series-toc-title-template" size="50" value="<?php echo htmlspecialchars($options['series-toc-title-template']); ?>" /></label>
-		<label for="postlistdisplay-toggle" style="line-height:35px; display:block;">Post List toggle: <input type="checkbox" name="postlistdisplay-toggle" id="postlistdisplay-toggle" value="<?php echo $options['postlistdisplay-toggle']; ?>" <?php checked('1', $options['postlistdisplay-toggle']); ?> /><br /><small>(use to select if a list of other posts in the series will show on post-pages that are part of a series)</small></label>
-		<label for="postlist-template" style="line-height:35px; display: block;">Postlist template: <br /><textarea name="postlist-template" id="postlist-template" rows="2" cols="50"><?php echo htmlspecialchars($options['postlist-template']); ?></textarea></label>
-		<label for="postlist-title-template" style="line-height:35px; display: block;">Postlist Title template: <input type="text" id="postlist-title-template" name="postlist-title-template" size="50" value="<?php echo htmlspecialchars($options['postlist-title-template']); ?>" /></label>
-		<label for="postlist-current-title-template" style="line-height:35px; display: block;">Postlist Current Title template: <input type="text" id="postlist-current-title-template" name="postlist-current-title-template" size="50" value="<?php echo htmlspecialchars($options['postlist-current-title-template']); ?>" /></label>
+		<p><small>Series list options:</small></p>
+		<label for="list-type" style="line-height:35px; display: block;"> Dropdown: <input type="radio" id="list-type" name="list-type" value="dropdown"<?php checked('dropdown', $options['list-type']); ?> /></label>
+		<label for="list-type2" style="line-height:35px; display: block;"> List: <input type="radio" id="list-type2" name="list-type" value="list"<?php checked('list', $options['list-type']); ?> /></label>
+		<label for="show-count" style="line-height:35px; display: block;">Show post count? <input type="checkbox" id="show-count" name="show-count" value="1" <?php checked('1' , $options['show-count']); ?> /></label>
+		<label for="hide-empty" style="line-height:35px; display: block;">Hide empty series? <input type="checkbox" id="hide-empty" name="hide-empty" value="1" <?php checked('1' , $options['hide-empty']); ?> /></label>
+		<label for="postlistdisplay-toggle" style="line-height:35px; display:block;">Post List toggle: <input type="checkbox" name="postlistdisplay-toggle" id="postlistdisplay-toggle" value="1" <?php checked('1', $options['postlistdisplay-toggle']); ?> /><br /><small>(use to select if a list of other posts in the series will show on post-pages that are part of a series)</small></label>
 		<input type="hidden" name="orgSeries-widget-submit" id="orgSeries-widget-submit" value="1" />
 		</div>
 	<?php
@@ -588,57 +586,53 @@ function orgSeries_widget_seriestoc_init() {
 	//This prints the widget
 	function orgSeries_widget($args) {
 		extract($args);
-		$defaults = array(
-			'orgSeries-widget-title' => 'Series',
-			'series-toc-template' => '<ul>%series_list%</ul>',
-			'series-toc-title-template' => '<li>%series_title_linked%</li>',
-			'postlistdisplay-toggle' => 1,
-			'postlist-template' => '<ul class="catlist-ul">%post_title_list%</ul>',
-			'postlist-title-template' => '<li class="catlist-li">%post_title_linked%</li>',
-			'postlist-current-title-template' => '<li class="catlist-current-li">%post_title%</li>');
 		
 		$options = (array) get_option('orgSeries_widget');
+		$c = $options['show-count'] ? '1' : '0';
+		$e = $options['hide-empty'] ? '1' : '0';
+		$showpostlist = $options['postlistdisplay-toggle'] ? '1' : '0';
 			
-		foreach ( $defaults as $key => $value )
-			if ( !isset($options[$key]) )
-				$options[$key] = $defaults[$key];
-		
-		update_option('orgSeries_widget', $options); //remove once defaults are in place in the options widget control instead of here.
-				
-		function format_orgSeries_widget_template( $seriesid = FALSE ) {
-			//don't think I need to call the series-id...BUT just in case this is where I'd do it!
-			$widget_template = array();
-			$widget_template['series-toc-template'] = token_replace(stripslashes($options['series-toc-template']), 'widget', $series_id);
-			$widget_template['postlist-template'] = token_replace(stripslashes($options['postlist-template']), 'widget', $series_id);
-			return $widget_template;
-		}
-		
 		?>
 		<?php echo $before_widget; ?>
-			<?php echo $before_title . $options['orgSeries-widget-title'] . $after_title; ?>
+			<?php echo $before_title.$options['orgSeries-widget-title'].$after_title; ?>
 			<?php
-				$widget_templates = format_orgSeries_widget_template();
-				if (!($orgSeries_widget_content = wp_cache_get('orgSeries-widget-content'))) {
-					$orgSeries_widget_content = '<div id="orgSeries-widget-box" style="margin:0;padding:0;border:none;">';
-					$orgSeries_widget_content .= $widget_templates['series-toc-template'];
-					if ( is_single() )
-						$orgSeries_widget_content .= $widget_templates['postlist-template'];
-					wp_cache_add('orgSeries-widget-content', $orgSeries_widget_content);
+				$series_args = "orderby=name&show_count={$c}&hide_empty={$e}&echo=1";
+				if ( $options['list-type'] == 'list' ) {
+						echo '<ul>' . get_the_series_list('<li>','','</li>') . '</ul>';
+					}
+					if ( $options['list-type'] == 'dropdown' ) {
+						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series'));
+?>
+
+<script lang='javascript'><!--
+var seriesdropdown = document.getElementById("series");
+    function onSeriesChange() {
+		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
+			location.href = "<?php echo get_option('home'); ?>/?series="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+		}
+    }
+    seriesdropdown.onchange = onSeriesChange;
+--></script>
+
+<?php
 				}
-				echo $orgSeries_widget_content;
-			?>
+					if ( is_single() && $showpostlist ) {
+						echo '<ul>' . wp_list_series($series_args . '&title_li=') .  '</ul>';
+					}
+				
+?>
 		<?php echo $after_widget; ?>
 	<?php
 	}
 	
 	//Get the sidebar to load up the widget and it's control
-	//register_sidebar_widget('orgSeries_widget', 'orgSeries_widget'); TODO: Activate when bug fixed.
-	register_widget_control('orgSeries_widget', 'orgSeries_widget_control', 600, 500);
+	register_sidebar_widget('Series Widget', 'orgSeries_widget'); 
+	register_widget_control('Series Widget', 'orgSeries_widget_control', 600, 500);
 
 }
 
 //Delay plugin execution so widget has a chance to load first...
-//add_action('plugins_loaded', 'orgSeries_widget_seriestoc_init'); TODO Activate when bug fixed
+add_action('plugins_loaded', 'orgSeries_widget_seriestoc_init'); 
 
 ##########ADD ACTIONS TO WP###########
 //initialize plugin
