@@ -1,11 +1,18 @@
 <?php
 
-if ( defined('ABSPATH') )
-	require_once( ABSPATH . 'wp-config.php');
+/**
+ * This file contains the code to display the organize-series plugin feed from unfoldingneurons.com
+ *
+ * @package WordPress
+ * @since 2.3
+ */
+
+if ( defined( 'ABSPATH' ) )
+	require_once( ABSPATH . 'wp-config.php' );
 else
-    require_once('../../../wp-config.php');
-require_once(ABSPATH . 'wp-admin/admin.php');
-require_once(ABSPATH . WPINC . '/rss.php');
+    require_once( '../../../wp-config.php' );
+require_once( ABSPATH . 'wp-admin/admin.php' );
+require_once( ABSPATH . WPINC . '/rss.php' );
 
 $rss = @fetch_rss('http://www.unfoldingneurons.com/category/released-code/organize-series/feed/'); 
 if ( isset($rss->items) && 0 != count($rss->items) ) {

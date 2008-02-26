@@ -1,40 +1,69 @@
 <?php
-//This file contains the code for the Management Controls for OrgSeries (i.e. on the write-post screen)
-function get_series_list( $default = 0 ) { //copied from get_nested_categories in template.php
-	global $post, $postdata, $mode, $wpdb, $checked_series, $content;
-	$post_ID = isset($post) ? $post->ID : $postdata->ID;
+/**
+ * This file contains the code that helps with the implementation of the OrgSeries plugin in the
+ * write/edit post forms.
+ *
+ * @package WordPress
+ * @since 2.3
+ */
+ 
+/**
+ * get_series_list() - queries the list of series from the database and creates an array indicating what 
+ * series is associated with the current post (if existent).
+ *
+ * The code here is mirrored from get_nested_categories in the core  wp-admin\includes\template.php
+ * file.
+ *
+ * @uses count() - internal WordPress function
+ * @uses wp_get_post_series()
+ * @uses get_series()
+ * @uses get_the_series_by_ID()
+ * @uses apply_filters() - user can modify the array that is returned.
+ * @param int $default - id for the default series.  Currently there is not an option for users to set a
+ * default series.  This may change in the future.
+ * @return array|mixed $result - series ids, series names, and checked value. 
+ */
+function get_series_list( $default = 0 ) { 
+	global $post, $postdata, $checked_series;
+	$post_ID = isset( $post ) ? $post->ID : $postdata->ID;
 	
-	if ( empty($checked_series) ) {
+	if ( empty( $checked_series ) ) {
 		if ( $post_ID ) {
-			$checked_series = wp_get_post_series($post_ID);
+			$checked_series = wp_get_post_series( $post_ID );
 			
 			if ( count( $checked_series ) == 0 ) {
-				// No selected series, strange...and yes I even copied this text!!
-			$checked_series[] = $default;
+				$checked_series[] = $default;
 			}
 		} else {
 			$checked_series[] = $default;
 		}
 		
-	$series = get_series("hide_empty=0&fields=ids");
-	
-	$result = array ();
-	
-	if ( is_array( $series ) ) {
-		foreach ($series as $serial) {
-			$result[$serial]['series_ID'] = $serial;
-			$result[$serial]['checked'] = in_array( $serial, $checked_series );
-			$result[$serial]['ser_name'] = get_the_series_by_ID( $serial );
+		$series = get_series( "hide_empty=0&fields=ids" );
+		
+		$result = array ();
+		
+		if ( is_array( $series ) ) {
+			foreach ( $series as $serial ) {
+				$result[$serial]['series_ID'] = $serial;
+				$result[$serial]['checked'] = in_array( $serial, $checked_series );
+				$result[$serial]['ser_name'] = get_the_series_by_ID( $serial );
+			}
 		}
+		
+		$result = apply_filters( 'get_series_list', $result );
+		usort( $result, '_usort_terms_by_name' );
+		
+		return $result;
 	}
-	
-	$result = apply_filters('get_series_list', $result);
-	usort( $result, '_usort_terms_by_name' );
-	
-	return $result;
-}
 }
 
+/**
+ * write_series_list() - html output for the list of series in for user selection on the write/edit post screen
+ * Code is mirror'd from the write_nested_categories() function in the core wp-admin\includes\template.php file.
+ *
+ * @uses wp_specialchars()
+ * @param array|mixed $series - contains series_ID, ser_name, and checked (does post belong to this series) 
+*/
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />Not part of a series</label></li>';
 		foreach ( $series as $serial ) {
@@ -43,7 +72,15 @@ function write_series_list( $series ) { //copied from write_nested_categories in
 		}
 }
 
-function get_series_to_select( $default = 0 ) {//This will call up a list of existing series and  have the series that the post belongs to already selected. This is going to be tricky because at this point I don't want it possible for a post to belong to more than one series...we'll have to work in that check somehow...
+/**
+* get_series_to_select() - wrapper function to output the list of series on the write/edit post page.
+* Calls up the list of existing series in the WordPress db and displays the series that the post belongs to already selected.
+*
+*@uses write_series_list()
+*@uses get_series_list()
+*@param int $default = id for the default series. Currently there is not an option for users to set a default series id.  This may change in the future.
+*/
+function get_series_to_select( $default = 0 ) {
 	write_series_list( get_series_list( $default) );
 }
 
