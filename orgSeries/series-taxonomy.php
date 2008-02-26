@@ -45,10 +45,10 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
  
  /* functions referenced by other files */
 function &get_series($args = '') {
-	global $wpdb, $category_links;
+	global $wpdb;
 	
 	$key = md5( serialize($args) );
-	if ( $cache = wp_cache_get('get_series','category') )
+	if ( $cache = wp_cache_get('get_series','series') )
 		if ( isset( $cache[ $key ] ) )
 			return apply_filters('get_series', $cache[$key],$args);
 			
@@ -58,7 +58,7 @@ function &get_series($args = '') {
 		return array();
 		
 	$cache[ $key ] = $series;
-	wp_cache_set( 'get_series', $cache, 'category' );
+	wp_cache_set( 'get_series', $cache, 'series' );
 	
 	$series = apply_filters('get_series', $series, $args);
 	return $series;
@@ -167,7 +167,7 @@ function get_series_link( $series_id ) {
 		$serieslink = $file . '?series=' . $id;
 	} else {
 		$serieslink = str_replace($series_token, $slug, $serieslink);
-		$serieslink = get_settings('home') . user_trailingslashit($serieslink, 'category');
+		$serieslink = get_settings('home') . user_trailingslashit($serieslink, 'series');
 	}
 	return $serieslink;
 	//return apply_filters('series_link', $serieslink, $series_id); 
@@ -312,10 +312,12 @@ function token_replace($replace, $referral = 'other', $id = 0) {
 	$settings = get_option('org_series_options');
 	if ( 'post-list' == $referral  ) {
 		$ser_width = $settings['series_icon_width_post_page']; 
-		 } else {
+		 } elseif ( 'latest_series' == $referral ) {
+		 $ser_width = $settings['series_icon_width_latest_series'];
+		} else {
 		 $ser_width = $settings['series_icon_width_series_page'];
 		 }
-	if ( 'series-toc' == $referral ) {
+	if ( 'series-toc' == $referral  || 'latest_series' == $referral ) {
 		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($id), $replace);
 	} else {
 		$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
@@ -639,7 +641,7 @@ function wp_list_series($args = '') {
 			$r['current_series'] = $wp_query->get_queried_object_id();
 			
 		foreach ( $serieslist as $listseries )
-			$output .= walk_series_tree($listseries, $r);
+			$output .= walk_series_tree($listseries	, $r);
 	}
 	
 	if ( $title_li && 'list' == $style )
@@ -663,7 +665,7 @@ function walk_series_tree( $series, $args) {
 	$series_name = apply_filters( 'list_series' , $series_name, $series );
 	$link = '<a href="' . get_series_link( $series->term_id ) . '" ';
 	$output = '';
-	if ( $use_desc_for_title == 0 || empty($category->description) )
+	if ( $use_desc_for_title == 0 || empty($series->description) )
 		$link .= 'title="' . sprintf(__( 'View all posts filed under %s' ), $series_name) . '"';
 	else
 		$link .= 'title="' . attribute_escape( apply_filters( 'series_description' , $series->description, $series )) . '"';

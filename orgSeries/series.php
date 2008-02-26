@@ -17,8 +17,7 @@ $request = $_SERVER['REQUEST_URI'];?>
  	    <h2 class="pagetitle">Archive for the &#8216;<?php single_series_title(); ?>&#8217; Series</h2>
 		
 		<p><?php echo series_description(); ?></p>
-		<p><?php echo $toc . '   REQUEST: ' . $request; ?></p>
- 	   
+		 	   
 		<div class="navigation">
 			<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>

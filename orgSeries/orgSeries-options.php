@@ -106,7 +106,7 @@ function org_series_import() {
 			$series_post_list_post_template = $before_title_post_page . '%post_title_linked%' . $after_title_post_page;
 			$series_post_list_post_template = trim(stripslashes($series_post_list_post_template));
 			
-			$series_post_list_currentpost_template = '<li class="catlist-li-current">%post_title%</li>';
+			$series_post_list_currentpost_template = '<li class="serieslist-li-current">%post_title%</li>';
 			
 			//build series-meta-template
 			$series_meta_template = $before_series_meta . 'This' . $series_meta_word . 'is part %series_part% of %total_posts_in_series% in the series %series_title_linked%' . $after_series_meta . '%postcontent%';
@@ -139,6 +139,10 @@ function org_series_import() {
 			$series_posts_orderby = 'meta_value';
 			$series_posts_order = 'ASC';
 			
+		//latest series options
+			$series_icon_width_latest_series = '100';
+			$latest_series_template = '<div class="latest-series"><div style="text-align: center;">%series_icon_linked%</div></div>';
+			
 		//build new options array
 		$new_options = array(
 			'custom_css' => $custom_css,
@@ -156,7 +160,9 @@ function org_series_import() {
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
 			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
 			'series_posts_orderby' => $series_posts_orderby,
-			'series_posts_order' => $series_posts_order);
+			'series_posts_order' => $series_posts_order,
+			'latest_series_template' => $latest_series_template,
+			'series_icon_width_latest_series' => $series_icon_width_latest_series);
 		
 		delete_option('org_series_options');
 		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
@@ -189,16 +195,18 @@ function org_series_init($reset = false) {
 			'series_toc_url' => $url['path'] . '/series/',
 		//new template options
 			'series_post_list_box_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
-			'series_post_list_post_template' => '<li class="catlist-li">%post_title_linked%</li>',
-			'series_post_list_currentpost_template' => '<li class="catlist-li-current">%post_title%</li>',
+			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
+			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
+			'latest_series_template' => '<div class="latest-series"><div style="text-align: center;">%series_icon_linked%</div></div>',
 			'series_post_nav_template' => '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
 			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
 			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
 		//series_icon related settings
 		'series_icon_width_series_page' => 200,
 		'series_icon_width_post_page' =>100,
+		'series_icon_width_latest_series' =>100,
 		//series posts order options
 		'series_posts_orderby' => 'meta_value',
 		'series_posts_order' => 'ASC');
@@ -254,10 +262,12 @@ function org_series_option_update() {
 	if ( isset($_POST['series_prevpost_nav_custom_text']) ) $settings['series_prevpost_nav_custom_text'] = trim(stripslashes($_POST['series_prevpost_nav_custom_text']) );
 	if ( isset($_POST['series_posts_orderby']) ) $settings['series_posts_orderby'] = trim(stripslashes($_POST['series_posts_orderby']) );
 	if ( isset($_POST['series_posts_order']) ) $settings['series_posts_order'] = trim(stripslashes($_POST['series_posts_order']) );
+	if ( isset($_POST['latest_series_template']) ) $settings['latest_series_template'] = trim(stripslashes($_POST['latest_series_template']));
 	
 	//series-icon related settings
 	if ( isset($_POST['series_icon_width_series_page']) ) $settings['series_icon_width_series_page'] = $_POST['series_icon_width_series_page'];
 	if ( isset($_POST['series_icon_width_post_page']) ) $settings['series_icon_width_post_page'] = $_POST['series_icon_width_post_page'];
+	if ( isset($_POST['series_icon_width_latest_series']) ) $settings['series_icon_width_latest_series'] = $_POST['series_icon_width_latest_series'];
 		
 	$settings['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	update_option('org_series_options', $settings);
@@ -501,6 +511,10 @@ function org_series_echo_series_templates($settings) {
 				<p>Series Meta:</p>
 				<p>This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]</p>
 				<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea>
+				<br />
+				<p>Latest Series:</p>
+				<p>This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).</p>
+				<textarea name="latest_series_template" id="latest_series_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['latest_series_template']); ?></textarea>
 			</div>
 		</div>
 	</div>
@@ -524,7 +538,10 @@ function org_series_echo_series_icon($settings) {
 			</div>
 			<div class="org-option">
 				<input name="series_icon_width_post_page" id="series_icon_width_post_page" type="text" value="<?php echo $settings['series_icon_width_post_page']; ?>" size="10" /> Width for icon on a post page (in pixels).
-			</div>			
+			</div>	
+			<div class="org-option">
+				<input name="series_icon_width_latest_series" id="series_icon_width_latest_series" type="text" value="<?php echo $settings['series_icon_width_latest_series']; ?>" size="10" /> Width for icon if displayed via the latest series template (in pixels).
+			</div>
 		</div>
 	</div>
 	</fieldset>

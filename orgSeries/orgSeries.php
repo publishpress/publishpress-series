@@ -237,7 +237,7 @@ function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_ca
 	foreach($posts_in_series as $seriespost) {
 		if ($cur_id == $seriespost['id']) {
 			if ( 'widget' == $referral )
-				$result .= '<li class="catlist-current-li">' . series_post_title($seriespost['id']) . '</li>';
+				$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
 			else
 				$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
 			continue;
@@ -537,6 +537,22 @@ function admin_ajax_delete_series() {
 	else die ('0');
 }
 
+//latest series template-tag
+function latest_series($display = true) {
+	global $wpdb;
+	$settings = get_option('org_series_options');
+	$query = "SELECT t.term_id, tp.post_modified FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' ORDER BY tp.post_modified DESC";
+	$terms = $wpdb->get_col($query);
+	$latest_series = $terms[0];
+	
+	$result = token_replace(stripslashes($settings['latest_series_template']), 'latest_series', $latest_series);
+	
+	if ($display)
+		echo $result;
+	else
+		return $result;
+}
+
 #########WIDGETS####################	
 function orgSeries_widget_seriestoc_init() {
 	//Check for widget API
@@ -619,6 +635,7 @@ var seriesdropdown = document.getElementById("series");
 <?php
 				}
 					if ( is_single() && $showpostlist ) {
+						echo '<br /><br /><h3>Other posts belonging to this series</h3>';
 						echo '<ul>' . get_series_posts('', 'widget') .  '</ul>';
 					}
 				
@@ -633,8 +650,57 @@ var seriesdropdown = document.getElementById("series");
 
 }
 
+function orgSeries_widget_latest_series_init() {
+	//check for widget API
+	if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
+		return;
+			
+	//Save options and print widget's config form.
+	function orgSeries_latest_series_widget_control() {
+		$options = $newoptions = (array) get_option('orgSeries_latest_series_widget');
+		$defaults = array(
+			'latest_series_widget_title' => 'Most&nbsp;Recent&nbsp;Series');
+		
+		foreach ( $defaults as $key => $value )
+			if ( !isset($newoptions[$key]) )
+				$newoptions[$key] = $defaults[$key];
+			
+		if ( $_POST['orgSeries_latest_series_widget_submit'] ) {
+			$newoptions['latest_series_widget_title'] = trim(stripslashes($_POST['latest_series_widget_title']));
+		}
+		
+		if ( $options != $newoptions ) {
+			$options = $newoptions;
+			update_option('orgSeries_latest_series_widget', $options);
+		}
+	?>
+		<div style="text-align:right">
+			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> Widget title: <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo htmlspecialchars($options['latest_series_widget_title']); ?>" /></label>
+			<p>The layout and content of this widget can be adjusted via the latest-series-template on the <a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php?page=orgSeries/orgSeries-options.php">Series Options</a> page.</p>
+			<input type="hidden" name="orgSeries_latest_series_widget_submit" id= "orgSeries_latest_series_widget_submit" value="1" />
+		</div>
+	<?php
+	}
+	
+	//This prints the widget
+	function orgSeries_latest_series_widget($args) {
+		extract ($args);
+		$options = (array) get_option('orgSeries_latest_series_widget');
+		echo $before_widget;
+		echo $before_title.$options['latest_series_widget_title'].$after_title;
+		latest_series();
+		echo $after_widget;
+	}
+	
+	register_sidebar_widget('Latest Series', 'orgSeries_latest_series_widget');
+	register_widget_control('Latest Series', 'orgSeries_latest_series_widget_control');
+
+}
+		
+		
 //Delay plugin execution so widget has a chance to load first...
 add_action('plugins_loaded', 'orgSeries_widget_seriestoc_init'); 
+add_action('plugins_loaded', 'orgSeries_widget_latest_series_init');
 
 ##########ADD ACTIONS TO WP###########
 //initialize plugin

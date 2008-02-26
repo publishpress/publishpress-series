@@ -7,7 +7,7 @@
 * @param $fit_width int[-1] Maximum width (or desired width if $expanded=true) of the image.
 @param $fit_height int[-1] Macimum height (or desired height if $expanded=true) of the image.
  * @param $expand boolean [false] Whether the image should be expanded to fit the rectangle specified by fit_xxx.
- * @param $series int Series ID. If not specified, the current category is used or the current post's category.
+ * @param $series int Series ID. If not specified, the current series is used or the current post's series.
  * @param $prefix string String to echo before the image tag. If no image, no otuput.
  * @param $suffix string String to echo after the image tag. Ignored if no image found.
  * @param $class string [] Class attribute for the image tag.
