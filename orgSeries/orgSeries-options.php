@@ -40,14 +40,15 @@ function org_series_import() {
 			$series_slug = $old_series->slug;
 			$series_name = $old_series->name;
 			$series_description = $old_series->description;
-			$posts = get_posts($series_id);
+			$seriesposts = get_objects_in_term($oldseries_id, 'category');
 			$series_id = wp_insert_series( array('series_name' => $series_name, 'series_nicename' => $series_slug, 'series_description' => $series_description) );
-			$message .='<li>' . $series_name . 'added (';
+			$message .='<li>' . $series_name . ' added (';
 			$postcount = 0;
 			
-			foreach ($posts as $post) {
-				$id = $post->ID;
-				wp_set_post_series($id, $series_id);
+			foreach ($seriesposts as $seriespost) {
+				$seriespostid = $seriespost;
+				$message .= 'postid = ' . $seriespostid . '...';
+				wp_set_post_series($seriespostid, $series_id);
 				$postcount++;				
 			}
 			
@@ -61,7 +62,7 @@ function org_series_import() {
 			
 			if ( $import_cat_icons ) {
 				list($icon, $small_icon) = ig_caticons_get_icons($oldseries_id);
-				$write = $seriesicons_write($series_id,$icon);
+				$write = seriesicons_write($series_id,$icon);
 				if ( $write ) {
 					$message .='Series Icon imported';
 					
@@ -94,7 +95,7 @@ function org_series_import() {
 			//build series-post-list-template
 			$series_post_list_template = $beforelistbox_post_page;
 			$series_post_list_template .= $series_intro_text_post_page;
-			if (1 == $cat_icon_chk_post_page ) $series_post_list_template .= '<div class="center">' . '%series_icon_linked%' . '</div>';
+			if (1 == $cat_icon_chk_post_page ) $series_post_list_template .= '<div class="center">%series_icon_linked%</div>';
 			if (1 == $text_chk_post_page ) {
 				if (1 == $cat_title_chk_post_page ) $series_post_list_template .= $before_series_title_post_page . '%series_title_linked%' . $after_series_title_post_page;
 				if (1 == $cat_description_cat_post_page ) $series_post_list_template .= $before_description_post_page . '%series_description%' . $after_description_post_page;
@@ -149,7 +150,7 @@ function org_series_import() {
 			'auto_tag_toggle' => $auto_tag_toggle,
 			'auto_tag_seriesmeta_toggle' => $auto_tag_seriesmeta_toggle,
 			'series_toc_url' => $series_toc_url,
-			'series_post_list_box_template' => $series_post_list_template,
+			'series_post_list_template' => $series_post_list_template,
 			'series_post_list_post_template' => $series_post_list_post_template,
 			'series_post_list_currentpost_template' => $series_post_list_currentpost_template,
 			'series_meta_template' => $series_meta_template,
@@ -194,7 +195,7 @@ function org_series_init($reset = false) {
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => $url['path'] . '/series/',
 		//new template options
-			'series_post_list_box_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
+			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
 			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
@@ -484,7 +485,7 @@ function org_series_echo_series_templates($settings) {
 	</div>
 	<div class="dbx-c-ontent-wrapper">
 		<div class="dbx-content">
-			<p>This section is where you tell the plugin how you would like to formate the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).</p>
+			<p>This section is where you tell the plugin how you would like to format the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).</p>
 			<div class="org-option">
 				<p>Series Post List Template:</p>
 				<p>This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]</p>

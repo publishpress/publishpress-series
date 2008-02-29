@@ -571,6 +571,14 @@ function wp_dropdown_series($args = '') {
 		$output .= "</select>\n";
 	}
 	
+	if ( empty( $series_list ) ) {
+		$output = '<select name="no-series" id="no-series" class="postform">';
+		$output .= "\n";
+		$output .= '<option value="-1">No Series have been started</option>';
+		$output .= "\n";
+		$output .= "</select>\n";
+	}
+	
 	$output = apply_filters('wp_dropdown_series', $output);
 	
 	if ( $echo )
@@ -809,14 +817,18 @@ function series_includeTemplate() {
 
 //TODO: NEED TO ADD TEMPLATE FOR SERIES TOC//
 
-function wp_set_post_series( $post_ID = 0, $series_id=NULL) {
-	global $wpdb;
+function wp_set_post_series( $post_ID = 0, $series_id = 0) {
 	$post_ID = (int) $post_ID;
-	if (isset($series_id) ) 
-		$post_series = (int) $series_id;
-	else
+	if ( $series_id == 0 ) 
 		$post_series = (int) $_POST['post_series'];
-	$series_part = (int) $_POST['series_part'];
+	else
+		$post_series = (int) $series_id;
+	
+	if ( isset($_POST) )
+		$series_part = (int) $_POST['series_part'];
+	else
+		$series_part = 0;
+		
 	$old_series = wp_get_post_series($post_ID);
 	$match = in_array($post_series, $old_series);
 	

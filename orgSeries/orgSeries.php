@@ -338,7 +338,7 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
 }
  
 function wp_serieslist_display( $referral = false ) {  
-	$series_list = get_series('hide_empty=0');
+	$series_list = get_series('hide_empty=1');
 	
 	foreach ($series_list as $series) {  
 		wp_serieslist_display_code($series); //layout code
