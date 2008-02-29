@@ -476,6 +476,8 @@ function sort_series_page_orderby($ordering) {
 	if (!is_series()) return $ordering;
 	$settings = get_option('org_series_options');
 	$orderby = $settings['series_posts_orderby'];
+	if ( $orderby == 'meta_value' )
+		$orderby = $orderby . '+ 0';
 	$order = $settings['series_posts_order'];
 	if (!isset($orderby)) $orderby = "post_date";
 	if (!isset($order)) $order = "DESC";
