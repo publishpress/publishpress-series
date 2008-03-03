@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 2.0
+Version: 2.0 Beta 1
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.3 to work.
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -40,7 +40,8 @@ Author URI: http://www.unfoldingneurons.com
 
 ######################################
 /* Changelog
-++Version 2.0
+++Version 2.0 Beta 1
+- This is a BETA version - it is very important that you backup your WordPress Database before trying the new version.  
 - Integrates with the new taxonomy system introduced in WordPress 2.3
 -  Version 2.0 of Organize Series will only work with WordPress 2.3 and greater.
 ++Versions .5beta-1.6.3 Changelogs are no longer published in this file.  I also no longer support these versions as there were some pretty significant changes in the plugin structure going from 1.6.3 to 2.0 and I simply do not have the time to support the two variations.
@@ -210,6 +211,16 @@ function get_cat_posts( $ser_ID ) { //deprecated: see get_series_posts()
 		get_series_posts( $ser_ID );
 }
 
+function get_series_toc( $link = TRUE ) {
+	$options = get_option('org_series_options');
+	$series_toc = $options['series_toc_url'];
+	$url = get_bloginfo('siteurl') . $series_toc;
+	if ( $link)
+		echo '<a href="' . $url . '" title="series_toc_url">Series</a>';
+	else
+		return $url;
+}
+
 function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO - order the posts that are called by their part number.
  	global $post;
 	if (is_single())
@@ -367,10 +378,10 @@ function add_series_meta($content) {
 	$settings = get_option('org_series_options');
 	
 	if($settings['auto_tag_seriesmeta_toggle']) {
-	$series_meta = wp_seriesmeta_write($postID);
-	$addcontent = $content;
-	$content = str_replace('%postcontent%', $addcontent, $series_meta);
-	
+		if ($series_meta = wp_seriesmeta_write($postID)) {
+			$addcontent = $content;
+			$content = str_replace('%postcontent%', $addcontent, $series_meta);
+		}
 	}
 	return $content;
 }
