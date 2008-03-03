@@ -22,8 +22,8 @@ get_header();
 </div>
 <?php
 
-//uncomment the following if you need a sidebar on your Series TOC
-//get_sidebar();
+//comment the following if you don't want a sidebar on your Series TOC
+get_sidebar();
 
 get_footer();
 ?>

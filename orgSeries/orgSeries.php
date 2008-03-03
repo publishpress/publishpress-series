@@ -223,7 +223,7 @@ function get_series_toc( $link = TRUE ) {
 
 function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO - order the posts that are called by their part number.
  	global $post;
-	if (is_single())
+	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
 	else
 		$cur_id = -1;
@@ -239,9 +239,10 @@ function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_ca
 			}
 		}
 	}
+	$series_post = array();
+	$posts_in_series = array();
 	$settings = get_option('org_series_options');
 	$series_post = get_objects_in_term($ser_ID, 'series');
-	$posts_in_series = array();
 	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
 	
@@ -319,7 +320,7 @@ function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rath
 ## SERIES CATEGORY POSTS TEMPLATE TAG ##
 ## Place this tag in the loop.  It "discovers" the series a post belongs to and then echoes a list of other posts in that series. Place this tag in the loop. ##
 
-function wp_postlist_display() { //TODO - change to make it in line with the new series options set up (%tokens% etc.).  Also, change to reflect new series_icon integration.
+function wp_postlist_display() { 
 	$settings = get_option('org_series_options');
 	$serarray = get_the_series();
 		if (!empty($serarray)) {

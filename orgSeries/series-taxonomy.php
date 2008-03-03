@@ -29,7 +29,12 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 	$key = 0;
 	
 	foreach ($posts as $spost) {
+		if (array_key_exists('object_id', $spost)) {
 			$spost_id = $spost['object_id'];
+		} else {
+			$spost_id = $spost;
+		}
+		
 		if ($skip && $spost_id == $postid) continue;
 			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
 			$series_posts[$key]['id'] = $spost_id;
@@ -571,7 +576,7 @@ function wp_dropdown_series($args = '') {
 		$output .= "</select>\n";
 	}
 	
-	if ( empty( $series_list ) ) {
+	if ( empty( $serieslist ) ) {
 		$output = '<select name="no-series" id="no-series" class="postform">';
 		$output .= "\n";
 		$output .= '<option value="-1">No Series have been started</option>';
