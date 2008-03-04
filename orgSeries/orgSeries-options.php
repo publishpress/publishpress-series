@@ -77,7 +77,11 @@ function org_series_import() {
 			
 			$message .= '</li>';
 		}
-		
+		if ( $delete_series )  { 
+				wp_delete_category($series_cats);
+				$message .= 'Old series meta-category deleted.<br />';
+			}
+	
 		$message .= '</ul>';
 	}
 	
