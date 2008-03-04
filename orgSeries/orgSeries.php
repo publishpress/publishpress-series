@@ -363,8 +363,7 @@ function add_series_post_list_box($content) {
 	$settings = get_option('org_series_options');
 	
 	if ($settings['auto_tag_toggle']) {
-		if (is_single()) {
-			$postlist = wp_postlist_display();
+		if (is_single() && $postlist = wp_postlist_display() ) {
 			$addcontent = $content;
 			$content = str_replace('%postcontent%', $addcontent, $postlist);
 		}
@@ -454,8 +453,7 @@ function wp_assemble_series_nav() {
 function series_nav_filter($content) {
 	$settings = get_option('org_series_options');
 	if (is_single()) {
-		if($settings['auto_tag_toggle']) {
-			$series_nav = wp_assemble_series_nav();
+		if($settings['auto_tag_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 			$addcontent = $content;
 			$content = str_replace('%postcontent%', $addcontent, $series_nav);
 		}
