@@ -53,51 +53,75 @@ Author URI: http://www.unfoldingneurons.com
 // TO-DO (Feature additions to add in future versions) --moved to plugin page.
 #####################################
 
-/*
-INITIAL INSTALL OF PLUGIN
+/**
+  * This sets the default variables for the plugin init.
 */
 $org_series_version = "2.0";
 $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count');
 $org_series_term = "series";
 $org_series_type = "post";
+
+/**
+  * This file contains all the functions that hook the plugin with the WordPress core taxonomy.
+*/
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-taxonomy.php');
+
+/**
+  * This file contains all the functions hooking OrgSeries into the write/edit post pages AND the management pages.
+*/
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
+
+/**
+  * This file contains all the series-icon backend functions
+*/
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
+
+/**
+  * This file includes the functions hooking in the Series information with WordPress feeds.
+*/
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-rss.php');
 
+/**
+  & org_series_install() - contains all the routines that are run when Organize Series is activated via the WordPress plugins page.
+  *
+  * @uses register_taxonomy() - WordPress hook for setting the new series taxonomy
+  * @uses orgSeries_roles() - function that adds manage_series capability to $wp_roles object.
+  * @uses get_option()
+  * @uses add_option()
+  * @uses update_option()
+  * @uses dbDelta() - core WordPress function for creating new database tables (for series-icon related data)
+  * @uses $wpdb - global WordPress database object
+*/
 function org_series_install() {
-          global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
-         register_taxonomy($org_series_term, $org_series_type, $org_series_args);
-		 orgSeries_roles(); 
+	global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
+	register_taxonomy( $org_series_term, $org_series_type, $org_series_args );
+	orgSeries_roles(); 
          
-		 //TODO - do test to make sure the WordPress version is greater than or equal to 2.3 and gracefully "die" if it isn't (outputting an error message using WP_Error?
-		 //do test to see if older version of orgSeries exists and if so set oldversion number so that any necessary import changes can be done. 
-		 if ( $options = get_option('org_series_options') && !( $oldversion = get_option('org_series_version') ) ) { //for versions prior to 2.0
-			add_option('org_series_oldversion', '1.6');
-		}
+	if ( $options = get_option( 'org_series_options' ) && !( $oldversion = get_option('org_series_version' ) ) )  //for versions prior to 2.0
+		add_option('org_series_oldversion', '1.6');
 		
-		if ( $oldversion = get_option('org_series_version') ) { //for versions after 2.0
-			update_option('org_series_oldversion', $oldversion);
-		} else { //for versions prior to 2.0
-			add_option('org_series_oldversion', '1.6');
-		}
+	if ( $oldversion = get_option( 'org_series_version' ) )  //for versions after 2.0
+		update_option( 'org_series_oldversion', $oldversion );
+	else //for versions prior to 2.0
+		add_option('org_series_oldversion', '1.6');
+	
+	add_option("org_series_version", $org_series_version);
 		
-		add_option("org_series_version", $org_series_version);
-		
-		//create table for series icons
-		$table_name = $wpdb->prefix . "orgSeriesIcons";
-		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
-			$sql = "CREATE TABLE " . $table_name . " (
-				term_id INT NOT NULL,
-				icon VARCHAR(100) NOT NULL,
-				PRIMARY KEY term_id (term_id)
-			);";
-			require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
-			dbDelta($sql);
-		}
-		add_option('series_icon_path', '');
-		add_option('series_icon_url', '');
-		add_option('series_icon_filetypes', 'jpg gif jpeg png');
+	//create table for series icons
+	$table_name = $wpdb->prefix . "orgSeriesIcons";
+	if( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
+		$sql = "CREATE TABLE " . $table_name . " (
+			term_id INT NOT NULL,
+			icon VARCHAR(100) NOT NULL,
+			PRIMARY KEY term_id (term_id)
+		);";
+		require_once( ABSPATH . 'wp-admin/upgrade-functions.php' );
+		dbDelta( $sql );
+	}
+	
+	add_option( 'series_icon_path', '' );
+	add_option( 'series_icon_url', '' );
+	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
 }
 
 //*** Add .css to header if enabled via options ***//
