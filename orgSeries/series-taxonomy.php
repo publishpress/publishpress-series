@@ -33,7 +33,7 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 	$key = 0;
 	
 	foreach ($posts as $spost) {
-		if (array_key_exists('object_id', $spost)) {
+		if (array_key_exists('object_id', $posts)) {
 			$spost_id = $spost['object_id'];
 		} else {
 			$spost_id = $spost;
@@ -87,7 +87,7 @@ function get_series_permastruct() {
 	}
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->root . '/' . SERIES_QUERYVAR . "/$series_token";
+	$series_structure = $wp_rewrite->front . SERIES_QUERYVAR . "/$series_token";
 	return $series_structure;
 }
 
@@ -95,34 +95,30 @@ function series_createRewriteRules($rules) {
 	global $wp_rewrite;
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$wp_rewrite->add_rewrite_tag($series_token, '(.*)', SERIES_QUERYVAR . '=');
+	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
 	
 	//without trailing slash
 	$series_structure = $wp_rewrite->root . SERIES_QUERYVAR . "/$series_token";
-	$rules += $wp_rewrite->generate_rewrite_rules($series_structure);
-	
-	//with traling slash
-	$rules += $wp_rewrite->generate_rewrite_rules($series_structure . '/');
-	return $rules;
+	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
+	//return $series_structure;
+	return ( $rules + $rewrite );
 }
 
 function series_init() {
 	global $wp_rewrite;
 	
-	/*not necessary to change but can be set to 0 if you want to force permalinks off */
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		define('SERIES_REWRITEON', '1');  //pretty permalinks please!
-		define('SERIES_LINKBASE', $wp_rewrite->root);  //set to "index.php/" if using that style
 	} else {
 		define('SERIES_REWRITEON', '0');  //old school links
-		define('SERIES_LINKBASE', '');  //don't need this
 	}
+	
 	
 	//generate rewrite rules for series queries 
 	
 	if (SERIES_REWRITEON && SERIES_REWRITERULES)
 		add_filter('rewrite_rules_array', 'series_createRewriteRules');
-	
+		
 	//setting up the series_toc_page redirect
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
@@ -132,6 +128,7 @@ function series_init() {
 		add_action('parse_query', 'orgSeries_parse_query');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
+	//$wp_rewrite->flush_rules();  //TODO: (NEEDS TESTING) I THINK THIS MIGHT MAKE IT SO USERS DON'T HAVE TO UPDATE THE PERMALINKS MANUALLY.  Probably should be added to the plugin_activation hook.
 }
 
 function orgSeries_parse_query($wp_query) {

@@ -40,7 +40,7 @@ Author URI: http://www.unfoldingneurons.com
 
 ######################################
 /* Changelog
-++Version 2.0 Beta 1
+++Version 2.0 Beta 1.1
 - This is a BETA version - it is very important that you backup your WordPress Database before trying the new version.  
 - Integrates with the new taxonomy system introduced in WordPress 2.3
 -  Version 2.0 of Organize Series will only work with WordPress 2.3 and greater.
