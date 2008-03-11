@@ -279,6 +279,7 @@ function org_series_option_update() {
 }
 
 function org_series_admin_page() {
+	global $wp_version;
 	?>
 	<div class="wrap" id ="orgSeries_div">
 		<h2><?php _e('Organize Series Plugin Options'); ?></h2>

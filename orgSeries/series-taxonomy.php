@@ -103,8 +103,8 @@ function series_createRewriteRules($rules) {
 	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
 	//return $series_structure;
 	return ( $rewrite + $rules );
-}
 
+}
 function series_init() {
 	global $wp_rewrite;
 	
@@ -501,17 +501,11 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 }
 
 function add_series_wp_title( $title ) {
-	global $wpdb, $wp_locale, $wp_query;
-	$series = get_query_var(SERIES_QUERYVAR);
-	$title = '';
+	$series = single_series_title('', false);
 	
 	if ( !empty($series) ) {
-		$series = get_term($series,'series', OBJECT, 'display');
-		if ( is_wp_error($series) )
-			return $series;
-		if ( ! empty($series->name) )
-			$title = apply_filters('single_series_title', $series->name);
-		}
+		$title = 'Series: ' . $series . ' &laquo; ' . $title;
+	}
 	return $title;
 }
 
@@ -526,10 +520,10 @@ function single_series_title($prefix = '', $display = true) {
 	}
 	
 	if ( !empty($series_id) ) {
-		$my_series = &get_term($series_id, 'series', OBJECT, 'display');
+		$my_series = get_term($series_id, 'series', OBJECT, 'display');
 		if ( is_wp_error( $my_series ) )
 			return false;
-		$my_series_name = apply_filters('single_tag_title', $my_series->name);
+		$my_series_name = apply_filters('single_series_title', $my_series->name);
 		if ( !empty($my_series_name) ) {
 			if ( $display )
 				echo $prefix, $my_series_name;

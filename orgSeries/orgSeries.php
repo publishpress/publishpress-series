@@ -60,7 +60,7 @@ $org_series_version = "2.0";
 $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count');
 $org_series_term = "series";
 $org_series_type = "post";
-
+global $org_series_version, $org_series_args, $org_series_term, $org_series_type;
 /**
   * This file contains all the functions that hook the plugin with the WordPress core taxonomy.
 */
@@ -158,15 +158,23 @@ add_action('admin_head','orgSeries_admin_script');
 //add_action filter for the manage_series page...
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
-global $pagenow;
+global $pagenow, $wp_version;
 	if (isset($_GET['page']))
 		$pagenow = $_GET['page'];
 	if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
-		wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
-		wp_localize_script('ajaxseries','seriesL10n',array(
-			'add' => attribute_escape(__('Add')),
-			'how' => __('Select "Not...series" to remove any series data from post')
+		if ( isset($wp_version) && $wp_version >= 2.5 ) {
+			wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series-new.js', array('wp-lists'), '20080310' );
+			wp_localize_script( 'ajaxseries', 'seriesL10n', array(
+				'add' => attribute_escape(__('Add')),
+				'how' => __('Select "Not part of a series" to remove any series data from post')
 			));
+		} else {
+			wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/series.js', array('listman'), '20071201' );
+			wp_localize_script('ajaxseries','seriesL10n',array(
+				'add' => attribute_escape(__('Add')),
+				'how' => __('Select "Not...series" to remove any series data from post')
+				));
+		}
 		wp_print_scripts( 'ajaxseries' );
 	}
 	

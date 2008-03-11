@@ -6,7 +6,7 @@
  * @package WordPress
  * @since 2.3
  */
- 
+ global $wp_version;
 /**
  * get_series_list() - queries the list of series from the database and creates an array indicating what 
  * series is associated with the current post (if existent).
@@ -84,7 +84,34 @@ function get_series_to_select( $default = 0 ) {
 	write_series_list( get_series_list( $default) );
 }
 
-add_action('dbx_post_sidebar', 'series_edit_box');
+if ( isset( $wp_version ) && $wp_version >= 2.5 )
+	add_action( 'submitpost_box', 'series_new_edit_box' );
+else
+	add_action('dbx_post_sidebar', 'series_edit_box');
+
+function series_new_edit_box() {
+	global $post, $postdata, $content;
+	$id = isset($post) ? $post->ID : $postdata->ID;
+	?>
+	<div class="side-info">
+	<h5><?php _e('Series') ?></h5>
+		<div id="seriesdiv">
+			
+		<p id="jaxseries"></p>
+				<?php /*<input type="text" name="newseries" id="newseries" class="form-required form-input-tip" value="<?php _e( 'New series name' ); ?>" />
+				<input type="button" id="series-add" class="add:serieschecklist:seriesdiv button" value="<?php _e( 'Add' ); ?>" />
+				<?php wp_nonce_field( 'add-series', '_ajax_nonce', false ); ?> */ ?>
+				<span id="series-ajax-response"></span>
+		</p>
+			
+		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
+				<?php get_series_to_select(); ?>
+		</ul>
+		</div>
+	</div>
+	<?php
+}
+
 function series_edit_box() {
 global $post, $postdata, $content;
 $id = isset($post) ? $post->ID : $postdata->ID;
