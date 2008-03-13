@@ -60,7 +60,7 @@ $org_series_version = "2.0";
 $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count');
 $org_series_term = "series";
 $org_series_type = "post";
-global $org_series_version, $org_series_args, $org_series_term, $org_series_type;
+global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
 /**
   * This file contains all the functions that hook the plugin with the WordPress core taxonomy.
 */
@@ -127,7 +127,7 @@ function org_series_install() {
 //*** Add .css to header if enabled via options ***//
 function orgSeries_header() {
 	$settings = get_option('org_series_options');
-	$plugin_path = get_settings('siteurl') . '/wp-content/plugins/orgSeries';
+	$plugin_path = get_option('siteurl') . '/wp-content/plugins/orgSeries';
 	if ($settings['custom_css']) {
 		$csspath = $plugin_path."/orgSeries.css";
 		$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
@@ -139,7 +139,7 @@ function orgSeries_header() {
 }
 
 function orgSeries_admin_header() {
-	$plugin_path = get_settings('siteurl') . '/wp-content/plugins/orgSeries';
+	$plugin_path = get_option('siteurl') . '/wp-content/plugins/orgSeries';
 	$csspath = $plugin_path . "/orgSeries-admin.css";
 	$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
 	echo $text;
@@ -148,9 +148,9 @@ function orgSeries_admin_header() {
 ###### CREATE ADMIN PANEL FUNCTION #######
 function series_organize_options() {
 	if (function_exists('add_options_page')) 
-		add_options_page('Organize Series Options', 'Series Options', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
+		add_options_page('Organize Series Options', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
 	if (function_exists('add_management_page'))	
-		add_management_page('Organize Series Management', 'Series', 9, get_settings('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
+		add_management_page('Organize Series Management', 'Series', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
 }
 
 ##ADMIN-Write/Edit Post Script loader
@@ -178,21 +178,23 @@ global $pagenow, $wp_version;
 		wp_print_scripts( 'ajaxseries' );
 	}
 	
-	if ('orgSeries/orgSeries-manage.php' == $pagenow)
-		orgSeries_manage_script();
-	if ('orgSeries/orgSeries-options.php' == $pagenow)
+	if ( isset( $wp_version ) && $wp_version < 2.5 ) {
+		if ('orgSeries/orgSeries-manage.php' == $pagenow)
+			orgSeries_manage_script();
+	}
+		
+	if ( 'orgSeries/orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
 
 function orgSeries_manage_script() {
-wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js',array('listman'), '20070125' );
-wp_print_scripts('admin-series');
+	wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/manageseries.js',array('listman'), '20070125' );
+	wp_print_scripts('admin-series');
 }
 
 function org_series_options_js() {
 	?>
 	<script type="text/javascript" src="../wp-includes/js/tw-sack.js"></script>
-	<script type="text/javascript" src="list-manipulation.js"></script>
 	<script type="text/javascript" src="../wp-includes/js/dbx.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
@@ -567,7 +569,7 @@ function admin_ajax_series_add() {
 		'data' => _series_row( $series ),
 		'supplemental' => array('name' => $series_full_name, 'show-link' => sprintf(__('Series <a href="#%s">%s</a> added' ), "serial-$series->term_ID", $series_full_name))
 		) );
-		$x->send();
+	$x->send();
 }
 
 //delete series ajax
@@ -753,8 +755,11 @@ add_action('activate_orgSeries/orgSeries.php','org_series_install');
 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
-add_action('wp_ajax_add-serial', 'admin_ajax_series_add');
-add_action('wp_ajax_delete-serial', 'admin_ajax_delete_series');
+
+if ( isset( $wp_version ) && $wp_version < 2.5 ) {
+	add_action('wp_ajax_add-serial', 'admin_ajax_series_add');
+	add_action('wp_ajax_delete-serial', 'admin_ajax_delete_series');
+}
 
 //insert .css in header if needed
 add_action('wp_head', 'orgSeries_header');

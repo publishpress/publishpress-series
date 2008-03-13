@@ -3,8 +3,10 @@
 //TODO - For future versions - figure out some way to have the file-upload with the "Add-Series" form.  I don't have it now because I don't know of a way to use ajax & <input type=file>.
 //TODO - For future versions - Add a dropdown list of existing images on the server for the user to pick from (the list would be created from the default series-icons uploads directory.
 //TODO - change the current setup so people can set their own default upload directory - currently they can only use the default directory of WordPress with date/folder organization disabled. (perhaps by setting an override for the $uploads variable in wp_handle_upload()
+//TODO - LEFT OFF HERE --- got to find a way to put the "on-click" javascript back in for the delete links...I think that's going to be the only way I can put that in (and stop the header errors) other than mirror the new layout...
 require_once('orgSeries_includes.php');
-wp_reset_vars(array('action','serial'));
+
+wp_reset_vars(array('action','series_ID'));
 
 switch($action) {
 	
@@ -14,6 +16,9 @@ case 'addseries':
 	
 	if ( !current_user_can('manage_series') ) 
 		wp_die(__('Cheatin&#8217; uh?'));
+	
+	if ( !isset( $_FILES['series_icon'] ) || $_FILES['series_icon'] == '' )
+		$_FILES['series_icon'] = '';
 		
 	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
 		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=1#addseries'); 
@@ -30,8 +35,9 @@ case 'delete':
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
 		
-	wp_delete_series($series_ID); 
-	wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); //TODO - see LINE 19
+	wp_delete_series($series_ID);
+	
+	wp_redirect(get_option( 'siteurl' ) . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); 
 	exit;
 break;
 
@@ -52,16 +58,16 @@ case 'editedseries':
 		wp_die(__('Cheatin&#8217; uh?'));
 	
 	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
-			wp_redirect(get_settings('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=3');
+			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=3');
 	else
-		wp_redirect(get_settings('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=5');
+		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=5');
 	
 	exit;
 break;
 
 default:
 //wp_enqueue_script( 'admin-series' );  
-//require_once(ABSPATH . 'wp-admin/admin-header.php'); //TODO: I don't think I need to use this.
+//require_once('admin-header.php'); //TODO: I don't think I need to use this.
 
 $messages[1] = __('Series added.');
 $messages[2] = __('Series deleted.');

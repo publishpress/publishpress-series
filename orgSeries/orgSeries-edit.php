@@ -6,7 +6,7 @@
  * @package WordPress
  * @since 2.3
  */
- global $wp_version;
+ global $wp_version, $pagenow;
 /**
  * get_series_list() - queries the list of series from the database and creates an array indicating what 
  * series is associated with the current post (if existent).
@@ -51,7 +51,7 @@ function get_series_list( $default = 0 ) {
 		}
 		
 		$result = apply_filters( 'get_series_list', $result );
-		usort( $result, '_usort_terms_by_name' );
+		usort( $result, '_usort_series_by_name' );
 		
 		return $result;
 	}
@@ -107,6 +107,8 @@ function series_new_edit_box() {
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
+		<span id="seriespart"><strong> Series Part:   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
 		</div>
 	</div>
 	<?php
@@ -138,22 +140,34 @@ add_action('manage_posts_custom_column','orgSeries_custom_column_action', 10, 2)
 function orgSeries_custom_column_action($column_name, $id) {
 	global $wpdb;
 	if ($column_name == 'series') {
-		$series = get_the_series($id);
-		$seriesid = $series[0]->term_id;
-		$series_name = $series[0]->name;
-		$series_link = get_series_link($seriesid);
-		$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
-		$count = $series[0]->count;
-		if ($series) {
-			$column_content = 'Part ' . $series_part . ' of ' . $count . ' the series, <a href="' . $series_link . '" title="' . $series_name . '">' . $series_name . '</a>';
-			echo  $column_content;
+		if ( $series = get_the_series($id) ) {
+			$seriesid = $series[0]->term_id;
+			$series_name = $series[0]->name;
+			$series_link = get_series_link($seriesid);
+			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
+			$count = $series[0]->count;
+			if ($series) {
+				$column_content = 'Part ' . $series_part . ' of ' . $count . ' the series, <a href="' . $series_link . '" title="' . $series_name . '">' . $series_name . '</a>';
+				echo  $column_content;
+			} 
 		} else {
 			echo '<em>No Series</em>';
 		}
 	}
 }
 
-add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
+	if ( $pagenow != 'upload.php' )
+		add_action('restrict_manage_posts', 'orgSeries_new_custom_manage_posts_filter');
+ } else
+	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+
+function orgSeries_new_custom_manage_posts_filter() {
+	$_GET['series'] = (int) $_GET['series'];
+	//$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in&#8220;%s&#8221;'), single_series_title('' , false) ) : ''; //TODO: Keeping an eye out for a hook into the page title in future versions of WordPress
+	wp_dropdown_series('show_option_all='.__('View all series').'&hide_empty=1&show_count=1&selected='.$_GET['series']);
+}
+
 function orgSeries_custom_manage_posts_filter() {
 	$_GET['series'] = (int) $_GET['series'];
 	//$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in&#8220;%s&#8221;'), single_series_title('' , false) ) : ''; //TODO: Keeping an eye out for a hook into the page title in future versions of WordPress
