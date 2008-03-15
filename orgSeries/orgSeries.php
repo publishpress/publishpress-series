@@ -145,8 +145,13 @@ function orgSeries_admin_header() {
 
 ###### CREATE ADMIN PANEL FUNCTION #######
 function series_organize_options() {
-	if (function_exists('add_options_page')) 
-		add_options_page('Organize Series Options', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
+	global $wp_version;
+	if (function_exists('add_options_page')) { 
+		if ( isset( $wp_version ) && $wp_version >= 2.5 )
+			add_options_page('Organize Series Optoins', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options-new.php');
+		else
+			add_options_page('Organize Series Options', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
+	}
 	if (function_exists('add_management_page'))	
 		add_management_page('Organize Series Management', 'Series', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
 }

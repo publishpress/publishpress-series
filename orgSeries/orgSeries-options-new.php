@@ -22,6 +22,11 @@ function org_series_import() {
 	$series_cats = $oldsettings['series_cats'];
 	$message = '<div class="updated"><p>The following imports have been completed successfully:</p>';  
 	
+	if ($do_nothing) {
+		update_option('org_series_oldversion', '0'); //will prevent import form from being called again.
+		return $message = '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
+	}
+	
 	if ( $import_cat_icons  && !(function_exists('ig_caticons_get_icons')) ) {
 		return $message = '<div class="updated"><p><strong>You indicated your desire to import category icons.  However, the category-icons plugin is not installed and is necessary for the import to continue.  Please activate the category-icons plugin before doing the import or don\'t select to import the icons.</strong></p></div>';
 		}
@@ -174,10 +179,6 @@ function org_series_import() {
 		$message .= '<p>Option settings have been imported and old option/value pairs deleted.</p>';
 	}
 		
-	if ($do_nothing) {
-		$message .= '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
-	}
-	
 	update_option('org_series_oldversion', '0'); //this will prevent the import form from being called again?
 	$message .= '</div>';
 	return $message;
@@ -246,7 +247,6 @@ function org_series_init($reset = false) {
 
 function org_series_option_update() {
 	global $wpdb;
-	
 	$url = parse_url(get_bloginfo('siteurl'));
 	//toggles and paging info
 	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
@@ -281,8 +281,9 @@ function org_series_option_update() {
 function org_series_admin_page() {
 	global $wp_version;
 	?>
-	<div class="wrap" id ="orgSeries_div">
+	<div class="wrap">
 		<h2><?php _e('Organize Series Plugin Options'); ?></h2>
+	</div>
 	<?php
 	
 	if (isset($_POST['import_option'])) {
@@ -307,8 +308,9 @@ function org_series_admin_page() {
 	if ( '1.6' == $oldversion ) org_series_import_form();	
 		
 		?>
-	<div class="org-series-settings-right"><?php /* LEFT OFF HERE - check out the class and .css used on the write/edit post screen and use it instead */ ?>
-		<h3><?php _e('Plugin Info') ?></h3>
+<div class="submitbox" id="submitpost">
+	<div class="side-info">
+		<h5><?php _e('Plugin Info') ?></h5>
 		<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
 		<p>If you'd like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier's (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -319,66 +321,66 @@ function org_series_admin_page() {
 " />
 		</form>
 	
-	<h3><?php _e('Token legend'); ?></h3>
+	<h5><?php _e('Token legend'); ?></h5>
 		<p><small>The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.</small></p>
-		<h4>%series_icon%</h4>
-			<em>This will be replaced with the series icon for a series.</em>
-		<h4>%series_icon_linked%</h4>
-			<em>Same as %series_icon% except that the series icon will be linked to the series page</em>
-		<h4>%series_list%</h4>
-			<em>This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.</em>
-		<h4>%series_title%</h4>
-			<em>This will be replaced with the title of a series</em>
-		<h4>%series_title_linked%</h4>
-			<em>Same as %series_title% except that it will also be linked to the series page</em>
-		<h4>%post_title_list%</h4>
-			<em>Is the location token for where the contents of the post list post templates will appear.</em>
-		<h4>%post_title%</h4>
-			<em>Will be replaced with the post title of a post in the series</em>
-		<h4>%post_title_linked%</h4>
-			<em>Will be replaced with the post title of a post in the series linked to the page view of that post.</em>
-		<h4>%previous_post%</h4>
-			<em>Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.</em>
-		<h4>%previous_post_custom%</h4>
-			<em>Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.</em>
-		<h4>%next_post%</h4>
-			<em>Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.</em>
-		<h4>%next_post_custom%</h4>
-			<em>Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.</em>
-		<h4>%postcontent%</h4>
-			<em>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</em>
-		<h4>%series_part%</h4>
-			<em>Will display what part of a series the post is</em>
-		<h4>%total_posts_in_series%</h4>
-			<em>Will display the total number of posts in a series</em>
-		<h4>%series_description%</h4>
+		<strong>%series_icon%</strong><br />
+			<em>This will be replaced with the series icon for a series.</em><br /><br />
+		<strong>%series_icon_linked%</strong><br />
+			<em>Same as %series_icon% except that the series icon will be linked to the series page</em><br /><br />
+		<strong>%series_list%</strong><br />
+			<em>This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.</em><br /><br />
+		<strong>%series_title%</strong><br />
+			<em>This will be replaced with the title of a series</em><br /><br />
+		<strong>%series_title_linked%</strong><br />
+			<em>Same as %series_title% except that it will also be linked to the series page</em><br /><br />
+		<strong>%post_title_list%</strong><br />
+			<em>Is the location token for where the contents of the post list post templates will appear.</em><br /><br />
+		<strong>%post_title%</strong><br />
+			<em>Will be replaced with the post title of a post in the series</em><br /><br />
+		<strong>%post_title_linked%</strong><br />
+			<em>Will be replaced with the post title of a post in the series linked to the page view of that post.</em><br /><br />
+		<strong>%previous_post%</strong><br />
+			<em>Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.</em><br /><br />
+		<strong>%previous_post_custom%</strong><br />
+			<em>Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.</em><br /><br />
+		<strong>%next_post%</strong><br />
+			<em>Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.</em><br /><br />
+		<strong>%next_post_custom%</strong><br />
+			<em>Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.</em><br /><br />
+		<strong>%postcontent%</strong><br />
+			<em>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</em><br /><br />
+		<strong>%series_part%</strong><br />
+			<em>Will display what part of a series the post is</em><br /><br />
+		<strong>%total_posts_in_series%</strong><br />
+			<em>Will display the total number of posts in a series</em><br /><br />
+		<strong>%series_description%</strong><br />
 			<em>Will display the description for the series</em>
 						
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
-			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed.php'); ?>
+			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed-new.php'); ?>
 		</div> <?php /*rss feed related */ ?>
 		<?php } ?>
 	</div>
-	<?php /* LEFT OFF HERE */ ?>
+</div>
+
+<div class="wrap">	
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
-	<div id="advancedstuff" class="dbx-group">
+	<table class="form-table">
 		
 <?php	
 	org_series_echo_fieldset_mainsettings($settings);
 	org_series_echo_series_templates($settings);
 	org_series_echo_series_icon($settings);
 ?>
-	</div>
-	<div>
-		<p class="submit">
+	</table>
+	<br />
+		<span class="submit">
 			<input type="submit" name="update_orgseries" value="<?php _e('Update Options'); ?>" />
 			<input type="submit" onclick='return confirm("Do you really want to reset to default options (all your custom changes will be lost)?");' name="reset_option" value="<?php _e('Reset options to default') ?>" />
-		</p>
-	</div>
+		</span>
 	</form>
-	</div>
 </div>
 <?php
 }
@@ -412,127 +414,109 @@ function org_series_echo_fieldset_mainsettings($settings) {
 	$url = parse_url(get_bloginfo('siteurl'));
 	$url = $url['path'] . '/';
 	?>
-	<div class="dbx-b-ox-wrapper">
-	<fieldset id="main-options" class="dbx-box">
-	<div class="dbx-h-andle-wrapper">
-	<h3 class="dbx-handle"><?php _e('Automation Settings'); ?></h3>
-	</div>
-	<div class="dbx-c-ontent-wrapper">
-		<div class="dbx-content">
-			<p><em>Choose from the following options for turning on or off automatic insertion of template tags for Organize Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.</em></p>
-			<div class="org-option">
-				<input name="auto_tag_toggle" id="auto_tag_toggle" type="checkbox" value="<?php echo $settings['auto_tag_toggle']; ?>" <?php checked('1', $settings['auto_tag_toggle']); ?> /> Display list of series on post pages?
-			</div>
-			<div class="org-description">
-				<p>Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  [default=selected]</p>
-			</div>
-			<div class="org-option">
-				<input name="auto_tag_seriesmeta_toggle" id="auto_tag_seriesmeta_toggle" type="checkbox" value="<?php echo $setttings['auto_tag_seriesmeta_toggle']; ?>" <?php checked('1', $settings['auto_tag_seriesmeta_toggle']); ?> /> Display series meta information with posts?
-			</div>
-			<div class="org-description">
-				<p>Series meta will include whatever is listed in the Template tag options for the series meta tag (see settings on this page). [default = selected]</p>
-			</div>
-			<div class="org-option">
-				<input name="custom_css" id="custom_css" type="checkbox" value="<?php echo $setttings['custom_css']; ?>" <?php checked('1', $settings['custom_css']); ?> /> Use custom .css?
-			</div>
-			<div class="org-description">
-				<p>Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]</p>
-			</div>
-			<div class="org-option">
-				Series Table of Contents URL:<br />
-				<?php bloginfo('siteurl') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
-			</div>
-			<div class="org-description">
-				<p>Enter the path where you want the Series Table of Contents to be shown</p>
-			</div>				
-			<div class="org-option">
-				<input name="series_posts_orderby" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $settings['series_posts_orderby']); ?> />Order by series part
-				<input name="series_posts_orderby" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $settings['series_posts_orderby']); ?> />Order by date <br />
-				<input name="series_posts_order" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $settings['series_posts_order']); ?> />Ascending
-				<input name="series_posts_order" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $settings['series_posts_order']); ?> />Descending
-			</div>
-			<div class="org-description">
-				<p>You can choose what order you want the posts on a series archive page to be displayed.  Default is by date, descending.
-				</p>
-			</div>
-		</div>
-	</div>
-	</fieldset>
-	</div>
+	<tr>
+		<th scope="row" valign="top"><?php _e('Automation Settings'); ?><br />
+			<small>Choose from the following options for turning on or off automatic insertion of template tags for Organize Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.</small>
+		</th>
+			<td>
+				<label for="auto_tag_toggle">
+					<input name="auto_tag_toggle" id="auto_tag_toggle" type="checkbox" value="<?php echo $settings['auto_tag_toggle']; ?>" <?php checked('1', $settings['auto_tag_toggle']); ?> /> Display list of series on post pages?
+				</label>
+				<br />
+				<small><em>Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  [default=selected]</em></small>
+				<br />
+				<label for="auto_tag_seriesmeta_toggle">
+					<input name="auto_tag_seriesmeta_toggle" id="auto_tag_seriesmeta_toggle" type="checkbox" value="<?php echo $setttings['auto_tag_seriesmeta_toggle']; ?>" <?php checked('1', $settings['auto_tag_seriesmeta_toggle']); ?> /> Display series meta information with posts?
+				</label>
+				<br/>
+				<small><em>Series meta will include whatever is listed in the Template tag options for the series meta tag (see settings on this page). [default = selected]</em></small>
+				<br />
+				<label for="custom_css">
+					<input name="custom_css" id="custom_css" type="checkbox" value="<?php echo $setttings['custom_css']; ?>" <?php checked('1', $settings['custom_css']); ?> /> Use custom .css?
+				</label>
+				<br />
+				<small><em>Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]</em></small>
+				<br />
+				<br />
+					<strong>Series Table of Contents URL:</strong><br />
+					<?php bloginfo('siteurl') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
+				<small><em>Enter the path where you want the Series Table of Contents to be shown</em></small><br/><br/>
+				<label for "series_posts_orderby_part">
+					<input name="series_posts_orderby" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $settings['series_posts_orderby']); ?> />Order by series part
+				</label>
+				<label for="series_posts_orderby_date">
+					<input name="series_posts_orderby" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $settings['series_posts_orderby']); ?> />Order by date 
+				</label>
+				<br />
+				<label for="series_posts_order_ASC">
+					<input name="series_posts_order" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $settings['series_posts_order']); ?> />Ascending
+				</label>
+				<label for="series_posts_order_DESC">
+					<input name="series_posts_order" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $settings['series_posts_order']); ?> />Descending
+				</label>
+				<br />
+				<small><em>You can choose what order you want the posts on a series archive page to be displayed.  Default is by date, descending.</em></small>
+			</td>
+		</tr>
 	<?php
 }	
 
 function org_series_echo_series_templates($settings) {
 	?>
-	<div class="dbx-b-ox-wrapper">
-	<fieldset id="series-template-options" class="dbx-box">
-	<div class="dbx-h-andle-wrapper">
-		<h3 class="dbx-handle"><?php _e('Template Tag options'); ?></h3>
-	</div>
-	<div class="dbx-c-ontent-wrapper">
-		<div class="dbx-content">
-			<p>This section is where you tell the plugin how you would like to format the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).</p>
-			<div class="org-option">
-				<p>Series Post List Template:</p>
-				<p>This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]</p>
-				<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea>
-				<br />
-				<p>Series Post List Post Title Template:</p>
-				<p>Use this to indicate what html tags will surround the post title in the series post list.</p>
-				<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea>
-				<br />
-				<p>Series Post List Current Post Title Template:</p>
-				<p>Use this to style how you want the post title in the post list that is the same as the current post to be displayed.</p>
-				<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea>
-				<br />
-				<p>Series Post Navigation Template:</p>
-				<p>Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don't forget to use the %postcontent% token to indicate where you want the navigation to show).</p>
-				<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea>
-				<br />
-				<input name="series_nextpost_nav_custom_text" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $settings['series_nextpost_nav_custom_text']; ?>" size="40" /> Custom next post navigation text.<br />
-				<input name="series_prevpost_nav_custom_text" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $settings['series_prevpost_nav_custom_text']; ?>" size="40" /> Custom previous post navigation text.<br />
-				<p>Series Table of Contents Listings:</p>
-				<p>This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]</p>
-				<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea>
-				<br />
-				<p>Series Meta:</p>
-				<p>This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]</p>
-				<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea>
-				<br />
-				<p>Latest Series:</p>
-				<p>This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).</p>
-				<textarea name="latest_series_template" id="latest_series_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['latest_series_template']); ?></textarea>
-			</div>
-		</div>
-	</div>
-	</fieldset>
-	</div>
+	<tr>
+		<th scope="row" valign="top"><?php _e('Template Tag options'); ?><br />
+			<small>This section is where you tell the plugin how you would like to format the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).</small>
+		</th>
+		<td>
+			<strong>Series Post List Template:</strong><br />
+			<small>This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]</small><br />
+			<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea><br />
+			<br />
+			<strong>Series Post List Post Title Template:</strong><br />
+			<small>Use this to indicate what html tags will surround the post title in the series post list.</small><br/>
+			<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea><br />
+			<br />
+			<strong>Series Post List Current Post Title Template:</strong><br />
+			<small>Use this to style how you want the post title in the post list that is the same as the current post to be displayed.</small><br />
+			<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea><br />
+			<br />
+			<strong>Series Post Navigation Template:</strong><br />
+			<small>Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don't forget to use the %postcontent% token to indicate where you want the navigation to show).</small><br />
+			<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea><br />
+			<br />
+			<input name="series_nextpost_nav_custom_text" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $settings['series_nextpost_nav_custom_text']; ?>" size="40" /> Custom next post navigation text.<br />
+			<input name="series_prevpost_nav_custom_text" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $settings['series_prevpost_nav_custom_text']; ?>" size="40" /> Custom previous post navigation text.<br />
+			<br />
+			<strong>Series Table of Contents Listings:</strong><br />
+			<small>This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]</small><br />
+			<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea><br />
+			<br />
+			<strong>Series Meta:</strong><br />
+			<small>This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]</small><br />
+			<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
+			<br />
+			<strong>Latest Series:</strong><br />
+			<small>This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).</small><br />
+			<textarea name="latest_series_template" id="latest_series_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['latest_series_template']); ?></textarea><br />
+		</td>
+	</tr>
 	<?php
 }
 
 function org_series_echo_series_icon($settings) {
 ?>
-	<div class="dbx-b-ox-wrapper">
-	<fieldset id="main-options" class="dbx-box">
-	<div class="dbx-h-andle-wrapper">
-		<h3 class="dbx-handle"><?php _e('Series Icon Options'); ?></h3>
-	</div>
-	<div class="dbx-c-ontent-wrapper">
-		<div class="dbx-content">
-			<p>This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed. All images for series-icons will upload into your default wordpress upload directory.</p>
-			<div class="org-option">
-				<input name="series_icon_width_series_page" id="series_icon_width_series_page" type="text" value="<?php echo $settings['series_icon_width_series_page']; ?>" size="10" /> Width for icon on series table of contents page (in pixels).
-			</div>
-			<div class="org-option">
-				<input name="series_icon_width_post_page" id="series_icon_width_post_page" type="text" value="<?php echo $settings['series_icon_width_post_page']; ?>" size="10" /> Width for icon on a post page (in pixels).
-			</div>	
-			<div class="org-option">
-				<input name="series_icon_width_latest_series" id="series_icon_width_latest_series" type="text" value="<?php echo $settings['series_icon_width_latest_series']; ?>" size="10" /> Width for icon if displayed via the latest series template (in pixels).
-			</div>
-		</div>
-	</div>
-	</fieldset>
-	</div>
+	<tr>
+		<th scope="row" valign="top"><?php _e('Series Icon Options'); ?><br />
+			<small>This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed. All images for series-icons will upload into your default wordpress upload directory.</small>
+		</th>
+		<td>
+			<input name="series_icon_width_series_page" id="series_icon_width_series_page" type="text" value="<?php echo $settings['series_icon_width_series_page']; ?>" size="10" /> Width for icon on series table of contents page (in pixels).
+			<br />
+			<input name="series_icon_width_post_page" id="series_icon_width_post_page" type="text" value="<?php echo $settings['series_icon_width_post_page']; ?>" size="10" /> Width for icon on a post page (in pixels).
+			<br />	
+			<input name="series_icon_width_latest_series" id="series_icon_width_latest_series" type="text" value="<?php echo $settings['series_icon_width_latest_series']; ?>" size="10" /> Width for icon if displayed via the latest series template (in pixels).
+			</td>
+		</tr>
 <?php
 }
 
