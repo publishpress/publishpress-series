@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 2.0 Beta 1.2
+Version: 2.0 Beta 1.3
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.3 to work.
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -102,9 +102,7 @@ function org_series_install() {
 		
 	if ( $oldversion = get_option( 'org_series_version' ) )  //for versions after 2.0
 		update_option( 'org_series_oldversion', $oldversion );
-	else //for versions prior to 2.0
-		add_option('org_series_oldversion', '1.6');
-	
+		
 	add_option("org_series_version", $org_series_version);
 		
 	//create table for series icons

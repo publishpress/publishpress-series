@@ -22,11 +22,6 @@ function org_series_import() {
 	$series_cats = $oldsettings['series_cats'];
 	$message = '<div class="updated"><p>The following imports have been completed successfully:</p>';  
 	
-	if ($do_nothing) {
-		update_option('org_series_oldversion', '0'); //will prevent import form from being called again.
-		return $message = '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
-	}
-	
 	if ( $import_cat_icons  && !(function_exists('ig_caticons_get_icons')) ) {
 		return $message = '<div class="updated"><p><strong>You indicated your desire to import category icons.  However, the category-icons plugin is not installed and is necessary for the import to continue.  Please activate the category-icons plugin before doing the import or don\'t select to import the icons.</strong></p></div>';
 		}
@@ -179,6 +174,10 @@ function org_series_import() {
 		$message .= '<p>Option settings have been imported and old option/value pairs deleted.</p>';
 	}
 		
+	if ($do_nothing) {
+		$message .= '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
+	}
+	
 	update_option('org_series_oldversion', '0'); //this will prevent the import form from being called again?
 	$message .= '</div>';
 	return $message;
@@ -308,79 +307,60 @@ function org_series_admin_page() {
 	if ( '1.6' == $oldversion ) org_series_import_form();	
 		
 		?>
-	<div id="poststuff">
-	<div id="moremeta">
-	<div id="grabit" class="dbx-group">
-	<fieldset id="pluginmetadiv" class="dbx-box">
-		<h3 class="dbx-handle"><?php _e('Plugin Info') ?></h3>
-		<div class="dbx-content">
-			<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
+	<div class="org-series-settings-right"><?php /* LEFT OFF HERE - check out the class and .css used on the write/edit post screen and use it instead */ ?>
+		<h3><?php _e('Plugin Info') ?></h3>
+		<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
 		<p>If you'd like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier's (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+			<input type="hidden" name="cmd" value="_s-xclick" />
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
 " />
-</form>
-		</div>
-	</fieldset>
+		</form>
 	
-	<fieldset id="templatetokenslegend" class="dbx-box">
-		<h3 class="dbx-handle"><?php _e('Token legend'); ?></h3>
-		<div class="dbx-content">
-			<p>The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.</p>
-			<dl>
-				<dt>%series_icon%</dt>
-					<dd>This will be replaced with the series icon for a series.</dd>
-				<dt>%series_icon_linked%</dt>
-					<dd>Same as %series_icon% except that the series icon will be linked to the series page</dd>
-				<dt>%series_list%</dt>
-					<dd>This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.</dd>
-				<dt>%series_title%</dt>
-					<dd>This will be replaced with the title of a series</dd>
-				<dt>%series_title_linked%</dt>
-					<dd>Same as %series_title% except that it will also be linked to the series page</dd>
-				<dt>%post_title_list%</dt>
-					<dd>Is the location token for where the contents of the post list post templates will appear.</dd>
-				<dt>%post_title%</dt>
-					<dd>Will be replaced with the post title of a post in the series</dd>
-				<dt>%post_title_linked%</dt>
-					<dd>Will be replaced with the post title of a post in the series linked to the page view of that post.</dd>
-				<dt>%previous_post%</dt>
-					<dd>Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.</dd>
-				<dt>%previous_post_custom%</dt>
-					<dd>Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.</dd>
-				<dt>%next_post%</dt>
-					<dd>Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.</dd>
-				<dt>%next_post_custom%</dt>
-					<dd>Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.</dd>
-				<dt>%postcontent%</dt>
-					<dd>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</dd>
-				<dt>%series_part%</dt>
-					<dd>Will display what part of a series the post is</dd>
-				<dt>%total_posts_in_series%</dt>
-					<dd>Will display the total number of posts in a series</dd>
-				<dt>%series_description%</dt>
-					<dd>Will display the description for the series</dd>
-			</dl>
-		</div>
-	</fieldset>
-			
+	<h3><?php _e('Token legend'); ?></h3>
+		<p><small>The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.</small></p>
+		<h4>%series_icon%</h4>
+			<em>This will be replaced with the series icon for a series.</em>
+		<h4>%series_icon_linked%</h4>
+			<em>Same as %series_icon% except that the series icon will be linked to the series page</em>
+		<h4>%series_list%</h4>
+			<em>This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.</em>
+		<h4>%series_title%</h4>
+			<em>This will be replaced with the title of a series</em>
+		<h4>%series_title_linked%</h4>
+			<em>Same as %series_title% except that it will also be linked to the series page</em>
+		<h4>%post_title_list%</h4>
+			<em>Is the location token for where the contents of the post list post templates will appear.</em>
+		<h4>%post_title%</h4>
+			<em>Will be replaced with the post title of a post in the series</em>
+		<h4>%post_title_linked%</h4>
+			<em>Will be replaced with the post title of a post in the series linked to the page view of that post.</em>
+		<h4>%previous_post%</h4>
+			<em>Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.</em>
+		<h4>%previous_post_custom%</h4>
+			<em>Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.</em>
+		<h4>%next_post%</h4>
+			<em>Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.</em>
+		<h4>%next_post_custom%</h4>
+			<em>Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.</em>
+		<h4>%postcontent%</h4>
+			<em>Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.</em>
+		<h4>%series_part%</h4>
+			<em>Will display what part of a series the post is</em>
+		<h4>%total_posts_in_series%</h4>
+			<em>Will display the total number of posts in a series</em>
+		<h4>%series_description%</h4>
+			<em>Will display the description for the series</em>
+						
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
 			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed.php'); ?>
 		</div> <?php /*rss feed related */ ?>
-		<?php } else { ?>
-		<fieldset id="orgSeriesupdatefeed" class="dbx-box">
-		<h3 class="dbx-handle"><?php _e('Organize Series News'); ?></h3>
-		<div class="dbx-content">
-		<p>Upgrade to Wordpress 2.1+ to gain the News Feed feature for the Organize Series Plugin.  This feature checks with the plugin related posts on <a href="http://unfoldingneurons.com">UnfoldingNeurons.com</a> and pulls the titles to display on this page for a quick way to see if there are any updates to the plugin.</p>
-		</div>
-		</fieldset>
 		<?php } ?>
-		</div>
 	</div>
+	<?php /* LEFT OFF HERE */ ?>
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
 	<div id="advancedstuff" class="dbx-group">
