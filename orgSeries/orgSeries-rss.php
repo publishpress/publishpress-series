@@ -39,7 +39,7 @@ function get_the_series_rss($type = 'rss') {
 		elseif ( 'atom' == $type )
 			$the_list .= sprintf( '<series scheme="%1$s" term="%2$s" />' , attribute_escape( apply_filters( 'get_bloginfo_rss', get_bloginfo( 'url' ) ) ), attribute_escape( $series_name ) );
 		else
-			$the_list .= "\n\t\t<series><![CDATA[$series_name]]></series>\n";
+			$the_list .= "\n\t\t<category><![CDATA[$series_name]]></category>\n";
 	}
 	
 	return apply_filters('the_series_rss', $the_list, $type);

@@ -42,7 +42,9 @@ if ( ! empty($series_ID) ) {
 		<?php if (!$addcheck) { ?>
 		<tr>
 			<th scope="row" valign="top"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>
-			<td><input name="series_icon" id="series_icon" type="file" /></td>
+			<td><input name="series_icon" id="series_icon" type="file" /><br/>
+				<small>Note: currently series icons are saved to the default uploads folder in your WordPress install (set in on your Options/Settings->Miscellaneous Page).  Series icons WON'T work unless you uncheck the "Organize my uploads into month- and year-based folders" checkbox.</small>
+			</td>
 		</tr>
 		<?php } ?>
 	</table>

@@ -504,7 +504,10 @@ function add_series_wp_title( $title ) {
 	$series = single_series_title('', false);
 	
 	if ( !empty($series) ) {
-		$title = 'Series: ' . $series . ' &laquo; ' . $title;
+		if ( !is_feed() )
+			$title = 'Series: ' . $series . ' &laquo; ' . $title;
+		else
+			$title = 'Posts from the series: ' . $series . '(UnfoldingNeurons.com)';
 	}
 	return $title;
 }
