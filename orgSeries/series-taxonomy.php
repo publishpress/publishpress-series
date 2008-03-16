@@ -28,7 +28,7 @@ function _usort_series_by_name($a, $b) {
 	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts, $postid = 0, $skip = TRUE) {
-	if (!isset($posts)) echo "the problem is get_series_order"; //don't have the posts object so can't do anything.
+	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
 	
 	if ( !is_array( $posts ) )
 		$posts = array($posts);
@@ -475,7 +475,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 
 function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset = FALSE) {
 		
-	if ( 0 == $series_id ) echo 'the problem is here'; //post is not a part of a series so no need to waste cycles.
+	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
 	
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	
@@ -874,9 +874,8 @@ function wp_delete_post_series_relationship( $id ) {
 	if (!empty($series) ) {
 		$seriesid = $series[0]->term_id;
 		delete_post_meta($postid, SERIES_PART_KEY);
-		$success = wp_delete_object_term_relationships($postid, array('series'));
-		if ( $success ) return wp_reset_series_order_meta_cache($postid, $seriesid);
-		else return false;
+		wp_delete_object_term_relationships($postid, array('series'));
+		return wp_reset_series_order_meta_cache($postid, $seriesid);
 	}
 	return false;
 }
