@@ -28,7 +28,7 @@ function _usort_series_by_name($a, $b) {
 	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts, $postid = 0, $skip = TRUE) {
-	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
+	if (!isset($posts)) echo "the problem is get_series_order"; //don't have the posts object so can't do anything.
 	
 	if ( !is_array( $posts ) )
 		$posts = array($posts);
@@ -44,10 +44,10 @@ function get_series_order ($posts, $postid = 0, $skip = TRUE) {
 		}
 		
 		if ($skip && $spost_id == $postid) continue;
-			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
-			$series_posts[$key]['id'] = $spost_id;
-			$series_posts[$key]['part'] = $currentpart;
-			$key++;
+		$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
+		$series_posts[$key]['id'] = $spost_id;
+		$series_posts[$key]['part'] = $currentpart;
+		$key++;
 		}
 	
 	if (count($series_posts) > 1)
@@ -475,7 +475,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 
 function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset = FALSE) {
 		
-	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
+	if ( 0 == $series_id ) echo 'the problem is here'; //post is not a part of a series so no need to waste cycles.
 	
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	
@@ -866,17 +866,19 @@ function wp_set_post_series( $post_ID = 0, $series_id = 0) {
 	else return FALSE;
 }
 
-function wp_delete_post_series_relationship( $id = 0 ) {
+function wp_delete_post_series_relationship( $id ) {
 	global $wpdb, $wp_rewrite;
 	$postid = (int) $id;
-	if ( $series = get_the_series($postid) ) {
-	$seriesid = $series->term_id;
-	delete_post_meta($postid, SERIES_PART_KEY);
-	$success = wp_delete_object_term_relationships($postid, array('series'));
-	if ( $success ) return wp_reset_series_order_meta_cache($postid, $seriesid);
-	else return false;
+	$series = get_the_series( $postid );
+	//echo "ID = $id.....postid = $postid";
+	if (!empty($series) ) {
+		$seriesid = $series[0]->term_id;
+		delete_post_meta($postid, SERIES_PART_KEY);
+		$success = wp_delete_object_term_relationships($postid, array('series'));
+		if ( $success ) return wp_reset_series_order_meta_cache($postid, $seriesid);
+		else return false;
 	}
-	return FALSE;
+	return false;
 }
 
 //add_action('edit_post','wp_set_post_series');
