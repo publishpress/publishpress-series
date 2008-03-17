@@ -164,14 +164,12 @@ if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
 
 function orgSeries_new_custom_manage_posts_filter() {
 	$_GET['series'] = (int) $_GET['series'];
-	//$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in&#8220;%s&#8221;'), single_series_title('' , false) ) : ''; //TODO: Keeping an eye out for a hook into the page title in future versions of WordPress
 	wp_dropdown_series('show_option_all='.__('View all series').'&hide_empty=1&show_count=1&selected='.$_GET['series']);
 }
 
 function orgSeries_custom_manage_posts_filter() {
 	$_GET['series'] = (int) $_GET['series'];
-	//$h2_series = isset($_GET['series']) && $_GET['series'] ? ' ' . sprintf(__('in&#8220;%s&#8221;'), single_series_title('' , false) ) : ''; //TODO: Keeping an eye out for a hook into the page title in future versions of WordPress
-	?>
+?>
 	<form name="searchform" id="seriessearchform" action="" method="get">
 		<fieldset><legend><?php _e('Series&hellip;') ?></legend>
 			<?php wp_dropdown_series('show_option_all='.__('All').'&hide_empty=1&show_count=1&selected='.$_GET['series']);?>
@@ -200,5 +198,4 @@ function orgSeries_manage_posts_titles($titles) {
 	
 	return $titles;
 }*/
-//TODO add a function/ajaxified code  for calling up the other posts in the selected series. and have a box for choosing the order of the current post. - to add in future version
 ?>

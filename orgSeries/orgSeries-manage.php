@@ -1,9 +1,6 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
-//TODO - For future versions - figure out some way to have the file-upload with the "Add-Series" form.  I don't have it now because I don't know of a way to use ajax & <input type=file>.
-//TODO - For future versions - Add a dropdown list of existing images on the server for the user to pick from (the list would be created from the default series-icons uploads directory.
-//TODO - change the current setup so people can set their own default upload directory - currently they can only use the default directory of WordPress with date/folder organization disabled. (perhaps by setting an override for the $uploads variable in wp_handle_upload()
-//TODO - LEFT OFF HERE --- got to find a way to put the "on-click" javascript back in for the delete links...I think that's going to be the only way I can put that in (and stop the header errors) other than mirror the new layout...
+
 require_once('orgSeries_includes.php');
 
 wp_reset_vars(array('action','series_ID'));
@@ -30,7 +27,7 @@ break;
 
 case 'delete':
 	$series_ID = (int) $_GET['series_ID'];
-	check_admin_referer('delete-series_' . $series_ID); //TODO - same as Line 15
+	check_admin_referer('delete-series_' . $series_ID); 
 	
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
@@ -66,8 +63,7 @@ case 'editedseries':
 break;
 
 default:
-//wp_enqueue_script( 'admin-series' );  
-//require_once('admin-header.php'); //TODO: I don't think I need to use this.
+
 
 $messages[1] = __('Series added.');
 $messages[2] = __('Series deleted.');
@@ -99,7 +95,7 @@ $messages[5] = __('Series not updated.');
 	</thead>
 	<tbody id="the-list">
 <?php
-	series_rows(); //TODO is this function written?  if not see cat_rows() and do similar -- DON'T forget to add a column for the series icon.
+	series_rows(); 
 ?>
 	</tbody>
 </table>

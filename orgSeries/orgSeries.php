@@ -258,7 +258,7 @@ function get_series_toc( $link = TRUE ) {
 		return $url;
 }
 
-function get_series_posts( $ser_ID, $referral = false ) {  //was formerly get_cat_posts()...which is now of course deprecated.  TODO - order the posts that are called by their part number.
+function get_series_posts( $ser_ID, $referral = false ) {  
  	global $post;
 	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
@@ -335,7 +335,7 @@ function wp_series_part( $id = 0 ) { //For a post that is part of a series, this
 
 ##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops (if auto-tag insert is enabled in the options panel). 
 
-function wp_seriesmeta_write() { //TODO have this customizable via %tokens% rather than the existing options setup. 
+function wp_seriesmeta_write() { 
 	global $post; 
 	$settings = get_option('org_series_options');
 	$serarray = get_the_series();
@@ -497,10 +497,6 @@ function series_nav_filter($content) {
 	}
 	return $content;
 }
-######Filter functions for selecting how posts are displayed on the series posts table of contents page.############# // TODO: - needs rewritten
-//first: check if the page displayed is_series()
-// second step: add series part information to the $post OBJECT. (via filter)
-// reorder the $post OBJECT by series part via what the user indicated in the series optoins preferences.
 
 function sort_series_page_join($join) {
 	global $wpdb;
@@ -793,6 +789,4 @@ foreach ($roles as $role) {
 }
 return true;
 }
-//add filter for sort_series_page_options ...TODO: Check to see if this would work. Don't think I'll add this in ver 2.0
-//add_filter('posts_orderby','sort_series_page_options');
 ?>

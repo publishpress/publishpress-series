@@ -133,7 +133,6 @@ function series_init() {
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
-	//$wp_rewrite->flush_rules();  //TODO: (NEEDS TESTING) I THINK THIS MIGHT MAKE IT SO USERS DON'T HAVE TO UPDATE THE PERMALINKS MANUALLY.  Probably should be added to the plugin_activation hook.
 }
 
 function orgSeries_request($query_vars) {
@@ -379,7 +378,6 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 	return $series;
 }
 
-//TODO ? have to figure out how to get this added to the wp_get_single_post call (post.php - line 577)
 function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
 	global $wpdb;
 	$postid = (int) $postid;
@@ -838,8 +836,6 @@ function series_includeTemplate() {
 	}
 	return;
 }
-
-//TODO: NEED TO ADD TEMPLATE FOR SERIES TOC//
 
 function wp_set_post_series( $post_ID = 0, $series_id = 0) {
 	$post_ID = (int) $post_ID;

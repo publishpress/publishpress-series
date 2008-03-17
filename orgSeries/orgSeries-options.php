@@ -1,13 +1,4 @@
 <?php
-//basic outline for code that needs to go here - for the organize series options page.
-/*
-** check if this is an init load or a submit or reset
-** do a test for whether there's an earlier version installed.  IF so, give option to import series and options from earlier version.  
-** If first install of orgSeries -> initialize default options.
-** do i want separate pages for options?
-** after setting this up I will have to do an overhal of the postlist display and the series meta code.
-//TODO - for the post-list box there needs to be a template for current post.  That way users can specifiy something different for the current post if they so choose.  Then I'll have to modify the post-list code in orgSeries.php to check for whether the called post matches the displayed post and executes the new template for a match.
-*/
 
 function org_series_import() {
 	//this will contain the actual query and code for importing from version 1.6 -> 2.0+.  It is called from if conditions for it being called are met.
