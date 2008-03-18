@@ -461,34 +461,34 @@ function org_series_echo_series_templates($settings) {
 		<td>
 			<strong>Series Post List Template:</strong><br />
 			<small>This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]</small><br />
-			<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea><br />
+			<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea><br />
 			<br />
 			<strong>Series Post List Post Title Template:</strong><br />
 			<small>Use this to indicate what html tags will surround the post title in the series post list.</small><br/>
-			<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea><br />
+			<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea><br />
 			<br />
 			<strong>Series Post List Current Post Title Template:</strong><br />
 			<small>Use this to style how you want the post title in the post list that is the same as the current post to be displayed.</small><br />
-			<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea><br />
+			<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea><br />
 			<br />
 			<strong>Series Post Navigation Template:</strong><br />
 			<small>Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don't forget to use the %postcontent% token to indicate where you want the navigation to show).</small><br />
-			<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea><br />
+			<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea><br />
 			<br />
 			<input name="series_nextpost_nav_custom_text" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $settings['series_nextpost_nav_custom_text']; ?>" size="40" /> Custom next post navigation text.<br />
 			<input name="series_prevpost_nav_custom_text" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $settings['series_prevpost_nav_custom_text']; ?>" size="40" /> Custom previous post navigation text.<br />
 			<br />
 			<strong>Series Table of Contents Listings:</strong><br />
 			<small>This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]</small><br />
-			<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea><br />
+			<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea><br />
 			<br />
 			<strong>Series Meta:</strong><br />
 			<small>This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]</small><br />
-			<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
+			<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
 			<br />
 			<strong>Latest Series:</strong><br />
 			<small>This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).</small><br />
-			<textarea name="latest_series_template" id="latest_series_template" rows="4" cols="100" class="template"><?php echo htmlspecialchars($settings['latest_series_template']); ?></textarea><br />
+			<textarea name="latest_series_template" id="latest_series_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['latest_series_template']); ?></textarea><br />
 		</td>
 	</tr>
 	<?php

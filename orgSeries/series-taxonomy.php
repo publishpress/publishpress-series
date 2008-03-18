@@ -25,6 +25,37 @@ function _usort_series_by_name($a, $b) {
 	return strcmp( $a['ser_name'], $b['ser_name'] );
 }
 
+/**
+ * get_the_series() - calls up all the series info from the taxonomy tables.
+*/	
+function get_the_series( $id = false ) { 
+	global $post, $term_cache, $blog_id;
+	
+	$id = (int) $id;
+	
+	if ( !$id )
+		$id = (int) $post->ID;
+	
+	$series = get_object_term_cache($id, 'series');
+	
+	if (false === $series )
+		$series = wp_get_object_terms($id, 'series');
+		
+	$series = apply_filters('get_the_series', $series); //adds a new filter for users to hook into
+
+	if ( !empty($series) )
+		usort($series, '_usort_terms_by_name');
+	
+	return $series;
+}
+
+// Get the ID of a series from its name
+function get_series_ID($series_name='default') {
+	$series = get_term_by('name', $cat_name, 'series');
+	if ($series)
+		return $series->term_id;
+	return 0;
+}
 	
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 function get_series_order ($posts, $postid = 0, $skip = TRUE) {
@@ -155,161 +186,6 @@ function orgSeries_toc_template() {
 }
 add_action('init', 'series_init');
 
-
-/* ---------- SERIES TEMPLATE TAGS (maybe add to a series-template.php file?) --------------------------*/
-//url constructor/function template tags.
-function get_series_link( $series_id ) {
-	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$serieslink = get_series_permastruct();
-	
-	$series = &get_term($series_id, 'series');
-	if (is_wp_error( $series ) )
-		return $series;
-	$slug = $series->slug;
-	$id = $series->term_id;
-	
-	if ( empty($serieslink) ) {
-		$file = get_option('home') . '/';
-		$serieslink = $file . '?series=' . $id;
-	} else {
-		$serieslink = str_replace($series_token, $slug, $serieslink);
-		$serieslink = get_option('home') . user_trailingslashit($serieslink, 'series');
-	}
-	return $serieslink;
-	//return apply_filters('series_link', $serieslink, $series_id); 
-}
-	
-function get_the_series( $id = false ) { 
-	global $post, $term_cache, $blog_id;
-	
-	$id = (int) $id;
-	
-	if ( !$id )
-		$id = (int) $post->ID;
-	
-	$series = get_object_term_cache($id, 'series');
-	
-	if (false === $series )
-		$series = wp_get_object_terms($id, 'series');
-		
-	$series = apply_filters('get_the_series', $series); //adds a new filter for users to hook into
-
-	if ( !empty($series) )
-		usort($series, '_usort_terms_by_name');
-	
-	return $series;
-}
-
-function get_the_series_by_ID( $series_ID ) {
-	$series_ID = (int) $series_ID;
-	$series = &get_orgserial($series_ID);
-	if ( is_wp_error( $series ) )
-		return $series;
-	return $series->name;
-}
-
-function get_the_series_list( $before = '', $sep = '', $after = '') { //This prepares a display lists of all series associated with a particular post and can choose the surrounding tags. Probably should modify this so the surrounding tags can be set in options? This particular function only returns the values.  the_series() will echo the values by default (and calls this function).
-	$series = get_the_series();
-
-	if ( empty( $series ) )
-		return false;
-	
-	$series_list = $before;
-	foreach ( $series as $orgSerial ) {
-		$link = get_series_link($orgSerial->term_id);
-		if  ( is_wp_error( $link ) )
-			return $link;
-		$series_links[] = '<a href="' . $link . '" rel="series">' . $orgSerial->name . '</a>'; 
-	}
-	
-	$series_links = join( $sep, $series_links);
-	$series_links = apply_filters ( 'the_series', $series_links );
-	$series_list .= $tag_links;
-	
-	$series_list .= $after;
-	
-	return $series_list;
-}
-
-function the_series( $before = 'Series: ', $sep = ', ', $after = '') { //This function will echo the results from get_the_series_list with the modification of what shows up surrounding each series
-	$return = get_the_series_list($before, $sep, $after);
-	if ( is_wp_error( $return ) )
-		return false;
-	else
-		echo $return;
-}
-
-function in_series( $series_term ) { //check if the current post is in the given series
-	global $post, $blog_id;
-	
-	$series = get_object_term_cache($post->ID, 'series');
-	if ( false === $series )
-		$series = wp_get_object_terms($post->ID, 'series');
-	if ( array_key_exists($series_term, $series))
-		return true;
-	else
-		return false;
-}
-
-function get_series_name($series_id) {
-	$series_id = (int) $series_id;
-	$series = get_orgserial($series_id);
-	return $series->name;
-}
-
-function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
-	if( 0==$series_id )
-		return false;
-	
-	$series_id = (int) $series_id ;
-	
-	if ( !empty($series_id) ) {
-		$series_name = get_series_name($series_id);
-		if ( is_wp_error( $series_name ) )
-			return false;
-		$prefix = '';
-		$suffix = '';
-		
-		if ( !empty($series_name) ) {
-			if ( $linked ) {
-				$series_link = get_series_link($series_id);
-				$prefix = '<a href="' . $series_link . '" title="series-' . $series_id . '">';
-				$suffix = '</a>';
-			}
-			
-			$result = $prefix . $series_name . $suffix;
-			if ( $display ) 
-				echo $result;
-			else
-				return $result;
-		}
-	}
-	return false;
-}
-
-function series_description($series_id = 0) {
-	global $series;
-	if ( !$series_id )
-		$series_id = $series;
-		
-	return get_term_field('description', $series_id, 'series');
-}
-
-function series_post_title($post_ID, $linked=TRUE) {
-	global $post;
-	if (!isset($post_ID))
-		$post_ID = (int)$post->ID;
-	$title = get_the_title($post_ID);
-	if ($linked) {
-		$link = get_permalink($post_ID);
-		$return = '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
-	} else {
-		$return = $title;
-	}
-	return $return;
-}
-		
-
 /** Replaces tokens (set in orgSeries options) with the relevant values **/
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
 function token_replace($replace, $referral = 'other', $id = 0) {
@@ -376,24 +252,6 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 	$series = wp_get_object_terms($post_id, 'series', $args);
 	
 	return $series;
-}
-
-function wp_get_single_post_series($postid = 0, $mode = OBJECT) {
-	global $wpdb;
-	$postid = (int) $postid;
-	
-	$post = get_post($postid, $mode);
-	
-	//set series
-	if($mode == OBJECT) {
-		$post->series = wp_get_post_series($postid, array('fields' => 'names'));
-	
-	}
-	else {
-		$post['series'] = wp_get_post_series($postid, array('fields' => 'names'));
-	}
-	
-	return $post;
 }
 
 //function to set the order that the post is in a series.
@@ -511,28 +369,6 @@ function add_series_wp_title( $title ) {
 }
 
 add_filter('wp_title', 'add_series_wp_title');
-
-function single_series_title($prefix = '', $display = true) {
-	$series_id = get_query_var(SERIES_QUERYVAR);
-	$serchk = is_term( $series_id, SERIES_QUERYVAR );
-	
-	if ( !empty($serchk) ) {
-		$series_id = $serchk['term_id'];
-	}
-	
-	if ( !empty($series_id) ) {
-		$my_series = get_term($series_id, 'series', OBJECT, 'display');
-		if ( is_wp_error( $my_series ) )
-			return false;
-		$my_series_name = apply_filters('single_series_title', $my_series->name);
-		if ( !empty($my_series_name) ) {
-			if ( $display )
-				echo $prefix, $my_series_name;
-			else
-				return $my_series_name;
-		}
-	}
-}
 
 //following is modified from wp_dropdown_categories()
 function wp_dropdown_series($args = '') {
@@ -760,16 +596,6 @@ function series_parseQuery() {
 	}	
 	add_filter('posts_where', 'series_postsWhere');
 	add_filter('posts_join', 'series_postsJoin');
-}
-
-function is_series() { 
-	global $wp_version;
-	$series = ( isset($wp_version) && ($wp_version >= 2.0) ) ? get_query_var(SERIES_QUERYVAR) : $GLOBALS[SERIES_QUERYVAR];
-	$series = get_query_var(SERIES_QUERYVAR);
-	if (!is_null($series) && ($series != ''))
-		return true;
-	else
-		return false;
 }
 
 function series_postsWhere($where) { 

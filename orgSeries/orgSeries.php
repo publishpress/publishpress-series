@@ -19,7 +19,7 @@ Author URI: http://www.unfoldingneurons.com
 ######################################
 // Organize Series Wordpress Plugin
 //
-//"Organize Series Plugin" is copyright (c) 2007 Darren Ethier. This program is free software; you can redistribute it and/or
+//"Organize Series Plugin" is copyright (c) 2007,2008 Darren Ethier. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -35,8 +35,6 @@ Author URI: http://www.unfoldingneurons.com
 //
 //It goes without saying that this is a plugin for WordPress and I have no interest in developing it for other platforms so please, don't ask ;).
 //
-// *****************************************************************
-######################################
 
 ######################################
 /* Changelog
@@ -52,7 +50,13 @@ Author URI: http://www.unfoldingneurons.com
 #####################################
 // TO-DO (Feature additions to add in future versions) --moved to plugin page.
 #####################################
-
+/**
+ * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin. 
+ *
+ * @package Organize Series WordPress Plugin
+ * @since 2.0
+ */
+ 
 /**
   * This sets the default variables for the plugin init.
 */
@@ -62,23 +66,21 @@ $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
 /**
-  * This file contains all the functions that hook the plugin with the WordPress core taxonomy.
+  * The following files are needed for orgSeries to work:
+  * 1. series-utility.php: contains all the orgSeries utility functions required by all orgSeries files.
+  * 2. series-taxonomy.php: contains all functions hooking into WordPress taxomony and setting up the new series taxomony.
+  * 3. series-icon.php:  contains all the code required for series-icons implementation.
+  * 4. series-template-tags.php: contains all the various functions that can be used as "template-tags" for customized display of orgSeries stuff in users blogs.  Theme authors will want to check this file out! 
+  * 5. series-admin: contains all the hooks/code required for hooking into/implementation into the WordPress administration.
+  * 6. orgSeries-rss.php: contains all the code required for hooking series related info into WordPress feeds.
+  * 7. series-widgets.php: contains all the code for the orgSeries widgets (used in widget enabled themes).
 */
+//require (ABSPATH . '/wp-content/plugins/orgSeries/series-utility.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-taxonomy.php');
-
-/**
-  * This file contains all the functions hooking OrgSeries into the write/edit post pages AND the management pages.
-*/
-require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');
-
-/**
-  * This file contains all the series-icon backend functions
-*/
+require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-edit.php');  //TODO: move to series-admin.php
 require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
-
-/**
-  * This file includes the functions hooking in the Series information with WordPress feeds.
-*/
+require (ABSPATH . '/wp-content/plugins/orgSeries/series-template-tags.php');
+//require (ABSPATH . '/wp-content/plugins/orgSeries/series-admin.php');
 require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-rss.php');
 
 /**
@@ -244,157 +246,7 @@ function org_series_options_js() {
 	<?php
 }
 
-function get_cat_posts( $ser_ID ) { //deprecated: see get_series_posts()
-		get_series_posts( $ser_ID );
-}
-
-function get_series_toc( $link = TRUE ) {
-	$options = get_option('org_series_options');
-	$series_toc = $options['series_toc_url'];
-	$url = get_bloginfo('siteurl') . $series_toc;
-	if ( $link)
-		echo '<a href="' . $url . '" title="series_toc_url">Series</a>';
-	else
-		return $url;
-}
-
-function get_series_posts( $ser_ID, $referral = false ) {  
- 	global $post;
-	if ( is_single() )
-		$cur_id = $post->ID; //to get the id of the current post being displayed.
-	else
-		$cur_id = -1;
-		
-	if ( !is_single() && !isset($ser_ID) )
-		return false;
-		
-	if ( !isset($ser_ID) || $ser_ID == '' ) {
-		$serarray = get_the_series();
-		if (!empty($serarray) ) {
-			foreach ($serarray as $series) {
-				$ser_ID = $series->term_id;
-			}
-		}
-	}
-	$series_post = array();
-	$posts_in_series = array();
-	$settings = get_option('org_series_options');
-	$series_post = get_objects_in_term($ser_ID, 'series');
-	$posts_in_series = get_series_order($series_post, 0, FALSE);
-	$result = '';
-	
-	foreach($posts_in_series as $seriespost) {
-		if ($cur_id == $seriespost['id']) {
-			if ( 'widget' == $referral )
-				$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
-			else
-				$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
-			continue;
-		}
-		if ( 'widget' == $referral )
-			$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
-		else
-			$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id']);
-	}
-	return $result;
-}
-
-function wp_seriespost_check() {  //this checks if the post is a part of a series and returns an array with the cat_ID, category title and category description if it is and a value of 0 if it isn't.
-	//deprecated - use get_the_series( $id = 0 ) instead now.
-	return get_the_series();
-}
-
-function wp_postlist_count($ser_id = false) {  //counts the number of posts in the series the post belongs to IF it belongs to a series.  If a $series_id is passed to the function then the function will use that to get the postlist count for a particular series.
-	if (!$ser_id) {
-		$series = get_the_series();
-		if (!empty($series)) {
-			$postlist_count = $series[0]->count;
-		} else {
-			$postlist_count = 0;
-		}
-	} else {
-		$series = get_orgserial($ser_id);
-		if (!empty($series)) {
-			$postlist_count = $series->count;
-		} else {
-			$postlist_count = 0;
-		}
-	}	
-		
-	return $postlist_count;
-}
-
-function wp_series_part( $id = 0 ) { //For a post that is part of a series, this function returns the value for what part this post is in the series.
-	global $post;
-	//$post = &get_post($id);
-	$ser_post_id = $id;
-	$part_key = SERIES_PART_KEY;
-	$series_part = get_post_meta($ser_post_id, $part_key, true);
-	return $series_part;
-}
-
-##TAG FOR INSERTING meta info about the series the post belongs to IF it belongs to a series.  In other words this will show up on the index loop and the archive loops (if auto-tag insert is enabled in the options panel). 
-
-function wp_seriesmeta_write() { 
-	global $post; 
-	$settings = get_option('org_series_options');
-	$serarray = get_the_series();
-	if (!empty($serarray) ) {
-		foreach ($serarray as $series) {
-		$serID = $series->term_id; 
-		}
-	}
-	
-	if (isset($serID)) { 
-		$series_meta = token_replace(stripslashes($settings['series_meta_template']), 'other', $serID);
-		return $series_meta;
-	
-	}
-	
-	return false;
-}
-
-## SERIES CATEGORY POSTS TEMPLATE TAG ##
-## Place this tag in the loop.  It "discovers" the series a post belongs to and then echoes a list of other posts in that series. Place this tag in the loop. ##
-
-function wp_postlist_display() { 
-	$settings = get_option('org_series_options');
-	$serarray = get_the_series();
-		if (!empty($serarray)) {
-			foreach ($serarray as $series) {
-				$serID = $series->term_id;
-			}
-		}
-	if (isset($serID)) {
-		$postlist = token_replace(stripslashes($settings['series_post_list_template']), 'post-list', $serID);
-		return $postlist;
-	}
-	
-	return false;
-}
-#########################################
-
-##SERIES DISPLAY FUNCTION TAG##
-##Place this tag in a custom page called category-xxx.php where xxx is the category number for the series category. When users view the category page for this series they will be presented with a list of all the available series they can read (sub-categories under the main series category). Also there are a number of parameters that can be adjusted depending on what you want to do: ##
-function wp_serieslist_display_code( $series, $referral = false ) { //reusable function for display of series information
-		$settings = get_option('org_series_options');
-		$serID = $series->term_id;
-		if (isset($serID)) {
-			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
-			echo $series_display;
-		}
-		return false;
-}
- 
-function wp_serieslist_display( $referral = false ) {  
-	$series_list = get_series('hide_empty=1');
-	
-	foreach ($series_list as $series) {  
-		wp_serieslist_display_code($series); //layout code
-	}
-}
 #####Filter function for adding series post-list box to a post in that series####
-
 function add_series_post_list_box($content) {
 	
 	$settings = get_option('org_series_options');
@@ -423,69 +275,6 @@ function add_series_meta($content) {
 	return $content;
 }
 
-//series navigation strip on single-post display pages.
-function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE) {
-	global $post;
-	$cur_id = $post->ID;
-	$cur_part = get_post_meta($cur_id, SERIES_PART_KEY, true);
-	$setttings = get_option('org_series_options');
-	$custom_next = $settings['series_nextpost_nav_custom_text'];
-	$custom_prev = $settings['series_prevpost_nav_custom_text'];
-	
-	if (!isset($series_ID)) {
-		$series = get_the_series();
-		if (!empty($series) ) {
-			foreach ($series as $ser) {
-				$series_ID = $series->term_ID;
-			}
-		}
-	}
-	
-	$series_posts = get_objects_in_term($series_ID, 'series');
-	$posts_in_series = array();
-	$posts_in_series = get_series_order($series_posts, $cur_id);
-	$result = '';
-	
-	foreach ($posts_in_series as $seriespost) {
-		if ($next) {
-			if ( ($seriespost['part'] - $cur_part) == 1) {
-					if ($customtext) $title = $custom_next . '&raquo;';
-						else $title = get_the_title($seriespost['id']) . '&raquo;';
-					$link = get_permalink($seriespost['id']);
-					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
-					}
-		}
-		
-		if (!$next) {
-			if (($cur_part - $seriespost['part']) == 1) {
-					if ($customtext) $title = '&laquo;' . $custom_prev;
-						else $title = '&laquo;' . get_the_title($seriespost['id']);
-					$link = get_permalink($seriespost['id']);
-					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
-				}
-		}
-	}
-		if ($display) echo $result;
-			else return $result;	
-}
-
-//filter for assembling the navigation strip
-function wp_assemble_series_nav() {
-	$settings = get_option('org_series_options');
-	$series = get_the_series();
-		if (!empty($series)) {
-			foreach ($series as $ser) {
-				$series_id = $ser->term_id;
-			}
-		}
-		if (isset($series_id)) {
-			$nav = token_replace(stripslashes($settings['series_post_nav_template']), 'other', $series_id);
-			return $nav;
-		}
-	
-	return FALSE;
-}
-		
 //filter function for showing the navigation strip for posts that are part of a series  on the page of a post that is part of a series.
 function series_nav_filter($content) {
 	$settings = get_option('org_series_options');
@@ -580,22 +369,6 @@ function admin_ajax_delete_series() {
 	if ( wp_delete_series( $id ) )
 		die('1');
 	else die ('0');
-}
-
-//latest series template-tag
-function latest_series($display = true) {
-	global $wpdb;
-	$settings = get_option('org_series_options');
-	$query = "SELECT t.term_id, tp.post_modified FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' ORDER BY tp.post_modified DESC";
-	$terms = $wpdb->get_col($query);
-	$latest_series = $terms[0];
-	
-	$result = token_replace(stripslashes($settings['latest_series_template']), 'latest_series', $latest_series);
-	
-	if ($display)
-		echo $result;
-	else
-		return $result;
 }
 
 #########WIDGETS####################	

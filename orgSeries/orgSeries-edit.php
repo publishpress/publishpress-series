@@ -3,8 +3,8 @@
  * This file contains the code that helps with the implementation of the OrgSeries plugin in the
  * write/edit post pages.
  *
- * @package WordPress
- * @since 2.3
+ * @package Organize Series WordPress Plugin
+ * @since 2.0
  */
  global $wp_version, $pagenow;
 /**
