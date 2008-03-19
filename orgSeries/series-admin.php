@@ -319,6 +319,13 @@ function orgSeries_custom_manage_posts_filter() {
 <?php
 }
 
+function add_series_management_link() {
+	$link = get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php';
+	?>
+	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series'); ?></a></li>
+	<?php
+}
+
 //BELOW FOR IF MY patch [ticket #5899] get's accepted for future version of WP
 /*add_action('manage_posts_title','orgSeries_manage_posts_title');
 function orgSeries_manage_posts_title() {
@@ -360,3 +367,4 @@ if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
 		add_action('restrict_manage_posts', 'orgSeries_new_custom_manage_posts_filter');
  } else
 	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+add_action('post_relatedlinks_list', 'add_series_management_link');
