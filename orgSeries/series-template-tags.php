@@ -368,9 +368,10 @@ function wp_assemble_series_nav() {
 		if (!empty($series)) {
 			foreach ($series as $ser) {
 				$series_id = $ser->term_id;
+				$series_count = $ser->count;
 			}
 		}
-		if (isset($series_id)) {
+		if ( isset($series_id) && $series_count > 1 ) {
 			$nav = token_replace(stripslashes($settings['series_post_nav_template']), 'other', $series_id);
 			return $nav;
 		}
