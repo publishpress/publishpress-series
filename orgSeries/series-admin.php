@@ -326,6 +326,20 @@ function add_series_management_link() {
 	<?php
 }
 
+//dashboard sentence filter
+function add_series_to_dashboard_sentence( $sentence, $post_type_text, $cats_text, $tags_text ) {
+	$num_series = wp_count_terms('series');
+	$manage_link = get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php';
+	$series_text = sprintf( __ngettext( '%s series', '%s series', $num_series ), number_format_i18n( $num_series ) );
+	if ( current_user_can( 'manage_series' ) ) 
+		$series_text = "<a href='$manage_link'>$series_text</a>";
+	
+	if ( $num_series >= 1 ) 
+		$sentence = sprintf( __( 'You have %1$s, contained within %2$s, %3$s, and %4$s.' ), $post_type_text, $cats_text, $tags_text, $series_text );
+	
+	return $sentence;
+}
+	
 //BELOW FOR IF MY patch [ticket #5899] get's accepted for future version of WP
 /*add_action('manage_posts_title','orgSeries_manage_posts_title');
 function orgSeries_manage_posts_title() {
@@ -368,3 +382,4 @@ if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
  } else
 	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
 add_action('post_relatedlinks_list', 'add_series_management_link');
+add_filter( 'dashboard_count_sentence', 'add_series_to_dashboard_sentence', 10, 4 ); 
