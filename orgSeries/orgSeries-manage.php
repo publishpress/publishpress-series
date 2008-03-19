@@ -18,9 +18,9 @@ case 'addseries':
 		$_FILES['series_icon'] = '';
 		
 	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
-		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=1#addseries'); 
+		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=1#addseries'); 
 	} else {
-		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=4#addseries');
+		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=4#addseries');
 	}
 	exit;
 break;
@@ -34,7 +34,7 @@ case 'delete':
 		
 	wp_delete_series($series_ID);
 	
-	wp_redirect(get_option( 'siteurl' ) . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=2'); 
+	wp_redirect(get_option( 'siteurl' ) . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=2'); 
 	exit;
 break;
 
@@ -55,15 +55,14 @@ case 'editedseries':
 		wp_die(__('Cheatin&#8217; uh?'));
 	
 	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
-			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=3');
+			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=3');
 	else
-		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&amp;message=5');
+		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=5');
 	
 	exit;
 break;
 
 default:
-
 
 $messages[1] = __('Series added.');
 $messages[2] = __('Series deleted.');
@@ -73,7 +72,8 @@ $messages[5] = __('Series not updated.');
 ?>
 
 <?php if (isset($_GET['message'])) : ?>
-<div id="message" class="updated fade"><p><?php echo $messages[$_GET['message']]; ?></p></div>
+<div id="message" class="updated"><p><?php echo $messages[$_GET['message']]; ?></p></div>
+<?php $_SERVER['REQUEST_URI'] = remove_query_arg(array('message'), $_SERVER['REQUEST_URI']); ?>
 <?php endif; ?>
 
 <div class="wrap">
