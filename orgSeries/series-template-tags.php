@@ -691,7 +691,7 @@ function is_series() {
 	if (is_file($file)) {
 		list($width, $height, $type, $attr) = getimagesize($file);
 		list($w, $h) = series_fit_rect($width, $height, $p['fit_width'], $p['fit_height'], $p['expand']);
-		$series_icon = $p['prefix'] . '<img class="' . $p['class'] . '" src="' . $url . '" width="' . $w . '" height="' . $h . '" />' . $p['suffix'];
+		$series_icon = $p['prefix'] . '<img class="' . $p['class'] . '" src="' . $url . '" width="' . $w . '" height="' . $h . '"  alt="' . $icon . '" />' . $p['suffix'];
 		if ($p['display'] == 1) {
 			echo $series_icon;
 		 } else {
