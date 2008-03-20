@@ -150,6 +150,7 @@ function series_init() {
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
+	$wp_rewrite->flush_rules();
 }
 
 function orgSeries_request($query_vars) {
