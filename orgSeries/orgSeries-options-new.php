@@ -349,7 +349,7 @@ function org_series_admin_page() {
 						
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
-			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed-new.php'); ?>
+			<?php include(ABSPATH . 'wp-content/plugins/' . SERIES_DIR .'/organize-series-feed-new.php'); ?>
 		</div> <?php /*rss feed related */ ?>
 		<?php } ?>
 	</div>
@@ -404,7 +404,7 @@ function org_series_import_form() {
 function org_series_echo_fieldset_mainsettings($settings) {
 	$url = parse_url(get_bloginfo('siteurl'));
 	$url = $url['path'] . '/';
-	?>
+?>
 	<tr>
 		<th scope="row" valign="top"><?php _e('Automation Settings'); ?><br />
 			<small>Choose from the following options for turning on or off automatic insertion of template tags for Organize Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.</small>

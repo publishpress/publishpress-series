@@ -360,7 +360,7 @@ function org_series_admin_page() {
 			
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
-			<?php include(ABSPATH . 'wp-content/plugins/orgSeries/organize-series-feed.php'); ?>
+			<?php include(ABSPATH . 'wp-content/plugins/' . SERIES_DIR .'/organize-series-feed.php'); ?>
 		</div> <?php /*rss feed related */ ?>
 		<?php } else { ?>
 		<fieldset id="orgSeriesupdatefeed" class="dbx-box">

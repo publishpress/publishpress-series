@@ -18,9 +18,9 @@ case 'addseries':
 		$_FILES['series_icon'] = '';
 		
 	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
-		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=1#addseries'); 
+		wp_redirect('../../../wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=1#addseries'); 
 	} else {
-		wp_redirect('../../../wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=4#addseries');
+		wp_redirect('../../../wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=4#addseries');
 	}
 	exit;
 break;
@@ -34,7 +34,7 @@ case 'delete':
 		
 	wp_delete_series($series_ID);
 	
-	wp_redirect(get_option( 'siteurl' ) . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=2'); 
+	wp_redirect(get_option( 'siteurl' ) . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=2'); 
 	exit;
 break;
 
@@ -42,7 +42,7 @@ case 'edit':
 	
 	$series_ID = (int) $_GET['series_ID'];
 	$series = get_series_to_edit($series_ID);
-	include( '../wp-content/plugins/orgSeries/edit-series-form.php'); 
+	include( '../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); 
 	
 break;
 
@@ -55,9 +55,9 @@ case 'editedseries':
 		wp_die(__('Cheatin&#8217; uh?'));
 	
 	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
-			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=3');
+			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=3');
 	else
-		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php&message=5');
+		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=5');
 	
 	exit;
 break;
@@ -107,7 +107,7 @@ $messages[5] = __('Series not updated.');
 <p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.<br /><strong>Also: </strong><br />You add series icons to a series by clicking the edit link.')) ?></p>
 </div>
 
-<?php include('../wp-content/plugins/orgSeries/edit-series-form.php'); ?>
+<?php include('../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); ?>
 <?php endif; ?>
 
 <?php

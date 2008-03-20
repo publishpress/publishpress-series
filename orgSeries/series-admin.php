@@ -9,8 +9,8 @@
 global $wp_version, $pagenow;
 
 function orgSeries_admin_header() {
-	$plugin_path = get_option('siteurl') . '/wp-content/plugins/orgSeries';
-	$csspath = $plugin_path . "/orgSeries-admin.css";
+	$plugin_path = SERIES_LOC;
+	$csspath = $plugin_path . "orgSeries-admin.css";
 	$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
 	echo $text;
 }
@@ -23,13 +23,13 @@ global $pagenow, $wp_version;
 		$pagenow = $_GET['page'];
 	if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
 		if ( isset($wp_version) && $wp_version >= 2.5 ) {
-			wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/js/series-new.js', array('wp-lists'), '20080310' );
+			wp_register_script( 'ajaxseries', '/wp-content/plugins/' . SERIES_DIR . '/js/series-new.js', array('wp-lists'), '20080310' );
 			wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => attribute_escape(__('Add')),
 				'how' => __('Select "Not part of a series" to remove any series data from post')
 			));
 		} else {
-			wp_register_script( 'ajaxseries', '/wp-content/plugins/orgSeries/js/series.js', array('listman'), '20071201' );
+			wp_register_script( 'ajaxseries', '/wp-content/plugins/' . SERIES_DIR . '/js/series.js', array('listman'), '20071201' );
 			wp_localize_script('ajaxseries','seriesL10n',array(
 				'add' => attribute_escape(__('Add')),
 				'how' => __('Select "Not...series" to remove any series data from post')
@@ -39,16 +39,16 @@ global $pagenow, $wp_version;
 	}
 	
 	if ( isset( $wp_version ) && $wp_version < 2.5 ) {
-		if ('orgSeries/orgSeries-manage.php' == $pagenow)
+		if ( SERIES_DIR . '/orgSeries-manage.php' == $pagenow)
 			orgSeries_manage_script();
 	}
 		
-	if ( 'orgSeries/orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
+	if ( SERIES_DIR . 'orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
 
 function orgSeries_manage_script() {
-	wp_register_script( 'admin-series', '/wp-content/plugins/orgSeries/js/manageseries.js',array('listman'), '20070125' );
+	wp_register_script( 'admin-series', '/wp-content/plugins/' . SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
 	wp_print_scripts('admin-series');
 }
 
@@ -320,7 +320,7 @@ function orgSeries_custom_manage_posts_filter() {
 }
 
 function add_series_management_link() {
-	$link = get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php';
+	$link = get_option('siteurl') . '/wp-admin/edit.php?page=' .  SERIES_DIR . '/orgSeries-manage.php';
 	?>
 	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series'); ?></a></li>
 	<?php
@@ -329,7 +329,7 @@ function add_series_management_link() {
 //dashboard sentence filter
 function add_series_to_dashboard_sentence( $sentence, $post_type_text, $cats_text, $tags_text ) {
 	$num_series = wp_count_terms('series');
-	$manage_link = get_option('siteurl') . '/wp-admin/edit.php?page=orgSeries/orgSeries-manage.php';
+	$manage_link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
 	$series_text = sprintf( __ngettext( '%s series', '%s series', $num_series ), number_format_i18n( $num_series ) );
 	if ( current_user_can( 'manage_series' ) ) 
 		$series_text = "<a href='$manage_link'>$series_text</a>";

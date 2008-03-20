@@ -3,7 +3,7 @@ if ( ! empty($series_ID) ) {
 	$addcheck = false;
 	$heading = __('Edit Series');
 	$submit_text = __('Edit Series &raquo;');
-	$form = '<form enctype="multipart/form-data" id="editseries" name="editseries" method="post" action="' . get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php">'; 
+	$form = '<form enctype="multipart/form-data" id="editseries" name="editseries" method="post" action="' . SERIES_LOC . 'orgSeries-manage.php">'; 
 	$action = 'editedseries';
 	$nonce_action = 'update-series_' . $series_ID;
 	do_action('edit_series_form_pre', $series); 
@@ -11,7 +11,7 @@ if ( ! empty($series_ID) ) {
 	$addcheck = TRUE;
 	$heading = __('Add Series');
 	$submit_text = __('Add Series &raquo;');
-	$form = '<form id="addseries" name="addseries" method="post" action="' . get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php">'; 
+	$form = '<form id="addseries" name="addseries" method="post" action="' . SERIES_LOC . 'orgSeries-manage.php">'; 
 	$action = 'addseries';
 	$nonce_action = 'series-add';
 	$series = '';

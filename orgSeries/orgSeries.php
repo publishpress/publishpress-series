@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 2.0 Beta 1.5
+Version: 2.0
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.3 to work.
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -38,18 +38,10 @@ Author URI: http://www.unfoldingneurons.com
 
 ######################################
 /* Changelog
-++Version 2.0 Beta 1.1
-- This is a BETA version - it is very important that you backup your WordPress Database before trying the new version.  
-- Integrates with the new taxonomy system introduced in WordPress 2.3
--  Version 2.0 of Organize Series will only work with WordPress 2.3 and greater.
-++Versions .5beta-1.6.3 Changelogs are no longer published in this file.  I also no longer support these versions as there were some pretty significant changes in the plugin structure going from 1.6.3 to 2.0 and I simply do not have the time to support the two variations.
+Visit http://dev.wp-plugins.org/log/organize-series for the list of all the changes in Organize Series.
 
 */
-#####################################
 
-#####################################
-// TO-DO (Feature additions to add in future versions) --moved to plugin page.
-#####################################
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin. 
  *
@@ -58,8 +50,23 @@ Author URI: http://www.unfoldingneurons.com
  */
  
 /**
-  * This sets the default variables for the plugin init.
+  * NIfty function to get the name of the directory orgSeries is installed in.
 */
+function orgSeries_dir(){
+	if (stristr(__FILE__, '/') ) 
+		$dir = explode('/plugins/', dirname(__FILE__));
+	else
+		$dir = explode('\\plugins\\', dirname(__FILE__));
+    return str_replace('\\' , '/', end($dir)); //takes care of MS slashes
+}
+
+$dir_name = orgSeries_dir();
+$org_series_loc = get_option('siteurl') . '/wp-content/plugins/' . $dir_name . '/';
+/**
+  * This sets the constants for orgSeries
+*/
+define('SERIES_DIR' , $dir_name); //the name of the directory that orgSeries files are located.
+define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
 define('SERIES_URL', 'series'); //URL to use when querying series
 define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying series queries.
@@ -71,6 +78,7 @@ $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_u
 $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
+
 /**
   * The following files are needed for orgSeries to work:
   * 1. series-utility.php: contains all the orgSeries utility functions required by all orgSeries files.
@@ -81,13 +89,13 @@ global $org_series_version, $org_series_args, $org_series_term, $org_series_type
   * 6. orgSeries-rss.php: contains all the code required for hooking series related info into WordPress feeds.
   * 7. series-widgets.php: contains all the code for the orgSeries widgets (used in widget enabled themes).
 */
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-utility.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-taxonomy.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-icon.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-template-tags.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-admin.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/orgSeries-rss.php');
-require (ABSPATH . '/wp-content/plugins/orgSeries/series-widgets.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR . '/series-utility.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-taxonomy.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-icon.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-template-tags.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-admin.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/orgSeries-rss.php');
+require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-widgets.php');
 
 /**
   * org_series_install() - contains all the routines that are run when Organize Series is activated via the WordPress plugins page.
@@ -133,9 +141,9 @@ function org_series_install() {
 //*** Add .css to header if enabled via options ***//
 function orgSeries_header() {
 	$settings = get_option('org_series_options');
-	$plugin_path = get_option('siteurl') . '/wp-content/plugins/orgSeries';
+	$plugin_path = SERIES_LOC;
 	if ($settings['custom_css']) {
-		$csspath = $plugin_path."/orgSeries.css";
+		$csspath = $plugin_path."orgSeries.css";
 		$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
 	} else {
 		$text = '';
@@ -149,12 +157,12 @@ function series_organize_options() {
 	global $wp_version;
 	if (function_exists('add_options_page')) { 
 		if ( isset( $wp_version ) && $wp_version >= 2.5 )
-			add_options_page('Organize Series Options', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options-new.php');
+			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_LOC . 'orgSeries-options-new.php');
 		else
-			add_options_page('Organize Series Options', 'Series Options', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-options.php'); 
+			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_LOC . 'orgSeries-options.php'); 
 	}
 	if (function_exists('add_management_page'))	
-		add_management_page('Organize Series Management', 'Series', 9, get_option('siteurl') . '/wp-content/plugins/orgSeries/orgSeries-manage.php');
+		add_management_page('Organize Series Management', 'Series', 9, SERIES_LOC . 'orgSeries-manage.php');
 }
 
 #####Filter function for adding series post-list box to a post in that series####
@@ -225,7 +233,7 @@ return true;
 ##########ADD ACTIONS TO WP###########
 //initialize plugin
 register_taxonomy($org_series_term, $org_series_type, $org_series_args);
-add_action('activate_orgSeries/orgSeries.php','org_series_install');
+add_action('activate_' . SERIES_DIR . '/orgSeries.php','org_series_install');
 
 //insert .css in header if needed
 add_action('wp_head', 'orgSeries_header');
