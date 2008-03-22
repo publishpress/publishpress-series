@@ -174,21 +174,21 @@ function orgSeries_toc_template() {
 
 function sort_series_page_join($join) {
 	global $wpdb;
-	if (!is_series()) return $join;
+if (!is_series() || ( is_series() && is_feed() ) ) return $join;
 	$join .= "LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
 	return $join;
 }
 
 function sort_series_page_where($where) {
 	global $wpdb;
-	if(!is_series()) return $where;
+	if (!is_series() || ( is_series() && is_feed() ) ) return $where;
 	$part_key = SERIES_PART_KEY;
 	$where .= " AND $wpdb->postmeta.meta_key = '$part_key' ";
 	return $where;
 }
 
 function sort_series_page_orderby($ordering) {
-	if (!is_series()) return $ordering;
+	if (!is_series() || ( is_series() && is_feed() ) ) return $ordering;
 	$settings = get_option('org_series_options');
 	$orderby = $settings['series_posts_orderby'];
 	if ( $orderby == 'meta_value' )

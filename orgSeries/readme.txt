@@ -1,19 +1,47 @@
 === Organize Series WordPress Plugin ===
 Contributors: nerrad
 Tags: category, series, organize, post
-Requires at least: 2.0
-Tested up to: 2.1.2
+Requires at least: 2.3
+Tested up to: 2.5
 Stable tag: 1.6.3
 
 A plugin for managing the article series you write.
 
 == Description ==
 
-The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. Used with the [Category Icons Plugin](http://devcorner.georgievi.net/wp-plugins/wp-category-icons/) (optional and not required) by Ivan Georgiev you can even add attractive graphics/logos (designed by yourself or someone else of course) to accompany your series. 
+The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. 
+
+*Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
+
+Make sure you check out the features tab for all the neat stuff you can do!
 
 == Installation ==
 
-For installation, support, change-log,  and usage instructions visit the [Plugin Page on UnfoldingNeurons.com](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
+**NOTE: For upgrading from earlier versions of Organize Series (1.6.3 and earlier) make sure you check out the upgrade tab. These instructions are for fresh installs of Organize Series.**
+
+1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
+1. Download the File
+1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
+1. Activate orgSeries on your WordPress plugins page.
+1. The Series-Icons feature uploads to the default upload directory you've set for your WordPress installation (in Options/Settings->Miscellaneous).  If you want to use series-icons its **important** that you uncheck the "Organize my uploads into month- and year-based folders" box.  
+
+That's it!  You might want to check out the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
+
+For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
+
+== Upgrading ==
+If you are visiting this tab then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
+
+1. Backup your WordPress database (especially if you plan on importing old series data - everything has been tested but I simply have no way of testing for every environment.  So be safe, and you won't chafe)
+1. If it isn't already, deactivate the older version of Organize Series.
+1. If you haven't already, upgrade your blog to the latest WordPress version.
+1. Make sure your other plugins are up to date EXCEPT for the category-icons plugin if you are using it.  If you plan on importing all your old series-icons then it is important that you leave the older version of category-icons (version 1.5) activated until the import is complete.
+1. Delete the old Organize Series Plugin from your server (in folder /orgSeries/).  Copy over the new plugin files (as explained via the installation instructions).
+1. Activate Organize Series
+1. Go to the Options/Settings->Series Options page.  If you are upgrading and have old series to import there should be a form at the top of the page with instructions for importing all that data.  Follow the instructions
+1. The import routine will return a message outlining all the series and posts that were imported.  After that's done go and check out all the new stuff (and make sure all your series are correct (check out the new Manage->Series page!)
+	
+For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
 
 == Screenshots ==
 

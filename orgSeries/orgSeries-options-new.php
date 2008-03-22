@@ -302,7 +302,9 @@ function org_series_admin_page() {
 <div class="submitbox" id="submitpost">
 	<div class="side-info">
 		<h5><?php _e('Plugin Info') ?></h5>
-		<p>Plugin documents (Installation help etc.) can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
+		<p>Plugin information can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
+			<p><a href="http://unfoldingneurons.com/series/organize-series-usage-tips" title="usage tips">For usage help check out this series!</a></p>
+			<p><a href="http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin" title="Plugin Support">Plugin Support Forums</a></p>
 		<p>If you'd like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier's (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<input type="hidden" name="cmd" value="_s-xclick" />

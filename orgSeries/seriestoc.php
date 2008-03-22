@@ -19,7 +19,7 @@ get_header();
 ?>
 <div id="content" class="narrowcolumn">
 	<?php wp_serieslist_display(); ?>
-</div>
+
 <?php
 
 //comment the following if you don't want a sidebar on your Series TOC
