@@ -112,6 +112,8 @@ Pretty cool eh?  But maybe you'd like to be able to customize things even more?.
 #### A whole bundle of template tags for theme authors and WP tweakers
 Do you actually *like* going into the guts of your theme files?  Then, you'll love the "template tags" organize series makes available for you!  Better yet, I've made it easy for you to find them:  All the template tags you'll ever need are found in the `series-template-tags.php` file in your Organize Series plugin directory.  Each tag is also fully documented inline so you can have a better idea what it does!
 
+You can also edit the default .css file for orgSeries OR point to your custom .css in `styles.css` for your theme.
+
 Oh, if you implement Organize Series in a cool way [let me know here](http://unfoldingneurons.com/forums/forum/user-contributed-editshacks)
 
 And one last thing I've just gotta mention...
