@@ -1,5 +1,5 @@
 === Organize Series WordPress Plugin ===
-Contributors: nerrad
+Contributors: nerrad (Darren Ethier)
 Tags: category, series, organize, post
 Requires at least: 2.3
 Tested up to: 2.5
@@ -24,10 +24,14 @@ Make sure you check out the features tab for all the neat stuff you can do!
 1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
 1. Activate orgSeries on your WordPress plugins page.
 1. The Series-Icons feature uploads to the default upload directory you've set for your WordPress installation (in Options/Settings->Miscellaneous).  If you want to use series-icons its **important** that you uncheck the "Organize my uploads into month- and year-based folders" box.  
+1. Visit the "Options/Settings->Series Options" page to initialize all the default settings.
 
-That's it!  You might want to check out the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
+That's it!  You might want to read through the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
 For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
+
+== Frequently Asked Questions ==
+You know what?  You ask the questions, I'll put the most common ones here.
 
 == Upgrading ==
 If you are visiting this tab then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
@@ -45,30 +49,78 @@ For support please visit [the support forums](http://unfoldingneurons.com/forums
 
 == Screenshots ==
 
-1. Organize Series Options page
+1. Number of series included on the dashboard page (WP 2.5 only)
+2. New templating system on the series->options page.
+3. Template system uses %tokens% making it easier than ever to customize the output of all the series information on your blog. (screenshot shown from WP 2.3.3)
+4. A "Manage All Series" link in the write/edit posts screen (WP 2.5 only)
+5. The "Organize Series" box in WP 2.5  It's ajaxified so you can add series on the fly AND in the right sidebar of the write/edit posts screen.
+6. The "Organize Series" box in WP 2.3.3
+7. The Series Filter form in WP 2.5 on the manage->posts page.  You can now filter by series in addition to the other filters!
+8. The Series Filter form in WP 2.3.x - unfortunately, although you can filter posts by series, you can not combine this filter with any other filters in the 2.3 branch of WordPress.
+9. The new series info column on the Manage->Posts page in WP2.5
+10. The new series info column on the Mange->Posts page in WP2.3.x
+11. The new Manage->Series page! (notice the series-icon integration)
+12. Integrated Series-Icon (image) upload!
+13. An example of the series-meta strip on post displays.
+14. An example of the built-in series table of contents page (listing all the series on your blog).
+15. An example of the Series box on single-post pages.  Shows all the other posts in the series.
+16. An example of the built-in series navigation strip linking posts in a series together.
 
-== Features ==
+ == Features ==
 
-* Integrates with the category system of WordPress
-* Robust administration options menu for the plugin that allows you to control much of the output of the plugin to suit your own tastes without having to open the plugin file and edit things manually. Of course, for those less familiar with html tags and .css the default options will let you "drop in" and go (with only one caveat - you do have to set what the category id is for your main series category - more in the installation/usage instructions below).
-* Automatic tag insert for displaying a "container" on the full post page that will show what series it belongs to and other articles in the series. Of course, via the options panel in the wordpress admin, you can choose to disable the auto-tag if you wish to have more control over where the container is displayed (i.e. in the sidebar instead).
-* A custom .css file (orgSeries.css) accompanying the plugin to make it easier to make changes in the display of various elements (for those familiar with .css).
-* An example custom category template file that can be added to your template themes directory (with one modification) to create the custom list of all the series you’ve written. The output of this list of course can be controlled via the options panel.
-* Two simple tags for easy insertion in your theme if you want to have more control over the way your series are presented.
-* Makes managing and viewing the series you write on your blog a whole lot easier.
+The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not suscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
 
-**NEW FEATURES AS OF 1.5**
+#### Integration with WordPress taxonomy system
+Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxomony system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxomony "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
 
-* Added a function/tag for counting the number of posts in a series. (tag returns a value). See usage instructions on the [plugin page](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/) (it is automatically included in the auto-tag insertion for series meta information)
-* Added a function for writing series meta information ("This entry is part x of x in the series, "The name of my series") to the posts that belong to a series. This is automatically added by default to your blog but it can be disabled for manual insertion via the new option on the options page for the plugin. See usage instructions on the [plugin page](http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/).
-* Added options for the html tags surrounding the series meta and for the post description word. Added to the options page for the plugin.
-* Redid the layout of the admin options page for the plugin so it’s organized a bit better and a "little" bit more prettier. I recognize that more work still needs to be done of course ;) .
-* Added to the admin options page for the plugin a feed from this blog that displays posts related to the Organize Series Wordpress Plugin so that users can see at a glance if there are any updates available.
+#### More "organize" for taking care of your series...
+Check these additions to your WordPress administration:
 
-**New Features as of 1.6**
++	A "Manage Series" page.
+  Add, delete, edit all your series on one handy dandy page.  Functioning much like the "Manage Category" page, Organize Series makes it easy to keep track of all the series you are writing.
++	Integration with the Manage->Posts page.
+	Now it's easier than ever to keep track of what posts have been added to series in a familiar setting.  Even better, you can also filter the post list by series (and in combination with other filters in WP 2.5) giving you a quick way to see all the posts you've already added to the series.
+  
+#### Add "prettify" recognition to your series...
+Easily associate images with your Series via the Manage->Series page.
+ 
+#### Integration with Write/Edit posts page
+Organize Series brings a new "box" to your write/edit posts page for series related tasks:
 
-* New Template Tag - in_series() - this will check to see if the displayed category archive is a series category.
-* Can set the way the posts will be displayed on the series "tables of contents" page (category archive for a series category) via the plugin options panel. (for example, have the posts ordered by date, title, author etc. - ascending or descending). NOTE: It appears that the settings will only apply when using WordPress 2.1+ - it doesn’t seem to apply on a blog that I have that is WP 2.0+, I’m still investigating this.
+* Add new series on the fly.
+ Ajaxified and simple to use (works pretty much the same as adding new categories on the fly)
+* Add posts to existing series.
+* Choose what order you want that post to be in the series.  If you leave the field blank, your post will automatically be appended to end of the series.  But if you want you can number that post to be whatever part you want *and every other post in the series will be automatically adjusted for their new parts*  Is that cool? Yeah, I thought so too!
+ 
+#### Works out of the box.
+Once you've activated the plugin (and are not importing from earlier versions) all you have to do is visit the Series Options page and then you're ready to go (you don't have to change/or add anything!).  Out of the box, Organize Series defaults to automatically insert into your blog all the necessary "template tags" for displaying series related information. 
 
-**1.6.3**
-* Fixed incorrect link in admin panel for Docs/Help
+Use permalinks?  No problem, Organize Series detects that and introduces a permalink structure for series archive pages (defaults to http://yourblogaddress.com/series/%the_series_slug%).
+ Don't like the default settings/look...well...
+ 
+#### Complete options page for easy customization *without having to edit any .php files* 
+Nearly everything you might want to customize with Organize Series can be done on the Series->Options page:
+
+* Control placement of series related info (Series Meta, Series Table of Contents, Series Postlist boxes, Series Navigation Strip, etc.)
+* Customize the html output or series related info by using the %token% system with a token legend right on the page (check out the screenshots tab).  
+* Control what the path of your "series table of contents" link will be.
+* Control how posts in a series will be displayed on series archive pages.  The default is by date in descending order (newest to oldest) - but you can order it by part too.
+* Set the icon width for images associated with series for different pages.
+ 
+Pretty cool eh?  But maybe you'd like to be able to customize things even more?...
+ 
+#### A whole bundle of template tags for theme authors and WP tweakers
+Do you actually *like* going into the guts of your theme files?  Then, you'll love the "template tags" organize series makes available for you!  Better yet, I've made it easy for you to find them:  All the template tags you'll ever need are found in the `series-template-tags.php` file in your Organize Series plugin directory.  Each tag is also fully documented inline so you can have a better idea what it does!
+
+Oh, if you implement Organize Series in a cool way [let me know here](http://unfoldingneurons.com/forums/forum/user-contributed-editshacks)
+
+And one last thing I've just gotta mention...
+
+#### Widgets!! Need I say more?
+
+== Usage ==
+There's just so much to say about how you can use Organize Series that I've decided to write a series of posts dealing with using Organize Series.  You can follow along with the series [here](http://unfoldingneurons.com/series/organize-series-usage-tips) or feast on the [feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed).
+
+Don't forget, if you have questions related to usage, I'm usually pretty good at responding to requests for help [here](http://unfoldingneurons.com/forums/forum/usage-help).
+
+Have fun - and get writing those series!!
