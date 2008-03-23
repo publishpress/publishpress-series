@@ -526,7 +526,7 @@ function org_series_echo_series_templates($settings) {
 function org_series_echo_series_icon($settings) {
 ?>
 	<div class="dbx-b-ox-wrapper">
-	<fieldset id="main-options" class="dbx-box">
+	<fieldset id="series-icon-options" class="dbx-box">
 	<div class="dbx-h-andle-wrapper">
 		<h3 class="dbx-handle"><?php _e('Series Icon Options'); ?></h3>
 	</div>

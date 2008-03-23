@@ -43,7 +43,7 @@ global $pagenow, $wp_version;
 			orgSeries_manage_script();
 	}
 		
-	if ( SERIES_DIR . 'orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
+	if ( SERIES_DIR . '/orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
 
