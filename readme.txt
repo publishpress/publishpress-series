@@ -1,5 +1,5 @@
 === Organize Series WordPress Plugin ===
-Contributors: nerrad (Darren Ethier)
+Contributors: Darren Ethier
 Tags: category, series, organize, post
 Requires at least: 2.3
 Tested up to: 2.5
