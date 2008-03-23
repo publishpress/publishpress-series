@@ -13,11 +13,11 @@ The *Organize Series plugin* helps with the organization and presentation of art
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
 
-Make sure you check out the features tab for all the neat stuff you can do!
+Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
 
 == Installation ==
 
-**NOTE: For upgrading from earlier versions of Organize Series (1.6.3 and earlier) make sure you check out the upgrade tab. These instructions are for fresh installs of Organize Series.**
+**NOTE: For upgrading from earlier versions of Organize Series (1.6.3 and earlier) make sure you check out the upgrade section in the "other notes" tab. These instructions are for fresh installs of Organize Series.**
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
 1. Download the File
@@ -34,7 +34,7 @@ For support please visit [the support forums](http://unfoldingneurons.com/forums
 You know what?  You ask the questions, I'll put the most common ones here.
 
 == Upgrading ==
-If you are visiting this tab then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
+If you are visiting this section then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
 
 1. Backup your WordPress database (especially if you plan on importing old series data - everything has been tested but I simply have no way of testing for every environment.  So be safe, and you won't chafe)
 1. If it isn't already, deactivate the older version of Organize Series.
