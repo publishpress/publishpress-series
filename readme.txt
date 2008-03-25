@@ -49,22 +49,7 @@ For support please visit [the support forums](http://unfoldingneurons.com/forums
 
 == Screenshots ==
 
-1. Number of series included on the dashboard page (WP 2.5 only)
-2. New templating system on the series->options page.
-3. Template system uses %tokens% making it easier than ever to customize the output of all the series information on your blog. (screenshot shown from WP 2.3.3)
-4. A "Manage All Series" link in the write/edit posts screen (WP 2.5 only)
-5. The "Organize Series" box in WP 2.5  It's ajaxified so you can add series on the fly AND in the right sidebar of the write/edit posts screen.
-6. The "Organize Series" box in WP 2.3.3
-7. The Series Filter form in WP 2.5 on the manage->posts page.  You can now filter by series in addition to the other filters!
-8. The Series Filter form in WP 2.3.x - unfortunately, although you can filter posts by series, you can not combine this filter with any other filters in the 2.3 branch of WordPress.
-9. The new series info column on the Manage->Posts page in WP2.5
-10. The new series info column on the Mange->Posts page in WP2.3.x
-11. The new Manage->Series page! (notice the series-icon integration)
-12. Integrated Series-Icon (image) upload!
-13. An example of the series-meta strip on post displays.
-14. An example of the built-in series table of contents page (listing all the series on your blog).
-15. An example of the Series box on single-post pages.  Shows all the other posts in the series.
-16. An example of the built-in series navigation strip linking posts in a series together.
+Check out [the organize series page](http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin) for screenshots (for some reason I can't get them to show up properly here).
 
  == Features ==
 
