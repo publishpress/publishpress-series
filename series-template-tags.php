@@ -739,3 +739,4 @@ function single_series_title($prefix = '', $display = true) {
 		}
 	}
 }
+?>
