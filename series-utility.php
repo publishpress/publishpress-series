@@ -108,7 +108,7 @@ function get_series_permastruct() {
 	}
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->front . SERIES_QUERYVAR . "/$series_token";
+	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
 	return $series_structure;
 }
 
@@ -117,10 +117,10 @@ function series_createRewriteRules($rules) {
 	
 	//$oldrules = $wp_rewrite->rules;
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
+	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_URL . '=');
 	
 	//without trailing slash
-	$series_structure = $wp_rewrite->root . SERIES_QUERYVAR . "/$series_token";
+	$series_structure = $wp_rewrite->root . SERIES_URL . "/$series_token";
 	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
 	//return $series_structure;
 	

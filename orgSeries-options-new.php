@@ -90,7 +90,7 @@ function org_series_import() {
 			$auto_tag_toggle = $auto_tag_toggle;
 			$auto_tag_seriesmeta_toggle = $auto_tag_seriesmeta_toggle;
 			$url = parse_url(get_bloginfo('siteurl'));
-			$series_toc_url = $url['path'] . '/series/';
+			$series_toc_url = $url['path'] . SERIES_URL;
 						
 			//build series-post-list-template
 			$series_post_list_template = $beforelistbox_post_page;

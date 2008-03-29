@@ -186,7 +186,7 @@ function add_series_meta($content) {
 	$settings = get_option('org_series_options');
 	
 	if($settings['auto_tag_seriesmeta_toggle']) {
-		if ($series_meta = wp_seriesmeta_write($postID)) {
+		if ($series_meta = wp_seriesmeta_write()) {
 			$addcontent = $content;
 			$content = str_replace('%postcontent%', $addcontent, $series_meta);
 		}
