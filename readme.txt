@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post
 Requires at least: 2.3
 Tested up to: 2.5
-Stable tag: 2.0
+Stable tag: 2.0.1
 
 A plugin for managing the article series you write.
 
@@ -51,7 +51,7 @@ For support please visit [the support forums](http://unfoldingneurons.com/forums
 
 The screenshots section hasn't been working properly for me.  Feel free to visit the [Organize Series Plugin Page](http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin) for the goods.
 
- == Features ==
+== Features ==
 
 The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not suscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
 
@@ -111,3 +111,6 @@ There's just so much to say about how you can use Organize Series that I've deci
 Don't forget, if you have questions related to usage, I'm usually pretty good at responding to requests for help [here](http://unfoldingneurons.com/forums/forum/usage-help).
 
 Have fun - and get writing those series!!
+
+== ChangeSet ==
+2.0.1 - some fixes so that changing the `SERIES_URL` definition in orgSeries.php actually works (you can use this to pick how you want the series-archive permalinks to look - important for avoiding conflicts with existing category permalinks...)
