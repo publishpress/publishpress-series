@@ -1,6 +1,6 @@
 === Organize Series WordPress Plugin ===
 Contributors: nerrad
-Tags: category, series, organize, post
+Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
 Tested up to: 2.5
 Stable tag: 2.0.1
