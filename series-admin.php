@@ -18,7 +18,7 @@ function orgSeries_admin_header() {
 //add_action filter for the manage_series page...
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
-global $pagenow, $wp_version;
+global $wp_version;
 	if (isset($_GET['page']))
 		$pagenow = $_GET['page'];
 	if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
@@ -383,3 +383,4 @@ if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
 	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
 add_action('post_relatedlinks_list', 'add_series_management_link');
 add_filter( 'dashboard_count_sentence', 'add_series_to_dashboard_sentence', 10, 4 ); 
+?>

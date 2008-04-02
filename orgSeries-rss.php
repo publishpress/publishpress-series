@@ -64,5 +64,4 @@ add_action('rss2_item', 'the_series_rss');
 add_action('atom_entry', 'the_series_atom');
 add_action('rss2_ns','series_ns');
 add_action('atom_ns', 'series_ns');
-
-
+?>

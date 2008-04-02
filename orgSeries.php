@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series Plugin
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Version: 2.0.1
+Version: 2.0.2
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.3 to work.
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -54,18 +54,18 @@ Visit http://dev.wp-plugins.org/log/organize-series for the list of all the chan
 */
 function orgSeries_dir(){
 	if (stristr(__FILE__, '/') ) 
-		$dir = explode('/plugins/', dirname(__FILE__));
+		$orgdir = explode('/plugins/', dirname(__FILE__));
 	else
-		$dir = explode('\\plugins\\', dirname(__FILE__));
-    return str_replace('\\' , '/', end($dir)); //takes care of MS slashes
+		$orgdir = explode('\\plugins\\', dirname(__FILE__));
+    return str_replace('\\' , '/', end($orgdir)); //takes care of MS slashes
 }
 
-$dir_name = orgSeries_dir();
-$org_series_loc = get_option('siteurl') . '/wp-content/plugins/' . $dir_name . '/';
+$org_dir_name = orgSeries_dir();
+$org_series_loc = get_option('siteurl') . '/wp-content/plugins/' . $org_dir_name . '/';
 /**
   * This sets the constants for orgSeries
 */
-define('SERIES_DIR' , $dir_name); //the name of the directory that orgSeries files are located.
+define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
 define('SERIES_URL', 'series'); //URL to use when querying series
