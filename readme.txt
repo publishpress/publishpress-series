@@ -31,7 +31,10 @@ That's it!  You might want to read through the Series Options page (in the "sett
 For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
 
 == Frequently Asked Questions ==
-You know what?  You ask the questions, I'll put the most common ones here.
+= How can a create a page listing all the series I've written? =
+By default the page is already created for you and the url is `http://yourblog.com/series/` (this url can be changed via the series options page).  However, depending on your theme the layout may not be quite what you want it to be.  The output of this table of contents page is controlled both by the `series table of contents listing:` template in the series options page and the `seriestoc.php` file in your organize series plugin directory.  You can make necessary changes to the `seriestoc.php` file to match your theme (go by the layout of your index.php file) and copy it to your theme directory.
+
+Your question not answered?  Ask your usage related question on [the support forums](http://unfoldingneurons.com/forums/forum/usage-help) and I'll put the most common ones here.
 
 == Upgrading ==
 If you are visiting this section then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
