@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
 Tested up to: 2.5
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 
 A plugin for managing the article series you write.
 
@@ -116,6 +116,8 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == ChangeSet ==
+2.0.3 - Previous fix broke the ajax call for the add series on a fly (on write/edit posts pages).  This fixes that.
+
 2.0.2 - IMPORTANT FIX for where organize series broke submenu links on plugins that added their own topmenu.  Won't happen anymore.
 
 2.0.1 - some fixes so that changing the `SERIES_URL` definition in orgSeries.php actually works (you can use this to pick how you want the series-archive permalinks to look - important for avoiding conflicts with existing category permalinks...)

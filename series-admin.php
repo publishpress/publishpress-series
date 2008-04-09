@@ -7,6 +7,8 @@
 */
 
 global $wp_version, $pagenow;
+$checkpage = $pagenow;
+global $checkpage;
 
 function orgSeries_admin_header() {
 	$plugin_path = SERIES_LOC;
@@ -18,10 +20,12 @@ function orgSeries_admin_header() {
 //add_action filter for the manage_series page...
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
-global $wp_version;
+global $wp_version, $checkpage;
+	
 	if (isset($_GET['page']))
-		$pagenow = $_GET['page'];
-	if ('post-new.php' == $pagenow || 'post.php' == $pagenow) {
+		$checkpage = $_GET['page'];
+	
+	if ('post-new.php' == $checkpage || 'post.php' == $checkpage) {
 		if ( isset($wp_version) && $wp_version >= 2.5 ) {
 			wp_register_script( 'ajaxseries', '/wp-content/plugins/' . SERIES_DIR . '/js/series-new.js', array('wp-lists'), '20080310' );
 			wp_localize_script( 'ajaxseries', 'seriesL10n', array(
@@ -39,11 +43,11 @@ global $wp_version;
 	}
 	
 	if ( isset( $wp_version ) && $wp_version < 2.5 ) {
-		if ( SERIES_DIR . '/orgSeries-manage.php' == $pagenow)
+		if ( SERIES_DIR . '/orgSeries-manage.php' == $checkpage)
 			orgSeries_manage_script();
 	}
 		
-	if ( SERIES_DIR . '/orgSeries-options.php' == $pagenow && isset($wp_version) && $wp_version < 2.5 )
+	if ( SERIES_DIR . '/orgSeries-options.php' == $checkpage && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
 
@@ -377,7 +381,7 @@ if ( isset( $wp_version ) && $wp_version < 2.5 ) {
 add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
 add_action('manage_posts_custom_column','orgSeries_custom_column_action', 10, 2);
 if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
-	if ( $pagenow != 'upload.php' )
+	if ( $checkpage != 'upload.php' )
 		add_action('restrict_manage_posts', 'orgSeries_new_custom_manage_posts_filter');
  } else
 	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
