@@ -91,6 +91,7 @@ function org_series_import() {
 			$auto_tag_seriesmeta_toggle = $auto_tag_seriesmeta_toggle;
 			$url = parse_url(get_bloginfo('siteurl'));
 			$series_toc_url = $url['path'] . SERIES_URL;
+			$series_toc_title = 'Series Table of Contents';
 						
 			//build series-post-list-template
 			$series_post_list_template = $beforelistbox_post_page;
@@ -150,6 +151,7 @@ function org_series_import() {
 			'auto_tag_toggle' => $auto_tag_toggle,
 			'auto_tag_seriesmeta_toggle' => $auto_tag_seriesmeta_toggle,
 			'series_toc_url' => $series_toc_url,
+			'series_toc_title' => $series_toc_title,
 			'series_post_list_template' => $series_post_list_template,
 			'series_post_list_post_template' => $series_post_list_post_template,
 			'series_post_list_currentpost_template' => $series_post_list_currentpost_template,
@@ -190,6 +192,7 @@ function org_series_init($reset = false) {
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => $url['path'] . '/series/',
+			'series_toc_title' => 'Series Table of Contents',
 		//new template options
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
@@ -247,6 +250,7 @@ function org_series_option_update() {
 	if ( isset($_POST['series_toc_url']) ) $settings['series_toc_url'] = $url['path'] . '/' . $_POST['series_toc_url'];
 	if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
 	if (strlen($_POST['series_toc_url']) <=0) $settings['series_toc_url'] = FALSE;
+	if ( isset($_POST['series_toc_title']) ) $settings['series_toc_title'] = trim(stripslashes($_POST['series_toc_title']));
 		
 	//template options
 	if ( isset($_POST['series_post_list_template']) ) $settings['series_post_list_template'] = trim(stripslashes($_POST['series_post_list_template']));
@@ -457,7 +461,11 @@ function org_series_echo_fieldset_mainsettings($settings) {
 			</div>
 			<div class="org-description">
 				<p>Enter the path where you want the Series Table of Contents to be shown</p>
-			</div>				
+			</div>	
+			<div class="org-option">
+				Series Table of Contents Title: 
+				<input type="text" name="series_toc_title" value="<?php echo htmlspecialchars($settings['series_toc_title']); ?>" /><br />
+			</div>
 			<div class="org-option">
 				<input name="series_posts_orderby" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $settings['series_posts_orderby']); ?> />Order by series part
 				<input name="series_posts_orderby" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $settings['series_posts_orderby']); ?> />Order by date <br />

@@ -146,7 +146,7 @@ function series_init() {
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
 	if ($series_toc_url && (strpos($_SERVER['REQUEST_URI'], $series_toc_url) === 0) && (strlen($_SERVER['REQUEST_URI']) == strlen($series_toc_url))) {
-		status_header(200); 
+		//status_header( 200 ); 
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
@@ -159,13 +159,25 @@ function orgSeries_request($query_vars) {
 }
 
 function orgSeries_toc_template() {
+	global $wp_query;
 	if (file_exists(TEMPLATEPATH . '/seriestoc.php')) {
 		$template =  TEMPLATEPATH . '/seriestoc.php';
 	} else {
 		$template = ABSPATH . 'wp-content/plugins/' . SERIES_DIR .'/seriestoc.php';
 	}
 	
+	function seriestoc_title( $title ) {
+		$settings = get_option('org_series_options');
+		$seriestoc_title = $settings['series_toc_title'];
+		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents');
+		$title = $seriestoc_title . ' &laquo; ' . $title;
+		return $title;
+	}
+	
 	if ($template) {
+		status_header( 200 ); //force correct header;
+		$wp_query->is_series = true;
+		add_filter('wp_title', 'seriestoc_title');
 		load_template($template);
 		exit;
 	}

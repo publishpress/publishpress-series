@@ -622,10 +622,10 @@ function series_post_title($post_ID, $linked=TRUE) {
  * @return bool true if displayed page is a series.
 */
 function is_series() { 
-	global $wp_version;
+	global $wp_version, $wp_query;
 	$series = ( isset($wp_version) && ($wp_version >= 2.0) ) ? get_query_var(SERIES_QUERYVAR) : $GLOBALS[SERIES_QUERYVAR];
 	//$series = get_query_var(SERIES_QUERYVAR);
-	if (!is_null($series) && ($series != ''))
+	if ( (!is_null($series) && ($series != '')) || $wp_query->is_series == true)
 		return true;
 	else
 		return false;
