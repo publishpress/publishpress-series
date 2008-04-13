@@ -1,4 +1,4 @@
-=== Organize Series WordPress Plugin ===
+=== Organize Series  ===
 Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
