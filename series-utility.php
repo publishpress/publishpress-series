@@ -145,7 +145,19 @@ function series_init() {
 	//setting up the series_toc_page redirect
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
-	if ($series_toc_url && (strpos($_SERVER['REQUEST_URI'], $series_toc_url) === 0) && (strlen($_SERVER['REQUEST_URI']) == strlen($series_toc_url))) {
+	
+	/* make sure trailing slash is always added to REQUEST_URI  */
+	$url = parse_url(get_bloginfo('siteurl'));
+	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
+		$toccheck = trim( $_SERVER['REQUEST_URI'], '/' );
+		$toccheck = '/' . $toccheck . '/';
+	} else {
+		$toccheck = trim( $_SERVER['REQUEST_URI'], '\\' );
+		$toccheck = '\\' . $toccheck . '\\';
+	}
+	$toccheck = $url['path'] . $toccheck;
+	
+	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
 		//status_header( 200 ); 
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
@@ -177,6 +189,7 @@ function orgSeries_toc_template() {
 	if ($template) {
 		status_header( 200 ); //force correct header;
 		$wp_query->is_series = true;
+		$wp_query->is_404 = false;
 		add_filter('wp_title', 'seriestoc_title');
 		load_template($template);
 		exit;
