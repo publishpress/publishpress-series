@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
 Tested up to: 2.5
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 
 A plugin for managing the article series you write.
 
@@ -12,6 +12,8 @@ A plugin for managing the article series you write.
 The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. 
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
+
+**Changesets from different versions can be viewed [here](http://dev.wp-plugins.org/log/organize-series) or summarized at the bottom of the "other notes" page.**
 
 Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
 
@@ -116,6 +118,14 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == ChangeSet ==
+2.0.4 - This is a pretty significant changeset that fixes some things with the Series Table of Contents page:
+
+*  Series Table of Contents page now returns the correct header ('200').  It was returning '400' before the fix. [see this thread](http://unfoldingneurons.com/forums/topic/error-404).
+*  NEW FEATURE:  You can now indicate what the browser title bar will say on Series Table of Contents page via the Series Option settings in your admin.  The default will be "Series Table of Contents Page"
+*  Fixed a conflict with "All In One SEO Pack" plugin affecting Series Table of Contents Page.
+* Thanks to [gnouros](http://www.morbleu.com/) for detecting and testing my fixes of the above errors for me!
+*  Shortened the "official" plugin name to "Organize Series" to match the directory in the svn repository - hopefully this will fix the indicator not showing up in your plugin list for when there's a new version of Organize Series out.  [See this post in the WP Support Forums](http://wordpress.org/support/topic/165765).
+
 2.0.3 - Previous fix broke the ajax call for the add series on a fly (on write/edit posts pages).  This fixes that.
 
 2.0.2 - IMPORTANT FIX for where organize series broke submenu links on plugins that added their own topmenu.  Won't happen anymore.
