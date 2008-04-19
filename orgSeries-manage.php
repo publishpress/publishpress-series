@@ -1,7 +1,8 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
 
-require_once('orgSeries_includes.php');
+if ( file_exists('orgSeries_includes.php') )
+	require_once('orgSeries_includes.php');
 
 wp_reset_vars(array('action','series_ID'));
 
