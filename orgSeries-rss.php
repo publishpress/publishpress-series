@@ -35,11 +35,11 @@ function get_the_series_rss($type = 'rss') {
 	
 	foreach ( $series_names as $series_name ) {
 		if ( 'rdf' == $type )
-			$the_list .= "\n\t\t<dc:subject><![CDATA[$series_name]]></dc:subject>\n";
+			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
 		elseif ( 'atom' == $type )
 			$the_list .= sprintf( '<series scheme="%1$s" term="%2$s" />' , attribute_escape( apply_filters( 'get_bloginfo_rss', get_bloginfo( 'url' ) ) ), attribute_escape( $series_name ) );
 		else
-			$the_list .= "\n\t\t<category><![CDATA[$series_name]]></category>\n";
+			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
 	}
 	
 	return apply_filters('the_series_rss', $the_list, $type);
@@ -55,7 +55,7 @@ function the_series_atom($type = 'atom') {
 }
 
 function series_ns() {
-	$ns = 'xmlns:series="http://unfoldingneurons.com"' . "\n\t";
+	$ns = 'xmlns:series="http://unfoldingneurons.com/"' . "\n\t";
 	echo $ns;
 }
 
