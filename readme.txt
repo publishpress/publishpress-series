@@ -58,10 +58,10 @@ The screenshots section hasn't been working properly for me.  Feel free to visit
 
 == Features ==
 
-The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not suscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
+The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not subscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
 
 #### Integration with WordPress taxonomy system
-Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxomony system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxomony "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
+Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxonomy system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
 
 #### More "organize" for taking care of your series...
 Check these additions to your WordPress administration:

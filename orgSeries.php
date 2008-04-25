@@ -82,7 +82,7 @@ global $org_series_version, $org_series_args, $org_series_term, $org_series_type
 /**
   * The following files are needed for orgSeries to work:
   * 1. series-utility.php: contains all the orgSeries utility functions required by all orgSeries files.
-  * 2. series-taxonomy.php: contains all functions hooking into WordPress taxomony and setting up the new series taxomony.
+  * 2. series-taxonomy.php: contains all functions hooking into WordPress taxonomy and setting up the new series taxonomy.
   * 3. series-icon.php:  contains all the code required for series-icons implementation.
   * 4. series-template-tags.php: contains all the various functions that can be used as "template-tags" for customized display of orgSeries stuff in users blogs.  Theme authors will want to check this file out! 
   * 5. series-admin: contains all the hooks/code required for hooking into/implementation into the WordPress administration.
