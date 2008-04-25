@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
 Tested up to: 2.5.1
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 
 A plugin for managing the article series you write.
 
@@ -118,6 +118,13 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == ChangeSet ==
+2.0.5 - Contains the following bug fixes:
+
+* PHP error that was reported on the Manage Series page affecting certain installs.
+* .rss validation warning for series archive feeds (thanks to http://oriolrius.cat/blog/2008/04/25/problema-al-rss-del-wordpress-solucionat/)
+* some typo fixes with readme.txt file
+* updating readme.txt to reflect that Organize Series works with WordPress 2.5.1
+
 2.0.4 - This is a pretty significant changeset that fixes some things with the Series Table of Contents page:
 
 *  Series Table of Contents page now returns the correct header ('200').  It was returning '400' before the fix. [see this thread](http://unfoldingneurons.com/forums/topic/error-404).
