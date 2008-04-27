@@ -120,7 +120,7 @@ function series_createRewriteRules($rules) {
 	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
 	
 	//without trailing slash
-	$series_structure = $wp_rewrite->root . SERIES_URL . "/$series_token";
+	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
 	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
 	//return $series_structure;
 	
