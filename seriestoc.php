@@ -19,6 +19,7 @@ get_header();
 ?>
 <div id="content" class="narrowcolumn">
 	<?php wp_serieslist_display(); ?>
+</div>
 
 <?php
 
