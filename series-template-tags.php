@@ -124,7 +124,7 @@ function wp_postlist_display() {
 function get_series_toc( $link = TRUE ) {
 	$options = get_option('org_series_options');
 	$series_toc = $options['series_toc_url'];
-	$url = get_bloginfo('siteurl') . $series_toc;
+	$url = $series_toc;
 	if ( $link)
 		echo '<a href="' . $url . '" title="series_toc_url">Series</a>';
 	else

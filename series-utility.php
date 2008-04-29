@@ -108,7 +108,7 @@ function get_series_permastruct() {
 	}
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
+	$series_structure = $wp_rewrite->front . "/" . SERIES_URL . "/$series_token";
 	return $series_structure;
 }
 
