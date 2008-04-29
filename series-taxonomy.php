@@ -29,7 +29,7 @@ function get_the_series( $id = false ) {
 
 // Get the ID of a series from its name
 function get_series_ID($series_name='default') {
-	$series = get_term_by('name', $cat_name, 'series');
+	$series = get_term_by('name', $series_name, 'series');
 	if ($series)
 		return $series->term_id;
 	return 0;
