@@ -109,3 +109,4 @@ function seriesicons_delete($series) {
 	$wpdb->query("DELETE FROM $tablename WHERE term_id='$series'");
 	return true;
 }
+?>

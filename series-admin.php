@@ -254,7 +254,6 @@ function series_new_edit_box() {
 				<input type="button" id="series-add" class="add:serieschecklist:seriesdiv button" value="<?php _e( 'Add' ); ?>" />
 				<?php wp_nonce_field( 'add-series', '_ajax_nonce', false ); ?> */ ?>
 				<span id="series-ajax-response"></span>
-		</p>
 			
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>

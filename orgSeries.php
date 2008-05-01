@@ -68,7 +68,7 @@ $org_series_loc = get_option('siteurl') . '/wp-content/plugins/' . $org_dir_name
 define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
-define('SERIES_URL', 'series'); //URL to use when querying series
+define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
 define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying series queries.
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
@@ -117,9 +117,9 @@ function org_series_install() {
 		add_option('org_series_oldversion', '1.6');
 		
 	if ( $oldversion = get_option( 'org_series_version' ) )  //for versions after 2.0
-		update_option( 'org_series_oldversion', $oldversion );
-		
-	add_option("org_series_version", $org_series_version);
+		update_option( 'org_series_oldversion', $org_series_version );
+	else
+		add_option("org_series_version", $org_series_version);
 		
 	//create table for series icons
 	$table_name = $wpdb->prefix . "orgSeriesIcons";

@@ -154,3 +154,4 @@ function orgSeries_widget_latest_series_init() {
 //Delay plugin execution so widget has a chance to load first...
 add_action('plugins_loaded', 'orgSeries_widget_seriestoc_init'); 
 add_action('plugins_loaded', 'orgSeries_widget_latest_series_init');
+?>

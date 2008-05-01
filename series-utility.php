@@ -149,11 +149,13 @@ function series_init() {
 	/* make sure trailing slash is always added to REQUEST_URI  */
 	$url = parse_url(get_bloginfo('siteurl'));
 	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
-		$toccheck = trim( $_SERVER['REQUEST_URI'], '/' );
-		$toccheck = '/' . $toccheck . '/';
+		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
+		$toccheck = $toccheck . '/';
 	} else {
-		$toccheck = trim( $_SERVER['REQUEST_URI'], '\\' );
-		$toccheck = '\\' . $toccheck . '\\';
+		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '\\' );
+		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '\\' );
+		$toccheck = $toccheck . '\\';
 	}
 	$toccheck = $url['path'] . $toccheck;
 	
@@ -387,3 +389,4 @@ add_action('init', 'series_init');
 //for series queries
 add_filter('query_vars', 'series_addQueryVar');
 add_action('parse_query','series_parseQuery');
+?>

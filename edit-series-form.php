@@ -52,3 +52,5 @@ if ( ! empty($series_ID) ) {
 <?php do_action('edit_series_form', $series);  ?>
 </form>
 </div>
+<?php
+?>
