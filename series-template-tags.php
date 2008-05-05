@@ -126,7 +126,7 @@ function get_series_toc( $link = TRUE ) {
 	$series_toc = $options['series_toc_url'];
 	$url = $series_toc;
 	if ( $link)
-		echo '<a href="' . $url . '" title="series_toc_url">Series</a>';
+		echo '<a href="' . $url . '" title="All the Series I\'ve Written">Series</a>';
 	else
 		return $url;
 }

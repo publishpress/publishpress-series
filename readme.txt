@@ -3,7 +3,7 @@ Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
 Tested up to: 2.5.1
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 
 A plugin for managing the article series you write.
 
@@ -27,6 +27,8 @@ Make sure you check out the features section in the "other notes" tab for all th
 1. Activate orgSeries on your WordPress plugins page.
 1. The Series-Icons feature uploads to the default upload directory you've set for your WordPress installation (in Options/Settings->Miscellaneous).  If you want to use series-icons its **important** that you uncheck the "Organize my uploads into month- and year-based folders" box.  
 1. Visit the "Options/Settings->Series Options" page to initialize all the default settings.
+
+**NOTE:** If you customize the included `series.php` file (for series archive pages) and `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
 
 That's it!  You might want to read through the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
@@ -118,6 +120,22 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == ChangeSet ==
+
+**2.0.7** - Contains the following fixes:
+
+*Minor*
+
+* Removal of extraneous html from series.php and seriestoc.php template files.
+* Updated readme.txt for suggestion to copy customized `series.php` and `seriestoc.php` files to theme directory.
+* Added missing `< /div >` to `seriestoc.php` file to fix "98%" of the typical default installations of this plugin.
+* fixed a potential bug with the `get_series_toc()` function/template tag.
+* Fixed a few spacing, code structure errors throughout the files.
+* Changed the "title" attribute for the `get_series_toc()` link to something a bit more friendly.
+
+*Major*
+
+* Fixed bug affecting installs of Organize Series on blogs with a subdirectory in their blog address (i.e. `http://www.myblog.com/blog/`).  In these setups the Series Table of Contents page re-direct wouldn't work.  This bug also affected custom seriestoc urls set on the Series Options pages with a multiple slash structure (i.e. the default is `\series\`, but if you used `\series\seriestoc` it wouldn't work).  Many thanks to [Ken Carlson](http://reflections.cyberpastor.net/) for his help in getting it fixed.
+
 **2.0.6** - Fixes a pretty major bug with the custom rewrite/permalink structure for series archives.  This bug only shows up if you use certain prefixes to your custom permalinks such as `/archives/...rest of permalink`.  Hat tip to [Edward](http://www.scompt.com/) for the catch and fix.
 
 **2.0.5** - Contains the following bug fixes:
