@@ -11,6 +11,7 @@ function org_series_import() {
 	
 	$oldsettings = get_option('org_series_options');
 	$series_cats = $oldsettings['series_cats'];
+	
 	$message = '<div class="updated"><p>The following imports have been completed successfully:</p>';  
 	
 	if ($do_nothing) {

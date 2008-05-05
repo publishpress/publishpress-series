@@ -147,7 +147,6 @@ function series_init() {
 	$series_toc_url = $settings['series_toc_url'];
 	
 	/* make sure trailing slash is always added to REQUEST_URI  */
-	$url = parse_url(get_bloginfo('siteurl'));
 	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
 		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
 		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
@@ -157,8 +156,7 @@ function series_init() {
 		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '\\' );
 		$toccheck = $toccheck . '\\';
 	}
-	$toccheck = $url['path'] . $toccheck;
-	
+		
 	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
 		//status_header( 200 ); 
 		add_filter('request', 'orgSeries_request');
@@ -241,7 +239,7 @@ function _usort_series_by_name($a, $b) {
 }
 
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
-function get_series_order ($posts, $postid = 0, $skip = TRUE) {
+function get_series_order($posts, $postid = 0, $skip = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
 	
 	if ( !is_array( $posts ) )

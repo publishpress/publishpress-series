@@ -7,12 +7,8 @@ This is an example template file that WordPress would load when a reader clicks 
 ########################################
 
 get_header(); 
-$settings= get_option('org_series_options');
-$toc = $settings['series_toc_url'];
-$request = $_SERVER['REQUEST_URI'];?>
 
-	<div id="content" class="narrowcolumn">
-<?php is_tag(); ?>
+	<div id="contentwide">
 		<?php if (have_posts()) : ?>
  	    <h2 class="pagetitle">Archive for the &#8216;<?php single_series_title(); ?>&#8217; Series</h2>
 		
@@ -53,5 +49,4 @@ $request = $_SERVER['REQUEST_URI'];?>
 	</div>
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
