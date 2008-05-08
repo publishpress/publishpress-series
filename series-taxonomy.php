@@ -262,7 +262,7 @@ function wp_list_series($args = '') {
 		'style' => 'list', 'show_count' => 0,
 		'hide_empty' => 1, 'use_desc_for_title' => 1,
 		'feed' => '', 'feed_image' => '', 'exclude' => '',
-		'title_li' => __('Series'),
+		'title_li' => __('Series'), 'number' => '',
 		'echo' => 1
 	);
 	
