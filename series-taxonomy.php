@@ -269,7 +269,7 @@ function wp_list_series($args = '') {
 	$r = wp_parse_args( $args, $defaults );
 	
 	if ( isset( $r['show_date'] ) ) {
-		$r['include_last_update_time'] = $r['show_date'];
+		$r['show_last_update'] = $r['show_date'];
 	}
 	
 	extract( $r );
@@ -361,7 +361,7 @@ function walk_series_tree( $series, $args) {
 	if ( isset($show_count) && $show_count )
 		$link .= ' (' . intval($series->count) . ')';
 		
-	if ( isset($show_date) && $show_date ) {
+	if ( isset($show_last_update) && $show_last_update ) {
 		$link .= ' ' . gmdate('Y-m-d', $series->last_update_timestamp);
 	}
 	
