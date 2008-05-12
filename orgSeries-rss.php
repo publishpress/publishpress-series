@@ -37,7 +37,7 @@ function get_the_series_rss($type = 'rss') {
 		if ( 'rdf' == $type )
 			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
 		elseif ( 'atom' == $type )
-			$the_list .= sprintf( '<series scheme="%1$s" term="%2$s" />' , attribute_escape( apply_filters( 'get_bloginfo_rss', get_bloginfo( 'url' ) ) ), attribute_escape( $series_name ) );
+			$the_list .= sprintf( '<series:name scheme="%1$s" term="%2$s" />' , attribute_escape( apply_filters( 'get_bloginfo_rss', get_bloginfo( 'url' ) ) ), attribute_escape( $series_name ) );
 		else
 			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
 	}
@@ -50,8 +50,8 @@ function the_series_rss($type = 'rss') {
 	echo get_the_series_rss($type);
 }
 
-function the_series_atom($type = 'atom') {
-	echo get_the_series_atom($type);
+function the_series_atom() {
+	echo get_the_series_rss('atom');
 }
 
 function series_ns() {
