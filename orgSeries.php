@@ -61,12 +61,25 @@ function orgSeries_dir(){
 }
 
 $org_dir_name = orgSeries_dir();
-$org_series_loc = get_option('siteurl') . '/wp-content/plugins/' . $org_dir_name . '/';
+
+/*to get plugin url*/
+// Pre-2.6 compatibility
+if ( !defined('WP_CONTENT_URL') )
+	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+if ( !defined('WP_CONTENT_DIR') )
+	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+
+	// Guess the location
+$plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
+$plugin_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
+$org_series_loc = $plugin_url;
+
 /**
   * This sets the constants for orgSeries
 */
 define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
+define('SERIES_PATH', $plugin_path); //the path of the orgSeries files
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
 define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
 define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying series queries.
@@ -89,13 +102,13 @@ global $org_series_version, $org_series_args, $org_series_term, $org_series_type
   * 6. orgSeries-rss.php: contains all the code required for hooking series related info into WordPress feeds.
   * 7. series-widgets.php: contains all the code for the orgSeries widgets (used in widget enabled themes).
 */
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR . '/series-utility.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-taxonomy.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-icon.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-template-tags.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-admin.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/orgSeries-rss.php');
-require (ABSPATH . '/wp-content/plugins/' . SERIES_DIR .'/series-widgets.php');
+require ($plugin_path . 'series-utility.php');
+require ($plugin_path .'series-taxonomy.php');
+require ($plugin_path .'series-icon.php');
+require ($plugin_path .'series-template-tags.php');
+require ($plugin_path .'series-admin.php');
+require ($plugin_path .'orgSeries-rss.php');
+require ($plugin_path .'series-widgets.php');
 
 /**
   * org_series_install() - contains all the routines that are run when Organize Series is activated via the WordPress plugins page.
@@ -157,12 +170,12 @@ function series_organize_options() {
 	global $wp_version;
 	if (function_exists('add_options_page')) { 
 		if ( isset( $wp_version ) && $wp_version >= 2.5 )
-			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_LOC . 'orgSeries-options-new.php');
+			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options-new.php');
 		else
-			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_LOC . 'orgSeries-options.php'); 
+			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options.php'); 
 	}
 	if (function_exists('add_management_page'))	
-		add_management_page('Organize Series Management', 'Series', 9, SERIES_LOC . 'orgSeries-manage.php');
+		add_management_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
 }
 
 #####Filter function for adding series post-list box to a post in that series####
