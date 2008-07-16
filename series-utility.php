@@ -239,6 +239,7 @@ function _usort_series_by_name($a, $b) {
 }
 
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
+//for 2.6 need to do a check for any post-ids that are revisions and make sure it get's rejected from the list of posts to include.
 function get_series_order($posts, $postid = 0, $skip = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
 	
@@ -254,6 +255,9 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 		} else {
 			$spost_id = $spost;
 		}
+		
+		//routine to check if post-id is for a post that is a revision (for wp2.6) CURRENTLY DOESN'T WORK EXACTLY RIGHT BECAUSE MOST CURRENT POST REFLECTS A PART THAT IS ONE LESS THEN WHAT IT WAS SAVED WITH...NEEDS MORE WORK.
+		if ( get_post_type($spost_id) == 'revision' ) continue;
 		
 		if ($skip && $spost_id == $postid) continue;
 		$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);

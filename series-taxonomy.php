@@ -84,17 +84,16 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
-	$total_posts = count($post_ids_in_series);
+	$series_posts = array();
+	$series_posts = get_series_order($post_ids_in_series, $postid);
+	$total_posts = count($series_posts);
 	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
 		if ($total_posts >=1) $series_part = $total_posts;
 	} 
 				
-	$series_posts = array();
-	$series_posts = get_series_order($post_ids_in_series, $postid);
-		
 	$ticker = 1;
-	$count = count($series_posts);
+	$count = $total_posts;
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
