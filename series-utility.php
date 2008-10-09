@@ -256,16 +256,16 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 			$spost_id = $spost;
 		}
 		
-		//routine to check if post-id is for a post that is a revision (for wp2.6) CURRENTLY DOESN'T WORK EXACTLY RIGHT BECAUSE MOST CURRENT POST REFLECTS A PART THAT IS ONE LESS THEN WHAT IT WAS SAVED WITH...NEEDS MORE WORK.
-		if ( get_post_type($spost_id) == 'revision' ) continue;
-		
 		if ($skip && $spost_id == $postid) continue;
-		$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
-		$series_posts[$key]['id'] = $spost_id;
-		$series_posts[$key]['part'] = $currentpart;
+	/* 2.08 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
+		$xpost = get_post($spost_id);
+		if ($xpost->post_states == "publish") {
+			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
+			$series_posts[$key]['id'] = $spost_id;
+			$series_posts[$key]['part'] = $currentpart;
 		$key++;
 		}
-	
+	}
 	if (count($series_posts) > 1)
 		usort( $series_posts, '_usort_series_by_part' );
 		

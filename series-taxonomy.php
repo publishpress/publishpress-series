@@ -84,16 +84,16 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
-	$series_posts = array();
-	$series_posts = get_series_order($post_ids_in_series, $postid);
-	$total_posts = count($series_posts);
+	$total_posts = count($post_ids_in_series);
 	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
 		if ($total_posts >=1) $series_part = $total_posts;
 	} 
 				
+	$series_posts = array(); 
+	$series_posts = get_series_order($post_ids_in_series, $postid);
 	$ticker = 1;
-	$count = $total_posts;
+	$count = count($series_posts);
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
@@ -381,6 +381,11 @@ function walk_series_tree( $series, $args) {
 		
 function wp_set_post_series( $post_ID = 0, $series_id = 0) {
 	$post_ID = (int) $post_ID;
+	
+	/* 208 fix by Matt Porter to avoid conflict with WP2.6.1 revisions */
+	$xpost = get_post($post_ID);
+	if ($xpost->post_type == 'revision') return;
+	
 	if ( $series_id == 0 ) 
 		$post_series = (int) $_POST['post_series'];
 	else
