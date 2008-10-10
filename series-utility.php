@@ -239,9 +239,9 @@ function _usort_series_by_name($a, $b) {
 }
 
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
-//for 2.6 need to do a check for any post-ids that are revisions and make sure it get's rejected from the list of posts to include.
+
 function get_series_order($posts, $postid = 0, $skip = TRUE) {
-	if (!isset($posts)) return false; //don't have the posts object so can't do anything.
+	if (!isset($posts)) return false; //don't have the posts array so can't do anything.
 	
 	if ( !is_array( $posts ) )
 		$posts = array($posts);
@@ -256,10 +256,10 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 			$spost_id = $spost;
 		}
 		
-		if ($skip && $spost_id == $postid) continue;
-	/* 2.08 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
+		/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
 		$xpost = get_post($spost_id);
-		if ($xpost->post_states == "publish") {
+		if ($xpost->post_status == 'publish') {
+			if ($skip && $spost_id == $postid) continue;
 			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
 			$series_posts[$key]['id'] = $spost_id;
 			$series_posts[$key]['part'] = $currentpart;
@@ -268,7 +268,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 	}
 	if (count($series_posts) > 1)
 		usort( $series_posts, '_usort_series_by_part' );
-		
+	
 	return $series_posts;
 }
 

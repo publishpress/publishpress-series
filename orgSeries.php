@@ -101,7 +101,7 @@ global $org_series_version, $org_series_args, $org_series_term, $org_series_type
   * 5. series-admin: contains all the hooks/code required for hooking into/implementation into the WordPress administration.
   * 6. orgSeries-rss.php: contains all the code required for hooking series related info into WordPress feeds.
   * 7. series-widgets.php: contains all the code for the orgSeries widgets (used in widget enabled themes).
-*/
+ */
 require ($plugin_path . 'series-utility.php');
 require ($plugin_path .'series-taxonomy.php');
 require ($plugin_path .'series-icon.php');
