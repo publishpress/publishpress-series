@@ -386,6 +386,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	}
 	
 	$post_ID = (int) $post_ID;
+	$old_series = wp_get_post_series($post_ID);
 	
 	if ( $series_id == 0 ) 
 		$post_series = (int) $_POST['post_series'];
@@ -395,15 +396,19 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	if ( isset($_POST) )
 		$series_part = (int) $_POST['series_part'];
 	else
-		$series_part = 0;
+		if ( $s_part = wp_series_part($post_ID) )
+			$series_part = $s_part;
+		else
+			$series_part = 0;
 		
-	$old_series = wp_get_post_series($post_ID);
+	if ( $old_series == '' && ( $post_series == '' || 0 == $post_series  ) )
+		return wp_delete_post_series_relationship($post_ID);
+	
+	if ( $old_series != '' && ($post_series == '' || 0 == $post_series) ) $post_series = (int) $old_series[0]; //this takes care of future posts being published.  Need to set the $post_series variable - but ONLY if the post was associated with a series.
+	
 	$match = in_array($post_series, $old_series);
 	
 	if ( !$match ) wp_reset_series_order_meta_cache($post_ID, $old_series);
-	
-	if ( $post_series == '' ||0 == $post_series )
-		return wp_delete_post_series_relationship($post_ID);
 	
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
 	if ( $success ) return set_series_order($post_ID, $series_part, $post_series);
@@ -542,7 +547,7 @@ function wp_update_series($serarr, $file = FALSE) {
  * add_action() and add_filter() calls go here.
 */
 //add_action('edit_post','wp_set_post_series');
-//add_action('publish_post','wp_set_post_series');
 add_action('save_post','wp_set_post_series',1,3);
+//add_action('publish_post','wp_set_post_series',1,3);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 ?>
