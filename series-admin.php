@@ -342,6 +342,17 @@ function add_series_to_dashboard_sentence( $sentence, $post_type_text, $cats_tex
 	
 	return $sentence;
 }
+
+function add_series_to_right_now() {
+	$num_series = wp_count_terms('series');
+	$num = number_format_i18n( $num_series );
+	$manage_link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
+	$series_text = "<a href='$manage_link'>$num</a>";
+	echo '<tr>';
+	echo '<td class="first b b-tags">'.$series_text.'</td>';
+	echo '<td class="t tags">' . __ngettext( 'Series', 'Series', $num_series ) . '</td>';
+	echo '<td></td><td></td></tr>';
+}
 	
 //BELOW FOR IF MY patch [ticket #5899] get's accepted for future version of WP
 /*add_action('manage_posts_title','orgSeries_manage_posts_title');
@@ -385,5 +396,8 @@ if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
  } else
 	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
 add_action('post_relatedlinks_list', 'add_series_management_link');
-add_filter( 'dashboard_count_sentence', 'add_series_to_dashboard_sentence', 10, 4 ); 
+if ( isset( $wp_version ) && $wp_version <= 2.6 ) {
+	add_filter( 'dashboard_count_sentence', 'add_series_to_dashboard_sentence', 10, 4 );
+	} else
+	add_action( 'right_now_table_end', 'add_series_to_right_now');
 ?>
