@@ -19,7 +19,7 @@ if ( ! empty($series_ID) ) {
 }
 ?>
 
-<div class="wrap">
+<div id="col-left">
 <h2><?php echo $heading ?></h2>
 <div id="ajax-response"></div>
 <?php echo $form ?>
@@ -51,6 +51,8 @@ if ( ! empty($series_ID) ) {
 <p class="submit"><input type="submit" name="submit" value="<?php echo $submit_text ?>" /></p>
 <?php do_action('edit_series_form', $series);  ?>
 </form>
+</div>
+</div>
 </div>
 <?php
 ?>

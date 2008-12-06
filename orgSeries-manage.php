@@ -78,11 +78,14 @@ $messages[5] = __('Series not updated.');
 <?php endif; ?>
 
 <div class="wrap">
+
 <?php if ( current_user_can('manage_series') ) : ?>
-	<h2><?php printf(__('Series (<a href="%s">add new</a>)'), '#addseries') ?></h2>
+	<h2><?php printf(__('Manage Series (<a href="%s">add new</a>)'), '#addseries') ?></h2>
 <?php else : ?>
 	<h2><?php _e('Series') ?></h2>
 <?php endif; ?>
+<div id="col-container">
+<div id="col-right">
 <table class="widefat">
 	<thead>
 	<tr>
@@ -100,7 +103,6 @@ $messages[5] = __('Series not updated.');
 ?>
 	</tbody>
 </table>
-
 </div>
 
 <?php if ( current_user_can('manage_series') ) : ?>
