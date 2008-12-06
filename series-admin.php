@@ -236,11 +236,6 @@ function get_series_to_select( $default = 0 ) {
 	write_series_list( get_series_list( $default) );
 }
 
-if ( isset( $wp_version ) && $wp_version >= 2.5 )
-	add_action( 'submitpost_box', 'series_new_edit_box' );
-else
-	add_action('dbx_post_sidebar', 'series_edit_box');
-
 function series_new_edit_box() {
 	global $post, $postdata, $content;
 	$id = isset($post) ? $post->ID : $postdata->ID;
@@ -279,6 +274,33 @@ $id = isset($post) ? $post->ID : $postdata->ID;
 		</div>
 	</fieldset>
 	<?php
+}
+
+//series-edit box for wp 2.7 forward
+function series_edit_meta_box() {
+global $post, $postdata, $content;
+	$id = isset($post) ? $post->ID : $postdata->ID;
+	?>
+	<p id="jaxseries"></p>
+				<?php /*<input type="text" name="newseries" id="newseries" class="form-required form-input-tip" value="<?php _e( 'New series name' ); ?>" />
+				<input type="button" id="series-add" class="add:serieschecklist:seriesdiv button" value="<?php _e( 'Add' ); ?>" />
+				<?php wp_nonce_field( 'add-series', '_ajax_nonce', false ); ?> */ ?>
+				<span id="series-ajax-response"></span>
+			
+		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
+				<?php get_series_to_select(); ?>
+		</ul>
+		<span id="seriespart"><strong> Series Part:   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
+	<?php
+}
+//Function: Add Meta/DBX Box
+add_action('admin_menu', 'orgseries_add_meta_box');
+function orgseries_add_meta_box() {
+	if ( function_exists('add_meta_box')) {
+		add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post', 'side');
+		} else {
+		add_action('dbx_post_sidebar', 'series_edit_box'); }
 }
 
 function orgSeries_custom_column_filter($defaults) {
