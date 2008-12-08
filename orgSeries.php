@@ -174,8 +174,13 @@ function series_organize_options() {
 		else
 			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options.php'); 
 	}
-	if (function_exists('add_management_page'))	
+	
+	if (function_exists('add_posts_page')) {
+		add_posts_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
+	} else { 
+		if (function_exists('add_management_page')) 
 		add_management_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
+	}
 }
 
 #####Filter function for adding series post-list box to a post in that series####
