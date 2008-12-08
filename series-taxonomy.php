@@ -393,14 +393,18 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	else
 		$post_series = (int) $series_id;
 	
-	if ( isset($_POST) )
+	$s_part = (int) wp_series_part($post_ID);
+	
+	if ( isset($_POST) ) {
 		$series_part = (int) $_POST['series_part'];
-	else
-		if ( $s_part = wp_series_part($post_ID) )
+		
+		if ( $series_part == $s_part ) return; //get out of here if there's no change in series part!!
+	 } else {
+		if ( $s_part )
 			$series_part = $s_part;
 		else
 			$series_part = 0;
-		
+	}	
 	if ( $old_series == '' && ( $post_series == '' || 0 == $post_series  ) )
 		return wp_delete_post_series_relationship($post_ID);
 	
@@ -411,6 +415,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	if ( !$match ) wp_reset_series_order_meta_cache($post_ID, $old_series);
 	
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
+	
 	if ( $success ) return set_series_order($post_ID, $series_part, $post_series);
 	else return FALSE;
 }
