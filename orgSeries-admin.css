@@ -97,3 +97,17 @@ input #seriesadd {
 #seriessearchform fieldset legend {
 	padding: 0 0 .2em 1px;
 }
+
+.org-series-side-info {
+	float: left;
+	margin-left: 10px;
+	margin-right: 15px;
+	width: 20%;
+	background: #E4E4E4;
+	padding: 5px;
+}
+
+.orgseriesleft {
+	float: left;
+	width: 60%;
+}

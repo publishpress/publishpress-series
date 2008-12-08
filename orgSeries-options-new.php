@@ -305,7 +305,7 @@ function org_series_admin_page() {
 		
 		?>
 <div class="submitbox" id="submitpost">
-	<div class="side-info">
+	<div class="org-series-side-info">
 		<h5><?php _e('Plugin Info') ?></h5>
 		<p>Plugin information can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a></p>
 			<p><a href="http://unfoldingneurons.com/series/organize-series-usage-tips" title="usage tips">For usage help check out this series!</a></p>
@@ -362,7 +362,7 @@ function org_series_admin_page() {
 	</div>
 </div>
 
-<div class="wrap">	
+<div class="wrap orgseriesleft">	
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
 	<table class="form-table">
