@@ -398,7 +398,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	if ( isset($_POST) ) {
 		$series_part = (int) $_POST['series_part'];
 		
-		if ( $series_part == $s_part ) return; //get out of here if there's no change in series part!!
+		if ( $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
 	 } else {
 		if ( $s_part )
 			$series_part = $s_part;
