@@ -308,7 +308,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 	global $post;
 	$cur_id = $post->ID;
 	$cur_part = get_post_meta($cur_id, SERIES_PART_KEY, true);
-	$setttings = get_option('org_series_options');
+	$settings = get_option('org_series_options');
 	$custom_next = $settings['series_nextpost_nav_custom_text'];
 	$custom_prev = $settings['series_prevpost_nav_custom_text'];
 	
