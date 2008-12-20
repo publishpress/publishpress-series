@@ -165,7 +165,12 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	
 	if ($reset) {
 		foreach ($post_ids_in_series as $spost) {
-			delete_post_meta($spost['object_id'], SERIES_PART_KEY);
+		if (array_key_exists('object_id', $post_ids_in_series)) {
+			$spost_id = $spost['object_id'];
+			} else {
+			$spost_id = $spost;
+			}
+			delete_post_meta($spost_id, SERIES_PART_KEY);
 		}
 		return true;
 	}
@@ -398,14 +403,14 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	if ( isset($_POST) ) {
 		$series_part = (int) $_POST['series_part'];
 		
-		if ( $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
+		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
 	 } else {
 		if ( $s_part )
 			$series_part = $s_part;
 		else
 			$series_part = 0;
 	}	
-	if ( $old_series == '' && ( $post_series == '' || 0 == $post_series  ) )
+	if ( $old_series != '' && ( $post_series == '' || 0 == $post_series  ) )
 		return wp_delete_post_series_relationship($post_ID);
 	
 	if ( $old_series != '' && ($post_series == '' || 0 == $post_series) ) $post_series = (int) $old_series[0]; //this takes care of future posts being published.  Need to set the $post_series variable - but ONLY if the post was associated with a series.
