@@ -6,7 +6,7 @@ This is an example template file that WordPress would load when a reader clicks 
 3. That's it!  */
 ########################################
 
-get_header(); 
+get_header(); ?>
 
 	<div id="contentwide">
 		<?php if (have_posts()) : ?>
@@ -42,7 +42,7 @@ get_header();
 	<?php else : ?>
 
 		<h2 class="center">Not Found</h2>
-		<?php include (TEMPLATEPATH . '/searchform.php'); ?>
+		<?php /*include (TEMPLATEPATH . '/searchform.php'); */?>
 
 	<?php endif; ?>
 
