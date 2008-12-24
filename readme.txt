@@ -2,8 +2,8 @@
 Contributors: nerrad
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.3
-Tested up to: 2.5.1
-Stable tag: 2.0.7
+Tested up to: 2.7
+Stable tag: 2.0.8
 
 A plugin for managing the article series you write.
 
@@ -120,6 +120,32 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == ChangeSet ==
+
+**2.0.8** - Significant fixes and a couple minor new features. NOTE - this version was ONLY MADE POSSIBLE thanks to the many people who tested the development betas and reported on bugs.  Without their help, I wouldn't have got this version out the door.  Read through the comments on the [Organize Series feed](http://unfoldingneurons.com/tag/organize-series-wordpress-plugin/feed/) to see all the people who contributed!
+
+*New features*
+
+* Added a new argument to the "wp_list_series" function - "number" which enables users to limit the number of series displayed
+* Reworked the layout of Organize Series administration integration with WordPress so it "fits" with WordPress 2.7 - including showing "Series" in the Dashboard "Right Now" widget.
+* Organize Series interface can be floated around and respositioned in the write/edit posts screen for WordPress 2.7
+* moved the "Manage Series" menu item to the Posts submenu area for WP2.7 (previous versions stay in the same location)
+
+*Minor*
+
+* fixed an inconsistency with 'show_last_update'
+* fixed some bugs with the atom feed (was an early update...not sure if it's still working correctly now)
+* fixed the 'series_description' function (it wasn't working)
+
+*Major*
+
+* Organize Series will now work correctly with the post-revisions feature introduced with WordPress 2.6
+* redid the plugin file locater code to allow for changes with the admin menu filters.
+* redid the plugin file locater code to allow for users customizing the location of their wp-content folder
+* redid all code referencing wp-config.php to allow for users customizing the location of their wp-config.php file (see http://planetozh.com/blog/2008/07/what-plugin-coders-must-know-about-wordpress-26/ for reference I used).
+* Fixed posts that are a part of series but not published showing up in the series list on published posts that are part of a series-taxonomy
+* Fixed a bug where custom navigation text set on the Series options page wasn't showing up correctly.
+
+
 
 **2.0.7** - Contains the following fixes:
 
