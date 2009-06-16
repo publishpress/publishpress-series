@@ -70,6 +70,8 @@ if ( !defined('WP_CONTENT_DIR') )
 	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
 
 	// Guess the location
+$plugin_path = '';
+$plugin_url = '';
 $plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
 $plugin_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
 $org_series_loc = $plugin_url;

@@ -316,7 +316,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 		$series = get_the_series();
 		if (!empty($series) ) {
 			foreach ($series as $ser) {
-				$series_ID = $series->term_ID;
+				$series_ID = $ser->term_ID;  //POTENTIAL BUG?  MARK THIS AS A FIX FOR 2.0.9
 			}
 		}
 	}

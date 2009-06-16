@@ -1,7 +1,17 @@
 <?php
 //This file contains all the feed related functions for organize series
-function get_series_rss_link($echo = false, $series_id, $series_nicename) {
+function get_series_rss_link($echo = false, $series_id) {
 	$permalink_structure = get_option('permalink_structure');
+	
+	//check for series_id and attempt to find it if possible
+	if (!isset($series_id)) {
+		$series = get_the_series();
+		if (!empty($series) ) {
+			foreach ($series as $ser) {
+				$series_id = $ser->term_ID;
+			}
+		}
+	}
 	
 	if ( '' == $permalink_structure ) {
 		$link = get_option('home') . '?feed=rss2&amp;series=' . $series_id;
