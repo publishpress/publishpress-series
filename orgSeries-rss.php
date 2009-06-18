@@ -8,7 +8,7 @@ function get_series_rss_link($echo = false, $series_id) {
 		$series = get_the_series();
 		if (!empty($series) ) {
 			foreach ($series as $ser) {
-				$series_id = $ser->term_ID;
+				$series_id = $ser->term_id;
 			}
 		}
 	}
