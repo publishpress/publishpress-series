@@ -579,8 +579,9 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 function series_description($series_id = 0) {
 	if ( !$series_id ) {
 		$ser_var = get_query_var(SERIES_QUERYVAR);
+		$ser_var = is_term( $ser_var, SERIES_QUERYVAR );
 		if ( !empty($ser_var) ) 
-			$series_id = $ser_var;
+			$series_id = $ser_var['term_id'];
 	}
 		
 	return get_term_field('description', $series_id, 'series');
