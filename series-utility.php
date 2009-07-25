@@ -101,18 +101,6 @@ function series_includeTemplate() {
 	return;
 }
 
-function get_series_permastruct() {
-	global $wp_rewrite;
-	
-	if (empty($wp_rewrite->permalink_structure)) {
-		$series_structure = '';
-		return false;
-	}
-	
-	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
-	return $series_structure;
-}
 
 /*OBSOLETE?  because of the new register_taxonomy hooks?  Let's CHECK...
 //permalinks , rewrite rules etc.//
@@ -169,12 +157,37 @@ function series_init() {
 	}
 	$wp_rewrite->flush_rules();
 }
+*/
 
 function orgSeries_request($query_vars) {
 	$query_vars['error'] = false;
 	return $query_vars;
 }
-*/
+
+
+// new series_init 
+function series_init() {
+	global $wp_rewrite;
+	$settings = get_option('org_series_options');
+	$series_toc_url = $settings['series_toc_url'];
+	
+	// make sure trailing slash is always added to REQUEST_URI  
+	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
+		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
+		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
+		$toccheck = $toccheck . '/';
+	} else {
+		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '\\' );
+		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '\\' );
+		$toccheck = $toccheck . '\\';
+	}
+		
+	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
+		//status_header( 200 ); 
+		add_filter('request', 'orgSeries_request');
+		add_action('template_redirect', 'orgSeries_toc_template');
+	}
+}
 
 function orgSeries_toc_template() {
 	global $wp_query;
@@ -394,7 +407,7 @@ add_filter('posts_join_paged','sort_series_page_join');
 add_filter('posts_where', 'sort_series_page_where');
 add_filter('posts_orderby','sort_series_page_orderby');
 
-//add_action('init', 'series_init');  //OBSOLETE?
+add_action( 'init', 'series_init', 0 );  
 //for series queries
 //add_filter('query_vars', 'series_addQueryVar'); //OBSOLETE?
 //add_action('parse_query','series_parseQuery'); //OBSOLETE?

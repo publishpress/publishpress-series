@@ -437,7 +437,7 @@ function org_series_echo_fieldset_mainsettings($settings) {
 				<br />
 				<br />
 					<strong>Series Table of Contents URL:</strong><br />
-					<?php bloginfo('siteurl') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
+					<?php bloginfo('home') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
 				<small><em>Enter the path where you want the Series Table of Contents to be shown</em></small><br /><br />
 					<strong>Series Table of Contents Title:</strong><input type="text" name="series_toc_title" value="<?php echo htmlspecialchars($settings['series_toc_title']); ?>" /><br />
 				<small><em>Enter what you want to appear in the browser title when readers are viewing the series table of contents page.</em></small><br /> <br />

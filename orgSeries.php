@@ -96,7 +96,7 @@ define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field
  //OBSOLETE?
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
-$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => SERIES_QUERYVAR, 'rewrite' => true);
+$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => true, 'rewrite' => true);
 $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
@@ -131,8 +131,8 @@ require ($plugin_path .'series-widgets.php');
   * @uses $wpdb - global WordPress database object
 */
 function org_series_install() {
-	global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_taxonomies, $wpdb;
-	register_taxonomy( $org_series_term, $org_series_type, $org_series_args );
+	global $org_series_version, $wp_taxonomies, $wpdb;
+	//register_taxonomy( $org_series_term, $org_series_type, $org_series_args );
 	orgSeries_roles(); 
          
 	if ( $options = get_option( 'org_series_options' ) && !( $oldversion = get_option('org_series_version' ) ) )  //for versions prior to 2.0
@@ -259,8 +259,11 @@ return true;
 
 ##########ADD ACTIONS TO WP###########
 //initialize plugin
-register_taxonomy($org_series_term, $org_series_type, $org_series_args);
-//add_action( 'init', 'series_init', 0 ); //needs to be of top priority
+function series_tax_init() {
+	global $org_series_term, $org_series_type, $org_series_args;
+	register_taxonomy($org_series_term, $org_series_type, $org_series_args);
+}
+add_action( 'init', 'series_tax_init', 0 );
 add_action('activate_' . SERIES_DIR . '/orgSeries.php','org_series_install');
 
 //insert .css in header if needed
