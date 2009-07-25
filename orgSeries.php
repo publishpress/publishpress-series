@@ -259,10 +259,8 @@ return true;
 
 ##########ADD ACTIONS TO WP###########
 //initialize plugin
-function series_init() {
-	register_taxonomy($org_series_term, $org_series_type, $org_series_args);
-	}
-add_action( 'init', 'series_init', 0 ); //needs to be of top priority
+register_taxonomy($org_series_term, $org_series_type, $org_series_args);
+//add_action( 'init', 'series_init', 0 ); //needs to be of top priority
 add_action('activate_' . SERIES_DIR . '/orgSeries.php','org_series_install');
 
 //insert .css in header if needed
