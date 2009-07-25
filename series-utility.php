@@ -9,6 +9,8 @@
  * @since 2.0
 */
 
+//OBSOLETE?  IS ALL THE QUERY STUFF OBSOLETE BECAUSE OF THE NEW REGISTER TAXONOMY HOOK STUFF? LET'S CHECK.
+/*
 //wp_query stuff 
 function series_addQueryVar($wpvar_array) {
 	$wpvar_array[] = SERIES_QUERYVAR;
@@ -79,6 +81,7 @@ function series_postsJoin($join) {
 		
 	return $join;	
 }
+*/
 
 function series_includeTemplate() {
 	if (is_series()) {
@@ -98,7 +101,6 @@ function series_includeTemplate() {
 	return;
 }
 
-//permalinks , rewrite rules etc.//
 function get_series_permastruct() {
 	global $wp_rewrite;
 	
@@ -111,6 +113,9 @@ function get_series_permastruct() {
 	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
 	return $series_structure;
 }
+
+/*OBSOLETE?  because of the new register_taxonomy hooks?  Let's CHECK...
+//permalinks , rewrite rules etc.//
 
 function series_createRewriteRules($rules) {
 	global $wp_rewrite;
@@ -146,7 +151,7 @@ function series_init() {
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
 	
-	/* make sure trailing slash is always added to REQUEST_URI  */
+	// make sure trailing slash is always added to REQUEST_URI  
 	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
 		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
 		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
@@ -169,6 +174,7 @@ function orgSeries_request($query_vars) {
 	$query_vars['error'] = false;
 	return $query_vars;
 }
+*/
 
 function orgSeries_toc_template() {
 	global $wp_query;
@@ -387,8 +393,9 @@ function _series_row($series) {
 add_filter('posts_join_paged','sort_series_page_join');
 add_filter('posts_where', 'sort_series_page_where');
 add_filter('posts_orderby','sort_series_page_orderby');
-add_action('init', 'series_init');
+
+//add_action('init', 'series_init');  //OBSOLETE?
 //for series queries
-add_filter('query_vars', 'series_addQueryVar');
-add_action('parse_query','series_parseQuery');
+//add_filter('query_vars', 'series_addQueryVar'); //OBSOLETE?
+//add_action('parse_query','series_parseQuery'); //OBSOLETE?
 ?>
