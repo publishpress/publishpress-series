@@ -9,80 +9,6 @@
  * @since 2.0
 */
 
-//OBSOLETE?  IS ALL THE QUERY STUFF OBSOLETE BECAUSE OF THE NEW REGISTER TAXONOMY HOOK STUFF? LET'S CHECK.
-/*
-//wp_query stuff 
-function series_addQueryVar($wpvar_array) {
-	$wpvar_array[] = SERIES_QUERYVAR;
-	return($wpvar_array);
-}
-
-function series_parseQuery() {
-	//if this is a series query, then reset other is_x flags and add template redirect;
-	if (is_series()) {
-		global $wp_query;
-		$wp_query->is_single = false;
-		$wp_query->is_page = false;
-		$wp_query->is_archive = false;
-		$wp_query->is_search = false;
-		$wp_query->is_home = false;
-		$wp_query->is_series = true;
-		$wp_query->is_404 = false;
-		
-		add_action('template_redirect','series_includeTemplate');
-	}	
-	add_filter('posts_where', 'series_postsWhere');
-	add_filter('posts_join', 'series_postsJoin');
-}
-
-function series_postsWhere($where) { 
-	global $wpdb;
-	$series_var = get_query_var(SERIES_QUERYVAR);
-	$cat_var = get_query_var('cat');
-	$token = "'" . SERIES_QUERYVAR . "'";
-	//convert to series id if permalinks turned on.
-	$serchk = is_term( $series_var, SERIES_QUERYVAR );
-	if ( !empty($serchk) ) 
-		$series_var = $serchk['term_id'];
-	$whichseries = '';
-	
-	if ( !empty($series_var)  && empty($cat_var) ) {
-		$whichseries .= " AND $wpdb->term_taxonomy.taxonomy = $token ";
-		$whichseries .= " AND $wpdb->term_taxonomy.term_id = $series_var ";
-	}
-		
-	//for category and series intersects
-	If ( !empty( $series_var ) && !empty($cat_var) ) {
-		$taxonomy = $token;
-		$t_ids = array( $cat_var, $series_var );
-		$tsql = "SELECT p.ID FROM $wpdb->posts p INNER JOIN $wpdb->term_relationships tr ON (p.ID = tr.object_id) INNER JOIN $wpdb->term_taxonomy tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) INNER JOIN $wpdb->terms t ON (tt.term_id = t.term_id)";
-		$tsql .= " WHERE tt.taxonomy = ($token OR 'category') AND t.term_id IN ('" . implode("', '", $t_ids) . "')";
-		$tsql .= " GROUP BY p.ID HAVING count(p.ID) = " . count($t_ids);
-		
-		$post_ids = $wpdb->get_col($tsql);
-		
-		if ( count($post_ids) )
-			$whichseries .= " AND $wpdb->posts.ID IN (" . implode(', ', $post_ids) . ") ";
-		else 
-			$whichseries = " AND 0 = 1";
-	}
-			
-	$where .= $whichseries;
-	return $where;
-}
-
-function series_postsJoin($join) {
-	global $wpdb;
-	$series_var = get_query_var(SERIES_QUERYVAR);
-	$cat_var = get_query_var('cat');
-	if ( !empty($series_var) && empty( $cat_var ) )  {
-		$join = " INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) INNER JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id) ";
-	}
-		
-	return $join;	
-}
-*/
-
 function series_includeTemplate() {
 	if (is_series()) {
 		$template = '';
@@ -101,71 +27,11 @@ function series_includeTemplate() {
 	return;
 }
 
-
-/*OBSOLETE?  because of the new register_taxonomy hooks?  Let's CHECK...
-//permalinks , rewrite rules etc.//
-
-function series_createRewriteRules($rules) {
-	global $wp_rewrite;
-	
-	//$oldrules = $wp_rewrite->rules;
-	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
-	
-	//without trailing slash
-	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
-	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
-	//return $series_structure;
-	
-	return ( $rewrite + $rules );
-}
-
-function series_init() {
-	global $wp_rewrite;
-	
-	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
-		define('SERIES_REWRITEON', '1');  //pretty permalinks please!
-	} else {
-		define('SERIES_REWRITEON', '0');  //old school links
-	}
-	
-	
-	//generate rewrite rules for series queries 
-	
-	if (SERIES_REWRITEON && SERIES_REWRITERULES)
-		add_filter('rewrite_rules_array', 'series_createRewriteRules');
-		
-	//setting up the series_toc_page redirect
-	$settings = get_option('org_series_options');
-	$series_toc_url = $settings['series_toc_url'];
-	
-	// make sure trailing slash is always added to REQUEST_URI  
-	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
-		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
-		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
-		$toccheck = $toccheck . '/';
-	} else {
-		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '\\' );
-		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '\\' );
-		$toccheck = $toccheck . '\\';
-	}
-		
-	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
-		//status_header( 200 ); 
-		add_filter('request', 'orgSeries_request');
-		add_action('template_redirect', 'orgSeries_toc_template');
-	}
-	$wp_rewrite->flush_rules();
-}
-*/
-
 function orgSeries_request($query_vars) {
 	$query_vars['error'] = false;
 	return $query_vars;
 }
 
-
-// new series_init 
 function series_init() {
 	global $wp_rewrite;
 	$settings = get_option('org_series_options');
@@ -408,7 +274,4 @@ add_filter('posts_where', 'sort_series_page_where');
 add_filter('posts_orderby','sort_series_page_orderby');
 
 add_action( 'init', 'series_init', 0 );  
-//for series queries
-//add_filter('query_vars', 'series_addQueryVar'); //OBSOLETE?
-//add_action('parse_query','series_parseQuery'); //OBSOLETE?
 ?>

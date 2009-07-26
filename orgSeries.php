@@ -3,7 +3,7 @@
 Plugin Name: Organize Series
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 Version: 2.0.9a.1
-Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.3 to work.
+Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.8 to work. 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
 */
@@ -263,6 +263,19 @@ function series_tax_init() {
 	global $org_series_term, $org_series_type, $org_series_args;
 	register_taxonomy($org_series_term, $org_series_type, $org_series_args);
 }
+
+//remove series sub-menu item from edit posts menu
+function unset_series_menu() {
+  global $menu, $submenu;
+  $index = 15;
+  while ($submenu['edit.php'][$index]) {
+	$submenutest = 'edit-tags.php?taxonomy=series';
+	if ( in_array( $submenutest, $submenu['edit.php'][$index] ) ) unset($submenu['edit.php'][$index]);
+	$index++;
+  }
+}
+
+add_action('admin_head', 'unset_series_menu', 1);
 add_action( 'init', 'series_tax_init', 0 );
 add_action('activate_' . SERIES_DIR . '/orgSeries.php','org_series_install');
 
