@@ -96,7 +96,7 @@ define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field
  //OBSOLETE?
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
-$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => true, 'rewrite' => true);
+$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => SERIES_QUERYVAR, 'rewrite' => true);
 $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
@@ -269,8 +269,8 @@ function unset_series_menu() {
   global $menu, $submenu;
   $index = 15;
   while ($submenu['edit.php'][$index]) {
-	$submenutest = 'edit-tags.php?taxonomy=series';
-	if ( in_array( $submenutest, $submenu['edit.php'][$index] ) ) unset($submenu['edit.php'][$index]);
+	$submenuthere = 'edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
+	if ( in_array( $submenuthere, $submenu['edit.php'][$index] ) ) unset($submenu['edit.php'][$index]);
 	$index++;
   }
 }
