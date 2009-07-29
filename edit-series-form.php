@@ -39,17 +39,21 @@ if ( ! empty($series_ID) ) {
 			<th scope="row" valign="top"><label for="series_description"><?php _e('Description: (optional)') ?></label></th>
 			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($series->description); ?></textarea></td>
 		</tr>
-		<?php if (!$addcheck) { ?>
+	</table>
+		
+	<table class="form-table">	
 		<tr>
 			<th scope="row" valign="top"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>
-			<td><input name="series_icon" id="series_icon" type="file" /><br/>
-				<small>Note: currently series icons are saved to the default uploads folder in your WordPress install (set in on your Options/Settings->Miscellaneous Page).  Series icons WON'T work unless you uncheck the "Organize my uploads into month- and year-based folders" checkbox.</small>
+			<td><div name="series_image_url_display" id="series_image_url_display" type="file" />No images selected</div>
+			<img src='images/media-button-image.gif' alt='Add photos from your media' /> <a href="media-upload.php?TB_iframe=true&amp;type=image&amp;tab=library&amp;height=500&amp;width=640" class="thickbox" title='Add an Image'><strong>Click here to add photos from your media</strong></a><small>Note: currently series icons are saved to the default uploads folder in your WordPress install (set in on your Options/Settings->Miscellaneous Page).  Series icons WON'T work unless you uncheck the "Organize my uploads into month- and year-based folders" checkbox.</small>
 			</td>
 		</tr>
-		<?php } ?>
+	<?php do_action('edit_series_form', $series);  ?>
 	</table>
-<p class="submit"><input type="submit" name="submit" value="<?php echo $submit_text ?>" /></p>
-<?php do_action('edit_series_form', $series);  ?>
+	<input type="hidden" name="series_image_url_collection" id="series_image_url_collection" value="" />
+	<input type="hidden" name="series_image_title_collection" id="series_image_title_collection" value="" />	
+	<p class="submit"><input type="submit" name="submit" value="<?php echo $submit_text ?>" onclick= "jQuery('#series_image_url_collection').val(image_url_collection.join('|'));
+jQuery('#series_image_title_collection').val(image_title_collection.join('|')); return true;" /></p>
 </form>
 </div>
 </div>

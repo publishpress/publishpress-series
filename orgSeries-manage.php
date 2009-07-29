@@ -15,10 +15,7 @@ case 'addseries':
 	if ( !current_user_can('manage_series') ) 
 		wp_die(__('Cheatin&#8217; uh?'));
 	
-	if ( !isset( $_FILES['series_icon'] ) || $_FILES['series_icon'] == '' )
-		$_FILES['series_icon'] = '';
-		
-	if( wp_insert_series($_POST, $_FILES['series_icon']) ) { 
+	if( wp_insert_series($_POST) ) { 
 		wp_redirect('../../../wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=1#addseries'); 
 	} else {
 		wp_redirect('../../../wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=4#addseries');
@@ -55,7 +52,7 @@ case 'editedseries':
 	if ( !current_user_can('manage_series') )
 		wp_die(__('Cheatin&#8217; uh?'));
 	
-	if ( wp_update_series($_POST, $_FILES['series_icon']) ) 
+	if ( wp_update_series($_POST) ) 
 			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=3');
 	else
 		wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=5');

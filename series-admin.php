@@ -41,12 +41,9 @@ global $wp_version, $checkpage;
 		}
 		wp_print_scripts( 'ajaxseries' );
 	}
-	
-	if ( isset( $wp_version ) && $wp_version < 2.5 ) {
-		if ( SERIES_DIR . '/orgSeries-manage.php' == $checkpage)
+	if ( (SERIES_DIR . '/orgSeries-manage.php' == $checkpage) || (SERIES_DIR . '/edit-series-form.php' == $checkpage) )
 			orgSeries_manage_script();
-	}
-		
+	
 	if ( SERIES_DIR . '/orgSeries-options.php' == $checkpage && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
@@ -54,6 +51,10 @@ global $wp_version, $checkpage;
 function orgSeries_manage_script() {
 	wp_register_script( 'admin-series', '/wp-content/plugins/' . SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
 	wp_print_scripts('admin-series');
+	wp_enqueue_script('thickbox');
+	wp_enqueue_script('media-upload');
+	wp_enqueue_script('orgseries_scripts','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/orgseries_scripts.js');
+	wp_enqueue_style('thickbox');
 }
 
 function org_series_options_js() {

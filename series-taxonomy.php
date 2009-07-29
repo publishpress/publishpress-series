@@ -485,7 +485,7 @@ function wp_delete_series($series_ID) {
 	return wp_delete_term($series_ID, 'series');
 }
 
-function wp_insert_series($serarr, $file = FALSE) {
+function wp_insert_series($serarr) {
 	global $wpdb;
 	
 	extract($serarr, EXTR_SKIP);
@@ -505,25 +505,14 @@ function wp_insert_series($serarr, $file = FALSE) {
 	$name = $series_name;
 	$description = $series_description;
 	$slug = $series_nicename;
+	$series_icon = $series_image_url_display;
 	$action = $action;
 	$overrides = array('action' => $action);
-	if (!($file) || $file=='') unset($file);
-	
-	if (isset($file)) {
-		$iconfile = wp_handle_upload( $file, $overrides );
-	
-		//if ($message = $iconfile['error']) return FALSE; //TODO - remove the RETURN FALSE check and instead return an array for wp_insert_series containing $message, and $series_id.  This would require going back over all the files to update any calls to wp_insert_series so that returned variable is used correctly.
-		$iconname = $iconfile['url'];
-		
-		//take the $iconname which contains the full url of the series
-		$iconname = explode('/', $iconname);
-		$icon = $iconname[count($iconname) - 1];
-	} else {
-		$icon = '';
-	}
-	
+	$iconname = $series_icon;
+	//take the $iconname which contains the full url of the series
+	$iconname = explode('/', $iconname);
+	$icon = $iconname[count($iconname) - 1];
 	$args = compact('name','slug','description');
-	
 	if ( $update ) {
 		$series_icon = seriesicons_write($series_ID, $icon);
 		$ser_ID = wp_update_term($series_ID, 'series', $args);
