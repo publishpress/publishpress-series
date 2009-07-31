@@ -17,8 +17,8 @@ if ( ! empty($series_ID) ) {
 	$series = '';
 	do_action('add_series_form_pre', $series); 
 }
-?>
 
+?>
 <div id="col-left">
 <h2><?php echo $heading ?></h2>
 <div id="ajax-response"></div>
@@ -40,23 +40,27 @@ if ( ! empty($series_ID) ) {
 			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($series->description); ?></textarea></td>
 		</tr>
 	</table>
-		
+	<?php if (!$addcheck) { ?>	
 	<table class="form-table">	
 		<tr>
-			<th scope="row" valign="top"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>
-			<td><div name="series_image_url_display" id="series_image_url_display" type="file" />No images selected</div>
-			<img src='images/media-button-image.gif' alt='Add photos from your media' /> <a href="media-upload.php?TB_iframe=true&amp;type=image&amp;tab=library&amp;height=500&amp;width=640" class="thickbox" title='Add an Image'><strong>Click here to add photos from your media</strong></a><small>Note: currently series icons are saved to the default uploads folder in your WordPress install (set in on your Options/Settings->Miscellaneous Page).  Series icons WON'T work unless you uncheck the "Organize my uploads into month- and year-based folders" checkbox.</small>
+		<th scope="row">
+			<td><?php if ($series_icon != '') echo 'Current series icon: ' . $series_icon; ?></td>
+		</tr>
+		<tr valign="top">
+			<th scope="row"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>
+			<td><div name="series_image_url_display" id="series_image_url_display" style="width:500px; background-color:#FFFFFF; padding:3px; border:#c6d9e9 1px solid; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px"><?php if ($series->series_image_url_display) { echo $series_image_url_display; }else{ ?>No images selected <?php }?></div>
+			<img src='images/media-button-image.gif' alt='Add photos from your media' /> <a href="media-upload.php?TB_iframe=true&amp;type=image&amp;tab=library&amp;height=500&amp;width=640" class="thickbox" title='Add an Image'><strong>Click here to add photos from your media</strong></a>
 			</td>
 		</tr>
 	<?php do_action('edit_series_form', $series);  ?>
 	</table>
-	<input type="hidden" name="series_image_url_collection" id="series_image_url_collection" value="" />
-	<input type="hidden" name="series_image_title_collection" id="series_image_title_collection" value="" />	
-	<p class="submit"><input type="submit" name="submit" value="<?php echo $submit_text ?>" onclick= "jQuery('#series_image_url_collection').val(image_url_collection.join('|'));
-jQuery('#series_image_title_collection').val(image_title_collection.join('|')); return true;" /></p>
+	<?php } ?>
+	<input type="submit" class="button-button-primary" value="<?php echo $submit_text ?>" />
 </form>
-</div>
-</div>
+
+<textarea class='' rows='0' cols='0' name='content' tabindex='2' id='content' onfocus="image_url_add()" style="width:1px; height:1px; padding:0px; border:none"></textarea>
+    <script type="text/javascript">edCanvas = document.getElementById('content');</script>
+	
 </div>
 <?php
 ?>

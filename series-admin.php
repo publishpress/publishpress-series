@@ -13,8 +13,11 @@ global $checkpage;
 function orgSeries_admin_header() {
 	$plugin_path = SERIES_LOC;
 	$csspath = $plugin_path . "orgSeries-admin.css";
-	$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
-	echo $text;
+	//$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+	wp_register_style( 'orgSeries-admin', $csspath );
+	wp_enqueue_style( 'orgSeries-admin' );
+	wp_enqueue_style( 'thickbox' );
+	//echo $text;
 }
 
 //add_action filter for the manage_series page...
@@ -42,19 +45,17 @@ global $wp_version, $checkpage;
 		wp_print_scripts( 'ajaxseries' );
 	}
 	if ( (SERIES_DIR . '/orgSeries-manage.php' == $checkpage) || (SERIES_DIR . '/edit-series-form.php' == $checkpage) )
-			orgSeries_manage_script();
+	orgSeries_manage_script();
 	
 	if ( SERIES_DIR . '/orgSeries-options.php' == $checkpage && isset($wp_version) && $wp_version < 2.5 )
 		org_series_options_js();
 }
 
 function orgSeries_manage_script() {
-	wp_register_script( 'admin-series', '/wp-content/plugins/' . SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
-	wp_print_scripts('admin-series');
-	wp_enqueue_script('thickbox');
+	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_script('media-upload');
 	wp_enqueue_script('orgseries_scripts','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/orgseries_scripts.js');
-	wp_enqueue_style('thickbox');
+	wp_enqueue_script( 'admin-series', '/wp-content/plugins/' . SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
 }
 
 function org_series_options_js() {
@@ -133,7 +134,7 @@ function admin_ajax_series() {
 function admin_ajax_series_add() {
 	if (!current_user_can( 'manage_series' ) )
 		die('-1');
-	if (!$series = wp_insert_series( $_POST, $_FILES['series_icon'] ) )
+	if (!$series = wp_insert_series( $_POST ) )
 		die('0');
 	if ( !$series = get_orgserial( $series ) )
 		die('0');
@@ -401,10 +402,10 @@ function orgSeries_manage_posts_titles($titles) {
 /**
  * All the add_action and apply_filter hooks for this file go here
 */
-//add action for admin-series.css
-add_action('admin_head', 'orgSeries_admin_header');
+//add action for admin-series.css and thickbox
+add_action('admin_print_styles', 'orgSeries_admin_header');
 ##ADMIN-Write/Edit Post Script loader
-add_action('admin_head','orgSeries_admin_script'); 
+add_action('admin_print_scripts','orgSeries_admin_script'); 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
 if ( isset( $wp_version ) && $wp_version < 2.5 ) {
