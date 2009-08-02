@@ -41,7 +41,10 @@ case 'edit':
 	$series_ID = (int) $_GET['series_ID'];
 	$series = get_series_to_edit($series_ID);
 	$series_icon = get_series_icon('fit_width=100&fit_height=100&link=0&expand=true&display=0&series='.$series_ID);
-	$series_icon_loc = seriesicons_url() . series_get_icons($series_ID);
+	$icon_loc = series_get_icons($series_ID);
+	if ($icon_loc || $icon_loc != '')
+		$series_icon_loc = seriesicons_url() . $icon_loc;
+	else $series_icon_loc = '';
 	include( '../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); 
 	
 break;
