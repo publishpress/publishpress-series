@@ -231,7 +231,7 @@ function _series_row($series) {
 	
 	$series_icon = series_get_icons($series->term_id);
 	$series_url = seriesicons_url();
-	$icon = $series_url . "/" . $series_icon;
+	$icon = $series_url . '/' . $series_icon;
 	
 	if ( current_user_can( 'manage_series' ) ) {
 		$edit = "<a href='edit.php?page=" .  SERIES_DIR . "/orgSeries-manage.php&amp;action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";

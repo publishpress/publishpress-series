@@ -41,6 +41,7 @@ case 'edit':
 	$series_ID = (int) $_GET['series_ID'];
 	$series = get_series_to_edit($series_ID);
 	$series_icon = get_series_icon('fit_width=100&fit_height=100&link=0&expand=true&display=0&series='.$series_ID);
+	$series_icon_loc = seriesicons_url() . series_get_icons($series_ID);
 	include( '../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); 
 	
 break;
@@ -51,7 +52,7 @@ case 'editedseries':
 	check_admin_referer('update-series_' . $series_ID);
 	
 	if ( !current_user_can('manage_series') )
-		wp_die(__('Cheatin&#8217; uh?'));
+		wp_die(__('Cheatin&#8217; huh?'));
 	
 	if ( wp_update_series($_POST) ) 
 			wp_redirect(get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=3');

@@ -505,20 +505,22 @@ function wp_insert_series($serarr) {
 	$name = $series_name;
 	$description = $series_description;
 	$slug = $series_nicename;
-	$series_icon = $series_image_url_display;
+	$series_icon = $series_icon_loc;
 	$action = $action;
 	$overrides = array('action' => $action);
-	$iconname = $series_icon;
-	//take the $iconname which contains the full url of the series
-	$iconname = explode('/', $iconname);
-	$icon = $iconname[count($iconname) - 1];
+	
+	if ( isset($series_icon) || $series_icon != '' ) {
+		$build_path = seriesicons_url();
+		$series_icon = str_replace($build_path, '', $series_icon);
+	}
+		
 	$args = compact('name','slug','description');
 	if ( $update ) {
-		$series_icon = seriesicons_write($series_ID, $icon);
+		$series_icon = seriesicons_write($series_ID, $series_icon);
 		$ser_ID = wp_update_term($series_ID, 'series', $args);
 	} else {
 		$ser_ID = wp_insert_term($series_name,'series',$args);
-		$series_icon = seriesicons_write($ser_ID['term_id'], $icon);
+		$series_icon = seriesicons_write($ser_ID['term_id'], $series_icon);
 	}
 	if ( is_wp_error($ser_ID) )
 		return 0;
@@ -526,7 +528,7 @@ function wp_insert_series($serarr) {
 	return $ser_ID['term_id'];
 }
 
-function wp_update_series($serarr, $file = FALSE) {
+function wp_update_series($serarr) {
 	global $wpdb;
 	
 	$series_ID = (int) $serarr['series_ID'];
@@ -539,7 +541,7 @@ function wp_update_series($serarr, $file = FALSE) {
 	
 	//Merge old and new fields with fields overwriting old ones.
 	$serarr = array_merge($series, $serarr);
-	return wp_insert_series($serarr, $file);
+	return wp_insert_series($serarr);
 }
 
 /**

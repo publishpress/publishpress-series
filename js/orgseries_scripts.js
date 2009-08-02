@@ -1,8 +1,6 @@
-﻿var image_url_collection = new Array();
-var image_title_collection = new Array();
+﻿var nativeSplit = nativeSplit || String.prototype.split; // Cross-Browser Split
+var image_url_collection = '';
 var image_url_collection_div_contents = '';
-
-var nativeSplit = nativeSplit || String.prototype.split; // Cross-Browser Split
 
 //Extracted from '/wp-includes/js/quicktags.js?ver=3958' - to use the media-upload.php with thickbox
 function edInsertContent(myField, myValue) {
@@ -100,26 +98,17 @@ String.prototype.split = function (s /* separator */, limit) {
 //Extracted from fpg_scripts.js (Flash Picture Gallery Plugin) and modified for use here.
 function image_url_sync(){
 	add_image_url = '';
-	for (i=0;i<image_url_collection.length;i++){
-		if (image_title_collection[i].length > 50) {cropped_image_title = '...' + str_right(image_title_collection[i], 50);} else {cropped_image_title = image_title_collection[i];}
-		add_image_url = add_image_url + "<a href=\"" + image_url_collection[i] + "\" target=\"_blank\">" + cropped_image_title + "</a> [<a href=\"#\" onclick=\"image_url_remove("+i+");return false;\">Remove</a>]<br />";
-	}
+	
+	add_image_url = image_url_collection;
+		
 	if (add_image_url == '') add_image_url = 'No images selected';	
-	jQuery("#series_image_url_display").html(add_image_url);
+	jQuery("#series_image_url_display").html(add_image_url);	
 }
 
 function image_url_add(){
 	image_url = edCanvas.value.match(/img src=\"(.*?)\"/g)[0].split(/img src=\"(.*?)\"/g)[1];
 	image_url = image_url.replace(/-[0-9][0-9][0-9]x[0-9][0-9][0-9]\./i,'.');
-	image_title = edCanvas.value.match(/title=\"(.*?)\"/g)[0].split(/title=\"(.*?)\"/g)[1];
-	image_url_collection.push(image_url);
-	image_title_collection.push(image_title);	
+	image_url_collection = image_url;
 	edCanvas.value = '';
-	image_url_sync();
-}
-
-function image_url_remove(id) {
-	image_url_collection.splice(id,1);
-	image_title_collection.splice(id,1);
 	image_url_sync();
 }
