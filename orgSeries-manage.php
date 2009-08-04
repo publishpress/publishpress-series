@@ -109,7 +109,7 @@ $messages[5] = __('Series not updated.');
 
 <?php if ( current_user_can('manage_series') ) : ?>
 <div class="wrap">
-<p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.<br /><strong>Also: </strong><br />You add series icons to a series by clicking the edit link.')) ?></p>
+<p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.')) ?></p>
 </div>
 
 <?php include('../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); ?>

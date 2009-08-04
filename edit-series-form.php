@@ -41,22 +41,36 @@ if ( ! empty($series_ID) ) {
 			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($series->description); ?></textarea></td>
 		</tr>
 	</table>
-	<?php if (!$addcheck) { ?>	
+		
 	<table class="form-table">	
-		<tr>
-		<th scope="row">
-			<td><?php if ($series_icon != '') echo 'Current series icon: ' . $series_icon; ?></td>
+		<tr valign="top">
+		
+		<?php if ($series_icon != '') { ?>
+		<th scope="column"><?php _e('Current series icon:'); ?></th><?php } ?>
+		<td>
+		<?php if ($series_icon != '') echo $series_icon; ?>
+		<div style="float:right;" id="selected-icon"></div>
+		</td>
 		</tr>
+		<?php if (!$addcheck && $series_icon != '') { ?>
+		<tr style="width:100%">
+			<th><input name="delete_image" id="delete_image" type="checkbox" value="true" /></th>
+			<td style="width: 100%">
+			<?php _e('Delete image? (note: there will not be an image associated with this series if you select this)'); ?>
+			</td>
+		</tr>
+		<?php } ?>
 		<tr valign="top">
 			<th scope="row"><label for="series_icon"><?php _e('Series Icon:') ?></label></th>
-			<td><div name="series_image_url_display" id="series_image_url_display" style="width:500px; background-color:#FFFFFF; padding:3px; border:#c6d9e9 1px solid; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px"><?php if ($series_icon_loc != '') echo $series_icon_loc; else echo 'No Series Icon selected'; ?></div>
-			<img src='images/media-button-image.gif' alt='Add photos from your media' /> <a href="media-upload.php?TB_iframe=true&amp;type=image&amp;tab=library&amp;height=500&amp;width=640" class="thickbox" title='Add an Image'><strong>Click here to add/change your series icon</strong></a>
+			<td><div name="series_image_url_display" id="series_image_url_display" style="width:350px; background-color:#FFFFFF; padding:3px; border:#c6d9e9 1px solid; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px"><?php if ($series_icon_loc != '') echo $series_icon_loc; else _e('No Series Icon selected'); ?></div>
+			<img src='images/media-button-image.gif' alt='Add photos from your media' /> <a href="media-upload.php?TB_iframe=true&amp;type=image&amp;tab=library&amp;height=500&amp;width=640" class="thickbox" title='Add an Image'><strong><?php _e('Click here to add/change your series icon'); ?></strong></a><br />
+			<small><?php _e('Note: To choose image click the "insert into post" button in the media uploader');?></small>
 			</td>
 		</tr>
 	<input type="hidden" name="series_icon_loc" id="series_icon_loc" value="" />	
 	<?php do_action('edit_series_form', $series);  ?>
 	</table>
-	<?php } ?>
+	
 	<input type="submit" class="button-button-primary" value="<?php echo $submit_text ?>" onclick="jQuery('#series_icon_loc').val(image_url_collection); return true;" />
 </form>
 

@@ -670,8 +670,8 @@ function is_series() {
 	if (!isset($p['series'])) return;
 	
 	$icon = series_get_icons($p['series']);
-	$file = seriesicons_path() . '/' . $icon;
-	$url = seriesicons_url() . '/' . $icon;
+	$file = seriesicons_path() . $icon;
+	$url = seriesicons_url() . $icon;
 	
 	if ($p['link']) {
 		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';

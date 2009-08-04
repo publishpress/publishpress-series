@@ -516,7 +516,11 @@ function wp_insert_series($serarr) {
 		
 	$args = compact('name','slug','description');
 	if ( $update ) {
-		$series_icon = seriesicons_write($series_ID, $series_icon);
+		if ($delete_image) {
+			seriesicons_delete($series_ID);
+		} else {
+			$series_icon = seriesicons_write($series_ID, $series_icon);
+		}
 		$ser_ID = wp_update_term($series_ID, 'series', $args);
 	} else {
 		$ser_ID = wp_insert_term($series_name,'series',$args);

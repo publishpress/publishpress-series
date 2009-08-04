@@ -100,9 +100,11 @@ function image_url_sync(){
 	add_image_url = '';
 	
 	add_image_url = image_url_collection;
+	view_image_url = "Selected Image: <img src=\"" + add_image_url + "\" width=\"100px\" />";
 		
 	if (add_image_url == '') add_image_url = 'No images selected';	
-	jQuery("#series_image_url_display").html(add_image_url);	
+	jQuery("#series_image_url_display").html(add_image_url);
+	jQuery("#selected-icon").html(view_image_url);	
 }
 
 function image_url_add(){
