@@ -8,6 +8,80 @@
  * @package Organize Series WordPress Plugin
  * @since 2.0
 */
+//wp_query stuff 
+function series_addQueryVar($wpvar_array) {
+	$wpvar_array[] = SERIES_QUERYVAR;
+	return($wpvar_array);
+}
+
+function series_parseQuery() {
+	//if this is a series query, then reset other is_x flags and add template redirect;
+	if (is_series()) {
+		global $wp_query;
+		$wp_query->is_single = false;
+		$wp_query->is_page = false;
+		$wp_query->is_archive = false;
+		$wp_query->is_search = false;
+		$wp_query->is_home = false;
+		$wp_query->is_series = true;
+		$wp_query->is_404 = false;
+		
+		add_action('template_redirect','series_includeTemplate');
+	}	
+	$wp_query->suppress_filters = false;
+	add_filter('posts_where', 'series_postsWhere');
+	add_filter('posts_join', 'series_postsJoin');
+	add_filter('posts_join_paged','sort_series_page_join');
+	add_filter('posts_where', 'sort_series_page_where');
+	add_filter('posts_orderby','sort_series_page_orderby');
+}
+
+function series_postsWhere($where) { 
+	global $wpdb;
+	$series_var = get_query_var(SERIES_QUERYVAR);
+	$cat_var = get_query_var('cat');
+	$token = "'" . SERIES_QUERYVAR . "'";
+	//convert to series id if permalinks turned on.
+	$serchk = is_term( $series_var, SERIES_QUERYVAR );
+	if ( !empty($serchk) ) 
+		$series_var = $serchk['term_id'];
+	$whichseries = '';
+	
+	if ( !empty($series_var)  && empty($cat_var) ) {
+		$whichseries .= " AND $wpdb->term_taxonomy.taxonomy = $token ";
+		$whichseries .= " AND $wpdb->term_taxonomy.term_id = $series_var ";
+	}
+		
+	//for category and series intersects
+	If ( !empty( $series_var ) && !empty($cat_var) ) {
+		$taxonomy = $token;
+		$t_ids = array( $cat_var, $series_var );
+		$tsql = "SELECT p.ID FROM $wpdb->posts p INNER JOIN $wpdb->term_relationships tr ON (p.ID = tr.object_id) INNER JOIN $wpdb->term_taxonomy tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) INNER JOIN $wpdb->terms t ON (tt.term_id = t.term_id)";
+		$tsql .= " WHERE tt.taxonomy = ($token OR 'category') AND t.term_id IN ('" . implode("', '", $t_ids) . "')";
+		$tsql .= " GROUP BY p.ID HAVING count(p.ID) = " . count($t_ids);
+		
+		$post_ids = $wpdb->get_col($tsql);
+		
+		if ( count($post_ids) )
+			$whichseries .= " AND $wpdb->posts.ID IN (" . implode(', ', $post_ids) . ") ";
+		else 
+			$whichseries = " AND 0 = 1";
+	}
+			
+	$where .= $whichseries;
+	return $where;
+}
+
+function series_postsJoin($join) {
+	global $wpdb;
+	$series_var = get_query_var(SERIES_QUERYVAR);
+	$cat_var = get_query_var('cat');
+	if ( !empty($series_var) && empty( $cat_var ) )  {
+		$join = " INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) INNER JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id) ";
+	}
+		
+	return $join;	
+}
 
 function series_includeTemplate() {
 	if (is_series()) {
@@ -73,7 +147,7 @@ function orgSeries_toc_template() {
 	
 	if ($template) {
 		status_header( 200 ); //force correct header;
-		$wp_query->is_series = true;
+		$wp_query->is_tax = true;
 		$wp_query->is_404 = false;
 		add_filter('wp_title', 'seriestoc_title');
 		load_template($template);
@@ -269,9 +343,10 @@ function _series_row($series) {
 /**
  * All add_action() and add_filter() calls go here (that are not within functions/methods)
 */
-add_filter('posts_join_paged','sort_series_page_join');
-add_filter('posts_where', 'sort_series_page_where');
-add_filter('posts_orderby','sort_series_page_orderby');
 
-add_action( 'init', 'series_init', 0 );  
+add_action( 'init', 'series_init', 0 );
+
+//for series queries
+add_filter('query_vars', 'series_addQueryVar');
+add_action('parse_query','series_parseQuery');  
 ?>

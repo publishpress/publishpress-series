@@ -96,7 +96,7 @@ define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field
  //OBSOLETE?
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
-$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => SERIES_QUERYVAR, 'rewrite' => true);
+$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => false, 'rewrite' => true);
 $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;

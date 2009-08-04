@@ -604,20 +604,35 @@ function series_post_title($post_ID, $linked=TRUE) {
  * is_series() - checks if displayed page is a series related page.
  *
  * @package Organize Series WordPress Plugin
- * @since 2.0
+ * @since 2.8
  *
- * @uses get_query_var()
+ * @ $wp_query;
  * 
+ * @param sting|array $slug optional.  Slug or slugs to check in current query.
  * @return bool true if displayed page is a series.
 */
-function is_series() { 
-	global $wp_version, $wp_query;
-	$series = ( isset($wp_version) && ($wp_version >= 2.0) ) ? get_query_var(SERIES_QUERYVAR) : $GLOBALS[SERIES_QUERYVAR];
-	//$series = get_query_var(SERIES_QUERYVAR);
-	if ( (!is_null($series) && ($series != '')) || $wp_query->is_series == true)
+function is_series( $slug = '' ) { 
+	global $wp_query;
+	
+	$serieschk = get_query_var(SERIES_QUERYVAR);
+	
+	if ( (is_null($serieschk) && ($serieschk == '')) )
 		return true;
-	else
+	
+	if ( !$wp_query->is_tax )
 		return false;
+	
+	if ( empty($slug) )
+		return true;
+		
+	$term = $wp_query->get_queried_object();
+
+	$slug = (array) $slug;
+
+	if ( in_array( $term->slug, $slug ) )
+		return true;
+
+	return false;
 }
 
 /**

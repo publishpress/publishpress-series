@@ -330,7 +330,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 }
 
 function orgSeries_new_custom_manage_posts_filter() {
-	$_GET['series'] = (int) $_GET['series'];
+	if (isset($_GET['series'])) $_GET['series'] = (int) $_GET['series'];
 	wp_dropdown_series('show_option_all='.__('View all series').'&hide_empty=1&show_count=1&selected='.$_GET['series']);
 }
 
