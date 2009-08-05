@@ -614,11 +614,6 @@ function series_post_title($post_ID, $linked=TRUE) {
 function is_series( $slug = '' ) { 
 	global $wp_query;
 	
-	$serieschk = get_query_var(SERIES_QUERYVAR);
-	
-	if ( (is_null($serieschk) && ($serieschk == '')) )
-		return true;
-	
 	if ( !$wp_query->is_tax )
 		return false;
 	

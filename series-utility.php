@@ -28,12 +28,8 @@ function series_parseQuery() {
 		
 		add_action('template_redirect','series_includeTemplate');
 	}	
-	$wp_query->suppress_filters = false;
 	add_filter('posts_where', 'series_postsWhere');
 	add_filter('posts_join', 'series_postsJoin');
-	add_filter('posts_join_paged','sort_series_page_join');
-	add_filter('posts_where', 'sort_series_page_where');
-	add_filter('posts_orderby','sort_series_page_orderby');
 }
 
 function series_postsWhere($where) { 
@@ -101,6 +97,21 @@ function series_includeTemplate() {
 	return;
 }
 
+function series_createRewriteRules($rules) {
+	global $wp_rewrite;
+	
+	//$oldrules = $wp_rewrite->rules;
+	$series_token = '%' . SERIES_QUERYVAR . '%';
+	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
+	
+	//without trailing slash
+	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
+	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
+	//return $series_structure;
+	
+	return ( $rewrite + $rules );
+}
+
 function orgSeries_request($query_vars) {
 	$query_vars['error'] = false;
 	return $query_vars;
@@ -108,6 +119,19 @@ function orgSeries_request($query_vars) {
 
 function series_init() {
 	global $wp_rewrite;
+	
+	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
+		define('SERIES_REWRITEON', '1');  //pretty permalinks please!
+	} else {
+		define('SERIES_REWRITEON', '0');  //old school links
+	}
+	
+	
+	//generate rewrite rules for series queries 
+	
+	if (SERIES_REWRITEON && SERIES_REWRITERULES)
+		add_filter('rewrite_rules_array', 'series_createRewriteRules');
+		
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
 	
@@ -127,6 +151,7 @@ function series_init() {
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
+	$wp_rewrite->flush_rules();
 }
 
 function orgSeries_toc_template() {
@@ -147,6 +172,7 @@ function orgSeries_toc_template() {
 	
 	if ($template) {
 		status_header( 200 ); //force correct header;
+		$wp_query->is_series = true;
 		$wp_query->is_tax = true;
 		$wp_query->is_404 = false;
 		add_filter('wp_title', 'seriestoc_title');
@@ -343,10 +369,12 @@ function _series_row($series) {
 /**
  * All add_action() and add_filter() calls go here (that are not within functions/methods)
 */
+add_filter('posts_join_paged','sort_series_page_join');
+add_filter('posts_where', 'sort_series_page_where');
+add_filter('posts_orderby','sort_series_page_orderby');
 
-add_action( 'init', 'series_init', 0 );
-
+add_action( 'init', 'series_init', 0 );  
 //for series queries
 add_filter('query_vars', 'series_addQueryVar');
-add_action('parse_query','series_parseQuery');  
+add_action('parse_query','series_parseQuery');
 ?>

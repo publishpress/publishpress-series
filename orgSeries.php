@@ -93,10 +93,9 @@ define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying s
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
  
- //OBSOLETE?
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
-$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => false, 'rewrite' => true);
+$org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => false, 'rewrite' => false);
 $org_series_term = "series";
 $org_series_type = "post";
 global $org_series_version, $org_series_args, $org_series_term, $org_series_type, $wp_version;
