@@ -152,6 +152,7 @@ function series_init() {
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
 	$wp_rewrite->flush_rules();
+	wp_register_script('inline-edit-series','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/inline-series.js',array('inline-edit-post'));
 }
 
 function orgSeries_toc_template() {

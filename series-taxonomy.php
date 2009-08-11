@@ -393,15 +393,17 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 	
-	if ( $series_id == 0 ) 
-		$post_series = (int) $_POST['post_series'];
-	else
+	if ( $series_id == 0 ) { 
+		if (isset($_POST['post_series'])) $post_series = (int) $_POST['post_series'];
+		if (isset($_GET['post_series'])) $post_series = (int) $_GET['post_series'];
+	 } else {
 		$post_series = (int) $series_id;
-	
+	}
 	$s_part = (int) wp_series_part($post_ID);
 	
-	if ( isset($_POST) ) {
-		$series_part = (int) $_POST['series_part'];
+	if ( isset($_POST) || isset($_GET)) {
+		if ( isset($_POST['series_part']) ) $series_part = (int) $_POST['series_part'];
+		if ( isset($_GET['series_part']) ) $series_part = (int) $_GET['series_part'];
 		
 		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
 	 } else {
@@ -548,10 +550,33 @@ function wp_update_series($serarr) {
 	return wp_insert_series($serarr);
 }
 
+function inline_edit_series($column_name, $type) {
+	if ( $type == 'post' ) {
+		?>
+	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+		<div class="inline_edit_group">
+		<label>
+			Series: <?php wp_dropdown_series('name=post_series&hide_empty=0&show_option_all="No Series"'); ?>
+			Part: <input type="text" name="series_part" value="" />
+		</label>
+		</div>
+	</div></fieldset>
+		<?php
+	}	
+}
+
+function inline_edit_series_js() {
+	wp_enqueue_script('inline-edit-series');
+}
 /**
  * add_action() and add_filter() calls go here.
 */
-//add_action('edit_post','wp_set_post_series');
+
+global $pagenow;
+//add_action for quick edit column (hopefully to fix series disappearing bug)
+add_action('quick_edit_custom_box', 'inline_edit_series',1,2);
+add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
+add_action('edit_post','wp_set_post_series',1,3);
 add_action('save_post','wp_set_post_series',1,3);
 //add_action('publish_post','wp_set_post_series',1,3);
 add_action('delete_post','wp_delete_post_series_relationship',1);

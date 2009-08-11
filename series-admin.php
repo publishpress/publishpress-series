@@ -305,6 +305,9 @@ function orgseries_add_meta_box() {
 		add_action('dbx_post_sidebar', 'series_edit_box'); }
 }
 
+
+/* ADDING SERIES INFO TO EDIT POST PAGE */
+
 function orgSeries_custom_column_filter($defaults) {
 	$defaults['series'] = __('Series');
 	return $defaults;
@@ -321,6 +324,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$count = $series[0]->count;
 			if ($series) {
 				$column_content = 'Part ' . $series_part . ' of ' . $count . ' the series, <a href="' . $series_link . '" title="' . $series_name . '">' . $series_name . '</a>';
+				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div></div>';
 				echo  $column_content;
 			} 
 		} else {
