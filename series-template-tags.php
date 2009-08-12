@@ -427,6 +427,7 @@ function latest_series($display = true) {
 */
 function get_series_link( $series_id ) {
 	global $org_series_term;
+	$series_id = (int) $series_id;
 	$series_link = get_term_link( $series_id, $org_series_term );
 	if (is_wp_error( $series_link ) ) return $link;
 	return apply_filters( 'series_link', $series_link, $series_id);
@@ -682,6 +683,7 @@ function is_series( $slug = '' ) {
 	$icon = series_get_icons($p['series']);
 	$file = seriesicons_path() . $icon;
 	$url = seriesicons_url() . $icon;
+	//$series_id = (int) $p['series'];
 	
 	if ($p['link']) {
 		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
