@@ -300,7 +300,8 @@ global $post, $postdata, $content;
 add_action('admin_menu', 'orgseries_add_meta_box');
 function orgseries_add_meta_box() {
 	if ( function_exists('add_meta_box')) {
-		add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post');
+		add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post', 'advanced', 'core');
+		remove_meta_box('tagsdiv-series', 'post', 'advanced');
 		} else {
 		add_action('dbx_post_sidebar', 'series_edit_box'); }
 }
