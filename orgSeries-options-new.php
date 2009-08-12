@@ -64,8 +64,8 @@ function org_series_import() {
 					$message .='Series Icon imported';
 					
 					if ( $delete_series ) {
-						$cat = $wpdb->escape($oldseries_id);
-						$wpdb->query("DELETE FROM $wpdb->ig_caticons WHERE cat_id='$cat'");
+						//$cat = $wpdb->escape($oldseries_id);
+						$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->ig_caticons WHERE cat_id=%d", $cat) );
 					}
 				} else { 
 					$message .='Something went wrong with the series icon import!';
@@ -356,7 +356,7 @@ function org_series_admin_page() {
 						
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
 		<div id="orgseriesnews">
-			<?php include(ABSPATH . 'wp-content/plugins/' . SERIES_DIR .'/organize-series-feed-new.php'); ?>
+			<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/organize-series-feed-new.php'); ?>
 		</div> <?php /*rss feed related */ ?>
 		<?php } ?>
 	</div>

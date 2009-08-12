@@ -160,7 +160,7 @@ function orgSeries_toc_template() {
 	if (file_exists(TEMPLATEPATH . '/seriestoc.php')) {
 		$template =  TEMPLATEPATH . '/seriestoc.php';
 	} else {
-		$template = ABSPATH . 'wp-content/plugins/' . SERIES_DIR .'/seriestoc.php';
+		$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR .'/seriestoc.php';
 	}
 	
 	function seriestoc_title( $title ) {

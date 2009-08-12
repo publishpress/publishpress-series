@@ -16,8 +16,8 @@ function default_seriesicons_upload() {
 function series_get_icons($series) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'orgSeriesIcons';
-	$series = $wpdb->escape($series);
-	if ($row = $wpdb->get_row("SELECT icon FROM $tablename WHERE term_id='$series'")) {
+	//$series = $wpdb->escape($series);
+	if ($row = $wpdb->get_row( $wpdb->prepare("SELECT icon FROM $tablename WHERE term_id=%d", $series) ) ) {
 		return $row->icon;
 	} else return false;
 }
@@ -81,13 +81,13 @@ function seriesicons_write($series, $icon) {
 	
 	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
 		
-	$series = $wpdb->escape($series);
-	$icon = $wpdb->escape($icon);
+	//$series = $wpdb->escape($series);
+	//$icon = $wpdb->escape($icon);
 	
-	if ($wpdb->get_var("SELECT term_id FROM $tablename WHERE term_id='$series'")) {
-		$wpdb->query("UPDATE $tablename SET icon='$icon' WHERE term_id='$series'");
+	if ($wpdb->get_var( $wpdb->prepare("SELECT term_id FROM $tablename WHERE term_id=%d", $series) ) ) {
+		$wpdb->query( $wpdb->prepare("UPDATE $tablename SET icon=%d WHERE term_id=%d", $icon, $series) );
 	} else {
-		$wpdb->query("INSERT INTO $tablename (term_id, icon) VALUES ('$series','$icon')");
+		$wpdb->query( $wpdb->prepare("INSERT INTO $tablename (term_id, icon) VALUES (%d,%d)", $series, $icon) );
 	}
 	return true;
 }
@@ -104,9 +104,9 @@ function seriesicons_delete($series) {
 	
 	if ( empty($series)  || '' == $series  )	return false;
 
-	$series = $wpdb->escape($series);
+	//$series = $wpdb->escape($series);
 		
-	$wpdb->query("DELETE FROM $tablename WHERE term_id='$series'");
+	$wpdb->query( $wpdb->prepare("DELETE FROM $tablename WHERE term_id=%d", $series) );
 	return true;
 }
 ?>

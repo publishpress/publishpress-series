@@ -45,7 +45,7 @@ case 'edit':
 	if ($icon_loc || $icon_loc != '')
 		$series_icon_loc = seriesicons_url() . $icon_loc;
 	else $series_icon_loc = '';
-	include( '../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); 
+	include( WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/edit-series-form.php'); 
 	
 break;
 
@@ -112,7 +112,7 @@ $messages[5] = __('Series not updated.');
 <p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.')) ?></p>
 </div>
 
-<?php include('../wp-content/plugins/' . SERIES_DIR .'/edit-series-form.php'); ?>
+<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/edit-series-form.php'); ?>
 <?php endif; ?>
 
 <?php

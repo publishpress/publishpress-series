@@ -30,13 +30,13 @@ global $wp_version, $checkpage;
 	
 	if ('post-new.php' == $checkpage || 'post.php' == $checkpage) {
 		if ( isset($wp_version) && $wp_version >= 2.5 ) {
-			wp_register_script( 'ajaxseries', '/wp-content/plugins/' . SERIES_DIR . '/js/series-new.js', array('wp-lists'), '20080310' );
+			wp_register_script( 'ajaxseries', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/series-new.js', array('wp-lists'), '20080310' );
 			wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => attribute_escape(__('Add')),
 				'how' => __('Select "Not part of a series" to remove any series data from post')
 			));
 		} else {
-			wp_register_script( 'ajaxseries', '/wp-content/plugins/' . SERIES_DIR . '/js/series.js', array('listman'), '20071201' );
+			wp_register_script( 'ajaxseries', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/series.js', array('listman'), '20071201' );
 			wp_localize_script('ajaxseries','seriesL10n',array(
 				'add' => attribute_escape(__('Add')),
 				'how' => __('Select "Not...series" to remove any series data from post')
@@ -55,7 +55,7 @@ function orgSeries_manage_script() {
 	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_script('media-upload');
 	wp_enqueue_script('orgseries_scripts','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/orgseries_scripts.js');
-	wp_enqueue_script( 'admin-series', '/wp-content/plugins/' . SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
+	wp_enqueue_script( 'admin-series', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
 }
 
 function org_series_options_js() {

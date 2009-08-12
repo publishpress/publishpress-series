@@ -6,7 +6,7 @@ This file is used when displaying the table of contents for your Series related 
 
 To customize the look and feel of the Series Table of Contents, follow these steps.  (You'll probably need a good understanding of HTML and CSS!
 
-1. Make a copy of this file and place it into your current active theme's directory (../wp-content/themes/[active theme name/seriestoc.php)
+1. Make a copy of this file and place it into your current active theme's directory (..themes/[active theme name/seriestoc.php)
 2. Go to the series options page and change the Series Table of Contents Listings template code to match how you want the series listings on the page to be layed out (using the tokens provided).
 3. Modify the .css in your active theme/orgSeries.css to your liking.
 4. That's it!
