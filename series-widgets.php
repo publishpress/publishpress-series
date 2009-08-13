@@ -73,19 +73,6 @@ function orgSeries_widget_seriestoc_init() {
 					}
 					if ( $options['list-type'] == 'dropdown' ) {
 						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series'));
-?>
-
-<script lang='javascript'><!--
-var seriesdropdown = document.getElementById("series");
-    function onSeriesChange() {
-		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
-			location.href = "<?php echo get_option('home'); ?>/?series="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
-		}
-    }
-    seriesdropdown.onchange = onSeriesChange;
---></script>
-
-<?php
 				}
 					if ( is_single() && $showpostlist ) {
 						echo '<br /><br /><h3>Other posts belonging to this series</h3>';

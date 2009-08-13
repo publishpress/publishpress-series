@@ -263,6 +263,21 @@ function series_tax_init() {
 	register_taxonomy($org_series_term, $org_series_type, $org_series_args);
 }
 
+//orgSeries dropdown nav js
+function series_dropdown_js() {
+	?>
+	<script lang='javascript'><!--
+var seriesdropdown = document.getElementById("series");
+    function onSeriesChange() {
+		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
+			location.href = "<?php echo get_option('home'); ?>/?taxonomy=series&term="+seriesdropdown.options[seriesdropdown.selectedIndex].attributes.getNamedItem('class').value;
+		}
+    }
+    seriesdropdown.onchange = onSeriesChange;
+--></script>
+	<?php
+}
+
 //remove series sub-menu item from edit posts menu
 function unset_series_menu() {
   global $menu, $submenu;
@@ -274,6 +289,7 @@ function unset_series_menu() {
   }
 }
 
+add_action( 'wp_footer', 'series_dropdown_js', 1 );
 add_action('admin_head', 'unset_series_menu', 1);
 add_action( 'init', 'series_tax_init', 0 );
 add_action('activate_' . SERIES_DIR . '/orgSeries.php','org_series_install');

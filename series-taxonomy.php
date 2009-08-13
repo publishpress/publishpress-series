@@ -243,7 +243,7 @@ function wp_dropdown_series($args = '') {
 function walk_series_dropdown_tree($serieslist, $r) {
 	$series_name = apply_filters('list_series', $serieslist->name, $serieslist);
 	$output = '';
-	$output .= "\t<option value=\"" . $serieslist->term_id . "\"";
+	$output .= "\t<option class=\"". $serieslist->slug . "\" value=\"" . $serieslist->term_id . "\"";
 	if ( $serieslist->term_id == $r['selected'] )
 		$output .= ' selected="selected"';
 	$output .= '>';
