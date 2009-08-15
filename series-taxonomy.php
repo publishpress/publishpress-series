@@ -390,6 +390,9 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 		return;
 	}
 	
+	if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status = 'future' )
+		$update_count_forward = true;
+		
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 	
@@ -405,7 +408,11 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 		if ( isset($_POST['series_part']) ) $series_part = (int) $_POST['series_part'];
 		if ( isset($_GET['series_part']) ) $series_part = (int) $_GET['series_part'];
 		
+		if ( $update_count_forward )
+			wp_update_term_count( $post_series, 'series', false);
+			
 		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
+	 
 	 } else {
 		if ( $s_part )
 			$series_part = $s_part;
@@ -576,7 +583,7 @@ global $pagenow;
 //add_action for quick edit column (hopefully to fix series disappearing bug)
 add_action('quick_edit_custom_box', 'inline_edit_series',1,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
-add_action('edit_post','wp_set_post_series',1,3);
+//add_action('edit_post','wp_set_post_series',1,3);
 add_action('save_post','wp_set_post_series',1,3);
 //add_action('publish_post','wp_set_post_series',1,3);
 add_action('delete_post','wp_delete_post_series_relationship',1);
