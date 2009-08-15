@@ -383,7 +383,14 @@ function walk_series_tree( $series, $args) {
 	$output .= "</li>\n";
 	return $output;
 }
-		
+function wp_set_post_series_transition( $post ){
+	remove_action('save_post', 'wp_set_post_series');
+	$post_ID = $post->ID;
+	$ser_id = wp_get_post_series($post_ID);
+	$series_id = $ser_id[0];
+	wp_set_post_series( $post_ID, $post, $series_id );
+}
+	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	//fix for the revisions feature in WP 2.6+
 	if ($post->post_type == 'revision') {
@@ -580,11 +587,13 @@ function inline_edit_series_js() {
 */
 
 global $pagenow;
-//add_action for quick edit column (hopefully to fix series disappearing bug)
+//add_action for quick edit column 
 add_action('quick_edit_custom_box', 'inline_edit_series',1,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
-//add_action('edit_post','wp_set_post_series',1,3);
-add_action('save_post','wp_set_post_series',1,3);
-//add_action('publish_post','wp_set_post_series',1,3);
+
+//hook into save post for adding/updating series information to posts
+add_action('save_post','wp_set_post_series',10,3);
+
+add_action('future_to_publish','wp_set_post_series_transition',1,1);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 ?>
