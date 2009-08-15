@@ -265,6 +265,7 @@ function series_tax_init() {
 
 //orgSeries dropdown nav js
 function series_dropdown_js() {
+ if ( SERIES_REWRITEON == 0 ) {
 	?>
 	<script lang='javascript'><!--
 var seriesdropdown = document.getElementById("series");
@@ -276,6 +277,19 @@ var seriesdropdown = document.getElementById("series");
     seriesdropdown.onchange = onSeriesChange;
 --></script>
 	<?php
+	} else {
+	?>
+	<script lang='javascript'><!--
+var seriesdropdown = document.getElementById("series");
+    function onSeriesChange() {
+		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
+			location.href = "<?php echo get_option('home'); ?>/series/"+seriesdropdown.options[seriesdropdown.selectedIndex].attributes.getNamedItem('class').value;
+		}
+    }
+    seriesdropdown.onchange = onSeriesChange;
+--></script>
+	<?php
+	}
 }
 
 //remove series sub-menu item from edit posts menu
