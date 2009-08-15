@@ -226,7 +226,7 @@ function _usort_series_by_name($a, $b) {
 
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 
-function get_series_order($posts, $postid = 0, $skip = TRUE) {
+function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts array so can't do anything.
 	
 	if ( !is_array( $posts ) )
@@ -243,8 +243,9 @@ function get_series_order($posts, $postid = 0, $skip = TRUE) {
 		}
 		
 		/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
-		$xpost = get_post($spost_id);
-		if ($xpost->post_status == 'publish') {
+		$xpost->post_status = 'unset';
+		if ( $only_published ) $xpost = get_post($spost_id);
+		if ( $xpost->post_status == 'publish' || !$only_published ) {
 			if ($skip && $spost_id == $postid) continue;
 			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
 			$series_posts[$key]['id'] = $spost_id;

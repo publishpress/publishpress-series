@@ -85,7 +85,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$series_posts = array(); 
- 	$series_posts = get_series_order($post_ids_in_series, $postid); 
+ 	$series_posts = get_series_order($post_ids_in_series, $postid, true, false); 
  	$total_posts = count($series_posts) + 1;
 	//var_dump($series_posts);	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
@@ -161,7 +161,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	
 	$addvalue = 1;
 	
-	$series_posts = get_series_order($post_ids_in_series, $post_id);
+	$series_posts = get_series_order($post_ids_in_series, $post_id, true, false);
 	
 	if ($reset) {
 		foreach ($post_ids_in_series as $spost) {
