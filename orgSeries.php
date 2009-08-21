@@ -210,7 +210,6 @@ function add_series_post_list_box($content) {
 
 function add_series_meta($content) {
 	$settings = get_option('org_series_options');
-	
 	if($settings['auto_tag_seriesmeta_toggle']) {
 		if ($series_meta = wp_seriesmeta_write()) {
 			$addcontent = $content;
@@ -318,7 +317,7 @@ add_action('admin_menu', 'series_organize_options');
 add_action('the_content', 'add_series_post_list_box');
 
 //add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
-add_action('the_content', 'add_series_meta');
+add_filter('the_content', 'add_series_meta');
 
 //add filter to automatically add the series-post-navigation strip
 add_action('the_content', 'series_nav_filter');

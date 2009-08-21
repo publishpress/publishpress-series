@@ -426,11 +426,24 @@ function latest_series($display = true) {
  * @return string - the final constructed series link.
 */
 function get_series_link( $series_id ) {
-	global $org_series_term;
-	$series_id = (int) $series_id;
-	$series_link = get_term_link( $series_id, $org_series_term );
-	if (is_wp_error( $series_link ) ) return $link;
-	return apply_filters( 'series_link', $series_link, $series_id);
+	$series_token = '%' . SERIES_QUERYVAR . '%';
+	$serieslink = get_series_permastruct();
+	
+	$series = &get_term($series_id, 'series');
+	if (is_wp_error( $series ) )
+		return $series;
+	$slug = $series->slug;
+	$id = $series->term_id;
+	
+	if ( empty($serieslink) ) {
+		$file = get_option('home') . '/';
+		$serieslink = $file . '?series=' . $id;
+	} else {
+		$serieslink = str_replace($series_token, $slug, $serieslink);
+		$serieslink = get_option('home') . user_trailingslashit($serieslink, 'series');
+	}
+	
+	return apply_filters('series_link', $serieslink, $series_id); 
 }
 
 /**
@@ -614,21 +627,12 @@ function series_post_title($post_ID, $linked=TRUE) {
 */
 function is_series( $slug = '' ) { 
 	global $wp_query;
+	$series = get_query_var(SERIES_QUERYVAR);
 	
-	if ( !$wp_query->is_tax )
+	if ( (!is_null($series) && ($series != '')) || $wp_query->is_series == true)
+		return true;
+	else
 		return false;
-	
-	if ( empty($slug) )
-		return true;
-		
-	$term = $wp_query->get_queried_object();
-
-	$slug = (array) $slug;
-
-	if ( in_array( $term->slug, $slug ) )
-		return true;
-
-	return false;
 }
 
 /**

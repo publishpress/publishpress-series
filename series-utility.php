@@ -368,6 +368,20 @@ function _series_row($series) {
 	return apply_filters('series_row', $output);
 }
 
+//permalinks//
+function get_series_permastruct() {
+	global $wp_rewrite;
+	
+	if (empty($wp_rewrite->permalink_structure)) {
+		$series_structure = '';
+		return false;
+	}
+	
+	$series_token = '%' . SERIES_QUERYVAR . '%';
+	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
+	return $series_structure;
+}
+
 /**
  * All add_action() and add_filter() calls go here (that are not within functions/methods)
 */
