@@ -14,6 +14,9 @@ function get_the_series( $id = false ) {
 	if ( !$id )
 		$id = (int) $post->ID;
 	
+	if ( empty($id) )
+		return false;
+	
 	$series = get_object_term_cache($id, 'series');
 	
 	if (false === $series )

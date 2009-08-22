@@ -483,9 +483,12 @@ function get_the_series_by_ID( $series_ID ) {
  *
  * @return bool true if the post is in the supplied series.
 */
-function in_series( $series_term ) { //check if the current post is in the given series
+function in_series( $series_term = '' ) { //check if the current post is in the given series
 	global $post;
 	
+	if ($series_term == '' ) 
+		return false;
+		
 	$ser_ID = get_series_ID($series_term);
 	if (0 != $ser_ID)
 		$series_term = $ser_ID;

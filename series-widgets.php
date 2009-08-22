@@ -55,6 +55,7 @@ function orgSeries_widget_seriestoc_init() {
 	//This prints the widget
 	function orgSeries_widget($args) {
 		extract($args);
+		global $wp_query;
 		
 		$options = (array) get_option('orgSeries_widget');
 		$c = $options['show-count'] ? '1' : '0';
@@ -74,7 +75,7 @@ function orgSeries_widget_seriestoc_init() {
 					if ( $options['list-type'] == 'dropdown' ) {
 						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series'));
 				}
-					if ( is_single() && $showpostlist ) {
+					if ( ( $wp_query->is_single ) && $showpostlist && ( $series = get_the_series() ) ) {
 						echo '<br /><br /><h3>Other posts belonging to this series</h3>';
 						echo '<ul>' . get_series_posts('', 'widget') .  '</ul>';
 					}
