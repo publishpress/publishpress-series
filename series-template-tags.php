@@ -55,11 +55,11 @@ function get_series_posts( $ser_ID, $referral = false, $display = false ) {
 	$series_post = array();
 	$posts_in_series = array();
 	$settings = get_option('org_series_options');
-	$series_post = get_objects_in_term($ser_ID, 'series');
+	$series_post = get_objects_in_term($ser_ID, 'series'); //TODO need to do a custom function that will pull not just the object id's but also the titles? (in an attempt to reduce queries?)
 	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
 	
-	foreach($posts_in_series as $seriespost) {
+	foreach($posts_in_series as $seriespost) { 
 		if ($cur_id == $seriespost['id']) {
 			if ( 'widget' == $referral )
 				$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';

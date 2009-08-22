@@ -231,24 +231,31 @@ function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = T
 	
 	if ( !is_array( $posts ) )
 		$posts = array($posts);
-		
+	
 	$series_posts = array();
 	$key = 0;
 	
-	foreach ($posts as $spost) {
+	$postids = '';
+	$cycle = 0;
+	
+	foreach ( $posts as $newposts ) {
+		if ( $cycle != 0 ) $postids .= ', ';
 		if (array_key_exists('object_id', $posts)) {
-			$spost_id = $spost['object_id'];
+			$postids .= $newposts['object_id'];
 		} else {
-			$spost_id = $spost;
+			$postids .= $newposts;
 		}
-		
-		/* 208 - fix by Matt Porter - to make sure unpublished posts are not made part of a series */
-		$xpost->post_status = 'unset';
-		if ( $only_published ) $xpost = get_post($spost_id);
-		if ( $xpost->post_status == 'publish' || !$only_published ) {
-			if ($skip && $spost_id == $postid) continue;
-			$currentpart = get_post_meta($spost_id, SERIES_PART_KEY, true);
-			$series_posts[$key]['id'] = $spost_id;
+		$cycle++;
+	}
+	$args = 'include='.$postids.'&meta_key='.SERIES_PART_KEY;
+	$posts = get_posts($args);
+	$meta_key = SERIES_PART_KEY;
+	
+	foreach ($posts as $spost) {
+		if ( $spost->post_status == 'publish' || !$only_published ) {
+			if ($skip && $spost->ID == $postid) continue;
+			$currentpart = get_post_meta($spost->ID, $meta_key, true);
+			$series_posts[$key]['id'] = $spost->ID;
 			$series_posts[$key]['part'] = $currentpart;
 		$key++;
 		}
