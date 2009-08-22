@@ -1,183 +1,5 @@
 <?php
 
-function org_series_import() {
-	//this will contain the actual query and code for importing from version 1.6 -> 2.0+.  It is called from if conditions for it being called are met.
-	global $wpdb;
-	$import_series = isset($_POST['import_series']) ? 1 : 0;
-	$delete_series = isset($_POST['delete_series']) ? 1 : 0;
-	$import_cat_icons = isset($_POST['import_cat_icons']) ? 1 : 0;
-	$import_options = isset($_POST['import_options']) ? 1 : 0;
-	$do_nothing = isset($_POST['do_nothing']) ? 1 : 0;
-	
-	$oldsettings = get_option('org_series_options');
-	$series_cats = $oldsettings['series_cats'];
-	
-	$message = '<div class="updated"><p>The following imports have been completed successfully:</p>';  
-	
-	if ($do_nothing) {
-		update_option('org_series_oldversion', '0'); //will prevent import form from being called again.
-		return $message = '<p>You selected nothing to be done and if there are no other messages then that\'s exactly what happened!</p>';
-	}
-	
-	if ( $import_cat_icons  && !(function_exists('ig_caticons_get_icons')) ) {
-		return $message = '<div class="updated"><p><strong>You indicated your desire to import category icons.  However, the category-icons plugin is not installed and is necessary for the import to continue.  Please activate the category-icons plugin before doing the import or don\'t select to import the icons.</strong></p></div>';
-		}
-	
-	if ( empty( $series_cats ) || $series_cats == 0 )  { 
-		return $message = '<div class="updated"><p><strong>Something went wrong with the import...are you sure you had a previous version of OrgSeries installed?</strong></p></div>';
-	}
-	
-	if ( $import_series ) {
-		$old_series_cats_args = array('child_of' => $series_cats, 'hide_empty' => false);
-		$old_series_cats = get_terms('category', $old_series_cats_args);
-		$message .= '<p>Series from the old category structure:</p><ul>';
-				
-		foreach ( $old_series_cats as $old_series ) {
-			$oldseries_id = $old_series->term_id;
-			$series_slug = $old_series->slug;
-			$series_name = $old_series->name;
-			$series_description = $old_series->description;
-			$seriesposts = get_objects_in_term($oldseries_id, 'category');
-			$series_id = wp_insert_series( array('series_name' => $series_name, 'series_nicename' => $series_slug, 'series_description' => $series_description) );
-			$message .='<li>' . $series_name . ' added (';
-			$postcount = 0;
-			
-			foreach ($seriesposts as $seriespost) {
-				$seriespostid = $seriespost;
-				$message .= 'postid = ' . $seriespostid . '...';
-				wp_set_post_series($seriespostid, $series_id);
-				$postcount++;				
-			}
-			
-			( $postcount == 1 ) ? $word = 'post' : $word = 'posts';
-			$message .= $postcount . ' ' . $word . ' in the series).<br />'; 
-			
-			if ( $delete_series )  { 
-				wp_delete_category($oldseries_id);
-				$message .= 'Old series category deleted.<br />';
-			}
-			
-			if ( $import_cat_icons ) {
-				list($icon, $small_icon) = ig_caticons_get_icons($oldseries_id);
-				$write = seriesicons_write($series_id,$icon);
-				if ( $write ) {
-					$message .='Series Icon imported';
-					
-					if ( $delete_series ) {
-						//$cat = $wpdb->escape($oldseries_id);
-						$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->ig_caticons WHERE cat_id=%d", $cat) );
-					}
-				} else { 
-					$message .='Something went wrong with the series icon import!';
-				}
-			}
-			
-			$message .= '</li>';
-		}
-		if ( $delete_series )  { 
-				wp_delete_category($series_cats);
-				$message .= 'Old series meta-category deleted.<br />';
-			}
-	
-		$message .= '</ul>';
-	}
-	
-	if ( $import_options ) {
-			$settings = get_option('org_series_options');
-			extract($settings, EXTR_SKIP);
-			
-		//build variables for the new options array
-			$custom_css = $custom_css;
-			$auto_tag_toggle = $auto_tag_toggle;
-			$auto_tag_seriesmeta_toggle = $auto_tag_seriesmeta_toggle;
-			$url = parse_url(get_bloginfo('siteurl'));
-			$series_toc_url = $url['path'] . SERIES_URL;
-			$series_toc_title = 'Series Table of Contents';
-			
-			//build series-post-list-template
-			$series_post_list_template = $beforelistbox_post_page;
-			$series_post_list_template .= $series_intro_text_post_page;
-			if (1 == $cat_icon_chk_post_page ) $series_post_list_template .= '<div class="center">%series_icon_linked%</div>';
-			if (1 == $text_chk_post_page ) {
-				if (1 == $cat_title_chk_post_page ) $series_post_list_template .= $before_series_title_post_page . '%series_title_linked%' . $after_series_title_post_page;
-				if (1 == $cat_description_cat_post_page ) $series_post_list_template .= $before_description_post_page . '%series_description%' . $after_description_post_page;
-			}
-			$series_post_list_template .= $before_post_title_list_post_page . '%post_title_list%' . $after_post_title_list_post_page;
-			$series_post_list_template .= $afterlistbox_post_page . '%postcontent%';
-			$series_post_list_template = trim(stripslashes($series_post_list_template));
-			
-			$series_post_list_post_template = $before_title_post_page . '%post_title_linked%' . $after_title_post_page;
-			$series_post_list_post_template = trim(stripslashes($series_post_list_post_template));
-			
-			$series_post_list_currentpost_template = '<li class="serieslist-li-current">%post_title%</li>';
-			
-			//build series-meta-template
-			$series_meta_template = $before_series_meta . 'This' . $series_meta_word . 'is part %series_part% of %total_posts_in_series% in the series %series_title_linked%' . $after_series_meta . '%postcontent%';
-			$series_meta_template = trim(stripslashes($series_meta_template));
-			
-			//build series-table-of-contents-box-template
-			$series_table_of_contents_box_template = $beforedisplay_cat_page;
-			if (1 == $cat_icon_chk_cat_page ) {
-				$series_table_of_contents_box_template .= $before_cat_icon_cat_page . '%series_icon_linked%' . $after_cat_icon_cat_page;
-			}
-			if ( 1 == $text_chk_cat_page ) {
-				$series_table_of_contents_box_template .= $before_catlist-content_cat_page;
-				if ( 1 == $cat_title_chk_cat_page ) {
-					$series_table_of_contents_box_template .= $beforetitle_cat_page . '%series_title_linked%' . $aftertitle_cat_page;
-				}
-				if ( 1 == $cat_description_cat_page ) {
-					$series_table_of_contents_box_template .= $beforedescript_cat_page . '%series_description%' . $afterdescript_cat_page;
-				}
-				$series_table_of_contents_box_template .= $after_catlist-content_cat_page;
-			}
-			$series_table_of_contents_box_template .= $afterdisplay_cat_page;
-			$series_table_of_contents_box_template = trim(stripslashes($series_table_of_contents_box_template));
-			
-		//add new next/previous post template
-			$series_post_nav_template = '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>';
-			$series_nextpost_nav_custom_text = 'Next Post in Series';
-			$series_prevpost_nav_custom_text = 'Previous Post in Series';
-			
-		//sorting options
-			$series_posts_orderby = 'meta_value';
-			$series_posts_order = 'ASC';
-			
-		//latest series options
-			$series_icon_width_latest_series = '100';
-			$latest_series_template = '<div class="latest-series"><div style="text-align: center;">%series_icon_linked%</div></div>';
-			
-		//build new options array
-		$new_options = array(
-			'custom_css' => $custom_css,
-			'auto_tag_toggle' => $auto_tag_toggle,
-			'auto_tag_seriesmeta_toggle' => $auto_tag_seriesmeta_toggle,
-			'series_toc_url' => $series_toc_url,
-			'series_toc_title' => $series_toc_title,
-			'series_post_list_template' => $series_post_list_template,
-			'series_post_list_post_template' => $series_post_list_post_template,
-			'series_post_list_currentpost_template' => $series_post_list_currentpost_template,
-			'series_meta_template' => $series_meta_template,
-			'series_table_of_contents_box_template' => $series_table_of_contents_box_template,
-			'series_icon_width_series_page' => $series_icon_width_series_page,
-			'series_icon_width_post_page' => $series_icon_width_post_page,
-			'series_post_nav_template' => $series_post_nav_template,
-			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
-			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
-			'series_posts_orderby' => $series_posts_orderby,
-			'series_posts_order' => $series_posts_order,
-			'latest_series_template' => $latest_series_template,
-			'series_icon_width_latest_series' => $series_icon_width_latest_series);
-		
-		delete_option('org_series_options');
-		add_option('org_series_options', $new_options, 'Array of options for the Organize Series plugin');
-		$message .= '<p>Option settings have been imported and old option/value pairs deleted.</p>';
-	}
-		
-	update_option('org_series_oldversion', '0'); //this will prevent the import form from being called again?
-	$message .= '</div>';
-	return $message;
-}				
-
 function org_series_init($reset = false) {
 	$oldversion = get_option('org_series_oldversion');
 	
@@ -224,12 +46,6 @@ function org_series_init($reset = false) {
 		update_option('org_series_is_initialized', 1, 'Organize Series Plugin has been initialized');
 		update_option('org_series_options', $newSettings, 'Array of options for the Organize Series plugin');
 		
-		if ( ($is_initialized=get_option('org_series_is_initialized') ) && ($oldversion == '1.6') ) { ?>
-			<div class="updated"><p><strong>Organize Series Plugin has been initialized. However it has been detected that you have had a previous version of the plugin installed.  If you want you can import your existing series schema and old series options you had set up by selecting from the following intial options.</strong></p></div>
-			<?php
-			return;
-		}
-		
 		if ($is_initialized=get_option('org_series_is_initialized') ) { ?>
 			<div class="updated"><p><strong>Organize Series Plugin has been initialized.</strong></p></div>
 			<?php
@@ -242,6 +58,7 @@ function org_series_init($reset = false) {
 
 function org_series_option_update() {
 	global $wpdb;
+	check_admin_referer('update_series_options');
 	$url = parse_url(get_bloginfo('siteurl'));
 	//toggles and paging info
 	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
@@ -282,11 +99,6 @@ function org_series_admin_page() {
 	</div>
 	<?php
 	
-	if (isset($_POST['import_option'])) {
-		$message = org_series_import();
-		echo $message;
-	}
-	
 	if (isset($_POST['submit_option'])) {
 		if (isset($_POST['reset_option'])) {
 			org_series_init(true);
@@ -301,9 +113,7 @@ function org_series_admin_page() {
 	$oldversion = get_option('org_series_oldversion');
 	$settings = get_option('org_series_options');
 		
-	if ( '1.6' == $oldversion ) org_series_import_form();	
-		
-		?>
+	?>
 <div class="submitbox" id="submitpost">
 	<div class="org-series-side-info">
 		<h5><?php _e('Plugin Info') ?></h5>
@@ -366,7 +176,7 @@ function org_series_admin_page() {
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
 	<table class="form-table">
-		
+	<?php wp_nonce_field('update_series_options'); ?>	
 <?php	
 	org_series_echo_fieldset_mainsettings($settings);
 	org_series_echo_series_templates($settings);
