@@ -247,19 +247,25 @@ function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = T
 		}
 		$cycle++;
 	}
+	
 	$args = 'include='.$postids.'&meta_key='.SERIES_PART_KEY;
 	$posts = get_posts($args);
 	$meta_key = SERIES_PART_KEY;
 	
 	foreach ($posts as $spost) {
 		if ( $spost->post_status == 'publish' || !$only_published ) {
-			if ($skip && $spost->ID == $postid) continue;
+			
+			if ($skip && $spost->ID == $postid) {
+				continue;
+			}
+			
 			$currentpart = get_post_meta($spost->ID, $meta_key, true);
 			$series_posts[$key]['id'] = $spost->ID;
 			$series_posts[$key]['part'] = $currentpart;
 		$key++;
 		}
 	}
+	
 	if (count($series_posts) > 1)
 		usort( $series_posts, '_usort_series_by_part' );
 	

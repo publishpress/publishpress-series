@@ -21,6 +21,7 @@ function org_series_init($reset = false) {
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
 			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',
 			'series_meta_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
+			'series_meta_excerpt_template' => '<div class="seriesmeta">This entry is part %series_part% of %total_posts_in_series% in the series %series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
 			'latest_series_template' => '<div class="latest-series"><div style="text-align: center;">%series_icon_linked%</div></div>',
 			'series_post_nav_template' => '%postcontent%<fieldset><legend>Series Navigation</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
@@ -74,6 +75,7 @@ function org_series_option_update() {
 	if ( isset($_POST['series_post_list_post_template']) ) $settings['series_post_list_post_template'] = trim(stripslashes($_POST['series_post_list_post_template']));
 	if ( isset($_POST['series_post_list_currentpost_template']) ) $settings['series_post_list_currentpost_template'] = trim(stripslashes($_POST['series_post_list_currentpost_template']));
 	if ( isset($_POST['series_meta_template']) ) $settings['series_meta_template'] = trim(stripslashes($_POST['series_meta_template']));
+	if ( isset($_POST['series_meta_excerpt_template']) ) $settings['series_meta_excerpt_template'] = trim(stripslashes($_POST['series_meta_excerpt_template']));
 	if ( isset($_POST['series_table_of_contents_box_template']) ) $settings['series_table_of_contents_box_template'] = trim(stripslashes($_POST['series_table_of_contents_box_template']));
 	if ( isset($_POST['series_post_nav_template']) ) $settings['series_post_nav_template'] = trim(stripslashes($_POST['series_post_nav_template']));
 	if ( isset($_POST['series_nextpost_nav_custom_text']) ) $settings['series_nextpost_nav_custom_text'] = trim(stripslashes($_POST['series_nextpost_nav_custom_text']));
@@ -304,6 +306,10 @@ function org_series_echo_series_templates($settings) {
 			<strong>Series Meta:</strong><br />
 			<small>This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]</small><br />
 			<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
+			<br />
+			<strong>Series Meta (with excerpts):</strong><br />
+			<small>This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]</small><br />
+			<textarea name="series_meta_excerpt_template" id="series_meta_excerpt_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_excerpt_template']); ?></textarea><br />
 			<br />
 			<strong>Latest Series:</strong><br />
 			<small>This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).</small><br />

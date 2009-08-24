@@ -326,12 +326,12 @@ function orgSeries_custom_column_action($column_name, $id) {
 			if ($series) {
 				$column_content = 'Part ' . $series_part . ' of ' . $count . ' the series, <a href="' . $series_link . '" title="' . $series_name . '">' . $series_name . '</a>';
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div></div>';
-				echo  $column_content;
+				echo  $column_content;  
 			} 
 		} else {
 			echo '<em>No Series</em>';
 		}
-	}
+	} 
 }
 
 function orgSeries_new_custom_manage_posts_filter() {

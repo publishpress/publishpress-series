@@ -395,6 +395,7 @@ function wp_set_post_series_transition( $post ){
 }
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
+	
 	//fix for the revisions feature in WP 2.6+
 	if ($post->post_type == 'revision') {
 		return;
@@ -436,11 +437,17 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	
 	$match = in_array($post_series, $old_series);
 	
-	if ( !$match ) wp_reset_series_order_meta_cache($post_ID, $old_series);
+	if ( !$match && $old_series[0] != 0 ) {
+		$old_series = (int) $old_series[0];
+		wp_reset_series_order_meta_cache($post_ID, $old_series);
+	}
 	
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
 	
-	if ( $success ) return set_series_order($post_ID, $series_part, $post_series);
+	if ( $success ) {
+	return set_series_order($post_ID, $series_part, $post_series);
+	}
+	
 	else return FALSE;
 }
 
@@ -571,8 +578,8 @@ function inline_edit_series($column_name, $type) {
 	if ( $type == 'post' ) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
-		<div class="inline_edit_group">
-		<label>
+		<div class="inline-edit-group">
+		<label class="inline-edit-series">
 			Series: <?php wp_dropdown_series('name=post_series&hide_empty=0&show_option_all="No Series"'); ?>
 			Part: <input type="text" name="series_part" value="" />
 		</label>
@@ -591,12 +598,12 @@ function inline_edit_series_js() {
 
 global $pagenow;
 //add_action for quick edit column 
-add_action('quick_edit_custom_box', 'inline_edit_series',1,2);
+add_action('quick_edit_custom_box', 'inline_edit_series',10,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
-add_action('save_post','wp_set_post_series',10,3);
+add_action('save_post','wp_set_post_series',1,3);
 
-add_action('future_to_publish','wp_set_post_series_transition',1,1);
+add_action('future_to_publish','wp_set_post_series_transition',2,1);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 ?>

@@ -214,7 +214,7 @@ function wp_series_part( $id = 0 ) {
  *
  * @return string|bool  - returns the completed series_meta template if post is a part of a series.  If post is not part of a series then returns the boolean false.
 */
-function wp_seriesmeta_write() { 
+function wp_seriesmeta_write($excerpt = FALSE) { 
 	global $post; 
 	$settings = get_option('org_series_options');
 	$serarray = get_the_series();
@@ -222,6 +222,11 @@ function wp_seriesmeta_write() {
 		foreach ($serarray as $series) {
 		$serID = $series->term_id; 
 		}
+	}
+	
+	if ( $excerpt && isset($serID) ) {
+		$series_meta = token_replace(stripslashes($settings['series_meta_excerpt_template']), 'other', $serID);
+		return $series_meta;
 	}
 	
 	if (isset($serID)) { 
@@ -494,8 +499,10 @@ function in_series( $series_term = '' ) { //check if the current post is in the 
 		$series_term = $ser_ID;
 	
 	$series = get_object_term_cache($post->ID, 'series');
+	
 	if ( false === $series )
 		$series = wp_get_object_terms($post->ID, 'series');
+	
 	if ( array_key_exists($series_term, $series))
 		return true;
 	else

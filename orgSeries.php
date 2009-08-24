@@ -220,9 +220,15 @@ function add_series_meta($content) {
 }
 
 function add_series_meta_excerpt($content) {
+	$settings = get_option('org_series_options');
 	remove_filter('the_content','add_series_meta');
-	$content = add_series_meta($content);
-	return $content;
+	if($settings['auto_tag_seriesmeta_toggle']) {
+		if ($series_meta = wp_seriesmeta_write(true)) {
+			$addcontent = $content;
+			$content = str_replace('%postcontent%', $addcontent, $series_meta);
+		}
+	}
+	echo $content;
 }
 
 //filter function for showing the navigation strip for posts that are part of a series  on the page of a post that is part of a series.
@@ -324,7 +330,7 @@ add_action('the_content', 'add_series_post_list_box');
 
 //add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
 add_filter('the_content', 'add_series_meta');
-add_filter('get_the_excerpt', 'add_series_meta_excerpt', 1, 1);
+add_filter('get_the_excerpt', 'add_series_meta_excerpt',1);
 
 //add filter to automatically add the series-post-navigation strip
 add_action('the_content', 'series_nav_filter');
