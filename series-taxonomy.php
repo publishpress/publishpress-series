@@ -456,7 +456,7 @@ function wp_delete_post_series_relationship( $id ) {
 	global $wpdb, $wp_rewrite;
 	$postid = (int) $id;
 	$series = get_the_series( $postid );
-	//echo "ID = $id.....postid = $postid";
+	
 	if (!empty($series) ) {
 		$seriesid = $series[0]->term_id;
 		delete_post_meta($postid, SERIES_PART_KEY);
@@ -540,7 +540,7 @@ function wp_insert_series($serarr) {
 		$build_path = seriesicons_url();
 		$series_icon = str_replace($build_path, '', $series_icon);
 	}
-		
+	
 	$args = compact('name','slug','description');
 	if ( $update ) {
 		if ($delete_image) {
@@ -572,6 +572,7 @@ function wp_update_series($serarr) {
 	
 	//Merge old and new fields with fields overwriting old ones.
 	$serarr = array_merge($series, $serarr);
+	
 	return wp_insert_series($serarr);
 }
 

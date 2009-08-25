@@ -52,7 +52,7 @@ Visit http://dev.wp-plugins.org/log/organize-series for the list of all the chan
  */
  
 /**
-  * NIfty function to get the name of the directory orgSeries is installed in.
+  * Nifty function to get the name of the directory orgSeries is installed in.
 */
 function orgSeries_dir(){
 	if (stristr(__FILE__, '/') ) 
@@ -65,12 +65,6 @@ function orgSeries_dir(){
 $org_dir_name = orgSeries_dir();
 
 /*to get plugin url*/
-// Pre-2.6 compatibility
-if ( !defined('WP_CONTENT_URL') )
-	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
-if ( !defined('WP_CONTENT_DIR') )
-	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-
 	// Guess the location
 $plugin_path = '';
 $plugin_url = '';
@@ -85,14 +79,10 @@ define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
 define('SERIES_PATH', $plugin_path); //the path of the orgSeries files
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
-
-//OBSOLETE?
 define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
-
 define('SERIES_TEMPLATE', 'series.php'); //template file to use for displaying series queries.
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
- 
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
 $org_series_args = array('hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => __('Series'), 'query_var' => false, 'rewrite' => false);
@@ -121,7 +111,6 @@ require ($plugin_path .'series-widgets.php');
 /**
   * org_series_install() - contains all the routines that are run when Organize Series is activated via the WordPress plugins page.
   *
-  * @uses register_taxonomy() - WordPress hook for setting the new series taxonomy
   * @uses orgSeries_roles() - function that adds manage_series capability to $wp_roles object.
   * @uses get_option()
   * @uses add_option()
@@ -131,13 +120,10 @@ require ($plugin_path .'series-widgets.php');
 */
 function org_series_install() {
 	global $org_series_version, $wp_taxonomies, $wpdb;
-	//register_taxonomy( $org_series_term, $org_series_type, $org_series_args );
+	
 	orgSeries_roles(); 
          
-	if ( $options = get_option( 'org_series_options' ) && !( $oldversion = get_option('org_series_version' ) ) )  //for versions prior to 2.0
-		add_option('org_series_oldversion', '1.6');
-		
-	if ( $oldversion = get_option( 'org_series_version' ) )  //for versions after 2.0
+	if ( $oldversion = get_option( 'org_series_version' ) )  //register the current version of orgSeries
 		update_option( 'org_series_oldversion', $org_series_version );
 	else
 		add_option("org_series_version", $org_series_version);
@@ -177,18 +163,12 @@ function orgSeries_header() {
 function series_organize_options() {
 	global $wp_version;
 	if (function_exists('add_options_page')) { 
-		if ( isset( $wp_version ) && $wp_version >= 2.5 )
-			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options-new.php');
-		else
-			add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options.php'); 
+		add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options.php');
 	}
 	
 	if (function_exists('add_posts_page')) {
 		add_posts_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
-	} else { 
-		if (function_exists('add_management_page')) 
-		add_management_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
-	}
+	} 
 }
 
 #####Filter function for adding series post-list box to a post in that series####
@@ -250,7 +230,7 @@ function add_series_wp_title( $title ) {
 		if ( !is_feed() )
 			$title = 'Series: ' . $series . ' &laquo; ' . $title;
 		else
-			$title = 'Posts from the series: ' . $series . '(UnfoldingNeurons.com)';
+			$title = 'Posts from the series: ' . $series . ' ('. get_bloginfo().')';
 	}
 	return $title;
 }
@@ -261,10 +241,10 @@ global $wp_roles;
 $roles = array('administrator', 'editor');
 $capability = 'manage_series';
 
-foreach ($roles as $role) {
-	$wp_roles->add_cap($role, $capability, true);
-}
-return true;
+	foreach ($roles as $role) {
+		$wp_roles->add_cap($role, $capability, true);
+	}
+	return true;
 }
 
 ##########ADD ACTIONS TO WP###########

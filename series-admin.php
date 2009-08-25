@@ -6,49 +6,37 @@
  * @since 2.0
 */
 
-global $wp_version, $pagenow;
+global $pagenow;
 $checkpage = $pagenow;
 global $checkpage;
 
 function orgSeries_admin_header() {
 	$plugin_path = SERIES_LOC;
 	$csspath = $plugin_path . "orgSeries-admin.css";
-	//$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
 	wp_register_style( 'orgSeries-admin', $csspath );
 	wp_enqueue_style( 'orgSeries-admin' );
 	wp_enqueue_style( 'thickbox' );
-	//echo $text;
 }
 
 //add_action filter for the manage_series page...
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
-global $wp_version, $checkpage;
+global $checkpage;
 	
 	if (isset($_GET['page']))
 		$checkpage = $_GET['page'];
 	
 	if ('post-new.php' == $checkpage || 'post.php' == $checkpage) {
-		if ( isset($wp_version) && $wp_version >= 2.5 ) {
-			wp_register_script( 'ajaxseries', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/series-new.js', array('wp-lists'), '20080310' );
-			wp_localize_script( 'ajaxseries', 'seriesL10n', array(
+		wp_register_script( 'ajaxseries', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/series.js', array('wp-lists'), '20080310' );
+		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => attribute_escape(__('Add')),
 				'how' => __('Select "Not part of a series" to remove any series data from post')
 			));
-		} else {
-			wp_register_script( 'ajaxseries', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/series.js', array('listman'), '20071201' );
-			wp_localize_script('ajaxseries','seriesL10n',array(
-				'add' => attribute_escape(__('Add')),
-				'how' => __('Select "Not...series" to remove any series data from post')
-				));
-		}
 		wp_print_scripts( 'ajaxseries' );
 	}
 	if ( (SERIES_DIR . '/orgSeries-manage.php' == $checkpage) || (SERIES_DIR . '/edit-series-form.php' == $checkpage) )
 	orgSeries_manage_script();
 	
-	if ( SERIES_DIR . '/orgSeries-options.php' == $checkpage && isset($wp_version) && $wp_version < 2.5 )
-		org_series_options_js();
 }
 
 function orgSeries_manage_script() {
@@ -58,61 +46,11 @@ function orgSeries_manage_script() {
 	wp_enqueue_script( 'admin-series', '/'.PLUGINDIR.'/'. SERIES_DIR . '/js/manageseries.js',array('listman'), '20070125' );
 }
 
-function org_series_options_js() {
-	?>
-	<script type="text/javascript" src="../wp-includes/js/tw-sack.js"></script>
-	<script type="text/javascript" src="../wp-includes/js/dbx.js"></script>
-	<script type="text/javascript">
-	//<![CDATA[
-				addLoadEvent( function() {
-					var manager = new dbxManager('orgSeries_options_meta');
-					
-					//create new docking boxes group
-					var meta = new dbxGroup(
-						'grabit', 		// container ID [/-_a-zA-Z0-9/]
-						'vertical', 	// orientation ['vertical'|'horizontal']
-						'10', 			// drag threshold ['n' pixels]
-						'no',			// restrict drag movement to container axis ['yes'|'no']
-						'10', 			// animate re-ordering [frames per transition, or '0' for no effect]
-						'yes', 			// include open/close toggle buttons ['yes'|'no']
-						'open', 		// default state ['open'|'closed']
-						<?php echo "'" . js_escape(__('open')); ?>', 		// word for "open", as in "open this box"
-						<?php echo "'" . js_escape(__('close')); ?>', 		// word for "close", as in "close this box"
-						<?php echo "'" . js_escape(__('click-down and drag to move this box')); ?>', // sentence for "move this box" by mouse
-						<?php echo "'" . js_escape(__('click to %toggle% this box')); ?>', // pattern-match sentence for "(open|close) this box" by mouse
-						<?php echo "'" . js_escape(__('use the arrow keys to move this box')); ?>', // sentence for "move this box" by keyboard
-						<?php echo "'" . js_escape(__(', or press the enter key to %toggle% it')); ?>',  // pattern-match sentence-fragment for "(open|close) this box" by keyboard
-						'%mytitle%  [%dbxtitle%]' // pattern-match syntax for title-attribute conflicts
-						);
-
-					var advanced = new dbxGroup(
-						'advancedstuff', 		// container ID [/-_a-zA-Z0-9/]
-						'vertical', 		// orientation ['vertical'|'horizontal']
-						'10', 			// drag threshold ['n' pixels]
-						'yes',			// restrict drag movement to container axis ['yes'|'no']
-						'10', 			// animate re-ordering [frames per transition, or '0' for no effect]
-						'yes', 			// include open/close toggle buttons ['yes'|'no']
-						'open', 		// default state ['open'|'closed']
-						<?php echo "'" . js_escape(__('open')); ?>', 		// word for "open", as in "open this box"
-						<?php echo "'" . js_escape(__('close')); ?>', 		// word for "close", as in "close this box"
-						<?php echo "'" . js_escape(__('click-down and drag to move this box')); ?>', // sentence for "move this box" by mouse
-						<?php echo "'" . js_escape(__('click to %toggle% this box')); ?>', // pattern-match sentence for "(open|close) this box" by mouse
-						<?php echo "'" . js_escape(__('use the arrow keys to move this box')); ?>', // sentence for "move this box" by keyboard
-						<?php echo "'" . js_escape(__(', or press the enter key to %toggle% it')); ?>',  // pattern-match sentence-fragment for "(open|close) this box" by keyboard
-						'%mytitle%  [%dbxtitle%]' // pattern-match syntax for title-attribute conflicts
-						);
-				});
-				//]]>
-				</script>
-	<?php
-}
-
 ######ON THE FLY ADD SERIES########
 function admin_ajax_series() { 
 	if ( !current_user_can( 'manage_series' ) )
 		die('-1');
 	global $wp_taxonomies;
-	//$series_test = $wp_taxonomies['series'];
 	$name = $_POST['newseries'];
 	$x = new WP_Ajax_Response();
 	$series_name = trim($name);
@@ -128,7 +66,6 @@ function admin_ajax_series() {
 	) );
 	$x->send();
 }
-
 
 //AJAX for manage series page (Manage->Series)
 function admin_ajax_series_add() {
@@ -238,57 +175,13 @@ function get_series_to_select( $default = 0 ) {
 	write_series_list( get_series_list( $default) );
 }
 
-function series_new_edit_box() {
-	global $post, $postdata, $content;
-	$id = isset($post) ? $post->ID : $postdata->ID;
-	?>
-	<div class="side-info">
-	<h5><?php _e('Series') ?></h5>
-		<div id="seriesdiv">
-			
-		<p id="jaxseries"></p>
-				<?php /*<input type="text" name="newseries" id="newseries" class="form-required form-input-tip" value="<?php _e( 'New series name' ); ?>" />
-				<input type="button" id="series-add" class="add:serieschecklist:seriesdiv button" value="<?php _e( 'Add' ); ?>" />
-				<?php wp_nonce_field( 'add-series', '_ajax_nonce', false ); ?> */ ?>
-				<span id="series-ajax-response"></span>
-			
-		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
-				<?php get_series_to_select(); ?>
-		</ul>
-		<span id="seriespart"><strong> Series Part:   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
-		</div>
-	</div>
-	<?php
-}
-
-function series_edit_box() {
-global $post, $postdata, $content;
-$id = isset($post) ? $post->ID : $postdata->ID;
-?>
-	<fieldset id="seriesdiv" class="dbx-box">
-		<h3 class="dbx-handle"><?php _e("Organize Series") ?></h3>
-		<div class="dbx-content">
-			<p id="jaxseries"></p>
-		<ul id="serieschecklist">	<?php get_series_to_select(); ?></ul>
-		<span id="seriespart"><strong> Series Part:   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
-		</div>
-	</fieldset>
-	<?php
-}
-
-//series-edit box for wp 2.7 forward
+//series-edit box for wp 2.8 forward
 function series_edit_meta_box() {
 global $post, $postdata, $content;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	?>
 	<p id="jaxseries"></p>
-				<?php /*<input type="text" name="newseries" id="newseries" class="form-required form-input-tip" value="<?php _e( 'New series name' ); ?>" />
-				<input type="button" id="series-add" class="add:serieschecklist:seriesdiv button" value="<?php _e( 'Add' ); ?>" />
-				<?php wp_nonce_field( 'add-series', '_ajax_nonce', false ); ?> */ ?>
-				<span id="series-ajax-response"></span>
-			
+		<span id="series-ajax-response"></span>
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
@@ -296,16 +189,14 @@ global $post, $postdata, $content;
 			<p id="part-description">Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series</p>
 	<?php
 }
-//Function: Add Meta/DBX Box
-add_action('admin_menu', 'orgseries_add_meta_box');
-function orgseries_add_meta_box() {
-	if ( function_exists('add_meta_box')) {
-		add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post', 'advanced', 'core');
-		remove_meta_box('tagsdiv-series', 'post', 'advanced');
-		} else {
-		add_action('dbx_post_sidebar', 'series_edit_box'); }
-}
 
+//function: Add Meta/DBX Box
+add_action('admin_menu', 'orgseries_add_meta_box');
+
+function orgseries_add_meta_box() {
+	add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post', 'advanced', 'core');
+	remove_meta_box('tagsdiv-series', 'post', 'advanced');
+}
 
 /* ADDING SERIES INFO TO EDIT POST PAGE */
 
@@ -334,21 +225,9 @@ function orgSeries_custom_column_action($column_name, $id) {
 	} 
 }
 
-function orgSeries_new_custom_manage_posts_filter() {
+function orgSeries_custom_manage_posts_filter() {
 	if (isset($_GET['series'])) $_GET['series'] = (int) $_GET['series'];
 	wp_dropdown_series('show_option_all='.__('View all series').'&hide_empty=1&show_count=1&selected='.$_GET['series']);
-}
-
-function orgSeries_custom_manage_posts_filter() {
-	$_GET['series'] = (int) $_GET['series'];
-?>
-	<form name="searchform" id="seriessearchform" action="" method="get">
-		<fieldset><legend><?php _e('Series&hellip;') ?></legend>
-			<?php wp_dropdown_series('show_option_all='.__('All').'&hide_empty=1&show_count=1&selected='.$_GET['series']);?>
-		</fieldset>
-		<input type="submit" id="post-query-submit2" value="<?php _e('Filter by Series &#187;'); ?>" class="button" />
-	</form>
-<?php
 }
 
 function add_series_management_link() {
@@ -356,20 +235,6 @@ function add_series_management_link() {
 	?>
 	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series'); ?></a></li>
 	<?php
-}
-
-//dashboard sentence filter
-function add_series_to_dashboard_sentence( $sentence, $post_type_text, $cats_text, $tags_text ) {
-	$num_series = wp_count_terms('series');
-	$manage_link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
-	$series_text = sprintf( __ngettext( '%s series', '%s series', $num_series ), number_format_i18n( $num_series ) );
-	if ( current_user_can( 'manage_series' ) ) 
-		$series_text = "<a href='$manage_link'>$series_text</a>";
-	
-	if ( $num_series >= 1 ) 
-		$sentence = sprintf( __( 'You have %1$s, contained within %2$s, %3$s, and %4$s.' ), $post_type_text, $cats_text, $tags_text, $series_text );
-	
-	return $sentence;
 }
 
 function add_series_to_right_now() {
@@ -409,24 +274,19 @@ function orgSeries_manage_posts_titles($titles) {
 */
 //add action for admin-series.css and thickbox
 add_action('admin_print_styles', 'orgSeries_admin_header');
+
 ##ADMIN-Write/Edit Post Script loader
 add_action('admin_print_scripts','orgSeries_admin_script'); 
+
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
-if ( isset( $wp_version ) && $wp_version < 2.5 ) {
-	add_action('wp_ajax_add-serial', 'admin_ajax_series_add');
-	add_action('wp_ajax_delete-serial', 'admin_ajax_delete_series');
-}
 add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
 add_action('manage_posts_custom_column','orgSeries_custom_column_action', 10, 2);
-if ( isset( $wp_version ) && $wp_version >= 2.5  ) {
-	if ( $checkpage != 'upload.php' )
-		add_action('restrict_manage_posts', 'orgSeries_new_custom_manage_posts_filter');
- } else
-	add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+
+if ( $checkpage != 'upload.php' )
+		add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
+ 
 add_action('post_relatedlinks_list', 'add_series_management_link');
-if ( isset( $wp_version ) && $wp_version <= 2.6 ) {
-	add_filter( 'dashboard_count_sentence', 'add_series_to_dashboard_sentence', 10, 4 );
-	} else
-	add_action( 'right_now_table_end', 'add_series_to_right_now');
+
+add_action( 'right_now_table_end', 'add_series_to_right_now');
 ?>

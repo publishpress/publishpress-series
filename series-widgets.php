@@ -117,7 +117,7 @@ function orgSeries_widget_latest_series_init() {
 	?>
 		<div style="text-align:right">
 			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> Widget title: <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo htmlspecialchars($options['latest_series_widget_title']); ?>" /></label>
-			<p>The layout and content of this widget can be adjusted via the latest-series-template on the <a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php?page=<?php echo SERIES_DIR; ?>/orgSeries-options-new.php">Series Options</a> page.</p>
+			<p>The layout and content of this widget can be adjusted via the latest-series-template on the <a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php?page=<?php echo SERIES_DIR; ?>/orgSeries-options.php">Series Options</a> page.</p>
 			<input type="hidden" name="orgSeries_latest_series_widget_submit" id= "orgSeries_latest_series_widget_submit" value="1" />
 		</div>
 	<?php

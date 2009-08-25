@@ -1,6 +1,5 @@
 <?php
 ##SERIES-ICON RELATED STUFF
-#much of this code has added/modified from the Category-Icon plugin by Ivan Georgiev (GNU-GPL v2) [http://devcorner.georgievi.net/wp-plugins/wp-category-icons/].
 
 function default_seriesicons_upload() {
 	$def_path = str_replace(ABSPATH, '', get_option('upload_path'));
@@ -16,7 +15,7 @@ function default_seriesicons_upload() {
 function series_get_icons($series) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'orgSeriesIcons';
-	//$series = $wpdb->escape($series);
+	
 	if ($row = $wpdb->get_row( $wpdb->prepare("SELECT icon FROM $tablename WHERE term_id=%d", $series) ) ) {
 		return $row->icon;
 	} else return false;
@@ -81,13 +80,12 @@ function seriesicons_write($series, $icon) {
 	
 	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
 		
-	//$series = $wpdb->escape($series);
-	//$icon = $wpdb->escape($icon);
-	
 	if ($wpdb->get_var( $wpdb->prepare("SELECT term_id FROM $tablename WHERE term_id=%d", $series) ) ) {
-		$wpdb->query( $wpdb->prepare("UPDATE $tablename SET icon=%d WHERE term_id=%d", $icon, $series) );
+			
+		$wpdb->query( $wpdb->prepare("UPDATE $tablename SET icon=%s WHERE term_id=%d", $icon, $series) );
 	} else {
-		$wpdb->query( $wpdb->prepare("INSERT INTO $tablename (term_id, icon) VALUES (%d,%d)", $series, $icon) );
+		$wpdb->query( $wpdb->prepare("INSERT INTO $tablename (term_id, icon) VALUES (%d,%s)", $series, $icon) );
+	
 	}
 	return true;
 }
@@ -104,8 +102,6 @@ function seriesicons_delete($series) {
 	
 	if ( empty($series)  || '' == $series  )	return false;
 
-	//$series = $wpdb->escape($series);
-		
 	$wpdb->query( $wpdb->prepare("DELETE FROM $tablename WHERE term_id=%d", $series) );
 	return true;
 }

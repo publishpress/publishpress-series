@@ -37,6 +37,7 @@ function series_postsWhere($where) {
 	$series_var = get_query_var(SERIES_QUERYVAR);
 	$cat_var = get_query_var('cat');
 	$token = "'" . SERIES_QUERYVAR . "'";
+	
 	//convert to series id if permalinks turned on.
 	$serchk = is_term( $series_var, SERIES_QUERYVAR );
 	if ( !empty($serchk) ) 
@@ -100,14 +101,12 @@ function series_includeTemplate() {
 function series_createRewriteRules($rules) {
 	global $wp_rewrite;
 	
-	//$oldrules = $wp_rewrite->rules;
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
 	
 	//without trailing slash
 	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
 	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
-	//return $series_structure;
 	
 	return ( $rewrite + $rules );
 }
@@ -147,7 +146,7 @@ function series_init() {
 	}
 		
 	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
-		//status_header( 200 ); 
+		
 		add_filter('request', 'orgSeries_request');
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
@@ -401,8 +400,8 @@ function get_series_permastruct() {
 add_filter('posts_join_paged','sort_series_page_join');
 add_filter('posts_where', 'sort_series_page_where');
 add_filter('posts_orderby','sort_series_page_orderby');
-
 add_action( 'init', 'series_init', 0 );  
+
 //for series queries
 add_filter('query_vars', 'series_addQueryVar');
 add_action('parse_query','series_parseQuery');

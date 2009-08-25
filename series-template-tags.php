@@ -8,14 +8,6 @@
 */
 
 /**
- * get_cat_posts() - deprecated.
- * @deprecated  2.0 Use get_series_posts() instead
-*/
-function get_cat_posts( $ser_ID ) { //deprecated: see get_series_posts()
-		get_series_posts( $ser_ID );
-}
-
-/**
 * get_series_posts() - use to call up the list of posts in a supplied series id.  The style of the outputted display is determined by the PostList template on the Series Options page in the WordPress admin.
 * AUTOTAG - is part of the postlist_template call [autotag option - "Display list of series on post pages"
 * @package Organize Series WordPress Plugin
@@ -55,7 +47,7 @@ function get_series_posts( $ser_ID, $referral = false, $display = false ) {
 	$series_post = array();
 	$posts_in_series = array();
 	$settings = get_option('org_series_options');
-	$series_post = get_objects_in_term($ser_ID, 'series'); //TODO need to do a custom function that will pull not just the object id's but also the titles? (in an attempt to reduce queries?)
+	$series_post = get_objects_in_term($ser_ID, 'series'); 
 	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
 	
@@ -129,15 +121,6 @@ function get_series_toc( $link = TRUE ) {
 		echo '<a href="' . $url . '" title="All the Series I\'ve Written">Series</a>';
 	else
 		return $url;
-}
-
-/**
- * wp_seriespost_check() - Checks if a post is part of a series.
- * 
- * @deprecated 2.0 Use get_the_series() instead.
-*/
-function wp_seriespost_check() {  
-	return get_the_series();
 }
 
 /**
@@ -697,8 +680,7 @@ function is_series( $slug = '' ) {
 	$icon = series_get_icons($p['series']);
 	$file = seriesicons_path() . $icon;
 	$url = seriesicons_url() . $icon;
-	//$series_id = (int) $p['series'];
-	
+		
 	if ($p['link']) {
 		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
 		$p['suffix'] = '</a>' . $p['suffix'];
