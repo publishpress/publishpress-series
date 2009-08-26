@@ -544,7 +544,7 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 		if ( !empty($series_name) ) {
 			if ( $linked ) {
 				$series_link = get_series_link($series_id);
-				$prefix = '<a href="' . $series_link . '" title="series-' . $series_id . '">';
+				$prefix = '<a href="' . $series_link . '" id="series-' . $series_id . '" title="'.$series_name.'">';
 				$suffix = '</a>';
 			}
 			
