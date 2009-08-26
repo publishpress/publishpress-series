@@ -294,6 +294,20 @@ function unset_series_menu() {
   }
 }
 
+//ADD in link to settings on plugin page.
+function AddPluginActionLink( $links, $file ) {
+		static $this_plugin;
+		
+		if( empty($this_plugin) ) $this_plugin = plugin_basename(__FILE__);
+
+		if ( $file == $this_plugin ) {
+			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings') . '</a>';
+			array_unshift( $links, $settings_link );
+		}
+
+		return $links;
+	}
+
 add_action( 'wp_footer', 'series_dropdown_js', 1 );
 add_action('admin_head', 'unset_series_menu', 1);
 add_action( 'init', 'series_tax_init', 0 );
@@ -315,4 +329,7 @@ add_filter('get_the_excerpt', 'add_series_meta_excerpt',1);
 //add filter to automatically add the series-post-navigation strip
 add_action('the_content', 'series_nav_filter');
 add_filter('wp_title', 'add_series_wp_title');
+
+//filter for settings link on plugin page
+add_filter( 'plugin_action_links', 'AddPluginActionLink', 10, 2 );
 ?>
