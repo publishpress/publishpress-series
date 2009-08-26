@@ -252,6 +252,7 @@ $capability = 'manage_series';
 function series_tax_init() {
 	global $org_series_term, $org_series_type, $org_series_args;
 	register_taxonomy($org_series_term, $org_series_type, $org_series_args);
+	orgseries_admin_warnings();
 }
 
 //orgSeries dropdown nav js
@@ -307,6 +308,20 @@ function AddPluginActionLink( $links, $file ) {
 
 		return $links;
 	}
+	
+//Add Admin warnings on plugin install for if OrgSeries settings  have not been initialized.
+function orgseries_admin_warnings() {
+	
+	if ( !get_option('org_series_is_initialized') && !isset($_POST['submit']) ) {
+		function orgseries_warning() {
+			echo "
+			<div id='orgseries-warning' class='updated fade'><p><strong>".__('Organize Series is almost ready.')."</strong> ".sprintf(__('You must <a href="%1$s">visit the Settings Page</a> for the options to be initialized.'), 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php')."</p></div>
+			";
+		}
+		add_action('admin_notices', 'orgseries_warning');
+		return;
+	}
+}
 
 add_action( 'wp_footer', 'series_dropdown_js', 1 );
 add_action('admin_head', 'unset_series_menu', 1);
