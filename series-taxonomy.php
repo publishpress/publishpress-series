@@ -396,9 +396,8 @@ function wp_set_post_series_transition( $post ){
 }
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
-	
-	//fix for the revisions feature in WP 2.6+
-	if ($post->post_type == 'revision') {
+	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
+	if ($post->post_type == 'revision' || $_GET['bulk_edit_series'] == 'bulk' ) {
 		return;
 	}
 	
@@ -591,6 +590,20 @@ function inline_edit_series($column_name, $type) {
 	}	
 }
 
+function bulk_edit_series($column_name, $type) {
+	if ( $type == 'post' ) {
+		?>
+	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+		<div class="inline-edit-group">
+		<label class="inline-edit-series">
+			<input type="hidden" name="bulk_edit_series" value="bulk" />
+		</label>
+		</div>
+	</div></fieldset>
+		<?php
+	}	
+}
+
 function inline_edit_series_js() {
 	wp_enqueue_script('inline-edit-series');
 }
@@ -601,6 +614,7 @@ function inline_edit_series_js() {
 global $pagenow;
 //add_action for quick edit column 
 add_action('quick_edit_custom_box', 'inline_edit_series',1,2);
+add_action('bulk_edit_custom_box', 'bulk_edit_series',1,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
