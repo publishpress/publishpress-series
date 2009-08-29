@@ -582,7 +582,7 @@ function inline_edit_series($column_name, $type) {
 		<div class="inline-edit-group">
 		<label class="inline-edit-series">
 			Series: <?php wp_dropdown_series('name=post_series&hide_empty=0&show_option_all="No Series"'); ?>
-			Part: <input type="text" name="series_part" value="" />
+			Part: <input size="3" type="text" name="series_part" value="" />
 		</label>
 		</div>
 	</div></fieldset>
