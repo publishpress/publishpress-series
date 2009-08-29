@@ -12,6 +12,7 @@ function org_series_init($reset = false) {
 		$init_settings = array( //options for the orgSeries plugin
 		//main settings
 			'custom_css' => 1, 
+			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => $url['path'] . '/series/',
@@ -65,6 +66,7 @@ function org_series_option_update() {
 	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
 	$settings['auto_tag_seriesmeta_toggle'] = isset($_POST['auto_tag_seriesmeta_toggle']) ? 1 : 0;
 	$settings['custom_css'] = isset($_POST['custom_css']) ? 1 : 0;
+	$settings['kill_on_delete'] = isset($_POST['kill_on_delete']) ? 1 : 0;
 	if ( isset($_POST['series_toc_url']) ) $settings['series_toc_url'] = $url['path'] . '/' . $_POST['series_toc_url'];
 	if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
 	if (strlen($_POST['series_toc_url']) <=0) $settings['series_toc_url'] = FALSE;
@@ -94,7 +96,7 @@ function org_series_option_update() {
 }
 
 function org_series_admin_page() {
-	global $wp_version;
+	global $wp_version, $wpdb;
 	?>
 	<div class="wrap">
 		<h2><?php _e('Organize Series Plugin Options'); ?></h2>
@@ -114,7 +116,7 @@ function org_series_admin_page() {
 	org_series_init();
 	$oldversion = get_option('org_series_oldversion');
 	$settings = get_option('org_series_options');
-		
+
 	?>
 <div class="submitbox" id="submitpost">
 	<div class="org-series-side-info">
@@ -195,31 +197,6 @@ function org_series_admin_page() {
 <?php
 }
 				
-function org_series_import_form() {
- ?>
-	<div class="import-box">
-			<h3>Import Options:</h3>
-			<p>It is important that you make at least one selection and submit this form otherwise you won't be able to save any changes to your Organize Series Options - if you want to start fresh but leave the old Organize Series data in the database then select "do nothing"</p>
-			<form action="" method="post">
-				<input type="hidden" name="import_option" value="1" />
-				<input name="import_series" id="import_series" type="checkbox" value="1" />Import Series
-					<p>Selecting this means you wish to import all series data from old category schema into the new version of Organize Series</p>
-				<input name="delete_series" id="delete_series" type="checkbox" value="1" />Delete old series data
-					<p>Selecting this means you wish to remove the old series categories in Organize Series 1.6.3 and lower.  NOTE: this will only be applied if you've also selected to import the series.</p>
-				<input name="import_cat_icons" id="import_cat_icons" type="checkbox" value="1" />Import Category Icons
-					<p>Selecting this means you wish to import category icons associated with series in the old version of Organize Series to the new integrated series icons in the new version.  NOTE: This option will only work if you've selected to Import Series and have the Category Icons Plugin installed and activated.  You can deactivate the category icons plugin after the import.</p>
-				<input name="import_options" id="import_options" type="checkbox" value="1" />Import Organize Series Options
-					<p>Selecting this means that you want to import all your customizations from the old Organize Series Options into the new token template system</p>
-				<input name="do_nothing" id="do_nothing" type="checkbox" value="1" />Do nothing
-				<p>Selecting this option will make no changes to the old data in your database (leaving all categories and category icons and post associations as is).  Some options will be overwritten as you use the plugin.  If you select other import options they will override selecting this checkbox.</p>
-				<p class="submit">
-					<input type="submit" name="Import_Series" value="<?php _e('Import') ?>" />
-				</p>
-			</form>
-	</div>
-	<?php
-}
-
 function org_series_echo_fieldset_mainsettings($settings) {
 	$url = parse_url(get_bloginfo('siteurl'));
 	$url = $url['path'] . '/';
@@ -268,6 +245,13 @@ function org_series_echo_fieldset_mainsettings($settings) {
 				</label>
 				<br />
 				<small><em>You can choose what order you want the posts on a series archive page to be displayed.  Default is by date, descending.</em></small>
+				<br />
+				<br />
+				<span style="background-color:#ff3366; padding: 5px; padding-bottom: 8px;">
+				<label for="kill_on_delete">
+					<input name="kill_on_delete" id="kill_on_delete" type="checkbox" value="<?php echo $setttings['kill_on_delete']; ?>" <?php checked('1', $settings['kill_on_delete']); ?> /> Delete all Organize Series related data from the database when deleting this plugin?  (BE CAREFUL!)
+				</label>
+				</span>
 			</td>
 		</tr>
 	<?php
