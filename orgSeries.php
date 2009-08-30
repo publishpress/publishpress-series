@@ -68,8 +68,8 @@ $org_dir_name = orgSeries_dir();
 	// Guess the location
 $plugin_path = '';
 $plugin_url = '';
-$plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
-$plugin_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)) . '/';
+$plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
+$plugin_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
 $org_series_loc = $plugin_url;
 
 /**
