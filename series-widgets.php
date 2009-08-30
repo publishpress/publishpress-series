@@ -100,7 +100,11 @@ function orgSeries_widget_latest_series_init() {
 	function orgSeries_latest_series_widget_control() {
 		$options = $newoptions = (array) get_option('orgSeries_latest_series_widget');
 		$defaults = array(
-			'latest_series_widget_title' => 'Most&nbsp;Recent&nbsp;Series');
+			'latest_series_widget_title' => 'Most&nbsp;Recent&nbsp;Series',
+			'orderby' => 'post_modified',
+			'number' => '5',
+			'order' => 'ASC',
+			'hide_empty' => TRUE);
 		
 		foreach ( $defaults as $key => $value )
 			if ( !isset($newoptions[$key]) )
@@ -108,6 +112,10 @@ function orgSeries_widget_latest_series_init() {
 			
 		if ( $_POST['orgSeries_latest_series_widget_submit'] ) {
 			$newoptions['latest_series_widget_title'] = trim(stripslashes($_POST['latest_series_widget_title']));
+			$newoptions['orderby'] = trim(stripslashes($_POST['orderby']));
+			$newoptions['number'] = (int) $_POST['number'];
+			$newoptions['order'] = trim(stripslashes($_POST['order']));
+			$newoptions['hide_empty'] = $_POST['hide_empty']; 
 		}
 		
 		if ( $options != $newoptions ) {
@@ -116,8 +124,28 @@ function orgSeries_widget_latest_series_init() {
 		}
 	?>
 		<div style="text-align:right">
-			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> Widget title: <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo htmlspecialchars($options['latest_series_widget_title']); ?>" /></label>
+			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> Widget title: <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo $options['latest_series_widget_title']; ?>" /></label>
 			<p>The layout and content of this widget can be adjusted via the latest-series-template on the <a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php?page=<?php echo SERIES_DIR; ?>/orgSeries-options.php">Series Options</a> page.</p>
+			<p><small>Options for listing the Latest Series</small></p>
+			<label for="orderby" style="line-height:45px; display: block;">Orderby:
+			<select name="orderby" id="orderby">
+				<option class="post_modified" <?php if ( $options['orderby'] == 'post_modified' ) { ?>selected="selected" <?php } ?>value="post_modified">Post Modified</option>
+				<option class="count" <?php if ( $options['orderby'] == 'count' ) { ?>selected="selected" <?php } ?>value="count">Number of Posts in Series</option>
+				<option class="name" <?php if ( $options['orderby'] == 'name' ) { ?>selected="selected" <?php } ?>value="name">Name of Series</option>
+				<option class="slug" <?php if ( $options['orderby'] == 'slug' ) { ?>selected="selected" <?php } ?>value="slug">Series Slug</option>
+				<option class="term_id" <?php if ( $options['orderby'] == 'term_id' ) { ?>selected="selected" <?php } ?>value="term_id">Series ID</option>
+			</select>
+			</label>
+			<label for="number" style="line-height: 45px; display: block;">Number of series to display:
+			<input type="text" id="number" name="number" value="<?php echo htmlspecialchars($options['number']); ?>" />
+			</label>
+			<label for="order" style="line-height: 45px; display: block;">Display Order:
+			ASC: <input type="radio" id="ASC" name="order" value="ASC" <?php checked('ASC', $options['order']); ?>/>
+			DESC: <input type="radio" id="DESC" name="order" value="DESC" <?php checked('DESC', $options['order']); ?>/>
+			</label>
+			<label for="hide_empty" style="line-height: 45px; display: block;">Don't show series with no posts?
+			<input type="checkbox" name="hide_empty" id="hide_empty" value="true" <?php checked('true', $options['hide_empty']); ?> />
+			</label>
 			<input type="hidden" name="orgSeries_latest_series_widget_submit" id= "orgSeries_latest_series_widget_submit" value="1" />
 		</div>
 	<?php
@@ -127,9 +155,15 @@ function orgSeries_widget_latest_series_init() {
 	function orgSeries_latest_series_widget($args) {
 		extract ($args);
 		$options = (array) get_option('orgSeries_latest_series_widget');
+		$hide_empty = $options['hide_empty'] ? 'true' : 'false';
+		$orderby = $options['orderby'];
+		$number = $options['number'];
+		$order = $options['order'];
+		$args = 'hide_empty='.$hide_empty.'&orderby='.$orderby.'&number='.$number.'&order='.$order;
+		
 		echo $before_widget;
 		echo $before_title.$options['latest_series_widget_title'].$after_title;
-		latest_series();
+		latest_series(true,$args);
 		echo $after_widget;
 	}
 	

@@ -381,14 +381,48 @@ function wp_assemble_series_nav() {
  *
  * @return string $result - the assembled lates_series code.
 */
-function latest_series($display = true) {
+function latest_series($display = true, $args = '') {
 	global $wpdb;
-	$settings = get_option('org_series_options');
-	$query = "SELECT t.term_id, tp.post_modified FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' ORDER BY tp.post_modified DESC";
-	$terms = $wpdb->get_col($query);
-	$latest_series = $terms[0];
+	$defaults = array('orderby' => 'post_modified', 'order' => 'ASC', 'hide_empty' => true, 'number' => '5');
+	$args = wp_parse_args( $args, $defaults );
+	$args['number'] = absint( $args['number'] );
+	extract($args, EXTR_SKIP);
 	
-	$result = token_replace(stripslashes($settings['latest_series_template']), 'latest_series', $latest_series);
+	$_orderby = strtolower($orderby);
+	if ( 'post_modified' == $_orderby )
+		$orderby = 'tp.post_modified';
+	else if ( 'count' == $_orderby )
+		$orderby = 'tt.count';
+	else if ( 'name' == $_orderby )
+		$orderby = 't.name';
+	else if ( 'slug' == $_orderby )
+		$orderby = 't.slug';
+	elseif ( empty($_orderby) || 'id' == $_orderby )
+		$orderby = 't.term_id';
+		
+	if ( ! empty($number) ) {
+		$limit = 'LIMIT ' . $number;
+	
+	} else
+		$limit = '';
+		
+	$where = '';
+	
+	if ( $hide_empty ) {
+		$where .= 'AND tt.count > 0 ';
+	}
+		
+	$settings = get_option('org_series_options');
+	
+	$query = "SELECT t.term_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' $where ORDER BY $orderby $order $limit";
+	$terms = array_unique($wpdb->get_col($query));
+	$count = $number;
+	$result = '';
+	$result = stripslashes($settings['latest_series_before_template']);
+	foreach ( $terms as $latest_series ) {
+		$result .= token_replace(stripslashes($settings['latest_series_inner_template']), 'latest_series', $latest_series);
+	}
+	$result .= stripslashes($settings['latest_series_after_template']);
 	
 	if ($display)
 		echo $result;
