@@ -14,6 +14,7 @@ function org_series_init($reset = false) {
 			'custom_css' => 1, 
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
+			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => $url['path'] . '/series/',
 			'series_toc_title' => 'Series Table of Contents',
@@ -66,6 +67,7 @@ function org_series_option_update() {
 	$url = parse_url(get_bloginfo('siteurl'));
 	//toggles and paging info
 	$settings['auto_tag_toggle'] = isset($_POST['auto_tag_toggle']) ? 1 : 0;
+	$settings['auto_tag_nav_toggle'] = isset($_POST['auto_tag_nav_toggle']) ? 1 : 0;
 	$settings['auto_tag_seriesmeta_toggle'] = isset($_POST['auto_tag_seriesmeta_toggle']) ? 1 : 0;
 	$settings['custom_css'] = isset($_POST['custom_css']) ? 1 : 0;
 	$settings['kill_on_delete'] = isset($_POST['kill_on_delete']) ? 1 : 0;
@@ -215,6 +217,12 @@ function org_series_echo_fieldset_mainsettings($settings) {
 				</label>
 				<br />
 				<small><em>Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  [default=selected]</em></small>
+				<br />
+				<label for="auto_tag_nav_toggle">
+					<input name="auto_tag_nav_toggle" id="auto_tag_nav_toggle" type="checkbox" value="<?php echo $settings['auto_tag_nav_toggle']; ?>" <?php checked('1', $settings['auto_tag_nav_toggle']); ?> /> Display series navigation links?
+				</label>
+				<br />
+				<small><em>Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the displaying the series navigation links.  [default=selected]</em></small>
 				<br />
 				<label for="auto_tag_seriesmeta_toggle">
 					<input name="auto_tag_seriesmeta_toggle" id="auto_tag_seriesmeta_toggle" type="checkbox" value="<?php echo $setttings['auto_tag_seriesmeta_toggle']; ?>" <?php checked('1', $settings['auto_tag_seriesmeta_toggle']); ?> /> Display series meta information with posts?

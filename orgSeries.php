@@ -215,7 +215,7 @@ function add_series_meta_excerpt($content) {
 function series_nav_filter($content) {
 	$settings = get_option('org_series_options');
 	if (is_single()) {
-		if($settings['auto_tag_toggle'] && $series_nav = wp_assemble_series_nav() ) {
+		if($settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 			$addcontent = $content;
 			$content = str_replace('%postcontent%', $addcontent, $series_nav);
 		}
