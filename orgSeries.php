@@ -55,6 +55,7 @@ Visit http://dev.wp-plugins.org/log/organize-series for the list of all the chan
   * Nifty function to get the name of the directory orgSeries is installed in.
 */
 function orgSeries_dir(){
+	global $org_domain;
 	if (stristr(__FILE__, '/') ) 
 		$orgdir = explode('/plugins/', dirname(__FILE__));
 	else
@@ -119,7 +120,7 @@ require ($plugin_path .'series-widgets.php');
   * @uses $wpdb - global WordPress database object
 */
 function org_series_install() {
-	global $org_series_version, $wp_taxonomies, $wpdb;
+	global $org_series_version, $wp_taxonomies, $wpdb, $org_domain;
 	
 	orgSeries_roles(); 
          
@@ -147,6 +148,7 @@ function org_series_install() {
 
 //*** Add .css to header if enabled via options ***//
 function orgSeries_header() {
+	global $org_domain;
 	$settings = get_option('org_series_options');
 	$plugin_path = SERIES_LOC;
 	if ($settings['custom_css']) {
@@ -161,19 +163,19 @@ function orgSeries_header() {
 
 ###### CREATE SERIES OPTIONS PANEL FUNCTION #######
 function series_organize_options() {
-	global $wp_version;
+	global $wp_version, $org_domain;
 	if (function_exists('add_options_page')) { 
-		add_options_page('Organize Series Options', 'Series Options', 9, SERIES_PATH . 'orgSeries-options.php');
+		add_options_page(__('Organize Series Options',$org_domain), __('Series Options',$org_domain), 9, SERIES_PATH . 'orgSeries-options.php');
 	}
 	
 	if (function_exists('add_posts_page')) {
-		add_posts_page('Organize Series Management', 'Series', 9, SERIES_PATH . 'orgSeries-manage.php');
+		add_posts_page(__('Organize Series Management',$org_domain), __('Series', $org_domain), 9, SERIES_PATH . 'orgSeries-manage.php');
 	} 
 }
 
 #####Filter function for adding series post-list box to a post in that series####
 function add_series_post_list_box($content) {
-	
+	global $org_domain;
 	$settings = get_option('org_series_options');
 	
 	if ($settings['auto_tag_toggle']) {
@@ -189,6 +191,7 @@ function add_series_post_list_box($content) {
 #####Filter function for adding series meta information to posts in series#####
 
 function add_series_meta($content) {
+	global $org_domain;
 	$settings = get_option('org_series_options');
 	if($settings['auto_tag_seriesmeta_toggle']) {
 		if ($series_meta = wp_seriesmeta_write()) {
@@ -200,6 +203,7 @@ function add_series_meta($content) {
 }
 
 function add_series_meta_excerpt($content) {
+	global $org_domain;
 	$settings = get_option('org_series_options');
 	remove_filter('the_content','add_series_meta');
 	if($settings['auto_tag_seriesmeta_toggle']) {
@@ -213,6 +217,7 @@ function add_series_meta_excerpt($content) {
 
 //filter function for showing the navigation strip for posts that are part of a series  on the page of a post that is part of a series.
 function series_nav_filter($content) {
+	global $org_domain;
 	$settings = get_option('org_series_options');
 	if (is_single()) {
 		if($settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
@@ -224,20 +229,21 @@ function series_nav_filter($content) {
 }
 
 function add_series_wp_title( $title ) {
+	global $org_domain;
 	$series = single_series_title('', false);
 	
 	if ( !empty($series) ) {
 		if ( !is_feed() )
-			$title = 'Series: ' . $series . ' &laquo; ' . $title;
+			$title = __('Series: ',$org_domain) . $series . ' &laquo; ' . $title;
 		else
-			$title = 'Posts from the series: ' . $series . ' ('. get_bloginfo().')';
+			$title = __('Posts from the series: ',$org_domain) . $series . ' ('. get_bloginfo().')';
 	}
 	return $title;
 }
 
 //Roles and Capabilities Stuff
 function orgSeries_roles() {
-global $wp_roles;
+global $wp_roles, $org_domain;
 $roles = array('administrator', 'editor');
 $capability = 'manage_series';
 
@@ -302,7 +308,7 @@ function AddPluginActionLink( $links, $file ) {
 		if( empty($this_plugin) ) $this_plugin = plugin_basename(__FILE__);
 
 		if ( $file == $this_plugin ) {
-			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings') . '</a>';
+			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings', $org_domain) . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 
@@ -315,13 +321,32 @@ function orgseries_admin_warnings() {
 	if ( !get_option('org_series_is_initialized') && !isset($_POST['submit']) ) {
 		function orgseries_warning() {
 			echo "
-			<div id='orgseries-warning' class='updated fade'><p><strong>".__('Organize Series is almost ready.')."</strong> ".sprintf(__('You must <a href="%1$s">visit the Settings Page</a> for the options to be initialized.'), 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php')."</p></div>
+			<div id='orgseries-warning' class='updated fade'><p><strong>".__('Organize Series is almost ready.',$org_domain)."</strong> ".sprintf(__('You must <a href="%1$s">visit the Settings Page</a> for the options to be initialized.', $org_domain), 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php')."</p></div>
 			";
 		}
 		add_action('admin_notices', 'orgseries_warning');
 		return;
 	}
 }
+
+//Load strings for the current locale (thanks to Benjamin Lupu for his help with this - http://benjaminlupu.net
+function load_domain_strings() {
+
+	global $plugin_path, $org_domain;
+	
+	// Get current locale (eg. fr_FR)
+	$locale = get_locale();
+
+	// Compose path to the strings file (.mo) to be loaded
+	$mofile = $plugin_path . '/lang/' . $org_domain . '-' . $locale .'.mo';
+
+	// Load strings corresponding to the current locale
+	load_textdomain($org_domain,$mofile);
+}
+
+// Set the domain for L10N and load strings for the current locale
+$org_domain = 'OrganizeSeries';
+load_domain_strings();
 
 add_action( 'wp_footer', 'series_dropdown_js', 1 );
 add_action('admin_head', 'unset_series_menu', 1);

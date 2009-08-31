@@ -14,9 +14,10 @@ function orgSeries_widget_seriestoc_init() {
 			
 	//Save options and print widget's config form.
 	function orgSeries_widget_control() {
+		global $org_domain;
 		$options = $newoptions = (array) get_option('orgSeries_widget');
 		$defaults = array(
-			'orgSeries-widget-title' => 'Series',
+			'orgSeries-widget-title' => __('Series', $org_domain),
 			'list-type' => 'list',
 			'show-count' => 1,
 			'hide-empty' => 1,
@@ -40,13 +41,13 @@ function orgSeries_widget_seriestoc_init() {
 		}
 	?>
 		<div style="text-align:right">
-		<label for="orgSeries-widget-title" style="line-height:35px; display:block;">Widget title: <input type="text" id="orgSeries-widget-title" name="orgSeries-widget-title" value="<?php echo htmlspecialchars($options['orgSeries-widget-title']); ?>" /></label>
-		<p><small>Series list options:</small></p>
-		<label for="list-type" style="line-height:35px; display: block;"> Dropdown: <input type="radio" id="list-type" name="list-type" value="dropdown"<?php checked('dropdown', $options['list-type']); ?> /></label>
-		<label for="list-type2" style="line-height:35px; display: block;"> List: <input type="radio" id="list-type2" name="list-type" value="list"<?php checked('list', $options['list-type']); ?> /></label>
-		<label for="show-count" style="line-height:35px; display: block;">Show post count? <input type="checkbox" id="show-count" name="show-count" value="1" <?php checked('1' , $options['show-count']); ?> /></label>
-		<label for="hide-empty" style="line-height:35px; display: block;">Hide empty series? <input type="checkbox" id="hide-empty" name="hide-empty" value="1" <?php checked('1' , $options['hide-empty']); ?> /></label>
-		<label for="postlistdisplay-toggle" style="line-height:35px; display:block;">Post List toggle: <input type="checkbox" name="postlistdisplay-toggle" id="postlistdisplay-toggle" value="1" <?php checked('1', $options['postlistdisplay-toggle']); ?> /><br /><small>(use to select if a list of other posts in the series will show on post-pages that are part of a series)</small></label>
+		<label for="orgSeries-widget-title" style="line-height:35px; display:block;"><?php _e('Widget title: ', $org_domain); ?><input type="text" id="orgSeries-widget-title" name="orgSeries-widget-title" value="<?php echo htmlspecialchars($options['orgSeries-widget-title']); ?>" /></label>
+		<p><small><?php _e('Series list options:', $org_domain); ?></small></p>
+		<label for="list-type" style="line-height:35px; display: block;"><?php _e(' Dropdown: ', $org_domain); ?><input type="radio" id="list-type" name="list-type" value="dropdown"<?php checked('dropdown', $options['list-type']); ?> /></label>
+		<label for="list-type2" style="line-height:35px; display: block;"> <?php _e('List: ', $org_domain); ?><input type="radio" id="list-type2" name="list-type" value="list"<?php checked('list', $options['list-type']); ?> /></label>
+		<label for="show-count" style="line-height:35px; display: block;"><?php _e('Show post count?', $org_domain); ?> <input type="checkbox" id="show-count" name="show-count" value="1" <?php checked('1' , $options['show-count']); ?> /></label>
+		<label for="hide-empty" style="line-height:35px; display: block;"><?php _e('Hide empty series?', $org_domain); ?> <input type="checkbox" id="hide-empty" name="hide-empty" value="1" <?php checked('1' , $options['hide-empty']); ?> /></label>
+		<label for="postlistdisplay-toggle" style="line-height:35px; display:block;"><?php _e('Post List toggle:', $org_domain); ?> <input type="checkbox" name="postlistdisplay-toggle" id="postlistdisplay-toggle" value="1" <?php checked('1', $options['postlistdisplay-toggle']); ?> /><br /><small><?php _e('(use to select if a list of other posts in the series will show on post-pages that are part of a series)', $org_domain); ?></small></label>
 		<input type="hidden" name="orgSeries-widget-submit" id="orgSeries-widget-submit" value="1" />
 		</div>
 	<?php
@@ -55,7 +56,7 @@ function orgSeries_widget_seriestoc_init() {
 	//This prints the widget
 	function orgSeries_widget($args) {
 		extract($args);
-		global $wp_query;
+		global $wp_query, $org_domain;
 		
 		$options = (array) get_option('orgSeries_widget');
 		$c = $options['show-count'] ? '1' : '0';
@@ -73,10 +74,10 @@ function orgSeries_widget_seriestoc_init() {
 						echo '</ul>';
 					}
 					if ( $options['list-type'] == 'dropdown' ) {
-						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series'));
+						wp_dropdown_series($series_args . '&show_option_none= ' . __('Select Series', $org_domain));
 				}
 					if ( ( $wp_query->is_single ) && $showpostlist && ( $series = get_the_series() ) ) {
-						echo '<br /><br /><h3>Other posts belonging to this series</h3>';
+						echo '<br /><br /><h3>' . __('Other posts belonging to this series', $org_domain) . '</h3>';
 						echo '<ul>' . get_series_posts('', 'widget') .  '</ul>';
 					}
 				
@@ -98,9 +99,10 @@ function orgSeries_widget_latest_series_init() {
 			
 	//Save options and print widget's config form.
 	function orgSeries_latest_series_widget_control() {
+		global $org_domain; 
 		$options = $newoptions = (array) get_option('orgSeries_latest_series_widget');
 		$defaults = array(
-			'latest_series_widget_title' => 'Most&nbsp;Recent&nbsp;Series',
+			'latest_series_widget_title' => __('Most Recent Series',$org_domain),
 			'orderby' => 'post_modified',
 			'number' => '5',
 			'order' => 'ASC',
@@ -122,28 +124,29 @@ function orgSeries_widget_latest_series_init() {
 			$options = $newoptions;
 			update_option('orgSeries_latest_series_widget', $options);
 		}
+		$seriesoptionsurl = bloginfo('wpurl') . '/wp-admin/options-general.php?page=' . SERIES_DIR . '/orgSeries-options.php';
 	?>
 		<div style="text-align:right">
-			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> Widget title: <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo $options['latest_series_widget_title']; ?>" /></label>
-			<p>The layout and content of this widget can be adjusted via the latest-series-template on the <a href="<?php bloginfo('wpurl'); ?>/wp-admin/options-general.php?page=<?php echo SERIES_DIR; ?>/orgSeries-options.php">Series Options</a> page.</p>
-			<p><small>Options for listing the Latest Series</small></p>
-			<label for="orderby" style="line-height:45px; display: block;">Orderby:
+			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> <?php _e('Widget title:', $org_domain); ?> <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo $options['latest_series_widget_title']; ?>" /></label>
+			<p><?php printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', $org_domain), $seriesoptionsurl); ?> </p>
+			<p><small><?php _e('Options for listing the Latest Series', $org_domain); ?></small></p>
+			<label for="orderby" style="line-height:45px; display: block;"><?php _e('Orderby:', $org_domain); ?>
 			<select name="orderby" id="orderby">
-				<option class="post_modified" <?php if ( $options['orderby'] == 'post_modified' ) { ?>selected="selected" <?php } ?>value="post_modified">Post Modified</option>
-				<option class="count" <?php if ( $options['orderby'] == 'count' ) { ?>selected="selected" <?php } ?>value="count">Number of Posts in Series</option>
-				<option class="name" <?php if ( $options['orderby'] == 'name' ) { ?>selected="selected" <?php } ?>value="name">Name of Series</option>
-				<option class="slug" <?php if ( $options['orderby'] == 'slug' ) { ?>selected="selected" <?php } ?>value="slug">Series Slug</option>
-				<option class="term_id" <?php if ( $options['orderby'] == 'term_id' ) { ?>selected="selected" <?php } ?>value="term_id">Series ID</option>
+				<option class="post_modified" <?php if ( $options['orderby'] == 'post_modified' ) { ?>selected="selected" <?php } ?>value="post_modified"><?php _e('Post Modified', $org_domain); ?></option>
+				<option class="count" <?php if ( $options['orderby'] == 'count' ) { ?>selected="selected" <?php } ?>value="count"><?php _e('Number of Posts in Series', $org_domain); ?></option>
+				<option class="name" <?php if ( $options['orderby'] == 'name' ) { ?>selected="selected" <?php } ?>value="name"><?php _e('Name of Series', $org_domain); ?></option>
+				<option class="slug" <?php if ( $options['orderby'] == 'slug' ) { ?>selected="selected" <?php } ?>value="slug"><?php _e('Series Slug', $org_domain); ?></option>
+				<option class="term_id" <?php if ( $options['orderby'] == 'term_id' ) { ?>selected="selected" <?php } ?>value="term_id"><?php _e('Series ID', $org_domain); ?></option>
 			</select>
 			</label>
-			<label for="number" style="line-height: 45px; display: block;">Number of series to display:
+			<label for="number" style="line-height: 45px; display: block;"><?php _e('Number of series to display:', $org_domain); ?>
 			<input type="text" id="number" name="number" value="<?php echo htmlspecialchars($options['number']); ?>" />
 			</label>
-			<label for="order" style="line-height: 45px; display: block;">Display Order:
-			ASC: <input type="radio" id="ASC" name="order" value="ASC" <?php checked('ASC', $options['order']); ?>/>
-			DESC: <input type="radio" id="DESC" name="order" value="DESC" <?php checked('DESC', $options['order']); ?>/>
+			<label for="order" style="line-height: 45px; display: block;"><?php _e('Display Order:', $org_domain); ?>
+			<?php _e('ASC:', $org_domain); ?> <input type="radio" id="ASC" name="order" value="ASC" <?php checked('ASC', $options['order']); ?>/>
+			<?php _e('DESC:', $org_domain); ?> <input type="radio" id="DESC" name="order" value="DESC" <?php checked('DESC', $options['order']); ?>/>
 			</label>
-			<label for="hide_empty" style="line-height: 45px; display: block;">Don't show series with no posts?
+			<label for="hide_empty" style="line-height: 45px; display: block;"><?php _e('Don\'t show series with no posts?', $org_domain); ?>
 			<input type="checkbox" name="hide_empty" id="hide_empty" value="true" <?php checked('true', $options['hide_empty']); ?> />
 			</label>
 			<input type="hidden" name="orgSeries_latest_series_widget_submit" id= "orgSeries_latest_series_widget_submit" value="1" />

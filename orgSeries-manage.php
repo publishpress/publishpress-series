@@ -1,6 +1,8 @@
 <?php
 //This file contains all the code related to managing the series the user has created (similar to the category management interface).  A lot of this code has been mirrored from the core categories.php file in WordPress.
 
+global $org_domain;
+
 if ( file_exists('orgSeries_includes.php') )
 	require_once('orgSeries_includes.php');
 
@@ -13,7 +15,7 @@ case 'addseries':
 	check_admin_referer('series-add');
 	
 	if ( !current_user_can('manage_series') ) 
-		wp_die(__('Cheatin&#8217; uh?'));
+		wp_die(__('Cheatin&#8217; uh?', $org_domain));
 	
 	if( wp_insert_series($_POST) ) { 
 		wp_redirect('../../../wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php&message=1#addseries'); 
@@ -28,7 +30,7 @@ case 'delete':
 	check_admin_referer('delete-series_' . $series_ID); 
 	
 	if ( !current_user_can('manage_series') )
-		wp_die(__('Cheatin&#8217; uh?'));
+		wp_die(__('Cheatin&#8217; uh?'), $org_domain);
 		
 	wp_delete_series($series_ID);
 	
@@ -67,11 +69,11 @@ break;
 
 default:
 
-$messages[1] = __('Series added.');
-$messages[2] = __('Series deleted.');
-$messages[3] = __('Series updated.');
-$messages[4] = __('Series not added.');
-$messages[5] = __('Series not updated.');
+$messages[1] = __('Series added.', $org_domain);
+$messages[2] = __('Series deleted.', $org_domain);
+$messages[3] = __('Series updated.', $org_domain);
+$messages[4] = __('Series not added.', $org_domain);
+$messages[5] = __('Series not updated.', $org_domain);
 ?>
 
 <?php if (isset($_GET['message'])) : ?>
@@ -82,9 +84,9 @@ $messages[5] = __('Series not updated.');
 <div class="wrap">
 
 <?php if ( current_user_can('manage_series') ) : ?>
-	<h2><?php printf(__('Manage Series (<a href="%s">add new</a>)'), '#addseries') ?></h2>
+	<h2><?php printf(__('Manage Series (<a href="%s">add new</a>)', $org_domain), '#addseries') ?></h2>
 <?php else : ?>
-	<h2><?php _e('Series') ?></h2>
+	<h2><?php _e('Series', $org_domain) ?></h2>
 <?php endif; ?>
 <div id="col-container">
 <div id="col-right">
@@ -92,11 +94,11 @@ $messages[5] = __('Series not updated.');
 	<thead>
 	<tr>
 		<th scope="col" style="text-align: center"><?php _e('ID') ?></th>
-		<th scope="col"><?php _e('Name') ?></th>
-		<th scope="col"><?php _e('Description') ?></th>
-		<th scope="col" width="90" style="text-align: center"><?php _e('Posts') ?></th>
-		<th scope="col" width="50" style="text-align: center"><?php _e('Icon') ?></th>
-		<th colspan="2" style="text-align: center"><?php _e('Action') ?></th>
+		<th scope="col"><?php _e('Name', $org_domain) ?></th>
+		<th scope="col"><?php _e('Description', $org_domain) ?></th>
+		<th scope="col" width="90" style="text-align: center"><?php _e('Posts', $org_domain) ?></th>
+		<th scope="col" width="50" style="text-align: center"><?php _e('Icon', $org_domain) ?></th>
+		<th colspan="2" style="text-align: center"><?php _e('Action', $org_domain) ?></th>
 	</tr>
 	</thead>
 	<tbody id="the-list">
@@ -109,7 +111,7 @@ $messages[5] = __('Series not updated.');
 
 <?php if ( current_user_can('manage_series') ) : ?>
 <div class="wrap">
-<p><?php printf(__('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.')) ?></p>
+<p><?php _e('<strong>Note:</strong><br />Deleting a series will also disassociate all posts that were a part of that series.', $org_domain); ?></p>
 </div>
 
 <?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/edit-series-form.php'); ?>

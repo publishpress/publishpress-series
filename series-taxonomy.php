@@ -190,6 +190,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 
 //following is modified from wp_dropdown_categories()
 function wp_dropdown_series($args = '') {
+	global $org_domain;
 	$defaults = array(
 		'show_option_all' => '', 'show_option_none' => '',
 		'orderby' => 'ID', 'order' => 'ASC',
@@ -230,7 +231,7 @@ function wp_dropdown_series($args = '') {
 	if ( empty( $serieslist ) ) {
 		$output = '<select name="no-series" id="no-series" class="postform">';
 		$output .= "\n";
-		$output .= '<option value="-1">No Series have been started</option>';
+		$output .= '<option value="-1">'. __('No Series have been started', $org_domain) .'</option>';
 		$output .= "\n";
 		$output .= "</select>\n";
 	}
@@ -244,6 +245,7 @@ function wp_dropdown_series($args = '') {
 }
 
 function walk_series_dropdown_tree($serieslist, $r) {
+	global $org_domain;
 	$series_name = apply_filters('list_series', $serieslist->name, $serieslist);
 	$output = '';
 	$output .= "\t<option class=\"". $serieslist->slug . "\" value=\"" . $serieslist->term_id . "\"";
@@ -263,6 +265,7 @@ function walk_series_dropdown_tree($serieslist, $r) {
 }
 
 function wp_list_series($args = '') {
+	global $org_domain;
 	$defaults = array(
 	'show_option_all' => '', 'orderby' => 'name',
 		'order' => 'ASC', 'show_last_update' => 0,
@@ -289,9 +292,9 @@ function wp_list_series($args = '') {
 		
 	if ( empty($serieslist) ) {
 		if ( 'list' == $style )
-			$output .= '<li>' .__("No series") . '</li>';
+			$output .= '<li>' .__("No series", $org_domain) . '</li>';
 		else
-			$output .= __("No Series");
+			$output .= __("No Series", $org_domain);
 	
 	} else {
 		global $wp_query;
@@ -321,6 +324,7 @@ function wp_list_series($args = '') {
 }
 
 function walk_series_tree( $series, $args) {
+	global $org_domain;
 	if ( 'list' != $args['style'] )
 		return $series;
 	
@@ -331,7 +335,7 @@ function walk_series_tree( $series, $args) {
 	$link = '<a href="' . get_series_link( $series->term_id ) . '" ';
 	$output = '';
 	if ( $use_desc_for_title == 0 || empty($series->description) )
-		$link .= 'title="' . sprintf(__( 'View all posts filed under %s' ), $series_name) . '"';
+		$link .= 'title="' . sprintf(__( 'View all posts filed under %s', $org_domain ), $series_name) . '"';
 	else
 		$link .= 'title="' . attribute_escape( apply_filters( 'series_description' , $series->description, $series )) . '"';
 	$link .= '>';
@@ -346,7 +350,7 @@ function walk_series_tree( $series, $args) {
 		$link .= '<a href="' . get_series_rss_link( 0, $series->term_id, $series->slug ) . '"';
 		
 		if ( empty($feed) )
-			$alt = ' alt="' . sprintf(__( 'Feed for all posts belonging to %s' ), $series_name ) . '"';
+			$alt = ' alt="' . sprintf(__( 'Feed for all posts belonging to %s', $org_domain ), $series_name ) . '"';
 		else {
 			$title = ' title="' . $feed . '"';
 			$alt = ' alt="' . $feed . '"';
@@ -576,13 +580,14 @@ function wp_update_series($serarr) {
 }
 
 function inline_edit_series($column_name, $type) {
+	global $org_domain;
 	if ( $type == 'post' ) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline-edit-group">
 		<label class="inline-edit-series">
-			Series: <?php wp_dropdown_series('name=post_series&hide_empty=0&show_option_all="No Series"'); ?>
-			Part: <input size="3" type="text" name="series_part" value="" />
+			<?php _e('Series:', $org_domain);  wp_dropdown_series('name=post_series&hide_empty=0&show_option_all="No Series"'); ?>
+			<?php _e('Part:', $org_domain); ?> <input size="3" type="text" name="series_part" value="" />
 		</label>
 		</div>
 	</div></fieldset>

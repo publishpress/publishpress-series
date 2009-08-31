@@ -341,19 +341,19 @@ function series_rows( $series = 0 ) {
 }
 
 function _series_row($series) {
-	global $class, $wp_version;
+	global $class, $wp_version, $org_domain;
 	
 	$series_icon = series_get_icons($series->term_id);
 	$series_url = seriesicons_url();
 	$icon = $series_url . '/' . $series_icon;
 	
 	if ( current_user_can( 'manage_series' ) ) {
-		$edit = "<a href='edit.php?page=" .  SERIES_DIR . "/orgSeries-manage.php&amp;action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit' )."</a></td>";
+		$edit = "<a href='edit.php?page=" .  SERIES_DIR . "/orgSeries-manage.php&amp;action=edit&amp;series_ID=$series->term_id' class='edit'>".__( 'Edit', $org_domain )."</a></td>";
 		
 		if ( isset( $wp_version ) && $wp_version >= 2.5 )
-			$edit .=  "<td><a href='" . wp_nonce_url("edit.php?page=" . SERIES_DIR . "/orgSeries-manage.php&action=delete&amp;series_ID=$series->term_id&noheader=1", 'delete-series_' . $series->term_id ) . "' class='delete'>".__( 'Delete' )."</a>";
+			$edit .=  "<td><a href='" . wp_nonce_url("edit.php?page=" . SERIES_DIR . "/orgSeries-manage.php&action=delete&amp;series_ID=$series->term_id&noheader=1", 'delete-series_' . $series->term_id ) . "' class='delete'>".__( 'Delete', $org_domain )."</a>";
 		else
-			$edit .= "<td><a href='" . wp_nonce_url("edit.php?page=" . SERIES_DIR . "/orgSeries-manage.php&amp;action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('serial', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop." ), $series->name  )) . "' );\" class='delete'>".__( 'Delete' )."</a>";
+			$edit .= "<td><a href='" . wp_nonce_url("edit.php?page=" . SERIES_DIR . "/orgSeries-manage.php&amp;action=delete&amp;series_ID=$series->term_id", 'delete-series_' . $series->term_id ) . "' onclick=\"return deleteSomething('serial', $series->term_id, '" . js_escape(sprintf( __("You are about to delete the series '%s'. \nAll posts that were assigned to this series will be disassociated from the series.\n'OK' to delete, 'Cancel' to stop.", $org_domain ), $series->name  )) . "' );\" class='delete'>".__( 'Delete', $org_domain )."</a>";
 	} else
 		$edit = '';
 	
@@ -370,7 +370,7 @@ function _series_row($series) {
 		<td align='center'>$posts_count</td>
 		<td>";
 		if (!$series_icon) {
-			$output .= "No icon selected";
+			$output .= __('No icon selected', $org_domain);
 			} else {
 			$output .= "<img src='" . $icon . "' title='" . $series_icon . "' width='50' alt='" . $icon . "' />";
 			}

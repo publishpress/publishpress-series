@@ -15,7 +15,7 @@
 * 
 * @uses is_single() - checks if this is a single post page being displayed.
 * @uses  get_the_series() - returns the series ids of a post. 
-* @uses get_optIon() - calls up the 'org_series_options' field from the _options table.
+* @uses get_option() - calls up the 'org_series_options' field from the _options table.
 * @uses get_objects_in_term() - WordPress core function for accessing the taxonomy tables and pulling up all the posts associated with the supplied taxonomy id and taxonomy.
 * @uses get_series_order() - Takes the array of posts in a series and returns it sorted by post order.
 * @uses series_post_title() - Finds and displays the title of a post that is part of the series.
@@ -107,18 +107,19 @@ function wp_postlist_display() {
  * @since 2.0
  * 
  * @uses get_option()  'org_series_options' from the _options table.
- * @uses get_bloginfo() Pulls the 'siteurl' as set in WordPress options. 
  *
  * @param bool $link if true echos the link in href format.  If false returns the uri of the series_toc
  *
  * @return string $url The uri of the series_toc. 
 */
 function get_series_toc( $link = TRUE ) {
+	global $org_domain;
 	$options = get_option('org_series_options');
 	$series_toc = $options['series_toc_url'];
 	$url = $series_toc;
+	$title = __('All the Series I\'ve Written', $org_domain);
 	if ( $link)
-		echo '<a href="' . $url . '" title="All the Series I\'ve Written">Series</a>';
+		echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
 	else
 		return $url;
 }
@@ -371,15 +372,16 @@ function wp_assemble_series_nav() {
  * latest_series() - gets the most recent series from the database according to the latest post-modified date and uses the latest_series template from series options for how it is displayed.
  *
  * @package Organize Series WordPress Plugin
- * @since 2.0
+ * @since 2.1
  *
  * @uses get_option() - to get the 'latest_series_template' from the options table.
  * @uses $wpdb->get_col() - to query the WP database with the custom query for getting the latest series in the database.
  * @uses token_replace() - to replace all the %tokens% in the template for latest_series as set on the series options page.
  *
  * @param bool $display - if true the 'latest_series_template' will be echoed else it will be returned.
+ *@param array $args - allow for seeting criteria for the latest series being pulled from the database.
  *
- * @return string $result - the assembled lates_series code.
+ * @return string $result - the assembled latest_series code.
 */
 function latest_series($display = true, $args = '') {
 	global $wpdb;
@@ -615,7 +617,7 @@ function series_description($series_id = 0) {
 }
 
 /**
- * series_post_title() - gets the post title of a post that is part of the series with the supplied post_ID (if not inl loop - if in loop the post ID will be taken from the global $post object)
+ * series_post_title() - gets the post title of a post that is part of the series with the supplied post_ID (if not in loop - if in loop the post ID will be taken from the global $post object)
  * 
  * @package Organize Series WordPress Plugin
  * @since 2.0
@@ -645,7 +647,7 @@ function series_post_title($post_ID, $linked=TRUE) {
  * is_series() - checks if displayed page is a series related page.
  *
  * @package Organize Series WordPress Plugin
- * @since 2.8
+ * @since 2.1
  *
  * @ $wp_query;
  * 
