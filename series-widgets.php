@@ -146,9 +146,9 @@ function orgSeries_widget_latest_series_init() {
 			<?php _e('ASC:', $org_domain); ?> <input type="radio" id="ASC" name="order" value="ASC" <?php checked('ASC', $options['order']); ?>/>
 			<?php _e('DESC:', $org_domain); ?> <input type="radio" id="DESC" name="order" value="DESC" <?php checked('DESC', $options['order']); ?>/>
 			</label>
-			<label for="hide_empty" style="line-height: 45px; display: block;"><?php _e('Don\'t show series with no posts?', $org_domain); ?>
+			<?php /*<label for="hide_empty" style="line-height: 45px; display: block;"><?php _e('Don\'t show series with no posts?', $org_domain); ?>
 			<input type="checkbox" name="hide_empty" id="hide_empty" value="true" <?php checked('true', $options['hide_empty']); ?> />
-			</label>
+			</label> //FOR ADDING LATER - HIDE_EMPTY IS NOT WORKING AS EXPECTED */ ?>
 			<input type="hidden" name="orgSeries_latest_series_widget_submit" id= "orgSeries_latest_series_widget_submit" value="1" />
 		</div>
 	<?php

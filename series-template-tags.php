@@ -402,12 +402,6 @@ function latest_series($display = true, $args = '') {
 	elseif ( empty($_orderby) || 'id' == $_orderby )
 		$orderby = 't.term_id';
 		
-	if ( ! empty($number) ) {
-		$limit = 'LIMIT ' . $number;
-	
-	} else
-		$limit = '';
-		
 	$where = '';
 	
 	if ( $hide_empty ) {
@@ -416,14 +410,21 @@ function latest_series($display = true, $args = '') {
 		
 	$settings = get_option('org_series_options');
 	
-	$query = "SELECT t.term_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' $where ORDER BY $orderby $order $limit";
+	$query = "SELECT t.term_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' $where ORDER BY $orderby $order";
 	$terms = array_unique($wpdb->get_col($query));
 	$count = $number;
 	$result = '';
 	$result = stripslashes($settings['latest_series_before_template']);
-	foreach ( $terms as $latest_series ) {
-		$result .= token_replace(stripslashes($settings['latest_series_inner_template']), 'latest_series', $latest_series);
+	$k = 0;
+	
+	foreach ( $terms as $latestseries) {
+		
+		if ($k < $count) {
+			$result .= token_replace(stripslashes($settings['latest_series_inner_template']), 'latest_series', $latestseries);
+		}
+		$k++;
 	}
+	
 	$result .= stripslashes($settings['latest_series_after_template']);
 	
 	if ($display)
