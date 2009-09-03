@@ -204,6 +204,7 @@ function add_series_meta($content) {
 
 function add_series_meta_excerpt($content) {
 	global $org_domain;
+	if ( is_single() ) return;
 	$settings = get_option('org_series_options');
 	remove_filter('the_content','add_series_meta');
 	if($settings['auto_tag_seriesmeta_toggle']) {

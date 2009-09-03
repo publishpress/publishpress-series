@@ -124,7 +124,7 @@ function orgSeries_widget_latest_series_init() {
 			$options = $newoptions;
 			update_option('orgSeries_latest_series_widget', $options);
 		}
-		$seriesoptionsurl = bloginfo('wpurl') . '/wp-admin/options-general.php?page=' . SERIES_DIR . '/orgSeries-options.php';
+		$seriesoptionsurl = get_bloginfo('wpurl') . '/wp-admin/options-general.php?page=' . SERIES_DIR . '/orgSeries-options.php';
 	?>
 		<div style="text-align:right">
 			<label for="latest_series_widget_title" style="line-height:35px; display:block;"> <?php _e('Widget title:', $org_domain); ?> <input type="text" id="latest_series_widget_title" name="latest_series_widget_title" value="<?php echo $options['latest_series_widget_title']; ?>" /></label>

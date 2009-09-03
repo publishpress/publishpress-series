@@ -1,34 +1,54 @@
 === Organize Series  ===
 Contributors: nerrad
+Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=787131
 Tags: category, series, organize, post, taxonomy
-Requires at least: 2.3
-Tested up to: 2.7
+Requires at least: 2.8
+Tested up to: 2.8.4
 Stable tag: 2.0.8
 
 A plugin for managing the article series you write.
 
 == Description ==
 
-The *Organize Series plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. 
+The *Organize Series WordPress Plugin* helps with the organization and presentation of articles/posts you write as part of a series. It helps make it easier for readers of your blog to discover all the series you've written and also to easily find post that are part of the same series. 
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
-
-**Changesets from different versions can be viewed [here](http://dev.wp-plugins.org/log/organize-series) or summarized at the bottom of the "other notes" page.**
 
 Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
 
 == Installation ==
 
-**NOTE: For upgrading from earlier versions of Organize Series (1.6.3 and earlier) make sure you check out the upgrade section in the "other notes" tab. These instructions are for fresh installs of Organize Series.**
+**NOTE: As of version 2.1, Organize Series now *requires* WordPress 2.8 - for earlier versions of WordPress, use [version 2.0.8 of Organize Series](http://downloads.wordpress.org/plugin/organize-series.2.0.8.zip)**
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
 1. Download the File
 1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
 1. Activate orgSeries on your WordPress plugins page.
-1. The Series-Icons feature uploads to the default upload directory you've set for your WordPress installation (in Options/Settings->Miscellaneous).  If you want to use series-icons its **important** that you uncheck the "Organize my uploads into month- and year-based folders" box.  
+1. *NEW with Organize Series 2.1* -> the Series Icon Feature uses the built in Media Uploader/picker in WordPress.  You don't have to worry about what directory you upload your series icons into anymore.
 1. Visit the "Options/Settings->Series Options" page to initialize all the default settings.
 
-**NOTE:** If you customize the included `series.php` file (for series archive pages) and `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
+You can do the above or just use the new plugin install integrated in WordPress.
+
+= Upgrading =
+If you are upgrading from Organize Series 2.0 or above you can follow the same steps as above however **make sure you revisit the Organize Series Settings** page.  There are some new fields that you'll need to populate.  There are two ways of going about doing this:
+
+*Fill in or modify the blank fields on the options page*
+
+Specifically:
+
++  Display series navigation links checkbox -> make sure this is checked if you want your navigation links to be automatically inserted.
++  Delete all organize series datat from database... checkbox -> You can leave it unchecked UNLESS you want to have everything in your database that is organize series related removed when you delete the organize series plugin.
++  Series Meta (with excerpts) textarea -> You can now control what gets displayed with post-excerpts ( the_excerpt() ).  You can add exactly what is in the "Series Meta" textarea or modify to suit.
++  Latest Series (tags before), (inner tags), and (tags after) textareas. -> Latest Series used to have just one template but I've brokent it out into three separate areas so you can have more control over what the Latest Series widget (or template tag) displays.
+ 
+*Click the "Reset Options to Default" button*
+
+This will populate all the fields with the default settings.
+
+**IMPORTANT** This will also replace any customizations you have already set - so if you choose this option make sure you copy your custom settings FIRST so you can reapply them after.
+
+= Other Notes =
+If you customize the included `series.php` file (for series archive pages) and `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
 
 That's it!  You might want to read through the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
@@ -39,20 +59,6 @@ For support please visit [the support forums](http://unfoldingneurons.com/forums
 By default the page is already created for you and the url is `http://yourblog.com/series/` (this url can be changed via the series options page).  However, depending on your theme the layout may not be quite what you want it to be.  The output of this table of contents page is controlled both by the `series table of contents listing:` template in the series options page and the `seriestoc.php` file in your organize series plugin directory.  You can make necessary changes to the `seriestoc.php` file to match your theme (go by the layout of your index.php file) and copy it to your theme directory.
 
 Your question not answered?  Ask your usage related question on [the support forums](http://unfoldingneurons.com/forums/forum/usage-help) and I'll put the most common ones here.
-
-== Upgrading ==
-If you are visiting this section then you are probably a user of one of the older versions of Organize Series and have been waiting for me to finally get something out the door that is compatible with WP 2.3+ First, thanks for being patient - I've been frustrated myself with the time it's taken but I think it's been worth it!  The good news is that you can import all your series structures from your old setup into the new series taxonomy!!  Just follow these instructions carefully.
-
-1. Backup your WordPress database (especially if you plan on importing old series data - everything has been tested but I simply have no way of testing for every environment.  So be safe, and you won't chafe)
-1. If it isn't already, deactivate the older version of Organize Series.
-1. If you haven't already, upgrade your blog to the latest WordPress version.
-1. Make sure your other plugins are up to date EXCEPT for the category-icons plugin if you are using it.  If you plan on importing all your old series-icons then it is important that you leave the older version of category-icons (version 1.5) activated until the import is complete.
-1. Delete the old Organize Series Plugin from your server (in folder /orgSeries/).  Copy over the new plugin files (as explained via the installation instructions).
-1. Activate Organize Series
-1. Go to the Options/Settings->Series Options page.  If you are upgrading and have old series to import there should be a form at the top of the page with instructions for importing all that data.  Follow the instructions
-1. The import routine will return a message outlining all the series and posts that were imported.  After that's done go and check out all the new stuff (and make sure all your series are correct (check out the new Manage->Series page!)
-	
-For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
 
 == Screenshots ==
 
@@ -119,7 +125,7 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 
 Have fun - and get writing those series!!
 
-== ChangeSet ==
+== Changelog ==
 
 **2.0.8** - Significant fixes and a couple minor new features. NOTE - this version was ONLY MADE POSSIBLE thanks to the many people who tested the development betas and reported on bugs.  Without their help, I wouldn't have got this version out the door.  Read through the comments on the [Organize Series feed](http://unfoldingneurons.com/tag/organize-series-wordpress-plugin/feed/) to see all the people who contributed!
 
