@@ -169,7 +169,7 @@ function series_organize_options() {
 	}
 	
 	if (function_exists('add_posts_page')) {
-		add_posts_page(__('Organize Series Management',$org_domain), __('Series', $org_domain), 9, SERIES_PATH . 'orgSeries-manage.php');
+		add_posts_page(__('Organize Series Management',$org_domain), __('Post Series', $org_domain), 9, SERIES_PATH . 'orgSeries-manage.php');
 	} 
 }
 
