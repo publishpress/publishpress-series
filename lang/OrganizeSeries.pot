@@ -1,9 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
-"POT-Creation-Date: 2009-08-31 03:09+0000\n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2009-09-06 02:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -100,9 +105,9 @@ msgstr ""
 msgid "Manage Series (<a href=\"%s\">add new</a>)"
 msgstr ""
 
-#: orgSeries-manage.php:89 orgSeries.php:89 orgSeries.php:172
-#: series-admin.php:199 series-admin.php:207 series-admin.php:253
-#: series-taxonomy.php:275 series-widgets.php:20
+#: orgSeries-manage.php:89 orgSeries.php:89 series-admin.php:199
+#: series-admin.php:207 series-admin.php:253 series-taxonomy.php:275
+#: series-widgets.php:20
 msgid "Series"
 msgid_plural "Series"
 msgstr[0] ""
@@ -574,23 +579,27 @@ msgstr ""
 msgid "Organize Series Management"
 msgstr ""
 
-#: orgSeries.php:237
+#: orgSeries.php:172
+msgid "Post Series"
+msgstr ""
+
+#: orgSeries.php:238
 msgid "Series: "
 msgstr ""
 
-#: orgSeries.php:239
+#: orgSeries.php:240
 msgid "Posts from the series: "
 msgstr ""
 
-#: orgSeries.php:311
+#: orgSeries.php:312
 msgid "Settings"
 msgstr ""
 
-#: orgSeries.php:324
+#: orgSeries.php:325
 msgid "Organize Series is almost ready."
 msgstr ""
 
-#: orgSeries.php:324
+#: orgSeries.php:325
 #, php-format
 msgid ""
 "You must <a href=\"%1$s\">visit the Settings Page</a> for the options to be "
@@ -817,8 +826,4 @@ msgstr ""
 
 #: series-widgets.php:147
 msgid "DESC:"
-msgstr ""
-
-#: series-widgets.php:149
-msgid "Don't show series with no posts?"
 msgstr ""

@@ -16,6 +16,8 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
 
+**VERY IMPORTANT** - if you are upgrading, make sure you read the upgrade notes found within the Installation Tab - there are a couple of changes that affect your settings on the Series Options page.
+
 == Installation ==
 
 **NOTE: As of version 2.1, Organize Series now *requires* WordPress 2.8 - for earlier versions of WordPress, use [version 2.0.8 of Organize Series](http://downloads.wordpress.org/plugin/organize-series.2.0.8.zip)**
@@ -61,8 +63,33 @@ By default the page is already created for you and the url is `http://yourblog.c
 Your question not answered?  Ask your usage related question on [the support forums](http://unfoldingneurons.com/forums/forum/usage-help) and I'll put the most common ones here.
 
 == Screenshots ==
+1. Organize Series Options Page:  There are so many possibilities for how Organzie Series can be customized. Nearly everything can be done on the built-in options page.
 
-The screenshots section hasn't been working properly for me.  Feel free to visit the [Organize Series Plugin Page](http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin) for the goods.
+2. Manage Series Page:  All your series can be edited via the integrated "Manage Series" page.
+
+3. Also, via the "manage series" page, users can attach images to serve as a "series icon" for their series.  This is fully integrated with the built-in media uploader of WordPress.
+
+4. When writing a new post, you can use the Series Box to attach the post to a series and choose what part that post will be in the series. You can also create a new series on the fly if needed.
+
+5. Organize Series fully integrates with the Edit Posts page in WordPress.  In this screenshot you can see the custom column that lists any series information attached to a post.
+
+6. Another feature with the integration into the Edit Posts page is the ability to filter the posts shown by series.
+
+7. You can also use the "Quick-Edit" WordPress feature to edit series information for posts.
+
+8. Organize Series inserts all your series information into the "Right Now" Dashboard widget.
+
+9. Here's the screenshot for the Series Widget Settings...
+
+10. ...and the screenshot of how it looks on the blog (on a page that is part of a series).
+
+11. The screenshot of the Latest Series widget settings box...
+
+12. ...and the screenshot of the results on the blog.
+
+13. What the series-meta information strip looks like (looks can be customized).
+
+14. What the list of posts in the series looks like (also can be customized).
 
 == Features ==
 
@@ -76,11 +103,12 @@ Check these additions to your WordPress administration:
 
 +	A "Manage Series" page.
   Add, delete, edit all your series on one handy dandy page.  Functioning much like the "Manage Category" page, Organize Series makes it easy to keep track of all the series you are writing.
-+	Integration with the Manage->Posts page.
-	Now it's easier than ever to keep track of what posts have been added to series in a familiar setting.  Even better, you can also filter the post list by series (and in combination with other filters in WP 2.5) giving you a quick way to see all the posts you've already added to the series.
++	Integration with the Edit->Posts page.
+	Now it's easier than ever to keep track of what posts have been added to series in a familiar setting.  Even better, you can also filter the post list by series giving you a quick way to see all the posts you've already added to the series.
+	Organize Series also integrates with the "quick-edit" feature - so you can edit series information for posts right on this page.
   
 #### Add "prettify" recognition to your series...
-Easily associate images with your Series via the Manage->Series page.
+Easily associate images with your Series via the Manage->Series page.  Images can be easily uploaded, picked using the built-in WordPress Media uploader.
  
 #### Integration with Write/Edit posts page
 Organize Series brings a new "box" to your write/edit posts page for series related tasks:
@@ -127,7 +155,53 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
-**2.0.8** - Significant fixes and a couple minor new features. NOTE - this version was ONLY MADE POSSIBLE thanks to the many people who tested the development betas and reported on bugs.  Without their help, I wouldn't have got this version out the door.  Read through the comments on the [Organize Series feed](http://unfoldingneurons.com/tag/organize-series-wordpress-plugin/feed/) to see all the people who contributed!
+= 2.1 =
+Organize Series version 2.1 is a significant update that introduces some new features and fixes many bugs introduced with many of the more recent WordPress updates.  Notice that this version *requires* WordPress 2.8.  I decided that it's becoming too time-consuming to keep making Organize Series backwards compatible. 
+
+*New Features*
+
+* Organize Series now uses the built-in media-uploader with WordPress for selecting and uploading images to use as Series Icons.  What's cool about this is you don't have to worry about where your images are being uploaded now.  When selecting images you click the "Insert into Post" button and this will assign the image as the icon for your series.
+* There are more visual cues for what image is selected and what image is the existing image when editing series.
+* Organize Series integrates fully with the "quick-edit" feature on the Manage->Posts page.  Now you can Add, remove or change series information quicker and easier than ever before!!
+* Made the plugin much more efficient with number of queries and code execution.
+* Added an option for customizing what series information is shown when `the_excerpt()` is used ( as opposed to `the_content()` )
+* Added a link to the series options page with the Organize Series listing on the WordPress plugin page.
+* On new installs of Organize Series there will now be a warning at the top of all WordPress admin pages that the Series Options page needs to be loaded to initialize the Organize Series settings.
+* Organize Series now provides the option for users to delete all Organize Series related data from their database when deleting Organize Series using the link on the WordPress plugins page.  This option can be set via the Series Options page.
+* The `latest_series()` widget and template tag now allows for more customization of what series information is displayed.  Now users have control over: How many series are displayed and how the list is ordered.  With this addition I've also changed the `latest_series()` templates via the series options page to allow for three settings -> latest series (tags before), latest series (inner tags), and latest series (tags after).  The Latest Series widget now has more options to select what the Latest Series widget outputs.  This was one of the most requested features and I'm glad to be able to implement it.
+* added an '`auto_tag_nav_toggle`' option to the Series Options page.  Auto-insertion of Series Navigation used to be controlled by the '`auto_tag_toggle`' option (which also determines whether series_meta information is outputted automatically).  Now you can control the output of the series navigation strip separately from the series meta information.
+* fixed the series default `$plugin_url` and `$plugin_path` so it works with symlinks (thanks to patch from  [Georg S. Adamsen](http://wordpress.blogos.dk/) )
+* Localized Organize Series.  Organize Series is now fully localized so translators can bring Organize Series to other languages.  Thanks to [Benjamin Lupu](http://www.benjaminlupu.net/) for his initial work on this and for contributing the French translation of Organize Series. I welcome any other translators who'd like to contribute the translation of Organize Series into other languages!
+
+*Major Fixes*
+
+* fixed `series_description()` bug that didn't return a series description
+* restructured some of the hooks/filters so they were called in more correct places.
+* WordPress 2.8 beefed up the custom taxonomy structure making it much easier for users to create custom taxonomies.  A side-effect for Organize Series is that this created an additional "Manage Series" link in the admin menu and an additional Series Meta Box on the Add/Write Posts page.  Organize Series 2.1 removes these additions to eliminate confusion.
+* Posts that are a part of a series will no longer lose their series related information when using the quick-edit or bulk-edit feature on the Manage->posts page.
+* Fixed the link on the series widget settings so it correctly directs to the Organize Series Options page.
+* fixed dropdown in series widget so it directs to proper page using new taxonomy link format AND is xhtml compliant (moved js to the head and out of body).
+* Fixed Organize Series so that scheduled posts added to a series will not lose their series information when reaching published date.
+* Reduced number of queries to database when the series-postlist is displayed on a post page belonging to a series.  There will no longer be additional queries for each post that is part of the same series (which quickly multiplied in series with a lot of posts belonging to it).
+* added more `wp_nonce` security to the backend. Think orgSeries is all covered now.
+* fix for `the_excerpt` stripping series meta tag html.
+* Eliminated excess code not needed for earlier versions of WordPress.
+
+
+*Minor Fixes*
+
+* some fixes to `get_series_rss_link()` in orgSeries-rss.php to autodiscover `series_id` for displayed post.
+* minor fixes for guessing the location of plugin files (orgSeries.php)
+* minor fix for `wp_series_nav()` (which sometimes didn't display the right series in order for "next" and "previous" links).
+* corrected some typo errors.
+* Some security fixes -> making sure all wp_queries use $wpdb->prepare.
+* All hard-coded wp-content references are corrected to call the WP-CONTENT definition allowing for WordPress installs that renamed their wp-content directory.
+* fix for series widget displaying "Other Posts that are part of this series" outside of single post pages and with posts that are not part of a series.
+* The title attribute in series links now uses the series name instead of series id and I've added an id attribute to the links using the series id.
+
+
+= 2.0.8 =
+Significant fixes and a couple minor new features. NOTE - this version was ONLY MADE POSSIBLE thanks to the many people who tested the development betas and reported on bugs.  Without their help, I wouldn't have got this version out the door.  Read through the comments on the [Organize Series feed](http://unfoldingneurons.com/tag/organize-series-wordpress-plugin/feed/) to see all the people who contributed!
 
 *New features*
 
