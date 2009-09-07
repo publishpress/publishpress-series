@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 2.0.8
+Stable tag: 2.1
 
 A plugin for managing the article series you write.
 
@@ -23,7 +23,7 @@ Make sure you check out the features section in the "other notes" tab for all th
 **NOTE: As of version 2.1, Organize Series now *requires* WordPress 2.8 - for earlier versions of WordPress, use [version 2.0.8 of Organize Series](http://downloads.wordpress.org/plugin/organize-series.2.0.8.zip)**
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
-1. Download the File
+1. Download the File (or use the built-in updater provided by WordPress)
 1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
 1. Activate orgSeries on your WordPress plugins page.
 1. *NEW with Organize Series 2.1* -> the Series Icon Feature uses the built in Media Uploader/picker in WordPress.  You don't have to worry about what directory you upload your series icons into anymore.
