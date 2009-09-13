@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
-"POT-Creation-Date: 2009-09-06 02:56+0000\n"
+"POT-Creation-Date: 2009-09-13 19:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,9 +105,9 @@ msgstr ""
 msgid "Manage Series (<a href=\"%s\">add new</a>)"
 msgstr ""
 
-#: orgSeries-manage.php:89 orgSeries.php:89 series-admin.php:199
-#: series-admin.php:207 series-admin.php:253 series-taxonomy.php:275
-#: series-widgets.php:20
+#: orgSeries-manage.php:89 orgSeries.php:89 series-admin.php:200
+#: series-admin.php:208 series-admin.php:255 series-taxonomy.php:275
+#: series-widgets.php:21
 msgid "Series"
 msgid_plural "Series"
 msgstr[0] ""
@@ -591,15 +591,15 @@ msgstr ""
 msgid "Posts from the series: "
 msgstr ""
 
-#: orgSeries.php:312
+#: orgSeries.php:313
 msgid "Settings"
 msgstr ""
 
-#: orgSeries.php:325
+#: orgSeries.php:326
 msgid "Organize Series is almost ready."
 msgstr ""
 
-#: orgSeries.php:325
+#: orgSeries.php:326
 #, php-format
 msgid ""
 "You must <a href=\"%1$s\">visit the Settings Page</a> for the options to be "
@@ -653,21 +653,21 @@ msgid ""
 "automatically be appended to the rest of the posts in the series"
 msgstr ""
 
-#: series-admin.php:222
+#: series-admin.php:223
 #, php-format
 msgid ""
 "Part %1$s of %2$s in the series, <a href=\"%3$s\" title=\"%4$s\">%5$s</a>"
 msgstr ""
 
-#: series-admin.php:227 series-taxonomy.php:297
+#: series-admin.php:228 series-taxonomy.php:297
 msgid "No Series"
 msgstr ""
 
-#: series-admin.php:234
+#: series-admin.php:236
 msgid "View all series"
 msgstr ""
 
-#: series-admin.php:241
+#: series-admin.php:243
 msgid "Manage All Series"
 msgstr ""
 
@@ -727,103 +727,107 @@ msgstr ""
 msgid "No icon selected"
 msgstr ""
 
-#: series-widgets.php:44
+#: series-widgets.php:45
 msgid "Widget title: "
 msgstr ""
 
-#: series-widgets.php:45
+#: series-widgets.php:46
 msgid "Series list options:"
 msgstr ""
 
-#: series-widgets.php:46
+#: series-widgets.php:47
 msgid " Dropdown: "
 msgstr ""
 
-#: series-widgets.php:47
+#: series-widgets.php:48
 msgid "List: "
 msgstr ""
 
-#: series-widgets.php:48
+#: series-widgets.php:49
 msgid "Show post count?"
 msgstr ""
 
-#: series-widgets.php:49
+#: series-widgets.php:50
 msgid "Hide empty series?"
 msgstr ""
 
-#: series-widgets.php:50
+#: series-widgets.php:51
 msgid "Post List toggle:"
 msgstr ""
 
-#: series-widgets.php:50
+#: series-widgets.php:51
 msgid ""
 "(use to select if a list of other posts in the series will show on post-"
 "pages that are part of a series)"
 msgstr ""
 
-#: series-widgets.php:77
+#: series-widgets.php:78
 msgid "Select Series"
 msgstr ""
 
-#: series-widgets.php:80
+#: series-widgets.php:81
 msgid "Other posts belonging to this series"
 msgstr ""
 
-#: series-widgets.php:105
+#: series-widgets.php:91 series-widgets.php:92
+msgid "Series Widget"
+msgstr ""
+
+#: series-widgets.php:106
 msgid "Most Recent Series"
 msgstr ""
 
-#: series-widgets.php:130
+#: series-widgets.php:131
 msgid "Widget title:"
 msgstr ""
 
-#: series-widgets.php:131
+#: series-widgets.php:132
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the latest-series-"
 "template on the <a href=\"%s\">Series Options</a> page."
 msgstr ""
 
-#: series-widgets.php:132
+#: series-widgets.php:133
 msgid "Options for listing the Latest Series"
 msgstr ""
 
-#: series-widgets.php:133
+#: series-widgets.php:134
 msgid "Orderby:"
 msgstr ""
 
-#: series-widgets.php:135
+#: series-widgets.php:136
 msgid "Post Modified"
 msgstr ""
 
-#: series-widgets.php:136
+#: series-widgets.php:137
 msgid "Number of Posts in Series"
 msgstr ""
 
-#: series-widgets.php:137
+#: series-widgets.php:138
 msgid "Name of Series"
 msgstr ""
 
-#: series-widgets.php:138
+#: series-widgets.php:139
 msgid "Series Slug"
 msgstr ""
 
-#: series-widgets.php:139
+#: series-widgets.php:140
 msgid "Series ID"
 msgstr ""
 
-#: series-widgets.php:142
+#: series-widgets.php:143
 msgid "Number of series to display:"
 msgstr ""
 
-#: series-widgets.php:145
+#: series-widgets.php:146
 msgid "Display Order:"
 msgstr ""
 
-#: series-widgets.php:146
+#: series-widgets.php:147
 msgid "ASC:"
 msgstr ""
 
-#: series-widgets.php:147
+#: series-widgets.php:148
 msgid "DESC:"
 msgstr ""
