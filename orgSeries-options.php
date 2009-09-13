@@ -241,7 +241,7 @@ function org_series_echo_fieldset_mainsettings($settings) {
 				<small><em><?php _e('Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]', $org_domain); ?></em></small>
 				<br />
 				<br />
-					<strong><?php _e('Series Table of Contents URL:', $org_domain); ?>></strong><br />
+					<strong><?php _e('Series Table of Contents URL:', $org_domain); ?></strong><br />
 					<?php bloginfo('home') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
 				<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown', $org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Table of Contents Title:', $org_domain); ?></strong><input type="text" name="series_toc_title" value="<?php echo htmlspecialchars($settings['series_toc_title']); ?>" /><br />

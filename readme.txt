@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 2.1
+Stable tag: 2.1.1
 
 A plugin for managing the article series you write.
 
@@ -155,6 +155,16 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
+= 2.1.1 =
+This is a recommended upgrade to fix a major bug listed below.
+
+*Major Fixes*
+
+* fixed a bug that occured when comments were added to a post that was part of a series.  When a comment was made the post would lose all series information.  
+
+*Minor Fixes*
+* a typo on the Organize Series Options page.
+
 = 2.1 =
 Organize Series version 2.1 is a significant update that introduces some new features and fixes many bugs introduced with many of the more recent WordPress updates.  Notice that this version *requires* WordPress 2.8.  I decided that it's becoming too time-consuming to keep making Organize Series backwards compatible. 
 
@@ -171,7 +181,7 @@ Organize Series version 2.1 is a significant update that introduces some new fea
 * The `latest_series()` widget and template tag now allows for more customization of what series information is displayed.  Now users have control over: How many series are displayed and how the list is ordered.  With this addition I've also changed the `latest_series()` templates via the series options page to allow for three settings -> latest series (tags before), latest series (inner tags), and latest series (tags after).  The Latest Series widget now has more options to select what the Latest Series widget outputs.  This was one of the most requested features and I'm glad to be able to implement it.
 * added an '`auto_tag_nav_toggle`' option to the Series Options page.  Auto-insertion of Series Navigation used to be controlled by the '`auto_tag_toggle`' option (which also determines whether series_meta information is outputted automatically).  Now you can control the output of the series navigation strip separately from the series meta information.
 * fixed the series default `$plugin_url` and `$plugin_path` so it works with symlinks (thanks to patch from  [Georg S. Adamsen](http://wordpress.blogos.dk/) )
-* Localized Organize Series.  Organize Series is now fully localized so translators can bring Organize Series to other languages.  Thanks to [Benjamin Lupu](http://www.benjaminlupu.net/) for his initial work on this and for contributing the French translation of Organize Series. I welcome any other translators who'd like to contribute the translation of Organize Series into other languages!
+* Localized Organize Series.  Organize Series is now fully localized so translators can bring Organize Series to other languages.  Thanks to [Benjamin Lupu](http://www.benjaminlupu.net/) for his initial work on this. I welcome any other translators who'd like to contribute the translation of Organize Series into other languages!
 
 *Major Fixes*
 

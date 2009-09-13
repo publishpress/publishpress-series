@@ -392,7 +392,7 @@ function walk_series_tree( $series, $args) {
 }
 function wp_set_post_series_transition( $post ){
 	remove_action('save_post', 'wp_set_post_series');
-	remove_action('edit_post', 'wp_set_post_series');
+	remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	$series_id = $ser_id[0];
@@ -624,7 +624,7 @@ add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
 add_action('save_post','wp_set_post_series',10,3);
-add_action('edit_post','wp_set_post_series',10,3);
+add_action('publish_post','wp_set_post_series',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',1,1);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 ?>
