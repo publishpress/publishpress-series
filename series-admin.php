@@ -196,7 +196,8 @@ global $post, $postdata, $content, $org_domain;
 add_action('admin_menu', 'orgseries_add_meta_box');
 
 function orgseries_add_meta_box() {
-	add_meta_box('seriesdiv', __('Series'), 'series_edit_meta_box', 'post', 'advanced', 'core');
+	global $org_domain;
+	add_meta_box('seriesdiv', __('Series', $org_domain), 'series_edit_meta_box', 'post', 'advanced', 'core');
 	remove_meta_box('tagsdiv-series', 'post', 'advanced');
 }
 
@@ -230,8 +231,9 @@ function orgSeries_custom_column_action($column_name, $id) {
 }
 
 function orgSeries_custom_manage_posts_filter() {
+	global $org_domain
 	if (isset($_GET['series'])) $_GET['series'] = (int) $_GET['series'];
-	wp_dropdown_series('show_option_all='.__('View all series').'&hide_empty=1&show_count=1&selected='.$_GET['series']);
+	wp_dropdown_series('show_option_all='.__('View all series', $org_domain).'&hide_empty=1&show_count=1&selected='.$_GET['series']);
 }
 
 function add_series_management_link() {

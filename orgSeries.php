@@ -304,6 +304,7 @@ function unset_series_menu() {
 
 //ADD in link to settings on plugin page.
 function AddPluginActionLink( $links, $file ) {
+		global $org_domain;
 		static $this_plugin;
 		
 		if( empty($this_plugin) ) $this_plugin = plugin_basename(__FILE__);

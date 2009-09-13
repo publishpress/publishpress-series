@@ -8,6 +8,7 @@
  
  #########WIDGETS####################	
 function orgSeries_widget_seriestoc_init() {
+	global $org_domain;
 	//Check for widget API
 	if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
 		return;
@@ -87,8 +88,8 @@ function orgSeries_widget_seriestoc_init() {
 	}
 	
 	//Get the sidebar to load up the widget and it's control
-	register_sidebar_widget('Series Widget', 'orgSeries_widget'); 
-	register_widget_control('Series Widget', 'orgSeries_widget_control', 600, 500);
+	register_sidebar_widget( __('Series Widget', $org_domain), 'orgSeries_widget'); 
+	register_widget_control( __('Series Widget', $org_domain), 'orgSeries_widget_control', 600, 500);
 
 }
 
