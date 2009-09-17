@@ -16,7 +16,7 @@ function series_addQueryVar($wpvar_array) {
 
 function series_parseQuery() {
 	//if this is a series query, then reset other is_x flags and add template redirect;
-	if (is_series()) {
+	if (is_series() && !is_feed()) {
 		global $wp_query;
 		$wp_query->is_single = false;
 		$wp_query->is_page = false;
@@ -26,8 +26,9 @@ function series_parseQuery() {
 		$wp_query->is_series = true;
 		$wp_query->is_404 = false;
 		
-		add_action('template_redirect','series_includeTemplate');
+		//add_action('template_redirect','series_includeTemplate');
 	}	
+	
 	add_filter('posts_where', 'series_postsWhere');
 	add_filter('posts_join', 'series_postsJoin');
 }
@@ -117,7 +118,8 @@ function orgSeries_request($query_vars) {
 }
 
 function series_init() {
-	global $wp_rewrite;
+	global $wp_rewrite, $wp_query;
+	$wp_query->is_series = false;
 	
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		define('SERIES_REWRITEON', '1');  //pretty permalinks please!
@@ -130,7 +132,7 @@ function series_init() {
 	
 	if (SERIES_REWRITEON && SERIES_REWRITERULES)
 		add_filter('rewrite_rules_array', 'series_createRewriteRules');
-		
+	
 	$settings = get_option('org_series_options');
 	$series_toc_url = $settings['series_toc_url'];
 	
@@ -151,6 +153,7 @@ function series_init() {
 		add_action('template_redirect', 'orgSeries_toc_template');
 	}
 	$wp_rewrite->flush_rules();
+	
 	wp_register_script('inline-edit-series','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/inline-series.js',array('inline-edit-post'));
 }
 
@@ -394,6 +397,12 @@ function get_series_permastruct() {
 	return $series_structure;
 }
 
+function series_feeds() {
+	global $wp_query;
+	if (is_series() && is_feed()) {
+	  do_feed_rss2(false);
+	 }
+}
 /**
  * All add_action() and add_filter() calls go here (that are not within functions/methods)
 */
@@ -405,4 +414,5 @@ add_action( 'init', 'series_init', 0 );
 //for series queries
 add_filter('query_vars', 'series_addQueryVar');
 add_action('parse_query','series_parseQuery');
+//add_action('wp','series_feeds');
 ?>

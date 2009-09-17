@@ -379,7 +379,8 @@ function walk_series_tree( $series, $args) {
 	if ( 'list' == $args['style'] ) {
 		$output .= "\t<li";
 		$class = 'series-item series-item-'.$series->term_id;
-		if ( $current_series && ($series->term_id == $current_series) )
+		
+		if ( isset($current_series) && ($series->term_id == $current_series) )
 			$class .= ' current-series';
 		$output .= ' class="'.$class.'"';
 		$output .= ">$link\n";

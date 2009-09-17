@@ -613,6 +613,8 @@ function series_description($series_id = 0) {
 		if ( !empty($ser_var) ) 
 			$series_id = $ser_var['term_id'];
 	}
+	
+	if ($series_id == '') return false;
 		
 	return get_term_field('description', $series_id, 'series');
 }
