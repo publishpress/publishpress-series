@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
-"POT-Creation-Date: 2009-09-13 19:13+0000\n"
+"POT-Creation-Date: 2009-09-26 04:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,7 @@ msgid ""
 "posts that were a part of that series."
 msgstr ""
 
-#: orgSeries-options.php:21 series-utility.php:168
+#: orgSeries-options.php:21 series-utility.php:171
 msgid "Series Table of Contents"
 msgstr ""
 
@@ -689,11 +689,11 @@ msgstr ""
 msgid "Feed for all posts belonging to %s"
 msgstr ""
 
-#: series-taxonomy.php:589
+#: series-taxonomy.php:590
 msgid "Series:"
 msgstr ""
 
-#: series-taxonomy.php:590
+#: series-taxonomy.php:591
 msgid "Part:"
 msgstr ""
 
@@ -706,15 +706,15 @@ msgstr ""
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr ""
 
-#: series-utility.php:351
+#: series-utility.php:354
 msgid "Edit"
 msgstr ""
 
-#: series-utility.php:354 series-utility.php:356
+#: series-utility.php:357 series-utility.php:359
 msgid "Delete"
 msgstr ""
 
-#: series-utility.php:356
+#: series-utility.php:359
 #, php-format
 msgid ""
 "You are about to delete the series '%s'. \n"
@@ -723,7 +723,7 @@ msgid ""
 "'OK' to delete, 'Cancel' to stop."
 msgstr ""
 
-#: series-utility.php:373
+#: series-utility.php:376
 msgid "No icon selected"
 msgstr ""
 
@@ -830,4 +830,8 @@ msgstr ""
 
 #: series-widgets.php:148
 msgid "DESC:"
+msgstr ""
+
+#: series-widgets.php:174 series-widgets.php:175
+msgid "Latest Series"
 msgstr ""

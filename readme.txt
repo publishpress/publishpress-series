@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 
 A plugin for managing the article series you write.
 
@@ -154,6 +154,18 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == Changelog ==
+
+= 2.1.2 = 
+
+*Major Fixes*
+
+* fixed problems that were happenening with excerpts (I'm pretty sure I squashed this bug - if you notice differently please [add to this thread](http://unfoldingneurons.com/forums/topic/excerpt-problem-with-newest-plugin-version-21)
+
+* Series Feeds weren't working.  Now they are.
+
+*Minor Fixes*
+
+* a couple of missed localization tags.
 
 = 2.1.1 =
 This is a recommended upgrade to fix a major bug listed below.
