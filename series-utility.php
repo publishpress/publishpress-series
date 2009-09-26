@@ -26,7 +26,7 @@ function series_parseQuery() {
 		$wp_query->is_series = true;
 		$wp_query->is_404 = false;
 		
-		//add_action('template_redirect','series_includeTemplate');
+		add_action('template_redirect','series_includeTemplate');
 	}	
 	
 	add_filter('posts_where', 'series_postsWhere');
