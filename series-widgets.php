@@ -171,8 +171,8 @@ function orgSeries_widget_latest_series_init() {
 		echo $after_widget;
 	}
 	
-	register_sidebar_widget('Latest Series', 'orgSeries_latest_series_widget');
-	register_widget_control('Latest Series', 'orgSeries_latest_series_widget_control');
+	register_sidebar_widget( __('Latest Series', $org_domain), 'orgSeries_latest_series_widget');
+	register_widget_control( __('Latest Series', $org_domain), 'orgSeries_latest_series_widget_control');
 
 }
 		

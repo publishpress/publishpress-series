@@ -312,7 +312,7 @@ function org_series_echo_series_templates($settings) {
 			<small><?php _e('This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]', $org_domain); ?></small><br />
 			<textarea name="series_meta_excerpt_template" id="series_meta_excerpt_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_excerpt_template']); ?></textarea><br />
 			<br />
-			<strong><?php _e('Latest Series (tags before):'); ?></strong><br />
+			<strong><?php _e('Latest Series (tags before):', $org_domain); ?></strong><br />
 			<small><?php _e('Put here any html you want before latest series information NOTE: series template tokens WILL NOT be converted here.', $org_domain); ?></small><br />
 			<textarea name="latest_series_before_template" id="latest_series_before_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['latest_series_before_template']); ?></textarea><br />
 			<br />
