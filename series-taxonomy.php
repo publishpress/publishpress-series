@@ -188,6 +188,61 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	return true;
 }
 
+/**
+ * get_series_in_order() - calls up all the series info from the taxonomy tables in an order specified by the caller.
+ * @since ???
+ *
+ * @uses $wpdb->get_results() - to query the WP database with the custom query for getting the series in order from the database.
+ *
+ * @param string $orderby - Specify the field to order Series by (post_date, post_modified, series_name, series_slug, id, or term_id)
+ * @param string $order - Specify the order direction (ASC or DESC)
+ * @param string $postTypes - Specify the post types to include with each surrounded by quotation marks, 
+ *								if single:  "'post'"  
+ *								if multiple use comma to separate: "'post','page'"
+ * @param bool $hide_empty - If True, only Series with published posts will be included (no empty series will be included)
+ * 
+ * @return array $series - an array of all series rows as pulled from database (each series listed once)
+*/	
+
+function get_series_ordered( $args = '' ) {
+	global $wpdb;
+	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => '"post"', 'hide_empty' => TRUE);
+	$args = wp_parse_args( $args, $defaults);
+	extract($args, EXTR_SKIP);
+	
+	$orderby = strtolower($orderby);
+	if ( 'post_date' == $orderby ) {
+		if ( 'ASC' == $order ) 
+			$_orderby = 'min(tp.post_date)';		
+		else
+			$_orderby = 'max(tp.post_date)';		
+	}
+	else if ( 'post_modified' == $orderby ) {
+		if ( 'ASC' == $order ) 
+			$_orderby = 'min(tp.post_modified)';		
+		else
+			$_orderby = 'max(tp.post_modified)';		
+	}
+	else if ( 'name' == $orderby ) 
+		$_orderby = 't.name';
+	else if ( 'slug' == $orderby )
+		$_orderby = 't.slug';
+	elseif ( empty($orderby) || 'id' == $orderby || 'term_id' == $orderby )
+		$_orderby = 't.term_id';
+	elseif ( 'count' == $orderby )
+		$_orderby = 'tt.count';
+		
+	$having = '';
+	
+	if ( $hide_empty ) {
+		$having = 'HAVING count(tp.id) > 0 ';
+	}
+		
+	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status = 'publish' and tp.post_type in ($postTypes) WHERE tt.taxonomy = 'series' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
+	$series = $wpdb->get_results($query); 
+	return $series;
+}
+
 //following is modified from wp_dropdown_categories()
 function wp_dropdown_series($args = '') {
 	global $org_domain;

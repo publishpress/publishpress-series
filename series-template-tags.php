@@ -375,8 +375,9 @@ function wp_assemble_series_nav() {
  * @since 2.1
  *
  * @uses get_option() - to get the 'latest_series_template' from the options table.
- * @uses $wpdb->get_col() - to query the WP database with the custom query for getting the latest series in the database.
+ * 
  * @uses token_replace() - to replace all the %tokens% in the template for latest_series as set on the series options page.
+ * @uses get_series_ordered - to get all the series according to how it should be ordered.
  *
  * @param bool $display - if true the 'latest_series_template' will be echoed else it will be returned.
  *@param array $args - allow for seeting criteria for the latest series being pulled from the database.
@@ -389,39 +390,21 @@ function latest_series($display = true, $args = '') {
 	$args = wp_parse_args( $args, $defaults );
 	$args['number'] = absint( $args['number'] );
 	extract($args, EXTR_SKIP);
-	
-	$_orderby = strtolower($orderby);
-	if ( 'post_modified' == $_orderby )
-		$orderby = 'tp.post_modified';
-	else if ( 'count' == $_orderby )
-		$orderby = 'tt.count';
-	else if ( 'name' == $_orderby )
-		$orderby = 't.name';
-	else if ( 'slug' == $_orderby )
-		$orderby = 't.slug';
-	elseif ( empty($_orderby) || 'id' == $_orderby )
-		$orderby = 't.term_id';
-		
-	$where = '';
-	
-	if ( $hide_empty ) {
-		$where .= 'AND tt.count > 0 ';
-	}
-		
 	$settings = get_option('org_series_options');
-	
-	$query = "SELECT t.term_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id WHERE tt.taxonomy = 'series' $where ORDER BY $orderby $order";
-	$terms = array_unique($wpdb->get_col($query));
 	$count = $number;
+	
+	$terms = get_series_ordered($args);
+	
 	$result = '';
 	$result = stripslashes($settings['latest_series_before_template']);
 	$k = 0;
 	
-	foreach ( $terms as $latestseries) {
+	foreach ( $terms as $latestseries ) {
 		
 		if ($k < $count) {
-			$result .= token_replace(stripslashes($settings['latest_series_inner_template']), 'latest_series', $latestseries);
+			$result .= token_replace(stripslashes($settings['latest_series_inner_template']), 'latest_series', $latestseries->term_id); 
 		}
+		
 		$k++;
 	}
 	

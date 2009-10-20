@@ -45,13 +45,13 @@ function series_postsWhere($where) {
 		$series_var = $serchk['term_id'];
 	$whichseries = '';
 	
-	if ( !empty($series_var)  && empty($cat_var) ) {
+	if ( ( !empty($series_var) || $series_var != 0 )  && empty($cat_var) ) {
 		$whichseries .= " AND $wpdb->term_taxonomy.taxonomy = $token ";
 		$whichseries .= " AND $wpdb->term_taxonomy.term_id = $series_var ";
 	}
 		
 	//for category and series intersects
-	If ( !empty( $series_var ) && !empty($cat_var) ) {
+	If ( ( !empty( $series_var ) && $series_var != 0 ) && !empty($cat_var) ) {
 		$taxonomy = $token;
 		$t_ids = array( $cat_var, $series_var );
 		$tsql = "SELECT p.ID FROM $wpdb->posts p INNER JOIN $wpdb->term_relationships tr ON (p.ID = tr.object_id) INNER JOIN $wpdb->term_taxonomy tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) INNER JOIN $wpdb->terms t ON (tt.term_id = t.term_id)";
