@@ -233,7 +233,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 function orgSeries_custom_manage_posts_filter() {
 	global $org_domain;
 	if (isset($_GET['series'])) $_GET['series'] = (int) $_GET['series'];
-	wp_dropdown_series('show_option_all='.__('View all series', $org_domain).'&hide_empty=1&show_count=1&selected='.$_GET['series']);
+	wp_dropdown_series('show_option_all='.__('View all series', $org_domain).'&hide_empty=0&show_count=0&selected='.$_GET['series']);
 }
 
 function add_series_management_link() {
