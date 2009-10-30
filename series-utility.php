@@ -101,12 +101,17 @@ function series_includeTemplate() {
 
 function series_createRewriteRules($rules) {
 	global $wp_rewrite;
-	
+	$settings = get_option('org_series_options');
+	$custom_base = $settings['series_custom_base'];
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	$wp_rewrite->add_rewrite_tag($series_token, '(.+)', SERIES_QUERYVAR . '=');
 	
-	//without trailing slash
-	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
+	if ( $custom_base == '' )
+		$series_structure = trailingslashit( $wp_rewrite->front . SERIES_URL . "/$series_token");
+	
+	else
+		$series_structure = trailingslashit( '/' . $wp_rewrite->root . $custom_base . "/$series_token");
+		
 	$rewrite = $wp_rewrite->generate_rewrite_rules($series_structure);
 	
 	return ( $rewrite + $rules );
@@ -386,6 +391,8 @@ function _series_row($series) {
 //permalinks//
 function get_series_permastruct() {
 	global $wp_rewrite;
+	$settings = get_option('org_series_options');
+	$custom_base = $settings['series_custom_base'];
 	
 	if (empty($wp_rewrite->permalink_structure)) {
 		$series_structure = '';
@@ -393,7 +400,13 @@ function get_series_permastruct() {
 	}
 	
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$series_structure = $wp_rewrite->front . SERIES_URL . "/$series_token";
+	
+	if ( $custom_base == '' )
+		$series_structure = trailingslashit( $wp_rewrite->front . SERIES_URL . "/$series_token");
+	
+	else
+		$series_structure = trailingslashit( $wp_rewrite->root . $custom_base . "/$series_token");
+		
 	return $series_structure;
 }
 

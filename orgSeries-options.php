@@ -18,6 +18,7 @@ function org_series_init($reset = false) {
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => $url['path'] . '/series/',
+			'series_custom_base' => 'series',
 			'series_toc_title' => __('Series Table of Contents',$org_domain),
 		//new template options
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
@@ -73,6 +74,7 @@ function org_series_option_update() {
 	$settings['custom_css'] = isset($_POST['custom_css']) ? 1 : 0;
 	$settings['kill_on_delete'] = isset($_POST['kill_on_delete']) ? 1 : 0;
 	if ( isset($_POST['series_toc_url']) ) $settings['series_toc_url'] = $url['path'] . '/' . $_POST['series_toc_url'];
+	if ( isset($_POST['series_custom_base']) ) $settings['series_custom_base'] = preg_replace('#/+#', '/', '/' . $_POST['series_custom_base']);
 	if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
 	if (strlen($_POST['series_toc_url']) <=0) $settings['series_toc_url'] = FALSE;
 	if ( isset($_POST['series_toc_title']) ) $settings['series_toc_title'] = trim(stripslashes($_POST['series_toc_title']));
@@ -244,6 +246,9 @@ function org_series_echo_fieldset_mainsettings($settings) {
 					<strong><?php _e('Series Table of Contents URL:', $org_domain); ?></strong><br />
 					<?php bloginfo('home') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
 				<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown', $org_domain); ?></em></small><br /><br />
+					<strong><?php _e('Series Custom Base:', $org_domain); ?></strong><br />
+					<input type="text" name="series_custom_base" value="<?php echo htmlspecialchars($settings['series_custom_base']); ?>" /><br/>
+					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages', $org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Table of Contents Title:', $org_domain); ?></strong><input type="text" name="series_toc_title" value="<?php echo htmlspecialchars($settings['series_toc_title']); ?>" /><br />
 				<small><em><?php _e('Enter what you want to appear in the browser title when readers are viewing the series table of contents page.', $org_domain); ?></em></small><br /> <br />
 				<label for="series_posts_orderby_part">
