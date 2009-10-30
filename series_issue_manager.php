@@ -125,6 +125,7 @@ function series_issue_manager_unpublish( $series_ID, &$published, &$unpublished 
     // change all published posts in the series to pending
 	$posts = get_objects_in_term($series_ID, 'series'); 
     foreach ( $posts as $post ) {
+		if ( get_post_status($post) == 'draft' ) continue;
       wp_update_post( array(
         'ID' => $post,
         'post_status' => 'pending'

@@ -19,6 +19,7 @@
   query_posts(array(
     "post__in" => $post_IDs,
     "posts_per_page" => -1,
+	"post_status" => 'pending'
   ));
 ?>
 <div class="wrap">
@@ -82,10 +83,10 @@
     </div>
     <div id="post-body" class="has-sidebar">
       <div id="post-body-content" class="has-sidebar-content">
-        <p><?php _e('Drag the post names into the order you want them to appear, from newest to oldest.', $org_domain); ?></p>
+        <p><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part. Keep in mind that any <strong>Draft</strong> posts that are a part of this series will not show up in this list and will not be published.', $org_domain); ?></p>
         <ul class="im_article_list">
           <?php while ( have_posts() ) : the_post(); ?>
-          <li id="post-<?php the_ID(); ?>" style="cursor: move; background-color: #E4F2FD; padding: 0.25em;">
+           <li id="post-<?php the_ID(); ?>" style="cursor: move; background-color: #E4F2FD; padding: 0.25em;">
             <p class="title" style="font-weight: bold; margin: 0;"><?php the_title(); ?></p>
             <p class="author" style="padding-left: 2em; font-size: 90%; margin: 0;"><?php the_author(); ?></p>
           </li>
