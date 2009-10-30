@@ -1,6 +1,6 @@
 <?php global $org_domain; ?>
 <div class="wrap">
-  <h2><?php _e('Manage Issues', $org_domain); ?></h2>
+  <h2><?php _e('Manage Series to Publish', $org_domain); ?></h2>
   
   <table class="widefat im_category_list">
     <thead>

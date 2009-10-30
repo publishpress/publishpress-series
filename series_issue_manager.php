@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Series Issue Manager 
+Plugin Name: Organize Series Publisher
 Plugin URI: http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-Description: Allows an editor to publish an "issue", which is to say, all pending posts with a given series. Until a series is published, all posts with that series will remain in the pending state.  Credit really needs to go to  <a href="http://xplus3.net">Jonathan Brinley</a> for his original Issue Manage plugin because all I did was modify it for use with series rather than categories.  Also NOTE that this REQUIRES Organize Series to be installed or a lot of things could go wrong...
-Version: 2.1.3
+Description: Allows an editor to publish an "issue", which is to say, all pending posts with a given series. Until a series is published, all posts with that series will remain in the pending state.  Credit really needs to go to  <a href="http://xplus3.net">Jonathan Brinley</a> for his original Issue Manage plugin because all I did was modify it for use with series rather than categories.  Also NOTE that this REQUIRES Organize Series to be installed or something could go wrong...
+Version: 2.1.5
 Author: Darren Ethier 
 Author URI: http://unfoldingneurons.com
 */
@@ -11,7 +11,7 @@ Author URI: http://unfoldingneurons.com
 function series_issue_manager_manage_page(  ) {
   global $org_domain;
   if ( function_exists('add_submenu_page') ) {
-    $page = add_submenu_page( 'edit.php', __('Manage Series Issues',$org_domain), __('Series Issues',$org_domain), 'publish_posts', 'manage-issues', 'series_issue_manager_admin' );
+    $page = add_submenu_page( 'edit.php', __('Manage Series Issues',$org_domain), __('Publish Series',$org_domain), 'publish_posts', 'manage-issues', 'series_issue_manager_admin' );
     add_action("admin_print_scripts-$page", 'series_issue_manager_scripts');
   }
 }
