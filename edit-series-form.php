@@ -41,6 +41,19 @@ if ( ! empty($series_ID) ) {
 			<th scope="row" valign="top"><label for="series_description"><?php _e('Description: (optional)', $org_domain) ?></label></th>
 			<td><textarea name="series_description" id="series_description" rows="5" cols="50" style="width: 97%;"><?php echo wp_specialchars($series->description); ?></textarea></td>
 		</tr>
+		<?php
+        //Only show this checkbox if this is a NEW series and Organize Publish Series has been activated
+        $published = get_option( 'im_published_series' );
+        $unpublished = get_option( 'im_unpublished_series' );
+        if (empty ($series->term_id) && !($published === FALSE) && !($unpublished === FALSE)) { ?>
+        <tr>
+            <th scope="row" valign="top"><label for="series_publish"><?php _e('Create as:', $org_domain) ?></label></th>
+            <td>
+                <input name="series_publish" id="series_publish" type="checkbox" value="unpublish" checked /> Unpublished<br />
+				<small>When checked, all posts you assign to this series will remain unpublished until you publish the entire series.</small>
+            </td>
+        </tr>
+    <?php } ?>  
 	</table>
 		
 	<table class="form-table">	

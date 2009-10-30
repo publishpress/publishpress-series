@@ -88,7 +88,7 @@
           <?php while ( have_posts() ) : the_post(); ?>
            <li id="post-<?php the_ID(); ?>" style="cursor: move; background-color: #E4F2FD; padding: 0.25em;">
             <p class="title" style="font-weight: bold; margin: 0;"><?php the_title(); ?></p>
-            <p class="author" style="padding-left: 2em; font-size: 90%; margin: 0;"><?php the_author(); ?></p>
+            <p class="author" style="padding-left: 2em; font-size: 90%; margin: 0;"><?php the_author(); ?> &raquo; Category: <?php the_category(', ');?></p>
           </li>
           <?php endwhile; ?>
         </ul>

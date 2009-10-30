@@ -611,6 +611,19 @@ function wp_insert_series($serarr) {
 	} else {
 		$ser_ID = wp_insert_term($series_name,'series',$args);
 		$series_icon = seriesicons_write($ser_ID['term_id'], $series_icon);
+		
+		//If "Unpublish" is selected, put series Id into Unpublished array so that new posts in this
+        //Series are not accidentally published
+        if ($series_publish == 'unpublish') {
+            $unpublished = get_option( 'im_unpublished_series' );
+
+              if ( !in_array( $ser_ID['term_id'], $unpublished ) ) {
+                // add to the unpublished list
+                $unpublished[] = $ser_ID['term_id'];
+                sort( $unpublished );
+                update_option( 'im_unpublished_series', $unpublished );
+            }
+        }
 	}
 	if ( is_wp_error($ser_ID) )
 		return 0;
