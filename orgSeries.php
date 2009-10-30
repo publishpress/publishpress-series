@@ -266,26 +266,30 @@ function series_tax_init() {
 function series_dropdown_js() {
  if ( SERIES_REWRITEON == 0 ) {
 	?>
-	<script lang='javascript'><!--
-var seriesdropdown = document.getElementById("series");
+	<script type='text/javascript'><!--
+var seriesdropdown = document.getElementById("orgseries_dropdown");
+if (seriesdropdown) {
     function onSeriesChange() {
 		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
 			location.href = "<?php echo get_option('home'); ?>/?taxonomy=series&term="+seriesdropdown.options[seriesdropdown.selectedIndex].attributes.getNamedItem('class').value;
 		}
     }
     seriesdropdown.onchange = onSeriesChange;
+}
 --></script>
 	<?php
 	} else {
 	?>
-	<script lang='javascript'><!--
-var seriesdropdown = document.getElementById("series");
-    function onSeriesChange() {
+	<script type='text/javascript'><!--
+var seriesdropdown = document.getElementById("orgseries_dropdown");
+if (seriesdropdown) { 
+ function onSeriesChange() {
 		if ( seriesdropdown.options[seriesdropdown.selectedIndex].value > 0 ) {
 			location.href = "<?php echo get_option('home'); ?>/series/"+seriesdropdown.options[seriesdropdown.selectedIndex].attributes.getNamedItem('class').value;
 		}
     }
     seriesdropdown.onchange = onSeriesChange;
+}
 --></script>
 	<?php
 	}

@@ -68,7 +68,7 @@ function orgSeries_widget_seriestoc_init() {
 		<?php echo $before_widget; ?>
 			<?php echo $before_title.$options['orgSeries-widget-title'].$after_title; ?>
 			<?php
-				$series_args = "orderby=name&show_count={$c}&hide_empty={$e}&echo=1";
+				$series_args = "orderby=name&show_count={$c}&hide_empty={$e}&echo=1&name=orgseries_dropdown";
 				if ( $options['list-type'] == 'list' ) {
 						echo '<ul>';
 						wp_list_series($series_args . '&title_li=');
