@@ -165,11 +165,11 @@ function orgSeries_header() {
 function series_organize_options() {
 	global $wp_version, $org_domain;
 	if (function_exists('add_options_page')) { 
-		add_options_page(__('Organize Series Options',$org_domain), __('Series Options',$org_domain), 9, SERIES_PATH . 'orgSeries-options.php');
+		add_options_page(__('Organize Series Options',$org_domain), __('Series Options',$org_domain), 'manage_series', SERIES_PATH . 'orgSeries-options.php');
 	}
 	
 	if (function_exists('add_posts_page')) {
-		add_posts_page(__('Organize Series Management',$org_domain), __('Manage Series', $org_domain), 9, SERIES_PATH . 'orgSeries-manage.php');
+		add_posts_page(__('Organize Series Management',$org_domain), __('Manage Series', $org_domain), 'manage_series', SERIES_PATH . 'orgSeries-manage.php');
 	} 
 }
 
@@ -245,7 +245,7 @@ function add_series_wp_title( $title ) {
 //Roles and Capabilities Stuff
 function orgSeries_roles() {
 global $wp_roles, $org_domain;
-$roles = array('administrator', 'editor');
+$roles = array('Administrator', 'Editor');
 $capability = 'manage_series';
 
 	foreach ($roles as $role) {
