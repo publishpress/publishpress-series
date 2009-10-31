@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 2.1.2
+Stable tag: 2.1.5
 
 A plugin for managing the article series you write.
 
@@ -26,8 +26,9 @@ Make sure you check out the features section in the "other notes" tab for all th
 1. Download the File (or use the built-in updater provided by WordPress)
 1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
 1. Activate orgSeries on your WordPress plugins page.
-1. *NEW with Organize Series 2.1* -> the Series Icon Feature uses the built in Media Uploader/picker in WordPress.  You don't have to worry about what directory you upload your series icons into anymore.
+1. **NEW with *Organize Series* 2.1** -> the Series Icon Feature uses the built in Media Uploader/picker in WordPress.  You don't have to worry about what directory you upload your series icons into anymore.
 1. Visit the "Options/Settings->Series Options" page to initialize all the default settings.
+1. **NEW with *Organize Series 2.1.5*** -> there is now a bundled plugin called "Organize Series Publisher" that allows you to hold a series of posts for publishing at a future date and then publish them all at once when ready.  If you wish to use this plugin it must be activated after Organize Series is activated (more on this feature in the other notes section)
 
 You can do the above or just use the new plugin install integrated in WordPress.
 
@@ -55,6 +56,7 @@ If you customize the included `series.php` file (for series archive pages) and `
 That's it!  You might want to read through the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
 For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
+You can also get support from the [WordPress Help Center](http://wphelpcenter.com). This is a service I have partnered with and when you pay for support from them I receive a commission so it's a way of supporting the work I do.  When contacting them let them know my affiliate code which is *14322*.
 
 == Frequently Asked Questions ==
 = How can a create a page listing all the series I've written? =
@@ -94,6 +96,11 @@ Your question not answered?  Ask your usage related question on [the support for
 == Features ==
 
 The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not subscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
+
+#### NEWEST FEATURE: Organize Series Publisher Plugin
+Organize Series now comes bundled with a plugin that is the result of some custom work I did for [Amanda Giles](http://www.amandagiles.com) who graciously agreed to make this available to all Organize Series users.  The Organize Series Publisher plug-in allows you to quickly publish all posts linked to a Series.  It is dependent on having the Organize Series plug-in installed and activated. The Publisher plug-in works by adding a Status to each Series.  If the status for a Series is "Unpublished", all posts tied to that Series can be individually published, but those posted will be "held" until the Series itself is published.  Once the Series is "Published", all previously published posts in that series will be immediately published and visible on your site.  Any posts in a Series still in the Draft status will be left as such and will not be published (until individually published).  If you have a large number of articles, this saves time and provides a clean "publish" with no accidental broken links from unpublished posts.
+
+For more details on this feature you can check it out on the [Organize Series Plugin Page](http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin) on my website.
 
 #### Integration with WordPress taxonomy system
 Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxonomy system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
@@ -154,6 +161,37 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == Changelog ==
+
+= 2.1.5 =
+
+*New Features*
+
+* new function: get_series_ordered() - allows users to pull a list of series_ids, slugs, and names from the database ordered by whatever criteria they want. It returns an array of the data that the user will have to display as needed. (ht to [Amanda Giles](http://www.amandagiles.com) for the initial code that I modified a bit). See the inline docs in the series-taxonomy.php file around line 192.
+
+* new bundled plugin: Organize Series Publisher - allows users to set a series as "unpublished" and all posts published to that series will be held back until the author decides to publish the series all at once.  Great for creating "issues".  This plugin is the result of me being hired by [Amanda Giles](http://www.amandagiles.com) who graciously agreed to make this available to all of you!  This plugin must be activated after Organize Series is activated.
+
+* Users can now set a custom base for for series archive permalinks.  For instance, you can now change: "yourblog.com/series/someseriesname" to "yourblog.com/coolitems/someseriesname".  The place to add the custom base is at the Series Options page.  By default it is set to /series/.
+
+* link to wphelpcenter.com added to the Series Options Page.  I've partnered with wphelpcenter.com for official support and anybody paying them for help with Organize Series will be helping to support me!  It's a great service for those times where you "*need help right now*"!  When contacting them, be sure to give my affiliate number: **14322**
+
+*Major Fixes*
+
+* Fixed a validation issue reported [here](http://unfoldingneurons.com/forums/topic/ie8-shows-errors-on-page) due to some improper js code.
+
+* Posts saved as draft and then published will now show the correct number for "total posts in series".  Reported [here](http://unfoldingneurons.com/forums/topic/total_posts_in_series-not-updating).
+
+* Fixed the problem where those with the "Editor" role were unable to manage series or change series options.  Reported [here](http://wordpress.org/support/topic/320604?replies=2#post-1261455)
+
+*Minor Fixes*
+
+* A couple of mixed localization tags
+
+* Changed the name of some menu items to better correspond with docs.  "Post Series" in the Edit posts menu has been changed to "Manage Series".
+
+* Changed the series filter dropdown on the edit posts page to show all series (not just series that have posts).  This is so if you have a series where all the posts are drafts, or pending, you can still view them filtered by series.
+
+* Also fixed some typos and minor bugs throughout the code.
+
 
 = 2.1.2 = 
 

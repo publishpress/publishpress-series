@@ -109,7 +109,6 @@ function org_series_admin_page() {
 	?>
 	<div class="wrap">
 		<h2><?php _e('Organize Series Plugin Options',$org_domain); ?></h2>
-	</div>
 	<?php
 	
 	if (isset($_POST['submit_option'])) {
@@ -128,8 +127,19 @@ function org_series_admin_page() {
 
 	?>
 <div class="submitbox" id="submitpost">
-	<div class="org-series-side-info">
-		<h5><?php _e('Plugin Info', $org_domain) ?></h5>
+	 <div id="poststuff" class="metabox-holder has-right-sidebar">
+		<div id="side-info-column" class="inner-sidebar">
+			<div id="side-sortables" class="meta-box-sortables ui-sortable">
+	 <script type="text/javascript">
+		var WPHC_AFF_ID = '14322';
+		var WPHC_WP_VERSION = '<?php global $wp_version; echo $wp_version; ?>';
+		</script>
+		<script type="text/javascript"
+			src="http://cloud.wphelpcenter.com/wp-admin/0002/deliver.js">
+		</script>
+	<div id="plugin-info-div" class="postbox">
+		<h3 class="hndle"><span><?php _e('Plugin Info', $org_domain) ?></span></h3>
+		<div class="inside">
 		<p><?php _e('Plugin information can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a>',$org_domain); ?></p>
 			<p><?php _e('<a href="http://unfoldingneurons.com/series/organize-series-usage-tips" title="usage tips">For usage help check out this series!</a>',$org_domain); ?></p>
 			<p><?php _e('<a href="http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin" title="Plugin Support">Plugin Support Forums</a>',$org_domain); ?></p>
@@ -141,8 +151,11 @@ function org_series_admin_page() {
 			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
 " />
 		</form>
-	
-	<h5><?php _e('Token legend', $org_domain); ?></h5>
+		</div>
+	</div>
+	<div id="token-legend" class="postbox">
+	<h3 class="handle"><span><?php _e('Token legend', $org_domain); ?></span></h3>
+		<div class="inside">
 		<p><small><?php _e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', $org_domain); ?></small></p>
 		<strong>%series_icon%</strong><br />
 			<em><?php _e('This will be replaced with the series icon for a series.', $org_domain); ?></em><br /><br />
@@ -176,16 +189,22 @@ function org_series_admin_page() {
 			<em><?php _e('Will display the total number of posts in a series', $org_domain); ?></em><br /><br />
 		<strong>%series_description%</strong><br />
 			<em><?php _e('Will display the description for the series', $org_domain); ?></em>
-						
+		</div>
+	</div>
 	<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
+	<div id="organize-series-feed" class="postbox">	
+		<div class="inside">
 		<div id="orgseriesnews">
 			<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/organize-series-feed.php'); ?>
 		</div> <?php /*rss feed related */ ?>
+		</div>
+	</div>
 		<?php } ?>
 	</div>
 </div>
 
-<div class="wrap orgseriesleft">	
+<div id="post-body" class="has-sidebar">	
+	<div id="post-body-content" class="has-sidebar-content">
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
 	<table class="form-table">
@@ -204,6 +223,9 @@ function org_series_admin_page() {
 			<input type="submit" onclick="<?php echo $script_text; ?>;" name="reset_option" value="<?php _e('Reset options to default', $org_domain); ?>" />
 		</span>
 	</form>
+</div>
+</div>
+</div>
 </div>
 <?php
 }
