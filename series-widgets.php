@@ -158,6 +158,7 @@ function orgSeries_widget_latest_series_init() {
 	//This prints the widget
 	function orgSeries_latest_series_widget($args) {
 		extract ($args);
+		global $orgdomain;
 		$options = (array) get_option('orgSeries_latest_series_widget');
 		$hide_empty = $options['hide_empty'] ? 'true' : 'false';
 		$orderby = $options['orderby'];
