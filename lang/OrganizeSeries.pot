@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
-"POT-Creation-Date: 2009-10-31 04:40+0000\n"
+"POT-Creation-Date: 2009-10-31 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,16 @@ msgstr ""
 
 #: edit-series-form.php:50
 msgid "Create as:"
+msgstr ""
+
+#: edit-series-form.php:52 series_im_admin_main.php:32
+msgid "Unpublished"
+msgstr ""
+
+#: edit-series-form.php:53
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
 msgstr ""
 
 #: edit-series-form.php:63
@@ -869,10 +879,6 @@ msgstr ""
 
 #: series_im_admin_main.php:29
 msgid "Publish"
-msgstr ""
-
-#: series_im_admin_main.php:32
-msgid "Unpublished"
 msgstr ""
 
 #: series_im_admin_main.php:33
