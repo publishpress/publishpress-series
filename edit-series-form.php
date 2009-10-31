@@ -49,8 +49,8 @@ if ( ! empty($series_ID) ) {
         <tr>
             <th scope="row" valign="top"><label for="series_publish"><?php _e('Create as:', $org_domain) ?></label></th>
             <td>
-                <input name="series_publish" id="series_publish" type="checkbox" value="unpublish" checked /> Unpublished<br />
-				<small>When checked, all posts you assign to this series will remain unpublished until you publish the entire series.</small>
+                <input name="series_publish" id="series_publish" type="checkbox" value="unpublish" checked /> <?php _e('Unpublished', $org_domain); ?><br />
+				<small><?php _e('When checked, all posts you assign to this series will remain unpublished until you publish the entire series.', $org_domain); ?></small>
             </td>
         </tr>
     <?php } ?>  
