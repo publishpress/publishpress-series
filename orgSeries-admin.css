@@ -111,3 +111,15 @@ input #seriesadd {
 	float: left;
 	width: 60%;
 }
+
+.widefat .seriesmanage {
+	min-width: 500px;
+}
+
+.template {
+	width: 100%;
+}
+
+.seriesdescr {
+	width: 20%;
+}

@@ -182,6 +182,8 @@ Have fun - and get writing those series!!
 
 * Fixed the problem where those with the "Editor" role were unable to manage series or change series options.  Reported [here](http://wordpress.org/support/topic/320604?replies=2#post-1261455)
 
+* Updated the layout/looks of the Organize Series Options page to better fit in with WordPress 2.8+
+
 *Minor Fixes*
 
 * A couple of mixed localization tags

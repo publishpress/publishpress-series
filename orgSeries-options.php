@@ -126,7 +126,6 @@ function org_series_admin_page() {
 	$settings = get_option('org_series_options');
 
 	?>
-<div class="submitbox" id="submitpost">
 	 <div id="poststuff" class="metabox-holder has-right-sidebar">
 		<div id="side-info-column" class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
@@ -207,13 +206,15 @@ function org_series_admin_page() {
 	<div id="post-body-content" class="has-sidebar-content">
 	<form action="" method="post">
 	<input type="hidden" name="submit_option" value="1" />
-	<table class="form-table">
+	<table class="widefat seriesmanage">
+	<tbody id="the-list">
 	<?php wp_nonce_field('update_series_options'); ?>	
 <?php	
 	org_series_echo_fieldset_mainsettings($settings);
 	org_series_echo_series_templates($settings);
 	org_series_echo_series_icon($settings);
 ?>
+	</tbody>
 	</table>
 	<br />
 		<?php $submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', $org_domain); 
@@ -225,8 +226,10 @@ function org_series_admin_page() {
 	</form>
 </div>
 </div>
+<br class="clear" />
 </div>
 </div>
+
 <?php
 }
 				
@@ -236,7 +239,7 @@ function org_series_echo_fieldset_mainsettings($settings) {
 	$url = $url['path'] . '/';
 ?>
 	<tr>
-		<th scope="row" valign="top"><?php _e('Automation Settings', $org_domain); ?><br />
+		<th scope="row" valign="top" class="seriesdescr" class="seriesdescr"><?php _e('Automation Settings', $org_domain); ?><br />
 			<small><?php _e('Choose from the following options for turning on or off automatic insertion of template tags for Organize Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.', $org_domain); ?></small>
 		</th>
 			<td>
@@ -304,52 +307,52 @@ function org_series_echo_series_templates($settings) {
 	global $org_domain;
 	?>
 	<tr>
-		<th scope="row" valign="top"><?php _e('Template Tag options', $org_domain); ?><br />
+		<th scope="row" valign="top" class="seriesdescr"><?php _e('Template Tag options', $org_domain); ?><br />
 			<small><?php _e('This section is where you tell the plugin how you would like to format the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).', $org_domain); ?></small>
 		</th>
 		<td>
 			<strong><?php _e('Series Post List Template:', $org_domain); ?></strong><br />
 			<small><?php _e('This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]', $org_domain); ?></small><br />
-			<textarea name="series_post_list_template" id="series_post_list_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea><br />
+			<textarea name="series_post_list_template" id="series_post_list_template" rows="4" class="template"><?php echo htmlspecialchars($settings['series_post_list_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Series Post List Post Title Template:', $org_domain); ?></strong><br />
 			<small><?php _e('Use this to indicate what html tags will surround the post title in the series post list.', $org_domain); ?></small><br/>
-			<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea><br />
+			<textarea name="series_post_list_post_template" id="series_post_list_post_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_post_list_post_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Series Post List Current Post Title Template:', $org_domain); ?></strong><br />
 			<small><?php _e('Use this to style how you want the post title in the post list that is the same as the current post to be displayed.', $org_domain); ?></small><br />
-			<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea><br />
+			<textarea name="series_post_list_currentpost_template" id="series_post_list_currentpost_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_post_list_currentpost_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Series Post Navigation Template:', $org_domain); ?></strong><br />
 			<small><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', $org_domain); ?></small><br />
-			<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea><br />
+			<textarea name="series_post_nav_template" id="series_post_nav_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_post_nav_template']);?></textarea><br />
 			<br />
 			<input name="series_nextpost_nav_custom_text" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $settings['series_nextpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom next post navigation text.', $org_domain); ?><br />
 			<input name="series_prevpost_nav_custom_text" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $settings['series_prevpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom previous post navigation text.', $org_domain); ?><br />
 			<br />
 			<strong><?php _e('Series Table of Contents Listings:', $org_domain); ?></strong><br />
 			<small><?php _e('This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]', $org_domain); ?></small><br />
-			<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea><br />
+			<textarea name="series_table_of_contents_box_template" id="series_table_of_contents_box_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_table_of_contents_box_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Series Meta:', $org_domain); ?></strong><br />
 			<small><?php _e('This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]', $org_domain); ?></small><br />
-			<textarea name="series_meta_template" id="series_meta_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
+			<textarea name="series_meta_template" id="series_meta_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_meta_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Series Meta (with excerpts):', $org_domain); ?></strong><br />
 			<small><?php _e('This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]', $org_domain); ?></small><br />
-			<textarea name="series_meta_excerpt_template" id="series_meta_excerpt_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['series_meta_excerpt_template']); ?></textarea><br />
+			<textarea name="series_meta_excerpt_template" id="series_meta_excerpt_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['series_meta_excerpt_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Latest Series (tags before):', $org_domain); ?></strong><br />
 			<small><?php _e('Put here any html you want before latest series information NOTE: series template tokens WILL NOT be converted here.', $org_domain); ?></small><br />
-			<textarea name="latest_series_before_template" id="latest_series_before_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['latest_series_before_template']); ?></textarea><br />
+			<textarea name="latest_series_before_template" id="latest_series_before_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['latest_series_before_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Latest Series (inner tags):', $org_domain); ?></strong><br />
 			<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: Organize Series %tokens% can be used in this field.', $org_domain); ?></small><br />
-			<textarea name="latest_series_inner_template" id="latest_series_inner_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['latest_series_inner_template']); ?></textarea><br />
+			<textarea name="latest_series_inner_template" id="latest_series_inner_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['latest_series_inner_template']); ?></textarea><br />
 			<br />
 			<strong><?php _e('Latest Series (tags after):', $org_domain); ?></strong><br />
 			<small><?php _e('Put here any html you want after latest series information NOTE: series template tokens WILL NOT be converted here.', $org_domain); ?></small><br />
-			<textarea name="latest_series_after_template" id="latest_series_after_template" rows="4" cols="80" class="template"><?php echo htmlspecialchars($settings['latest_series_after_template']); ?></textarea><br />
+			<textarea name="latest_series_after_template" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($settings['latest_series_after_template']); ?></textarea><br />
 		</td>
 	</tr>
 	<?php
@@ -359,7 +362,7 @@ function org_series_echo_series_icon($settings) {
 	global $org_domain;
 ?>
 	<tr>
-		<th scope="row" valign="top"><?php _e('Series Icon Options', $org_domain); ?><br />
+		<th scope="row" valign="top" class="seriesdescr"><?php _e('Series Icon Options', $org_domain); ?><br />
 			<small><?php _e('This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed. All images for series-icons will upload into your default wordpress upload directory.', $org_domain); ?></small>
 		</th>
 		<td>
