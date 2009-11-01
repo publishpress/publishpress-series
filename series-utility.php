@@ -139,17 +139,13 @@ function series_init() {
 		add_filter('rewrite_rules_array', 'series_createRewriteRules');
 	
 	$settings = get_option('org_series_options');
-	$series_toc_url = $settings['series_toc_url'];
+	$series_toc_url = trim($settings['series_toc_url'], '/');
 	
 	// make sure trailing slash is always added to REQUEST_URI  
 	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
-		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '/' );
-		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '/');
-		$toccheck = $toccheck . '/';
+		$toccheck = trim( $_SERVER['REQUEST_URI'], '/' );
 	} else {
-		$toccheck = ltrim( $_SERVER['REQUEST_URI'], '\\' );
-		$toccheck = rtrim( $_SERVER['REQUEST_URI'], '\\' );
-		$toccheck = $toccheck . '\\';
+		$toccheck = trim( $_SERVER['REQUEST_URI'], '\\' );
 	}
 		
 	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {

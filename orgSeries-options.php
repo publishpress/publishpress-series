@@ -75,7 +75,7 @@ function org_series_option_update() {
 	$settings['kill_on_delete'] = isset($_POST['kill_on_delete']) ? 1 : 0;
 	if ( isset($_POST['series_toc_url']) ) $settings['series_toc_url'] = $url['path'] . '/' . $_POST['series_toc_url'];
 	if ( isset($_POST['series_custom_base']) ) $settings['series_custom_base'] = preg_replace('#/+#', '/', '/' . $_POST['series_custom_base']);
-	if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
+	//if (!ereg('.*/$', $settings['series_toc_url'])) $settings['series_toc_url'] .= '/';
 	if (strlen($_POST['series_toc_url']) <=0) $settings['series_toc_url'] = FALSE;
 	if ( isset($_POST['series_toc_title']) ) $settings['series_toc_title'] = trim(stripslashes($_POST['series_toc_title']));
 		
