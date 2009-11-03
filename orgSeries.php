@@ -244,7 +244,7 @@ function add_series_wp_title( $title ) {
 //Roles and Capabilities Stuff
 function orgSeries_roles() {
 global $wp_roles, $org_domain;
-$roles = array('Administrator', 'Editor');
+$roles = array('administrator', 'editor');
 $capability = 'manage_series';
 
 	foreach ($roles as $role) {

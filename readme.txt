@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
 Tested up to: 2.8.5
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 
 A plugin for managing the article series you write.
 
@@ -161,6 +161,16 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 Have fun - and get writing those series!!
 
 == Changelog ==
+
+= 2.1.6 =
+
+*New Features*
+
+* Just a small change that allows users to chooses whether or not the custom seriestoc URL will have a backlash after it or not.  Prior to this, Organize Series would always include the backslash even if it wasn't explicitly included via the Series Options page.
+
+*Major Fixes*
+
+* There was some typos with the roles and capabilities array used with Organize Series that resulted in new users not being able to use the plugin.  If you got a "You do not have sufficient permissions" error, that is fixed now.
 
 = 2.1.5 =
 
