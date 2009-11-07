@@ -95,6 +95,7 @@ function orgSeries_widget_seriestoc_init() {
 
 function orgSeries_widget_latest_series_init() {
 	//check for widget API
+	global $org_domain;
 	if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
 		return;
 			

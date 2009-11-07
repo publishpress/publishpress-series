@@ -322,7 +322,7 @@ function AddPluginActionLink( $links, $file ) {
 	
 //Add Admin warnings on plugin install for if OrgSeries settings  have not been initialized.
 function orgseries_admin_warnings() {
-	
+	global $org_domain;
 	if ( !get_option('org_series_is_initialized') && !isset($_POST['submit']) ) {
 		function orgseries_warning() {
 			echo "
