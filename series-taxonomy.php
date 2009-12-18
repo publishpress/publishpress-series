@@ -482,7 +482,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 		if ( $update_count_forward )
 			wp_update_term_count( $post_series, 'series', false);
 			
-		//if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 ) return; //get out of here if there's no change in series part!!
+		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 && $post->post_status == 'publish') return; //get out of here if there's no change in series part!!
 	 
 	 } else {
 		if ( $s_part )
