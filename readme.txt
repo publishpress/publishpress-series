@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 2.8
-Tested up to: 2.8.5
-Stable tag: 2.1.6
+Tested up to: 2.9
+Stable tag: 2.1.7
 
 A plugin for managing the article series you write.
 
@@ -160,7 +160,28 @@ Don't forget, if you have questions related to usage, I'm usually pretty good at
 
 Have fun - and get writing those series!!
 
+== Upgrade Notice ==
+
+= 2.1.7 =
+This version has some important bug fixes.  You should upgrade to this version (see changelog for all fixes).
+
 == Changelog ==
+
+= 2.1.7 =
+
+This version has been tested with WordPress 2.9 and all is in working order. Please use the new compatibility form for the Organize Series listing on WordPress/extend to indicate your results with using it.
+
+*Fixes*
+
+* Fixed a problem with having duplicate id selectors with the_series_title() outputs resulting in validation errors.  See the original report [here](http://unfoldingneurons.com/forums/topic/w3org-validation-issue?replies=2#post-820)
+
+* Fixed a bug resulting in Series Part numbering not propagating correctly through all posts in a series when editing a post that is part of a series.  See original report [here](http://unfoldingneurons.com/forums/topic/conflict-between-series-and-category-indexing?replies=3#post-831)
+
+* Fixed a bug where Series Meta for "the_content" was being displayed where the_excerpt was called.  See [here](http://wordpress.org/support/topic/330096?replies=2#post-1275872) for original report.
+
+* Fixed the seriestoc template not being displayed when permalinks are off. Important: When permalinks are not enabled ".../?seriestoc=x" points to the series table of contents for all series. "x" can be any number.
+- get_series_link() has been updated to direct to the correct link depending on whether permalinks are enabled or not.
+
 
 = 2.1.6 =
 
