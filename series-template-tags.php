@@ -113,15 +113,24 @@ function wp_postlist_display() {
  * @return string $url The uri of the series_toc. 
 */
 function get_series_toc( $link = TRUE ) {
-	global $org_domain;
+	global $org_domain, $wp_rewrite;
 	$options = get_option('org_series_options');
 	$series_toc = $options['series_toc_url'];
 	$url = $series_toc;
 	$title = __('All the Series I\'ve Written', $org_domain);
-	if ( $link)
-		echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
-	else
-		return $url;
+	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
+		if ( $link )
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
+		else
+			return $url;
+	} else {
+		$url = parse_url(get_bloginfo('siteurl'));
+		$url = $url['path'] . '/?seriestoc=1';
+		if ( $link )
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
+		else
+			return $url;
+	}
 }
 
 /**

@@ -14,10 +14,21 @@ function series_addQueryVar($wpvar_array) {
 	return($wpvar_array);
 }
 
+function orgSeries_toc_request($qvs) {
+	$qvs[] = 'seriestoc';
+	return $qvs;
+}
+
 function series_parseQuery() {
 	//if this is a series query, then reset other is_x flags and add template redirect;
+	global $wp_query;
+	
+	if (isset($wp_query->query_vars['seriestoc'])) {
+		add_action('template_redirect','orgSeries_toc_template');
+		return;
+	}
+	
 	if (is_series() && !is_feed()) {
-		global $wp_query;
 		$wp_query->is_single = false;
 		$wp_query->is_page = false;
 		$wp_query->is_archive = false;
@@ -141,18 +152,19 @@ function series_init() {
 	$settings = get_option('org_series_options');
 	$series_toc_url = trim($settings['series_toc_url'], '/');
 	
-	// make sure trailing slash is always added to REQUEST_URI  
+	// STUFF FOR THE SERIESTOC
 	if ( stristr( $_SERVER['REQUEST_URI'], '/' ) ) {
-		$toccheck = trim( $_SERVER['REQUEST_URI'], '/' );
-	} else {
-		$toccheck = trim( $_SERVER['REQUEST_URI'], '\\' );
-	}
-		
-	if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
-		
-		add_filter('request', 'orgSeries_request');
-		add_action('template_redirect', 'orgSeries_toc_template');
-	}
+			$toccheck = trim( $_SERVER['REQUEST_URI'], '/' );
+		} else {
+			$toccheck = trim( $_SERVER['REQUEST_URI'], '\\' );
+		}
+			
+		if ($series_toc_url && (strpos($toccheck, $series_toc_url) === 0) && (strlen($toccheck) == strlen($series_toc_url))) {
+			
+			add_filter('request', 'orgSeries_request');
+			add_action('template_redirect', 'orgSeries_toc_template');
+		}
+	
 	$wp_rewrite->flush_rules();
 	
 	wp_register_script('inline-edit-series','/'.PLUGINDIR.'/'.SERIES_DIR.'/js/inline-series.js',array('inline-edit-post'));
@@ -422,6 +434,7 @@ add_action( 'init', 'series_init', 0 );
 
 //for series queries
 add_filter('query_vars', 'series_addQueryVar');
+add_filter('query_vars','orgSeries_toc_request');
 add_action('parse_query','series_parseQuery');
 //add_action('wp','series_feeds');
 ?>
