@@ -270,10 +270,10 @@ function org_series_echo_fieldset_mainsettings($settings) {
 				<br />
 					<strong><?php _e('Series Table of Contents URL:', $org_domain); ?></strong><br />
 					<?php bloginfo('home') ?>/<input type="text" name="series_toc_url" value="<?php echo substr($settings['series_toc_url'], strlen($url)) ?>" /><br />
-				<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown', $org_domain); ?></em></small><br /><br />
+				<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', $org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Custom Base:', $org_domain); ?></strong><br />
 					<input type="text" name="series_custom_base" value="<?php echo htmlspecialchars($settings['series_custom_base']); ?>" /><br/>
-					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages', $org_domain); ?></em></small><br /><br />
+					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages. NOTE: This ONLY applies when you have "Permalinks" enabled in WordPress', $org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Table of Contents Title:', $org_domain); ?></strong><input type="text" name="series_toc_title" value="<?php echo htmlspecialchars($settings['series_toc_title']); ?>" /><br />
 				<small><em><?php _e('Enter what you want to appear in the browser title when readers are viewing the series table of contents page.', $org_domain); ?></em></small><br /> <br />
 				<label for="series_posts_orderby_part">
