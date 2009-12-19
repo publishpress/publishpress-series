@@ -201,11 +201,15 @@ function add_series_meta($content) {
 	return $content;
 }
 
+function orgseries_trim_excerpt($content) {
+	remove_filter('the_content','add_series_meta');
+	return $content;
+}
+
 function add_series_meta_excerpt($content) {
 	global $org_domain;
 	if ( is_single() ) return;
 	$settings = get_option('org_series_options');
-	remove_filter('the_content','add_series_meta');
 	if($settings['auto_tag_seriesmeta_toggle']) {
 		if ($series_meta = wp_seriesmeta_write(true)) {
 			$addcontent = $content;
@@ -369,6 +373,7 @@ add_action('the_content', 'add_series_post_list_box');
 
 //add filter to automatically add the tag for showing the meta information for each post if it is part of a series (i.e.  What part in the series it is, what's the title of the series etc.).
 add_filter('the_content', 'add_series_meta');
+add_filter('get_the_excerpt','orgseries_trim_excerpt');
 add_filter('the_excerpt', 'add_series_meta_excerpt');
 
 //add filter to automatically add the series-post-navigation strip
