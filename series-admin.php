@@ -252,7 +252,7 @@ function add_series_to_right_now() {
 	$series_text = "<a href='$manage_link'>$num</a>";
 	echo '<tr>';
 	echo '<td class="first b b-tags">'.$series_text.'</td>';
-	echo '<td class="t tags">' . __ngettext( 'Series', 'Series', $num_series, $org_domain ) . '</td>';
+	echo '<td class="t tags">' . _n( 'Series', 'Series', $num_series, $org_domain ) . '</td>';
 	echo '<td></td><td></td></tr>';
 }
 	

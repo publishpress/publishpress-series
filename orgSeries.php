@@ -3,7 +3,7 @@
 Plugin Name: Organize Series
 Plugin URI: http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 Version: 2.1.7
-Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.8 to work. 
+Description: This plugin adds a number of features to WordPress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 2.8 to work. 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
 */
@@ -20,7 +20,7 @@ $org_series_version = "2.1.7";
 ######################################
 // Organize Series Wordpress Plugin
 //
-//"Organize Series Plugin" is copyright (c) 2007,2008 Darren Ethier. This program is free software; you can redistribute it and/or
+//"Organize Series Plugin" is copyright (c) 2007-2010 Darren Ethier. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -54,7 +54,6 @@ Visit http://dev.wp-plugins.org/log/organize-series for the list of all the chan
   * Nifty function to get the name of the directory orgSeries is installed in.
 */
 function orgSeries_dir(){
-	global $org_domain;
 	if (stristr(__FILE__, '/') ) 
 		$orgdir = explode('/plugins/', dirname(__FILE__));
 	else
