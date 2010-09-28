@@ -39,11 +39,42 @@ Other UPGRADE Notes:
 1. Organize Series Publisher is NO LONGER bundled with Organize Series.  Don't worry, you can still get it, it's available on the WordPress plugin repository.  Look for [organize series publisher](http://wordpress.org/extend/plugins/organize-series-publisher/).
 
 = Other Notes =
-If you customize the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
+If you customized the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy the file over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
 
 That's it!  You might want to read through the Series Options page (as a submenu item under 'options') and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
+== Frequently Asked Questions ==
+
+**What does Organize Series do?**
+It makes it easier for you to write a series of posts on your blog/website and have them automatically linked together.
+
+**So?**
+Well, one of the best ways to build an audience on your blog/website is to write short posts about the same subject over a period of time rather than one long post.  There are numerous SEO benefits to this as well.  Organize Series takes the hassle out of managing the serial posts and you can just focus on writing.  Another way of saying this is, Organize Series takes the work out of organizing series so that you write more and your readers can EASILY follow along.
+
+**Can I customize the archive page for series?**
+You sure can!  Just create a file called `taxonomy-series.php` and copy the code from your themes `archive.php` file and use that as the basis for building out how the series archive page looks.  You'll also want to take a look at all the template tags you can use for series in the `orgSeries-template-tags.php` file.  
+
+**But I want to customize the archive page for a *single* series, can I do that?**
+Yup.  Create a file named `taxonomy-series-{series-slug}.php` file and replace `{series-slug}` with the slug of your series and you'll be good to go!
+
+**Hang on, what I really want is to create a page that lists all the series available. You probably don't have that available do you?**
+Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
+
+**Wow there are sure a lot of features and ways of customizing the Organize Series plugin.  However I'm wondering can you put in ___________ feature?**
+Over the last couple of years I've received numerous requests for extra features for Organize Series and have done some custom development work for clients who have the resources to hire me to add stuff.  I simply have not had the time to write up all the features that people request without getting paid for it. Here's the thing though, there's been some really good ideas and I realize that not everyone is able to afford what it costs for custom development.  So I decided what I'd do is move to a pay-as-you-go model for new features.  I've created a website for [Organize Series](http://organizeseries.com) where you'll find all kinds of different add-ons to Organize Series that you can purchase and use along with the core plugin. You'll want to head on over there and see if there's anything you are looking for.  I've priced the add-ons at a low price so new features are more accessible to those of you who can't afford custom development work and yet still provides a way for me to get paid for the work I've done.  It's a win-win!!  You'll also want to check out the basic-support package available as well.
+
+If you don't see an add-on that has the feature you want for Organize Series, write up a request here on the [WordPress Support Forums](http://wordpress.org/support) (make sure you tag the post with organize-series) and I might just develop it as the next add-on!!
+
+**Sounds like you are going to be moving to a paid model for Organize Series...does that mean I'll eventually have to pay for all the goodness Organize Series offers?**
+Nope.  The CORE Organize Series plugin WILL ALWAYS REMAIN FREE.  The only thing that I'm charging for going forward is support and the add-ons.  
+This will also provide extra incentive for me to keep the core plugin *rock'in* for users and always up to date with the current version of WordPress.  I will also work hard at fixing any bugs etc. that get discovered.  The core plugin has EVERYTHING a user needs to organize series on their blog and that will never change (i.e. I won't remove features from the core).  However, from time to time there are users who want something extra (e.g. the ability to "group" series) and thats where add-ons come in.  From time to time I will release free add-ons as well, you'll want to bookmark [OrganizeSeries.com](http://organizeseries.com) so you'll catch the news when that happens.
+
+Oh and one more thing.  Organize Series will always be GPL and so will ALL the add-ons that I write.  Just thought I'd put that in here.
+
+
+
 == Support ==
+
 There have been some changes to how I provide support for Organize Series. Here are the different options for support:
 1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will not be actively responding to usage/installation help.
 1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to the private support forums that I will be active on.
@@ -169,6 +200,7 @@ This version is a major update to the plugin and introduces big changes to the c
 * Some more PHPDOCs have been added to the files to make it easier to track how things work and where things are (especially helpful for developers wanting to create addons for Organize Series)
 
 *Changes*
+
 * {developer note} Core components of Organize Series have been moved to an Object model.  See the orgSeries class in orgSeries-setup.php.  Note that all the initial setup functions have been moved to this class and out of the orgSeries.php file.
 * {developer note} some files have been renamed/removed.  If you customized any Organize Series plugin files you will want to make note of the differences before upgrading.
 * {developer note} Organize Series settings (options) are now accessible via the $orgseries object.  $orgseries-settings.
