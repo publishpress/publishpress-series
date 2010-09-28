@@ -1,5 +1,12 @@
 <?php
 //This file contains all the feed related functions for organize series
+
+//add_actions for rss/atom
+add_action('rss2_item', 'the_series_rss');
+add_action('atom_entry', 'the_series_atom');
+add_action('rss2_ns','series_ns');
+add_action('atom_ns', 'series_ns');
+
 function get_series_rss_link($echo = false, $series_id = '') {
 	$permalink_structure = get_option('permalink_structure');
 	
@@ -70,10 +77,4 @@ function series_ns() {
 	$ns = 'xmlns:series="http://unfoldingneurons.com/"' . "\n\t";
 	echo $ns;
 }
-
-//add_actions for rss/atom
-add_action('rss2_item', 'the_series_rss');
-add_action('atom_entry', 'the_series_atom');
-add_action('rss2_ns','series_ns');
-add_action('atom_ns', 'series_ns');
 ?>

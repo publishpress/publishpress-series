@@ -1,6 +1,6 @@
-﻿<?php
-global $wpdb;
-$settings = get_option('org_series_options');
+<?php
+global $wpdb, $orgseries;
+$settings = $orgseries->settings;
 $delete_series = $settings['kill_on_delete'];
 
 if ( $delete_series == 1 ) {

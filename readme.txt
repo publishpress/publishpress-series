@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 2.8
-Tested up to: 2.9
-Stable tag: 2.1.7
+Requires at least: 3.0
+Tested up to: 3.0.1
+Stable tag: 2.2
 
 A plugin for managing the article series you write.
 
@@ -16,53 +16,38 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
 
-**VERY IMPORTANT** - if you are upgrading, make sure you read the upgrade notes found within the Installation Tab - there are a couple of changes that affect your settings on the Series Options page.
+**VERY IMPORTANT** - As of version 2.2, Organize Series *requires* WordPress 3.0+ to work. Organize Series also requires PHP 5.2+. 
 
 == Installation ==
 
-**NOTE: As of version 2.1, Organize Series now *requires* WordPress 2.8 - for earlier versions of WordPress, use [version 2.0.8 of Organize Series](http://downloads.wordpress.org/plugin/organize-series.2.0.8.zip)**
+**NOTE: - As of version 2.2, Organize Series *requires* WordPress 3.0+ and PHP 5.2+ to work.**
+**ALSO**: If you are upgrading make sure you read the upgrade notes as there are a couple of changes for templates.
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
 1. Download the File (or use the built-in updater provided by WordPress)
 1. Extract to a folder in `../wp-content/plugins/`. The orgSeries folder can be named whatever you want but the default is "organize-series".  The final structure would be something like this: `../wp-content/plugins/organize-series/--and all the orgSeries plugin files/folders--`
 1. Activate orgSeries on your WordPress plugins page.
-1. **NEW with *Organize Series* 2.1** -> the Series Icon Feature uses the built in Media Uploader/picker in WordPress.  You don't have to worry about what directory you upload your series icons into anymore.
-1. Visit the "Options/Settings->Series Options" page to initialize all the default settings.
-1. **NEW with *Organize Series 2.1.5*** -> there is now a bundled plugin called "Organize Series Publisher" that allows you to hold a series of posts for publishing at a future date and then publish them all at once when ready.  If you wish to use this plugin it must be activated after Organize Series is activated (more on this feature in the other notes section)
+1. The Series Icon Feature uses the built in Media Uploader/picker in WordPress.  
 
 You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
-If you are upgrading from Organize Series 2.0 or above you can follow the same steps as above however **make sure you revisit the Organize Series Settings** page.  There are some new fields that you'll need to populate.  There are two ways of going about doing this:
-
-*Fill in or modify the blank fields on the options page*
-
-Specifically:
-
-+  Display series navigation links checkbox -> make sure this is checked if you want your navigation links to be automatically inserted.
-+  Delete all organize series datat from database... checkbox -> You can leave it unchecked UNLESS you want to have everything in your database that is organize series related removed when you delete the organize series plugin.
-+  Series Meta (with excerpts) textarea -> You can now control what gets displayed with post-excerpts ( the_excerpt() ).  You can add exactly what is in the "Series Meta" textarea or modify to suit.
-+  Latest Series (tags before), (inner tags), and (tags after) textareas. -> Latest Series used to have just one template but I've brokent it out into three separate areas so you can have more control over what the Latest Series widget (or template tag) displays.
- 
-*Click the "Reset Options to Default" button*
-
-This will populate all the fields with the default settings.
-
-**IMPORTANT** This will also replace any customizations you have already set - so if you choose this option make sure you copy your custom settings FIRST so you can reapply them after.
+If you are upgrading from Organize Series 2.1 or above you can follow the same steps as above.
+Other UPGRADE Notes:
+1. Your customized `seriestoc.php` file should still work for Series Table of Contents Pages.
+1. Rename your `series.php` file (series archive pages) to `taxonomy-series.php`  - starting with version 2.2, Organize Series integrates with the built-in taxonomy template pages that WordPress provides.  You can also customize a particular series by creating a page titled `taxonomy-series-{series-name}.php` where 'series-name' is the name of the particular series you want a different archive page/look for.
+1. Organize Series Publisher is NO LONGER bundled with Organize Series.  Don't worry, you can still get it, it's available on the WordPress plugin repository.  Look for [organize series publisher](http://wordpress.org/extend/plugins/organize-series-publisher/).
 
 = Other Notes =
-If you customize the included `series.php` file (for series archive pages) and `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
+If you customize the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy those two files over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
 
-That's it!  You might want to read through the Series Options page (in the "settings" menu of WP 2.5 or "options" in earlier WP versions) and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
+That's it!  You might want to read through the Series Options page (as a submenu item under 'options') and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
-For support please visit [the support forums](http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin "For help click here!").
-You can also get support from the [WordPress Help Center](http://wphelpcenter.com). This is a service I have partnered with and when you pay for support from them I receive a commission so it's a way of supporting the work I do.  When contacting them let them know my affiliate code which is *14322*.
-
-== Frequently Asked Questions ==
-= How can a create a page listing all the series I've written? =
-By default the page is already created for you and the url is `http://yourblog.com/series/` (this url can be changed via the series options page).  However, depending on your theme the layout may not be quite what you want it to be.  The output of this table of contents page is controlled both by the `series table of contents listing:` template in the series options page and the `seriestoc.php` file in your organize series plugin directory.  You can make necessary changes to the `seriestoc.php` file to match your theme (go by the layout of your index.php file) and copy it to your theme directory.
-
-Your question not answered?  Ask your usage related question on [the support forums](http://unfoldingneurons.com/forums/forum/usage-help) and I'll put the most common ones here.
+== Support ==
+There have been some changes to how I provide support for Organize Series. Here are the different options for support:
+1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will not be actively responding to usage/installation help.
+1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to the private support forums that I will be active on.
+1. You can also get support from the [WordPress Help Center](http://wphelpcenter.com). This is a service I have partnered with and when you pay for support from them I receive a commission so it's a way of contributing towards the work I do.  When contacting them let them know my affiliate code which is *14322*.
 
 == Screenshots ==
 1. Organize Series Options Page:  There are so many possibilities for how Organzie Series can be customized. Nearly everything can be done on the built-in options page.
@@ -96,11 +81,6 @@ Your question not answered?  Ask your usage related question on [the support for
 == Features ==
 
 The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not subscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
-
-#### NEWEST FEATURE: Organize Series Publisher Plugin
-Organize Series now comes bundled with a plugin that is the result of some custom work I did for [Amanda Giles](http://www.amandagiles.com) who graciously agreed to make this available to all Organize Series users.  The Organize Series Publisher plug-in allows you to quickly publish all posts linked to a Series.  It is dependent on having the Organize Series plug-in installed and activated. The Publisher plug-in works by adding a Status to each Series.  If the status for a Series is "Unpublished", all posts tied to that Series can be individually published, but those posted will be "held" until the Series itself is published.  Once the Series is "Published", all previously published posts in that series will be immediately published and visible on your site.  Any posts in a Series still in the Draft status will be left as such and will not be published (until individually published).  If you have a large number of articles, this saves time and provides a clean "publish" with no accidental broken links from unpublished posts.
-
-For more details on this feature you can check it out on the [Organize Series Plugin Page](http://unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin) on my website.
 
 #### Integration with WordPress taxonomy system
 Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxonomy system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
@@ -147,25 +127,47 @@ Do you actually *like* going into the guts of your theme files?  Then, you'll lo
 
 You can also edit the default .css file for orgSeries OR point to your custom .css in `styles.css` for your theme.
 
-Oh, if you implement Organize Series in a cool way [let me know here](http://unfoldingneurons.com/forums/forum/user-contributed-editshacks)
+Oh, if you implement Organize Series in a cool way [let me know here](http://organizeseries.com/contact/)
 
-And one last thing I've just gotta mention...
+Oh and don't forget...
 
-#### Widgets!! Need I say more?
+#### Widgets!! There are two built-in widgets that you can use to display all your series information.  
+
+FINALLY...
+#### Organize Series Addons
+Organize series now has [it's own website](http://organizeseries.com) where you can purchase additional addons that bring additional functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested that I don't have the time to develop for free.  Providing this add-on marketplace enables me to bring the features that have been requested to users of Organize Series at an affordable price.  You'll want to check out the Basic Support package as well.
 
 == Usage ==
-There's just so much to say about how you can use Organize Series that I've decided to write a series of posts dealing with using Organize Series.  You can follow along with the series [here](http://unfoldingneurons.com/series/organize-series-usage-tips) or feast on the [feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed).
-
-Don't forget, if you have questions related to usage, I'm usually pretty good at responding to requests for help [here](http://unfoldingneurons.com/forums/forum/usage-help).
+All usage instructions are available at [OrganizeSeries.com](http://organizeseries.com). 
 
 Have fun - and get writing those series!!
 
 == Upgrade Notice ==
 
-= 2.1.7 =
-This version has some important bug fixes.  You should upgrade to this version (see changelog for all fixes).
+= 2.2 =
+This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
+
+*AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
+
 
 == Changelog ==
+
+= 2.2 =
+
+This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
+
+*AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
+
+*Highlights*
+
+* The code has been rewritten and given a full review to make it as efficient and tidy as possible.
+* Everything has been looked at to ensure the plugin integrates as tightly as possible with the built-in custom taxonomy system provided by WordPress.  Some significant changes were introduced with WordPress 3.0 that made this tighter integration possible.
+* Organize Series Publisher has been unbundled from the core plugin and is offered as a separate download via the WordPress.org repository.  It is still free.  This unbundling is part of the new direction of releasing add-ons for Organize Series. 
+* The code has been structured and given multiple new action and filter hooks for the easier implementation of "Add-ons" for extending the functionality of the core plugin.
+* The plugin now has it's own home on [OrganizeSeries.com](http://organizeseries.com)
+
+*New Features*
+
 
 = 2.1.7 =
 

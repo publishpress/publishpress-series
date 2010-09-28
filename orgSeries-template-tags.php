@@ -27,7 +27,7 @@
 * @return string The post list as a assembled string ready for display (if $display is false)
 */
 function get_series_posts( $ser_ID = '', $referral = false, $display = false ) {  
- 	global $post;
+ 	global $post, $orgseries;
 	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
 	else
@@ -46,7 +46,7 @@ function get_series_posts( $ser_ID = '', $referral = false, $display = false ) {
 	}
 	$series_post = array();
 	$posts_in_series = array();
-	$settings = get_option('org_series_options');
+	$settings = $orgseries->settings;
 	$series_post = get_objects_in_term($ser_ID, 'series'); 
 	$posts_in_series = get_series_order($series_post, 0, FALSE);
 	$result = '';
@@ -56,14 +56,15 @@ function get_series_posts( $ser_ID = '', $referral = false, $display = false ) {
 			if ( 'widget' == $referral )
 				$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
 			else
-				$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id']);
+				$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser_ID);
 			continue;
 		}
 		if ( 'widget' == $referral )
 			$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
 		else
-			$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id']);
+			$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser_ID);
 	}
+	
 	if ( !$display ) 
 		return $result;
 	else 
@@ -85,7 +86,8 @@ function get_series_posts( $ser_ID = '', $referral = false, $display = false ) {
  * @return string|bool  - if post is a part of a series then the assembled template string will be returned.  If not, then the boolean false is returned.
 */
 function wp_postlist_display() { 
-	$settings = get_option('org_series_options');
+	global $orgseries;
+	$settings = $orgseries->settings;
 	$serarray = get_the_series();
 		if (!empty($serarray)) {
 			foreach ($serarray as $series) {
@@ -113,21 +115,21 @@ function wp_postlist_display() {
  * @return string $url The uri of the series_toc. 
 */
 function get_series_toc( $link = TRUE ) {
-	global $org_domain, $wp_rewrite;
-	$options = get_option('org_series_options');
+	global $orgseries, $wp_rewrite;
+	$options = $orgseries->settings;
 	$series_toc = $options['series_toc_url'];
 	$url = $series_toc;
-	$title = __('All the Series I\'ve Written', $org_domain);
+	$title = __('All the Series I\'ve Written', $orgseries->org_domain);
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
 		else
 			return $url;
 	} else {
 		$url = parse_url(get_bloginfo('siteurl'));
 		$url = $url['path'] . '/?seriestoc=1';
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
 		else
 			return $url;
 	}
@@ -208,8 +210,8 @@ function wp_series_part( $id = 0 ) {
  * @return string|bool  - returns the completed series_meta template if post is a part of a series.  If post is not part of a series then returns the boolean false.
 */
 function wp_seriesmeta_write($excerpt = FALSE) { 
-	global $post; 
-	$settings = get_option('org_series_options');
+	global $post, $orgseries; 
+	$settings = $orgseries->settings;
 	$serarray = get_the_series();
 	if (!empty($serarray) ) {
 		foreach ($serarray as $series) {
@@ -218,12 +220,12 @@ function wp_seriesmeta_write($excerpt = FALSE) {
 	}
 	
 	if ( $excerpt && isset($serID) ) {
-		$series_meta = token_replace(stripslashes($settings['series_meta_excerpt_template']), 'other', $serID);
+		$series_meta = token_replace(stripslashes($settings['series_meta_excerpt_template']), 'other', $post->ID, $serID);
 		return $series_meta;
 	}
 	
 	if (isset($serID)) { 
-		$series_meta = token_replace(stripslashes($settings['series_meta_template']), 'other', $serID);
+		$series_meta = token_replace(stripslashes($settings['series_meta_template']), 'other', 0, $serID);
 		return $series_meta;
 	}
 	return false;
@@ -245,7 +247,8 @@ function wp_seriesmeta_write($excerpt = FALSE) {
  * @return bool false if there is no series for the provided series id.
 */
 function wp_serieslist_display_code( $series, $referral = false ) { //reusable function for display of series information
-		$settings = get_option('org_series_options');
+		global $orgseries;
+		$settings = $orgseries->settings;
 		
 		if ( isset( $series->term_id ) )
 			$serID = $series->term_id;
@@ -303,10 +306,10 @@ function wp_serieslist_display( $referral = false ) {
  * @return string $result contains the linked post (next OR previous post depending on  $next param)
 */
 function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE) {
-	global $post;
+	global $post, $orgseries;
 	$cur_id = $post->ID;
 	$cur_part = get_post_meta($cur_id, SERIES_PART_KEY, true);
-	$settings = get_option('org_series_options');
+	$settings = $orgseries->settings;
 	$custom_next = $settings['series_nextpost_nav_custom_text'];
 	$custom_prev = $settings['series_prevpost_nav_custom_text'];
 	
@@ -361,7 +364,8 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
  * @return string|bool - returns the assembled series nav strip as a string if the post is part of a series and returns the boolean false if not.
 */
 function wp_assemble_series_nav() {
-	$settings = get_option('org_series_options');
+	global $orgseries;
+	$settings = $orgseries->settings;
 	$series = get_the_series();
 		if (!empty($series)) {
 			foreach ($series as $ser) {
@@ -394,12 +398,12 @@ function wp_assemble_series_nav() {
  * @return string $result - the assembled latest_series code.
 */
 function latest_series($display = true, $args = '') {
-	global $wpdb;
+	global $wpdb, $orgseries;
 	$defaults = array('orderby' => 'post_modified', 'order' => 'ASC', 'hide_empty' => true, 'number' => '5');
 	$args = wp_parse_args( $args, $defaults );
 	$args['number'] = absint( $args['number'] );
 	extract($args, EXTR_SKIP);
-	$settings = get_option('org_series_options');
+	$settings = $orgseries->settings;
 	$count = $number;
 	
 	$terms = get_series_ordered($args);
@@ -426,7 +430,7 @@ function latest_series($display = true, $args = '') {
 }
 
 /**
- * get_series_link() - returns what the uri is for the series id passed as the parameter.
+ * get_series_link() - returns what the url is for the series id passed as the parameter.
  * requires series_id
  *
  * @package Organize Series WordPress Plugin
@@ -444,21 +448,23 @@ function latest_series($display = true, $args = '') {
 */
 function get_series_link( $series_id ) {
 	$series_token = '%' . SERIES_QUERYVAR . '%';
-	$serieslink = get_series_permastruct();
-	
-	$series = &get_term($series_id, 'series');
-	if (is_wp_error( $series ) )
-		return $series;
-	$slug = $series->slug;
-	$id = $series->term_id;
-	
-	if ( empty($serieslink) ) {
-		$file = get_option('home') . '/';
-		$serieslink = $file . '?series=' . $id;
+	if ( empty($series_id) || $series_id == null )
+		$series_slug = get_query_var(SERIES_QUERYVAR);
+		
+	if ( is_numeric($series_id) ) {
+		$series_slug = get_term_field( 'slug', $series_id, 'series' );
 	} else {
-		$serieslink = str_replace($series_token, $slug, $serieslink);
-		$serieslink = get_option('home') . user_trailingslashit($serieslink, 'series');
+		if ( $series_slug_get = get_term_by('name', htmlentities2($series_id), 'series' ) ) {
+			$series_slug = $series_slug_get;
+		} else {
+			$series_slug = $series_id;
+		}
 	}
+	
+	if ( empty($series_slug) || $series_slug == null || $series_slug == '' )
+		return false;
+		
+	$serieslink = get_term_link($series_slug, 'series');
 	
 	return apply_filters('series_link', $serieslink, $series_id); 
 }
@@ -485,7 +491,7 @@ function get_the_series_by_ID( $series_ID ) {
 }
 
 /**
- * in_series() - will check if the current post is in a given series. Works similarily to in_category()
+ * in_series() - will check if the current post is in a given series OR if the post is in ANY series (when series ID isn't provided. Works similarily to in_category()
  * Needs to be in the loop.
  *
  * @package Organize Series WordPress Plugin
@@ -500,20 +506,28 @@ function get_the_series_by_ID( $series_ID ) {
  *
  * @return bool true if the post is in the supplied series.
 */
-function in_series( $series_term = '' ) { //check if the current post is in the given series
+function in_series( $series_term = 0 ) { //check if the current post is in the given series
 	global $post;
 	
-	if ($series_term == '' ) 
+	if ( $series_term == 0  && empty($post->ID) ) 
 		return false;
 		
+	if ( $series_term == 0 ) // we're just checking if the post is in ANY series
+		$check_any = true;
+		
 	$ser_ID = get_series_ID($series_term);
-	if (0 != $ser_ID)
+	if ( $ser_ID )
 		$series_term = $ser_ID;
 	
 	$series = get_object_term_cache($post->ID, 'series');
 	
 	if ( false === $series )
 		$series = wp_get_object_terms($post->ID, 'series');
+	
+	if ( $check_any ) {
+		if ( $series ) return true;
+		else return false;
+	}
 	
 	if ( array_key_exists($series_term, $series))
 		return true;
@@ -533,10 +547,11 @@ function in_series( $series_term = '' ) { //check if the current post is in the 
  *
  * @return string $series->name
 */
-function get_series_name($series_id) {
+function get_series_name($series_id, $slug = false) {
 	$series_id = (int) $series_id;
 	$series = get_orgserial($series_id);
-	return $series->name;
+	
+	return ( $slug ) ? $series->slug : $series->name;
 }
 
 /**
@@ -601,7 +616,7 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 function series_description($series_id = 0) {
 	if ( !$series_id ) {
 		$ser_var = get_query_var(SERIES_QUERYVAR);
-		$ser_var = is_term( $ser_var, SERIES_QUERYVAR );
+		$ser_var = term_exists( $ser_var, SERIES_QUERYVAR );
 		if ( !empty($ser_var) ) 
 			$series_id = $ser_var['term_id'];
 	}
@@ -660,6 +675,24 @@ function is_series( $slug = '' ) {
 }
 
 /**
+ * is_seriestoc() - checks if displayed page is the main seriestoc page.
+ *
+ * @package Organize Series WordPress Plugin
+ * @since 2.1
+ *
+ * @ $wp_query;
+ * 
+ * @return bool true if displayed page is the seriestoc.
+*/
+function is_seriestoc() {
+	global $wp_query;
+	if ( $wp_query->is_seriestoc == true ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * get_series_icon() -  Template tag for insertion of series-icons
  * 
  * @package Organize Series WordPress Plugin
@@ -707,13 +740,14 @@ function is_series( $slug = '' ) {
 	}
 	
 	if (!isset($p['series'])) return;
-	
+		
 	$icon = series_get_icons($p['series']);
+	$s_name = get_series_name($p['series']);
 	$file = seriesicons_path() . $icon;
 	$url = seriesicons_url() . $icon;
 		
 	if ($p['link']) {
-		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
+		$p['prefix'] .= '<a href="' . get_series_link($s_name) . '">';
 		$p['suffix'] = '</a>' . $p['suffix'];
 	}
 	
@@ -737,7 +771,7 @@ function is_series( $slug = '' ) {
  * @since 2.0
  *
  * @uses get_query_var() - to get the series_id 
- * @uses is_term() - to make sure the series query var is actually a series
+ * @uses term_exists() - to make sure the series query var is actually a series
  * @uses get_term()
  * @uses is_wp_error()
  * @uses apply_filters() on 'single_series_title' with the series name.
@@ -748,7 +782,7 @@ function is_series( $slug = '' ) {
 */
 function single_series_title($prefix = '', $display = true) {
 	$series_id = get_query_var(SERIES_QUERYVAR);
-	$serchk = is_term( $series_id, SERIES_QUERYVAR );
+	$serchk = term_exists( $series_id, SERIES_QUERYVAR );
 	
 	if ( !empty($serchk) ) {
 		$series_id = $serchk['term_id'];
