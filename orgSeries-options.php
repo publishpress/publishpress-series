@@ -38,8 +38,8 @@ function orgseries_validate($input) {
 	$newinput['auto_tag_seriesmeta_toggle'] = ( $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['kill_on_delete'] = ( $input['kill_on_delete'] == 1 ? 1 : 0 );
-	$newinput['series_toc_url'] = $url['path'] . '/' . $input['series_toc_url'];
-	$newinput['series_custom_base'] = preg_replace('#/+#', '/', '/'. $input['series_custom_base']);
+	$newinput['series_toc_url'] = $url['path'] . '/' . preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
+	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
 	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
 	
