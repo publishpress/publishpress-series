@@ -96,7 +96,7 @@ function orgseries_option_page() {
 	?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br /></div>
-		<h2><?php _e('Organize Series Plugin Options', $orgseries->orgdomain); ?></h2>
+		<h2><img src="<?php echo plugins_url('/images/orgseriesicon.png', __FILE__);?>" /><?php _e('  Organize Series Plugin Options', $orgseries->orgdomain); ?></h2>
 	<?php
 	echo $org_update_message;
 	update_option('orgseries_update_message','');
@@ -104,19 +104,11 @@ function orgseries_option_page() {
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
 		<div id="side-info-column" class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
-			 <script type="text/javascript">
-				var WPHC_AFF_ID = '14322';
-				var WPHC_WP_VERSION = '<?php global $wp_version; echo $wp_version; ?>';
-				</script>
-				<script type="text/javascript"
-					src="http://cloud.wphelpcenter.com/wp-admin/0002/deliver.js">
-				</script>
+				
 				<div id="plugin-info-div" class="postbox">
 					<h3 class="hndle"><span><?php _e('Plugin Info', $orgseries->org_domain) ?></span></h3>
 					<div class="inside">
-					<p><?php _e('Plugin information can be found <a href="http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin" title="The Organize Series Plugin page at unfoldingneurons.com">here</a>',$orgseries->org_domain); ?></p>
-						<p><?php _e('<a href="http://unfoldingneurons.com/series/organize-series-usage-tips" title="usage tips">For usage help check out this series!</a>',$orgseries->org_domain); ?></p>
-						<p><?php _e('<a href="http://unfoldingneurons.com/forums/forum/organize-series-wordpress-plugin" title="Plugin Support">Plugin Support Forums</a>',$orgseries->org_domain); ?></p>
+					<p><?php _e('Plugin information can be found <a href="http://organizeseries.com" title="The Organize Series Website">here</a>',$orgseries->org_domain); ?></p>
 					<p><?php _e('If you\'d like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier\'s (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!', $orgseries->org_domain); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 						<input type="hidden" name="cmd" value="_s-xclick" />
@@ -127,6 +119,12 @@ function orgseries_option_page() {
 				</form>
 				</div>
 			</div>
+			<!-- ADS HERE -->
+			<a href="http://organizeseries.com/download" title="Click here to see all the awesome addons available"><img src="<?php echo plugins_url('/images/OS_Addons_logo.png', __FILE__); ?>" /></a>
+			<br />
+			<a href="http://organizeseries.com/pricing" title="Click here to find out about the Basic Support Package"><img src="<?php echo plugins_url('/images/OS_BasicSupport_logo.png', __FILE__); ?>" /></a>
+			<br />
+			<!-- end ads -->
 			<div id="token-legend" class="postbox">
 				<h3 class="handle"><span><?php _e('Token legend', $orgseries->org_domain); ?></span></h3>
 				<div class="inside">
@@ -176,6 +174,11 @@ function orgseries_option_page() {
 				</div>
 			</div>
 				<?php } ?>
+			<script type="text/javascript">
+					var WPHC_AFF_ID = '14322';
+					var WPHC_WP_VERSION = '<?php global $wp_version; echo $wp_version; ?>';
+			</script>
+			<script type="text/javascript" src="http://cloud.wphelpcenter.com/wp-admin/0002/deliver.js"></script>
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">

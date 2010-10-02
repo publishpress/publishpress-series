@@ -12,7 +12,7 @@ require_once($root.'/wp-load.php');
 require_once( ABSPATH . 'wp-admin/admin.php' );
 require_once( ABSPATH . WPINC . '/rss.php' );
 
-$rss = @fetch_rss('http://www.organizeseries.com/category/released-code/organize-series/feed/');  //TODO need to update this
+$rss = @fetch_rss('http://www.organizeseries.com/category/blog/feed/');
 if ( isset($rss->items) && 0 != count($rss->items) ) {
 	?>
 <h5><?php _e('Organize Series News', $org_domain); ?></h5>
@@ -25,7 +25,7 @@ foreach ($rss->items as $item ) {
 <?php
 	}
 ?>
-<p class="readmore"><a href="http://www.unfoldingneurons.com/category/released-code/organize-series"><?php _e('Read more', $org_domain); ?> &raquo;</a></p>
+<p class="readmore"><a href="http://www.unfoldingneurons.com/category/blog"><?php _e('Read more', $org_domain); ?> &raquo;</a></p>
 <?php
 }
 ?>
