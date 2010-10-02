@@ -262,12 +262,12 @@ function wp_dropdown_series( $args ) {
 		'name' => 'series', 'id' => '',
 		'class' => 'postform', 'depth' => 0,
 		'tab_index' => 0, 'taxonomy' => 'series',
-		'hide_if_empty' => false
+		'hide_if_empty' => false, 'context' => 'normal'
 	);
 	
 	$series_id = get_query_var(SERIES_QUERYVAR);
 		
-	if (is_numeric($series_id))
+	if ( is_numeric($series_id) && $args['context'] == 'normal' )
 		$series_id = get_term_field('slug', $series_id, 'series');
 				
 	$defaults['selected'] = ( ! empty($series_id) || $series_id != NULL ) ? $series_id : 0;
@@ -366,19 +366,20 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	if ($post->post_type == 'revision' || $_GET['bulk_edit_series'] == 'bulk' ) {
 		return;
 	}
+
 	//echo $post->post_status;
 	if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status == 'future' )
 		$update_count_forward = true;
-		
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 	
-	if ( $series_id == 0 ) { 
+	if ( $series_id === 0 ) { 
 		if (isset($_POST['post_series'])) $post_series = (int) $_POST['post_series'];
 		if (isset($_GET['post_series'])) $post_series = (int) $_GET['post_series'];
 	 } else {
 		$post_series = (int) $series_id;
 	}
+	
 	$s_part = (int) wp_series_part($post_ID);
 	
 	if ( isset($_POST) || isset($_GET)) {
@@ -395,9 +396,11 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 			$series_part = $s_part;
 		else
 			$series_part = 0;
-	}	
-	if ( $old_series != '' && ( $post_series == '' || 0 == $post_series  ) )
+	}
+	
+	if ( ( $old_series != '' || !empty($old_series) ) && ( $post_series == '' || 0 == $post_series  ) )
 		return wp_delete_post_series_relationship($post_ID);
+	
 	
 	if ( $old_series != '' && ($post_series == '' || 0 == $post_series) ) $post_series = (int) $old_series[0]; //this takes care of future posts being published.  Need to set the $post_series variable - but ONLY if the post was associated with a series.
 	
@@ -412,9 +415,9 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	
 	if ( $success ) {
 	return set_series_order($post_ID, $series_part, $post_series);
+	} else {
+	return FALSE;
 	}
-	
-	else return FALSE;
 }
 
 function wp_delete_post_series_relationship( $id ) {
@@ -513,13 +516,13 @@ function inline_edit_series($column_name, $type) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
-		<label class="inline-edit-series">
 			<span><?php _e('Series:', $orgseries->org_domain); ?></span>
-			<?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series'); ?>
+			<?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
 			<span><?php _e('Part:', $orgseries->org_domain); ?></span>
-			<input size="3" type="text" name="series_part" class="series_part" value="" />
-			<input type="hidden" name="series_post_id" class="series_post_id" value="" />
-		</label>
+			<input size="3" type="text" name="series_part" class="series_part"  />
+			<input type="hidden" name="series_post_id" class="series_post_id"  />
+		
+		
 	</div></div></fieldset>
 		<?php
 	}	

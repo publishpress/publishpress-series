@@ -172,9 +172,15 @@ class Walker_SeriesDropdown extends Walker {
 		$pad = str_repeat('&nbsp;', $depth * 3);
 		
 		$series_name = apply_filters('list_series', $series->name, $series);
-		$output .= "\t<option class=\"level-$depth\" value=\"".$series->slug."\"";
-		if ( $series->slug === $args['selected'] )
-			$output .= ' selected="selected"';
+		if ( $args['context'] == 'quick-edit' ) {
+			$output .= "\t<option class=\"level-$depth\" value=\"".$series->term_id."\"";
+			if ( $series->term_id === $args['selected'] )
+				$output .= ' selected="selected"';
+		} else {
+			$output .= "\t<option class=\"level-$depth\" value=\"".$series->slug."\"";
+			if ( $series->slug === $args['selected'] )
+				$output .= ' selected="selected"';
+		}
 		$output .= '>';
 		$output .= $pad.$series_name;
 		if ( $args['show_count'] )

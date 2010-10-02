@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 			
 		if ( type == 'post' ) {
 			series_check = $('.series_inline_edit', rowData).text();
-			series_part = $('.series_inline_part', rowData).text();
+			series_part =  $('.series_inline_part', rowData).text();
 			series_text = $('.series_inline_name', rowData).text(); 
 			
 			if ( series_check == '' ) {

@@ -187,7 +187,7 @@ global $post, $postdata, $content, $orgseries;
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
-		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part" id="series_part" size="5" autocomplete="off" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
 			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', $orgseries->org_domain); ?></p>
 	<?php
 }
