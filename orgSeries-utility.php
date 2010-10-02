@@ -74,7 +74,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = T
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
 function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	global $post, $orgseries;
-	$p_id = ( $id == 0 ) ? $post->id : $id;
+	$p_id = ( $id == 0 ) ? $post->ID : $id;
 	$ser_id = ( $ser_ID == 0 ) ? $id : $ser_ID; 
 	
 	//$p_id = (empty($post->ID) || $post->ID == '') ? $id : $post->ID;
@@ -98,9 +98,9 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	if( stristr($replace, '%series_icon_linked%') ) 
 	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width= ' . $ser_width . '&series=' . $id . '&display=0'), $replace);
 	if( stristr($replace, '%series_title%') ) 
-	$replace = str_replace('%series_title%', the_series_title($id, FALSE), $replace);
+	$replace = str_replace('%series_title%', the_series_title($ser_id, FALSE), $replace);
 	if( stristr($replace, '%series_title_linked%') ) 
-	$replace = str_replace('%series_title_linked%', the_series_title($id), $replace);
+	$replace = str_replace('%series_title_linked%', the_series_title($ser_id), $replace);
 	if( stristr($replace, '%post_title_list%') ) 
 	$replace = str_replace('%post_title_list%', get_series_posts($id, $referral), $replace);
 	if( stristr($replace, '%post_title%') ) 
