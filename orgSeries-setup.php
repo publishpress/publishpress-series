@@ -104,7 +104,6 @@ class orgSeries {
 				'how' => __('Select "Not part of a series" to remove any series data from post', $this->org_domain)
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'));
-		$wp_rewrite->flush_rules();
 	}
 	
 	function orgSeries_roles() {
@@ -147,7 +146,7 @@ class orgSeries {
 		$args = array(
 			'update_count_callback' => '_update_post_term_count',
 			'labels' => $labels,
-			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
+			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => false ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
 			'query_var' => $taxonomy,
@@ -314,7 +313,7 @@ class orgSeries {
 	function sort_series_page_join($join) {
 		global $wpdb;
 	if (!is_series() || ( is_series() && is_feed() ) ) return $join;
-		$join .= "LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
+		$join .= " LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
 		return $join;
 	}
 
