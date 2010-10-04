@@ -52,14 +52,14 @@ function edit_series_form_fields($series, $taxonomy) {
 		$series_icon_loc = seriesicons_url() . $icon_loc;
 	else $series_icon_loc = '';
 	?>
-			<tr valign="top"
+			<tr valign="top">
 				<?php if ( $series->term_id != '' ) { ?>
-				<th scope="column"><?php _e('Current series icon:', $orgseries->org_domain); ?></th><?php } ?>
+				<th scope="row"><?php _e('Current series icon:', $orgseries->org_domain); ?></th><?php } ?>
 				<td>
 					<?php if ($series_icon != '') {
 							echo $series_icon;
 						} else {
-							echo '<p>'. __('No icon currently', $orgseries->orgcomain) .'</p>';
+							echo '<p>'. __('No icon currently', $orgseries->org_domain) .'</p>';
 						}
 					 ?>
 					<div id="selected-icon"></div>
