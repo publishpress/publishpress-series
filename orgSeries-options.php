@@ -251,7 +251,7 @@ function series_automation_core_fieldset() {
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;">
 					<div class="inside" style="padding: 10px;">
-					<input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /> <?php _e('Display list of series on post pages?', $orgseries->org_domain); ?>
+					<input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /> <?php _e('Display series post list box?', $orgseries->org_domain); ?>
 					<small><em><?php _e('Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  [default=selected]', $orgseries->org_domain); ?></em></small><br /><br />
 					<input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /> <?php _e('Display series navigation links?', $orgseries->org_domain); ?>
 					<small><em><?php _e('Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the displaying the series navigation links.  [default=selected]', $orgseries->org_domain); ?></em></small><br /><br />

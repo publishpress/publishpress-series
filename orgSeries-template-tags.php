@@ -273,9 +273,14 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
  * @uses wp_serieslist_display_code() - assembles the formatted list of series.
  *
  * @param bool|string $referral  If not set defaults to false.  Currently there isn't application for this param but I've left it in for future versions of orgSeries.
+ * @param array ($args) This is so you can indicate various paramaters for what series you want displayed (see get_series for the description of the possible args).
 */ 
-function wp_serieslist_display( $referral = false ) {  
-	$series_list = get_series('hide_empty=1');
+function wp_serieslist_display( $referral = false, $args ) {  
+	$defaults = array (
+		'hide_empty' => 1
+	);
+	$args = wp_parse_args( $args, $defaults );
+	$series_list = get_series($args);
 	
 	foreach ($series_list as $series) {  
 		wp_serieslist_display_code($series, $referral); //layout code
@@ -393,7 +398,7 @@ function wp_assemble_series_nav() {
  * @uses get_series_ordered - to get all the series according to how it should be ordered.
  *
  * @param bool $display - if true the 'latest_series_template' will be echoed else it will be returned.
- *@param array $args - allow for seeting criteria for the latest series being pulled from the database.
+ *@param array $args - allow for setting criteria for the latest series being pulled from the database.
  *
  * @return string $result - the assembled latest_series code.
 */
