@@ -108,29 +108,34 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$c = $instance['show-count'] ? '1' : '0';
 		$e = $instance['hide-empty'] ? '1' : '0';
 		$showpostlist = $instance['postlistdisplay-toggle'] ? '1' : '0';
+		$showseriestoc = $instance['seriestocdisplay-toggle'] ? '1' : '0';
 		$series_args = $args = apply_filters('widget_seriestoc_args', array('orderby' => 'name', 'show_count' => $c, 'hide_empty' => $e, 'echo' => false, 'name' => 'orgseries_dropdown'));
 		$title = $instance['title'];
-		
-		if ( $instance['list-type'] == 'list' ) {
-			$out = '<ul>';
-			$series_args['title_li'] = '';
-			$out .= wp_list_series($series_args);
-			$out .= '</ul>';
-		} elseif ( $instance['list-type'] == 'dropdown' ) {
-			$series_args['show_option_all'] = __('Select Series', $orgseries->org_domain);
-			$out = wp_dropdown_series( $series_args );
+		$out = '';
+		if ( $showseriestoc ) {
+			if ( $instance['list-type'] == 'list' ) {
+				$out .= '<ul>';
+				$series_args['title_li'] = '';
+				$out .= wp_list_series($series_args);
+				$out .= '</ul>';
+			} elseif ( $instance['list-type'] == 'dropdown' ) {
+				$series_args['show_option_all'] = __('Select Series', $orgseries->org_domain);
+				$out = wp_dropdown_series( $series_args );
+			}
 		}
 		
-		if ( !empty( $out ) ) {
+		if ( $showpostlist ) {
+			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
+				if ( $showseriestoc ) $out .= '<br /><br />';
+				$out .= '<h4>' . __('Other posts belonging to this series', $orgseries->org_domain) . '</h3>';
+				$out .= '<ul>' . get_series_posts('','widget') . '</ul>';	}
+		}
+		
+		if ( !empty($out) ) {
 			echo $before_widget;
 			if ( $title )
 				echo $before_title . $title . $after_title;
 			echo $out;
-					
-			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
-				echo '<br /><br /><h4>' . __('Other posts belonging to this series', $orgseries->org_domain) . '</h3>';
-				echo '<ul>' . get_series_posts('','widget') . '</ul>';
-			}
 			echo $after_widget;
 		}
 	}
@@ -143,6 +148,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$instance['show-count'] = (int) $new_instance['show-count'];
 		$instance['hide-empty'] = (int) $new_instance['hide-empty'];
 		$instance['postlistdisplay-toggle'] = (int) $new_instance['postlistdisplay-toggle'];
+		$instance['seriestocdisplay-toggle'] = (int) $new_instance['seriestocdisplay-toggle'];
 		
 		return $instance;
 	}
@@ -155,13 +161,15 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			'list-type' => 'list',
 			'show-count' => 1,
 			'hide-empty' => 1,
-			'postlistdisplay-toggle' => 1
+			'postlistdisplay-toggle' => 1,
+			'seriestocdisplay-toggle' => 1
 		));
 		$title = esc_attr( $instance['title'] );
 		$list_type = $instance['list-type'];
 		$show_count = $instance['show-count'];
 		$hide_empty = $instance['hide-empty'];
 		$postlistdisplay_toggle = $instance['postlistdisplay-toggle'];
+		$seriestocdisplay_toggle = $instance['seriestocdisplay-toggle'];
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', $orgseries->org_domain); ?></label>
@@ -183,6 +191,10 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(use to select if a list of other posts in the series will show on posts that are part of a series', $orgseries->org_domain); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series?', $orgseries->org_domain); ?>
+			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
 		</p>
 		
 		<?php
