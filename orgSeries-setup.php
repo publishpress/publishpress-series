@@ -164,7 +164,7 @@ class orgSeries {
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
-			'series_toc_url' => $url['path'] . '/series/',
+			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
 			'series_toc_title' => __('Series Table of Contents',$this->org_domain),
 		//new template options

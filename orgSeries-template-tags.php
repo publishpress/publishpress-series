@@ -275,7 +275,7 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
  * @param bool|string $referral  If not set defaults to false.  Currently there isn't application for this param but I've left it in for future versions of orgSeries.
  * @param array ($args) This is so you can indicate various paramaters for what series you want displayed (see get_series for the description of the possible args).
 */ 
-function wp_serieslist_display( $referral = false, $args ) {  
+function wp_serieslist_display( $referral = false, $args='' ) {  
 	$defaults = array (
 		'hide_empty' => 1
 	);

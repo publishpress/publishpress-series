@@ -66,8 +66,8 @@ function orgseries_validate($input) {
 	
 	$newinput['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	$return_input = apply_filters('orgseries_options', $newinput, $input);
-	$wp_rewrite->flush_rules();
 	update_option('orgseries_update_message', $update['updated_output']);
+	$wp_rewrite->flush_rules();
 	return $return_input;
 }
 
@@ -90,7 +90,8 @@ function orgseries_options_init() {
 }
 
 function orgseries_option_page() {
-	global $orgseries;
+	global $orgseries, $wp_rewrite;
+	$wp_rewrite->flush_rules();
 	$org_opt = $orgseries->settings;
 	$org_update_message = get_option('orgseries_update_message');
 	?>

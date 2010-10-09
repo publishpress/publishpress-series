@@ -127,7 +127,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				echo $before_title . $title . $after_title;
 			echo $out;
 					
-			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
+			if ( ( $wp_query->is_single() ) && $showpostlist && $series = get_the_series() ) {
 				echo '<br /><br /><h4>' . __('Other posts belonging to this series', $orgseries->org_domain) . '</h3>';
 				echo '<ul>' . get_series_posts('','widget') . '</ul>';
 			}
