@@ -107,7 +107,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		extract( $args, EXTR_SKIP );
 		$c = $instance['show-count'] ? '1' : '0';
 		$e = $instance['hide-empty'] ? '1' : '0';
-		$showpostlist = $instance['postlistdisplay_toggle'] ? '1' : '0';
+		$showpostlist = $instance['postlistdisplay-toggle'] ? '1' : '0';
 		$series_args = $args = apply_filters('widget_seriestoc_args', array('orderby' => 'name', 'show_count' => $c, 'hide_empty' => $e, 'echo' => false, 'name' => 'orgseries_dropdown'));
 		$title = $instance['title'];
 		
@@ -127,7 +127,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				echo $before_title . $title . $after_title;
 			echo $out;
 					
-			if ( ( $wp_query->is_single() ) && $showpostlist && $series = get_the_series() ) {
+			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
 				echo '<br /><br /><h4>' . __('Other posts belonging to this series', $orgseries->org_domain) . '</h3>';
 				echo '<ul>' . get_series_posts('','widget') . '</ul>';
 			}
