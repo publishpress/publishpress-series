@@ -553,7 +553,7 @@ function in_series( $series_term = 0 ) { //check if the current post is in the g
  * @return string $series->name
 */
 function get_series_name($series_id, $slug = false) {
-	$series_id = (int) $series_id;
+	$series_id = (int) $series_id;		
 	$series = get_orgserial($series_id);
 	
 	return ( $slug ) ? $series->slug : $series->name;
