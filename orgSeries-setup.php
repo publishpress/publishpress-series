@@ -21,46 +21,46 @@ class orgSeries {
 		
 		// WordPress version check
 		if ( version_compare($wp_version, '3.0', '<'))
-			add_action('admin_notices', array($this, 'update_warning'));
+			add_action('admin_notices', array(&$this, 'update_warning'));
 			
 		//install OrgSeries
-		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array($this, 'org_series_install'));
+		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array(&$this, 'org_series_install'));
 		
 		//all other actions and filters...
-		add_action('plugins_loaded', array($this, 'add_settings'));
-		add_action('init', array($this, 'register_textdomain'));
-		add_action('init', array($this, 'register_taxonomy'),0);
-		add_action('init', array($this, 'register_scripts'));
-		add_action('generate_rewrite_rules', array($this,'seriestoc_rewrite_rules'));
+		add_action('plugins_loaded', array(&$this, 'add_settings'));
+		add_action('init', array(&$this, 'register_textdomain'));
+		add_action('init', array(&$this, 'register_taxonomy'),0);
+		add_action('init', array(&$this, 'register_scripts'));
+		add_filter('rewrite_rules_array', array(&$this,'seriestoc_rewrite_rules'));
 		//add_action('init', array($this, 'rewrite_rules'));
-		add_action('parse_query', array($this, 'seriestoc_parsequery'));
-		add_action('query_vars', array($this,'orgSeries_toc_request'));
-		add_action('template_redirect', array($this,'orgSeries_toc_template')); //setsup the seriestoc url
+		add_action('parse_query', array(&$this, 'seriestoc_parsequery'));
+		add_filter('query_vars', array(&$this,'orgSeries_add_queryvars'));
+		add_action('template_redirect', array(&$this,'orgSeries_toc_template')); //setsup the seriestoc url
 					
-		add_action('wp_head', array($this, 'orgSeries_header'));
-		add_action( 'wp_footer', array($this, 'series_dropdown_js'), 1 );
+		add_action('wp_head', array(&$this, 'orgSeries_header'));
+		add_action( 'wp_footer', array(&$this, 'series_dropdown_js'), 1 );
 		
 		//series post list box
-		add_action('the_content', array($this, 'add_series_post_list_box'));
+		add_action('the_content', array(&$this, 'add_series_post_list_box'));
 		
 		//series meta strip
-		add_filter('the_content', array($this, 'add_series_meta'));
-		add_filter('get_the_excerpt', array($this, 'orgseries_trim_excerpt'),1);
-		add_filter('the_excerpt', array($this, 'add_series_meta_excerpt'));
+		add_filter('the_content', array(&$this, 'add_series_meta'));
+		add_filter('get_the_excerpt', array(&$this, 'orgseries_trim_excerpt'),1);
+		add_filter('the_excerpt', array(&$this, 'add_series_meta_excerpt'));
 		
 		//joins, wheres, sortbys
-		add_filter('posts_join_paged', array($this, 'sort_series_page_join'));
-		add_filter('posts_where', array($this,'sort_series_page_where'));
-		add_filter('posts_orderby', array($this,'sort_series_page_orderby'));
+		add_filter('posts_join_paged', array(&$this, 'sort_series_page_join'));
+		add_filter('posts_where', array(&$this,'sort_series_page_where'));
+		add_filter('posts_orderby', array(&$this,'sort_series_page_orderby'));
 				
 		//series post-navigation
-		add_action('the_content', array($this, 'series_nav_filter'));
+		add_action('the_content', array(&$this, 'series_nav_filter'));
 		
 		//broswer page title
-		add_filter('wp_title', array($this, 'add_series_wp_title'));
+		add_filter('wp_title', array(&$this, 'add_series_wp_title'));
 		
 		//settings link on plugin page
-		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
+		add_filter('plugin_action_links', array(&$this, 'AddPluginActionLink'), 10, 2);
 	}
 	
 	function update_warning() {
@@ -197,29 +197,31 @@ class orgSeries {
 		return false;
 	}
 	
-	function seriestoc_rewrite_rules( $wp_rewrite ) {
-		if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
-			define('SERIES_REWRITEON', '1');  //pretty permalinks please!
-		} else {
-			define('SERIES_REWRITEON', '0');  //old school links
-		}
-		$url = parse_url(get_bloginfo('siteurl'));
-		$url = $url['path'] . '/';
+	function seriestoc_rewrite_rules( $the_rules ) {  
 		$settings = $this->settings;
-		$custom_base = substr($settings['series_toc_url'], strlen($url));
+		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
+			$series_toc_qv = $settings['series_toc_url'].'-toc';
+		} else {
+			$series_toc_qv = $settings['series_toc_url'];
+		}
+		$custom_base = $series_toc_qv;
+		$cb_reg_ex = $settings['series_toc_url'].'\z';
 		$new_rules = array( 
-			$custom_base => 'index.php?'.$custom_base.'=1' 
+			$cb_reg_ex => 'index.php?'.$series_toc_qv.'=series_toc' 
 			);
-		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
-		
+		$the_rules = $new_rules + $the_rules;
+		return $the_rules;		
 	}
 	
 	function seriestoc_parsequery() {
 		global $wp_query;
-		$url = parse_url(get_bloginfo('siteurl'));
-		$url = $url['path'] . '/';
 		$settings = $this->settings;
-		$custom_base = substr($settings['series_toc_url'], strlen($url));
+		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
+			$series_toc_qv = $settings['series_toc_url'].'-toc';
+		} else {
+			$series_toc_qv = $settings['series_toc_url'];
+		}
+		$custom_base = $series_toc_qv;
 		if (isset($wp_query->query_vars[$custom_base])) {
 			$wp_query->is_single = false;
 			$wp_query->is_category = false;
@@ -242,11 +244,15 @@ class orgSeries {
 		}
 	}
 	
-	function orgSeries_toc_request($qvs) {
-		$url = parse_url(get_bloginfo('siteurl'));
-		$url = $url['path'] . '/';
+	function orgSeries_add_queryvars($qvs) {  
 		$settings = $this->settings;
-		$custom_base = substr($settings['series_toc_url'], strlen($url));
+		// first check to see if series_toc_url and series custom_base are the same.  If they are then we need to add a suffix to the queryvar for series_toc.
+		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
+			$series_toc_qv = $settings['series_toc_url'].'-toc';
+		} else {
+			$series_toc_qv = $settings['series_toc_url'];
+		}
+		$custom_base = $series_toc_qv;
 		$qvs[] = $custom_base;
 		return $qvs;
 	}
@@ -273,7 +279,7 @@ class orgSeries {
 				exit;
 			}		
 		}
-}
+	}
 	
 	//orgSeries dropdown nav js
 	function series_dropdown_js() {

@@ -20,7 +20,6 @@ function orgseries_create_options() {
 //validate form values
 function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
-	$url = parse_url(get_bloginfo('siteurl'));
 	if ( $input['reset_option'] == 1 ) {
 		
 		if ($reset_options = $orgseries->add_settings(true)) {
@@ -38,7 +37,7 @@ function orgseries_validate($input) {
 	$newinput['auto_tag_seriesmeta_toggle'] = ( $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['kill_on_delete'] = ( $input['kill_on_delete'] == 1 ? 1 : 0 );
-	$newinput['series_toc_url'] = $url['path'] . '/' . preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
+	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
 	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
@@ -243,8 +242,6 @@ function orgseries_icon_section() {
 
 function series_automation_core_fieldset() {
 	global $orgseries;
-	$url = parse_url(get_bloginfo('siteurl'));
-	$url = $url['path'] . '/';
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
@@ -263,7 +260,7 @@ function series_automation_core_fieldset() {
 					<br />
 					<br />
 					<strong><?php _e('Series Table of Contents URL:', $orgseries->org_domain); ?></strong><br />
-					<?php bloginfo('home') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo substr($org_opt['series_toc_url'], strlen($url)) ?>" /><br />
+					<?php bloginfo('home') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
 					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', $orgseries->org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Custom Base:', $orgseries->org_domain); ?></strong><br />
 					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />
