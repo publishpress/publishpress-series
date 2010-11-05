@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 2.2
+Stable tag: 2.2.1
 
 A plugin for managing the article series you write.
 
@@ -34,6 +34,7 @@ You can do the above or just use the new plugin install integrated in WordPress.
 = Upgrading =
 If you are upgrading from Organize Series 2.1 or above you can follow the same steps as above.
 Other UPGRADE Notes:
+
 1. Your customized `seriestoc.php` file should still work for Series Table of Contents Pages.
 1. Rename your `series.php` file (series archive pages) to `taxonomy-series.php`  - starting with version 2.2, Organize Series integrates with the built-in taxonomy template pages that WordPress provides.  You can also customize a particular series by creating a page titled `taxonomy-series-{series-name}.php` where 'series-name' is the name of the particular series you want a different archive page/look for.
 1. Organize Series Publisher is NO LONGER bundled with Organize Series.  Don't worry, you can still get it, it's available on the WordPress plugin repository.  Look for [organize series publisher](http://wordpress.org/extend/plugins/organize-series-publisher/).
@@ -76,8 +77,11 @@ Oh and one more thing.  Organize Series will always be GPL and so will ALL the a
 == Support ==
 
 There have been some changes to how I provide support for Organize Series. Here are the different options for support:
+
 1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will not be actively responding to usage/installation help.
+
 1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to the private support forums that I will be active on.
+
 1. You can also get support from the [WordPress Help Center](http://wphelpcenter.com). This is a service I have partnered with and when you pay for support from them I receive a commission so it's a way of contributing towards the work I do.  When contacting them let them know my affiliate code which is *14322*.
 
 == Screenshots ==
@@ -182,6 +186,15 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.1 =
+This is a bugfix release
+
+* Fixed series archive bug:  When series_custom_base and series_toc_url were the same (as set on the series options page) then any links to specific series archive pages would load the series-toc page.  With this fix it is possible to have both set as the same without any problems.  (**NOTE:** After upgrading make sure to visit your series options page and make sure the custom_base and series_toc_url are set.  If not you will have problems with your sites rss feeds.)
+
+* Fixed scheduled post bug:  This bug affected scheduled posts that were a part of a series that lost all series information when they transitioned to a published post.  
+
+* Fixed draft and pending posts bug:  This bug affected posts that were saved as a draft or pending and then later published.  When published the "total parts in series" count would not increment.
 
 = 2.2 =
 

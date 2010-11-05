@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series
 Plugin URI: http://organizeseries.com
-Version: 2.2
+Version: 2.2.1
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 3.0 and PHP 5.2+ to work. 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com

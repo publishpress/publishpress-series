@@ -360,6 +360,13 @@ function wp_set_post_series_transition( $post ){
 	$series_id = $ser_id[0];
 	wp_set_post_series( $post_ID, $post, $series_id );
 }
+
+function wp_set_post_series_draft_transition( $post ) {
+	$post_ID = $post->ID;
+	$ser_id = wp_get_post_series($post_ID);
+	$series_id = $ser_id[0];
+	wp_update_term_count( $series_id, 'series', true );
+}
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
@@ -368,8 +375,8 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 	}
 
 	//echo $post->post_status;
-	if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status == 'future' )
-		$update_count_forward = true;
+	/*if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status == 'future' )
+		$update_count_forward = true;//*/
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 	
@@ -386,8 +393,8 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
 		if ( isset($_POST['series_part']) ) $series_part = (int) $_POST['series_part'];
 		if ( isset($_GET['series_part']) ) $series_part = (int) $_GET['series_part'];
 		
-		if ( $update_count_forward )
-			wp_update_term_count( $post_series, 'series', false);
+		/*if ( $update_count_forward )
+			wp_update_term_count( $post_series, 'series', false);//*/
 			
 		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 && $post->post_status == 'publish') return; //get out of here if there's no change in series part!!
 	 
@@ -555,8 +562,10 @@ add_action('bulk_edit_custom_box', 'bulk_edit_series',9,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js'); 
 
 //hook into save post for adding/updating series information to posts
-add_action('save_post','wp_set_post_series',1,3);
+add_action('save_post','wp_set_post_series',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',1,1);
+add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 1, 1);
+add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 1, 1);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 
 //hooking into insert_term, update_term and delete_term 
