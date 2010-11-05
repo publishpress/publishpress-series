@@ -12,7 +12,7 @@ if ( !class_exists('orgSeries') ) {
 class orgSeries {
 
 	var $settings;
-	var $version = '2.2';
+	var $version = '2.2.1';
 	var $org_domain = 'organize-series';
 	
 	//__constructor
@@ -71,11 +71,15 @@ class orgSeries {
 	function org_series_install() {
 		global $wpdb, $wp_rewrite;
 		$this->orgSeries_roles();
-		
-		if ( $oldversion = get_option( 'org_series_version' ) )  //register the current version of orgSeries
-		update_option( 'org_series_oldversion', $this->version );
-	else
-		add_option("org_series_version", $this->version);
+				
+		if ( $oldversion = get_option( 'org_series_version' ) ) { //register the current version of orgSeries
+			if ( $oldversion != $this->version ) {
+				$this->update($oldversion);
+			}
+			update_option( 'org_series_version', $this->version );
+		} else {
+			add_option("org_series_version", $this->version);
+		}
 		
 	//create table for series icons
 	$table_name = $wpdb->prefix . "orgSeriesIcons";
@@ -92,6 +96,28 @@ class orgSeries {
 	add_option( 'series_icon_path', '' );
 	add_option( 'series_icon_url', '' );
 	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
+	}
+	
+	//function for all updates
+	function update($version) {
+		//upgrading from 2.2
+		if ( $version == '2.2'  || $version < '2.2') {
+			$settings = $this->settings;
+			
+			if ( empty($settings['series_custom_base']) ) {
+				$settings['series_custom_base'] = 'series';
+			} else {
+				$settings['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $settings['series_custom_base']);
+			}
+			
+			if ( empty($settings['series_toc_url'] ) ) {
+				$settings['series_toc_url'] = 'series';
+			} else {
+				$settings['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $settings['series_toc_url']);
+			}
+			
+			update_option('org_series_options', $settings);
+		}
 	}
 	
 	function register_scripts() {
