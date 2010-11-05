@@ -110,7 +110,7 @@ class orgSeries {
 	function update($version) {
 		//upgrading from 2.2
 		if ( $version == '2.2'  || $version < '2.2') {
-			$settings = $this->settings;
+			$settings = get_option('org_series_options');
 			
 			if ( empty($settings['series_custom_base']) ) {
 				$settings['series_custom_base'] = 'series';
