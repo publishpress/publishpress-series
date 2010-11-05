@@ -71,8 +71,16 @@ class orgSeries {
 	function org_series_install() {
 		global $wpdb, $wp_rewrite;
 		$this->orgSeries_roles();
+		//take care of old versioning routines
+		$old_oldversion = get_option( 'org_series_oldversion' );
+		$old_version = get_option( 'org_series_version' );
+		if ( !empty( $old_version ) || $old_oldversion != '2.2' ) {
+			$old_version = $old_version; 
+		} else {
+			$old_version = $old_oldversion;
+		}
 				
-		if ( $oldversion = get_option( 'org_series_version' ) ) { //register the current version of orgSeries
+		if ( !empty( $old_version ) ) { //register the current version of orgSeries
 			if ( $oldversion != $this->version ) {
 				$this->update($oldversion);
 			}
