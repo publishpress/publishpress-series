@@ -17,7 +17,7 @@ class orgSeries {
 	
 	//__constructor
 	function orgSeries() {
-		global $wp_version;
+		global $wp_version, $wp_query, $wp_the_query;
 		
 		// WordPress version check
 		if ( version_compare($wp_version, '3.0', '<'))
@@ -52,7 +52,7 @@ class orgSeries {
 		add_filter('posts_join_paged', array(&$this, 'sort_series_page_join'));
 		add_filter('posts_where', array(&$this,'sort_series_page_where'));
 		add_filter('posts_orderby', array(&$this,'sort_series_page_orderby'));
-				
+						
 		//series post-navigation
 		add_action('the_content', array(&$this, 'series_nav_filter'));
 		
@@ -180,7 +180,7 @@ class orgSeries {
 		$args = array(
 			'update_count_callback' => '_update_post_term_count',
 			'labels' => $labels,
-			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => false ),
+			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
 			'query_var' => $taxonomy,
@@ -317,7 +317,8 @@ class orgSeries {
 	
 	//orgSeries dropdown nav js
 	function series_dropdown_js() {
-		if ( SERIES_REWRITEON == 0 ) {
+		global $wp_rewrite;
+		if ( $wp_rewrite->using_permalinks() ) {
 			?>
 			<script type='text/javascript'><!--
 			var seriesdropdown = document.getElementById("orgseries_dropdown");
@@ -351,22 +352,23 @@ class orgSeries {
 	//joins and wheres etc.
 	
 	function sort_series_page_join($join) {
-		global $wpdb;
-	if (!is_series() || ( is_series() && is_feed() ) ) return $join;
+		global $wpdb, $wp_query;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $join;
 		$join .= " LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
 		return $join;
 	}
 
 	function sort_series_page_where($where) {
-		global $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) ) return $where;
+		global $wpdb, $wp_query;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $where;
 		$part_key = SERIES_PART_KEY;
 		$where .= " AND $wpdb->postmeta.meta_key = '$part_key' ";
 		return $where;
 	}
 
 	function sort_series_page_orderby($ordering) {
-		if (!is_series() || ( is_series() && is_feed() ) ) return $ordering;
+		global $wp_query;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $ordering;
 		$settings = $this->settings;
 		$orderby = $settings['series_posts_orderby'];
 		if ( $orderby == 'meta_value' )
