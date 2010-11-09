@@ -126,7 +126,7 @@ function get_series_toc( $link = TRUE ) {
 		else
 			return $url;
 	} else {
-		$url = parse_url(get_bloginfo('siteurl'));
+		$url = parse_url(get_bloginfo('url'));
 		$url = $url['path'] . '/?seriestoc=1';
 		if ( $link )
 			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
@@ -673,7 +673,7 @@ function is_series( $slug = '' ) {
 	global $wp_query;
 	$series = get_query_var(SERIES_QUERYVAR);
 	
-	if ( (!is_null($series) && ($series != '')) || $wp_query->is_series == true)
+	if ( (!is_null($series) && ($series != '')) || (isset($wp_query->is_series) && $wp_query->is_series ))
 		return true;
 	else
 		return false;

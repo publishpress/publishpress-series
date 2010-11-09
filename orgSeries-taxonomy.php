@@ -369,8 +369,9 @@ function wp_set_post_series_draft_transition( $post ) {
 }
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
+	$post_series = null;
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-	if ($post->post_type == 'revision' || $_GET['bulk_edit_series'] == 'bulk' ) {
+	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
 		return;
 	}
 

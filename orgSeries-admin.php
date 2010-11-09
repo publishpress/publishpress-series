@@ -79,7 +79,7 @@ function admin_ajax_series() {
 		die('0');
 	if ( !$series_id = series_exists( $series_name ) )
 		$series_id = wp_create_single_series( $series_name );
-	$series_name = wp_specialchars(stripslashes($series_name));
+	$series_name = esc_html(stripslashes($series_name));
 	$x->add( array(
 		'what' => 'series',
 		'id' => $series_id,
@@ -153,14 +153,14 @@ function get_series_list( $default = 0 ) {
  * write_series_list() - html output for the list of series in for user selection on the write/edit post screen
  * Code is mirror'd from the write_nested_categories() function in the core wp-admin\includes\template.php file.
  *
- * @uses wp_specialchars()
+ * @uses esc_html
  * @param array|mixed $series - contains series_ID, ser_name, and checked (does post belong to this series) 
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
 		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />' . __('Not part of a series', $orgseries->org_domain) . '</label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , wp_specialchars( $serial['ser_name'] ), "</label></li>";
+			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , esc_html( $serial['ser_name'] ), "</label></li>";
 			
 		}
 }
@@ -235,7 +235,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 
 function orgSeries_custom_manage_posts_filter() {
 	global $orgseries;
-	
+	$series_name = '';
 	if (isset($_GET['series'])) $series_name = $_GET['series'];
 		
 	wp_dropdown_series('show_option_all='.__('View all series', $orgseries->org_domain).'&hide_empty=0&show_count=0&selected='.$series_name);
@@ -253,7 +253,7 @@ function add_series_to_right_now() {
 	global $orgseries;
 	$num_series = wp_count_terms('series');
 	$num = number_format_i18n( $num_series );
-	$text = __ngettext( 'Series', 'Series', $num_series, $orgseries->org_domain );
+	$text = _n( 'Series', 'Series', $num_series, $orgseries->org_domain );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=series';
 	if ( current_user_can( 'manage_series' ) ) {
 		$series_num = "<a href='$manage_link'>$num</a>";

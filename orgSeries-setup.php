@@ -134,7 +134,7 @@ class orgSeries {
 		wp_register_script('inline-edit-series',$url.'inline-series.js');  
 		wp_register_script( 'ajaxseries', $url.'series.js', array('wp-lists'), '20080310' );
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
-				'add' => attribute_escape(__('Add', $this->org_domain)),
+				'add' => esc_attr(__('Add', $this->org_domain)),
 				'how' => __('Select "Not part of a series" to remove any series data from post', $this->org_domain)
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'));
@@ -152,8 +152,8 @@ class orgSeries {
 	}
 	
 	function register_textdomain() {
-		$dir = SERIES_PATH.'lang';
-		load_plugin_textdomain($this->org_domain, $dir);
+		$plugin_dir = basename(dirname(__FILE__)).'/lang';
+		load_plugin_textdomain($this->org_domain, false, $plugin_dir);
 	}
 	
 	function register_taxonomy() {
@@ -189,7 +189,7 @@ class orgSeries {
 	}
 
 	function add_settings($reset = false) {
-		$url = parse_url(get_bloginfo('siteurl'));
+		$url = parse_url(get_bloginfo('url'));
 		if ( !($this->settings = get_option('org_series_options')) || $reset == true ) {
 			$this->settings = array(
 				//main settings
@@ -275,6 +275,8 @@ class orgSeries {
 			$wp_query->is_post = false;
 			$wp_query->is_seriestoc = true;
 			$wp_query->is_404 = false;
+		} else {
+			$wp_query->is_seriestoc = false;
 		}
 	}
 	
@@ -293,7 +295,7 @@ class orgSeries {
 		
 	function orgSeries_toc_template() {
 		global $wp_query;
-		if ( $wp_query->is_seriestoc ) {
+		if ( isset($wp_query->is_seriestoc) && $wp_query->is_seriestoc ) {
 			if (file_exists(TEMPLATEPATH . '/seriestoc.php')) {
 				$template =  TEMPLATEPATH . '/seriestoc.php';
 			} else {
@@ -449,7 +451,7 @@ class orgSeries {
 			if ( !is_feed() )
 				$title = __('Series: ',$this->org_domain) . $series . ' &laquo; ' . $title;
 			else
-				$title = __('Posts from the series: ',$this->org_domain) . $series . ' ('. get_bloginfo().')';
+				$title = __('Posts from the series: ',$this->org_domain) . $series . ' ('. get_bloginfo('url').')';
 		}
 		return $title;
 	}
