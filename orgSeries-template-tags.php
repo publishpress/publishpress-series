@@ -118,7 +118,7 @@ function get_series_toc( $link = TRUE ) {
 	global $orgseries, $wp_rewrite;
 	$options = $orgseries->settings;
 	$series_toc = $options['series_toc_url'];
-	$url = $series_toc;
+	$url = $url = get_bloginfo('url').'/'.$series_toc;
 	$title = __('All the Series I\'ve Written', $orgseries->org_domain);
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		if ( $link )
