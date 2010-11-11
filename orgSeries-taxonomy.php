@@ -502,10 +502,12 @@ function wp_insert_series($series_id, $taxonomy_id) {
 function wp_update_series($series_id, $taxonomy_id) {
 	global $_POST;
 	extract($_POST, EXTR_SKIP);
+	if ( empty($series_icon_loc) ) $series_icon_loc = '';
+	if ( empty($delete_image) ) $delete_image = false;
 	
 	$series_icon = $series_icon_loc;
 	
-	if ( isset($series_icon) || $series_icon != '' ) {
+	if ( !empty($series_icon) || $series_icon != '' ) {
 		$build_path = seriesicons_url();
 		$series_icon = str_replace($build_path, '', $series_icon);
 		
