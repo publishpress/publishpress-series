@@ -356,7 +356,7 @@ class orgSeries {
 	function sort_series_page_join($join) {
 		global $wpdb, $wp_query;
 		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $join;
-		$join .= " LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id) ";
+		$join .= " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
 		return $join;
 	}
 
@@ -364,7 +364,7 @@ class orgSeries {
 		global $wpdb, $wp_query;
 		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $where;
 		$part_key = SERIES_PART_KEY;
-		$where .= " AND $wpdb->postmeta.meta_key = '$part_key' ";
+		$where .= " AND orgmeta.meta_key = '$part_key' ";
 		return $where;
 	}
 
@@ -374,7 +374,7 @@ class orgSeries {
 		$settings = $this->settings;
 		$orderby = $settings['series_posts_orderby'];
 		if ( $orderby == 'meta_value' )
-			$orderby = $orderby . '+ 0';
+			$orderby = 'orgmeta.'.$orderby . '+ 0';
 		$order = $settings['series_posts_order'];
 		if (!isset($orderby)) $orderby = "post_date";
 		if (!isset($order)) $order = "DESC";

@@ -208,6 +208,9 @@ function orgSeries_custom_column_filter($defaults) {
 
 function orgSeries_custom_column_action($column_name, $id) {
 	global $wpdb, $orgseries;
+	$seriesid = null;
+	$series_part = null;
+	$series_name = null;
 	if ($column_name == 'series') {
 		if ( $series = get_the_series($id) ) {
 			$seriesid = $series[0]->term_id;
