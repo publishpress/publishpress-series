@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 
 A plugin for managing the article series you write.
 
@@ -186,6 +186,17 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.2 =
+Another bugfix release
+
+* Fixed query bug:  When series archive pages were displayed, any widgets or other plugins querying posts (using $wp_query) on the page would not display expected posts (i.e. "Recent Posts" widget, Alikivia Sideposts, "Kates Gasis' Sideblog" plugin).  The custom joins/wheres/orderbys used by Organize Series are now isolated to only occur for the series posts being displayed.  Other queries on the page should be unaffected now.
+
+* Cleaned up errors shown by setting wp_debug as true in the wp-config.php file. 
+
+* Introduced with 2.2.1 was a bug where get_seriestoc() would not return the correct permalink for the series toc in certain cases.  This is fixed in 2.2.2
+
+* Fixed conflict with wp-hide-posts plugin. 	
 
 = 2.2.1 =
 This is a bugfix release
