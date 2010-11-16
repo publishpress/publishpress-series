@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-	$('a.editinline').live('click', function() {
+	$("label.inline-edit-tags").remove(":contains('Series')");
+	$('a.editinline').bind( 'click.series', function() {
 		var id, type, editRowData, rowData, series_check, series_part, series_text;
 		var r_id = inlineEditPost.getId(this);
 		type = $('table.widefat').hasClass('page') ? 'page' : 'post';
@@ -29,7 +30,6 @@ jQuery(document).ready(function($) {
 			
 		}
 		
-		$("label.inline-edit-tags").remove(":contains('Series')");
 		$('label.inline-edit-series', editRowData).before('<div id="hidden_series_id" class="hidden">'+series_check+'</div>');
 		$(editRowData).attr('class', 'inline_edit_series_old');
 	});
