@@ -2,8 +2,8 @@
 ##SERIES-ICON RELATED STUFF
 
 function default_seriesicons_upload() {
-	$def_path = str_replace(ABSPATH, '', get_option('upload_path'));
-	$def_url = trailingslashit(get_bloginfo('wpurl')) . $def_path;
+	$def_path = ABSPATH;
+	$def_url = trailingslashit(get_bloginfo('wpurl'));
 	return array($def_path, $def_url);
 }
 

@@ -7,8 +7,7 @@
  * @since 2.3
  */
 global $org_domain;
-$root = dirname(dirname(dirname(dirname(__FILE__))));
-require_once($root.'/wp-load.php');
+require_once(ABSPATH .'/wp-load.php');
 require_once( ABSPATH . 'wp-admin/admin.php' );
 require_once( ABSPATH . WPINC . '/rss.php' );
 

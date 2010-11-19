@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 
 A plugin for managing the article series you write.
 
@@ -115,7 +115,7 @@ There have been some changes to how I provide support for Organize Series. Here 
 
 == Features ==
 
-The following is a brief overview of all the features in Organize Series.  For more indepth coverage of the features of Organize Series you can follow the [Organize Series Usage Tips Series](http://unfoldingneurons.com/series/organize-series-usage-tips) on my blog. Better yet, why not subscribe to the [usage feed](http://unfoldingneurons.com/series/organize-series-usage-tips/feed)?
+The following is a brief overview of all the features in Organize Series.
 
 #### Integration with WordPress taxonomy system
 Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxonomy system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
@@ -187,7 +187,19 @@ This version is a major update to the plugin and introduces big changes to the c
 
 == Changelog ==
 
+= 2.2.3 =
+
+More bugfixes
+
+* made some fixes in the javascript for the quick-edit implementation so Organize Series plays nicely with other plugins that hook into the quick-edit.
+
+* fixed an incorrect path pointer that broke the series-options page for users with a custom WP_CONTENT_DIR set.
+
+* modified the function returning the series_icon_url so it works correctly for users with a custom WP_CONTENT_DIR and WP_CONTENT_PATH set.
+
+
 = 2.2.2 =
+
 Another bugfix release
 
 * Fixed query bug:  When series archive pages were displayed, any widgets or other plugins querying posts (using $wp_query) on the page would not display expected posts (i.e. "Recent Posts" widget, Alikivia Sideposts, "Kates Gasis' Sideblog" plugin).  The custom joins/wheres/orderbys used by Organize Series are now isolated to only occur for the series posts being displayed.  Other queries on the page should be unaffected now.
