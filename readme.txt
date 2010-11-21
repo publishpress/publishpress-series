@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 
 A plugin for managing the article series you write.
 
@@ -186,6 +186,13 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.4 =
+
+Display Bug Fix
+
+* version 2.2.3 had a bug that affected the display of series icons on public facing side of your website.  This has been fixed.
+
 
 = 2.2.3 =
 
