@@ -2,7 +2,7 @@
 ##SERIES-ICON RELATED STUFF
 
 function default_seriesicons_upload() {
-	$def_path = ABSPATH; //this is a bug.  see line 759 of orgSEries-template-tags.php which will test false because the path for the icon won't be correct.  I think I need to change ABSPATH to WP_CONTENT_DIR + whatever the setting is for the default upload folder.  Actually, if the default upload folder is empty then I need to use ABSPATH + WP_CONTENT_DIR.  If it isn't empty then I need to use the set upload folder.  Will need to test more.
+	$def_path = ABSPATH; 
 	$def_url = trailingslashit(get_bloginfo('wpurl'));
 	return array($def_path, $def_url);
 }
