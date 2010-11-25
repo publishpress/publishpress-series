@@ -752,7 +752,7 @@ function is_seriestoc() {
 	$url = seriesicons_url() . $icon;
 		
 	if ($p['link']) {
-		$p['prefix'] .= '<a href="' . get_series_link($s_name) . '">';
+		$p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
 		$p['suffix'] = '</a>' . $p['suffix'];
 	}
 	
