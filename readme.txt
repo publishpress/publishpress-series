@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 
 A plugin for managing the article series you write.
 
@@ -186,6 +186,14 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.5 =
+
+Two more bug fixes:
+
+* fix for scheduled posts not retaining a set series part number.
+
+* fix for "<<Manage Series" showing up in the browser title when a series archive page is displayed.  I've completely removed that text and now just the "Series: {series title} << {Blog Title}" is showing up.
 
 = 2.2.4 =
 

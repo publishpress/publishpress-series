@@ -446,10 +446,11 @@ class orgSeries {
 	//add series information to browser title info
 	function add_series_wp_title( $title ) {
 		$series = single_series_title('', false);
+		$blogname = get_bloginfo('name');
 		
 		if ( !empty($series) ) {
 			if ( !is_feed() )
-				$title = __('Series: ',$this->org_domain) . $series . ' &laquo; ' . $title;
+				$title = __('Series: ',$this->org_domain) . $series . ' &laquo; ';
 			else
 				$title = __('Posts from the series: ',$this->org_domain) . $series . ' ('. get_bloginfo('url').')';
 		}

@@ -566,9 +566,9 @@ add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
 add_action('save_post','wp_set_post_series',10,3);
-add_action('future_to_publish','wp_set_post_series_transition',1,1);
-add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 1, 1);
-add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 1, 1);
+add_action('future_to_publish','wp_set_post_series_transition',10,1);
+add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
+add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('delete_post','wp_delete_post_series_relationship',1);
 
 //hooking into insert_term, update_term and delete_term 

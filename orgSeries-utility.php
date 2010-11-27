@@ -46,7 +46,7 @@ function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = T
 		$cycle++;
 	}
 	
-	$args = 'include='.$postids.'&meta_key='.SERIES_PART_KEY;
+	$args = 'post_status=any&include='.$postids.'&meta_key='.SERIES_PART_KEY;
 	$posts = get_posts($args);
 	$meta_key = SERIES_PART_KEY;
 	
