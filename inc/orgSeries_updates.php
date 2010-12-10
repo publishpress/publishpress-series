@@ -15,7 +15,6 @@ class PluginUpdateChecker {
 	public $metadataUrl = ''; //The URL of the plugin's metadata file.
 	public $pluginFile = '';  //Plugin filename relative to the plugins directory.
 	public $slug = '';        //Plugin slug. (with .php extension)
-	public $slug_name = '';   //Plugin slug without extension
 	public $checkPeriod = 12; //How often to check for updates (in hours).
 	public $optionName = '';  //Where to store the update info.
 	public $json_error = ''; //for storing any json_error data that get's returned so we can display an admin notice.
@@ -23,6 +22,7 @@ class PluginUpdateChecker {
 	public $install_key = ''; //used to hold the install_key if set.
 	public $download_query = ''; //used to hold the query variables for download checks;
 	public $lang_domain; //used to hold the localization domain for translations (get from $orgseries object).
+	public $dismiss_upgrade; //for setting the dismiss upgrade option (per plugin).
 	
 	/**
 	 * Class constructor.
@@ -34,13 +34,13 @@ class PluginUpdateChecker {
 	 * @param string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'. 
 	 * @return void
 	 */
-	function __construct($metadataUrl, $pluginFile, $slug = '', $checkPeriod = 12, $optionName = ''){
+	function __construct($metadataUrl, $slug = '', $checkPeriod = 12, $optionName = ''){
 		$this->metadataUrl = $metadataUrl;
-		$this->pluginFile = plugin_basename($pluginFile);
 		$this->checkPeriod = $checkPeriod;
-		$this->slug = $slug.'.php';
-		$this->slug_name = $slug;
+		$this->slug = $slug;
+		$this->pluginFile = $slug.'/'.$slug.'.php';
 		$this->optionName = $optionName;
+		$this->dismiss_upgrade = 'os_dismissed_upgrade_'.$this->slug;
 		
 		//If no slug is specified, use the name of the main plugin file as the slug.
 		//For example, 'my-cool-plugin/cool-plugin.php' becomes 'cool-plugin'.
@@ -52,7 +52,6 @@ class PluginUpdateChecker {
 			$this->optionName = 'external_updates-' . $this->slug;
 		}
 		$this->set_api();
-		$this->set_domain();
 		$this->installHooks();		
 	}
 	
@@ -130,16 +129,17 @@ class PluginUpdateChecker {
 		}
 		
 		//dashboard message "dismiss upgrade" link
-		add_action( "wp_ajax_orgseries_dismiss_upgrade", array(&$this, 'dashboard_dismiss_upgrade'));
+		add_action( "wp_ajax_".$this->dismiss_upgrade, array(&$this, 'dashboard_dismiss_upgrade'));
 		
 		//add in api option on Series Options page if it's not already there.
 		add_action('admin_init', array(&$this, 'orgseries_api'));
 	}
 	
 	function orgseries_api() {
-		add_settings_field('orgseries_api_settings', 'Organize Series User API', 'orgseries_api_output', 'orgseries_options_page', 'series_automation_settings');
+		$this->set_domain();		
+		add_settings_field('orgseries_api_settings', 'Organize Series User API', array(&$this,'orgseries_api_output'), 'orgseries_options_page', 'series_automation_settings');
 		register_setting('orgseries_options', 'org_series_options');
-		add_filter('orgseries_options', 'orgseries_api_validate', 10, 2);
+		add_filter('orgseries_options', array(&$this,'orgseries_api_validate'), 10, 2);
 	}
 	
 	function orgseries_api_validate($newinput, $input) {
@@ -186,7 +186,7 @@ class PluginUpdateChecker {
 	function requestInfo($queryArgs = array()){
 		//Query args to append to the URL. Plugins can add their own by using a filter callback (see addQueryArgFilter()).
 		$queryArgs['installed_version'] = $this->getInstalledVersion(); 
-		$queryArgs['orgseries_request_plugin'] = $this->slug_name;
+		$queryArgs['orgseries_request_plugin'] = $this->slug;
 		if ( !empty($this->install_key) )
 			$queryArgs['orgseries_install_key'] = $this->install_key;
 		if ( !empty($this->orgseries_api) )
@@ -239,7 +239,7 @@ class PluginUpdateChecker {
 		}
 		
 		//admin display for if the update check reveals that there is a new version but the API key isn't valid.  
-		if ( isset($pluginInfo->api_invalid) || isset($pluginInfo->no_api ) { //we have json_error returned let's display a message
+		if ( isset($pluginInfo->api_invalid) || isset($pluginInfo->no_api ) ) { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
 			add_action('admin_notices', array(&$this, 'display_json_error'));
 		}
@@ -258,8 +258,8 @@ class PluginUpdateChecker {
 	
 	function display_json_error() {
 		$pluginInfo = $this->json_error;
-		$pluginName = uc_words(str_replace('-', ' ', $this->slug ));
-		$update_dismissed = get_option("os_dismissed_upgrades");
+		$pluginName = ucwords(str_replace('-', ' ', $this->slug ));
+		$update_dismissed = get_option($this->dismiss_upgrade);
 		
 		$is_dismissed = !empty($update_dismissed) && in_array($pluginInfo->version, $update_dismissed);
 		
@@ -283,7 +283,7 @@ class PluginUpdateChecker {
             <script type="text/javascript">
                 function OrgSeriesDismissUpgrade(){
                     jQuery("#orgseries_dashboard_message").slideUp();
-                    jQuery.post(ajaxurl, {action:"orgseries_dismiss_upgrade", version:"<?php echo $pluginInfo->version; ?>", cookie: encodeURIComponent(document.cookie)});
+                    jQuery.post(ajaxurl, {action:"<?php echo $this->dismiss_upgrade; ?>", version:"<?php echo $pluginInfo->version; ?>", cookie: encodeURIComponent(document.cookie)});
                 }
             </script>
 			<?php
@@ -291,12 +291,12 @@ class PluginUpdateChecker {
 	}
 	
 	function dashboard_dismiss_upgrade() {
-		$os_ary = get_option('os_dismissed_upgrades');
+		$os_ary = get_option($this->dismiss_upgrade);
 		if (!is_array($os_ary))
 			$os_ary = array();
 		
 		$os_ary[] = $_POST['version'];
-		update_option('os_dismissed_upgrades', $os_ary);
+		update_option($this->dismiss_upgrade, $os_ary);
 	}
 	
 	/**
@@ -347,11 +347,12 @@ class PluginUpdateChecker {
 		}
 		
 		$state = get_option($this->optionName);
-		
-		$shouldCheck =
+		//TODO make sure you uncomment the below and comment out $shouldCheck = true!
+		/*$shouldCheck =
 			empty($state) ||
 			!isset($state->lastCheck) || 
-			( (time() - $state->lastCheck) >= $this->checkPeriod*3600 );
+			( (time() - $state->lastCheck) >= $this->checkPeriod*3600 );*/
+		$shouldCheck = true;
 		
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
@@ -374,8 +375,8 @@ class PluginUpdateChecker {
 		if ( !$relevant ){
 			return $result;
 		}
-		
-		$pluginInfo = $this->requestInfo();
+
+		$pluginInfo = $this->requestInfo(array('checking_for_updates' => '1'));
 		if ($pluginInfo){
 			return $pluginInfo->toWpFormat();
 		}
