@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
-Tested up to: 3.0.1
-Stable tag: 2.2.5
+Tested up to: 3.0.3
+Stable tag: 2.2.6
 
 A plugin for managing the article series you write.
 
@@ -14,9 +14,12 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
 
-Make sure you check out the features section in the "other notes" tab for all the neat stuff you can do!
+Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**VERY IMPORTANT** - As of version 2.2, Organize Series *requires* WordPress 3.0+ to work. Organize Series also requires PHP 5.2+. 
+**As of version 2.2, Organize Series *requires* WordPress 3.0+ to work. Organize Series also requires PHP 5.2+.**
+
+**IMPORTANT LINKS**
+[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](http://organizeseries.com) | [Organize Series Twitter](http://twitter.com/organizeseries)
 
 == Installation ==
 
@@ -186,6 +189,10 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.6 =
+
+Some houskeeping in this release along with including the framework to enable automatic updates for addons released on [OrganizeSeries.com](http://organizeseries.com/downloads)
 
 = 2.2.5 =
 
