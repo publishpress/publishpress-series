@@ -451,7 +451,7 @@ function latest_series($display = true, $args = '') {
  *
  * @return string - the final constructed series link.
 */
-function get_series_link( $series_id ) {
+function get_series_link( $series_id = '' ) {
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	if ( empty($series_id) || $series_id == null )
 		$series_slug = get_query_var(SERIES_QUERYVAR);
@@ -461,9 +461,7 @@ function get_series_link( $series_id ) {
 	} else {
 		if ( $series_slug_get = get_term_by('name', htmlentities2($series_id), 'series' ) ) {
 			$series_slug = $series_slug_get;
-		} else {
-			$series_slug = $series_id;
-		}
+		} 
 	}
 	
 	if ( empty($series_slug) || $series_slug == null || $series_slug == '' )

@@ -180,7 +180,7 @@ class PluginUpdateChecker {
 	 * @uses wp_remote_get()
 	 * 
 	 * @param array $queryArgs Additional query arguments to append to the request. Optional.
-	 * @return PluginInfo
+	 * @return orgseries_PluginInfo
 	 */
 	function requestInfo($queryArgs = array()){
 		//Query args to append to the URL. Plugins can add their own by using a filter callback (see addQueryArgFilter()).
@@ -216,7 +216,7 @@ class PluginUpdateChecker {
 		//Try to parse the response
 		$pluginInfo = null;
 		if ( !is_wp_error($result) && isset($result['response']['code']) && ($result['response']['code'] == 200) && !empty($result['body']) ){
-			$pluginInfo = PluginInfo::fromJson($result['body']);
+			$pluginInfo = orgseries_PluginInfo::fromJson($result['body']);
 		}
 		$pluginInfo = apply_filters('puc_request_info_result-'.$this->slug, $pluginInfo, $result);
 		return $pluginInfo;
@@ -436,11 +436,11 @@ class PluginUpdateChecker {
 	 * Register a callback for filtering the plugin info retrieved from the external API.
 	 * 
 	 * The callback function should take two arguments. If the plugin info was retrieved 
-	 * successfully, the first argument passed will be an instance of  PluginInfo. Otherwise, 
+	 * successfully, the first argument passed will be an instance of  orgseries_PluginInfo. Otherwise, 
 	 * it will be NULL. The second argument will be the corresponding return value of 
 	 * wp_remote_get (see WP docs for details).
 	 *  
-	 * The callback function should return a new or modified instance of PluginInfo or NULL.
+	 * The callback function should return a new or modified instance of orgseries_PluginInfo or NULL.
 	 * 
 	 * @uses add_filter() This method is a convenience wrapper for add_filter().
 	 * 
@@ -454,7 +454,7 @@ class PluginUpdateChecker {
 	
 endif;
 
-if ( !class_exists('PluginInfo') ):
+if ( !class_exists('orgseries_PluginInfo') ):
 
 /**
  * A container class for holding and transforming various plugin metadata.
@@ -464,7 +464,7 @@ if ( !class_exists('PluginInfo') ):
  * @version 1.0
  * @access public
  */
-class PluginInfo {
+class orgseries_PluginInfo {
 	//Most fields map directly to the contents of the plugin's info.json file.
 	//See the relevant docs for a description of their meaning.  
 	public $name;
@@ -489,11 +489,11 @@ class PluginInfo {
 	public $id = 0; //The native WP.org API returns numeric plugin IDs, but they're not used for anything.
 		
 	/**
-	 * Create a new instance of PluginInfo from JSON-encoded plugin info 
+	 * Create a new instance of orgseries_PluginInfo from JSON-encoded plugin info 
 	 * returned by an external update API.
 	 * 
 	 * @param string $json Valid JSON string representing plugin info. 
-	 * @return PluginInfo New instance of PluginInfo, or NULL on error.
+	 * @return orgseries_PluginInfo New instance of orgseries_PluginInfo, or NULL on error.
 	 */
 	public static function fromJson($json){
 		$apiResponse = json_decode($json);
@@ -507,7 +507,7 @@ class PluginInfo {
 			return null;
 		}
 		
-		$info = new PluginInfo();
+		$info = new orgseries_PluginInfo();
 		
 		foreach(get_object_vars($apiResponse) as $key => $value){
 			$info->$key = $value;
@@ -587,7 +587,7 @@ class PluginUpdate {
 		//Since update-related information is simply a subset of the full plugin info,
 		//we can parse the update JSON as if it was a plugin info string, then copy over
 		//the parts that we care about.
-		$pluginInfo = PluginInfo::fromJson($json);
+		$pluginInfo = orgseries_PluginInfo::fromJson($json);
 		if ( $pluginInfo != null ) {
 			return PluginUpdate::fromPluginInfo($pluginInfo);
 		} else {
@@ -596,10 +596,10 @@ class PluginUpdate {
 	}
 	
 	/**
-	 * Create a new instance of PluginUpdate based on an instance of PluginInfo.
+	 * Create a new instance of PluginUpdate based on an instance of orgseries_PluginInfo.
 	 * Basically, this just copies a subset of fields from one object to another.
 	 * 
-	 * @param PluginInfo $info
+	 * @param orgseries_PluginInfo $info
 	 * @return PluginUpdate
 	 */
 	public static function fromPluginInfo($info){
