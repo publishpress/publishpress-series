@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.3
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 
 A plugin for managing the article series you write.
 
@@ -19,7 +19,8 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 **As of version 2.2, Organize Series *requires* WordPress 3.0+ to work. Organize Series also requires PHP 5.2+.**
 
 **IMPORTANT LINKS**
-[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](http://organizeseries.com) | [Organize Series Twitter](http://twitter.com/organizeseries)
+
+[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](http://organizeseries.com) | [OrgSeries ADDONS](http://organizeseries.com/download/) | [OrgSeries Twitter](http://twitter.com/organizeseries)
 
 == Installation ==
 
@@ -189,6 +190,16 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.7 =
+
+Some more bugfixes:
+
+- renamed a class related to the automatic plugin updates (for premium orgseries addons) that conflicted with another plugin.  I should've been more unique...  If you experienced errors when activating a newer version of any Organize Series addons, this was why.  You should be good to go with this update.
+
+- fixed a bug with the `get_series_link()` function that would produce an error if you didn't include a paramater.  
+
+- some more minor cleanups of the readme.txt file.
 
 = 2.2.6 =
 
