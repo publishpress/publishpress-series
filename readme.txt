@@ -195,11 +195,11 @@ This version is a major update to the plugin and introduces big changes to the c
 
 Some more bugfixes:
 
-- renamed a class related to the automatic plugin updates (for premium orgseries addons) that conflicted with another plugin.  I should've been more unique...  If you experienced errors when activating a newer version of any Organize Series addons, this was why.  You should be good to go with this update.
+* renamed a class related to the automatic plugin updates (for premium orgseries addons) that conflicted with another plugin.  I should've been more unique...  If you experienced errors when activating a newer version of any Organize Series addons, this was why.  You should be good to go with this update.
 
-- fixed a bug with the `get_series_link()` function that would produce an error if you didn't include a paramater.  
+* fixed a bug with the `get_series_link()` function that would produce an error if you didn't include a paramater.  
 
-- some more minor cleanups of the readme.txt file.
+* some more minor cleanups of the readme.txt file.
 
 = 2.2.6 =
 
@@ -410,69 +410,3 @@ Organize Series version 2.1 is a significant update that introduces some new fea
 * All hard-coded wp-content references are corrected to call the WP-CONTENT definition allowing for WordPress installs that renamed their wp-content directory.
 * fix for series widget displaying "Other Posts that are part of this series" outside of single post pages and with posts that are not part of a series.
 * The title attribute in series links now uses the series name instead of series id and I've added an id attribute to the links using the series id.
-
-
-= 2.0.8 =
-Significant fixes and a couple minor new features. NOTE - this version was ONLY MADE POSSIBLE thanks to the many people who tested the development betas and reported on bugs.  Without their help, I wouldn't have got this version out the door.  Read through the comments on the [Organize Series feed](http://unfoldingneurons.com/tag/organize-series-wordpress-plugin/feed/) to see all the people who contributed!
-
-*New features*
-
-* Added a new argument to the "wp_list_series" function - "number" which enables users to limit the number of series displayed
-* Reworked the layout of Organize Series administration integration with WordPress so it "fits" with WordPress 2.7 - including showing "Series" in the Dashboard "Right Now" widget.
-* Organize Series interface can be floated around and respositioned in the write/edit posts screen for WordPress 2.7
-* moved the "Manage Series" menu item to the Posts submenu area for WP2.7 (previous versions stay in the same location)
-
-*Minor*
-
-* fixed an inconsistency with 'show_last_update'
-* fixed some bugs with the atom feed (was an early update...not sure if it's still working correctly now)
-* fixed the 'series_description' function (it wasn't working)
-
-*Major*
-
-* Organize Series will now work correctly with the post-revisions feature introduced with WordPress 2.6
-* redid the plugin file locater code to allow for changes with the admin menu filters.
-* redid the plugin file locater code to allow for users customizing the location of their wp-content folder
-* redid all code referencing wp-config.php to allow for users customizing the location of their wp-config.php file (see http://planetozh.com/blog/2008/07/what-plugin-coders-must-know-about-wordpress-26/ for reference I used).
-* Fixed posts that are a part of series but not published showing up in the series list on published posts that are part of a series-taxonomy
-* Fixed a bug where custom navigation text set on the Series options page wasn't showing up correctly.
-
-
-
-**2.0.7** - Contains the following fixes:
-
-*Minor*
-
-* Removal of extraneous html from series.php and seriestoc.php template files.
-* Updated readme.txt for suggestion to copy customized `series.php` and `seriestoc.php` files to theme directory.
-* Added missing `< /div >` to `seriestoc.php` file to fix "98%" of the typical default installations of this plugin.
-* fixed a potential bug with the `get_series_toc()` function/template tag.
-* Fixed a few spacing, code structure errors throughout the files.
-* Changed the "title" attribute for the `get_series_toc()` link to something a bit more friendly.
-
-*Major*
-
-* Fixed bug affecting installs of Organize Series on blogs with a subdirectory in their blog address (i.e. `http://www.myblog.com/blog/`).  In these setups the Series Table of Contents page re-direct wouldn't work.  This bug also affected custom seriestoc urls set on the Series Options pages with a multiple slash structure (i.e. the default is `\series\`, but if you used `\series\seriestoc` it wouldn't work).  Many thanks to [Ken Carlson](http://reflections.cyberpastor.net/) for his help in getting it fixed.
-
-**2.0.6** - Fixes a pretty major bug with the custom rewrite/permalink structure for series archives.  This bug only shows up if you use certain prefixes to your custom permalinks such as `/archives/...rest of permalink`.  Hat tip to [Edward](http://www.scompt.com/) for the catch and fix.
-
-**2.0.5** - Contains the following bug fixes:
-
-* PHP error that was reported on the Manage Series page affecting certain installs.
-* .rss validation warning for series archive feeds thanks to [this post](http://oriolrius.cat/blog/2008/04/25/problema-al-rss-del-wordpress-solucionat/)
-* some typo fixes with readme.txt file
-* updating readme.txt to reflect that Organize Series works with WordPress 2.5.1
-
-**2.0.4** - This is a pretty significant changeset that fixes some things with the Series Table of Contents page:
-
-*  Series Table of Contents page now returns the correct header ('200').  It was returning '400' before the fix. [see this thread](http://unfoldingneurons.com/forums/topic/error-404).
-*  NEW FEATURE:  You can now indicate what the browser title bar will say on Series Table of Contents page via the Series Option settings in your admin.  The default will be "Series Table of Contents Page"
-*  Fixed a conflict with "All In One SEO Pack" plugin affecting Series Table of Contents Page.
-* Thanks to [gnouros](http://www.morbleu.com/) for detecting and testing my fixes of the above errors for me!
-*  Shortened the "official" plugin name to "Organize Series" to match the directory in the svn repository - hopefully this will fix the indicator not showing up in your plugin list for when there's a new version of Organize Series out.  [See this post in the WP Support Forums](http://wordpress.org/support/topic/165765).
-
-**2.0.3** - Previous fix broke the ajax call for the add series on a fly (on write/edit posts pages).  This fixes that.
-
-**2.0.2** - IMPORTANT FIX for where organize series broke submenu links on plugins that added their own topmenu.  Won't happen anymore.
-
-**2.0.1** - some fixes so that changing the `SERIES_URL` definition in orgSeries.php actually works (you can use this to pick how you want the series-archive permalinks to look - important for avoiding conflicts with existing category permalinks...)

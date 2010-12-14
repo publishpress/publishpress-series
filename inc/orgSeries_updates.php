@@ -61,7 +61,7 @@ class PluginUpdateChecker {
 	**/
 	function set_domain() {
 		global $orgseries;
-		if ( empty($orgseries) ) {
+		if ( empty($orgseries) && class_exists('orgSeries') ) {
 			$orgseries = new orgSeries();
 		}
 		$this->lang_domain = $orgseries->org_domain;
