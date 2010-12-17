@@ -240,6 +240,7 @@ class PluginUpdateChecker {
 		if ( isset($pluginInfo->api_invalid) || isset($pluginInfo->no_api ) ) { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
 			add_action('admin_notices', array(&$this, 'display_json_error'));
+			return null;
 		}
 		
 		if ( isset($pluginInfo->new_install_key) ) {
@@ -350,7 +351,6 @@ class PluginUpdateChecker {
 			empty($state) ||
 			!isset($state->lastCheck) || 
 			( (time() - $state->lastCheck) >= $this->checkPeriod*3600 );
-		
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
 		}
