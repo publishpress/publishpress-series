@@ -351,6 +351,7 @@ class PluginUpdateChecker {
 			empty($state) ||
 			!isset($state->lastCheck) || 
 			( (time() - $state->lastCheck) >= $this->checkPeriod*3600 );
+			
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
 		}
