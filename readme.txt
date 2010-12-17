@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.0.3
-Stable tag: 2.2.7
+Stable tag: 2.2.8
 
 A plugin for managing the article series you write.
 
@@ -190,6 +190,12 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.8 =
+
+minor bugfix (not a necessary update unless you are using any premium addons for Organize Series)
+
+* Automatic Upgrades framework for addons had a bug that surfaced in certain cases.
 
 = 2.2.7 =
 

@@ -12,7 +12,7 @@ if ( !class_exists('orgSeries') ) {
 class orgSeries {
 
 	var $settings;
-	var $version = '2.2.7';
+	var $version = '2.2.8';
 	var $org_domain = 'organize-series';
 	
 	//__constructor
