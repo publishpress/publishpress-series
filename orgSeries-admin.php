@@ -78,12 +78,13 @@ function admin_ajax_series() {
 	if ( !$series_nicename = sanitize_title($series_name) )
 		die('0');
 	if ( !$series_id = series_exists( $series_name ) )
-		$series_id = wp_create_single_series( $series_name );
+		$ser_id = wp_create_single_series( $series_name );
+		$series_id = $ser_id['term_id'];
 	$series_name = esc_html(stripslashes($series_name));
 	$x->add( array(
 		'what' => 'series',
 		'id' => $series_id,
-		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' checked='checked' name='post_series' id='in-series-$series_id' /> $series_name</label></li>"
+		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> $series_name</label></li>"
 	) );
 	$x->send();
 }

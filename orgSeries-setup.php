@@ -320,7 +320,7 @@ class orgSeries {
 	//orgSeries dropdown nav js
 	function series_dropdown_js() {
 		global $wp_rewrite;
-		if ( $wp_rewrite->using_permalinks() ) {
+		if ( !($wp_rewrite->using_permalinks()) ) {
 			?>
 			<script type='text/javascript'><!--
 			var seriesdropdown = document.getElementById("orgseries_dropdown");
