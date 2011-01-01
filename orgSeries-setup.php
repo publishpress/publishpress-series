@@ -167,7 +167,7 @@ class orgSeries {
 			'assign_terms' => 'manage_series'
 			);			
 		$labels = array(
-			'name' => _x('Manage Series', 'taxonomy general name', $this->org_domain),
+			'name' => _x('Series', 'taxonomy general name', $this->org_domain),
 			'singular_name' => _x('Series', 'taxonomy singular name', $this->org_domain),
 			'search_items' => __('Search Series', $this->org_domain),
 			'popular_items' => __('Popular Series', $this->org_domain),
@@ -175,7 +175,8 @@ class orgSeries {
 			'edit_item' => __('Edit Series', $this->org_domain),
 			'update_item' => __('Update Series', $this->org_domain),
 			'add_new_item' => __('Add New Series', $this->org_domain),
-			'new_item_name' => __('New Series Name', $this->org_domain)
+			'new_item_name' => __('New Series Name', $this->org_domain),
+			'menu_name' => __('Manage Series', $this->org_domain)
 			);
 		$args = array(
 			'update_count_callback' => '_update_post_term_count',
