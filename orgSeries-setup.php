@@ -12,7 +12,7 @@ if ( !class_exists('orgSeries') ) {
 class orgSeries {
 
 	var $settings;
-	var $version = '2.2.8';
+	var $version = '2.2.9';
 	var $org_domain = 'organize-series';
 	
 	//__constructor
@@ -297,11 +297,9 @@ class orgSeries {
 	function orgSeries_toc_template() {
 		global $wp_query;
 		if ( isset($wp_query->is_seriestoc) && $wp_query->is_seriestoc ) {
-			if (file_exists(TEMPLATEPATH . '/seriestoc.php')) {
-				$template =  TEMPLATEPATH . '/seriestoc.php';
-			} else {
+				$template = locate_template(array('seriestoc.php')); //checks in child theme (if child theme) and then parent theme.  props Ricky (jeshyr)
+			if (!$template)
 				$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR .'/seriestoc.php';
-			}
 					
 			function seriestoc_title( $title ) {
 				$seriestoc_title = $settings['series_toc_title'];
