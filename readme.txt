@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
-Tested up to: 3.0.3
-Stable tag: 2.2.8
+Tested up to: 3.1
+Stable tag: 2.2.9
 
 A plugin for managing the article series you write.
 
@@ -190,6 +190,20 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.2.9 =
+
+Bugfix release AND full compatibility check with WordPress 3.1
+
+* Organize Series is fully compatible with the upcoming version 3.1 of WordPress.
+
+* Fixed a bug with the ajax form in the series meta box on the edit-post.php page.  When creating a new series using the form the new series would be created BUT not automatically selected.  Also you wouldn't be able to attach the post to the new series until the page was reloaded.  This is fixed.
+
+* The Series dropdown in the SeriesTOC widget would not redirect to a series archive page when a series is selected (in certain cases).  This has been fixed.
+
+* Some other bug fixes for certain cases where a "FATAL ERROR..." message would appear.
+
+* a naming convention change.  On WordPress version prior to 3.1 you will see the name of the menu item for the Manage Series page as "Series".  With WordPress 3.1 this will go back to "Manage Series" which is what it was prior to this release.  The reason for the difference is I'm using a new paramater available for the taxonomy api (menu_name) so I can clean up what the General Taxonomy name is (from "Manage Series" to "Series").  This WILL affect any users who have localization files.  If you start using Organize Series 2.2.9 with the 3.0 branch of WordPress make sure you revisit your translation files once you upgrade to WordPress 3.1 to make sure all the translations are correct.
 
 = 2.2.8 =
 
