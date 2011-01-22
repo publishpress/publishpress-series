@@ -24,7 +24,7 @@ function _usort_series_by_name($a, $b) {
 
 //This function is used to create an array of posts in a series including the order the posts are in the series.  Then it will sort the array so it is keyed in the order the posts are in.  Will return the array.
 
-function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = TRUE) {
+function get_series_order($posts, $postid = 0, $series_id = 0, $skip = TRUE, $only_published = TRUE) {
 	if (!isset($posts)) return false; //don't have the posts array so can't do anything.
 	
 	if ( !is_array( $posts ) )
@@ -46,9 +46,9 @@ function get_series_order($posts, $postid = 0, $skip = TRUE, $only_published = T
 		$cycle++;
 	}
 	
-	$args = 'post_status=any&include='.$postids.'&meta_key='.SERIES_PART_KEY;
+	$args = 'post_status=any&include='.$postids;
 	$posts = get_posts($args);
-	$meta_key = SERIES_PART_KEY;
+	$meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 	
 	foreach ($posts as $spost) {
 		if ( $spost->post_status == 'publish' || !$only_published ) {
@@ -88,9 +88,9 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 		 $ser_width = $settings['series_icon_width_series_page'];
 		 }
 	if ( 'series-toc' == $referral  || 'latest_series' == $referral ) {
-		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($id), $replace);
+		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($ser_id), $replace);
 	} else {
-		$replace = str_replace('%total_posts_in_series%', wp_postlist_count(), $replace);
+		$replace = str_replace('%total_posts_in_series%', wp_postlist_count($ser_id), $replace);
 	}
 		
 	if( stristr($replace, '%series_icon%') ) 
@@ -108,7 +108,7 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	if( stristr($replace, '%post_title_linked%') ) 
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
 	if( stristr($replace, '%series_part%') ) 
-	$replace = str_replace('%series_part%', wp_series_part($p_id), $replace);
+	$replace = str_replace('%series_part%', wp_series_part($p_id, $ser_id), $replace);
 	if( stristr($replace, '%series_description%') ) 
 	$replace = str_replace('%series_description%', series_description($id), $replace);
 	if( stristr($replace, '%next_post%') ) 
@@ -191,5 +191,16 @@ class Walker_SeriesDropdown extends Walker {
 		}
 		$output .= "</option>\n";
 	}
+}
+
+function os_strarr_to_intarr($array) {
+	if ( empty($array) ) return;
+	function this_to_int(&$val, $key) {
+		$val = (int) $val;
+	}
+	
+	array_walk($array, 'this_to_int');
+	
+	return $array;
 }
 ?>

@@ -12,12 +12,7 @@ function get_series_rss_link($echo = false, $series_id = '') {
 	
 	//check for series_id and attempt to find it if possible
 	if ( $series_id == '' ) {
-		$series = get_the_series();
-		if (!empty($series) ) {
-			foreach ($series as $ser) {
-				$series_id = $ser->term_id;
-			}
-		}
+		$series = get_query_var(SERIES_QUERYVAR);
 	}
 	
 	if ( $series_id == '' ) return;

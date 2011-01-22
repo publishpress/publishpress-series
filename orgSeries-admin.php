@@ -17,11 +17,14 @@ global $checkpage;
 add_action('admin_print_styles', 'orgSeries_admin_header');
 
 ##ADMIN-Write/Edit Post Script loader
-add_action('admin_print_scripts','orgSeries_admin_script'); 
+//add_action('admin_print_scripts','orgSeries_admin_script'); 
+add_action('admin_print_scripts-post.php', 'orgSeries_post_script');
+add_action('admin_print_scripts-post-new.php', 'orgSeries_post_script');
+add_action('admin_print_scripts-edit-tags.php', 'orgSeries_manage_script');
 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add-series', 'admin_ajax_series');
-add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
+//add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
 
 //hook into the quick-edit on edit.php
 add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
@@ -46,6 +49,10 @@ function orgSeries_admin_header() {
 }
 
 //add_action filter for the manage_series page...
+
+function orgSeries_post_script() {
+	wp_enqueue_script('ajaxseries');
+}
 function orgSeries_admin_script() {
 //load in the series.js script and set localization variables.
 global $checkpage, $orgseries, $pagenow;
@@ -84,7 +91,8 @@ function admin_ajax_series() {
 	$x->add( array(
 		'what' => 'series',
 		'id' => $series_id,
-		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> $series_name</label></li>"
+		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> $series_name</label><span id='new_series_id' class='hidden'>$series_id</span></li>",
+		'position' => -1
 	) );
 	$x->send();
 }
@@ -92,10 +100,13 @@ function admin_ajax_series() {
 ###AJAX FOR INLINE_SERIES UPDATE###
 function admin_inline_series_ajax() {
 	check_ajax_referer ( 'inlineeditnonce', '_inline_edit' );
-	$series_id = $_POST['post_series'];
+	$data[$seriesid] = $_POST['post_series'];
+	$data[$series_part] = $_POST['series_part'];
+	$data[$id] = $_POST['series_post_id'];
+	/*$series_id = $_POST['post_series'];
 	$part = $_POST['series_part'];
-	$post_id = $_POST['series_post_id'];
-	orgseries_custom_column_action('series', $post_id);
+	$post_id = $_POST['series_post_id'];*/
+	orgSeries_custom_column_action('series', $data[$id]);
 	exit;
 	break;
 }
@@ -182,13 +193,14 @@ function get_series_to_select( $default = 0 ) {
 function series_edit_meta_box() {
 global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
+	$ser_id = wp_get_post_series( $id );
 	?>
 	<p id="jaxseries"></p>
 		<span id="series-ajax-response"></span>
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
-		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
 			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', $orgseries->org_domain); ?></p>
 	<?php
 }
@@ -208,12 +220,13 @@ function orgSeries_custom_column_filter($defaults) {
 }
 
 function orgSeries_custom_column_action($column_name, $id) {
-	global $wpdb, $orgseries;
+	global $orgseries;
 	$seriesid = null;
 	$series_part = null;
 	$series_name = null;
+	
 	if ($column_name == 'series') {
-		if ( $series = get_the_series($id) ) {
+		if ( $series = get_the_series($id, false) ) {
 			$seriesid = $series[0]->term_id;
 			$series_name = $series[0]->name;
 			$series_link = get_series_link($series_name);

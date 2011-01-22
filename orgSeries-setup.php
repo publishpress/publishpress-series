@@ -12,7 +12,7 @@ if ( !class_exists('orgSeries') ) {
 class orgSeries {
 
 	var $settings;
-	var $version = '2.2.9';
+	var $version = ORG_SERIES_VERSION;
 	var $org_domain = 'organize-series';
 	
 	//__constructor
@@ -79,8 +79,8 @@ class orgSeries {
 		} else {
 			$old_version = $old_oldversion;
 		}
-				
-		if ( !empty( $old_version ) ) { //register the current version of orgSeries
+		
+		if ( !empty( $old_version ) ) { //register the current version of orgSeries and check if any updates.
 			if ( $oldversion != $this->version ) {
 				$this->update($oldversion);
 			}
@@ -108,6 +108,7 @@ class orgSeries {
 	
 	//function for all updates
 	function update($version) {
+		global $wpdb;
 		//upgrading from 2.2
 		if ( $version == '2.2'  || $version < '2.2') {
 			$settings = get_option('org_series_options');
@@ -126,10 +127,35 @@ class orgSeries {
 			
 			update_option('org_series_options', $settings);
 		}
+		
+		//upgrading for versions before 2.3. We're updating the series_part meta key to the new format for all posts that are a part of a series.
+		if ( $version < '2.3' ) {
+			$query = "SELECT p.ID, pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part' AND tt.taxonomy = 'series'";
+			$posts = $wpdb->get_results($query);
+			
+			//let's cycle through the posts and update the meta_keys to the new format.
+			if ( empty($posts) ) return; //get out there's no posts to update.
+			foreach ($posts as $post) {
+				$meta_key = SERIES_PART_KEY;
+				$meta_value = $post->meta_value;
+				add_post_meta($post->ID, $meta_key, $meta_value);
+			}
+			
+			//let's take this opportunity to do some database cleanup.  We need to delete any post that has the SERIES_PART_KEY meta_key including those that are actually not part of a series (from some legacy bugs).
+			$query = "SELECT p.ID FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part'";
+			$posts = $wpdb->get_results($query);
+			
+			//now let's delete the meta_key/value combo from those posts
+			if ( empty($posts) ) return; //not posts, let's get out and save the environment (sic).
+			foreach ($posts as $post) {
+				$meta_key = 'series_part';
+				delete_post_meta($post->ID, $meta_key);
+			}
+		}
+		return;
 	}
 	
 	function register_scripts() {
-		global $wp_rewrite;
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js');  
 		wp_register_script( 'ajaxseries', $url.'series.js', array('wp-lists'), '20080310' );
@@ -353,22 +379,24 @@ class orgSeries {
 	//joins and wheres etc.
 	
 	function sort_series_page_join($join) {
-		global $wpdb, $wp_query;
+		global $wp_query, $wpdb;
 		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $join;
-		$join .= " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
+		$os_join = " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
+		$join .= apply_filters('orgseries_sort_series_page_join', $os_join);
 		return $join;
 	}
 
 	function sort_series_page_where($where) {
-		global $wpdb, $wp_query;
+		global $wp_query, $wpdb;
 		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $where;
 		$part_key = SERIES_PART_KEY;
-		$where .= " AND orgmeta.meta_key = '$part_key' ";
+		$os_where = " AND orgmeta.meta_key = '$part_key' ";
+		$where .= apply_filters('orgseries_sort_series_page_where', $os_where);
 		return $where;
 	}
 
 	function sort_series_page_orderby($ordering) {
-		global $wp_query;
+		global $wp_query, $wpdb;
 		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $ordering;
 		$settings = $this->settings;
 		$orderby = $settings['series_posts_orderby'];
@@ -378,7 +406,7 @@ class orgSeries {
 		if (!isset($orderby)) $orderby = "post_date";
 		if (!isset($order)) $order = "DESC";
 		$ordering = " $orderby $order ";
-		return $ordering;	
+		return apply_filters('orgseries_sort_series_page_orderby', $ordering);	
 	}
 	
 	// Add .css to header if enabled via options
@@ -431,7 +459,7 @@ class orgSeries {
 		return $content;
 	}	
 	
-	//add series navigation strip to posts taht are part of a series (on single.php view)
+	//add series navigation strip to posts that are part of a series (on single.php view)
 	function series_nav_filter($content) {
 		if (is_single()) {
 			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {

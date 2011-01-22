@@ -7,7 +7,7 @@ In most cases, the series functions listed here are just "wrappers" to save havi
 /**
  * get_the_series() - calls up all the series info from the taxonomy tables (for a particular post).
 */	
-function get_the_series( $id = false ) { 
+function get_the_series( $id = false, $cache = true ) { 
 	global $post, $term_cache;
 	
 	$id = (int) $id;
@@ -18,7 +18,7 @@ function get_the_series( $id = false ) {
 	if ( empty($id) )
 		return false;
 	
-	$series = get_object_term_cache($id, 'series');
+	$series = $cache ? get_object_term_cache($id, 'series') : false;
 	
 	if (false === $series )
 		$series = wp_get_object_terms($id, 'series');
@@ -71,10 +71,19 @@ function &get_orgserial($orgserial, $output = OBJECT, $filter = 'raw') {
 
  //will have to add the following function for deleting the series relationship when a post is deleted.
 function delete_series_post_relationship($postid) {
-	wp_delete_object_term_relationships($postid, 'series');
+	$id = (int) $postid;
+	$series = get_the_series($id);
+	
+	if ( !empty($series) ) {  //let's not waste any cycles
+		foreach ( $series as $ser ) {
+			wp_reset_series_order_meta_cache($id, $ser->term_id);
+		}
+		return wp_delete_object_term_relationships($id, array('series'));
+	}
+	return;
 }
 
-//call up series post is associated with -- needed for the post-edit panel specificaly.
+//call up series post is associated with -- needed for the post-edit panel specifically.
 function wp_get_post_series( $post_id = 0, $args = array() ) {
 	$post_id = (int) $post_id;
 	$defaults = array('fields' => 'ids');
@@ -88,7 +97,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$series_posts = array(); 
- 	$series_posts = get_series_order($post_ids_in_series, $postid, true, false); 
+ 	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false); 
  	$total_posts = count($series_posts) + 1;
 	
 	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
@@ -143,28 +152,31 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 					$drop = TRUE;
 					}			
 			
-			delete_post_meta($spostid, SERIES_PART_KEY); 
-			add_post_meta($spostid, SERIES_PART_KEY, $newpart);
+			$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+			delete_post_meta($spostid, $series_part_key); 
+			add_post_meta($spostid, $series_part_key, $newpart);
 			$ticker++;
 			$oldpart = $newpart;
 			unset($newpart);
 			
 		}
 	}
-	delete_post_meta($postid, SERIES_PART_KEY);
-	add_post_meta($postid, SERIES_PART_KEY, $series_part);
+	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+	delete_post_meta($postid, $series_part_key);
+	add_post_meta($postid, $series_part_key, $series_part);
 	return true;
 }
 
 function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset = FALSE) {
-		
+	
 	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
 	
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	
 	$addvalue = 1;
 	
-	$series_posts = get_series_order($post_ids_in_series, $post_id, true, false);
+	$series_posts = get_series_order($post_ids_in_series, $post_id, $series_id, true, false);
+	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 	
 	if ($reset) {
 		foreach ($post_ids_in_series as $spost) {
@@ -173,15 +185,16 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 			} else {
 			$spost_id = $spost;
 			}
-			delete_post_meta($spost_id, SERIES_PART_KEY);
+
+			delete_post_meta($spost_id, $series_part_key);
 		}
 		return true;
 	}
 	
 	foreach ($series_posts as $spost) {
 		$newpart = $addvalue;
-		delete_post_meta($spost['id'], SERIES_PART_KEY);
-		add_post_meta($spost['id'], SERIES_PART_KEY, $newpart);
+		delete_post_meta($spost['id'], $series_part_key);
+		add_post_meta($spost['id'], $series_part_key, $newpart);
 		$addvalue++;
 	}
 	
@@ -297,7 +310,7 @@ function wp_dropdown_series( $args ) {
 
 	if ( empty($series) && ! $r['hide_if_empty'] && !empty($show_option_none) ) {
 		$show_option_none = apply_filters( 'list_series', $show_option_none );
-		$output .= "\t<option value='-1' selected='selected'>$show_option_none</option>\n";
+		$output .= "\t<option value='0' selected='selected'>$show_option_none</option>\n";
 	}
 
 	if ( ! empty( $series ) ) {
@@ -368,76 +381,126 @@ function wp_set_post_series_draft_transition( $post ) {
 	wp_update_term_count( $series_id, 'series', true );
 }
 	
-function wp_set_post_series( $post_ID = 0, $post, $series_id = 0) {
+function wp_set_post_series( $post_ID = 0, $post, $series_id = array() ) {
 	$post_series = null;
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
 	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
 		return;
 	}
-
 	//echo $post->post_status;
 	/*if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status == 'future' )
 		$update_count_forward = true;//*/
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 	
-	if ( $series_id === 0 ) { 
-		if (isset($_POST['post_series'])) $post_series = (int) $_POST['post_series'];
-		if (isset($_GET['post_series'])) $post_series = (int) $_GET['post_series'];
+	if ( empty($series_id) ) { 
+		if (isset($_POST['post_series'])) $post_series = is_array($_POST['post_series']) ? $_POST['post_series'] : array($_POST['post_series']);
+		if (isset($_GET['post_series'])) $post_series = is_array($_GET['post_series']) ? $_GET['post_series'] : array($_GET['post_series']);
 	 } else {
-		$post_series = (int) $series_id;
+		$post_series = is_array($series_id) ? $series_id : array($series_id);
 	}
 	
-	$s_part = (int) wp_series_part($post_ID);
+	$post_series = os_strarr_to_intarr($post_series);
+	if ( empty($post_series) || (count($post_series) >= count($old_series)) ) {
+		$match = false; 
+	} else {
+		$match = array_diff($old_series, $post_series);
+	}
+	
+	/*var_dump($match);
+	exit;/**/
+	
+	if (empty($post_series) || ( count($post_series) == 1 && $post_series[0] == 0 ) ) $post_series = array();
+	
+	/*print_r($post_series);
+	print_r($old_series);
+	print_r($match);
+	exit;/**/ //for test of values in quick edit
 	
 	if ( isset($_POST) || isset($_GET)) {
-		if ( isset($_POST['series_part']) ) $series_part = (int) $_POST['series_part'];
-		if ( isset($_GET['series_part']) ) $series_part = (int) $_GET['series_part'];
+		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? $_POST['series_part'] : array($_POST['series_part']);
+		if ( isset($_GET['series_part']) ) $series_part = is_array($_GET['series_part']) ? $_GET['series_part'] : array($_GET['series_part']);
 		
 		/*if ( $update_count_forward )
 			wp_update_term_count( $post_series, 'series', false);//*/
 			
-		if ( (in_array($post_series, $old_series)) && $series_part == $s_part && $series_part != 0 && $post->post_status == 'publish') return; //get out of here if there's no change in series part!!
+	/*print_r($series_part);
+	exit;/**/
+		//if we don't have any changes in the series or series part info then let's get out and save time.
+		$count = count($post_series);
+		$c_chk = 0;
+		foreach ( $post_series as $ser ) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) ) {
+				$c_chk++;
+				continue;
+			} else {
+				$p_ser_edit[] = $ser; //these are the series we need to set the parts for (leave the rest alone when we get to this section).
+			}
+		}
+				
+		/*print_r($count);
+		print_r(' AND ');
+		print_r($c_chk);
+		exit; /**/
+		if ( $c_chk == $count && !empty($post_series) && count($post_series) == count($old_series) ) return;  //there are no changes so let's just skip the rest
+		
+	}
 	 
-	 } else {
-		if ( $s_part )
-			$series_part = $s_part;
-		else
-			$series_part = 0;
+	
+	if ( empty($post_series) ) {
+		foreach ( $old_series as $o_ser ) {
+			$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $o_ser);
+			delete_post_meta( $post_ID, $part_key);
+		}
 	}
 	
-	if ( ( $old_series != '' || !empty($old_series) ) && ( $post_series == '' || 0 == $post_series  ) )
-		return wp_delete_post_series_relationship($post_ID);
+	foreach ( $old_series as $os_id ) {
+		if ( !in_array($os_id, $post_series) ) {
+			/*print_r('made it here');
+			print_r($os_id);
+			/**/
+			wp_delete_post_series_relationship($post_ID, $os_id);
+			}
+	}
 	
-	
-	if ( $old_series != '' && ($post_series == '' || 0 == $post_series) ) $post_series = (int) $old_series[0]; //this takes care of future posts being published.  Need to set the $post_series variable - but ONLY if the post was associated with a series.
-	
-	$match = in_array($post_series, $old_series);
-	
-	if ( !$match && $old_series[0] != 0 ) {
-		$old_series = (int) $old_series[0];
-		wp_reset_series_order_meta_cache($post_ID, $old_series);
+		
+	if ( !empty($match) && $match ) {
+		foreach ($match as $part_reset_id) {
+			wp_reset_series_order_meta_cache($post_ID, $part_reset_id);
+		}
 	}
 	
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
 	
+	if ( empty($p_ser_edit) ) return; //let's get out we've done everything we need to do.
+		
 	if ( $success ) {
-	return set_series_order($post_ID, $series_part, $post_series);
+		foreach ( $p_ser_edit as $ser_id ) {
+			if ( empty($series_part[$ser_id]) ) {
+				$s_pt = wp_series_part($post_ID, $ser_id);
+				if ( !$series_part ) $series_part = 0;
+			} else {
+				$s_pt = $series_part[$ser_id];
+			}
+			/*print_r($s_pt);
+			exit;/**/
+			set_series_order($post_ID, $s_pt, $ser_id);
+		}
+		
+		return;
 	} else {
-	return FALSE;
+		return FALSE;
 	}
 }
 
-function wp_delete_post_series_relationship( $id ) {
-	global $wpdb, $wp_rewrite;
+function wp_delete_post_series_relationship( $id, $ser_id = 0 ) {
 	$postid = (int) $id;
-	$series = get_the_series( $postid );
 	
-	if (!empty($series) ) {
-		$seriesid = $series[0]->term_id;
-		delete_post_meta($postid, SERIES_PART_KEY);
-		wp_delete_object_term_relationships($postid, array('series'));
-		return wp_reset_series_order_meta_cache($postid, $seriesid);
+	if (!empty($ser_id) ) {
+		$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
+		delete_post_meta($postid, $series_part_key);
+		delete_series_object_relationship($postid, $ser_id);
+		return wp_reset_series_order_meta_cache($postid, $ser_id);
 	}
 	return false;
 }
@@ -448,6 +511,24 @@ function series_exists($series_name) {
 	if ( is_array($id) )
 		$id = $id['term_id'];
 	return $id;
+}
+
+function delete_series_object_relationship( $object_id, $terms ) {
+	global $wpdb;
+	
+	$object_id = (int) $object_id;
+	
+	if ( !is_array($terms) )
+		$terms = array($terms);
+	
+	foreach ( $terms as $term ) {
+		$t_obj = term_exists($term, 'series');
+		$t_ids[] = $t_obj->term_taxonomy_id;
+	}
+	
+	$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
+	$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
+	wp_update_term_count($t_ids, 'series');
 }
 
 function get_series_to_edit ( $id ) {
@@ -480,7 +561,6 @@ function wp_create_series($series, $post_id = '') {
 // note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
 function wp_delete_series($series_ID, $taxonomy_id) {
 	global $wpdb;
-			
 	seriesicons_delete($series_ID);
 	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
 }
@@ -569,10 +649,10 @@ add_action('save_post','wp_set_post_series',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',10,1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
-add_action('delete_post','wp_delete_post_series_relationship',1);
+add_action('delete_post','delete_series_post_relationship',1);
 
 //hooking into insert_term, update_term and delete_term 
 add_action('created_series', 'wp_insert_series',1, 2);
 add_action('edited_series', 'wp_update_series',1, 2);
-add_action('delete_series', 'wp_delete_series', 1, 2);
+add_action('delete_series', 'wp_delete_series', 10, 2);
 ?>

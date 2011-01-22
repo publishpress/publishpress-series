@@ -14,8 +14,8 @@ if ( $delete_series == 1 ) {
 		$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->terms WHERE term_id = %d", $series ) );
 	}
 	
-	$meta_key = 'series_part';
-	$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key = %s", $meta_key) );
+	$meta_key = "'%series_part%'";
+	$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $meta_key) );
 	$table_name = $wpdb->prefix . "orgSeriesIcons";
 	$drop_query = "DROP TABLE ". $table_name;
 	$wpdb->query( $drop_query );

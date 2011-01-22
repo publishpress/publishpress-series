@@ -12,7 +12,7 @@ Author URI: http://www.unfoldingneurons.com
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 
-
+$os_version = '2.3';
 ######################################
 
 ######################################
@@ -72,13 +72,14 @@ $org_series_loc = $plugin_url;
 /**
   * This sets the constants for orgSeries
 */
+define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
 define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
 define('SERIES_PATH', $plugin_path); //the path of the orgSeries files
 define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
 define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
-define('SERIES_PART_KEY', 'series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to.
+define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
 /*

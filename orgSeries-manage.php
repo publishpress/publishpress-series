@@ -30,6 +30,7 @@ function manage_series_columns_action($content, $column_name, $id) {
 	}
 	return $output;
 }
+
 function add_series_form_fields($taxonomy) {
 	global $orgseries;
 	?>
