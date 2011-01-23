@@ -169,12 +169,25 @@ function get_series_toc( $link = TRUE ) {
  *
  * @uses get_orgserial - returns the series information for a single series (using the supplied series_id)
  *
- * @param bool|int $ser_id - defaults to false. int is the series id.  REQUIRED
+ * @param bool|int $ser_id - defaults to false. int is the series id.  REQUIRED (unless TRUE is passed via the $calc param)
+ * @param bool $calc = indicates whether the function should try to figure out the count without the series_id for the user.
  *
  * @return int $postlist_count - The number of posts in a series.
 */
-function wp_postlist_count($ser_id = false) {  
-	if (!$ser_id) return false; //need the $ser_id to caculate the number of posts in the series.
+function wp_postlist_count($ser_id = false, $calc = false) {  
+	if (!$ser_id && !$calc) 
+		return false; //need the $ser_id to caculate the number of posts in the series.
+	
+	if (!$ser_id && $calc) {
+		$series = get_the_series();
+		if ( !empty($series) ) {
+			$postlist_count = $series[0]->count;
+		} else {
+			$postlist_count = 0;
+		}
+		return $postlist_count;
+	}
+	
 	$series = get_orgserial($ser_id);
 	if (!empty($series)) {
 		$postlist_count = $series->count;
@@ -193,16 +206,23 @@ function wp_postlist_count($ser_id = false) {
  * @uses get_post_meta() - Gets the part of the series the post is from the post metadata table.
  *
  * @param int $id - The Post ID (defaults to 0)
- * @param int $ser_id = The id of the series the post belongs to - REQUIRED
+ * @param int $ser_id = The id of the series the post belongs to - REQUIRED inless bool|true is selected for the $calc paramater
+ * @param bool $calc = indicates whether the function should try to figure out the $series_id for the user.
  *
  * @return int $series_part - The part the post is in a series IF it is part of a series.
 */
-function wp_series_part( $id = 0, $ser_id = 0 ) { 
+function wp_series_part( $id = 0, $ser_id = 0, $calc = false ) { 
 	global $post;
-	print_r($id, $ser_id);
 	if ( $id == 0 ) {
 		if ( isset($post) )
 			$id = $post->ID;
+	}
+	
+	if ( empty($ser_id) && $calc ) {
+		$series = get_the_series();
+		if ( !empty($series) ) {
+			$ser_id = $series[0]->term_id;
+		} 
 	}
 	
 	if ( $id == 0 || $ser_id == 0 )
@@ -334,11 +354,21 @@ function wp_serieslist_display( $referral = false, $args='' ) {
  * @param bool $next  if TRUE will output the next post in the series.  if FALSE will output the previous post in the series.
  * @param bool $customtext if TRUE will output the custom text selected on the series options page for next or previous post rather than the titles of the posts.
  * @param bool $display if TRUE will echo the linked post.  if FALSE will return the linked post.
+ * @param bool $calc = indicates whether the function should try to figure out the $series_id for the user.
  *
  * @return string $result contains the linked post (next OR previous post depending on  $next param)
 */
-function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE) {
+function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE, $calc = false) {
 	global $post, $orgseries;
+	
+	if ( empty($series_ID) && $calc ) {
+		$series = get_the_series();
+		if ( !empty($series) ) {
+			$series_ID = $series[0]->term_id;
+		} 
+	}
+	
+	
 	if (empty($series_ID)) return false; //we can't do anything without the series_ID;
 	$cur_id = $post->ID;
 	$settings = $orgseries->settings;

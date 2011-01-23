@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 2.2.9
+Stable tag: 2.3
 
 A plugin for managing the article series you write.
 
@@ -42,6 +42,11 @@ Other UPGRADE Notes:
 1. Your customized `seriestoc.php` file should still work for Series Table of Contents Pages.
 1. Rename your `series.php` file (series archive pages) to `taxonomy-series.php`  - starting with version 2.2, Organize Series integrates with the built-in taxonomy template pages that WordPress provides.  You can also customize a particular series by creating a page titled `taxonomy-series-{series-name}.php` where 'series-name' is the name of the particular series you want a different archive page/look for.
 1. Organize Series Publisher is NO LONGER bundled with Organize Series.  Don't worry, you can still get it, it's available on the WordPress plugin repository.  Look for [organize series publisher](http://wordpress.org/extend/plugins/organize-series-publisher/).
+
+**ALSO**
+
+I STRONGLY recommend that you take note of any changes you may have made on the series options page for customizing the layout/look of Organize Series before upgrading.  I try to do my best to make sure any changes get imported successfully with updates but *sometimes* things happen unexpectently and the options may get reset (which can understandably be frustration - believe me, it's happened to me a couple of times over the years!).  What I usually do is open a tab with the options and then conduct the upgrade from another tab.  That way if something DOES go awry, I can just copy paste from the inputs I left open in the previous tab.  Again, I test throughly before releasing an update but I simply cannot account for every possible hosting environment out there so resets *can* and sometimes *do* happen.
+
 
 = Other Notes =
 If you customized the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy the file over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
@@ -191,6 +196,29 @@ This version is a major update to the plugin and introduces big changes to the c
 
 == Changelog ==
 
+= 2.3 =
+
+Bugfixes and Behind the scenes updates:
+
+* One of the major changes in this version of Organize Series is that the "series_part" custom field is now hidden when creating or editing a post.  The series meta-box is still there, and series parts still use custom fields but I've taken advantage of a little known feature in WordPress to clean things up on that page.
+
+* This version brings in a couple more hooks and filters and also lays the groundwork in other areas for some more future addons planned for Organize Series.
+
+* This version also fixes some minor bugs and streamlines the way things work behind the scenes (especially the Quick-edit feature on the `edit.php` page).
+
+* Improved the usability of the "add new series" input in the series-meta box on the create/edit post screen.  When adding a new series it will appear at the top of the list of series instead of at the bottom as before.  
+
+* For those of you using template tags for custom implementation of Organize Series (i.e not having it automatically done via the series options) the following changes have been made that are important to take note of:
+ 
+ * `wp_postlist_count()`: Previously you could just use `wp_postlist_count()` in the loop and get the number of posts in the series that a post belonged to without passing the series id (i.e. `wp_postlist_count('39')` where "39" is the id of the series)).  Now if you can still have Organize Series to dynamically figure out the series id but to do it you need to do this -> `wp_postlist_count(false,true)`;
+ 
+ * `wp_series_part()`: Previously you could just use `wp_series_part()` in the loop and get the part the post was in a series that a post belonged to withouth including the series id (see how it worked for wp_postlist_count() above).  Now, to do this you need to use the following format -> `wp_series_part(0,0,true)`
+ 
+ * `wp_series_nav()`: Same changes as above two functions.  To have the nav dynamically generated without knowing the series_id for the series a post belonged to, use the following format (leaving other options at defaults) -> `wp_series_nav(null,true,false,false,true)`
+ 
+* You can view all the specifics of the changes and cleanup that's been done via [this changeset](http://plugins.trac.wordpress.org/changeset/335684/organize-series)
+ 
+
 = 2.2.9 =
 
 Bugfix release AND full compatibility check with WordPress 3.1
@@ -331,48 +359,3 @@ This version has been tested with WordPress 2.9 and all is in working order. Ple
 *Major Fixes*
 
 * There was some typos with the roles and capabilities array used with Organize Series that resulted in new users not being able to use the plugin.  If you got a "You do not have sufficient permissions" error, that is fixed now.
-
-= 2.1.5 =
-
-*New Features*
-
-* new function: get_series_ordered() - allows users to pull a list of series_ids, slugs, and names from the database ordered by whatever criteria they want. It returns an array of the data that the user will have to display as needed. (ht to [Amanda Giles](http://www.amandagiles.com) for the initial code that I modified a bit). See the inline docs in the series-taxonomy.php file around line 192.
-
-* new bundled plugin: Organize Series Publisher - allows users to set a series as "unpublished" and all posts published to that series will be held back until the author decides to publish the series all at once.  Great for creating "issues".  This plugin is the result of me being hired by [Amanda Giles](http://www.amandagiles.com) who graciously agreed to make this available to all of you!  This plugin must be activated after Organize Series is activated.
-
-* Users can now set a custom base for for series archive permalinks.  For instance, you can now change: "yourblog.com/series/someseriesname" to "yourblog.com/coolitems/someseriesname".  The place to add the custom base is at the Series Options page.  By default it is set to /series/.
-
-* link to wphelpcenter.com added to the Series Options Page.  I've partnered with wphelpcenter.com for official support and anybody paying them for help with Organize Series will be helping to support me!  It's a great service for those times where you "*need help right now*"!  When contacting them, be sure to give my affiliate number: **14322**
-
-*Major Fixes*
-
-* Fixed a validation issue reported [here](http://unfoldingneurons.com/forums/topic/ie8-shows-errors-on-page) due to some improper js code.
-
-* Posts saved as draft and then published will now show the correct number for "total posts in series".  Reported [here](http://unfoldingneurons.com/forums/topic/total_posts_in_series-not-updating).
-
-* Fixed the problem where those with the "Editor" role were unable to manage series or change series options.  Reported [here](http://wordpress.org/support/topic/320604?replies=2#post-1261455)
-
-* Updated the layout/looks of the Organize Series Options page to better fit in with WordPress 2.8+
-
-*Minor Fixes*
-
-* A couple of mixed localization tags
-
-* Changed the name of some menu items to better correspond with docs.  "Post Series" in the Edit posts menu has been changed to "Manage Series".
-
-* Changed the series filter dropdown on the edit posts page to show all series (not just series that have posts).  This is so if you have a series where all the posts are drafts, or pending, you can still view them filtered by series.
-
-* Also fixed some typos and minor bugs throughout the code.
-
-
-= 2.1.2 = 
-
-*Major Fixes*
-
-* fixed problems that were happenening with excerpts (I'm pretty sure I squashed this bug - if you notice differently please [add to this thread](http://unfoldingneurons.com/forums/topic/excerpt-problem-with-newest-plugin-version-21)
-
-* Series Feeds weren't working.  Now they are.
-
-*Minor Fixes*
-
-* a couple of missed localization tags.
