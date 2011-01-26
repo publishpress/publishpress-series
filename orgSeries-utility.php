@@ -195,12 +195,11 @@ class Walker_SeriesDropdown extends Walker {
 
 function os_strarr_to_intarr($array) {
 	if ( empty($array) ) return;
-	function this_to_int(&$val, $key) {
-		$val = (int) $val;
-	}
-	
-	array_walk($array, 'this_to_int');
-	
+	array_walk($array, 'os_this_to_int');
 	return $array;
+}
+
+function os_this_to_int(&$val, $key) {
+		$val = (int) $val;
 }
 ?>
