@@ -87,11 +87,9 @@ Oh and one more thing.  Organize Series will always be GPL and so will ALL the a
 
 There have been some changes to how I provide support for Organize Series. Here are the different options for support:
 
-1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will not be actively responding to usage/installation help.
+1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will NOT be actively responding to usage/installation help.  If I don't respond to forum posts I'm not being rude or snubbing you, I just simply don't have time to respond because priority goes customers who have paid for support (see below).
 
 1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to the private support forums that I will be active on.
-
-1. You can also get support from the [WordPress Help Center](http://wphelpcenter.com). This is a service I have partnered with and when you pay for support from them I receive a commission so it's a way of contributing towards the work I do.  When contacting them let them know my affiliate code which is *14322*.
 
 == Screenshots ==
 1. Organize Series Options Page:  There are so many possibilities for how Organzie Series can be customized. Nearly everything can be done on the built-in options page.
@@ -195,6 +193,16 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.3.1 =
+
+Bugfix release
+
+* version 2.3 resulted in [some problems](http://wordpress.org/support/topic/organize-series-23-upgrade-messes-things-up?replies=18) in certain cases for people upgrading from an earlier version of Organize Series.  This release *should* take care of that for those of you with the problems.
+
+* fix for potential function name collision with other plugins. ([see report here](http://wordpress.org/support/topic/514065))
+
+* removal of [wphelp info](http://wphelpcenter.com/) since it is [being discontinued](http://alexking.org/blog/2011/01/25/helpcenter-shutting-down).
 
 = 2.3 =
 

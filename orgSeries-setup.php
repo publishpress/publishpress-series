@@ -31,6 +31,7 @@ class orgSeries {
 		add_action('init', array(&$this, 'register_textdomain'));
 		add_action('init', array(&$this, 'register_taxonomy'),0);
 		add_action('init', array(&$this, 'register_scripts'));
+		add_action('init', array(&$this, 'maybe_fix_upgrade'));
 		add_filter('rewrite_rules_array', array(&$this,'seriestoc_rewrite_rules'));
 		//add_action('init', array($this, 'rewrite_rules'));
 		add_action('parse_query', array(&$this, 'seriestoc_parsequery'));
@@ -66,6 +67,15 @@ class orgSeries {
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Organize Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', $this->org_domain).'</p></div>';
 		echo trim($msg);
+	}
+	
+	function maybe_fix_upgrade() {
+		$version_chk = get_option('org_series_version');
+		if ( empty($version_chk) ) { //we got a problem this shouldn't be empty!!
+			update_option('org_series_version', '2.2.9');
+			$this->update('2.2.9');
+		}
+		return;
 	}
 	
 	function org_series_install() {
@@ -146,7 +156,7 @@ class orgSeries {
 			$posts = $wpdb->get_results($query);
 			
 			//now let's delete the meta_key/value combo from those posts
-			if ( empty($posts) ) return; //not posts, let's get out and save the environment (sic).
+			if ( empty($posts) ) return; //no posts, let's get out and save the environment (sic).
 			foreach ($posts as $post) {
 				$meta_key = 'series_part';
 				delete_post_meta($post->ID, $meta_key);

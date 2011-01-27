@@ -174,11 +174,7 @@ function orgseries_option_page() {
 				</div>
 			</div>
 				<?php } ?>
-			<script type="text/javascript">
-					var WPHC_AFF_ID = '14322';
-					var WPHC_WP_VERSION = '<?php global $wp_version; echo $wp_version; ?>';
-			</script>
-			<script type="text/javascript" src="http://cloud.wphelpcenter.com/wp-admin/0002/deliver.js"></script>
+			
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
