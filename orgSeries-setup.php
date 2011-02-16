@@ -91,8 +91,8 @@ class orgSeries {
 		}
 		
 		if ( !empty( $old_version ) ) { //register the current version of orgSeries and check if any updates.
-			if ( $oldversion != $this->version ) {
-				$this->update($oldversion);
+			if ( $old_version != $this->version ) {
+				$this->update($old_version);
 			}
 			update_option( 'org_series_version', $this->version );
 		} else {

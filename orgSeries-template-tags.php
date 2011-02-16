@@ -121,7 +121,7 @@ function wp_postlist_display() {
 				$i++;
 			}
 			
-			if ($trigger) $postlist = '%postcontent%'.$postlist;
+			if ( $trigger && $settings['auto_tag_toggle'] ) $postlist = '%postcontent%'.$postlist;
 			return $postlist;
 		}
 		
