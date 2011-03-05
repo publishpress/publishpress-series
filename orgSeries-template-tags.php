@@ -26,7 +26,7 @@
 * @param bool $display Indicates whether to return the post list (false) or to echo the post list (true).  Defaults to false.
 * @return string The post list as a assembled string ready for display (if $display is false)
 */
-function get_series_posts( $ser_ID = '', $referral = false, $display = false ) {  
+function get_series_posts( $ser_ID = array(), $referral = false, $display = false ) {  
  	global $post, $orgseries;
 	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.

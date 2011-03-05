@@ -332,6 +332,7 @@ class orgSeries {
 		
 	function orgSeries_toc_template() {
 		global $wp_query;
+		$settings = $this->settings;
 		if ( isset($wp_query->is_seriestoc) && $wp_query->is_seriestoc ) {
 				$template = locate_template(array('seriestoc.php')); //checks in child theme (if child theme) and then parent theme.  props Ricky (jeshyr)
 			if (!$template)
@@ -355,6 +356,8 @@ class orgSeries {
 	//orgSeries dropdown nav js
 	function series_dropdown_js() {
 		global $wp_rewrite;
+		$settings = $this->settings;
+		$series_custom_base = $settings['series_custom_base'];
 		if ( !($wp_rewrite->using_permalinks()) ) {
 			?>
 			<script type='text/javascript'><!--
@@ -376,7 +379,7 @@ class orgSeries {
 			if (seriesdropdown) { 
 			 function onSeriesChange() {
 					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-						location.href = "<?php echo get_option('home'); ?>/series/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+						location.href = "<?php echo get_option('home'); ?>/<?php echo $series_custom_base; ?>/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
 					}
 				}
 				seriesdropdown.onchange = onSeriesChange;
