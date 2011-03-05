@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 
 A plugin for managing the article series you write.
 
@@ -186,13 +186,27 @@ Have fun - and get writing those series!!
 
 == Upgrade Notice ==
 
-= 2.2 =
+= 2.2 from earlier versions =
 This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
 
 *AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
 
 
 == Changelog ==
+
+= 2.3.2 =
+
+Bugfix release
+
+* fixed typo with update routine that could affect some updates from earlier versions.
+
+* fixed `wp_postlist_display()` so if it's being used manually it respects the setting for `auto_tag_toggle` in the series_options page. (ht charles)
+
+* changed the required capabability for viewing the series options page to 'manage_options' from the custom 'manage_series'.  'manage_series' capability was assigned to editors along with administrators.  The options page should really be limited to administrators as usual.
+
+* fixed potential 401's happening with search engine robots on pages containing the series widget if the series_url was changed from the default 'series' via the series options page.  (ht [tang](http://www.tangsworld.de/) )
+
+* fixed a bug with `get_series_posts()` that in some cases results php errors.
 
 = 2.3.1 =
 
@@ -356,14 +370,3 @@ This version has been tested with WordPress 2.9 and all is in working order. Ple
 
 * Fixed the seriestoc template not being displayed when permalinks are off. Important: When permalinks are not enabled ".../?seriestoc=x" points to the series table of contents for all series. "x" can be any number.
 - get_series_link() has been updated to direct to the correct link depending on whether permalinks are enabled or not.
-
-
-= 2.1.6 =
-
-*New Features*
-
-* Just a small change that allows users to chooses whether or not the custom seriestoc URL will have a backlash after it or not.  Prior to this, Organize Series would always include the backslash even if it wasn't explicitly included via the Series Options page.
-
-*Major Fixes*
-
-* There was some typos with the roles and capabilities array used with Organize Series that resulted in new users not being able to use the plugin.  If you got a "You do not have sufficient permissions" error, that is fixed now.

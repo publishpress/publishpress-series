@@ -12,7 +12,7 @@ add_action('admin_menu', 'orgseries_create_options');
 function orgseries_create_options() {
 	global $orgseries;
 		
-	$page = add_options_page(__('Organize Series Options', $orgseries->org_domain), __('Series Options', $orgseries->org_domain), 'manage_series', 'orgseries_options_page', 'orgseries_option_page');
+	$page = add_options_page(__('Organize Series Options', $orgseries->org_domain), __('Series Options', $orgseries->org_domain), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
 }
