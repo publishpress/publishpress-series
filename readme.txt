@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 
 A plugin for managing the article series you write.
 
