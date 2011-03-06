@@ -393,7 +393,7 @@ class orgSeries {
 	
 	function sort_series_page_join($join) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $join;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || $wp_query->query_vars['series'] == 0 || $wp_query->is_search ) return $join;
 		$os_join = " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
 		$join .= apply_filters('orgseries_sort_series_page_join', $os_join);
 		return $join;
@@ -401,7 +401,7 @@ class orgSeries {
 
 	function sort_series_page_where($where) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $where;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || $wp_query->query_vars['series'] == 0 || $wp_query->is_search ) return $where;
 		$part_key = SERIES_PART_KEY;
 		$os_where = " AND orgmeta.meta_key = '$part_key' ";
 		$where .= apply_filters('orgseries_sort_series_page_where', $os_where);
@@ -410,7 +410,7 @@ class orgSeries {
 
 	function sort_series_page_orderby($ordering) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) ) return $ordering;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || $wp_query->query_vars['series'] == 0 || $wp_query->is_search ) return $ordering;
 		$settings = $this->settings;
 		$orderby = $settings['series_posts_orderby'];
 		if ( $orderby == 'meta_value' )
