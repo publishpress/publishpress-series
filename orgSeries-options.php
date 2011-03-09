@@ -20,6 +20,7 @@ function orgseries_create_options() {
 //validate form values
 function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
+	$newinput = array();
 	if ( $input['reset_option'] == 1 ) {
 		
 		if ($reset_options = $orgseries->add_settings(true)) {
@@ -32,11 +33,11 @@ function orgseries_validate($input) {
 		$update['updated_output'] = '<div class="updated"><p>' . __('Organize Series Plugin Options have been updated',$orgseries->org_domain) . '</p></div>';
 	}
 	//toggles and paging info
-	$newinput['auto_tag_toggle'] = $input['auto_tag_toggle'] == 1 ? 1 : 0;
-	$newinput['auto_tag_nav_toggle'] = ( $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
-	$newinput['auto_tag_seriesmeta_toggle'] = ( $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
-	$newinput['custom_css'] = ( $input['custom_css'] == 1 ? 1 : 0 );
-	$newinput['kill_on_delete'] = ( $input['kill_on_delete'] == 1 ? 1 : 0 );
+	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
+	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
+	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
+	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
+	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
@@ -256,7 +257,7 @@ function series_automation_core_fieldset() {
 					<br />
 					<br />
 					<strong><?php _e('Series Table of Contents URL:', $orgseries->org_domain); ?></strong><br />
-					<?php bloginfo('home') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
+					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
 					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', $orgseries->org_domain); ?></em></small><br /><br />
 					<strong><?php _e('Series Custom Base:', $orgseries->org_domain); ?></strong><br />
 					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />

@@ -40,6 +40,7 @@ class orgSeries {
 					
 		add_action('wp_head', array(&$this, 'orgSeries_header'));
 		add_action( 'wp_footer', array(&$this, 'series_dropdown_js'), 1 );
+		add_filter('wp_title', array(&$this, 'seriestoc_title'));
 		
 		//series post list box
 		add_action('the_content', array(&$this, 'add_series_post_list_box'));
@@ -329,6 +330,18 @@ class orgSeries {
 		$qvs[] = $custom_base;
 		return $qvs;
 	}
+	
+	function seriestoc_title( $title ) {
+		global $wp_query;
+		$settings = $this->settings;
+		
+		if ( !isset($wp_query->is_seriestoc) || !$wp_query->is_seriestoc ) return $title;
+		
+		$seriestoc_title = $settings['series_toc_title'];
+		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', $this->org_domain);
+		$title = $seriestoc_title . ' &laquo; ' . $title;
+		return $title;
+	}
 		
 	function orgSeries_toc_template() {
 		global $wp_query;
@@ -338,14 +351,14 @@ class orgSeries {
 			if (!$template)
 				$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR .'/seriestoc.php';
 					
-			function seriestoc_title( $title ) {
+			/*function seriestoc_title( $title ) {
 				$seriestoc_title = $settings['series_toc_title'];
-				if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents');
+				if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', $this->org_domain);
 				$title = $seriestoc_title . ' &laquo; ' . $title;
 				return $title;
-			}
+			}*/
 		
-			add_filter('wp_title', 'seriestoc_title');
+			//add_filter('wp_title', 'seriestoc_title');
 			if ($template) {
 				include($template);
 				exit;

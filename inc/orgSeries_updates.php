@@ -142,8 +142,9 @@ class PluginUpdateChecker {
 	}
 	
 	function orgseries_api_validate($newinput, $input) {
+		if ( empty($newinput) || !is_array($newinput) ) $newinput = array();
 		$newinput['orgseries_api'] = trim($input['orgseries_api']);
-		$this->set_api($new_input['orgseries_api']);
+		$this->set_api($newinput['orgseries_api']);
 		return $newinput;
 	}
 	
