@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 
 A plugin for managing the article series you write.
 
@@ -193,6 +193,18 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.3.4 = 
+
+Bugfixes
+
+* fix for series-toc-title not sticking for the page title on the series-toc page.
+
+* fixed php warnings on series-options page related to undefined/isset variables.
+
+* fixed a typo affecting automatic upgrades for Organize Series Addons.
+
+* fixed a few deprecated functions hooking into WordPress.
 
 = 2.3.3 = 
 
