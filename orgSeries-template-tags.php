@@ -294,7 +294,7 @@ function wp_seriesmeta_write($excerpt = FALSE) {
  *
  * @return bool false if there is no series for the provided series id.
 */
-function wp_serieslist_display_code( $series, $referral = false ) { //reusable function for display of series information
+function wp_serieslist_display_code( $series, $referral = false, $display = true ) { //reusable function for display of series information
 		global $orgseries;
 		$settings = $orgseries->settings;
 		
@@ -305,7 +305,10 @@ function wp_serieslist_display_code( $series, $referral = false ) { //reusable f
 			
 		if (isset($serID)) {
 			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
-			echo $series_display;
+			if ( $display )
+				echo $series_display;
+			else
+				return $series_display;
 		}
 		return false;
 }

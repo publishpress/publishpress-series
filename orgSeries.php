@@ -66,7 +66,7 @@ $org_dir_name = orgSeries_dir();
 $plugin_path = '';
 $plugin_url = '';
 $plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
-$plugin_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
+$plugin_url = plugins_url('', __FILE__).'/'; 
 $org_series_loc = $plugin_url;
 
 /**
