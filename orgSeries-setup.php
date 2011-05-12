@@ -339,7 +339,7 @@ class orgSeries {
 		
 		$seriestoc_title = $settings['series_toc_title'];
 		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', $this->org_domain);
-		$title = $seriestoc_title . ' &laquo; ' . $title;
+		$title = $seriestoc_title  .  $title;
 		return $title;
 	}
 		
