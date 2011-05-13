@@ -371,18 +371,20 @@ function wp_set_post_series_transition( $post ){
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	$series_id = $ser_id[0];
-	wp_set_post_series( $post_ID, $post, $series_id );
+	wp_set_post_series( $post_ID, $post, $series_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
+	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	$series_id = $ser_id[0];
-	wp_update_term_count( $series_id, 'series', true );
+	wp_set_post_series($post_ID, $post, $series_id, true);
 }
 	
-function wp_set_post_series( $post_ID = 0, $post, $series_id = array() ) {
+function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false ) {
 	$post_series = null;
+	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
 	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
 		return;
@@ -442,7 +444,8 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array() ) {
 		print_r(' AND ');
 		print_r($c_chk);
 		exit; /**/
-		if ( $c_chk == $count && !empty($post_series) && count($post_series) == count($old_series) ) return;  //there are no changes so let's just skip the rest
+		
+		if ( $c_chk == $count && !empty($post_series) && count($post_series) == count($old_series) && !$dont_skip ) return;  //there are no changes so let's just skip the rest
 		
 	}
 	 
