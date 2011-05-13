@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.0
-Tested up to: 3.1
-Stable tag: 2.3.4
+Requires at least: 3.1
+Tested up to: 3.1.2
+Stable tag: 2.3.5
 
 A plugin for managing the article series you write.
 
@@ -16,7 +16,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**As of version 2.2, Organize Series *requires* WordPress 3.0+ to work. Organize Series also requires PHP 5.2+.**
+**As of version 2.3.5, Organize Series *requires* WordPress 3.1+ to work (it may work on WordPress 3.0+ but only WordPress 3.1+ is supported). Organize Series also requires PHP 5.2+.**
 
 **IMPORTANT LINKS**
 
@@ -24,7 +24,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**NOTE: - As of version 2.2, Organize Series *requires* WordPress 3.0+ and PHP 5.2+ to work.**
+**As of version 2.3.5, Organize Series *requires* WordPress 3.1+ to work (it may work on WordPress 3.0+ but only WordPress 3.1+ is supported). Organize Series also requires PHP 5.2+.**
 **ALSO**: If you are upgrading make sure you read the upgrade notes as there are a couple of changes for templates.
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
@@ -37,7 +37,7 @@ You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
 If you are upgrading from Organize Series 2.1 or above you can follow the same steps as above.
-Other UPGRADE Notes:
+Other UPGRADE Notes (for users who are upgrading from Organize Series < 2.2):
 
 1. Your customized `seriestoc.php` file should still work for Series Table of Contents Pages.
 1. Rename your `series.php` file (series archive pages) to `taxonomy-series.php`  - starting with version 2.2, Organize Series integrates with the built-in taxonomy template pages that WordPress provides.  You can also customize a particular series by creating a page titled `taxonomy-series-{series-name}.php` where 'series-name' is the name of the particular series you want a different archive page/look for.
@@ -193,6 +193,23 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.3.5 =
+
+Note that Organize Series requirements have been bumped to WordPress 3.1 from WordPress 3.0.  It should still work on WP3.0 but it will no longer be supported for versions prior to WP3.1.
+
+Bugfixes
+
+ * fixed SSL error when Organize Series is used on a WordPress install using https:// ( props [Scott Elkin](http://scottelkin.com/) )
+ * Removed the hardcoded "<<" for the series_toc browser title.  This leaves it up to the user to control the characters used via the "Series Table of Contents Title" field in the Series Options page
+ * fixed scheduled, pending, and draft posts not updating the total parts in a series when being published.  This bug has resurfaced various times with different versions of Organize Series.  I think I nailed it's coffin shut this time!
+ * The Organize Series news feed in the Series Options page was using a deprecated file in WordPress.  It's now using the simple-pie class.  Also of note is I changed the location of the news feed in the sidebar along with adding a plug to rate Organize Series on WordPress.org (if you're reading this, please help promote Organize Series by rating it or indicating it works for your WordPress version.  Your help with this will help gain more users and in turn help with development incentive.  Thanks!)
+ * Image Uploader for Series Icons (via the "manage series" page) should now properly display the "Use as Series Image" button.  If it still doesn't appear fixed, make sure you refresh your browser caches so the new javascript file gets loaded.
+ 
+Minor New Feature
+
+ * A settings link has been added to the Organize Series listing on the Plugins admin page.  This makes it much easier to get to the Series Options page after activating/updating the plugin.
+ 
 
 = 2.3.4 = 
 
@@ -374,19 +391,3 @@ This version is a major update to the plugin and introduces big changes to the c
 * {enhancement} polished up the usage of the built-in WordPress image uploader/manager for associating images with series.
 * {enhancement} NEW template tag: `in_series($series_term)`  This function will check if the current post is in a given series OR if the post is in ANY series (when the series_id or series_slug isn't provided).  Will return true or false.
 * {enhancement} NEW template tag: `is_series_toc` This function will check to see if the displayed page is the series_toc page.  Helpful for in the cases when you want to do something custom in the header or footer or sidebar of a seriestoc page.
-
-
-= 2.1.7 =
-
-This version has been tested with WordPress 2.9 and all is in working order. Please use the new compatibility form for the Organize Series listing on WordPress/extend to indicate your results with using it.
-
-*Fixes*
-
-* Fixed a problem with having duplicate id selectors with the_series_title() outputs resulting in validation errors.  See the original report [here](http://unfoldingneurons.com/forums/topic/w3org-validation-issue?replies=2#post-820)
-
-* Fixed a bug resulting in Series Part numbering not propagating correctly through all posts in a series when editing a post that is part of a series.  See original report [here](http://unfoldingneurons.com/forums/topic/conflict-between-series-and-category-indexing?replies=3#post-831)
-
-* Fixed a bug where Series Meta for "the_content" was being displayed where the_excerpt was called.  See [here](http://wordpress.org/support/topic/330096?replies=2#post-1275872) for original report.
-
-* Fixed the seriestoc template not being displayed when permalinks are off. Important: When permalinks are not enabled ".../?seriestoc=x" points to the series table of contents for all series. "x" can be any number.
-- get_series_link() has been updated to direct to the correct link depending on whether permalinks are enabled or not.
