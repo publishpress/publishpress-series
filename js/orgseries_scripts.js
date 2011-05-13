@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
 	
 	$('#upload_image_button').click(function() {
 		var formfield = $('#series_icon_loc').attr('name');
-		tb_show('', 'media-upload.php?post_id=1&amp;type=image&amp;TB_iframe=true');
+		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=1');
 		var imageFrame = $('#TB_iframeContent');
 		imageFrame.load(function() {
 			imageFrame.contents().find("input[value*='Insert']").val('Use as Series Image');
