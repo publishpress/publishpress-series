@@ -8,6 +8,25 @@
 
 add_action('admin_menu', 'orgseries_create_options');
 
+//let's add a settings link on the WordPress plugin page
+add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
+
+
+/**
+ * Add Settings link to plugins.
+ */
+ function inject_orgseries_settings_link($links, $file) {
+	static $this_plugin;
+	global $orgseries;
+	if ( !$this_plugin ) $this_plugin = 'organize-series/orgSeries.php';
+	 
+	if ( $file == $this_plugin ) {
+		$settings_link = '<a href="options-general.php?page=orgseries_options_page">'.__("Settings", $orgseries->org_domain).'</a>';
+		 array_unshift($links, $settings_link);
+	}
+	return $links;
+ }
+
 //add orgSeries to the options submenu and register settings
 function orgseries_create_options() {
 	global $orgseries;
