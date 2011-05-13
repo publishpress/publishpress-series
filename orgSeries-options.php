@@ -111,6 +111,7 @@ function orgseries_option_page() {
 					<div class="inside">
 					<p><?php _e('Plugin information can be found <a href="http://organizeseries.com" title="The Organize Series Website">here</a>',$orgseries->org_domain); ?></p>
 					<p><?php _e('If you\'d like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier\'s (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!', $orgseries->org_domain); ?></p>
+					<p><?php _e('You can also show you like Organize Series by <a href="http://wordpress.org/extend/plugins/organize-series">rating it</a> at wordpress.org', $orgseries->org_domain); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 						<input type="hidden" name="cmd" value="_s-xclick" />
 						<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
@@ -120,10 +121,22 @@ function orgseries_option_page() {
 				</form>
 				</div>
 			</div>
+			<?php if (file_exists(ABSPATH . WPINC . '/feed.php')) { ?>	
+			
+			<div id="organize-series-feed" class="postbox">	
+				<h3 class="handle"><span><?php _e('Organize Series News', $orgseries->org_domain); ?></span></h3>
+				<div class="inside">
+				<div id="orgseriesnews">
+					<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/orgSeries-feed.php'); ?>
+				</div> <?php /*rss feed related */ ?>
+				</div>
+			</div>
+				<?php } ?>
 			<!-- ADS HERE -->
 			<a href="http://organizeseries.com/download" title="Click here to see all the awesome addons available"><img src="<?php echo plugins_url('/images/OS_Addons_logo.png', __FILE__); ?>" /></a>
 			<br />
 			<a href="http://organizeseries.com/pricing" title="Click here to find out about the Basic Support Package"><img src="<?php echo plugins_url('/images/OS_BasicSupport_logo.png', __FILE__); ?>" /></a>
+			<br />
 			<br />
 			<!-- end ads -->
 			<div id="token-legend" class="postbox">
@@ -166,16 +179,6 @@ function orgseries_option_page() {
 					<?php do_action('orgseries_token_description'); ?>
 				</div>
 			</div>
-			<?php if (file_exists(ABSPATH . WPINC . '/rss.php')) { ?>	
-			<div id="organize-series-feed" class="postbox">	
-				<div class="inside">
-				<div id="orgseriesnews">
-					<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/orgSeries-feed.php'); ?>
-				</div> <?php /*rss feed related */ ?>
-				</div>
-			</div>
-				<?php } ?>
-			
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
