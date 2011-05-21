@@ -355,13 +355,13 @@ function wp_serieslist_display( $referral = false, $args='' ) {
  * 
  * @param int $series_ID REQUIRED
  * @param bool $next  if TRUE will output the next post in the series.  if FALSE will output the previous post in the series.
- * @param bool $customtext if TRUE will output the custom text selected on the series options page for next or previous post rather than the titles of the posts.
+ * @param bool $customtext (THIS paramater is deprecated as of Organize Series 2.3.6)
  * @param bool $display if TRUE will echo the linked post.  if FALSE will return the linked post.
  * @param bool $calc = indicates whether the function should try to figure out the $series_id for the user.
  *
  * @return string $result contains the linked post (next OR previous post depending on  $next param)
 */
-function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display = FALSE, $calc = false) {
+function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $display = FALSE, $calc = false) {
 	global $post, $orgseries;
 	
 	if ( empty($series_ID) && $calc ) {
@@ -375,8 +375,6 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 	if (empty($series_ID)) return false; //we can't do anything without the series_ID;
 	$cur_id = $post->ID;
 	$settings = $orgseries->settings;
-	$custom_next = $settings['series_nextpost_nav_custom_text'];
-	$custom_prev = $settings['series_prevpost_nav_custom_text'];
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
 	$cur_part = get_post_meta($cur_id, $series_part_key, true);
 	$series_posts = get_objects_in_term($series_ID, 'series');
@@ -385,10 +383,12 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 	$result = '';
 	
 	foreach ($posts_in_series as $seriespost) {
+		$custom_next = token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID);
+		$custom_prev = token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID)  ;
 		if ($next) {
 			if ( ($seriespost['part'] - $cur_part) == 1) {
-					if ($customtext) $title = $custom_next . '&raquo;';
-						else $title = get_the_title($seriespost['id']) . '&raquo;';
+					if ( !empty($custom_next) ) $title = $custom_next;
+					else $title = get_the_title($seriespost['id']);
 					$link = get_permalink($seriespost['id']);
 					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 					}
@@ -396,8 +396,8 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = FALSE, $display =
 		
 		if (!$next) {
 			if (($cur_part - $seriespost['part']) == 1) {
-					if ($customtext) $title = '&laquo;' . $custom_prev;
-						else $title = '&laquo;' . get_the_title($seriespost['id']);
+					if (!empty($custom_prev)) $title = $custom_prev;
+						else $title = get_the_title($seriespost['id']);
 					$link = get_permalink($seriespost['id']);
 					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 				}

@@ -238,7 +238,7 @@ class orgSeries {
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
-			'series_toc_title' => __('Series Table of Contents',$this->org_domain),
+			'series_toc_title' => __('Series Table of Contents << ',$this->org_domain),
 		//new template options
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
@@ -250,8 +250,8 @@ class orgSeries {
 			'latest_series_inner_template' => '<li>%series_title_linked%</li>',
 			'latest_series_after_template' => '</ul></div>',
 			'series_post_nav_template' => '%postcontent%<fieldset><legend>'. __('Series Navigation',$this->org_domain) .'</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
-			'series_nextpost_nav_custom_text' => $series_nextpost_nav_custom_text,
-			'series_prevpost_nav_custom_text' => $series_prevpost_nav_custom_text,
+			'series_nextpost_nav_custom_text' => '%post_title% >>',
+			'series_prevpost_nav_custom_text' => '<< %post_title%',
 			//series_icon related settings
 			'series_icon_width_series_page' => 200,
 			'series_icon_width_post_page' =>100,

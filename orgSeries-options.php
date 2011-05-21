@@ -179,13 +179,9 @@ function orgseries_option_page() {
 					<strong>%post_title_linked%</strong><br />
 						<em><?php _e('Will be replaced with the post title of a post in the series linked to the page view of that post.', $orgseries->org_domain); ?></em><br /><br />
 					<strong>%previous_post%</strong><br />
-						<em><?php _e('Will be replaced by the navigation link for the previous post in a series. The text will be the title of the post.', $orgseries->org_domain); ?></em><br /><br />
-					<strong>%previous_post_custom%</strong><br />
-						<em><?php _e('Same as %previous_post% except the text will be what you specify in the "Custom Previous Post Navigation Text" field.', $orgseries->org_domain); ?></em><br /><br />
+						<em><?php _e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', $orgseries->org_domain); ?></em><br /><br />
 					<strong>%next_post%</strong><br />
-						<em><?php _e('Will be replaced by the navigation link for the next post in a series. The text will be the title of the post.', $orgseries->org_domain); ?></em><br /><br />
-					<strong>%next_post_custom%</strong><br />
-						<em><?php _e('Same as %next_post% except the text will be what you specify in the "Custom Next Post Navigation Text" field.', $orgseries->org_domain); ?></em><br /><br />
+						<em><?php _e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', $orgseries->org_domain); ?></em><br /><br />
 					<strong>%postcontent%</strong><br />
 						<em><?php _e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', $orgseries->org_domain); ?></em><br /><br />
 					<strong>%series_part%</strong><br />
@@ -329,8 +325,8 @@ function series_templates_core_fieldset() {
 					<small><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', $orgseries->org_domain); ?></small><br />
 					<textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_nav_template']);?></textarea><br />
 					<br />
-					<input name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $org_opt['series_nextpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom next post navigation text.', $orgseries->org_domain); ?><br />
-					<input name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $org_opt['series_prevpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom previous post navigation text.', $orgseries->org_domain); ?><br />
+					<input name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" type="text" value="<?php echo $org_opt['series_nextpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom Next Post Text (if this is left blank, the post title will be used)', $orgseries->org_domain); ?><br />
+					<input name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" type="text" value="<?php echo $org_opt['series_prevpost_nav_custom_text']; ?>" size="40" /> <?php _e('Custom previous post navigation text. (if this is left blank, the post title will be used)', $orgseries->org_domain); ?><br />
 					<br />
 					<strong><?php _e('Series Table of Contents Listings:', $orgseries->org_domain); ?></strong><br />
 					<small><?php _e('This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]', $orgseries->org_domain); ?></small><br />
