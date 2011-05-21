@@ -262,7 +262,7 @@ class PluginUpdateEngineChecker {
 		//admin display for if the update check reveals that there is a new version but the API key isn't valid.  
 		if ( isset($pluginInfo->api_invalid) )  { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
-			add_action('admin_notices', array(&$this, 'display_json_error'));  
+			add_action('admin_notices', array(&$this, 'display_json_error')); 
 			return null;
 		}
 		
@@ -278,6 +278,18 @@ class PluginUpdateEngineChecker {
 		return PluginUpdateUtility::fromPluginInfo($pluginInfo);
 	}
 	
+	function in_plugin_update_message($plugin_data, $r) {
+		$plugininfo = $this->json_error;
+		//onely display messages if there is a new version of the plugin.
+		if ( version_compare($plugininfo->version, $this->getInstalledVersion(), '>') ) {
+			if ( $plugininfo->api_invalid ) {
+				$msg = str_replace('%plugin_name%', $this->pluginName, $plugininfo->api_inline_invalid_message);
+				$msg = str_replace('%version%', $plugininfo->version, $msg);
+				echo $msg;
+			}
+		}
+	}
+	
 	function display_json_error() {
 		$pluginInfo = $this->json_error;
 		$update_dismissed = get_option($this->dismiss_upgrade);
@@ -290,7 +302,8 @@ class PluginUpdateEngineChecker {
 		//only display messages if there is a new version of the plugin.  
 		if ( version_compare($pluginInfo->version, $this->getInstalledVersion(), '>') ) {
 			if ( $pluginInfo->api_invalid ) {
-				$msg = $pluginInfo->api_invalid_message;
+				$msg = str_replace('%plugin_name%', $this->pluginName, $pluginInfo->api_invalid_message);
+				$msg = str_replace('%version%', $pluginInfo->version, $msg);
 			}
 			//Dismiss code idea below is obtained from the Gravity Forms Plugin by rocketgenius.com
 			?>
@@ -379,6 +392,7 @@ class PluginUpdateEngineChecker {
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
 		}
+		add_action('after_plugin_row_'.$this->pluginFile, array(&$this, 'in_plugin_update_message')); 
 	}
 	
 	/**
