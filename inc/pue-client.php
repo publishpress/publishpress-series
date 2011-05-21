@@ -1,29 +1,59 @@
 <?php
-if ( !class_exists('PluginUpdateChecker') ):
-	
+/**
+* This file should be bundled with the main plugin.  Any addons to your main plugin can include this file from the main plugin folder.  This contains the library for 
+* handling all the automatic upgrade stuff on the clients end.
+* 
+* You also have to make sure you call this class in any addons/plugins you want to be added to the update checker.  Here's what you do:
+* if ( file_exists(WP_PLUGIN_DIR . '/location_of_file/plugin_updaters.php') ) { //include the file 
+	require( WP_PLUGIN_DIR . '/location_of_file/plugin_updaters.php' );
+	$check_for_updates = new PluginUpdateEngineChecker('http://updateserver.com', 'plugin-addon-slug'); //initiate the class.  the first paramater is the url where your plugin files are available for download and the plugin-updater plugin is installed.  The second paramater is the slug of the plugin/addon that you want to be updated (slug is what WordPress uses to identify the plugin, it's usually the filename of the plugin/addon without the ".php" such as 'plugin-updater')
+}
+
+//VARIABLES THAT NEED SET//
+Below are all the variables that the developer needs to set in order for this to work properly for their plugin users:
+
+If you want the text displayed to the client to be localized then you need to make sure you set the DOMAIN KEY for the plugin this file is included with here:
+*/
+//enter your plugins domain key here.
+global $orgseries;
+define('PU_DOMAIN_KEY', $orgseries->org_domain); 
+
+/* 
+* NEXT UP: $api_key needs to be retrieved:
+you will need to retrieve this from the user's database (probably using data from your plugin's options page. User's will obtain their API-key from the site they download your plugin.  Of course this means you have to make sure that you have a place in your plugins options page for users to enter in the API they obtain from your plugin site. 
+*/
+
+//You'll need to put something like this here (modify to match your setup):
+$api_settings = get_option('org_series_options'); //'plugin_options' should be replaced by whatever holds your plugin options and the api_key
+$api_key = isset($api_settings['orgseries_api']) ? $api_settings['orgseries_api'] : ''; 
+define('PU_USER_API_KEY', $api_key);  //$api_key has to be retrieved from your user's database.
+
+if ( !class_exists('PluginUpdateEngineChecker') ):
 /**
  * A custom plugin update checker. 
  * 
- * @author Janis Elsts
- * @modified by Darren Ethier
- * @copyright 2010
- * @version 1.0
+ * @original author (c) Janis Elsts
+ * @heavily modified by Darren Ethier
+ * @license GPL2 or greater. 
+ * @version 1.1
  * @access public
  */
-class PluginUpdateChecker {
+class PluginUpdateEngineChecker {
 	
 	public $metadataUrl = ''; //The URL of the plugin's metadata file.
 	public $pluginFile = '';  //Plugin filename relative to the plugins directory.
+	public $pluginName = ''; //variable used to hold the pluginName as set by the constructor.
 	public $slug = '';        //Plugin slug. (with .php extension)
 	public $checkPeriod = 12; //How often to check for updates (in hours).
 	public $optionName = '';  //Where to store the update info.
 	public $json_error = ''; //for storing any json_error data that get's returned so we can display an admin notice.
-	public $orgseries_api = ''; //used to hold the user API.  If not set then nothing will work!
-	public $install_key = ''; //used to hold the install_key if set.
-	public $download_query = ''; //used to hold the query variables for download checks;
-	public $lang_domain; //used to hold the localization domain for translations (get from $orgseries object).
+	public $api_secret_key = PU_USER_API_KEY; //used to hold the user API.  If not set then nothing will work!
+	public $install_key = '';  //used to hold the install_key if set (included here for addons that will extend PUE to use install key checks)
+	public $download_query = array(); //used to hold the query variables for download checks;
+	public $lang_domain = PU_DOMAIN_KEY; //used to hold the localization domain for translations .
 	public $dismiss_upgrade; //for setting the dismiss upgrade option (per plugin).
-	
+	public $pue_install_key; //we'll customize this later so each plugin can have it's own install key!
+		
 	/**
 	 * Class constructor.
 	 * 
@@ -41,7 +71,9 @@ class PluginUpdateChecker {
 		$tr_slug = str_replace('-','_',$this->slug);
 		$this->pluginFile = $slug.'/'.$slug.'.php';
 		$this->optionName = $optionName;
-		$this->dismiss_upgrade = 'os_dismissed_upgrade_'.$tr_slug;
+		$this->dismiss_upgrade = 'pu_dismissed_upgrade_'.$tr_slug;
+		$this->pluginName = ucwords(str_replace('-', ' ', $this->slug));
+		$this->pue_install_key = = 'pue_install_key_'.$tr_slug;
 		
 		//If no slug is specified, use the name of the main plugin file as the slug.
 		//For example, 'my-cool-plugin/cool-plugin.php' becomes 'cool-plugin'.
@@ -52,45 +84,34 @@ class PluginUpdateChecker {
 		if ( empty($this->optionName) ){
 			$this->optionName = 'external_updates-' . $this->slug;
 		}
+		
 		$this->set_api();
 		$this->installHooks();		
 	}
 	
 	/**
-	* sets the domain for localization
-	**/
-	function set_domain() {
-		global $orgseries;
-		if ( empty($orgseries) && class_exists('orgSeries') ) {
-			$orgseries = new orgSeries();
-		}
-		$this->lang_domain = $orgseries->org_domain;
-	}
-	/**
 	* gets the api from the options table if present
 	**/
 	function set_api($new_api = '') {
-		$series_settings = get_option('org_series_options');
-			
-		if ( $install_key = get_option('orgseries_install_key') )
+				
+		//the following is for install key inclusion (will apply later with PUE addons.)
+		if ( $install_key = get_option($this->pue_install_key) ) {
 			$this->install_key = $install_key;
-			$download_i = 'orgseries_install_key='.$install_key;
-			
+			$this->download_query['pue_install_key'] = $this->install_key;
+		} else {
+			$this->download_query['pue_install_key'] = '';
+		}
+		
 		if ( !empty($new_api) ) {
-			$this->orgseries_api = $new_api;
-			$download = 'orgseries_plugin_api='.$this->orgseries_api;
-			$this->download_query = ( !empty($download_i) ) ? $download.'&'.$download_i : $download;
+			$this->api_secret_key = $new_api;
+			$this->download_query['pu_plugin_api'] = $this->api_secret_key;
 			return;
 		}
 		
-		if (!empty($series_settings['orgseries_api'])) {
-			$this->orgseries_api = $series_settings['orgseries_api'];
-			$download = 'orgseries_plugin_api='.$this->orgseries_api;
-			$this->download_query = ( !empty($download_i) ) ? $download.'&'.$download_i : $download;
+		if ( empty($new_api) ) {
+			$this->download_query['pu_plugin_api'] = $this->api_secret_key;
 			return;
 		}
-		
-		$this->download_query = $download_i;
 	}
 	
 	/**
@@ -105,8 +126,7 @@ class PluginUpdateChecker {
 		
 		//Insert our update info into the update array maintained by WP
 		add_filter('site_transient_update_plugins', array(&$this,'injectUpdate')); //WP 3.0+
-		//add_filter('transient_update_plugins', array(&$this,'injectUpdate')); //WP 2.8+
-		
+				
 		//Set up the periodic update checks
 		$cronHook = 'check_plugin_updates-' . $this->slug;
 		if ( $this->checkPeriod > 0 ){
@@ -128,14 +148,13 @@ class PluginUpdateChecker {
 			wp_clear_scheduled_hook($cronHook);
 		}
 		//dashboard message "dismiss upgrade" link
-		add_action( "wp_ajax_".$this->dismiss_upgrade, array(&$this, 'dashboard_dismiss_upgrade'));
+		add_action( "wp_ajax_".$this->dismiss_upgrade, array(&$this, 'dashboard_dismiss_upgrade')); 
 		
 		//add in api option on Series Options page if it's not already there.
 		add_action('admin_init', array(&$this, 'orgseries_api'));
 	}
 	
 	function orgseries_api() {
-		$this->set_domain();		
 		add_settings_field('orgseries_api_settings', 'Organize Series User API', array(&$this,'orgseries_api_output'), 'orgseries_options_page', 'series_automation_settings');
 		register_setting('orgseries_options', 'org_series_options');
 		add_filter('orgseries_options', array(&$this,'orgseries_api_validate'), 10, 2);
@@ -181,16 +200,19 @@ class PluginUpdateChecker {
 	 * @uses wp_remote_get()
 	 * 
 	 * @param array $queryArgs Additional query arguments to append to the request. Optional.
-	 * @return orgseries_PluginInfo
+	 * @return $pluginInfo
 	 */
 	function requestInfo($queryArgs = array()){
 		//Query args to append to the URL. Plugins can add their own by using a filter callback (see addQueryArgFilter()).
 		$queryArgs['installed_version'] = $this->getInstalledVersion(); 
-		$queryArgs['orgseries_request_plugin'] = $this->slug;
+		$queryArgs['pu_request_plugin'] = $this->slug;  
+		
+		if ( !empty($this->api_secret_key) )
+			$queryArgs['pu_plugin_api'] = $this->api_secret_key;  
+			
 		if ( !empty($this->install_key) )
-			$queryArgs['orgseries_install_key'] = $this->install_key;
-		if ( !empty($this->orgseries_api) )
-			$queryArgs['orgseries_plugin_api'] = $this->orgseries_api;
+			$queryArgs['pue_install_key'] = $this->install_key;
+                 
 
 		$queryArgs = apply_filters('puc_request_info_query_args-'.$this->slug, $queryArgs);
 		
@@ -203,7 +225,6 @@ class PluginUpdateChecker {
 		);
 		$options = apply_filters('puc_request_info_options-'.$this->slug, array());
 		
-		//The plugin info should be at 'http://your-api.com/url/here/$slug/info.json'
 		$url = $this->metadataUrl; 
 		if ( !empty($queryArgs) ){
 			$url = add_query_arg($queryArgs, $url);
@@ -217,48 +238,48 @@ class PluginUpdateChecker {
 		//Try to parse the response
 		$pluginInfo = null;
 		if ( !is_wp_error($result) && isset($result['response']['code']) && ($result['response']['code'] == 200) && !empty($result['body']) ){
-			$pluginInfo = orgseries_PluginInfo::fromJson($result['body']);
+			$pluginInfo = PU_PluginInfo::fromJson($result['body']);
 		}
 		$pluginInfo = apply_filters('puc_request_info_result-'.$this->slug, $pluginInfo, $result);
+		
 		return $pluginInfo;
 	}
 	
 	/**
 	 * Retrieve the latest update (if any) from the configured API endpoint.
 	 * 
-	 * @uses PluginUpdateChecker::requestInfo()
+	 * @uses PluginUpdateEngineChecker::requestInfo()
 	 * 
-	 * @return PluginUpdate An instance of PluginUpdate, or NULL when no updates are available.
+	 * @return PluginUpdateUtility An instance of PluginUpdateUtility, or NULL when no updates are available.
 	 */
 	function requestUpdate(){
 		//For the sake of simplicity, this function just calls requestInfo() 
 		//and transforms the result accordingly.
-		$pluginInfo = $this->requestInfo(array('checking_for_updates' => '1'));
+		$pluginInfo = $this->requestInfo(array('pu_checking_for_updates' => '1'));
 		if ( $pluginInfo == null ){
 			return null;
 		}
 		//admin display for if the update check reveals that there is a new version but the API key isn't valid.  
-		if ( isset($pluginInfo->api_invalid) || isset($pluginInfo->no_api ) ) { //we have json_error returned let's display a message
+		if ( isset($pluginInfo->api_invalid) )  { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
-			add_action('admin_notices', array(&$this, 'display_json_error'));
+			add_action('admin_notices', array(&$this, 'display_json_error'));  
 			return null;
 		}
 		
 		if ( isset($pluginInfo->new_install_key) ) {
-			update_option('orgseries_install_key', $pluginInfo->new_install_key);
+			update_option($this->pue_install_key, $pluginInfo->new_install_key);
 		}
 		
-		//need to correct the download url so it contains the custom user data (i.e. api and install key)
+		//need to correct the download url so it contains the custom user data (i.e. api and any other paramaters)
 				
 		if ( !empty($this->download_query) ) 
-			$pluginInfo->download_url = $pluginInfo->download_url.'&'.$this->download_query;
+			$pluginInfo->download_url = add_query_arg($this->download_query, $pluginInfo->download_url);
 		
-		return PluginUpdate::fromPluginInfo($pluginInfo);
+		return PluginUpdateUtility::fromPluginInfo($pluginInfo);
 	}
 	
 	function display_json_error() {
 		$pluginInfo = $this->json_error;
-		$pluginName = ucwords(str_replace('-', ' ', $this->slug ));
 		$update_dismissed = get_option($this->dismiss_upgrade);
 		
 		$is_dismissed = !empty($update_dismissed) && in_array($pluginInfo->version, $update_dismissed);
@@ -266,23 +287,19 @@ class PluginUpdateChecker {
 		if ($is_dismissed)
 			return;
 		
-		//only display messages if there is a new version of the plugin.
+		//only display messages if there is a new version of the plugin.  
 		if ( version_compare($pluginInfo->version, $this->getInstalledVersion(), '>') ) {
-			if ( $pluginInfo->no_api ){
-				$msg = sprintf(__('<p>There is an automatic update for %s available but your api-key has not been set.  Please go to the <a href="options-general.php?page=orgseries_options_page">Organize Series Options page</a> to set your api_key for this addon.</p>', $this->lang_domain), $pluginName);
-			}
-			
 			if ( $pluginInfo->api_invalid ) {
-				$msg = sprintf(__('<p>There is an automatic update for %s available but your api-key is invalid.  Either you have entered the wrong key on the <a href="options-general.php?page=orgseries_options_page">Organize Series Options</a> page OR you no longer have access to the updates for this plugin.  Automatic upgrades for single website install\'s are gained via the <a href="http://organizeseries.com/pricing">Basic Support package</a>.  Automatic upgrades for multiple website install\'s are available via the <a href="http://organizeseries.com/pricing">All Addons package or the Lifetime Membership package.</a></p>', $this->lang_domain), $pluginName);
+				$msg = $pluginInfo->api_invalid_message;
 			}
-			//Dismiss code below is obtained from the Gravity Forms Plugin by rocketgenius.com
+			//Dismiss code idea below is obtained from the Gravity Forms Plugin by rocketgenius.com
 			?>
-				<div class="updated" style="padding:15px; position:relative;" id="orgseries_dashboard_message"><?php echo $msg ?>
-				<a href="javascript:void(0);" onclick="OrgSeriesDismissUpgrade();" style='float:right;'><?php _e("Dismiss") ?></a>
+				<div class="updated" style="padding:15px; position:relative;" id="pu_dashboard_message"><?php echo $msg ?>
+				<a href="javascript:void(0);" onclick="PUDismissUpgrade();" style='float:right;'><?php _e("Dismiss") ?></a>
             </div>
             <script type="text/javascript">
-                function OrgSeriesDismissUpgrade(){
-                    jQuery("#orgseries_dashboard_message").slideUp();
+                function PUDismissUpgrade(){
+                    jQuery("#pu_dashboard_message").slideUp();
                     jQuery.post(ajaxurl, {action:"<?php echo $this->dismiss_upgrade; ?>", version:"<?php echo $pluginInfo->version; ?>", cookie: encodeURIComponent(document.cookie)});
                 }
             </script>
@@ -355,6 +372,9 @@ class PluginUpdateChecker {
 			empty($state) ||
 			!isset($state->lastCheck) || 
 			( (time() - $state->lastCheck) >= $this->checkPeriod*3600 );
+		
+		$shouldCheck = true;
+		
 			
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
@@ -378,7 +398,7 @@ class PluginUpdateChecker {
 			return $result;
 		}
 
-		$pluginInfo = $this->requestInfo(array('checking_for_updates' => '1'));
+		$pluginInfo = $this->requestInfo(array('pu_checking_for_updates' => '1'));
 		if ($pluginInfo){
 			return $pluginInfo->toWpFormat();
 		}
@@ -441,11 +461,11 @@ class PluginUpdateChecker {
 	 * Register a callback for filtering the plugin info retrieved from the external API.
 	 * 
 	 * The callback function should take two arguments. If the plugin info was retrieved 
-	 * successfully, the first argument passed will be an instance of  orgseries_PluginInfo. Otherwise, 
+	 * successfully, the first argument passed will be an instance of  PU_PluginInfo. Otherwise, 
 	 * it will be NULL. The second argument will be the corresponding return value of 
 	 * wp_remote_get (see WP docs for details).
 	 *  
-	 * The callback function should return a new or modified instance of orgseries_PluginInfo or NULL.
+	 * The callback function should return a new or modified instance of PU_PluginInfo or NULL.
 	 * 
 	 * @uses add_filter() This method is a convenience wrapper for add_filter().
 	 * 
@@ -459,17 +479,14 @@ class PluginUpdateChecker {
 	
 endif;
 
-if ( !class_exists('orgseries_PluginInfo') ):
+if ( !class_exists('PU_PluginInfo') ):
 
 /**
  * A container class for holding and transforming various plugin metadata.
- * 
- * @author Janis Elsts
- * @copyright 2010
- * @version 1.0
+ * @version 1.1
  * @access public
  */
-class orgseries_PluginInfo {
+class PU_PluginInfo {
 	//Most fields map directly to the contents of the plugin's info.json file.
 	//See the relevant docs for a description of their meaning.  
 	public $name;
@@ -494,11 +511,11 @@ class orgseries_PluginInfo {
 	public $id = 0; //The native WP.org API returns numeric plugin IDs, but they're not used for anything.
 		
 	/**
-	 * Create a new instance of orgseries_PluginInfo from JSON-encoded plugin info 
+	 * Create a new instance of PU_PluginInfo from JSON-encoded plugin info 
 	 * returned by an external update API.
 	 * 
 	 * @param string $json Valid JSON string representing plugin info. 
-	 * @return orgseries_PluginInfo New instance of orgseries_PluginInfo, or NULL on error.
+	 * @return PU_PluginInfo New instance of PU_PluginInfo, or NULL on error.
 	 */
 	public static function fromJson($json){
 		$apiResponse = json_decode($json);
@@ -512,9 +529,10 @@ class orgseries_PluginInfo {
 			return null;
 		}
 		
-		$info = new orgseries_PluginInfo();
+		$info = new PU_PluginInfo();
 		
 		foreach(get_object_vars($apiResponse) as $key => $value){
+			$key = str_replace('plugin_', '', $key); //let's strip out the "plugin_" prefix we've added in plugin-updater-classes.
 			$info->$key = $value;
 		}
 		
@@ -531,6 +549,7 @@ class orgseries_PluginInfo {
 		
 		//The custom update API is built so that many fields have the same name and format
 		//as those returned by the native WordPress.org API. These can be assigned directly. 
+		
 		$sameFormat = array(
 			'name', 'slug', 'version', 'requires', 'tested', 'rating', 'upgrade_notice',
 			'num_ratings', 'downloaded', 'homepage', 'last_updated',
@@ -564,17 +583,15 @@ class orgseries_PluginInfo {
 	
 endif;
 
-if ( !class_exists('PluginUpdate') ):
+if ( !class_exists('PluginUpdateUtility') ):
 
 /**
  * A simple container class for holding information about an available update.
  * 
- * @author Janis Elsts
- * @copyright 2010
- * @version 1.0
+ * @version 1.1
  * @access public
  */
-class PluginUpdate {
+class PluginUpdateUtility {
 	public $id = 0;
 	public $slug;
 	public $version;
@@ -583,32 +600,32 @@ class PluginUpdate {
 	public $upgrade_notice;
 	
 	/**
-	 * Create a new instance of PluginUpdate from its JSON-encoded representation.
+	 * Create a new instance of PluginUpdateUtility from its JSON-encoded representation.
 	 * 
 	 * @param string $json
-	 * @return PluginUpdate
+	 * @return PluginUpdateUtility
 	 */
 	public static function fromJson($json){
 		//Since update-related information is simply a subset of the full plugin info,
 		//we can parse the update JSON as if it was a plugin info string, then copy over
 		//the parts that we care about.
-		$pluginInfo = orgseries_PluginInfo::fromJson($json);
+		$pluginInfo = PU_PluginInfo::fromJson($json);
 		if ( $pluginInfo != null ) {
-			return PluginUpdate::fromPluginInfo($pluginInfo);
+			return PluginUpdateUtility::fromPluginInfo($pluginInfo);
 		} else {
 			return null;
 		}
 	}
 	
 	/**
-	 * Create a new instance of PluginUpdate based on an instance of orgseries_PluginInfo.
+	 * Create a new instance of PluginUpdateUtility based on an instance of PU_PluginInfo.
 	 * Basically, this just copies a subset of fields from one object to another.
 	 * 
-	 * @param orgseries_PluginInfo $info
-	 * @return PluginUpdate
+	 * @param PU_PluginInfo $info
+	 * @return PluginUpdateUtility
 	 */
 	public static function fromPluginInfo($info){
-		$update = new PluginUpdate();
+		$update = new PluginUpdateUtility();
 		$copyFields = array('id', 'slug', 'version', 'homepage', 'download_url', 'upgrade_notice');
 		foreach($copyFields as $field){
 			$update->$field = $info->$field;
@@ -638,5 +655,4 @@ class PluginUpdate {
 }
 	
 endif;
-
 ?>
