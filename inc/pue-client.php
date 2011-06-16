@@ -5,29 +5,29 @@
 * 
 * You also have to make sure you call this class in any addons/plugins you want to be added to the update checker.  Here's what you do:
 * if ( file_exists(WP_PLUGIN_DIR . '/location_of_file/plugin_updaters.php') ) { //include the file 
-	require( WP_PLUGIN_DIR . '/location_of_file/plugin_updaters.php' );
-	$check_for_updates = new PluginUpdateEngineChecker('http://updateserver.com', 'plugin-addon-slug'); //initiate the class.  the first paramater is the url where your plugin files are available for download and the plugin-updater plugin is installed.  The second paramater is the slug of the plugin/addon that you want to be updated (slug is what WordPress uses to identify the plugin, it's usually the filename of the plugin/addon without the ".php" such as 'plugin-updater')
+	require( WP_PLUGIN_DIR . '/location_of_file/pue-client.php' );
+	$host_server_url = 'http://updateserver.com'; //this needs to be the host server where plugin update engine is installed.
+	$plugin_slug = 'plugin-slug'; //this needs to be the slug of the plugin/addon that you want updated (and that pue-client.php is included with).  This slug should match what you've set as the value for plugin-slug when adding the plugin to the plugin list via plugin-update-engine on your server.
+	//$options needs to be an array with the included keys as listed.
+	$options = array(
+		'optionName' => '', //(optional) - used as the reference for saving update information in the clients options table.  Will be automatically set if left blank.
+		'apikey' => $api_key, //(required), you will need to obtain the apikey that the client gets from your site and then saves in their sites options table (see 'getting an api-key' below)
+		'lang_domain' => '', //(optional) - put here whatever reference you are using for the localization of your plugin (if it's localized).  That way strings in this file will be included in the translation for your plugin.
+		'checkPeriod' => '', //(optional) - use this parameter to indicate how often you want the client's install to ping your server for update checks.  The integer indicates hours.  If you don't include this parameter it will default to 12 hours.
+	);
+	$check_for_updates = new PluginUpdateEngineChecker($host_server_url, $plugin_slug, $options); //initiate the class and start the plugin update engine!
 }
 
-//VARIABLES THAT NEED SET//
-Below are all the variables that the developer needs to set in order for this to work properly for their plugin users:
 
-If you want the text displayed to the client to be localized then you need to make sure you set the DOMAIN KEY for the plugin this file is included with here:
+/**
+ * getting an api-key
+ *
 */
-//enter your plugins domain key here.
-global $orgseries;
-define('PU_DOMAIN_KEY', $orgseries->org_domain); 
-
-/* 
-* NEXT UP: $api_key needs to be retrieved:
-you will need to retrieve this from the user's database (probably using data from your plugin's options page. User's will obtain their API-key from the site they download your plugin.  Of course this means you have to make sure that you have a place in your plugins options page for users to enter in the API they obtain from your plugin site. 
+//You'll need to put something like this here before initiating the PluginUpdateEngineChecker class to obtain the api-key the client has set for your plugin. Of course this means you will need to include a field in your plugin option page for the client to enter this key.  (modify to match your setup):
+/*
+ $settings = get_option('plugin_options'); //'plugin_options' should be replaced by whatever holds your plugin options and the api_key
+ $api_key = $settings['plugin_api_key']; 
 */
-
-//You'll need to put something like this here (modify to match your setup):
-$api_settings = get_option('org_series_options'); //'plugin_options' should be replaced by whatever holds your plugin options and the api_key
-$api_key = isset($api_settings['orgseries_api']) ? $api_settings['orgseries_api'] : ''; 
-define('PU_USER_API_KEY', $api_key);  //$api_key has to be retrieved from your user's database.
-
 if ( !class_exists('PluginUpdateEngineChecker') ):
 /**
  * A custom plugin update checker. 
@@ -47,10 +47,10 @@ class PluginUpdateEngineChecker {
 	public $checkPeriod = 12; //How often to check for updates (in hours).
 	public $optionName = '';  //Where to store the update info.
 	public $json_error = ''; //for storing any json_error data that get's returned so we can display an admin notice.
-	public $api_secret_key = PU_USER_API_KEY; //used to hold the user API.  If not set then nothing will work!
+	public $api_secret_key = ''; //used to hold the user API.  If not set then nothing will work!
 	public $install_key = '';  //used to hold the install_key if set (included here for addons that will extend PUE to use install key checks)
 	public $download_query = array(); //used to hold the query variables for download checks;
-	public $lang_domain = PU_DOMAIN_KEY; //used to hold the localization domain for translations .
+	public $lang_domain = ''; //used to hold the localization domain for translations .
 	public $dismiss_upgrade; //for setting the dismiss upgrade option (per plugin).
 	public $pue_install_key; //we'll customize this later so each plugin can have it's own install key!
 		
@@ -59,31 +59,37 @@ class PluginUpdateEngineChecker {
 	 * 
 	 * @param string $metadataUrl The URL of the plugin's metadata file.
 	 * @param string $pluginFile Fully qualified path to the main plugin file.
-	 * @param string $slug The plugin's 'slug'. If not specified, the filename part of $pluginFile sans '.php' will be used as the slug.
-	 * @param integer $checkPeriod How often to check for updates (in hours). Defaults to checking every 12 hours. Set to 0 to disable automatic update checks.
-	 * @param string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'. 
+	 * @param string $slug The plugin's 'slug'. 
+	 * @param array $options:  Will contain any options that need to be set in the class initialization for construct.  These are the keys:
+	 * 	@key integer $checkPeriod How often to check for updates (in hours). Defaults to checking every 12 hours. Set to 0 to disable automatic update checks.
+	 * 	@key string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'. 
+	 *  @key string $apikey used to authorize download updates from developer server
+		@key string $lang_domain If the plugin file pue-client.php is included with is localized you can put the domain reference string here so any strings in this file get included in the localization.
 	 * @return void
 	 */
-	function __construct($metadataUrl, $slug = '', $checkPeriod = 12, $optionName = ''){
+	function __construct( $metadataUrl, $slug = '', $options = array() ){
 		$this->metadataUrl = $metadataUrl;
-		$this->checkPeriod = $checkPeriod;
 		$this->slug = $slug;
 		$tr_slug = str_replace('-','_',$this->slug);
 		$this->pluginFile = $slug.'/'.$slug.'.php';
-		$this->optionName = $optionName;
 		$this->dismiss_upgrade = 'pu_dismissed_upgrade_'.$tr_slug;
 		$this->pluginName = ucwords(str_replace('-', ' ', $this->slug));
 		$this->pue_install_key = = 'pue_install_key_'.$tr_slug;
 		
-		//If no slug is specified, use the name of the main plugin file as the slug.
-		//For example, 'my-cool-plugin/cool-plugin.php' becomes 'cool-plugin'.
-		if ( empty($this->slug) ){
-			$this->slug = basename($this->pluginFile, '.php');
-		}
+		$defaults = array(
+			'optionName' => 'external_updates-' . $this->slug,
+			'apikey' => '',
+			'lang_domain' => '',
+			'checkPeriod' => 12
+		);
 		
-		if ( empty($this->optionName) ){
-			$this->optionName = 'external_updates-' . $this->slug;
-		}
+		$options = wp_parse_args( $options, $defaults );
+		extract( $options, EXTR_SKIP );
+		
+		$this->optionName = $optionName;
+		$this->checkPeriod = (int) $checkPeriod;
+		$this->api_secret_key = $apikey;
+		$this->lang_domain = $lang_domain;
 		
 		$this->set_api();
 		$this->installHooks();		
@@ -93,7 +99,12 @@ class PluginUpdateEngineChecker {
 	* gets the api from the options table if present
 	**/
 	function set_api($new_api = '') {
-				
+		
+		//download query flag
+		$this->download_query['pu_get_download'] = 1;
+		//include current version 
+		$this->download_query['pue_active_version'] = $this->getInstalledVersion();
+			
 		//the following is for install key inclusion (will apply later with PUE addons.)
 		if ( $install_key = get_option($this->pue_install_key) ) {
 			$this->install_key = $install_key;
@@ -149,33 +160,8 @@ class PluginUpdateEngineChecker {
 		}
 		//dashboard message "dismiss upgrade" link
 		add_action( "wp_ajax_".$this->dismiss_upgrade, array(&$this, 'dashboard_dismiss_upgrade')); 
-		
-		//add in api option on Series Options page if it's not already there.
-		add_action('admin_init', array(&$this, 'orgseries_api'));
 	}
 	
-	function orgseries_api() {
-		add_settings_field('orgseries_api_settings', 'Organize Series User API', array(&$this,'orgseries_api_output'), 'orgseries_options_page', 'series_automation_settings');
-		register_setting('orgseries_options', 'org_series_options');
-		add_filter('orgseries_options', array(&$this,'orgseries_api_validate'), 10, 2);
-	}
-	
-	function orgseries_api_validate($newinput, $input) {
-		if ( empty($newinput) || !is_array($newinput) ) $newinput = array();
-		$newinput['orgseries_api'] = trim($input['orgseries_api']);
-		$this->set_api($newinput['orgseries_api']);
-		return $newinput;
-	}
-	
-	function orgseries_api_output() {
-		global $orgseries;
-		$org_opt = $orgseries->settings;
-		$org_name = 'org_series_options';
-		?>
-			<strong><?php _e('Organize Series API: ', $this->lang_domain); ?></strong>
-			<input name="<?php echo $org_name; ?>[orgseries_api]" id="orgseries_api" type="text" value="<?php echo trim($org_opt['orgseries_api']); ?>"  /><br /><br />
-		<?php
-	}
 	
 	/**
 	 * Add our custom schedule to the array of Cron schedules used by WP.
@@ -212,7 +198,9 @@ class PluginUpdateEngineChecker {
 			
 		if ( !empty($this->install_key) )
 			$queryArgs['pue_install_key'] = $this->install_key;
-                 
+        
+		//include version info
+			$queryArgs['pue_active_version'] = $this->getInstalledVersion();
 
 		$queryArgs = apply_filters('puc_request_info_query_args-'.$this->slug, $queryArgs);
 		
@@ -262,7 +250,7 @@ class PluginUpdateEngineChecker {
 		//admin display for if the update check reveals that there is a new version but the API key isn't valid.  
 		if ( isset($pluginInfo->api_invalid) )  { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
-			add_action('admin_notices', array(&$this, 'display_json_error')); 
+			add_action('admin_notices', array(&$this, 'display_json_error'));  
 			return null;
 		}
 		
@@ -294,7 +282,7 @@ class PluginUpdateEngineChecker {
 		$pluginInfo = $this->json_error;
 		$update_dismissed = get_option($this->dismiss_upgrade);
 		
-		$is_dismissed = !empty($update_dismissed) && in_array($pluginInfo->version, $update_dismissed);
+		$is_dismissed = !empty($update_dismissed) && in_array($pluginInfo->version, $update_dismissed) ? true : false;
 		
 		if ($is_dismissed)
 			return;
@@ -416,7 +404,7 @@ class PluginUpdateEngineChecker {
 		if ($pluginInfo){
 			return $pluginInfo->toWpFormat();
 		}
-				
+					
 		return $result;
 	}
 	
