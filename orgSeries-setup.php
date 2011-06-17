@@ -240,6 +240,7 @@ class orgSeries {
 			'series_custom_base' => 'series',
 			'series_toc_title' => __('Series Table of Contents << ',$this->org_domain),
 		//new template options
+			'orgseries_api' => '',
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
 			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',

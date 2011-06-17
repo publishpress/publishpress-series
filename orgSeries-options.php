@@ -61,6 +61,7 @@ function orgseries_validate($input) {
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
 	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
+	$newinput['orgseries_api'] = trim($input['orgseries_api']);
 	
 	//template options
 	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
@@ -293,6 +294,11 @@ function series_automation_core_fieldset() {
 					<br />
 					<span style="background-color:#ff3366; padding: 5px; padding-bottom: 8px;">
 					<input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Organize Series related data from the database when deleting this plugin?  (BE CAREFUL!)', $orgseries->org_domain); ?>
+					</span>
+					<br />
+					<br />
+					<strong><?php _e('Organize Series API Key', $orgseries->org_domain); ?></strong><input type="text" name="<?php echo $org_name; ?>[orgseries_api]" value="<?php echo trim($org_opt['orgseries_api']); ?>" style="width:300px;"/><br />
+					<small><em><?php printf(__('The API key is for users who have purchased a <a href="%s" title="Click Here to read about the packages available">Paid package</a> and/or a <a href="%s" title="Click here to see all addons available">commercial addon</a>. If this is you, you can obtain your API key by logging into <a href="%s">OrganizeSeries.com</a> and you\'ll see it with your user profile.',  $orgseries->org_domain), 'http://organizeseries.com/pricing/', 'http://organizeseries.com/download/', 'http://organizeseries.com'); ?></em></small>
 					</div>
 				</div>
 			</div>
