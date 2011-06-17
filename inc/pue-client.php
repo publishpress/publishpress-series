@@ -74,7 +74,7 @@ class PluginUpdateEngineChecker {
 		$this->pluginFile = $slug.'/'.$slug.'.php';
 		$this->dismiss_upgrade = 'pu_dismissed_upgrade_'.$tr_slug;
 		$this->pluginName = ucwords(str_replace('-', ' ', $this->slug));
-		$this->pue_install_key = = 'pue_install_key_'.$tr_slug;
+		$this->pue_install_key = 'pue_install_key_'.$tr_slug;
 		
 		$defaults = array(
 			'optionName' => 'external_updates-' . $this->slug,
@@ -657,4 +657,3 @@ class PluginUpdateUtility {
 }
 	
 endif;
-?>
