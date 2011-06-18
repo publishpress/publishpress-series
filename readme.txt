@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.1
 Tested up to: 3.1.2
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 
 A plugin for managing the article series you write.
 
@@ -193,6 +193,17 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.3.6 =
+
+Bugfixes and backend changes
+
+ * OrganizeSeries addons are using a new framework I developed for automatic upgrades which are now served from Amazon S3 (reducing load on OrganizeSeries.com).  This affects the core plugin because some of the framework is included with the core.  
+ * New Organize Series API key field displayed for all users of Organize Series.  If you have purchased an addon and at least the basic support purchased you will receive an API key that you enter in this field to enable automatic updates via the WordPress backend of purchased addons (which are not hosted on the WordPress repository).
+ * changed the way the series_navigation templates work so the &lacquo and &racquo aren't hardcoded. In the process I made things more flexible...
+ * %previous_post_custom% and %next_post_custom% tokens are now deprecated (however existing users of those tokens will still find they work - for painless upgrades).
+ * %next_post% and %previous_post% tokens now take their values from the Custom Next Post Text field and the Custom Previous Post text field. If those fields are empty then the corresponding post titles are automatically added.
+ * The "Custom Next Post Text" and "Custom previous navigation text" fields are now token enabled. Default settings show '%post_title% >>' and '<< %post_title%' for corresponding fields. The entire contents of these fields will still be linked to the next and previous post.
 
 = 2.3.5 =
 
