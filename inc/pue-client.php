@@ -268,12 +268,12 @@ class PluginUpdateEngineChecker {
 	
 	function in_plugin_update_message($plugin_data, $r) {
 		$plugininfo = $this->json_error;
-		//onely display messages if there is a new version of the plugin.
+		//only display messages if there is a new version of the plugin.
 		if ( version_compare($plugininfo->version, $this->getInstalledVersion(), '>') ) {
 			if ( $plugininfo->api_invalid ) {
 				$msg = str_replace('%plugin_name%', $this->pluginName, $plugininfo->api_inline_invalid_message);
 				$msg = str_replace('%version%', $plugininfo->version, $msg);
-				echo $msg;
+				echo '</tr><tr class="plugin-update-tr"><td colspan="3" class="plugin-update"><div class="update-message">' . $msg . '</div></td>';
 			}
 		}
 	}
@@ -355,6 +355,7 @@ class PluginUpdateEngineChecker {
 		
 		$state->update = $this->requestUpdate();
 		update_option($this->optionName, $state);
+		add_action('after_plugin_row_'.$this->pluginFile, array(&$this, 'in_plugin_update_message'));
 	}
 	
 	/**
@@ -380,6 +381,7 @@ class PluginUpdateEngineChecker {
 		if ( $shouldCheck ){
 			$this->checkForUpdates();
 		}
+		
 		add_action('after_plugin_row_'.$this->pluginFile, array(&$this, 'in_plugin_update_message')); 
 	}
 	
