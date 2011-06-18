@@ -266,16 +266,22 @@ class PluginUpdateEngineChecker {
 		return PluginUpdateUtility::fromPluginInfo($pluginInfo);
 	}
 	
-	function in_plugin_update_message($plugin_data, $r) {
+	function in_plugin_update_message($plugin_data) {
 		$plugininfo = $this->json_error;
 		//only display messages if there is a new version of the plugin.
 		if ( version_compare($plugininfo->version, $this->getInstalledVersion(), '>') ) {
 			if ( $plugininfo->api_invalid ) {
 				$msg = str_replace('%plugin_name%', $this->pluginName, $plugininfo->api_inline_invalid_message);
 				$msg = str_replace('%version%', $plugininfo->version, $msg);
+				$msg = str_replace('%changelog%', '<a class="thickbox" title="'.$this->pluginName.'" href="plugin-install.php?tab=plugin-information&plugin='.$this->slug.'&TB_iframe=true&width=640&height=808">What\'s New</a>', $msg);
 				echo '</tr><tr class="plugin-update-tr"><td colspan="3" class="plugin-update"><div class="update-message">' . $msg . '</div></td>';
 			}
 		}
+	}
+	
+	function display_changelog() {
+	//contents of changelog display page when api-key is invalid or missing.  It will ONLY show the changelog (hook into existing thickbox?)
+	
 	}
 	
 	function display_json_error() {
@@ -492,7 +498,7 @@ if ( !class_exists('PU_PluginInfo') ):
  */
 class PU_PluginInfo {
 	//Most fields map directly to the contents of the plugin's info.json file.
-	//See the relevant docs for a description of their meaning.  
+
 	public $name;
 	public $slug;
 	public $version;
@@ -576,7 +582,9 @@ class PU_PluginInfo {
 		if ( is_object($this->sections) ){
 			$info->sections = get_object_vars($this->sections);
 		} elseif ( is_array($this->sections) ) {
+			
 			$info->sections = $this->sections;
+			
 		} else {
 			$info->sections = array('description' => '');
 		}
@@ -601,6 +609,7 @@ class PluginUpdateUtility {
 	public $version;
 	public $homepage;
 	public $download_url;
+	public $sections = array();
 	public $upgrade_notice;
 	
 	/**
@@ -630,7 +639,7 @@ class PluginUpdateUtility {
 	 */
 	public static function fromPluginInfo($info){
 		$update = new PluginUpdateUtility();
-		$copyFields = array('id', 'slug', 'version', 'homepage', 'download_url', 'upgrade_notice');
+		$copyFields = array('id', 'slug', 'version', 'homepage', 'download_url', 'upgrade_notice', 'sections');
 		foreach($copyFields as $field){
 			$update->$field = $info->$field;
 		}
