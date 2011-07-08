@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.1
-Tested up to: 3.1.2
-Stable tag: 2.3.6
+Requires at least: 3.2
+Tested up to: 3.2
+Stable tag: 2.3.7
 
 A plugin for managing the article series you write.
 
@@ -16,7 +16,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**As of version 2.3.5, Organize Series *requires* WordPress 3.1+ to work (it may work on WordPress 3.0+ but only WordPress 3.1+ is supported). Organize Series also requires PHP 5.2+.**
+**As of version 2.3.7, Organize Series *requires* WordPress 3.2+ to work (it may work on WordPress 3.0+ but only WordPress 3.2+ is supported). Organize Series also requires PHP 5.2+.**
 
 **IMPORTANT LINKS**
 
@@ -24,8 +24,9 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.3.5, Organize Series *requires* WordPress 3.1+ to work (it may work on WordPress 3.0+ but only WordPress 3.1+ is supported). Organize Series also requires PHP 5.2+.**
-**ALSO**: If you are upgrading make sure you read the upgrade notes as there are a couple of changes for templates.
+**As of version 2.3.7, Organize Series *requires* WordPress 3.2+ to work (it may work on WordPress 3.0+ but only WordPress 3.2+ is supported). Organize Series also requires PHP 5.2+.**
+
+**ALSO**: If you are upgrading make sure you read the upgrade notes.
 
 1. MAKE SURE YOU BACKUP YOUR WORDPRESS DATABASE (that's all in caps for a reason - nothing *should* go wrong but it's a good precaution nevertheless!!)
 1. Download the File (or use the built-in updater provided by WordPress)
@@ -186,13 +187,17 @@ Have fun - and get writing those series!!
 
 == Upgrade Notice ==
 
-= 2.2 from earlier versions =
+= to 2.2 from earlier versions =
 This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
 
 *AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
 
 
 == Changelog ==
+
+= 2.3.7 =
+
+* ensure full compatibility with WordPress 3.2
 
 = 2.3.6 =
 
