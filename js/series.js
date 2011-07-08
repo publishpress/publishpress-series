@@ -7,7 +7,7 @@ jQuery( function($) {
 	
 	
 	$('#seriesadd').click( function() {
-		$('input','#serieschecklist').removeAttr('checked');
+		$('input','#serieschecklist').removeProp('checked');
 	});
 	
 	$('#seriesadd').mouseup( function() {
