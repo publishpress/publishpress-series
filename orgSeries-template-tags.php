@@ -64,14 +64,14 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 				if ( 'widget' == $referral )
 					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
 				else
-					$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser_ID);
+					$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
 				continue;
 			}
 			
 			if ( 'widget' == $referral )
 				$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
 			else
-				$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser_ID);
+				$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
 		}
 		
 		if ( 'widget' == $referral ) {
@@ -218,13 +218,13 @@ function wp_series_part( $id = 0, $ser_id = 0, $calc = false ) {
 			$id = $post->ID;
 	}
 	
-	if ( empty($ser_id) && $calc ) {
+	if ( empty($ser_id) && $calc  )  {
 		$series = get_the_series();
 		if ( !empty($series) ) {
 			$ser_id = $series[0]->term_id;
 		} 
 	}
-	
+
 	if ( $id == 0 || $ser_id == 0 )
 		return false;
 	
