@@ -38,8 +38,9 @@ function add_series_form_fields($taxonomy) {
 		<div style="float:left;" id="selected-icon"></div>
 		<div style="clear:left;"></div>
 		<label for="series_icon">
-			<input id="series_icon_loc" type="text" style="width: 70%;" name="series_icon_loc" value="" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="Upload Image" />
-			<p><?php _e('Enter an URL or upload an image for the series.', $orgseries->org_domain) ?></p>
+			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="Upload Image" />
+			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
+			<p><?php _e('Upload an image for the series.', $orgseries->org_domain) ?></p>
 		</label>
 	</div>
 	<?php
@@ -77,9 +78,10 @@ function edit_series_form_fields($series, $taxonomy) {
 			<tr valign="top">
 				<th scope="row"><?php _e('Series Icon Upload:', $orgseries->org_domain) ?></th>
 				<td><label for="series_icon">
-					<input id="series_icon_loc" type="text" size="36" name="series_icon_loc" value="" />
+					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
 					<input id="upload_image_button" type="button" value="Select Image" />
-					<p><?php _e('Enter an URL or upload an image for the series.', $orgseries->org_domain); ?></p>
+					<p><?php _e('Upload an image for the series.', $orgseries->org_domain); ?></p>
+					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>
 				</td>
 			</tr>

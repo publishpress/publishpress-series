@@ -63,6 +63,7 @@ global $checkpage, $orgseries, $pagenow;
 	if ('post-new.php' == $checkpage || 'post.php' == $checkpage) {
 		wp_enqueue_script( 'ajaxseries' );
 	}
+
 	if ( 'edit-tags.php' == $checkpage && 'series' == $_GET['taxonomy'] )
 	orgSeries_manage_script();
 	

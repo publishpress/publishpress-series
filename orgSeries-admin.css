@@ -4,7 +4,7 @@
 	padding: 0;
 }
 
-.post-series li, #ed_toolbar {
+.post-series li {
 	display: inline;
 }
 

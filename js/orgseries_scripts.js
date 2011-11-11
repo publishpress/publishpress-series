@@ -28,6 +28,7 @@ jQuery(document).ready(function($) {
 	window.send_to_editor = function(html) {
 		  var imgurl = $('img',html).attr('src');
 		 $('#series_icon_loc').val(imgurl);
+		 $('#series_icon_loc_display').val(imgurl);
 		 tb_remove();
 		 var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" />";
 		 $('#selected-icon').html(view_image_url)

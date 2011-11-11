@@ -570,6 +570,7 @@ function wp_delete_series($series_ID, $taxonomy_id) {
 
 function wp_insert_series($series_id, $taxonomy_id) {
 	global $_POST;
+	$series_icon_loc = '';
 	
 	extract($_POST, EXTR_SKIP);
 	$series_icon = $series_icon_loc;
