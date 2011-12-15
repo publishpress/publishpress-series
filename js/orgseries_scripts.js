@@ -33,4 +33,13 @@ jQuery(document).ready(function($) {
 		 var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" />";
 		 $('#selected-icon').html(view_image_url)
 	}
+
+	$(document).on('input#submit','click', function() {
+		if ( $(this).val() == 'Add New Series' ) {
+			alert('in here');
+			$('#series_icon_loc').val('');
+			$('#series_icon_loc_display').val('');
+			$('#selected-icon').empty();
+		}
+	});
 });

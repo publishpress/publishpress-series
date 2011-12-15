@@ -24,9 +24,9 @@ function series_get_icons($series) {
 /**
 * Get series path and url (next two functions)
 * function seriesicons_path
-	@return path of series icons
+*	@return path of series icons
 * function seriesicons_url
-	@return path of series urls
+*	@return path of series urls
 */
 
 function seriesicons_path() {
