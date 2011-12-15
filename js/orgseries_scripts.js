@@ -34,12 +34,13 @@ jQuery(document).ready(function($) {
 		 $('#selected-icon').html(view_image_url)
 	}
 
-	$(document).on('input#submit','click', function() {
-		if ( $(this).val() == 'Add New Series' ) {
-			alert('in here');
-			$('#series_icon_loc').val('');
-			$('#series_icon_loc_display').val('');
-			$('#selected-icon').empty();
+	$('#submit').click(function(){
+		var series_icon_loc_display = $('#series_icon_loc_display');
+
+		if ( series_icon_loc_display.val() == '' ) {
+				$('#series_icon_loc').val('');
 		}
+		$(series_icon_loc_display).val('');
+		$('#selected-icon').empty();
 	});
 });
