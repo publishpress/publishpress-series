@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	//Thickbox
 
-        $('input[name="option_reset"]').live('click',function(){
+        $(document).on('click','input[name="option_reset"]', function(){
             tb_show('Are you sure you want to Reset?','TB_inline?height=155&amp;width=300&amp;inlineId=TBcontent');
             return false;
         });

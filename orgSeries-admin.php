@@ -107,9 +107,8 @@ function admin_inline_series_ajax() {
 	/*$series_id = $_POST['post_series'];
 	$part = $_POST['series_part'];
 	$post_id = $_POST['series_post_id'];*/
-	orgSeries_custom_column_action('series', $data[$id]);
+	//orgSeries_custom_column_action('series', $data[$id]);
 	exit;
-	break;
 }
 
 /**  
@@ -216,6 +215,8 @@ function orgseries_add_meta_box() {
 
 function orgSeries_custom_column_filter($defaults) {
 	global $orgseries;
+	if ( isset($_REQUEST['post_type']) && $_REQUEST['post_type'] != 'post' )
+		return $defaults; //get out we only want this showing up on post post types for now.*/
 	$defaults['series'] = __('Series', $orgseries->org_domain);
 	return $defaults;
 }

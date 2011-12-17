@@ -5,20 +5,19 @@
 * 
 * You also have to make sure you call this class in any addons/plugins you want to be added to the update checker.  Here's what you do:
 * if ( file_exists(WP_PLUGIN_DIR . '/location_of_file/plugin_updaters.php') ) { //include the file 
-	require( WP_PLUGIN_DIR . '/location_of_file/pue-client.php' );
-	$host_server_url = 'http://updateserver.com'; //this needs to be the host server where plugin update engine is installed.
-	$plugin_slug = 'plugin-slug'; //this needs to be the slug of the plugin/addon that you want updated (and that pue-client.php is included with).  This slug should match what you've set as the value for plugin-slug when adding the plugin to the plugin list via plugin-update-engine on your server.
-	//$options needs to be an array with the included keys as listed.
-	$options = array(
-		'optionName' => '', //(optional) - used as the reference for saving update information in the clients options table.  Will be automatically set if left blank.
-		'apikey' => $api_key, //(required), you will need to obtain the apikey that the client gets from your site and then saves in their sites options table (see 'getting an api-key' below)
-		'lang_domain' => '', //(optional) - put here whatever reference you are using for the localization of your plugin (if it's localized).  That way strings in this file will be included in the translation for your plugin.
-		'checkPeriod' => '', //(optional) - use this parameter to indicate how often you want the client's install to ping your server for update checks.  The integer indicates hours.  If you don't include this parameter it will default to 12 hours.
-	);
-	$check_for_updates = new PluginUpdateEngineChecker($host_server_url, $plugin_slug, $options); //initiate the class and start the plugin update engine!
-}
-
-
+*	require( WP_PLUGIN_DIR . '/location_of_file/pue-client.php' );
+*	$host_server_url = 'http://updateserver.com'; //this needs to be the host server where plugin update engine is installed.
+*	$plugin_slug = 'plugin-slug'; //this needs to be the slug of the plugin/addon that you want updated (and that pue-client.php is included with).  This slug should match what you've set as the value for plugin-slug when adding the plugin to the plugin list via plugin-update-engine on your server.
+*	//$options needs to be an array with the included keys as listed.
+*	$options = array(
+*		'optionName' => '', //(optional) - used as the reference for saving update information in the clients options table.  Will be automatically set if left blank.
+*		'apikey' => $api_key, //(required), you will need to obtain the apikey that the client gets from your site and then saves in their sites options table (see 'getting an api-key' below)
+*		'lang_domain' => '', //(optional) - put here whatever reference you are using for the localization of your plugin (if it's localized).  That way strings in this file will be included in the translation for your plugin.
+*		'checkPeriod' => '', //(optional) - use this parameter to indicate how often you want the client's install to ping your server for update checks.  The integer indicates hours.  If you don't include this parameter it will default to 12 hours.
+*	);
+*	$check_for_updates = new PluginUpdateEngineChecker($host_server_url, $plugin_slug, $options); //initiate the class and start the plugin update engine!
+*}
+*/
 /**
  * getting an api-key
  *
@@ -64,7 +63,7 @@ class PluginUpdateEngineChecker {
 	 * 	@key integer $checkPeriod How often to check for updates (in hours). Defaults to checking every 12 hours. Set to 0 to disable automatic update checks.
 	 * 	@key string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'. 
 	 *  @key string $apikey used to authorize download updates from developer server
-		@key string $lang_domain If the plugin file pue-client.php is included with is localized you can put the domain reference string here so any strings in this file get included in the localization.
+	 *	@key string $lang_domain If the plugin file pue-client.php is included with is localized you can put the domain reference string here so any strings in this file get included in the localization.
 	 * @return void
 	 */
 	function __construct( $metadataUrl, $slug = '', $options = array() ){
@@ -269,6 +268,10 @@ class PluginUpdateEngineChecker {
 	function in_plugin_update_message($plugin_data) {
 		$plugininfo = $this->json_error;
 		//only display messages if there is a new version of the plugin.
+		if ( !isset($plugininfo) && empty($plugininfo) ) {
+			return false; //get out no data to display
+		}
+
 		if ( version_compare($plugininfo->version, $this->getInstalledVersion(), '>') ) {
 			if ( $plugininfo->api_invalid ) {
 				$msg = str_replace('%plugin_name%', $this->pluginName, $plugininfo->api_inline_invalid_message);
