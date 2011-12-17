@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.2
-Tested up to: 3.2
-Stable tag: 2.3.8
+Requires at least: 3.3
+Tested up to: 3.3
+Stable tag: 2.3.9
 
 A plugin for managing the article series you write.
 
@@ -16,9 +16,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**As of version 2.3.7, Organize Series *requires* WordPress 3.2+ to work (it may work on WordPress 3.0+ but only WordPress 3.2+ is supported). Organize Series also requires PHP 5.2+.**
-
-** NOTE: If you are using version 2.3.7 please update as soon as possible to 2.3.8 - the included automatic upgrade checker for addons is doing the checks too frequently (because of a screwup) and creates unneccessary overhead on user sites. **
+**As of version 2.3.9, Organize Series *requires* WordPress 3.3+ to work. Organize Series also requires PHP 5.2+.**
 
 **IMPORTANT LINKS**
 
@@ -26,7 +24,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.3.7, Organize Series *requires* WordPress 3.2+ to work (it may work on WordPress 3.0+ but only WordPress 3.2+ is supported). Organize Series also requires PHP 5.2+.**
+**As of version 2.3.9, Organize Series *requires* WordPress 3.3+ to work. Organize Series also requires PHP 5.2+.**
 
 **ALSO**: If you are upgrading make sure you read the upgrade notes.
 
@@ -196,6 +194,21 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.3.9 =
+
+Bugfixes and WP 3.3 compatible.  I was hoping to get a new feature in this release but ran out of time and thought it more important to get a bugfix out.  Hopefully a new feature by Christmas :)
+
+* fixed a bug with improper inclusion of series id. This primarily surfaced when using %token_replace% for certain items (with add ons) but may have caused problems elsewhere as well. ht to [ldsphilosopher]( http://www.ldsphilosopher.com/) for the catch.
+* fixed a .css error that messed up tiny-mce editor
+* changed the way series_icons get uploaded so the url text field is disabled (makes less likely for mistakes).
+* fix to make sure js in series.js is loaded on document ready
+* fix for series_icon not getting properly saved in some circumstances (when creating a new series)
+* selected series icon is cleared when the submit button is pressed for the "Add Series" form.
+* changed wording of "Upload Image" to "Select Image" for the add new series form.  Better reflects what happens.
+* minor fix for pue-client.php to hopefully fix PHP errors in certain cases.
+* switched usage of jquery `.live()` to `.on()` because `.live()` is deprecated in jquery 1.7
+* adding 'series' custom column via 'manage_posts_columns' hook will only fire when the displayed post list is for the "post" post_type (since by default Organize Series is only setup for the "post" post_type);
 
 = 2.3.8 =
 
