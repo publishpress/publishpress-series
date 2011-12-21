@@ -524,7 +524,7 @@ function get_series_link( $series_id = '' ) {
 		$series_slug = get_term_field( 'slug', $series_id, 'series' );
 	} else {
 		if ( $series_slug_get = get_term_by('name', htmlentities2($series_id), 'series' ) ) {
-			$series_slug = $series_slug_get;
+				$series_slug = $series_slug_get;
 		} 
 	}
 	
