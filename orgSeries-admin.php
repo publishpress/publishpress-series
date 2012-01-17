@@ -38,7 +38,7 @@ add_action('post_relatedlinks_list', 'add_series_management_link');
 add_action( 'right_now_content_table_end', 'add_series_to_right_now');
 
 //function: Add Meta-box
-add_action('admin_menu', 'orgseries_add_meta_box');
+add_action('add_meta_boxes', 'orgseries_add_meta_box', 9);
 
 function orgSeries_admin_header() {
 	$plugin_path = SERIES_LOC;
@@ -207,8 +207,8 @@ global $post, $postdata, $content, $orgseries;
 
 function orgseries_add_meta_box() {
 	global $orgseries;
-	add_meta_box('seriesdiv', __('Series', $orgseries->org_domain), 'series_edit_meta_box', 'post', 'advanced', 'core');
-	remove_meta_box('tagsdiv-series', 'post', 'advanced'); //removes series meta box added by WordPress Taxonomy api.
+	add_meta_box('seriesdiv', __('Series', $orgseries->org_domain), 'series_edit_meta_box', 'post', 'side');
+	remove_meta_box('tagsdiv-series', 'post', 'side'); //removes series meta box added by WordPress Taxonomy api.
 }
 
 /* ADDING SERIES INFO TO EDIT POST PAGE */ 

@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 2.3.9
+Stable tag: 2.4
 
 A plugin for managing the article series you write.
 
@@ -194,6 +194,11 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.0 =
+Bugfix
+
+- WP 3.0 introduced new way of adding meta boxes. This release adopts that format.
 
 = 2.3.9 =
 
