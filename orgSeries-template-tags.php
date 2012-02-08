@@ -47,6 +47,9 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		}
 	}
 
+	if ( empty($ser_ID) || !isset($ser_ID) )
+		return false; //get out we need a $ser_ID in order to go any further.
+
 	$series_post = array();
 	$posts_in_series = array();
 	$settings = $orgseries->settings;
