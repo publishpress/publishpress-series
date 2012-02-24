@@ -1,0 +1,705 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
+"POT-Creation-Date: 2010-10-03 01:03+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: orgSeries-admin.php:161
+msgid "Not part of a series"
+msgstr ""
+
+#: orgSeries-admin.php:190
+msgid "Series Part:"
+msgstr ""
+
+#: orgSeries-admin.php:191
+msgid ""
+"Note: that if you leave this blank or enter an invalid number the post will "
+"automatically be appended to the rest of the posts in the series"
+msgstr ""
+
+#: orgSeries-admin.php:197 orgSeries-admin.php:205 orgSeries-admin.php:256
+#: orgSeries-taxonomy.php:340 orgSeries-widgets.php:154
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] ""
+msgstr[1] ""
+
+#: orgSeries-admin.php:220
+#, php-format
+msgid ""
+"Part %1$s of %2$s in the series, <a href=\"%3$s\" title=\"%4$s\">%5$s</a>"
+msgstr ""
+
+#: orgSeries-admin.php:224
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (currently set as Part %4$s)"
+msgstr ""
+
+#: orgSeries-admin.php:230
+msgid "No Series"
+msgstr ""
+
+#: orgSeries-admin.php:241
+msgid "View all series"
+msgstr ""
+
+#: orgSeries-admin.php:248
+msgid "Manage All Series"
+msgstr ""
+
+#: orgSeries-feed.php:18
+msgid "Organize Series News"
+msgstr ""
+
+#: orgSeries-feed.php:19
+msgid ""
+"The following will keep you updated with all the recent Organize Series "
+"Plugin related news by <a href=\"http://unfoldingneurons.com\" title=\"Visit "
+"Darren Ethier's blog\">Darren Ethier</a>."
+msgstr ""
+
+#: orgSeries-feed.php:24
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: orgSeries-feed.php:28
+msgid "Read more"
+msgstr ""
+
+#: orgSeries-manage.php:13
+msgid "Icon"
+msgstr ""
+
+#: orgSeries-manage.php:27
+msgid "No Series Icon"
+msgstr ""
+
+#: orgSeries-manage.php:41 orgSeries-manage.php:81
+msgid "Enter an URL or upload an image for the series."
+msgstr ""
+
+#: orgSeries-manage.php:57
+msgid "Current series icon:"
+msgstr ""
+
+#: orgSeries-manage.php:62
+msgid "No icon currently"
+msgstr ""
+
+#: orgSeries-manage.php:72
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+
+#: orgSeries-manage.php:77
+msgid "Series Icon Upload:"
+msgstr ""
+
+#: orgSeries-options.php:15
+msgid "Organize Series Options"
+msgstr ""
+
+#: orgSeries-options.php:15
+msgid "Series Options"
+msgstr ""
+
+#: orgSeries-options.php:28
+msgid "Organize Series Plugin Options have been RESET"
+msgstr ""
+
+#: orgSeries-options.php:33
+msgid "Organize Series Plugin Options have been updated"
+msgstr ""
+
+#: orgSeries-options.php:99
+msgid "  Organize Series Plugin Options"
+msgstr ""
+
+#: orgSeries-options.php:109
+msgid "Plugin Info"
+msgstr ""
+
+#: orgSeries-options.php:111
+msgid ""
+"Plugin information can be found <a href=\"http://organizeseries.com\" title="
+"\"The Organize Series Website\">here</a>"
+msgstr ""
+
+#: orgSeries-options.php:112
+msgid ""
+"If you'd like to donate to <a href=\"http://www.unfoldingneurons.com\" title="
+"\"Darren Ethier's (author) Blog\">me</a> as an expression of thanks for the "
+"release of this plugin feel free to do so - and thanks!"
+msgstr ""
+
+#: orgSeries-options.php:129
+msgid "Token legend"
+msgstr ""
+
+#: orgSeries-options.php:131
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+
+#: orgSeries-options.php:133
+msgid "This will be replaced with the series icon for a series."
+msgstr ""
+
+#: orgSeries-options.php:135
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr ""
+
+#: orgSeries-options.php:137
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+
+#: orgSeries-options.php:139
+msgid "This will be replaced with the title of a series"
+msgstr ""
+
+#: orgSeries-options.php:141
+#, php-format
+msgid ""
+"Same as %series_title% except that it will also be linked to the series page"
+msgstr ""
+
+#: orgSeries-options.php:143
+msgid ""
+"Is the location token for where the contents of the post list post templates "
+"will appear."
+msgstr ""
+
+#: orgSeries-options.php:145
+msgid "Will be replaced with the post title of a post in the series"
+msgstr ""
+
+#: orgSeries-options.php:147
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+
+#: orgSeries-options.php:149
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be the title of the post."
+msgstr ""
+
+#: orgSeries-options.php:151
+msgid ""
+"Same as %previous_post% except the text will be what you specify in the "
+"\"Custom Previous Post Navigation Text\" field."
+msgstr ""
+
+#: orgSeries-options.php:153
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be the title of the post."
+msgstr ""
+
+#: orgSeries-options.php:155
+msgid ""
+"Same as %next_post% except the text will be what you specify in the \"Custom "
+"Next Post Navigation Text\" field."
+msgstr ""
+
+#: orgSeries-options.php:157
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+
+#: orgSeries-options.php:159
+msgid "Will display what part of a series the post is"
+msgstr ""
+
+#: orgSeries-options.php:161
+msgid "Will display the total number of posts in a series"
+msgstr ""
+
+#: orgSeries-options.php:163
+msgid "Will display the description for the series"
+msgstr ""
+
+#: orgSeries-options.php:205
+msgid "Update Options"
+msgstr ""
+
+#: orgSeries-options.php:206
+msgid "Reset options to default"
+msgstr ""
+
+#: orgSeries-options.php:225
+msgid ""
+"Choose from the following options for turning on or off automatic insertion "
+"of template tags for Organize Series into your blog.  If you wish to have "
+"more control over the location of the template tags (you power user you) "
+"then deselect as needed."
+msgstr ""
+
+#: orgSeries-options.php:232
+msgid ""
+"This section is where you tell the plugin how you would like to format the "
+"various displays of the series information.  Only play with this if you are "
+"familiar with html/css.  Use the \"template tokens\" to indicate where "
+"various series related data should go and/or where the template tag should "
+"be inserted (if auto-tag is enabled)."
+msgstr ""
+
+#: orgSeries-options.php:239
+msgid ""
+"This section is for setting the series icon options (note if you do not "
+"include one of the %tokens% for series icon in the template settings section "
+"then series-icons will not be displayed. All images for series-icons will "
+"upload into your default wordpress upload directory."
+msgstr ""
+
+#: orgSeries-options.php:254
+msgid "Display list of series on post pages?"
+msgstr ""
+
+#: orgSeries-options.php:255
+msgid ""
+"Selecting this will indicate that you would like the plugin to automatically "
+"insert the code into your theme for the listing of posts in a series when a "
+"post is displayed that is part of a series.  [default=selected]"
+msgstr ""
+
+#: orgSeries-options.php:256
+msgid "Display series navigation links?"
+msgstr ""
+
+#: orgSeries-options.php:257
+msgid ""
+"Selecting this will indicate that you would like the plugin to automatically "
+"insert the code into your theme for the displaying the series navigation "
+"links.  [default=selected]"
+msgstr ""
+
+#: orgSeries-options.php:258
+msgid "Display series meta information with posts?"
+msgstr ""
+
+#: orgSeries-options.php:259
+msgid ""
+"Series meta will include whatever is listed in the Template tag options for "
+"the series meta tag (see settings on this page). [default = selected]"
+msgstr ""
+
+#: orgSeries-options.php:260
+msgid "Use custom .css?"
+msgstr ""
+
+#: orgSeries-options.php:261
+msgid ""
+"Leaving this box checked will make the plugin use the included .css file.  "
+"If you uncheck it you will need to add styling for the plugin in your themes "
+"\"style.css\" file. [default = checked]"
+msgstr ""
+
+#: orgSeries-options.php:264
+msgid "Series Table of Contents URL:"
+msgstr ""
+
+#: orgSeries-options.php:266
+msgid ""
+"Enter the path where you want the Series Table of Contents to be shown. "
+"NOTE: this ONLY applies when you have \"Permalinks\" enabled in WordPress."
+msgstr ""
+
+#: orgSeries-options.php:267
+msgid "Series Custom Base:"
+msgstr ""
+
+#: orgSeries-options.php:269
+msgid ""
+"Set what you want to use as the base for referring to your series structure "
+"in permalinks series archive pages. NOTE: This ONLY applies when you have "
+"\"Permalinks\" enabled in WordPress"
+msgstr ""
+
+#: orgSeries-options.php:270
+msgid "Series Table of Contents Title:"
+msgstr ""
+
+#: orgSeries-options.php:271
+msgid ""
+"Enter what you want to appear in the browser title when readers are viewing "
+"the series table of contents page."
+msgstr ""
+
+#: orgSeries-options.php:272
+msgid "order by series part"
+msgstr ""
+
+#: orgSeries-options.php:273
+msgid "Order by date"
+msgstr ""
+
+#: orgSeries-options.php:275
+msgid "Ascending"
+msgstr ""
+
+#: orgSeries-options.php:276
+msgid "Descending"
+msgstr ""
+
+#: orgSeries-options.php:278
+msgid ""
+"You can choose what order you want the posts on a series archive page to be "
+"displayed.  Default is by date, descending."
+msgstr ""
+
+#: orgSeries-options.php:282
+msgid ""
+"Delete all Organize Series related data from the database when deleting this "
+"plugin?  (BE CAREFUL!)"
+msgstr ""
+
+#: orgSeries-options.php:299
+msgid "Series Post List Template:"
+msgstr ""
+
+#: orgSeries-options.php:300
+msgid ""
+"This affects the list of series in a post on the page of a post belonging to "
+"a series [template tag -> wp_postlist_display()]"
+msgstr ""
+
+#: orgSeries-options.php:303
+msgid "Series Post List Post Title Template:"
+msgstr ""
+
+#: orgSeries-options.php:304
+msgid ""
+"Use this to indicate what html tags will surround the post title in the "
+"series post list."
+msgstr ""
+
+#: orgSeries-options.php:307
+msgid "Series Post List Current Post Title Template:"
+msgstr ""
+
+#: orgSeries-options.php:308
+msgid ""
+"Use this to style how you want the post title in the post list that is the "
+"same as the current post to be displayed."
+msgstr ""
+
+#: orgSeries-options.php:311
+msgid "Series Post Navigation Template:"
+msgstr ""
+
+#: orgSeries-options.php:312
+msgid ""
+"Use this to style the Next/Previous post navigation strip on posts that are "
+"part of a series. (Don't forget to use the %postcontent% token to indicate "
+"where you want the navigation to show)."
+msgstr ""
+
+#: orgSeries-options.php:315
+msgid "Custom next post navigation text."
+msgstr ""
+
+#: orgSeries-options.php:316
+msgid "Custom previous post navigation text."
+msgstr ""
+
+#: orgSeries-options.php:318
+msgid "Series Table of Contents Listings:"
+msgstr ""
+
+#: orgSeries-options.php:319
+msgid ""
+"This will affect how each series is listed on the Series Table of Contents "
+"Page (created at plugin init) [template tag -> wp_serieslist_display()]"
+msgstr ""
+
+#: orgSeries-options.php:322
+msgid "Series Meta:"
+msgstr ""
+
+#: orgSeries-options.php:323
+msgid ""
+"This will control how and what series meta information is displayed with "
+"posts that are part of a series. [template tag -> wp_seriesmeta_write()]"
+msgstr ""
+
+#: orgSeries-options.php:326
+msgid "Series Meta (with excerpts):"
+msgstr ""
+
+#: orgSeries-options.php:327
+msgid ""
+"This will control how and what series meta information is displayed with "
+"posts that are part of a series when the_excerpt is called. [template tag -> "
+"wp_seriesmeta_write(true)]"
+msgstr ""
+
+#: orgSeries-options.php:330
+msgid "Latest Series (tags before):"
+msgstr ""
+
+#: orgSeries-options.php:331
+msgid ""
+"Put here any html you want before latest series information NOTE: series "
+"template tokens WILL NOT be converted here."
+msgstr ""
+
+#: orgSeries-options.php:334
+msgid "Latest Series (inner tags):"
+msgstr ""
+
+#: orgSeries-options.php:335
+msgid ""
+"This will control the layout/style and contents that will be returned with "
+"the latest_series() template tag (both via widget and/or manual calls).  "
+"NOTE: Organize Series %tokens% can be used in this field."
+msgstr ""
+
+#: orgSeries-options.php:338
+msgid "Latest Series (tags after):"
+msgstr ""
+
+#: orgSeries-options.php:339
+msgid ""
+"Put here any html you want after latest series information NOTE: series "
+"template tokens WILL NOT be converted here."
+msgstr ""
+
+#: orgSeries-options.php:357
+msgid "Width for icon on series table of contents page (in pixels)."
+msgstr ""
+
+#: orgSeries-options.php:359
+msgid "Width for icon on a post page (in pixels)."
+msgstr ""
+
+#: orgSeries-options.php:361
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr ""
+
+#: orgSeries-setup.php:67
+msgid ""
+"Your WordPress version is too old. Organize Series 2.2 requires at least "
+"WordPress 3.0 to function correctly. Please update your blog via Tools &gt; "
+"Upgrade."
+msgstr ""
+
+#: orgSeries-setup.php:103
+msgid "Add"
+msgstr ""
+
+#: orgSeries-setup.php:104
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr ""
+
+#: orgSeries-setup.php:136
+msgctxt "taxonomy general name"
+msgid "Manage Series"
+msgstr ""
+
+#: orgSeries-setup.php:137
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr ""
+
+#: orgSeries-setup.php:138
+msgid "Search Series"
+msgstr ""
+
+#: orgSeries-setup.php:139
+msgid "Popular Series"
+msgstr ""
+
+#: orgSeries-setup.php:140
+msgid "All Series"
+msgstr ""
+
+#: orgSeries-setup.php:141
+msgid "Edit Series"
+msgstr ""
+
+#: orgSeries-setup.php:142
+msgid "Update Series"
+msgstr ""
+
+#: orgSeries-setup.php:143
+msgid "Add New Series"
+msgstr ""
+
+#: orgSeries-setup.php:144
+msgid "New Series Name"
+msgstr ""
+
+#: orgSeries-setup.php:169 orgSeries-setup.php:265
+msgid "Series Table of Contents"
+msgstr ""
+
+#: orgSeries-setup.php:174 orgSeries-setup.php:175
+msgid ""
+"This entry is part %series_part% of %total_posts_in_series% in the series |"
+"leave the %tokens% as is when translating"
+msgstr ""
+
+#: orgSeries-setup.php:180
+msgid "Series Navigation"
+msgstr ""
+
+#: orgSeries-setup.php:408
+msgid "Series: "
+msgstr ""
+
+#: orgSeries-setup.php:410
+msgid "Posts from the series: "
+msgstr ""
+
+#: orgSeries-setup.php:422
+msgid "Settings"
+msgstr ""
+
+#: orgSeries-taxonomy.php:519
+msgid "Series:"
+msgstr ""
+
+#: orgSeries-taxonomy.php:521
+msgid "Part:"
+msgstr ""
+
+#: orgSeries-template-tags.php:122
+msgid "All the Series I've Written"
+msgstr ""
+
+#: orgSeries-template-tags.php:125 orgSeries-template-tags.php:132
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr ""
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr ""
+
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr ""
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr ""
+
+#: orgSeries-widgets.php:66 orgSeries-widgets.php:167
+msgid "Title"
+msgstr ""
+
+#: orgSeries-widgets.php:70
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the latest-series-"
+"template on the <a href=\"%s\">Series Options</a> page."
+msgstr ""
+
+#: orgSeries-widgets.php:73
+msgid "Don't show series with no posts?"
+msgstr ""
+
+#: orgSeries-widgets.php:76
+msgid "Order by:"
+msgstr ""
+
+#: orgSeries-widgets.php:78
+msgid "Number of posts in Series"
+msgstr ""
+
+#: orgSeries-widgets.php:79
+msgid "Name of Series"
+msgstr ""
+
+#: orgSeries-widgets.php:80
+msgid "Series Slug"
+msgstr ""
+
+#: orgSeries-widgets.php:81
+msgid "When Series was Created"
+msgstr ""
+
+#: orgSeries-widgets.php:85
+msgid "Number of series to display:"
+msgstr ""
+
+#: orgSeries-widgets.php:89
+msgid "Display Order: "
+msgstr ""
+
+#: orgSeries-widgets.php:90
+msgid "ASC: "
+msgstr ""
+
+#: orgSeries-widgets.php:91
+msgid "DESC: "
+msgstr ""
+
+#: orgSeries-widgets.php:101
+msgid "Use this to display the Series Table of contents"
+msgstr ""
+
+#: orgSeries-widgets.php:102
+msgid "Series TOC"
+msgstr ""
+
+#: orgSeries-widgets.php:120
+msgid "Select Series"
+msgstr ""
+
+#: orgSeries-widgets.php:131
+msgid "Other posts belonging to this series"
+msgstr ""
+
+#: orgSeries-widgets.php:171
+msgid "Series list options:"
+msgstr ""
+
+#: orgSeries-widgets.php:172
+msgid " Dropdown: "
+msgstr ""
+
+#: orgSeries-widgets.php:173
+msgid " List: "
+msgstr ""
+
+#: orgSeries-widgets.php:176
+msgid "Show post count?"
+msgstr ""
+
+#: orgSeries-widgets.php:180
+msgid "Hide empty series?"
+msgstr ""
+
+#: orgSeries-widgets.php:184
+msgid ""
+"(use to select if a list of other posts in the series will show on posts "
+"that are part of a series"
+msgstr ""

@@ -1,0 +1,86 @@
+.imgset {
+	float: left;
+	/*overflow: visible;*/
+	border: none;
+	margin-right: 6px;
+}
+
+.serieslist-content {
+	font-size: 1.2em;
+	color: #000;
+	text-align: left;
+}
+
+.serieslist-box {
+	background: #fff;
+	width: 90%;
+	/*height: 100px;*/
+	padding: 6px;
+	margin: 10px auto 0 auto;
+	border: 1px solid #1E3A96;
+	border-bottom: 2px solid #1E3A96;
+}
+
+html>body .serieslist-box {
+	height: auto;
+	/*min-height: 100px;*/
+} 	
+
+h2.series-title {
+	font-size: 1.2em;
+	color: #1E3A96;
+	text-align: center;
+}
+
+ul.serieslist-ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+li.serieslist-li {
+	margin: 0;
+	padding: 0;
+}
+
+.seriesbox {
+	display:inline;
+	float: right;
+	background: #F8F8F8;
+	color: #777;
+	text-align: left;
+	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
+	margin: 0 10px 0px 10px;
+	padding: 6px 6px 12px 6px;
+	border: 1px dotted #1E3A96;
+	border-bottom: 2px solid #1E3A96;
+	min-width: 125px;
+}
+
+.seriesbox img {
+	margin: 0px 12.5px 0 12.5px;
+}
+
+h3.series-title-post-page {
+	font-size: 1.1em;
+	color: #1E3A96;
+	text-align: center;
+}
+
+p.series-description {
+	font-style: italic;
+}
+
+.seriesmeta {
+	background-color: #E5F3FF;
+	font-size: .8em;
+}
+
+.series-nav-left {
+	float: left;
+}
+
+.series-nav-right {
+	float: right;
+}
+	
