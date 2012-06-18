@@ -618,7 +618,10 @@ function get_series_name($series_id, $slug = false) {
 	$series_id = (int) $series_id;		
 	$series = get_orgserial($series_id);
 	
-	return ( $slug ) ? $series->slug : $series->name;
+	if ( !empty($series) ) {
+		return ( $slug ) ? $series->slug : $series->name;
+	}
+	return false;
 }
 
 /**
