@@ -106,6 +106,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id) {
 		
 	$ticker = 1;
 	$count = $total_posts;
+	$rise = false;
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
@@ -520,13 +521,11 @@ function delete_series_object_relationship( $object_id, $terms ) {
 	global $wpdb;
 	
 	$object_id = (int) $object_id;
-	
-	if ( !is_array($terms) )
-		$terms = array($terms);
+	$terms = array_map('absint', (array) $terms);
 	
 	foreach ( $terms as $term ) {
 		$t_obj = term_exists($term, 'series');
-		$t_ids[] = $t_obj->term_taxonomy_id;
+		$t_ids[] = $t_obj['term_taxonomy_id'];
 	}
 	
 	$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
