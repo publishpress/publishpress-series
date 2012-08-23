@@ -238,7 +238,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 			
 			$draft_posts = get_posts( array(
 				'post_type'	=> 'post',
-				'post_status' => array('draft', 'future'),
+				'post_status' => array('draft', 'future', 'pending'),
 				'taxonomy'	=> 'series',
 				'term'	=> $series_name
 			) );
