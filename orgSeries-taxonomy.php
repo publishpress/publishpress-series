@@ -190,7 +190,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 			$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 			delete_post_meta($spostid, $series_part_key); 
 			add_post_meta($spostid, $series_part_key, $newpart);
-			$ticker++;
+			if (!$not_published)
+				$ticker++;
 			$oldpart = $newpart;
 			unset($newpart);
 		}
