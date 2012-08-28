@@ -235,8 +235,22 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
 			$count = $series[0]->count;
 			$column_content = '';
+			
+			$draft_posts = get_posts( array(
+				'post_type'	=> 'post',
+				'post_status' => array('draft', 'future', 'pending'),
+				'taxonomy'	=> 'series',
+				'term'	=> $series_name
+			) );
+			$count_draft_posts = count($draft_posts);
+			$drafts_included = '';
+			if($count_draft_posts != 0){
+				$all_serie_posts = $count_draft_posts+$count;
+				$drafts_included = "($all_serie_posts)";
+			}
+			
 				if ($series && get_post_status($id) == 'publish') {
-					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s in the series, <a href="%3$s" title="%4$s">%5$s</a>', $orgseries->org_domain), $series_part, $count, $series_link, $series_name, $series_name);
+					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', $orgseries->org_domain), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
 					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
 					echo  $column_content;  
 				} else {
