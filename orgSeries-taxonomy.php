@@ -409,16 +409,16 @@ function wp_set_post_series_transition( $post ){
 	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series( $post_ID, $post, $series_id, true );
+	//$series_id = $ser_id[0];
+	wp_set_post_series( $post_ID, $post, $ser_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series($post_ID, $post, $series_id, true);
+	//$series_id = $ser_id[0];
+	wp_set_post_series($post_ID, $post, $ser_id, true);
 }
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
@@ -526,7 +526,6 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 				$s_pt = wp_series_part($post_ID, $ser_id);
 				if ( !$series_part ) $series_part = 0;
 			} 
-			
 			//If post is not published its part stays as set by user
 			elseif(!$is_published) {
 				$s_pt = $series_part[$ser_id];
@@ -536,7 +535,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 					$set_spart = $_GET['series_part'];
 				else
 					$set_spart =  $_POST['series_part'];
-				$s_pt = (int) implode($set_spart);
+				$s_pt = $set_spart[$ser_id];
 			}
 			/*print_r($s_pt);
 			exit;/**/
