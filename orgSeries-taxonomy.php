@@ -120,6 +120,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
             
 	$ticker = 1;
 	$count = $total_posts;
+	$drop = false;
+	$is_published = false;
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 

@@ -40,7 +40,7 @@ function orgseries_create_options() {
 function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
 	$newinput = array();
-	if ( $input['reset_option'] == 1 ) {
+	if ( isset($input['reset_option']) && $input['reset_option'] == 1 ) {
 		
 		if ($reset_options = $orgseries->add_settings(true)) {
 			$input = $orgseries->settings;
