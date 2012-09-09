@@ -69,7 +69,7 @@ function the_series_atom() {
 }
 
 function series_ns() {
-	$ns = 'xmlns:series="http://unfoldingneurons.com/"' . "\n\t";
+	$ns = 'xmlns:series="http://organizeseries.com/"' . "\n\t";
 	echo $ns;
 }
 ?>

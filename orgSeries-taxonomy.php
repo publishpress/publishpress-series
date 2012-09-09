@@ -93,73 +93,110 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 }
 
 //function to set the order that the post is in a series.
-function set_series_order($postid = 0, $series_part = 0, $series_id) {
+function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) { 
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$series_posts = array(); 
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false); 
- 	$total_posts = count($series_posts) + 1;
+ 	
+	if ($is_published) {
+		$total_posts = count($series_posts) + 1;
+	}
+	else{
+		$total_p_posts = 0;
+		foreach($series_posts as $s_p){
+			$s_pid = $s_p['id'];
+			$spost_status = get_post($s_pid)->post_status;
+			if($spost_status != 'draft' && $spost_status != 'future' && $spost_status!='pending')
+				$total_p_posts++;
+		}
+		$total_posts = $total_p_posts + 1;
+	}
 	
-	if (!isset($total_posts) || ($total_posts < $series_part) || $series_part ==  0 || $total_posts == 1) {
-		if ($total_posts >=1) $series_part = $total_posts;
+	if (!isset($total_posts) || (($total_posts < $series_part) && !$is_published) || $series_part ==  0 || $total_posts == 1) {
+		if ($total_posts >=1) 
+			$series_part = $total_posts;
 	} 
-		
+            
 	$ticker = 1;
 	$count = $total_posts;
-	$rise = false;
+	$drop = false;
+	$is_published = false;
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
 			$spostid = $sposts['id'];
+			$spost_status = get_post($spostid)->post_status;
+			$is_was_rise = FALSE;
+                        
+			if ($spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending')
+				$not_published = FALSE;
+			else
+				$not_published = TRUE;
 			
-			if (( $ticker >= 1) && ( $series_part > 2 ) &&  ( ($series_part - $currentpart)  >= 1) && $drop )  {
+			if(!$not_published && !$is_published)
+				$spost_pchange = TRUE;
+			else 
+				$spost_pchange = FALSE;
+			
+			if (($currentpart >= $count || $currentpart != $ticker) && ($currentpart > 1) && (($currentpart - $oldpart) > 1) && !$not_published){
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
 			
-			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count >= 2 ) && !$rise ) {
+			if (( $ticker >= 1) && ( $series_part > 2 ) && ( ($series_part - $currentpart)  >= 1) && $drop  && $spost_pchange )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
 			
-			if ( ( $ticker == 1 ) && ( $series_part == $currentpart ) && ( $series_part == 2 ) && !$rise )  {
+			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count >= 2 ) && !$rise  && $spost_pchange ) {
+				$newpart = ($currentpart - 1);
+				$drop = TRUE;
+			}
+			
+			if ( ( $ticker == 1 ) && ( $series_part == $currentpart ) && ( $series_part == 2 ) && !$rise  && $spost_pchange )  {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
 				
-			if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) 
+			if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop  && $spost_pchange ) 
 				$newpart = ($currentpart - 1);
-				
-			if ( ( ($series_part == 1 ) && ($series_part >= $currentpart) ) ||  ( ( $series_part == $currentpart )  && !$drop && ($currentpart - $oldpart) < 2 ) || ( ( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop ) ) {
+			
+			if (( (($series_part == 1 ) && ($series_part >= $currentpart)) || (( $series_part == $currentpart ) && !$drop && ($currentpart - $oldpart) < 2) || (( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop && ($currentpart != $count)) ) && $spost_pchange && $currentpart != $count) {
 				$newpart = ($currentpart + 1);
 				$rise = TRUE;
+				$is_was_rise = TRUE;
 			}
-			 
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise ) {
+			
+			if(!$is_was_rise && $is_published)
+				$rise = TRUE;
+			
+			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise && $spost_pchange ) {
 				$newpart = ($currentpart - 1);
 				$drop = TRUE;
 			}
 				
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($ticker == $count ) && ($series_part != 1) && !$rise ) {
+			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($ticker == $count ) && ($series_part != 1) && !$rise  && $spost_pchange ) {
 				$newpart = ($currentpart - 1);
-				$drop = TRUE;		
+				$drop = TRUE;
 			}
 			
 			if (!isset($newpart)) 
 				$newpart = $currentpart;
 				
-			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise  && ($newpart != ($count + 1) ) ) {
-					$newpart = ($currentpart - 1);
-					$drop = TRUE;
-					}			
+			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1)) && $spost_pchange ) {
+				$newpart = ($currentpart - 1);
+				$drop = TRUE;
+			}
 			
 			$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 			delete_post_meta($spostid, $series_part_key); 
 			add_post_meta($spostid, $series_part_key, $newpart);
-			$ticker++;
-			$oldpart = $newpart;
+			if (!$not_published){
+				$ticker++;
+				$oldpart = $newpart;
+			}
 			unset($newpart);
-			
 		}
 	}
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
@@ -175,7 +212,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	
 	$addvalue = 1;
-	
+        
 	$series_posts = get_series_order($post_ids_in_series, $post_id, $series_id, true, false);
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 	
@@ -193,10 +230,13 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	}
 	
 	foreach ($series_posts as $spost) {
-		$newpart = $addvalue;
-		delete_post_meta($spost['id'], $series_part_key);
-		add_post_meta($spost['id'], $series_part_key, $newpart);
-		$addvalue++;
+                                    $spost_status = get_post($spost['id'])->post_status;
+		if($spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending'){
+			$newpart = $addvalue;
+			delete_post_meta($spost['id'], $series_part_key);
+			add_post_meta($spost['id'], $series_part_key, $newpart);
+			$addvalue++;
+		}
 	}
 	
 	return true;
@@ -371,19 +411,19 @@ function wp_set_post_series_transition( $post ){
 	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series( $post_ID, $post, $series_id, true );
+	//$series_id = $ser_id[0];
+	wp_set_post_series( $post_ID, $post, $ser_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series($post_ID, $post, $series_id, true);
+	//$series_id = $ser_id[0];
+	wp_set_post_series($post_ID, $post, $ser_id, true);
 }
 	
-function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false ) {
+function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
@@ -429,11 +469,14 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 			
 	/*print_r($series_part);
 	exit;/**/
-		//if we don't have any changes in the series or series part info then let's get out and save time.
+		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
+		$p_status = $post->post_status;
+		if($p_status != 'draft' && $p_status != 'future' && $p_status != 'pending')
+			$ispublished = TRUE;
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) ) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $ispublished) {
 				$c_chk++;
 				continue;
 			} else {
@@ -477,18 +520,28 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
 	
 	if ( empty($p_ser_edit) ) return; //let's get out we've done everything we need to do.
-		
 	if ( $success ) {
+		if($p_status == 'draft' || $p_status == 'future' || $p_status == 'pending')
+			$is_published = TRUE;
 		foreach ( $p_ser_edit as $ser_id ) {
 			if ( empty($series_part[$ser_id]) ) {
 				$s_pt = wp_series_part($post_ID, $ser_id);
 				if ( !$series_part ) $series_part = 0;
-			} else {
+			} 
+			//If post is not published its part stays as set by user
+			elseif(!$is_published) {
 				$s_pt = $series_part[$ser_id];
+			}
+			else{
+				if (isset($_GET['submit']))
+					$set_spart = $_GET['series_part'];
+				else
+					$set_spart =  $_POST['series_part'];
+				$s_pt = $set_spart[$ser_id];
 			}
 			/*print_r($s_pt);
 			exit;/**/
-			set_series_order($post_ID, $s_pt, $ser_id);
+			set_series_order($post_ID, $s_pt, $ser_id, $is_published);
 		}
 		
 		return;
@@ -521,16 +574,22 @@ function delete_series_object_relationship( $object_id, $terms ) {
 	global $wpdb;
 	
 	$object_id = (int) $object_id;
-	$terms = array_map('absint', (array) $terms);
+	$t_ids = array();
+	
+	if ( !is_array($terms) )
+		$terms = array($terms);
 	
 	foreach ( $terms as $term ) {
 		$t_obj = term_exists($term, 'series');
-		$t_ids[] = $t_obj['term_taxonomy_id'];
+		if ( is_object($t_obj) )
+			$t_ids[] = $t_obj->term_taxonomy_id;
 	}
-	
-	$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
-	$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
-	wp_update_term_count($t_ids, 'series');
+
+	if ( !empty($t_ids) ) {
+		$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
+		$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
+		wp_update_term_count($t_ids, 'series');
+	}
 }
 
 function get_series_to_edit ( $id ) {
