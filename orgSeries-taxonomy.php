@@ -42,6 +42,7 @@ function get_series_ID($series_name='default') {
 /* functions referenced by other files */
 function &get_series($args = '') {
 	global $wpdb;
+	$series = array();
 	
 	$key = md5( serialize($args) );
 	if ( $cache = wp_cache_get('get_series','series') )
@@ -51,7 +52,7 @@ function &get_series($args = '') {
 	$series = get_terms('series', $args);
 	
 	if ( empty($series) )
-		return array();
+		return $series;
 		
 	$cache[ $key ] = $series;
 	wp_cache_set( 'get_series', $cache, 'series' );
@@ -632,7 +633,7 @@ function wp_insert_series($series_id, $taxonomy_id) {
 	$series_icon_loc = '';
 	
 	extract($_POST, EXTR_SKIP);
-	$series_icon = $_POST['series_icon_loc'];
+	$series_icon = isset($_POST['series-icon_loc']) ? $_POST['series_icon_loc'] : null;
 	
 	if ( isset($series_icon) || $series_icon != '' ) {
 		$build_path = seriesicons_url();

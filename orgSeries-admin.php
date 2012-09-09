@@ -23,7 +23,7 @@ add_action('admin_print_scripts-post-new.php', 'orgSeries_post_script');
 add_action('admin_print_scripts-edit-tags.php', 'orgSeries_manage_script');
 
 //add ajax for on-the-fly series adds
-add_action('wp_ajax_add-series', 'admin_ajax_series');
+add_action('wp_ajax_add_series', 'admin_ajax_series');
 //add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
 
 //hook into the quick-edit on edit.php
@@ -77,25 +77,40 @@ function orgSeries_manage_script() {
 
 ######ON THE FLY ADD SERIES########
 function admin_ajax_series() { 
+	$response = array();
+	
 	if ( !current_user_can( 'manage_series' ) )
-		die('-1');
-	global $wp_taxonomies;
+		$response['error'] = __('Sorry but you don\'t have permission to add series', 'organize-series');
+
+	if ( ! check_ajax_referer ( 'add-series-nonce', 'addnonce', false ) ) {
+		$response['error'] = 'Sorry but security check failed';
+	}
+	$new_nonce = wp_create_nonce('add-series-nonce');
+
 	$name = $_POST['newseries'];
-	$x = new WP_Ajax_Response();
+
 	$series_name = trim($name);
 	if ( !$series_nicename = sanitize_title($series_name) )
-		die('0');
-	if ( !$series_id = series_exists( $series_name ) )
+		$response['error'] = __('The name you picked isn\'t sanitizing correctly. Try something different.', 'organize-series');
+	if ( !$series_id = series_exists( $series_name ) ) {
 		$ser_id = wp_create_single_series( $series_name );
 		$series_id = $ser_id['term_id'];
+	} else {
+		$response['error'] = __('Hmm... it looks like there is already a series with that name. Try something else', 'organize-series');
+	}
+
 	$series_name = esc_html(stripslashes($series_name));
-	$x->add( array(
-		'what' => 'series',
-		'id' => $series_id,
-		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> $series_name</label><span id='new_series_id' class='hidden'>$series_id</span></li>",
-		'position' => -1
-	) );
-	$x->send();
+
+	if ( !isset($response['error'] ) ) {
+		$response = array(
+			'id' => $series_id,
+			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
+			'new_nonce' => $new_nonce,
+			'error' => false
+			);
+	}
+	echo json_encode($response);
+	exit();
 }
 
 ###AJAX FOR INLINE_SERIES UPDATE###
@@ -170,9 +185,9 @@ function get_series_list( $default = 0 ) {
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />' . __('Not part of a series', 'organize-series') . '</label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /><span class="li-series-name">' . __('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , esc_html( $serial['ser_name'] ), "</label></li>";
+			echo '<li id="series-'. $serial['series_ID'].'"><label for="in-series-'. $serial['series_ID']. '" class="selectit"><input value="' .  $serial['series_ID'] .  '" type="radio" name="post_series" id="in-series-' .  $serial['series_ID'] .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 			
 		}
 }
