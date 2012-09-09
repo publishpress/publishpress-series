@@ -425,6 +425,7 @@ function wp_set_post_series_draft_transition( $post ) {
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
+
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
 	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
@@ -476,7 +477,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $ispublished) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $is_published) {
 				$c_chk++;
 				continue;
 			} else {
