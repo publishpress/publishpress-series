@@ -574,18 +574,22 @@ function delete_series_object_relationship( $object_id, $terms ) {
 	global $wpdb;
 	
 	$object_id = (int) $object_id;
+	$t_ids = array();
 	
 	if ( !is_array($terms) )
 		$terms = array($terms);
 	
 	foreach ( $terms as $term ) {
 		$t_obj = term_exists($term, 'series');
-		$t_ids[] = $t_obj->term_taxonomy_id;
+		if ( is_object($t_obj) )
+			$t_ids[] = $t_obj->term_taxonomy_id;
 	}
-	
-	$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
-	$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
-	wp_update_term_count($t_ids, 'series');
+
+	if ( !empty($t_ids) ) {
+		$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
+		$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
+		wp_update_term_count($t_ids, 'series');
+	}
 }
 
 function get_series_to_edit ( $id ) {
