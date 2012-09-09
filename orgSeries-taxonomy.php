@@ -120,6 +120,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
             
 	$ticker = 1;
 	$count = $total_posts;
+	$drop = false;
+	$is_published = false;
 	if ($count >= 1) {
 		foreach ($series_posts as $sposts) {
 			$currentpart = $sposts['part']; 
@@ -409,16 +411,16 @@ function wp_set_post_series_transition( $post ){
 	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series( $post_ID, $post, $series_id, true );
+	//$series_id = $ser_id[0];
+	wp_set_post_series( $post_ID, $post, $ser_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	$series_id = $ser_id[0];
-	wp_set_post_series($post_ID, $post, $series_id, true);
+	//$series_id = $ser_id[0];
+	wp_set_post_series($post_ID, $post, $ser_id, true);
 }
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
@@ -526,7 +528,6 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 				$s_pt = wp_series_part($post_ID, $ser_id);
 				if ( !$series_part ) $series_part = 0;
 			} 
-			
 			//If post is not published its part stays as set by user
 			elseif(!$is_published) {
 				$s_pt = $series_part[$ser_id];
@@ -536,7 +537,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 					$set_spart = $_GET['series_part'];
 				else
 					$set_spart =  $_POST['series_part'];
-				$s_pt = (int) implode($set_spart);
+				$s_pt = $set_spart[$ser_id];
 			}
 			/*print_r($s_pt);
 			exit;/**/
@@ -573,18 +574,22 @@ function delete_series_object_relationship( $object_id, $terms ) {
 	global $wpdb;
 	
 	$object_id = (int) $object_id;
+	$t_ids = array();
 	
 	if ( !is_array($terms) )
 		$terms = array($terms);
 	
 	foreach ( $terms as $term ) {
 		$t_obj = term_exists($term, 'series');
-		$t_ids[] = $t_obj->term_taxonomy_id;
+		if ( is_object($t_obj) )
+			$t_ids[] = $t_obj->term_taxonomy_id;
 	}
-	
-	$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
-	$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
-	wp_update_term_count($t_ids, 'series');
+
+	if ( !empty($t_ids) ) {
+		$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
+		$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
+		wp_update_term_count($t_ids, 'series');
+	}
 }
 
 function get_series_to_edit ( $id ) {
