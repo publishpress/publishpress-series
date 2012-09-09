@@ -391,7 +391,7 @@ function wp_dropdown_series( $args ) {
 function wp_list_series($args = '') {
 	global $orgseries;
 	$defaults = array(
-		'title_li' => __('Series', $orgseries->org_domain), 
+		'title_li' => __('Series', 'organize-series'), 
 		'taxonomy' => 'series',
 		'echo' => 1
 	);
@@ -669,9 +669,9 @@ function inline_edit_series($column_name, $type) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
-			<span><?php _e('Series:', $orgseries->org_domain); ?></span>
+			<span><?php _e('Series:', 'organize-series'); ?></span>
 			<?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
-			<span><?php _e('Part:', $orgseries->org_domain); ?></span>
+			<span><?php _e('Part:', 'organize-series'); ?></span>
 			<input size="3" type="text" name="series_part" class="series_part"  />
 			<input type="hidden" name="series_post_id" class="series_post_id"  />
 		

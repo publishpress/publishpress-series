@@ -66,7 +66,7 @@ class orgSeries {
 	}
 	
 	function update_warning() {
-		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Organize Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', $this->org_domain).'</p></div>';
+		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Organize Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
 		echo trim($msg);
 	}
 	
@@ -171,8 +171,8 @@ class orgSeries {
 		wp_register_script('inline-edit-series',$url.'inline-series.js');  
 		wp_register_script( 'ajaxseries', $url.'series.js', array('wp-lists'), '20080310' );
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
-				'add' => esc_attr(__('Add', $this->org_domain)),
-				'how' => __('Select "Not part of a series" to remove any series data from post', $this->org_domain)
+				'add' => esc_attr(__('Add', 'organize-series')),
+				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series')
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'));
 	}
@@ -190,7 +190,7 @@ class orgSeries {
 	
 	function register_textdomain() {
 		$plugin_dir = basename(dirname(__FILE__)).'/lang';
-		load_plugin_textdomain($this->org_domain, false, $plugin_dir);
+		load_plugin_textdomain('organize-series', false, $plugin_dir);
 	}
 	
 	function register_taxonomy() {
@@ -204,16 +204,16 @@ class orgSeries {
 			'assign_terms' => 'manage_series'
 			);			
 		$labels = array(
-			'name' => _x('Series', 'taxonomy general name', $this->org_domain),
-			'singular_name' => _x('Series', 'taxonomy singular name', $this->org_domain),
-			'search_items' => __('Search Series', $this->org_domain),
-			'popular_items' => __('Popular Series', $this->org_domain),
-			'all_items' => __('All Series', $this->org_domain),
-			'edit_item' => __('Edit Series', $this->org_domain),
-			'update_item' => __('Update Series', $this->org_domain),
-			'add_new_item' => __('Add New Series', $this->org_domain),
-			'new_item_name' => __('New Series Name', $this->org_domain),
-			'menu_name' => __('Manage Series', $this->org_domain)
+			'name' => _x('Series', 'taxonomy general name', 'organize-series'),
+			'singular_name' => _x('Series', 'taxonomy singular name', 'organize-series'),
+			'search_items' => __('Search Series', 'organize-series'),
+			'popular_items' => __('Popular Series', 'organize-series'),
+			'all_items' => __('All Series', 'organize-series'),
+			'edit_item' => __('Edit Series', 'organize-series'),
+			'update_item' => __('Update Series', 'organize-series'),
+			'add_new_item' => __('Add New Series', 'organize-series'),
+			'new_item_name' => __('New Series Name', 'organize-series'),
+			'menu_name' => __('Manage Series', 'organize-series')
 			);
 		$args = array(
 			'update_count_callback' => '_update_post_term_count',
@@ -238,19 +238,19 @@ class orgSeries {
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
-			'series_toc_title' => __('Series Table of Contents << ',$this->org_domain),
+			'series_toc_title' => __('Series Table of Contents << ','organize-series'),
 		//new template options
 			'orgseries_api' => '',
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
 			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',
-			'series_meta_template' => '<div class="seriesmeta">' . _x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating',$this->org_domain) . '%series_title_linked%</div>%postcontent%',
-			'series_meta_excerpt_template' => '<div class="seriesmeta">' ._x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating',$this->org_domain) . '%series_title_linked%</div>%postcontent%',
+			'series_meta_template' => '<div class="seriesmeta">' . _x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
+			'series_meta_excerpt_template' => '<div class="seriesmeta">' ._x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
 			'latest_series_before_template' => '<div class="latest-series"><ul>',
 			'latest_series_inner_template' => '<li>%series_title_linked%</li>',
 			'latest_series_after_template' => '</ul></div>',
-			'series_post_nav_template' => '%postcontent%<fieldset><legend>'. __('Series Navigation',$this->org_domain) .'</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
+			'series_post_nav_template' => '%postcontent%<fieldset><legend>'. __('Series Navigation','organize-series') .'</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
 			'series_nextpost_nav_custom_text' => '%post_title% >>',
 			'series_prevpost_nav_custom_text' => '<< %post_title%',
 			//series_icon related settings
@@ -339,7 +339,7 @@ class orgSeries {
 		if ( !isset($wp_query->is_seriestoc) || !$wp_query->is_seriestoc ) return $title;
 		
 		$seriestoc_title = $settings['series_toc_title'];
-		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', $this->org_domain);
+		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
 		$title = $seriestoc_title  .  $title;
 		return $title;
 	}
@@ -354,7 +354,7 @@ class orgSeries {
 					
 			/*function seriestoc_title( $title ) {
 				$seriestoc_title = $settings['series_toc_title'];
-				if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', $this->org_domain);
+				if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
 				$title = $seriestoc_title . ' &laquo; ' . $title;
 				return $title;
 			}*/
@@ -504,9 +504,9 @@ class orgSeries {
 		
 		if ( !empty($series) ) {
 			if ( !is_feed() )
-				$title = __('Series: ',$this->org_domain) . $series . ' &laquo; ';
+				$title = __('Series: ','organize-series') . $series . ' &laquo; ';
 			else
-				$title = __('Posts from the series: ',$this->org_domain) . $series . ' ('. get_bloginfo('url').')';
+				$title = __('Posts from the series: ','organize-series') . $series . ' ('. get_bloginfo('url').')';
 		}
 		return $title;
 	}
@@ -518,7 +518,7 @@ class orgSeries {
 		if( empty($this_plugin) ) $this_plugin = plugin_basename(__FILE__);
 
 		if ( $file == $this_plugin ) {
-			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings', $this->org_domain) . '</a>';
+			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings', 'organize-series') . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 

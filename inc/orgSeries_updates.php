@@ -64,7 +64,7 @@ class PluginUpdateChecker {
 		if ( empty($orgseries) && class_exists('orgSeries') ) {
 			$orgseries = new orgSeries();
 		}
-		$this->lang_domain = $orgseries->org_domain;
+		$this->lang_domain = 'organize-series';
 	}
 	/**
 	* gets the api from the options table if present

@@ -10,7 +10,7 @@ add_action('series_add_form_fields', 'add_series_form_fields',1);
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
-	$columns['icon'] = __('Icon', $orgseries->org_domain);
+	$columns['icon'] = __('Icon', 'organize-series');
 	return $columns;
 }
 
@@ -24,7 +24,7 @@ function manage_series_columns_action($content, $column_name, $id) {
 			$icon = $series_url . '/' . $series_icon;
 			$output .= '<img src="' . $icon . '" title="' . $series_icon . '" width="50" alt="' . $icon . '" />';
 		} else {
-			$output .= __('No Series Icon', $orgseries->org_domain);
+			$output .= __('No Series Icon', 'organize-series');
 		}
 		
 	}
@@ -40,7 +40,7 @@ function add_series_form_fields($taxonomy) {
 		<label for="series_icon">
 			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="Select Image" />
 			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
-			<p><?php _e('Upload an image for the series.', $orgseries->org_domain) ?></p>
+			<p><?php _e('Upload an image for the series.', 'organize-series') ?></p>
 		</label>
 	</div>
 	<?php
@@ -56,12 +56,12 @@ function edit_series_form_fields($series, $taxonomy) {
 	?>
 			<tr valign="top">
 				<?php if ( $series->term_id != '' ) { ?>
-				<th scope="row"><?php _e('Current series icon:', $orgseries->org_domain); ?></th><?php } ?>
+				<th scope="row"><?php _e('Current series icon:', 'organize-series'); ?></th><?php } ?>
 				<td>
 					<?php if ($series_icon != '') {
 							echo $series_icon;
 						} else {
-							echo '<p>'. __('No icon currently', $orgseries->org_domain) .'</p>';
+							echo '<p>'. __('No icon currently', 'organize-series') .'</p>';
 						}
 					 ?>
 					<div id="selected-icon"></div>
@@ -71,16 +71,16 @@ function edit_series_form_fields($series, $taxonomy) {
 			<tr>
 				<th></th>
 				<td>
-				<p style="width: 50%;"><input style="margin-top: 0px;" name="delete_image" id="delete_image" type="checkbox" value="true" />  <?php _e('Delete image? (note: there will not be an image associated with this series if you select this)', $orgseries->org_domain); ?></p>
+				<p style="width: 50%;"><input style="margin-top: 0px;" name="delete_image" id="delete_image" type="checkbox" value="true" />  <?php _e('Delete image? (note: there will not be an image associated with this series if you select this)', 'organize-series'); ?></p>
 				</td>
 			</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><?php _e('Series Icon Upload:', $orgseries->org_domain) ?></th>
+				<th scope="row"><?php _e('Series Icon Upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
 					<input id="upload_image_button" type="button" value="Select Image" />
-					<p><?php _e('Upload an image for the series.', $orgseries->org_domain); ?></p>
+					<p><?php _e('Upload an image for the series.', 'organize-series'); ?></p>
 					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>
 				</td>

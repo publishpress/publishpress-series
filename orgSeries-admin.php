@@ -170,7 +170,7 @@ function get_series_list( $default = 0 ) {
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />' . __('Not part of a series', $orgseries->org_domain) . '</label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />' . __('Not part of a series', 'organize-series') . '</label></li>';
 		foreach ( $series as $serial ) {
 			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , esc_html( $serial['ser_name'] ), "</label></li>";
 			
@@ -200,14 +200,14 @@ global $post, $postdata, $content, $orgseries;
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
-		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', $orgseries->org_domain); ?></p>
+		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p>
 	<?php
 }
 
 function orgseries_add_meta_box() {
 	global $orgseries;
-	add_meta_box('seriesdiv', __('Series', $orgseries->org_domain), 'series_edit_meta_box', 'post', 'side');
+	add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', 'post', 'side');
 	remove_meta_box('tagsdiv-series', 'post', 'side'); //removes series meta box added by WordPress Taxonomy api.
 }
 
@@ -217,7 +217,7 @@ function orgSeries_custom_column_filter($defaults) {
 	global $orgseries;
 	if ( isset($_REQUEST['post_type']) && $_REQUEST['post_type'] != 'post' )
 		return $defaults; //get out we only want this showing up on post post types for now.*/
-	$defaults['series'] = __('Series', $orgseries->org_domain);
+	$defaults['series'] = __('Series', 'organize-series');
 	return $defaults;
 }
 
@@ -250,17 +250,17 @@ function orgSeries_custom_column_action($column_name, $id) {
 			}
 			
 				if ($series && get_post_status($id) == 'publish') {
-					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', $orgseries->org_domain), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
+					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
 					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
 					echo  $column_content;  
 				} else {
-					$column_content = '<div class="series_column">'.sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', $orgseries->org_domain), $series_link, $series_name, $series_name, $series_part);
+					$column_content = '<div class="series_column">'.sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
 					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
 					echo $column_content;
 				}
 			} else {
 				$column_content = '<div class="series_column"><div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
-				$column_content .= '<em>'.__('No Series', $orgseries->org_domain).'</em></div>';
+				$column_content .= '<em>'.__('No Series', 'organize-series').'</em></div>';
 				echo $column_content;
 			}
 	} 
@@ -271,14 +271,14 @@ function orgSeries_custom_manage_posts_filter() {
 	$series_name = '';
 	if (isset($_GET['series'])) $series_name = $_GET['series'];
 		
-	wp_dropdown_series('show_option_all='.__('View all series', $orgseries->org_domain).'&hide_empty=0&show_count=0&selected='.$series_name);
+	wp_dropdown_series('show_option_all='.__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
 }
 
 function add_series_management_link() {
 	global $orgseries;
 	$link = get_option('siteurl') . '/wp-admin/edit.php?page=' .  SERIES_DIR . '/orgSeries-manage.php';
 	?>
-	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series', $orgseries->org_domain); ?></a></li>
+	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series', 'organize-series'); ?></a></li>
 	<?php
 }
 
@@ -286,7 +286,7 @@ function add_series_to_right_now() {
 	global $orgseries;
 	$num_series = wp_count_terms('series');
 	$num = number_format_i18n( $num_series );
-	$text = _n( 'Series', 'Series', $num_series, $orgseries->org_domain );
+	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=series';
 	if ( current_user_can( 'manage_series' ) ) {
 		$series_num = "<a href='$manage_link'>$num</a>";

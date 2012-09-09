@@ -55,7 +55,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		$series_post = get_objects_in_term($ser, 'series'); 
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE);
 		if ( 'widget' == $referral ) {
-			$result .= '<h4>' . __('Other posts belonging to the Series: ', $orgseries->org_domain) . get_series_name($ser) . '</h4>';
+			$result .= '<h4>' . __('Other posts belonging to the Series: ', 'organize-series') . get_series_name($ser) . '</h4>';
 			$result .= '<ul>';
 		}
 		
@@ -145,17 +145,17 @@ function get_series_toc( $link = TRUE ) {
 	$options = $orgseries->settings;
 	$series_toc = $options['series_toc_url'];
 	$url = get_bloginfo('url').'/'.$series_toc;
-	$title = __('All the Series I\'ve Written', $orgseries->org_domain);
+	$title = __('All the Series I\'ve Written', 'organize-series');
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
 		else
 			return $url;
 	} else {
 		$url = parse_url(get_bloginfo('url'));
 		$url = $url['path'] . '/?seriestoc=1';
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
 		else
 			return $url;
 	}
