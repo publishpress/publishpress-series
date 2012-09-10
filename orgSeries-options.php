@@ -153,9 +153,10 @@ function orgseries_option_page() {
 			</div>
 				<?php } ?>
 			<!-- ADS HERE -->
-			<a href="http://organizeseries.com/download" title="Click here to see all the awesome addons available"><img src="<?php echo plugins_url('/images/OS_Addons_logo.png', __FILE__); ?>" /></a>
+			<a href="http://organizeseries.com/download" title="<?php _e('Click here to see all the awesome addons available', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/OS_Addons_logo.png', __FILE__); ?>" /></a>
 			<br />
-			<a href="http://organizeseries.com/pricing" title="Click here to find out about the Basic Support Package"><img src="<?php echo plugins_url('/images/OS_BasicSupport_logo.png', __FILE__); ?>" /></a>
+			<a href="http://organizeseries.com/pricing" title="<?php _e('Click here to find out about the Basic Support Package', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/OS_BasicSupport_logo.png', __FILE__); ?>" /></a>
+			<a href="http://organizeseries.com/translating" title="<?php _e('Click here to find out how you can help with translating Organize Series', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/help-translate-logo.png', __FILE__); ?>" /></a>
 			<br />
 			<br />
 			<!-- end ads -->
