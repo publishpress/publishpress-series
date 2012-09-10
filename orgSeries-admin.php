@@ -23,7 +23,7 @@ add_action('admin_print_scripts-post-new.php', 'orgSeries_post_script');
 add_action('admin_print_scripts-edit-tags.php', 'orgSeries_manage_script');
 
 //add ajax for on-the-fly series adds
-add_action('wp_ajax_add-series', 'admin_ajax_series');
+add_action('wp_ajax_add_series', 'admin_ajax_series');
 //add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
 
 //hook into the quick-edit on edit.php
@@ -77,25 +77,40 @@ function orgSeries_manage_script() {
 
 ######ON THE FLY ADD SERIES########
 function admin_ajax_series() { 
+	$response = array();
+	
 	if ( !current_user_can( 'manage_series' ) )
-		die('-1');
-	global $wp_taxonomies;
+		$response['error'] = __('Sorry but you don\'t have permission to add series', 'organize-series');
+
+	if ( ! check_ajax_referer ( 'add-series-nonce', 'addnonce', false ) ) {
+		$response['error'] = 'Sorry but security check failed';
+	}
+	$new_nonce = wp_create_nonce('add-series-nonce');
+
 	$name = $_POST['newseries'];
-	$x = new WP_Ajax_Response();
+
 	$series_name = trim($name);
 	if ( !$series_nicename = sanitize_title($series_name) )
-		die('0');
-	if ( !$series_id = series_exists( $series_name ) )
+		$response['error'] = __('The name you picked isn\'t sanitizing correctly. Try something different.', 'organize-series');
+	if ( !$series_id = series_exists( $series_name ) ) {
 		$ser_id = wp_create_single_series( $series_name );
 		$series_id = $ser_id['term_id'];
+	} else {
+		$response['error'] = __('Hmm... it looks like there is already a series with that name. Try something else', 'organize-series');
+	}
+
 	$series_name = esc_html(stripslashes($series_name));
-	$x->add( array(
-		'what' => 'series',
-		'id' => $series_id,
-		'data' => "<li id='series-$series_id'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> $series_name</label><span id='new_series_id' class='hidden'>$series_id</span></li>",
-		'position' => -1
-	) );
-	$x->send();
+
+	if ( !isset($response['error'] ) ) {
+		$response = array(
+			'id' => $series_id,
+			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
+			'new_nonce' => $new_nonce,
+			'error' => false
+			);
+	}
+	echo json_encode($response);
+	exit();
 }
 
 ###AJAX FOR INLINE_SERIES UPDATE###
@@ -170,9 +185,9 @@ function get_series_list( $default = 0 ) {
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" />' . __('Not part of a series', $orgseries->org_domain) . '</label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /><span class="li-series-name">' . __('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-', $serial['series_ID'],'"><label for="in-series-', $serial['series_ID'], '" class="selectit"><input value="', $serial['series_ID'], '" type="radio" name="post_series" id="in-series-', $serial['series_ID'], '"', ($serial['checked'] ? ' checked="checked"' : '' ), '/> ' , esc_html( $serial['ser_name'] ), "</label></li>";
+			echo '<li id="series-'. $serial['series_ID'].'"><label for="in-series-'. $serial['series_ID']. '" class="selectit"><input value="' .  $serial['series_ID'] .  '" type="radio" name="post_series" id="in-series-' .  $serial['series_ID'] .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 			
 		}
 }
@@ -200,14 +215,14 @@ global $post, $postdata, $content, $orgseries;
 		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
-		<span id="seriespart"><strong> <?php _e('Series Part:', $orgseries->org_domain); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', $orgseries->org_domain); ?></p>
+		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
+			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p>
 	<?php
 }
 
 function orgseries_add_meta_box() {
 	global $orgseries;
-	add_meta_box('seriesdiv', __('Series', $orgseries->org_domain), 'series_edit_meta_box', 'post', 'side');
+	add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', 'post', 'side');
 	remove_meta_box('tagsdiv-series', 'post', 'side'); //removes series meta box added by WordPress Taxonomy api.
 }
 
@@ -217,7 +232,7 @@ function orgSeries_custom_column_filter($defaults) {
 	global $orgseries;
 	if ( isset($_REQUEST['post_type']) && $_REQUEST['post_type'] != 'post' )
 		return $defaults; //get out we only want this showing up on post post types for now.*/
-	$defaults['series'] = __('Series', $orgseries->org_domain);
+	$defaults['series'] = __('Series', 'organize-series');
 	return $defaults;
 }
 
@@ -235,18 +250,32 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
 			$count = $series[0]->count;
 			$column_content = '';
+			
+			$draft_posts = get_posts( array(
+				'post_type'	=> 'post',
+				'post_status' => array('draft', 'future', 'pending'),
+				'taxonomy'	=> 'series',
+				'term'	=> $series_name
+			) );
+			$count_draft_posts = count($draft_posts);
+			$drafts_included = '';
+			if($count_draft_posts != 0){
+				$all_serie_posts = $count_draft_posts+$count;
+				$drafts_included = "($all_serie_posts)";
+			}
+			
 				if ($series && get_post_status($id) == 'publish') {
-					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s in the series, <a href="%3$s" title="%4$s">%5$s</a>', $orgseries->org_domain), $series_part, $count, $series_link, $series_name, $series_name);
+					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
 					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
 					echo  $column_content;  
 				} else {
-					$column_content = '<div class="series_column">'.sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', $orgseries->org_domain), $series_link, $series_name, $series_name, $series_part);
+					$column_content = '<div class="series_column">'.sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
 					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
 					echo $column_content;
 				}
 			} else {
 				$column_content = '<div class="series_column"><div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
-				$column_content .= '<em>'.__('No Series', $orgseries->org_domain).'</em></div>';
+				$column_content .= '<em>'.__('No Series', 'organize-series').'</em></div>';
 				echo $column_content;
 			}
 	} 
@@ -257,14 +286,14 @@ function orgSeries_custom_manage_posts_filter() {
 	$series_name = '';
 	if (isset($_GET['series'])) $series_name = $_GET['series'];
 		
-	wp_dropdown_series('show_option_all='.__('View all series', $orgseries->org_domain).'&hide_empty=0&show_count=0&selected='.$series_name);
+	wp_dropdown_series('show_option_all='.__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
 }
 
 function add_series_management_link() {
 	global $orgseries;
 	$link = get_option('siteurl') . '/wp-admin/edit.php?page=' .  SERIES_DIR . '/orgSeries-manage.php';
 	?>
-	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series', $orgseries->org_domain); ?></a></li>
+	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series', 'organize-series'); ?></a></li>
 	<?php
 }
 
@@ -272,7 +301,7 @@ function add_series_to_right_now() {
 	global $orgseries;
 	$num_series = wp_count_terms('series');
 	$num = number_format_i18n( $num_series );
-	$text = _n( 'Series', 'Series', $num_series, $orgseries->org_domain );
+	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=series';
 	if ( current_user_can( 'manage_series' ) ) {
 		$series_num = "<a href='$manage_link'>$num</a>";

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Organize Series
 Plugin URI: http://organizeseries.com
-Version: 2.4
+Version: 2.4.1
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 3.3 and PHP 5.2+ to work. 
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
@@ -12,13 +12,13 @@ Author URI: http://www.unfoldingneurons.com
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 
-$os_version = '2.4';
+$os_version = '2.4.1';
 ######################################
 
 ######################################
 // Organize Series Wordpress Plugin
 //
-//"Organize Series Plugin" is copyright (c) 2007-2011 Darren Ethier. This program is free software; you can redistribute it and/or
+//"Organize Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -65,7 +65,7 @@ $org_dir_name = orgSeries_dir();
 	// Guess the location
 $plugin_path = '';
 $plugin_url = '';
-$plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
+$plugin_path = plugin_dir_path(__FILE__); 
 $plugin_url = plugins_url('', __FILE__).'/'; 
 $org_series_loc = $plugin_url;
 

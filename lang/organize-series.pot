@@ -1,259 +1,1456 @@
 # Translation of the WordPress plugin   by .
-# Copyright (C) 2010 
+# Copyright (C) 2010
 # This file is distributed under the same license as the  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version:  \n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/organize-series\n"
-"POT-Creation-Date: 2010-10-03 01:03+0000\n"
-"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Organize Series Core Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-09 21:06-0500\n"
+"PO-Revision-Date: 2012-09-09 21:07-0500\n"
+"Last-Translator: Darren Ethier <darren@roughsmootheng.in>\n"
+"Language-Team: Darren Ethier <darren@organizeseries.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n;_x;_ngettext:1;2\n"
+"X-Poedit-Basepath: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/"
+"orgseries-testing/wp-content/plugins/organize-series\n"
+"X-Poedit-SearchPath-0: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/"
+"orgseries-testing/wp-content/plugins\n"
 
-#: orgSeries-admin.php:161
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:14
+#, php-format
+msgid "Akismet %s requires WordPress 3.0 or higher."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:14
+#, php-format
+msgid ""
+"Please <a href=\"%s\">upgrade WordPress</a> to a current version, or <a href="
+"\"%s\">downgrade to version 2.4 of the Akismet plugin</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:27
+msgid "Comment History"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:59
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:24
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:522
+msgid "Settings"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:72
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:135
+msgid "Your key has been cleared."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:136
+msgid "Your key has been verified. Happy blogging!"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:137
+msgid "The key you entered is invalid. Please double-check it."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:138
+msgid ""
+"The key you entered could not be verified because a connection to akismet."
+"com could not be established. Please check your server configuration."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:139
+msgid ""
+"There was a problem connecting to the Akismet server. Please check your "
+"server configuration."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:140
+#, php-format
+msgid ""
+"Please enter an API key. (<a href=\"%s\" style=\"color:#fff\">Get your key.</"
+"a>)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:141
+msgid "This key is valid."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:142
+msgid "This key is invalid."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:143
+msgid ""
+"The key below was previously validated but a connection to akismet.com can "
+"not be established at this time. Please check your server configuration."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:144
+#, php-format
+msgid ""
+"Your WordPress home URL %s is invalid.  Please fix the <a href=\"%s\">home "
+"option</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:148
+msgid "Options saved."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:151
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:844
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:847
+msgid "Akismet Configuration"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:153
+msgid ""
+"<strong>Sign up success!</strong> Please check your email for your Akismet "
+"API Key and enter it below."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:158
+#, php-format
+msgid ""
+"For many people, <a href=\"%1$s\">Akismet</a> will greatly reduce or even "
+"completely eliminate the comment and trackback spam you get on your site. If "
+"one does happen to get through, simply mark it as \"spam\" on the moderation "
+"screen and Akismet will learn from the mistakes. If you don't have an API "
+"key yet, you can get one at <a href=\"%2$s\">Akismet.com</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:160
+msgid "Akismet API Key"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:164
+msgid "<a href=\"http://akismet.com/get/?return=true\">What is this?</a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:166
+msgid "Why might my key be invalid?"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:167
+msgid ""
+"This can mean one of two things, either you copied the key wrong or that the "
+"plugin is unable to reach the Akismet servers, which is most often caused by "
+"an issue with your web host around firewalls or similar."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:171
+msgid "Auto-delete spam submitted on posts more than a month old."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:172
+msgid "Show the number of comments you've approved beside each comment author."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:173
+msgid "Update options &raquo;"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:178
+msgid "Server Connectivity"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:182
+msgid "Network functions are disabled."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:183
+#, php-format
+msgid ""
+"Your web host or server administrator has disabled PHP's <code>fsockopen</"
+"code> or <code>gethostbynamel</code> functions.  <strong>Akismet cannot work "
+"correctly until this is fixed.</strong>  Please contact your web host or "
+"firewall administrator and give them <a href=\"%s\" target=\"_blank\">this "
+"information about Akismet's system requirements</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:191
+msgid "Unable to reach some Akismet servers."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:192
+#, php-format
+msgid ""
+"A network problem or firewall is blocking some connections from your web "
+"server to Akismet.com.  Akismet is working but this may cause problems "
+"during times of network congestion.  Please contact your web host or "
+"firewall administrator and give them <a href=\"%s\" target=\"_blank\">this "
+"information about Akismet and firewalls</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:196
+msgid "Unable to reach any Akismet servers."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:197
+#, php-format
+msgid ""
+"A network problem or firewall is blocking all connections from your web "
+"server to Akismet.com.  <strong>Akismet cannot work correctly until this is "
+"fixed.</strong>  Please contact your web host or firewall administrator and "
+"give them <a href=\"%s\" target=\"_blank\">this information about Akismet "
+"and firewalls</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:201
+msgid "All Akismet servers are available."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:202
+msgid "Akismet is working correctly.  All servers are accessible."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:207
+msgid "Unable to find Akismet servers."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:208
+#, php-format
+msgid ""
+"A DNS problem or firewall is preventing all access from your web server to "
+"Akismet.com.  <strong>Akismet cannot work correctly until this is fixed.</"
+"strong>  Please contact your web host or firewall administrator and give "
+"them <a href=\"%s\" target=\"_blank\">this information about Akismet and "
+"firewalls</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:216
+msgid "Akismet server"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:216
+msgid "Network Status"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:225
+msgid "Accessible"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:225
+msgid "Re-trying"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:233
+#, php-format
+msgid "Last checked %s ago."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:234
+msgid "Check network status &raquo;"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:235
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\">Click here</a> to confirm that <a href=\"%s"
+"\" target=\"_blank\">Akismet.com is up</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:283
+msgid "Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:289
+#, php-format
+msgid ""
+"<a href=\"%1$s\">Akismet</a> has protected your site from <a href=\"%2$s\">"
+"%3$s spam comments</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:323
+msgid "Akismet is almost ready."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:323
+#, php-format
+msgid ""
+"You must <a href=\"%1$s\">enter your Akismet API key</a> for it to work."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:336
+msgid "Akismet has detected a problem."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:336
+#, php-format
+msgid ""
+"Some comments have not yet been checked for spam by Akismet. They have been "
+"temporarily held for moderation. Please check your <a href=\"%s\">Akismet "
+"configuration</a> and contact your web host if problems persist."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:358
+msgid "Awaiting spam check"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:362
+msgid "Flagged as spam by Akismet"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:364
+msgid "Cleared by Akismet"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:368
+#, php-format
+msgid "Flagged as spam by %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:370
+#, php-format
+msgid "Un-spammed by %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:382
+msgid "History"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:395
+#, php-format
+msgid "%s approved"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:410
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:438
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-feed.php:43
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:422
+msgid "Akismet"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:481
+#, php-format
+msgid ""
+"<a href=\"%1$s\">Akismet</a> has protected your site from %2$s spam comment "
+"already. "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:486
+#, php-format
+msgid "<a href=\"%1$s\">Akismet</a> blocks spam from getting to your blog. "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:492
+#, php-format
+msgid "There's <a href=\"%2$s\">%1$s comment</a> in your spam queue right now."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:497
+#, php-format
+msgid "There's nothing in your <a href='%1$s'>spam queue</a> at the moment."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:515
+msgid "Check for Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:561
+#, php-format
+msgid "%s reported this comment as not spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:613
+#, php-format
+msgid "%s reported this comment as spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:661
+#, php-format
+msgid "%s changed the comment status to %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:730
+msgid "Akismet re-checked and caught this comment as spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:735
+msgid "Akismet re-checked and cleared this comment"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:739
+#, php-format
+msgid "Akismet was unable to re-check this comment (response: %s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:845
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/admin.php:848
+msgid "Akismet Stats"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:289
+msgid "Akismet caught this comment as spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:291
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:299
+#, php-format
+msgid "Comment status was changed to %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:294
+msgid "Akismet cleared this comment"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:297
+msgid "Comment was caught by wp_blacklist_check"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:304
+#, php-format
+msgid ""
+"Akismet was unable to check this comment (response: %s), will automatically "
+"retry again later."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:536
+msgid "Akismet caught this comment as spam during an automatic retry."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/akismet.php:538
+msgid "Akismet cleared this comment during an automatic retry."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:47
+#, php-format
+msgid "Akismet Spam (%s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:49
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:51
+msgid "Akismet Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:61
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:80
+msgid "You do not have sufficient permission to moderate comments."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:96
+#, php-format
+msgid "%1$s comments recovered."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:100
+msgid "All spam deleted."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:148
+msgid "Caught Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:153
+#, php-format
+msgid ""
+"Akismet has caught <strong>%1$s spam</strong> for you since you first "
+"installed it."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:160
+msgid "You have no spam currently in the queue. Must be your lucky day. :)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:163
+msgid ""
+"You can delete all of the spam from your database with a single click. This "
+"operation cannot be undone, so you may wish to check to ensure that no "
+"legitimate comments got through first. Spam is automatically deleted after "
+"15 days, so don&#8217;t sweat it."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:169
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:347
+#, php-format
+msgid "There are currently %1$s comments identified as spam."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:169
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:347
+msgid "Delete all"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:176
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:166
+msgid "Search"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:178
+msgid ""
+"These are the latest comments identified as spam by Akismet. If you see any "
+"mistakes, simply mark the comment as \"not spam\" and Akismet will learn "
+"from the submission. If you wish to recover a comment from spam, simply "
+"select the comment, and click Not Spam. After 15 days we clean out the junk "
+"for you."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:209
+msgid "All"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:214
+msgid "Comments"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:232
+msgid "Search Spam &raquo;"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:239
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:306
+msgid "&laquo; Previous Page"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:260
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:327
+msgid "Next Page &raquo;"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:282
+msgid "IP:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:288
+msgid "Not Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:294
+msgid "View Post"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:333
+msgid "De-spam marked comments &raquo;"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:335
+msgid ""
+"Comments you de-spam will be submitted to Akismet as mistakes so it can "
+"learn and get better."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:340
+msgid "No results found."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/legacy.php:385
+msgid "Recheck Queue for Spam"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/widget.php:10
+msgid "Akismet Widget"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/widget.php:11
+msgid "Display the number of spam comments Akismet has caught"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/widget.php:67
+msgid "Spam Blocked"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/widget.php:72
+msgid "Title:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/akismet/widget.php:96
+#, php-format
+msgid ""
+"<strong class=\"count\">%1$s spam</strong> blocked by <strong>Akismet</"
+"strong>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:121
+msgid "Debug"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:181
+#, php-format
+msgid "#%d"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:182
+msgid "PHP"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:183
+msgid "DB"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:185
+msgid "Memory Usage"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:185
+#, php-format
+msgid "%s bytes"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/debug-bar.php:188
+msgid "Please Enable"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-deprecated.php:10
+msgid "Deprecated"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-deprecated.php:65
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-deprecated.php:79
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-deprecated.php:67
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-deprecated.php:81
+#, php-format
+msgid ""
+"%1$s is <strong>deprecated</strong> since version %2$s with no alternative "
+"available."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-js.php:10
+msgid "JavaScript"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-js.php:20
+msgid "Total Errors:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-object-cache.php:5
+msgid "Object Cache"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-php.php:12
+msgid "Notices / Warnings"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-queries.php:5
+msgid "Queries"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-queries.php:28
+#, php-format
+msgid ""
+"There are too many queries to show easily! <a href=\"%s\">Show them anyway</"
+"a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-queries.php:52
+msgid "There are no queries on this page."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-queries.php:54
+msgid "SAVEQUERIES must be defined to show the query log."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-queries.php:58
+msgid "Database Errors"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-request.php:5
+msgid "Request"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar/panels/class-debug-bar-wp-query.php:5
+msgid "WP Query"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:49
+msgid "Cron"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:81
+msgid "Yes"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:81
+msgid "No"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:94
+msgid "Total Events"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:95
+msgid "Doing Cron"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:96
+msgid "Next Event"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:97
+msgid "Current Time"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:100
+msgid "Custom Events"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:105
+msgid "No Custom Events scheduled."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:107
+msgid "Schedules"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:111
+msgid "Core Events"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:116
+msgid "No Core Events scheduled."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:181
+msgid "Next Execution"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:182
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:605
+msgid "Hook"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:183
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:245
+msgid "Interval Hook"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:184
+msgid "Interval Value"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:185
+msgid "Args"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:246
+msgid "Interval (S)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:247
+msgid "Interval (M)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:248
+msgid "Interval (H)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:249
+msgid "Display Name"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/debug-bar-cron/class-debug-bar-cron.php:276
+msgid "ago"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:161
+msgid ""
+"Enables <a href=\"http://codex.wordpress.org/Debugging_in_WordPress\" target="
+"\"_blank\">debug mode</a> which helps identify and resolve issues"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:172
+msgid "Developer: Plugin Setup"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:173
+msgid "Saving..."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:175
+msgid "Installed"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:177
+msgid "Activated"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:178
+msgid "Error!"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:179
+msgid "ACTIVE"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:180
+msgid "INSTALLED"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:181
+msgid "ERROR!"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:193
+msgid "Settings saved."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:199
+msgid "Error saving settings. Please try again."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:335
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:369
+msgid "ERROR: No slug was passed to the AJAX callback."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:340
+msgid "ERROR: You lack permissions to install and/or activate plugins."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:347
+#, php-format
+msgid "ERROR: Error fetching plugin information: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:358
+#, php-format
+msgid "ERROR: Failed to install plugin: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:363
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:379
+#, php-format
+msgid "ERROR: Failed to activate plugin: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:374
+msgid "ERROR: You lack permissions to activate plugins."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:520
+msgid ""
+"We recommend you set the following constants to <code>true</code> in your "
+"<code>wp-config.php</code> file. <a href=\"http://codex.wordpress.org/"
+"Editing_wp-config.php\" target=\"_blank\">Need help?</a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:543
+msgid ""
+"<a href=\"http://codex.wordpress.org/Using_Permalinks\" target=\"_blank"
+"\">Need help?</a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:568
+msgid ""
+"The <a href='http://codex.wordpress.org/Developer_Documentation'>Developer "
+"Documentation section</a> of the Codex offers guidelines and references for "
+"anyone wishing to modify, extend, or contribute to WordPress."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:572
+msgid ""
+"The <a href='http://lobby.vip.wordpress.com'>VIP Lobby</a> is a technical "
+"documentation resource for developing sites on WordPress.com including best "
+"practices and helpful tips to help you code better, faster, and stronger."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:576
+msgid ""
+"<a href='http://underscores.me'>_s (or underscores)</a>: a starter theme "
+"meant for hacking that will give you a \"1000-Hour Head Start\". Use it to "
+"create the next, most awesome WordPress theme out there."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:625
+msgid "Plugin for a self-hosted WordPress installation"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:626
+msgid "Theme for a self-hosted WordPress installation"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/developer/developer.php:627
+msgid ""
+"Theme for a <a href=\"http://vip.wordpress.com\" target=\"_blank\">WordPress."
+"com VIP</a> site"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:259
+msgid "Unregistered Setting"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:328
+#, php-format
+msgid "Functionality: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:331
+#, php-format
+msgid "Constant: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:334
+#, php-format
+msgid "Function: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:337
+#, php-format
+msgid "File: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:340
+#, php-format
+msgid "Argument in %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:343
+#, php-format
+msgid "Incorrect Use of %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:346
+#, php-format
+msgid "Hook: %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:353
+#, php-format
+msgid "Use %s instead."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:357
+msgid "No alternative available."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:359
+#, php-format
+msgid "This message was added in version %s."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:361
+#, php-format
+msgid "Deprecated in version %s."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:364
+#, php-format
+msgid ""
+"The callback %3$s() is attached to this hook, which is fired in %1$s on line "
+"%2$d."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:366
+#, php-format
+msgid "Attached to the %1$s hook, fired in %2$s on line %3$d."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:368
+msgid ""
+"An admin menu page is using user levels instead of capabilities. There is "
+"likely a related log item with specifics."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:370
+#, php-format
+msgid "Used in %1$s on line %2$d."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:373
+#, php-format
+msgid "Used in %s."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:461
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:536
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:570
+msgid "Unmute"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:463
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:535
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:568
+msgid "Mute"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:464
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:537
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:572
+msgid "Delete"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:472
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:493
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:771
+msgid "Deprecated Call"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:494
+msgid "Version"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:495
+msgid "Alternative"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:496
+msgid "Count"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:497
+msgid "Last Used"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:566
+msgid "Clear Log"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:599
+msgid "Constant"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:600
+msgid "Function"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:601
+msgid "Argument"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:602
+msgid "Functionality"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:603
+msgid "File"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:604
+msgid "Incorrect Usage"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:704
+#, php-format
+msgid "Log <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:706
+#, php-format
+msgid "Muted <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:708
+msgid "Entry muted."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:710
+msgid "Entry deleted."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:712
+msgid "Entry unmuted."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:741
+msgid "Invalid post type."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:770
+msgid "Deprecated Calls"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:773
+msgid "Search Logs"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:774
+msgid "Nothing in the log! Your plugins are oh so fine."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:775
+msgid "Nothing muted."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php:784
+#, php-format
+msgid "Deprecated Calls %s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:51
+msgid "Monster"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:53
+msgid "Test multiple widgets at the same time."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:110
+msgid "Archives List"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:115
+msgid "Archives Dropdown"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:120
+msgid "Calendar"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:123
+msgid "Categories List"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:129
+msgid "Categories Dropdown"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:135
+msgid "Pages"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:140
+msgid "Links"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:147
+msgid "Meta"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:150
+msgid "Recent Comments"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:154
+msgid "Recent Posts"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:158
+msgid "RSS"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:169
+msgid "Text"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:174
+msgid "Tag Cloud"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:181
+msgid "Nav Menu"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:254
+msgid "Large image: Hand Coded"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:257
+msgid "Large image: linked in a caption"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:258
+msgid "This image is 900 by 598 pixels."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:260
+msgid "Meat!"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:261
+msgid ""
+"Hamburger fatback andouille, ball tip bacon t-bone turkey tenderloin. Ball "
+"tip shank pig, t-bone turducken prosciutto ground round rump bacon pork chop "
+"short loin turkey. Pancetta ball tip salami, hamburger t-bone capicola "
+"turkey ham hock pork belly tri-tip. Biltong bresaola tail, shoulder sausage "
+"turkey cow pork chop fatback. Turkey pork pig bacon short loin meatloaf, "
+"chicken ham hock flank andouille tenderloin shank rump filet mignon. "
+"Shoulder frankfurter shankle pancetta. Jowl andouille short ribs swine "
+"venison, pork loin pork chop meatball jerky filet mignon shoulder tenderloin "
+"chicken pork."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:263
+msgid "Pipe Test"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/monster-widget/monster-widget.php:266
+msgid "Smile!"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:83
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:262
+msgid "Sorry but you don't have permission to add series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:94
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:273
+msgid ""
+"The name you picked isn't sanitizing correctly. Try something different."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:99
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:278
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try something "
+"else"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:188
 msgid "Not part of a series"
 msgstr ""
 
-#: orgSeries-admin.php:190
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:218
 msgid "Series Part:"
 msgstr ""
 
-#: orgSeries-admin.php:191
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:219
 msgid ""
 "Note: that if you leave this blank or enter an invalid number the post will "
 "automatically be appended to the rest of the posts in the series"
 msgstr ""
 
-#: orgSeries-admin.php:197 orgSeries-admin.php:205 orgSeries-admin.php:256
-#: orgSeries-taxonomy.php:340 orgSeries-widgets.php:154
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:225
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:235
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:304
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:208
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:209
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-taxonomy.php:397
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:161
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:426
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:305
 msgid "Series"
-msgid_plural "Series"
-msgstr[0] ""
-msgstr[1] ""
-
-#: orgSeries-admin.php:220
-#, php-format
-msgid ""
-"Part %1$s of %2$s in the series, <a href=\"%3$s\" title=\"%4$s\">%5$s</a>"
 msgstr ""
 
-#: orgSeries-admin.php:224
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:268
+#, php-format
+msgid ""
+"Part %1$s of %2$s%6$s in the series <br/><a href=\"%3$s\" title=\"%4$s\">"
+"%5$s</a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:272
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (currently set as Part %4$s)"
 msgstr ""
 
-#: orgSeries-admin.php:230
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:278
 msgid "No Series"
 msgstr ""
 
-#: orgSeries-admin.php:241
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:289
 msgid "View all series"
 msgstr ""
 
-#: orgSeries-admin.php:248
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-admin.php:296
 msgid "Manage All Series"
 msgstr ""
 
-#: orgSeries-feed.php:18
-msgid "Organize Series News"
-msgstr ""
-
-#: orgSeries-feed.php:19
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-feed.php:21
 msgid ""
 "The following will keep you updated with all the recent Organize Series "
 "Plugin related news by <a href=\"http://unfoldingneurons.com\" title=\"Visit "
 "Darren Ethier's blog\">Darren Ethier</a>."
 msgstr ""
 
-#: orgSeries-feed.php:24
-#, php-format
-msgid "%s ago"
-msgstr ""
-
-#: orgSeries-feed.php:28
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-feed.php:47
 msgid "Read more"
 msgstr ""
 
-#: orgSeries-manage.php:13
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:13
 msgid "Icon"
 msgstr ""
 
-#: orgSeries-manage.php:27
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:27
 msgid "No Series Icon"
 msgstr ""
 
-#: orgSeries-manage.php:41 orgSeries-manage.php:81
-msgid "Enter an URL or upload an image for the series."
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:43
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:83
+msgid "Upload an image for the series."
 msgstr ""
 
-#: orgSeries-manage.php:57
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:59
 msgid "Current series icon:"
 msgstr ""
 
-#: orgSeries-manage.php:62
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:64
 msgid "No icon currently"
 msgstr ""
 
-#: orgSeries-manage.php:72
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:74
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
 
-#: orgSeries-manage.php:77
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-manage.php:79
 msgid "Series Icon Upload:"
 msgstr ""
 
-#: orgSeries-options.php:15
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:34
 msgid "Organize Series Options"
 msgstr ""
 
-#: orgSeries-options.php:15
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:34
 msgid "Series Options"
 msgstr ""
 
-#: orgSeries-options.php:28
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:47
 msgid "Organize Series Plugin Options have been RESET"
 msgstr ""
 
-#: orgSeries-options.php:33
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:52
 msgid "Organize Series Plugin Options have been updated"
 msgstr ""
 
-#: orgSeries-options.php:99
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:120
 msgid "  Organize Series Plugin Options"
 msgstr ""
 
-#: orgSeries-options.php:109
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:130
 msgid "Plugin Info"
 msgstr ""
 
-#: orgSeries-options.php:111
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:132
 msgid ""
 "Plugin information can be found <a href=\"http://organizeseries.com\" title="
 "\"The Organize Series Website\">here</a>"
 msgstr ""
 
-#: orgSeries-options.php:112
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:133
 msgid ""
 "If you'd like to donate to <a href=\"http://www.unfoldingneurons.com\" title="
 "\"Darren Ethier's (author) Blog\">me</a> as an expression of thanks for the "
 "release of this plugin feel free to do so - and thanks!"
 msgstr ""
 
-#: orgSeries-options.php:129
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:134
+msgid ""
+"You can also show you like Organize Series by <a href=\"http://wordpress.org/"
+"extend/plugins/organize-series\">rating it</a> at wordpress.org"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:147
+msgid "Organize Series News"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:156
+msgid "Click here to see all the awesome addons available"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:158
+msgid "Click here to find out about the Basic Support Package"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:159
+msgid ""
+"Click here to find out how you can help with translating Organize Series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:164
 msgid "Token legend"
 msgstr ""
 
-#: orgSeries-options.php:131
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:166
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
 msgstr ""
 
-#: orgSeries-options.php:133
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:168
 msgid "This will be replaced with the series icon for a series."
 msgstr ""
 
-#: orgSeries-options.php:135
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:170
 #, php-format
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
 msgstr ""
 
-#: orgSeries-options.php:137
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:172
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
 
-#: orgSeries-options.php:139
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:174
 msgid "This will be replaced with the title of a series"
 msgstr ""
 
-#: orgSeries-options.php:141
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:176
 #, php-format
 msgid ""
 "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
 
-#: orgSeries-options.php:143
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:178
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear."
 msgstr ""
 
-#: orgSeries-options.php:145
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:180
 msgid "Will be replaced with the post title of a post in the series"
 msgstr ""
 
-#: orgSeries-options.php:147
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:182
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
 
-#: orgSeries-options.php:149
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:184
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
-"The text will be the title of the post."
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
 msgstr ""
 
-#: orgSeries-options.php:151
-msgid ""
-"Same as %previous_post% except the text will be what you specify in the "
-"\"Custom Previous Post Navigation Text\" field."
-msgstr ""
-
-#: orgSeries-options.php:153
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:186
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
-"text will be the title of the post."
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
 msgstr ""
 
-#: orgSeries-options.php:155
-msgid ""
-"Same as %next_post% except the text will be what you specify in the \"Custom "
-"Next Post Navigation Text\" field."
-msgstr ""
-
-#: orgSeries-options.php:157
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:188
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr ""
 
-#: orgSeries-options.php:159
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:190
 msgid "Will display what part of a series the post is"
 msgstr ""
 
-#: orgSeries-options.php:161
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:192
 msgid "Will display the total number of posts in a series"
 msgstr ""
 
-#: orgSeries-options.php:163
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:194
 msgid "Will display the description for the series"
 msgstr ""
 
-#: orgSeries-options.php:205
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:222
 msgid "Update Options"
 msgstr ""
 
-#: orgSeries-options.php:206
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:223
 msgid "Reset options to default"
 msgstr ""
 
-#: orgSeries-options.php:225
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:242
 msgid ""
 "Choose from the following options for turning on or off automatic insertion "
 "of template tags for Organize Series into your blog.  If you wish to have "
@@ -261,7 +1458,7 @@ msgid ""
 "then deselect as needed."
 msgstr ""
 
-#: orgSeries-options.php:232
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:249
 msgid ""
 "This section is where you tell the plugin how you would like to format the "
 "various displays of the series information.  Only play with this if you are "
@@ -270,7 +1467,7 @@ msgid ""
 "be inserted (if auto-tag is enabled)."
 msgstr ""
 
-#: orgSeries-options.php:239
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:256
 msgid ""
 "This section is for setting the series icon options (note if you do not "
 "include one of the %tokens% for series icon in the template settings section "
@@ -278,428 +1475,1079 @@ msgid ""
 "upload into your default wordpress upload directory."
 msgstr ""
 
-#: orgSeries-options.php:254
-msgid "Display list of series on post pages?"
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:269
+msgid "Display series post list box?"
 msgstr ""
 
-#: orgSeries-options.php:255
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:270
 msgid ""
 "Selecting this will indicate that you would like the plugin to automatically "
 "insert the code into your theme for the listing of posts in a series when a "
 "post is displayed that is part of a series.  [default=selected]"
 msgstr ""
 
-#: orgSeries-options.php:256
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:271
 msgid "Display series navigation links?"
 msgstr ""
 
-#: orgSeries-options.php:257
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:272
 msgid ""
 "Selecting this will indicate that you would like the plugin to automatically "
 "insert the code into your theme for the displaying the series navigation "
 "links.  [default=selected]"
 msgstr ""
 
-#: orgSeries-options.php:258
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:273
 msgid "Display series meta information with posts?"
 msgstr ""
 
-#: orgSeries-options.php:259
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:274
 msgid ""
 "Series meta will include whatever is listed in the Template tag options for "
 "the series meta tag (see settings on this page). [default = selected]"
 msgstr ""
 
-#: orgSeries-options.php:260
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:275
 msgid "Use custom .css?"
 msgstr ""
 
-#: orgSeries-options.php:261
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:276
 msgid ""
 "Leaving this box checked will make the plugin use the included .css file.  "
 "If you uncheck it you will need to add styling for the plugin in your themes "
 "\"style.css\" file. [default = checked]"
 msgstr ""
 
-#: orgSeries-options.php:264
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:279
 msgid "Series Table of Contents URL:"
 msgstr ""
 
-#: orgSeries-options.php:266
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:281
 msgid ""
 "Enter the path where you want the Series Table of Contents to be shown. "
 "NOTE: this ONLY applies when you have \"Permalinks\" enabled in WordPress."
 msgstr ""
 
-#: orgSeries-options.php:267
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:282
 msgid "Series Custom Base:"
 msgstr ""
 
-#: orgSeries-options.php:269
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:284
 msgid ""
 "Set what you want to use as the base for referring to your series structure "
 "in permalinks series archive pages. NOTE: This ONLY applies when you have "
 "\"Permalinks\" enabled in WordPress"
 msgstr ""
 
-#: orgSeries-options.php:270
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:285
 msgid "Series Table of Contents Title:"
 msgstr ""
 
-#: orgSeries-options.php:271
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:286
 msgid ""
 "Enter what you want to appear in the browser title when readers are viewing "
 "the series table of contents page."
 msgstr ""
 
-#: orgSeries-options.php:272
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:287
 msgid "order by series part"
 msgstr ""
 
-#: orgSeries-options.php:273
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:288
 msgid "Order by date"
 msgstr ""
 
-#: orgSeries-options.php:275
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:290
 msgid "Ascending"
 msgstr ""
 
-#: orgSeries-options.php:276
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:291
 msgid "Descending"
 msgstr ""
 
-#: orgSeries-options.php:278
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:293
 msgid ""
 "You can choose what order you want the posts on a series archive page to be "
 "displayed.  Default is by date, descending."
 msgstr ""
 
-#: orgSeries-options.php:282
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:297
 msgid ""
 "Delete all Organize Series related data from the database when deleting this "
 "plugin?  (BE CAREFUL!)"
 msgstr ""
 
-#: orgSeries-options.php:299
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:301
+msgid "Organize Series API Key"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:302
+#, php-format
+msgid ""
+"The API key is for users who have purchased a <a href=\"%s\" title=\"Click "
+"Here to read about the packages available\">Paid package</a> and/or a <a "
+"href=\"%s\" title=\"Click here to see all addons available\">commercial "
+"addon</a>. If this is you, you can obtain your API key by logging into <a "
+"href=\"%s\">OrganizeSeries.com</a> and you'll see it with your user profile."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:319
 msgid "Series Post List Template:"
 msgstr ""
 
-#: orgSeries-options.php:300
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:320
 msgid ""
 "This affects the list of series in a post on the page of a post belonging to "
 "a series [template tag -> wp_postlist_display()]"
 msgstr ""
 
-#: orgSeries-options.php:303
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:323
 msgid "Series Post List Post Title Template:"
 msgstr ""
 
-#: orgSeries-options.php:304
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:324
 msgid ""
 "Use this to indicate what html tags will surround the post title in the "
 "series post list."
 msgstr ""
 
-#: orgSeries-options.php:307
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:327
 msgid "Series Post List Current Post Title Template:"
 msgstr ""
 
-#: orgSeries-options.php:308
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:328
 msgid ""
 "Use this to style how you want the post title in the post list that is the "
 "same as the current post to be displayed."
 msgstr ""
 
-#: orgSeries-options.php:311
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:331
 msgid "Series Post Navigation Template:"
 msgstr ""
 
-#: orgSeries-options.php:312
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:332
 msgid ""
 "Use this to style the Next/Previous post navigation strip on posts that are "
 "part of a series. (Don't forget to use the %postcontent% token to indicate "
 "where you want the navigation to show)."
 msgstr ""
 
-#: orgSeries-options.php:315
-msgid "Custom next post navigation text."
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:335
+msgid ""
+"Custom Next Post Text (if this is left blank, the post title will be used)"
 msgstr ""
 
-#: orgSeries-options.php:316
-msgid "Custom previous post navigation text."
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:336
+msgid ""
+"Custom previous post navigation text. (if this is left blank, the post title "
+"will be used)"
 msgstr ""
 
-#: orgSeries-options.php:318
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:338
 msgid "Series Table of Contents Listings:"
 msgstr ""
 
-#: orgSeries-options.php:319
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:339
 msgid ""
 "This will affect how each series is listed on the Series Table of Contents "
 "Page (created at plugin init) [template tag -> wp_serieslist_display()]"
 msgstr ""
 
-#: orgSeries-options.php:322
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:342
 msgid "Series Meta:"
 msgstr ""
 
-#: orgSeries-options.php:323
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:343
 msgid ""
 "This will control how and what series meta information is displayed with "
 "posts that are part of a series. [template tag -> wp_seriesmeta_write()]"
 msgstr ""
 
-#: orgSeries-options.php:326
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:346
 msgid "Series Meta (with excerpts):"
 msgstr ""
 
-#: orgSeries-options.php:327
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:347
 msgid ""
 "This will control how and what series meta information is displayed with "
 "posts that are part of a series when the_excerpt is called. [template tag -> "
 "wp_seriesmeta_write(true)]"
 msgstr ""
 
-#: orgSeries-options.php:330
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:350
 msgid "Latest Series (tags before):"
 msgstr ""
 
-#: orgSeries-options.php:331
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:351
 msgid ""
 "Put here any html you want before latest series information NOTE: series "
 "template tokens WILL NOT be converted here."
 msgstr ""
 
-#: orgSeries-options.php:334
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:354
 msgid "Latest Series (inner tags):"
 msgstr ""
 
-#: orgSeries-options.php:335
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:355
 msgid ""
 "This will control the layout/style and contents that will be returned with "
 "the latest_series() template tag (both via widget and/or manual calls).  "
 "NOTE: Organize Series %tokens% can be used in this field."
 msgstr ""
 
-#: orgSeries-options.php:338
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:358
 msgid "Latest Series (tags after):"
 msgstr ""
 
-#: orgSeries-options.php:339
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:359
 msgid ""
 "Put here any html you want after latest series information NOTE: series "
 "template tokens WILL NOT be converted here."
 msgstr ""
 
-#: orgSeries-options.php:357
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:377
 msgid "Width for icon on series table of contents page (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:359
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:379
 msgid "Width for icon on a post page (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:361
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:381
 msgid "Width for icon if displayed via the latest series template (in pixels)."
 msgstr ""
 
-#: orgSeries-setup.php:67
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:69
 msgid ""
 "Your WordPress version is too old. Organize Series 2.2 requires at least "
 "WordPress 3.0 to function correctly. Please update your blog via Tools &gt; "
 "Upgrade."
 msgstr ""
 
-#: orgSeries-setup.php:103
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:174
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:100
 msgid "Add"
 msgstr ""
 
-#: orgSeries-setup.php:104
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:175
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 
-#: orgSeries-setup.php:136
-msgctxt "taxonomy general name"
-msgid "Manage Series"
-msgstr ""
-
-#: orgSeries-setup.php:137
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr ""
-
-#: orgSeries-setup.php:138
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:210
 msgid "Search Series"
 msgstr ""
 
-#: orgSeries-setup.php:139
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:211
 msgid "Popular Series"
 msgstr ""
 
-#: orgSeries-setup.php:140
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:212
 msgid "All Series"
 msgstr ""
 
-#: orgSeries-setup.php:141
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:213
 msgid "Edit Series"
 msgstr ""
 
-#: orgSeries-setup.php:142
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:214
 msgid "Update Series"
 msgstr ""
 
-#: orgSeries-setup.php:143
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:215
 msgid "Add New Series"
 msgstr ""
 
-#: orgSeries-setup.php:144
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:216
 msgid "New Series Name"
 msgstr ""
 
-#: orgSeries-setup.php:169 orgSeries-setup.php:265
-msgid "Series Table of Contents"
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:217
+msgid "Manage Series"
 msgstr ""
 
-#: orgSeries-setup.php:174 orgSeries-setup.php:175
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:242
+msgid "Series Table of Contents << "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:248
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:249
 msgid ""
-"This entry is part %series_part% of %total_posts_in_series% in the series |"
-"leave the %tokens% as is when translating"
+"This entry is part %series_part% of %total_posts_in_series% in the series"
 msgstr ""
 
-#: orgSeries-setup.php:180
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:254
 msgid "Series Navigation"
 msgstr ""
 
-#: orgSeries-setup.php:408
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:343
+msgid "Series Table of Contents"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:508
 msgid "Series: "
 msgstr ""
 
-#: orgSeries-setup.php:410
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:510
 msgid "Posts from the series: "
 msgstr ""
 
-#: orgSeries-setup.php:422
-msgid "Settings"
-msgstr ""
-
-#: orgSeries-taxonomy.php:519
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-taxonomy.php:675
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:152
 msgid "Series:"
 msgstr ""
 
-#: orgSeries-taxonomy.php:521
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-taxonomy.php:677
 msgid "Part:"
 msgstr ""
 
-#: orgSeries-template-tags.php:122
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-template-tags.php:58
+msgid "Other posts belonging to the Series: "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-template-tags.php:148
 msgid "All the Series I've Written"
 msgstr ""
 
-#: orgSeries-template-tags.php:125 orgSeries-template-tags.php:132
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-template-tags.php:151
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-template-tags.php:158
 #, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr ""
 
-#: orgSeries-widgets.php:12
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:12
 msgid "Use this to control the output of the latest series widget"
 msgstr ""
 
-#: orgSeries-widgets.php:13
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:13
 msgid "Latest Series"
 msgstr ""
 
-#: orgSeries-widgets.php:20
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:20
 msgid "Most Recent Series"
 msgstr ""
 
-#: orgSeries-widgets.php:66 orgSeries-widgets.php:167
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:66
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:176
 msgid "Title"
 msgstr ""
 
-#: orgSeries-widgets.php:70
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:70
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the latest-series-"
 "template on the <a href=\"%s\">Series Options</a> page."
 msgstr ""
 
-#: orgSeries-widgets.php:73
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:73
 msgid "Don't show series with no posts?"
 msgstr ""
 
-#: orgSeries-widgets.php:76
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:76
 msgid "Order by:"
 msgstr ""
 
-#: orgSeries-widgets.php:78
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:78
 msgid "Number of posts in Series"
 msgstr ""
 
-#: orgSeries-widgets.php:79
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:79
 msgid "Name of Series"
 msgstr ""
 
-#: orgSeries-widgets.php:80
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:80
 msgid "Series Slug"
 msgstr ""
 
-#: orgSeries-widgets.php:81
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:81
 msgid "When Series was Created"
 msgstr ""
 
-#: orgSeries-widgets.php:85
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:82
+msgid "Random"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:86
 msgid "Number of series to display:"
 msgstr ""
 
-#: orgSeries-widgets.php:89
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:90
 msgid "Display Order: "
 msgstr ""
 
-#: orgSeries-widgets.php:90
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:91
 msgid "ASC: "
 msgstr ""
 
-#: orgSeries-widgets.php:91
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:92
 msgid "DESC: "
 msgstr ""
 
-#: orgSeries-widgets.php:101
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:102
 msgid "Use this to display the Series Table of contents"
 msgstr ""
 
-#: orgSeries-widgets.php:102
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:103
 msgid "Series TOC"
 msgstr ""
 
-#: orgSeries-widgets.php:120
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:123
 msgid "Select Series"
 msgstr ""
 
-#: orgSeries-widgets.php:131
-msgid "Other posts belonging to this series"
-msgstr ""
-
-#: orgSeries-widgets.php:171
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:180
 msgid "Series list options:"
 msgstr ""
 
-#: orgSeries-widgets.php:172
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:181
 msgid " Dropdown: "
 msgstr ""
 
-#: orgSeries-widgets.php:173
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:182
 msgid " List: "
 msgstr ""
 
-#: orgSeries-widgets.php:176
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:185
 msgid "Show post count?"
 msgstr ""
 
-#: orgSeries-widgets.php:180
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:189
 msgid "Hide empty series?"
 msgstr ""
 
-#: orgSeries-widgets.php:184
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:193
 msgid ""
 "(use to select if a list of other posts in the series will show on posts "
 "that are part of a series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-widgets.php:197
+msgid "Show the List of Series?"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:156
+msgid "Organize Series API: "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:272
+#, php-format
+msgid ""
+"<p>There is an automatic update for %s available but your api-key has not "
+"been set.  Please go to the <a href=\"options-general.php?"
+"page=orgseries_options_page\">Organize Series Options page</a> to set your "
+"api_key for this addon.</p>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:276
+#, php-format
+msgid ""
+"<p>There is an automatic update for %s available but your api-key is "
+"invalid.  Either you have entered the wrong key on the <a href=\"options-"
+"general.php?page=orgseries_options_page\">Organize Series Options</a> page "
+"OR you no longer have access to the updates for this plugin.  Automatic "
+"upgrades for single website install's are gained via the <a href=\"http://"
+"organizeseries.com/pricing\">Basic Support package</a>.  Automatic upgrades "
+"for multiple website install's are available via the <a href=\"http://"
+"organizeseries.com/pricing\">All Addons package or the Lifetime Membership "
+"package.</a></p>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:281
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/pue-client.php:308
+msgid "Dismiss"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:88
+msgid ""
+"The <strong>All in One SEO</strong> addon for Organize Series requires the "
+"Organize Series plugin to be installed and activated in order to work.  The "
+"addon won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:93
+msgid ""
+"The <strong>All in One SEO</strong> addon for Organize Series requires the "
+"<a href=\"http://wordpress.org/extend/plugins/all-in-one-seo-pack/\">All In "
+"One SEO pack</a> plugin to be installed and activated in order to work.  The "
+"addon won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:119
+msgid "Post Series Format: "
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:120
+msgid ""
+"The following macros are supported: <ul><li>%blog_title% - Your blog title "
+"(sometimes included by default by your theme)</li><li>%blog_description% - "
+"Your blog description</li><li>%series_seo_title% - The original title of the "
+"series</li><li>%series_seo_description% - The description of the series</"
+"li></ul>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:122
+msgid "Use noindex for Series Archive Pages"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:123
+msgid ""
+"Check this for excluding series archive pages from being crawled. Useful for "
+"avoiding duplicate content."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:125
+msgid "Use Series for META keywords"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-aioseo/organize-series-aio-seo.php:126
+msgid ""
+"Check this if you want your series for a given post used as the META "
+"keywords for this post (in addition to any keywords and tags you specify on "
+"the post edit page)."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:61
+msgid "Organize Series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:63
+#, php-format
+msgid ""
+"The <strong>\"Organize Series Extra Tokens\"</strong> addon for Organize "
+"Series requires the %s plugin to be installed and activated in order to "
+"work.  This addon won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:96
+msgid "Will display the slug for the series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:99
+msgid "Will display the series id of the series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:102
+msgid "Will display the post author of the post in the series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:105
+msgid "Will display the post thumbnail of a post belonging to the series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-extra-tokens/organize-series-extra-tokens.php:108
+msgid "Will display the published date of a post within a series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:215
+msgid ""
+"The <strong>Series Grouping</strong> addon for Organize Series requires the "
+"Organize Series plugin to be installed and activated in order to work.  "
+"Addons won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:255
+msgid "Manage Series Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:256
+msgid "Series Group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:257
+msgid "Search Series Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:258
+msgid "Popular Series Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:259
+msgid "All Series Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:260
+msgid "Edit Series Group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:261
+msgid "Update Series Group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:262
+msgid "Add New Series Group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:263
+msgid "New Series Group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:264
+msgid "Series Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:386
+msgid ""
+"Delete all Organize Series GROUPING addon related data from the database "
+"when deleting the addon? (BE CAREFUL!)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:475
+msgid "Group(s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:496
+msgid "No group"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:516
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:540
+msgid "Click to toggle"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:516
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:540
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:567
+msgid "Groups"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:568
+msgid "[more]"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-grouping/organize-series-grouping.php:569
+msgid "[less]"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:70
+msgid ""
+"The <strong>Organize Series Multiples</strong> addon for Organize Series "
+"requires the Organize Series plugin to be installed and activated in order "
+"to work.  Addons won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:74
+msgid ""
+"The <strong>Organize Series Multiples</strong> addon for Organize Series "
+"requires version 2.3 or greater of Organize Series to be installed and "
+"activated in order to work.  Organize Series Multiples has been deactivated."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:101
+msgid "To remove a post from series, just deselect any checkboxes"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:320
+msgid ""
+"The part this post is in a series is listed next to each series name.  If "
+"you select a series and leave the part number blank then the post will "
+"automatically be appended to the end of the series."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:341
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (%4$s of %5$s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-multiples/os-multi-setup.php:344
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Currently pt %4$s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:2
+msgid "Manage Series to Publish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:7
+msgid "Series Name"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:25
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:27
+msgid "Published"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:28
+msgid "Publish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:31
+msgid "Unpublished"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:32
+msgid "Unpublish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:35
+msgid "Ignored"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:36
+msgid "Ignore"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:26
+msgid "Publishing Series:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:32
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:75
+msgid "Publish Issue"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:44
+msgid "Publication Date/Time:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:85
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part. Keep in mind that any <strong>Draft</"
+"strong> posts that are a part of this series will not show up in this list "
+"and will not be published."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:99
+#, php-format
+msgid "No pending posts in %1$s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:101
+#, php-format
+msgid "Series %1$s does not exist"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:34
+msgid ""
+"Organize Series Publisher requires the Organize Series plugin to be "
+"installed and activated in order to work.  Plugin won't activate until this "
+"condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:40
+msgid "Manage Series Issues"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:40
+msgid "Publish Series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:211
+msgid "Create as unpublished:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:214
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-shortcodes/organize-series-shortcodes.php:56
+msgid ""
+"The <strong>Shortcodes</strong> addon for Organize Series requires the "
+"Organize Series plugin to be installed and activated in order to work.  "
+"Addons won't activate until this condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:63
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:198
+msgid "Rewrite Rules Inspector"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:63
+msgid "Rewrite Rules"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:203
+msgid "No rewrite rules yet, try flushing."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:206
+msgid "Some rewrite rules may be missing, try flushing."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:212
+#, php-format
+msgid ""
+"A listing of all %1$s rewrite rules for this site that match \"<a target="
+"\"_blank\" href=\"%2$s\">%3$s</a>\""
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:214
+#, php-format
+msgid "A listing of all %1$s rewrite rules for this site."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:235
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:262
+msgid "You do not have permissions to perform this action."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:319
+msgid "No rewrite rules were found."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:347
+msgid "Flush your rewrite rules to regenerate them"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:347
+msgid "Flush Rules"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:364
+msgid "Download current list of rules as a .txt file"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:364
+msgid "Download"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:367
+msgid "Match URL:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:370
+msgid "Rule Source:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:384
+msgid "Filter"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:386
+msgid "Reset"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:399
+msgid "Rule"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:400
+msgid "Rewrite"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/rewrite-rules-inspector/rewrite-rules-inspector.php:401
+msgid "Source"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:81
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:333
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:381
+msgid "Switch&nbsp;To"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:142
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:153
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:163
+msgid "Could not switch users."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:180
+msgid "Could not switch off."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:202
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:216
+#, php-format
+msgid "Switched to %1$s (%2$s)."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:203
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:261
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:295
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:312
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:347
+#, php-format
+msgid "Switch back to %1$s (%2$s)"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:214
+#, php-format
+msgid "Switched back to %1$s (%2$s)."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/user-switching/user-switching.php:279
+msgid "Switch Off"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:51
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:144
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:120
+msgid "Scan Result"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:121
+msgid "Pass"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:121
+msgid "Fail"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:124
+msgid "Total Files"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:128
+msgid "Total Checks"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner.php:132
+msgid "Total Errors"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/class-base-scanner.php:107
+#, php-format
+msgid "Check \"%s\" does not exist."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/EscapingCheck.php:11
+#, php-format
+msgid ""
+"The function %1$s is being passed as the first parameter of %2$s. This is "
+"problematic because %1$s echoes a string which will not be escaped by %2$s."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/EscapingCheck.php:18
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/EscapingCheck.php:25
+#, php-format
+msgid "%1$s is being passed as the first parameter of %2$s."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/EscapingCheck.php:32
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/EscapingCheck.php:38
+#, php-format
+msgid "Please use %1$s to echo internationalized text in html attributes."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/InternationalizedStringCheck.php:27
+msgid "No parameters were passed to a gettext function."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/InternationalizedStringCheck.php:31
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/InternationalizedStringCheck.php:35
+msgid "An empty string has been passed to a gettext function."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/InternationalizedStringCheck.php:39
+msgid ""
+"A variable has been passed as the first parameter of a gettext function."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/vip-scanner/vip-scanner/checks/InternationalizedStringCheck.php:43
+msgid ""
+"The return value of a function may have been passed as the first parameter "
+"to a gettext function."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:45
+#, php-format
+msgid ""
+"<strong>Error:</strong> Your current <a href=\"%1$s\">WordPress Beta Tester "
+"plugin configuration</a> will downgrade your install to a previous version - "
+"Please reconfigure it."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:55
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:150
+msgid "Beta Testing WordPress"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:55
+msgid "Beta Testing"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:152
+msgid ""
+"<strong>Please note:</strong> Once you have switched your blog to one of "
+"these beta versions of software it will not always be possible to downgrade "
+"as the database structure maybe updated during the development of a major "
+"release."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:156
+msgid ""
+"<strong>Please note:</strong> There are no development builds of the beta "
+"stream you have choosen available so you will receieve normal update "
+"notifications."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:161
+#, php-format
+msgid ""
+"By their nature these releases are unstable and should not be used anyplace "
+"where your data is important. So please <a href=\"%1$s\">backup your "
+"database</a> before upgrading to a test release. In order to hear about the "
+"latest beta releases your best bet is to watch the <a href=\"%2$s"
+"\">development blog</a> and the <a href=\"%3$s\">beta forum</a>"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:162
+msgid "http://codex.wordpress.org/Backing_Up_Your_Database"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:163
+msgid "http://wordpress.org/development/"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:164
+msgid "http://wordpress.org/support/forum/12"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:165
+#, php-format
+msgid ""
+"Thank you for helping in testing WordPress please <a href=\"%s\">report any "
+"bugs you find</a>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:166
+msgid "http://core.trac.wordpress.org/newticket"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:168
+msgid ""
+"By default your WordPress install uses the stable update stream, to return "
+"to this please deactivate this plugin"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:170
+msgid "Please select the update stream you would like this blog to use:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:178
+msgid "Point release nightlies"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:179
+msgid ""
+"This contains the work that is occuring on a branch in preperation for a x.x."
+"x point release.  This should also be fairly stable but will be available "
+"before the branch is ready for beta."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:184
+msgid "Bleeding edge nightlies"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:185
+msgid ""
+"This is the bleeding edge development code which may be unstable at times. "
+"<em>Only use this if you really know what you are doing</em>."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:190
+msgid "Save Changes"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/wordpress-beta-tester/wp-beta-tester.php:192
+#, php-format
+msgid "Why don't you <a href=\"%s\">head on over and upgrade now</a>."
 msgstr ""
