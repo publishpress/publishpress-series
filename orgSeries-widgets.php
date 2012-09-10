@@ -9,15 +9,15 @@ class orgSeries_widget_latestseries extends WP_Widget {
 	
 	function orgSeries_widget_latestseries() {
 		global $orgseries;
-		$widget_ops = array('description' => __('Use this to control the output of the latest series widget', $orgseries->org_domain));
-		$this->WP_Widget('latestseries', __('Latest Series', $orgseries->org_domain), $widget_ops);
+		$widget_ops = array('description' => __('Use this to control the output of the latest series widget', 'organize-series'));
+		$this->WP_Widget('latestseries', __('Latest Series', 'organize-series'), $widget_ops);
 	}
 	
 	function widget( $args, $instance ) {
 		global $orgseries;
 		extract( $args, EXTR_SKIP );
 		
-		$title = isset($instance['title']) ? $instance['title'] : __('Most Recent Series', $orgseries->org_domain);
+		$title = isset($instance['title']) ? $instance['title'] : __('Most Recent Series', 'organize-series');
 		$orderby = isset($instance['orderby']) ? $instance['orderby'] : 'name';
 		$number = isset($instance['number']) ? $instance['number'] : '5';
 		$order = isset($instance['order']) ? $instance['order'] : 'ASC';
@@ -63,32 +63,33 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$number = (int) $instance['number'];
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', $orgseries->org_domain); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'organize-series'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
-			<?php printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', $orgseries->org_domain), $seriesoptionsurl); ?>
+			<?php printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', 'organize-series'), $seriesoptionsurl); ?>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e('Don\'t show series with no posts?', $orgseries->org_domain); ?></label>
+			<label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e('Don\'t show series with no posts?', 'organize-series'); ?></label>
 			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>" />
 			<br />
 			<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e( 'Order by:' ); ?></label>
 			<select name="<?php echo $this->get_field_name('orderby'); ?>" id="<?php echo $this->get_field_id('orderby'); ?>" class="widefat">
-				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php _e('Number of posts in Series', $orgseries->org_domain); ?></option>
-				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php _e('Name of Series', $orgseries->org_domain); ?></option>
-				<option value="slug"<?php selected( $instance['orderby'], 'slug' ); ?>><?php _e('Series Slug', $orgseries->org_domain); ?></option>
-				<option value="term_id"<?php selected( $instance['orderby'], 'term_id' ); ?>><?php _e('When Series was Created', $orgseries->org_domain); ?></option>
+				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php _e('Number of posts in Series', 'organize-series'); ?></option>
+				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php _e('Name of Series', 'organize-series'); ?></option>
+				<option value="slug"<?php selected( $instance['orderby'], 'slug' ); ?>><?php _e('Series Slug', 'organize-series'); ?></option>
+				<option value="term_id"<?php selected( $instance['orderby'], 'term_id' ); ?>><?php _e('When Series was Created', 'organize-series'); ?></option>
+				<option value="rand"<?php selected( $instance['orderby'], 'rand' ); ?>><?php _e('Random', 'organize-series'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of series to display:', $orgseries->org_domain); ?></label>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of series to display:', 'organize-series'); ?></label>
 			<input class="widefat" type="text" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" value="<?php echo $number; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Display Order: ', $orgseries->org_domain); ?></label>
-			<?php _e('ASC: ', $orgseries->org_domain); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-asc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="ASC" <?php checked('ASC', $instance['order']); ?>/>
-			<?php _e('DESC: ', $orgseries->org_domain); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-desc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="DESC" <?php checked('DESC', $instance['order']); ?>/>
+			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Display Order: ', 'organize-series'); ?></label>
+			<?php _e('ASC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-asc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="ASC" <?php checked('ASC', $instance['order']); ?>/>
+			<?php _e('DESC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-desc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="DESC" <?php checked('DESC', $instance['order']); ?>/>
 		</p>
 	<?php
 	}
@@ -98,8 +99,8 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 	
 	function orgSeries_widget_seriestoc() {
 		global $orgseries;
-		$widget_ops = array('description' => __('Use this to display the Series Table of contents', $orgseries->org_domain));
-		$this->WP_WIDGET('seriestoc', __('Series TOC', $orgseries->org_domain), $widget_ops);
+		$widget_ops = array('description' => __('Use this to display the Series Table of contents', 'organize-series'));
+		$this->WP_WIDGET('seriestoc', __('Series TOC', 'organize-series'), $widget_ops);
 	}
 	
 	function widget( $args, $instance ) {
@@ -119,7 +120,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				$out .= wp_list_series($series_args);
 				$out .= '</ul>';
 			} elseif ( $instance['list-type'] == 'dropdown' ) {
-				$series_args['show_option_all'] = __('Select Series', $orgseries->org_domain);
+				$series_args['show_option_all'] = __('Select Series', 'organize-series');
 				$out = wp_dropdown_series( $series_args );
 			}
 		}
@@ -157,7 +158,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		global $orgseries;
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array(
-			'title' => __('Series', $orgseries->org_domain),
+			'title' => __('Series', 'organize-series'),
 			'list-type' => 'list',
 			'show-count' => 1,
 			'hide-empty' => 1,
@@ -172,28 +173,28 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$seriestocdisplay_toggle = $instance['seriestocdisplay-toggle'];
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', $orgseries->org_domain); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'organize-series'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
-			<?php _e('Series list options:', $orgseries->org_domain); ?><br />
-			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', $orgseries->org_domain); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
-			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', $orgseries->org_domain); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
+			<?php _e('Series list options:', 'organize-series'); ?><br />
+			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
+			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('show-count'); ?>"><?php _e('Show post count?', $orgseries->org_domain); ?>
+			<label for="<?php echo $this->get_field_id('show-count'); ?>"><?php _e('Show post count?', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('show-count'); ?>" name="<?php echo $this->get_field_name('show-count'); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><?php _e('Hide empty series?', $orgseries->org_domain); ?>
+			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><?php _e('Hide empty series?', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(use to select if a list of other posts in the series will show on posts that are part of a series', $orgseries->org_domain); ?>
+			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(use to select if a list of other posts in the series will show on posts that are part of a series', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series?', $orgseries->org_domain); ?>
+			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series?', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
 		</p>
 		

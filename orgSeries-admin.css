@@ -18,16 +18,23 @@
 	margin-left: 10px;
 }
 
-#serieschecklist {
+ul#serieschecklist {
 	height: 12em;
 	overflow: auto;
+	margin: 0px;
+	padding: 0px;
 	margin-top: 8px;
 	margin-right: 6px;
+	margin-left: 10px;
+	padding-left: 5px;
 }
 
-#serieschecklist li {
-	margin: 0;
-	padding: 0;
+ul#serieschecklist li {
+	margin: 0px;
+}
+
+ul#serieschecklist li span.li-series-name {
+	padding-left: 5px;
 }
 
 #ajaxseries input {
@@ -53,6 +60,10 @@
 #newseries {
 	width: 120px;
 	margin-right: 5px;
+}
+
+.series-added-indicator {
+	background-color: yellow;
 }
 
 input #seriesadd {

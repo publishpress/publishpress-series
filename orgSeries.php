@@ -18,7 +18,7 @@ $os_version = '2.4';
 ######################################
 // Organize Series Wordpress Plugin
 //
-//"Organize Series Plugin" is copyright (c) 2007-2011 Darren Ethier. This program is free software; you can redistribute it and/or
+//"Organize Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -65,7 +65,7 @@ $org_dir_name = orgSeries_dir();
 	// Guess the location
 $plugin_path = '';
 $plugin_url = '';
-$plugin_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(basename(dirname(__FILE__))) . '/'; //works with symlinks thanks to patch from Georg S. Adamsen (wordpress.blogos.dk)
+$plugin_path = plugin_dir_path(__FILE__); 
 $plugin_url = plugins_url('', __FILE__).'/'; 
 $org_series_loc = $plugin_url;
 

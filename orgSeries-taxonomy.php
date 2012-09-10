@@ -42,6 +42,7 @@ function get_series_ID($series_name='default') {
 /* functions referenced by other files */
 function &get_series($args = '') {
 	global $wpdb;
+	$series = array();
 	
 	$key = md5( serialize($args) );
 	if ( $cache = wp_cache_get('get_series','series') )
@@ -51,7 +52,7 @@ function &get_series($args = '') {
 	$series = get_terms('series', $args);
 	
 	if ( empty($series) )
-		return array();
+		return $series;
 		
 	$cache[ $key ] = $series;
 	wp_cache_set( 'get_series', $cache, 'series' );
@@ -285,6 +286,8 @@ function get_series_ordered( $args = '' ) {
 		$_orderby = 't.term_id';
 	elseif ( 'count' == $orderby )
 		$_orderby = 'tt.count';
+	elseif ( 'rand' == $orderby ) 
+		$_orderby = 'RAND()';
 		
 	$having = '';
 	
@@ -391,7 +394,7 @@ function wp_dropdown_series( $args ) {
 function wp_list_series($args = '') {
 	global $orgseries;
 	$defaults = array(
-		'title_li' => __('Series', $orgseries->org_domain), 
+		'title_li' => __('Series', 'organize-series'), 
 		'taxonomy' => 'series',
 		'echo' => 1
 	);
@@ -425,6 +428,7 @@ function wp_set_post_series_draft_transition( $post ) {
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
+
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
 	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
@@ -476,7 +480,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $ispublished) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $is_published) {
 				$c_chk++;
 				continue;
 			} else {
@@ -631,7 +635,7 @@ function wp_insert_series($series_id, $taxonomy_id) {
 	$series_icon_loc = '';
 	
 	extract($_POST, EXTR_SKIP);
-	$series_icon = $_POST['series_icon_loc'];
+	$series_icon = isset($_POST['series-icon_loc']) ? $_POST['series_icon_loc'] : null;
 	
 	if ( isset($series_icon) || $series_icon != '' ) {
 		$build_path = seriesicons_url();
@@ -668,9 +672,9 @@ function inline_edit_series($column_name, $type) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
-			<span><?php _e('Series:', $orgseries->org_domain); ?></span>
+			<span><?php _e('Series:', 'organize-series'); ?></span>
 			<?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
-			<span><?php _e('Part:', $orgseries->org_domain); ?></span>
+			<span><?php _e('Part:', 'organize-series'); ?></span>
 			<input size="3" type="text" name="series_part" class="series_part"  />
 			<input type="hidden" name="series_post_id" class="series_post_id"  />
 		

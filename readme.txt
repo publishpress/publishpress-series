@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.3
-Tested up to: 3.3
-Stable tag: 2.4
+Tested up to: 3.4.2
+Stable tag: 2.4.1
 
 A plugin for managing the article series you write.
 
@@ -37,12 +37,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
-If you are upgrading from Organize Series 2.1 or above you can follow the same steps as above.
-Other UPGRADE Notes (for users who are upgrading from Organize Series < 2.2):
-
-1. Your customized `seriestoc.php` file should still work for Series Table of Contents Pages.
-1. Rename your `series.php` file (series archive pages) to `taxonomy-series.php`  - starting with version 2.2, Organize Series integrates with the built-in taxonomy template pages that WordPress provides.  You can also customize a particular series by creating a page titled `taxonomy-series-{series-name}.php` where 'series-name' is the name of the particular series you want a different archive page/look for.
-1. Organize Series Publisher is NO LONGER bundled with Organize Series.  Don't worry, you can still get it, it's available on the WordPress plugin repository.  Look for [organize series publisher](http://wordpress.org/extend/plugins/organize-series-publisher/).
+* no special notes for this release
 
 **ALSO**
 
@@ -194,6 +189,21 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.1 =
+
+This release is primarily a "spit-and-polish" release that fixes up nagging little bugs in Organize Series.  However, we did slip in a few new features!
+
+* multiple php warnings, error notices were fixed.
+* fixed bug with add new button in Organize Series not working (on edit posts page)
+* properly escaped html on series navigation characters
+* in Series Options page, added in a link for helping with translating Organize Series.
+* NEW FEATURE: Added in an "orderby random" option for the Latest Series widget.
+* converted all variable language domain references to concrete string (proper usage).
+* fixed up some usage of deprecated wp functions.
+* using `plugin_dir_path()` instead of `plugin_basename()` in certain cases.
+* changed xlmns namespace for the "series" term from "unfoldingneurons.com" to "organizeseries.com"
+* NEW FEATURE: Series part ordering now tracks unpublished posts in a series with helpful ui on the administration side.  Coming in a future release we'll also provide a way for you to show readers all the planned posts in a series.
 
 = 2.4.0 =
 Bugfix
@@ -398,36 +408,3 @@ This is a bugfix release
 * Fixed scheduled post bug:  This bug affected scheduled posts that were a part of a series that lost all series information when they transitioned to a published post.  
 
 * Fixed draft and pending posts bug:  This bug affected posts that were saved as a draft or pending and then later published.  When published the "total parts in series" count would not increment.
-
-= 2.2 =
-
-This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
-
-*AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
-
-*Highlights*
-
-* The code has been rewritten and given a full review to make it as efficient and tidy as possible.
-* Everything has been looked at to ensure the plugin integrates as tightly as possible with the built-in custom taxonomy system provided by WordPress.  Some significant changes were introduced with WordPress 3.0 that made this tighter integration possible.
-* I've renamed some of the plugin files to keep the naming consistent and make it easier to find components of the plugin.
-* Organize Series Publisher has been unbundled from the core plugin and is [offered as a separate download via the WordPress.org repository](http://wordpress.org/extend/plugins/organize-series-publisher).  It is still free.  This unbundling is part of the new direction of releasing add-ons for Organize Series. 
-* The code has been structured and given multiple new action and filter hooks for the easier implementation of "Add-ons" for extending the functionality of the core plugin.
-* The plugin now has it's own home on [OrganizeSeries.com](http://organizeseries.com)
-* Some more PHPDOCs have been added to the files to make it easier to track how things work and where things are (especially helpful for developers wanting to create addons for Organize Series)
-
-*Changes*
-
-* {developer note} Core components of Organize Series have been moved to an Object model.  See the orgSeries class in orgSeries-setup.php.  Note that all the initial setup functions have been moved to this class and out of the orgSeries.php file.
-* {developer note} some files have been renamed/removed.  If you customized any Organize Series plugin files you will want to make note of the differences before upgrading.
-* {developer note} Organize Series settings (options) are now accessible via the $orgseries object.  $orgseries-settings.
-* {developer note} the options page completely utilizes the WordPress options/settings api.
-* {developer note} widgets now fully use the WordPress widget api.
-* {developer note} did a full review of the plugin files and updated any deprecated WordPress hooks/filters/functions to the current implementation.
-
-* {bug fix} A lot of the jQuery/javascript has been given a once over and this should fix the reported conflicts with plugins like the Admin DropDown Menu plugin by Ozh.
-* {bug fixes} There are numerous bug fixes and optimization done to the plugin since the last version.  For a full look at the changes check out [changeset](http://plugins.trac.wordpress.org/changeset?new=294302%40organize-series&old=232344%40organize-series).
-
-* {enhancement} Organize Series now incorporates the same look and feel for the "manage series" page as any of the built-in WordPress taxonomy management pages.  This includes the ability to "Quick-Edit" series information.
-* {enhancement} polished up the usage of the built-in WordPress image uploader/manager for associating images with series.
-* {enhancement} NEW template tag: `in_series($series_term)`  This function will check if the current post is in a given series OR if the post is in ANY series (when the series_id or series_slug isn't provided).  Will return true or false.
-* {enhancement} NEW template tag: `is_series_toc` This function will check to see if the displayed page is the series_toc page.  Helpful for in the cases when you want to do something custom in the header or footer or sidebar of a seriestoc page.

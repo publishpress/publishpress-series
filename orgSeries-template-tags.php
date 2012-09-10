@@ -55,7 +55,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		$series_post = get_objects_in_term($ser, 'series'); 
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE);
 		if ( 'widget' == $referral ) {
-			$result .= '<h4>' . __('Other posts belonging to the Series: ', $orgseries->org_domain) . get_series_name($ser) . '</h4>';
+			$result .= '<h4>' . __('Other posts belonging to the Series: ', 'organize-series') . get_series_name($ser) . '</h4>';
 			$result .= '<ul>';
 		}
 		
@@ -145,17 +145,17 @@ function get_series_toc( $link = TRUE ) {
 	$options = $orgseries->settings;
 	$series_toc = $options['series_toc_url'];
 	$url = get_bloginfo('url').'/'.$series_toc;
-	$title = __('All the Series I\'ve Written', $orgseries->org_domain);
+	$title = __('All the Series I\'ve Written', 'organize-series');
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
 		else
 			return $url;
 	} else {
 		$url = parse_url(get_bloginfo('url'));
 		$url = $url['path'] . '/?seriestoc=1';
 		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', $orgseries->org_domain), $url, $title);
+			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
 		else
 			return $url;
 	}
@@ -383,8 +383,8 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	$result = '';
 	
 	foreach ($posts_in_series as $seriespost) {
-		$custom_next = token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID);
-		$custom_prev = token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID)  ;
+		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
+		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID))  ;
 		if ($next) {
 			if ( ($seriespost['part'] - $cur_part) == 1) {
 					if ( !empty($custom_next) ) $title = $custom_next;
@@ -618,7 +618,10 @@ function get_series_name($series_id, $slug = false) {
 	$series_id = (int) $series_id;		
 	$series = get_orgserial($series_id);
 	
-	return ( $slug ) ? $series->slug : $series->name;
+	if ( !empty($series) ) {
+		return ( $slug ) ? $series->slug : $series->name;
+	}
+	return false;
 }
 
 /**
