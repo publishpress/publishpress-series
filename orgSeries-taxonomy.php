@@ -286,6 +286,8 @@ function get_series_ordered( $args = '' ) {
 		$_orderby = 't.term_id';
 	elseif ( 'count' == $orderby )
 		$_orderby = 'tt.count';
+	elseif ( 'rand' == $orderby ) 
+		$_orderby = 'RAND()';
 		
 	$having = '';
 	

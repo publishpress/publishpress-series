@@ -79,6 +79,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php _e('Name of Series', 'organize-series'); ?></option>
 				<option value="slug"<?php selected( $instance['orderby'], 'slug' ); ?>><?php _e('Series Slug', 'organize-series'); ?></option>
 				<option value="term_id"<?php selected( $instance['orderby'], 'term_id' ); ?>><?php _e('When Series was Created', 'organize-series'); ?></option>
+				<option value="rand"<?php selected( $instance['orderby'], 'rand' ); ?>><?php _e('Random', 'organize-series'); ?></option>
 			</select>
 		</p>
 		<p>
