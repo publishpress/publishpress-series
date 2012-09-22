@@ -229,8 +229,11 @@ global $post, $postdata, $content, $orgseries;
 
 function orgseries_add_meta_box() {
 	global $orgseries;
-	add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', 'post', 'side');
-	remove_meta_box('tagsdiv-series', 'post', 'side'); //removes series meta box added by WordPress Taxonomy api.
+	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+	foreach ( $posttypes as $posttype ) {
+		add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', $posttype, 'side');
+		remove_meta_box('tagsdiv-series', $posttype, 'side'); //removes series meta box added by WordPress Taxonomy api.
+	}
 }
 
 /* ADDING SERIES INFO TO EDIT POST PAGE */ 
