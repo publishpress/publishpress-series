@@ -230,7 +230,8 @@ function orgseries_add_meta_box() {
 
 function orgSeries_custom_column_filter($defaults) {
 	global $orgseries;
-	if ( isset($_REQUEST['post_type']) && $_REQUEST['post_type'] != 'post' )
+	$post_types = apply_filters( 'orgseries_posttype_support', array('post') );
+	if ( isset($_REQUEST['post_type']) && !in_array($_REQUEST['post_type'], $post_types) )
 		return $defaults; //get out we only want this showing up on post post types for now.*/
 	$defaults['series'] = __('Series', 'organize-series');
 	return $defaults;
@@ -241,6 +242,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 	$seriesid = null;
 	$series_part = null;
 	$series_name = null;
+	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 	
 	if ($column_name == 'series') {
 		if ( $series = get_the_series($id, false) ) {
@@ -252,7 +254,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$column_content = '';
 			
 			$draft_posts = get_posts( array(
-				'post_type'	=> 'post',
+				'post_type'	=> $post_types,
 				'post_status' => array('draft', 'future', 'pending'),
 				'taxonomy'	=> 'series',
 				'term'	=> $series_name

@@ -263,7 +263,8 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 
 function get_series_ordered( $args = '' ) {
 	global $wpdb;
-	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => '"post"', 'hide_empty' => TRUE);
+	$post_types = apply_filters('orgseries_posttype_support', array('post'));
+	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => $post_types, 'hide_empty' => TRUE);
 	$args = wp_parse_args( $args, $defaults);
 	extract($args, EXTR_SKIP);
 	
