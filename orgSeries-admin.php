@@ -8,7 +8,7 @@
 
 global $pagenow;
 $checkpage = $pagenow;
-global $checkpage;
+global $checkpage, $orgseries;
 
 /**
  * All the add_action and apply_filter hooks for this file go here
@@ -28,7 +28,14 @@ add_action('wp_ajax_add_series', 'admin_ajax_series');
 
 //hook into the quick-edit on edit.php
 add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
-add_action('manage_posts_custom_column','orgSeries_custom_column_action', 12, 2);
+
+//support for custom post types
+$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+foreach ( $posttypes as $posttype ) {
+	$filter_ref = ( $posttype == 'post' ) ? 'manage_posts_custom_column' : 'manage_' . $posttype . 'posts_custom_column';
+	add_action($filter_ref,'orgSeries_custom_column_action', 12, 2);
+}
+
 
 if ( $checkpage != 'upload.php' )
 		add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');

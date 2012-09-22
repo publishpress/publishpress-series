@@ -671,7 +671,8 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function inline_edit_series($column_name, $type) {
 	global $orgseries;
-	if ( $type == 'post' && $column_name == 'series' ) {
+	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+	if ( in_array($type, $posttypes) && $column_name == 'series' ) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
