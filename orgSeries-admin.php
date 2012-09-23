@@ -8,7 +8,7 @@
 
 global $pagenow;
 $checkpage = $pagenow;
-global $checkpage;
+global $checkpage, $orgseries;
 
 /**
  * All the add_action and apply_filter hooks for this file go here
@@ -28,7 +28,14 @@ add_action('wp_ajax_add_series', 'admin_ajax_series');
 
 //hook into the quick-edit on edit.php
 add_filter('manage_posts_columns', 'orgSeries_custom_column_filter');
-add_action('manage_posts_custom_column','orgSeries_custom_column_action', 12, 2);
+
+//support for custom post types
+$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+foreach ( $posttypes as $posttype ) {
+	$filter_ref = ( $posttype == 'post' ) ? 'manage_posts_custom_column' : 'manage_' . $posttype . 'posts_custom_column';
+	add_action($filter_ref,'orgSeries_custom_column_action', 12, 2);
+}
+
 
 if ( $checkpage != 'upload.php' )
 		add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
@@ -222,15 +229,19 @@ global $post, $postdata, $content, $orgseries;
 
 function orgseries_add_meta_box() {
 	global $orgseries;
-	add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', 'post', 'side');
-	remove_meta_box('tagsdiv-series', 'post', 'side'); //removes series meta box added by WordPress Taxonomy api.
+	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+	foreach ( $posttypes as $posttype ) {
+		add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', $posttype, 'side');
+		remove_meta_box('tagsdiv-series', $posttype, 'side'); //removes series meta box added by WordPress Taxonomy api.
+	}
 }
 
 /* ADDING SERIES INFO TO EDIT POST PAGE */ 
 
 function orgSeries_custom_column_filter($defaults) {
 	global $orgseries;
-	if ( isset($_REQUEST['post_type']) && $_REQUEST['post_type'] != 'post' )
+	$post_types = apply_filters( 'orgseries_posttype_support', array('post') );
+	if ( isset($_REQUEST['post_type']) && !in_array($_REQUEST['post_type'], $post_types) )
 		return $defaults; //get out we only want this showing up on post post types for now.*/
 	$defaults['series'] = __('Series', 'organize-series');
 	return $defaults;
@@ -241,6 +252,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 	$seriesid = null;
 	$series_part = null;
 	$series_name = null;
+	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 	
 	if ($column_name == 'series') {
 		if ( $series = get_the_series($id, false) ) {
@@ -252,7 +264,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$column_content = '';
 			
 			$draft_posts = get_posts( array(
-				'post_type'	=> 'post',
+				'post_type'	=> $post_types,
 				'post_status' => array('draft', 'future', 'pending'),
 				'taxonomy'	=> 'series',
 				'term'	=> $series_name

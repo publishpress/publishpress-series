@@ -263,7 +263,8 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 
 function get_series_ordered( $args = '' ) {
 	global $wpdb;
-	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => '"post"', 'hide_empty' => TRUE);
+	$post_types = apply_filters('orgseries_posttype_support', array('post'));
+	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => $post_types, 'hide_empty' => TRUE);
 	$args = wp_parse_args( $args, $defaults);
 	extract($args, EXTR_SKIP);
 	
@@ -296,6 +297,8 @@ function get_series_ordered( $args = '' ) {
 	if ( $hide_empty ) {
 		$having = 'HAVING count(tp.id) > 0 ';
 	}
+
+	$postTypes = "'" . implode("','",$postTypes) . "'";
 		
 	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status = 'publish' and tp.post_type in ($postTypes) WHERE tt.taxonomy = 'series' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
 	$series = $wpdb->get_results($query); 
@@ -670,7 +673,8 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function inline_edit_series($column_name, $type) {
 	global $orgseries;
-	if ( $type == 'post' && $column_name == 'series' ) {
+	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+	if ( in_array($type, $posttypes) && $column_name == 'series' ) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
