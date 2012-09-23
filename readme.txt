@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.3
 Tested up to: 3.4.2
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 
 A plugin for managing the article series you write.
 
@@ -189,6 +189,10 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.2 =
+
+* added filters and modifications to allow the new Organize Series Custom Post Type addon to work (you can obtain the addon at OrganizeSeries.com).  The addon makes it possible to use Organize Series with custom post types. 
 
 = 2.4.1 =
 
