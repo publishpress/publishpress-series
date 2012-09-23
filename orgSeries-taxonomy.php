@@ -297,6 +297,8 @@ function get_series_ordered( $args = '' ) {
 	if ( $hide_empty ) {
 		$having = 'HAVING count(tp.id) > 0 ';
 	}
+
+	$postTypes = "'" . implode("','",$postTypes) . "'";
 		
 	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status = 'publish' and tp.post_type in ($postTypes) WHERE tt.taxonomy = 'series' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
 	$series = $wpdb->get_results($query); 
