@@ -197,7 +197,7 @@ class orgSeries {
 	function register_taxonomy() {
 		$permalink_slug = $this->settings['series_custom_base'];
 		$taxonomy = 'series';
-		$object_type = array('post');
+		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
 			'manage_terms' => 'manage_series',
 			'edit_terms' => 'manage_series',

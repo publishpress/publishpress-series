@@ -45,8 +45,11 @@ function get_series_order($posts, $postid = 0, $series_id = 0, $skip = TRUE, $on
 		}
 		$cycle++;
 	}
-	
-	$args = 'post_status=any&include='.$postids;
+	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
+	$args = array(
+		'post_status' => 'any',
+		'include' => $postids,
+		'post_type' => $posttypes );
 	$posts = get_posts($args);
 	$meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 	
