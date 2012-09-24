@@ -452,7 +452,7 @@ class orgSeries {
 	//add series post-list box to a post in that series (on single.php view)
 	function add_series_post_list_box($content) {
 		if ($this->settings['auto_tag_toggle']) {
-			if (is_single() && $postlist = wp_postlist_display() ) {
+			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
 				$addcontent = $content;
 				$content = str_replace('%postcontent%', $addcontent, $postlist);
 			}
@@ -489,7 +489,7 @@ class orgSeries {
 	
 	//add series navigation strip to posts that are part of a series (on single.php view)
 	function series_nav_filter($content) {
-		if (is_single()) {
+		if (is_single() || is_page() ) {
 			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 				$addcontent = $content;
 				$content = str_replace('%postcontent%', $addcontent, $series_nav);
