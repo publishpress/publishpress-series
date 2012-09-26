@@ -53,12 +53,9 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 	$result = '';
 	foreach ( $ser_ID as $ser ) {
 		$series_post = get_objects_in_term($ser, 'series');
+		$is_unpub_template = TRUE;
+		$is_unpub_template = apply_filters('unpublished_post_template', $is_unpub_template);
 		
-		if (has_action('plist_ptitle_template_unpublished'))
-			$is_unpub_template = FALSE;
-		else
-			$is_unpub_template = TRUE;
-			
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE, $is_unpub_template);
 		if ( 'widget' == $referral ) {
 			$result .= '<h4>' . __('Other posts belonging to the Series: ', 'organize-series') . get_series_name($ser) . '</h4>';
@@ -66,10 +63,6 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		}
 		
 		foreach($posts_in_series as $seriespost) {
-			if (get_post_status($seriespost['id']) != 'publish')
-				$is_post_publish = FALSE;
-			else
-				$is_post_publish = TRUE;
 			if ($cur_id == $seriespost['id']) {
 				if ( 'widget' == $referral )
 					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
@@ -78,17 +71,14 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 				continue;
 			}
 			
-			if ( 'widget' == $referral )
-				if (!$is_post_publish)
-					$result .= token_replace(stripslashes($settings['series_post_list_unpublished_post_template']), 'other', $seriespost['id'], $ser);
-				else
-					$result .= '<li>' . series_post_title($seriespost['id'], $is_post_publish) . '</li>';
-			else
-				if (!$is_post_publish) {
-					$result .= token_replace(stripslashes($settings['series_post_list_unpublished_post_template']), 'other', $seriespost['id'], $ser);
-				}
+			if (get_post_status($seriespost['id']) == 'publish') {
+				if ( 'widget' == $referral )
+					$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
+			}
+			else
+				$result .= apply_filters('unpublished_post_template', $settings, $seriespost, $ser);
 		}
 		
 		if ( 'widget' == $referral ) {

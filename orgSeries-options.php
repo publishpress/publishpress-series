@@ -66,7 +66,6 @@ function orgseries_validate($input) {
 	//template options
 	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
 	$newinput['series_post_list_post_template'] = trim(stripslashes($input['series_post_list_post_template']));
-	$newinput['series_post_list_unpublished_post_template'] = trim(stripslashes($input['series_post_list_unpublished_post_template']));
 	$newinput['series_post_list_currentpost_template'] = trim(stripslashes($input['series_post_list_currentpost_template']));
 	$newinput['series_meta_template'] = trim(stripslashes($input['series_meta_template']));
 	$newinput['series_meta_excerpt_template'] = trim(stripslashes($input['series_meta_excerpt_template']));
