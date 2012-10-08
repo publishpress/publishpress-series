@@ -27,7 +27,7 @@ class orgSeries {
 		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array(&$this, 'org_series_install'));
 		
 		//all other actions and filters...
-		add_action('plugins_loaded', array(&$this, 'add_settings'));
+		add_action('plugins_loaded', array(&$this, 'add_settings'), 10);
 		add_action('init', array(&$this, 'register_textdomain'));
 		add_action('init', array(&$this, 'register_taxonomy'),0);
 		add_action('init', array(&$this, 'register_scripts'));
@@ -245,8 +245,8 @@ class orgSeries {
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
 			'series_post_list_post_template' => '<li class="serieslist-li">%post_title_linked%</li>',
 			'series_post_list_currentpost_template' => '<li class="serieslist-li-current">%post_title%</li>',
-			'series_meta_template' => '<div class="seriesmeta">' . _x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
-			'series_meta_excerpt_template' => '<div class="seriesmeta">' ._x('This entry is part %series_part% of %total_posts_in_series% in the series','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
+			'series_meta_template' => '<div class="seriesmeta">' . _x('This entry is part %series_part% of %total_posts_in_series% in the series ','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
+			'series_meta_excerpt_template' => '<div class="seriesmeta">' ._x('This entry is part %series_part% of %total_posts_in_series% in the series ','leave the %tokens% as is when translating','organize-series') . '%series_title_linked%</div>%postcontent%',
 			'series_table_of_contents_box_template' => '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>',
 			'latest_series_before_template' => '<div class="latest-series"><ul>',
 			'latest_series_inner_template' => '<li>%series_title_linked%</li>',

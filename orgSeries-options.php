@@ -324,6 +324,7 @@ function series_templates_core_fieldset() {
 					<small><?php _e('Use this to indicate what html tags will surround the post title in the series post list.', 'organize-series'); ?></small><br/>
 					<textarea name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_list_post_template']); ?></textarea><br />
 					<br />
+					<?php do_action('plist_ptitle_template_unpublished') ?>
 					<strong><?php _e('Series Post List Current Post Title Template:', 'organize-series'); ?></strong><br />
 					<small><?php _e('Use this to style how you want the post title in the post list that is the same as the current post to be displayed.', 'organize-series'); ?></small><br />
 					<textarea name="<?php echo $org_name; ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_list_currentpost_template']); ?></textarea><br />
