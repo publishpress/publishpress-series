@@ -1,0 +1,38 @@
+.seriesbox {
+	display:inline;
+	float: right;
+	background: #DCDCDC;
+	color: #332233;
+	text-align: left;
+	font: .8em Arial, Tahoma, Verdana, Sans-Serif;
+	margin: 0 10px 0px 10px;
+	padding: 6px 6px 12px 6px;
+	border: 1px solid #2F4F4F;
+	border-bottom-width: 3px;
+	border-right-width: 3px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset -2px -3px 10px rgba(0,0,0,.5);
+	-moz-box-shadow: inset -2px -3px 10px rgba(0,0,0,.5);
+	box-shadow: inset -2px -3px 10px rgba(0,0,0,.5);
+	margin-right: 0px;
+	min-width: 125px;
+}
+.seriesmeta {
+	background-color: #DCDCDC;
+	font-size: .8em;
+	color: #332233;
+	display: block;
+	padding: 2px 2px 2px 30px;
+	border: 1px solid #2F4F4F;
+	border-top-width: 3px;
+	border-right-width: 3px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+	-webkit-box-shadow: inset 2px 3px 8px rgba(0,0,0,.4);
+	-moz-box-shadow: inset 2px 3px 8px rgba(0,0,0,.4);
+	box-shadow: inset 2px 3px 8px rgba(0,0,0,.4);
+}
