@@ -24,9 +24,10 @@
 * @param int $ser_ID The ID of the series we want to list the posts from.
 * @param bool|string  $referral  options are 'widget' | false.  Indicates what the referring location for calling this function is.  If 'widget' then widget specific code is applied. Defaults to false.
 * @param bool $display Indicates whether to return the post list (false) or to echo the post list (true).  Defaults to false.
+* @param bool|string $serieswidg_title The title for a list of other posts in the series displayed in widget.
 * @return string The post list as a assembled string ready for display (if $display is false)
 */
-function get_series_posts( $ser_ID = array(), $referral = false, $display = false ) {  
+function get_series_posts( $ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false ) {  
  	global $post, $orgseries;
 	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
@@ -55,21 +56,24 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		$series_post = get_objects_in_term($ser, 'series'); 
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE);
 		if ( 'widget' == $referral ) {
-			$result .= '<h4>' . __('Other posts belonging to the Series: ', 'organize-series') . get_series_name($ser) . '</h4>';
+			if ($serieswidg_title != false)
+				$result .= '<h4>' . __($serieswidg_title, 'organize-series') . '</h4>';
 			$result .= '<ul>';
 		}
 		
-		foreach($posts_in_series as $seriespost) { 
+		foreach($posts_in_series as $seriespost) {
+			$short_title = get_post_meta($seriespost['id'], SPOST_SHORTTITLE_KEY, true);
 			if ($cur_id == $seriespost['id']) {
-				if ( 'widget' == $referral )
-					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
+				if ( 'widget' == $referral ) {
+					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
+				}
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
 				continue;
 			}
 			
 			if ( 'widget' == $referral )
-				$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
+				$result .= '<li>' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
 			else
 				$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
 		}
@@ -709,11 +713,14 @@ function series_description($series_id = 0) {
  * @param bool $linked - if true then the post will be linked to it's permalink page.
  * @return string $return - title text OR linked title text.
 */
-function series_post_title($post_ID, $linked=TRUE) {
+function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 	global $post;
 	if (!isset($post_ID))
 		$post_ID = (int)$post->ID;
-	$title = get_the_title($post_ID);
+	if(($short_title != false) && (!empty($short_title)))
+		$title = $short_title;
+	else
+		$title = get_the_title($post_ID);
 	if ($linked) {
 		$link = get_permalink($post_ID);
 		$return = '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';

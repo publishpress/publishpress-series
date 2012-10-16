@@ -357,7 +357,7 @@ function series_templates_core_fieldset() {
 					<br />
 					<strong><?php _e('Latest Series (tags after):', 'organize-series'); ?></strong><br />
 					<small><?php _e('Put here any html you want after latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_after_template']); ?></textarea><br />
+					<textarea name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_after_template']); ?></textarea><br />	
 				</div>
 			</div>
 		</div>

@@ -234,7 +234,10 @@ global $post, $postdata, $content, $orgseries;
 				<?php get_series_to_select(); ?>
 		</ul>
 		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo $ser_id[0]; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p>
+			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p></br>
+		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
+		<p id="part-description"><?php _e('A "short" title of the post that will be used in the series widget. [Leave blank to use a full title]', 'organize-series'); ?></p>
+		<input type="text" name="serie_post_shorttitle[<?php echo $ser_id[0]; ?>]" id="serie_post_shorttitle" size="40" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
 	<?php
 }
 

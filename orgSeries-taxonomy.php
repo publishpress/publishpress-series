@@ -473,6 +473,16 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? $_POST['series_part'] : array($_POST['series_part']);
 		if ( isset($_GET['series_part']) ) $series_part = is_array($_GET['series_part']) ? $_GET['series_part'] : array($_GET['series_part']);
 		
+		//The "short" title of the post that will be displayed  in the OrgSeries widget.
+		if ( isset($_POST['serie_post_shorttitle']) ) 
+			$post_shorttitle = $_POST['serie_post_shorttitle'];
+		if ( isset($_GET['serie_post_shorttitle']) ) 
+			$post_shorttitle = $_GET['serie_post_shorttitle'];
+		$st_ser_id = (int)$post_series[0];
+		$post_shorttitle = trim($post_shorttitle[$st_ser_id]);
+		delete_post_meta($post->ID, SPOST_SHORTTITLE_KEY);
+		add_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
+		
 		/*if ( $update_count_forward )
 			wp_update_term_count( $post_series, 'series', false);//*/
 			
