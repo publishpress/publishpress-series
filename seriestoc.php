@@ -18,9 +18,21 @@ get_header(); ?>
 
 		<div id="container">
 			<div id="content" role="main">
+			<div class="stocpagination"> <?php $per_page = 2; series_toc_paginate($per_page, 'series'); ?> </div>
+			
+			<?php
+				$page = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
+				$offset = ( $page-1 ) * $per_page;
+				$referral = false;
+				$args = array(
+					'number' => $per_page,
+					'offset' => $offset,
+					'hide_empty' => 0
+				);
+				wp_serieslist_display($referral, $args); 
+			?>
 
-			<?php wp_serieslist_display(); ?>
-
+			<div class="stocpagination"> <?php series_toc_paginate($per_page, 'series'); ?> </div>
 			</div><!-- #content -->
 		</div><!-- #container -->
 

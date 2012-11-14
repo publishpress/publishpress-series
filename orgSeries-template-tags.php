@@ -338,6 +338,37 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 	}
 }
 
+/**
+* series_toc_paginate() - Will do the pagination for queried terms of selected custom taxonomy.
+*
+* @package Organize Series WordPress Plugin
+* 
+* @param int $per_page  Indicates how many terms are displayed per page.
+* @param string $the_taxonomy  Indicates the taxonomy for which the page links will be generated.
+* @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
+* @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
+*/
+function series_toc_paginate($per_page, $the_taxonomy, $prev = "<< ", $next = " >>") {
+	global $wp_query, $wp_rewrite;
+	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
+	$total_terms = wp_count_terms($the_taxonomy);
+	$max_num_pages = ceil($total_terms/$per_page);;
+	$pagination = array(
+		'base' => @add_query_arg('paged','%#%'),
+		'format' => '',
+		'total' => $max_num_pages,
+		'current' => $current,
+		'prev_text' => __($prev),
+		'next_text' => __($next),
+		'type' => 'plain'
+	);
+	if( $wp_rewrite->using_permalinks() )
+		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 'pg', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+	if( !empty($wp_query->query_vars['pg']) )
+		$pagination['add_args'] = array( 'pg' => get_query_var( 'pg' ) );
+	echo paginate_links( $pagination );
+}
+
 //series navigation strip on single-post display pages.
 /**
  * wp_series_nav() - assembles the links for the next or previous post links.
