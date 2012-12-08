@@ -1,4 +1,4 @@
-organize-series
+Organize Series
 ===============
 
 A WordPress plugin for managing the article series you write.
