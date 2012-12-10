@@ -59,6 +59,9 @@ function orgseries_validate($input) {
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
+	
+	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', $input['series_perp_toc']));
+	
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
 	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
 	$newinput['orgseries_api'] = trim($input['orgseries_api']);
@@ -279,6 +282,11 @@ function series_automation_core_fieldset() {
 					<strong><?php _e('Series Table of Contents URL:', 'organize-series'); ?></strong><br />
 					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
 					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', 'organize-series'); ?></em></small><br /><br />
+					
+					<strong><?php _e('Series Per Page:', 'organize-series'); ?></strong>
+					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo htmlspecialchars($org_opt['series_perp_toc']); ?>" /><br />
+					<small><em><?php _e('Set how many series you want per page on the Series TOC Page.', 'organize-series'); ?></em></small><br /><br />
+					
 					<strong><?php _e('Series Custom Base:', 'organize-series'); ?></strong><br />
 					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />
 					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages. NOTE: This ONLY applies when you have "Permalinks" enabled in WordPress', 'organize-series'); ?></em></small><br /><br />
