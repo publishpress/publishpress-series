@@ -17,7 +17,7 @@ class orgSeries {
 	
 	//__constructor
 	function orgSeries() {
-		global $wp_version, $wp_query, $wp_the_query;
+		global $wp_version;
 		
 		// WordPress version check
 		if ( version_compare($wp_version, '3.0', '<'))
