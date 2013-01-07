@@ -333,15 +333,58 @@ function wp_serieslist_display_code( $series, $referral = false, $display = true
  * @param array ($args) This is so you can indicate various paramaters for what series you want displayed (see get_series for the description of the possible args).
 */ 
 function wp_serieslist_display( $referral = false, $args='' ) {  
+	global $orgseries;
+	$options = $orgseries->settings;
+	$per_page = $options['series_perp_toc'];
+	$page = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
+	$offset = ( $page-1 ) * $per_page;
+	
 	$defaults = array (
+		'number' => $per_page,
+		'offset' => $offset,
 		'hide_empty' => 1
 	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$series_list = get_series($args);
-	
+
 	foreach ($series_list as $series) {  
 		wp_serieslist_display_code($series, $referral); //layout code
 	}
+}
+
+/**
+* series_toc_paginate() - Will do the pagination for queried terms of selected custom taxonomy.
+*
+* @package Organize Series WordPress Plugin
+* 
+* @param int $per_page  Indicates how many terms are displayed per page.
+* @param string $the_taxonomy  Indicates the taxonomy for which the page links will be generated.
+* @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
+* @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
+*/
+function series_toc_paginate($prev = "<< ", $next = " >>") {
+	global $wp_query, $wp_rewrite, $orgseries;
+	$options = $orgseries->settings;
+	$per_page = $options['series_perp_toc'];
+	
+	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
+	$total_terms = wp_count_terms('series');
+	$max_num_pages = ceil($total_terms/$per_page);;
+	$pagination = array(
+		'base' => @add_query_arg('paged','%#%'),
+		'format' => '',
+		'total' => $max_num_pages,
+		'current' => $current,
+		'prev_text' => __($prev),
+		'next_text' => __($next),
+		'type' => 'plain'
+	);
+	if( $wp_rewrite->using_permalinks() )
+		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 'pg', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+	if( !empty($wp_query->query_vars['pg']) )
+		$pagination['add_args'] = array( 'pg' => get_query_var( 'pg' ) );
+	echo paginate_links( $pagination );
 }
 
 //series navigation strip on single-post display pages.

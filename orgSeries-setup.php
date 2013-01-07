@@ -239,6 +239,7 @@ class orgSeries {
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
+			'series_perp_toc' => 3,
 			'series_toc_title' => __('Series Table of Contents << ','organize-series'),
 		//new template options
 			'orgseries_api' => '',
