@@ -649,7 +649,7 @@ function wp_insert_series($series_id, $taxonomy_id) {
 	$series_icon_loc = '';
 	
 	extract($_POST, EXTR_SKIP);
-	$series_icon = isset($_POST['series-icon_loc']) ? $_POST['series_icon_loc'] : null;
+	$series_icon = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : null;
 	
 	if ( isset($series_icon) || $series_icon != '' ) {
 		$build_path = seriesicons_url();
