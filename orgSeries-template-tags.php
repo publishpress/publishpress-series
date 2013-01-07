@@ -357,13 +357,13 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 * @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
 * @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
 */
-function series_toc_paginate($the_taxonomy, $prev = "<< ", $next = " >>") {
+function series_toc_paginate($prev = "<< ", $next = " >>") {
 	global $wp_query, $wp_rewrite, $orgseries;
 	$options = $orgseries->settings;
 	$per_page = $options['series_perp_toc'];
 	
 	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
-	$total_terms = wp_count_terms($the_taxonomy);
+	$total_terms = wp_count_terms('series');
 	$max_num_pages = ceil($total_terms/$per_page);;
 	$pagination = array(
 		'base' => @add_query_arg('paged','%#%'),
