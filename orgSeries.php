@@ -80,6 +80,7 @@ define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying ser
 define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
+define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
 
 /*
