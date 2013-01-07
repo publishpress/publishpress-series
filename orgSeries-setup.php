@@ -261,7 +261,9 @@ class orgSeries {
 			'series_icon_width_latest_series' =>100,
 			//series posts order options
 			'series_posts_orderby' => 'meta_value',
-			'series_posts_order' => 'ASC'
+			'series_posts_order' => 'ASC',
+			//series meta style options
+			'series_css_tougle' => 'default'
 			);
 			
 			$this->settings = apply_filters('org_series_settings', $this->settings);
@@ -441,11 +443,23 @@ class orgSeries {
 	// Add .css to header if enabled via options
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
+		$css_style_type = $this->settings['series_css_tougle'];
 		if ($this->settings['custom_css']) {
-			$csspath = $plugin_path.'orgSeries.css';
-			$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
-		} else {
-			$text = '';
+			if ($css_style_type == 'default') {
+				$csspath = $plugin_path.'orgSeries.css';
+				$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+			}
+			if($css_style_type == 'dark') {
+				wp_register_style('dark-style', plugins_url('orgSeriesDarkTheme.css', __FILE__));
+				wp_enqueue_style('dark-style');
+			}
+			if($css_style_type == 'light') {
+				wp_register_style('light-style', plugins_url('orgSeriesLightTheme.css', __FILE__));
+				wp_enqueue_style('light-style');
+			}
+		}
+		else {
+				$text = '';
 		}
 		echo $text;
 	}

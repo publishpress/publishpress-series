@@ -15,3 +15,17 @@ jQuery(document).ready(function($) {
             document.series_options.submit();
         });
 });
+
+jQuery(document).ready(function($) {
+	$('#custom_css').click(function(e) {
+		var is_checked = $('input#custom_css').is(':checked');
+		
+		if (is_checked) {
+			$("input[class='css_style']").attr('disabled', false);
+		}
+		
+		if (!is_checked) {
+			$("input[class='css_style']").attr('disabled', true);
+		}
+	});
+});
