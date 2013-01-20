@@ -112,7 +112,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$showseriestoc = $instance['seriestocdisplay-toggle'] ? '1' : '0';
 		$series_args = $args = apply_filters('widget_seriestoc_args', array('orderby' => 'name', 'show_count' => $c, 'hide_empty' => $e, 'echo' => false, 'name' => 'orgseries_dropdown'));
 		$title = $instance['title'];
-		if (count($instance['serieswidget-title']) > 0)
+		if (isset($instance['serieswidget-title']) && count($instance['serieswidget-title']) > 0)
 			$widget_title = $instance['serieswidget-title'];
 		else
 			$widget_title = false;
