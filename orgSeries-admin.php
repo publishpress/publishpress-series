@@ -122,7 +122,7 @@ function admin_ajax_series() {
 	if ( !isset($response['error'] ) ) {
 		$response = array(
 			'id' => $series_id,
-			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
+			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /><input type='hidden' name='is_series_save' value='1' /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
 			'new_nonce' => $new_nonce,
 			'error' => false
 			);
@@ -134,9 +134,10 @@ function admin_ajax_series() {
 ###AJAX FOR INLINE_SERIES UPDATE###
 function admin_inline_series_ajax() {
 	check_ajax_referer ( 'inlineeditnonce', '_inline_edit' );
-	$data[$seriesid] = $_POST['post_series'];
-	$data[$series_part] = $_POST['series_part'];
-	$data[$id] = $_POST['series_post_id'];
+	$data[$seriesid] = isset($_POST['post_series']) ? $_POST['post_series'] : '';
+	$data[$series_part] = isset($_POST['series_part']) ? $_POST['series_part'] : '';
+	$data[$id] = isset($_POST['series_post_id']) ? $_POST['series_post_id'] : '';
+	$data[$is_series_save] = isset($_POST['is_series_save']) ? $_POST['is_series_save'] : 0;
 	/*$series_id = $_POST['post_series'];
 	$part = $_POST['series_part'];
 	$post_id = $_POST['series_post_id'];*/
@@ -208,6 +209,7 @@ function write_series_list( $series ) { //copied from write_nested_categories in
 			echo '<li id="series-'. $serial['series_ID'].'"><label for="in-series-'. $serial['series_ID']. '" class="selectit"><input value="' .  $serial['series_ID'] .  '" type="radio" name="post_series" id="in-series-' .  $serial['series_ID'] .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 			
 		}
+		echo '<input type="hidden" name="is_series_save" value="1" />';
 }
 
 /**
@@ -238,6 +240,7 @@ global $post, $postdata, $content, $orgseries;
 		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
 		<p id="part-description"><?php _e('A "short" title of the post that will be used in the series widget. [Leave blank to use a full title]', 'organize-series'); ?></p>
 		<input type="text" name="serie_post_shorttitle[<?php echo $ser_id[0]; ?>]" id="serie_post_shorttitle" size="40" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
+		<input type="hidden" name="is_series_save" value="1" />
 	<?php
 }
 

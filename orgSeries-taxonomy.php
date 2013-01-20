@@ -437,7 +437,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || !isset($_REQUEST['post_series'] ) ) {
+	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || !isset($_REQUEST['is_series_save'] ) ) {
 		return;
 	}
 	//echo $post->post_status;
@@ -479,7 +479,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 			$post_shorttitle = $_POST['serie_post_shorttitle'];
 		if ( isset($_GET['serie_post_shorttitle']) ) 
 			$post_shorttitle = $_GET['serie_post_shorttitle'];
-		$st_ser_id = (int) $post_series[0];
+		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : '';
 		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
 		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
 		
