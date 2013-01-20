@@ -436,7 +436,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) ) {
+	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || ( !isset($_POST['post_series']) || !isset($_GET['post_series']) ) ) {
 		return;
 	}
 	//echo $post->post_status;
