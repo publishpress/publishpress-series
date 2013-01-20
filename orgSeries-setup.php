@@ -443,22 +443,24 @@ class orgSeries {
 	// Add .css to header if enabled via options
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
-		$css_style_type = $this->settings['series_css_tougle'];
+		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
+		$text = '';
 		if ($this->settings['custom_css']) {
-			if ($css_style_type == 'default') {
-				$csspath = $plugin_path.'orgSeries.css';
-				$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+			switch ( $css_style_type ) {
+				case 'dark':
+					wp_register_style('dark-style', plugins_url('orgSeriesDarkTheme.css', __FILE__));
+					wp_enqueue_style('dark-style');
+					break;
+				case 'light':
+					wp_register_style('light-style', plugins_url('orgSeriesLightTheme.css', __FILE__));
+					wp_enqueue_style('light-style');
+					break;
+				default:
+					$csspath = $plugin_path.'orgSeries.css';
+					$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
 			}
-			if($css_style_type == 'dark') {
-				wp_register_style('dark-style', plugins_url('orgSeriesDarkTheme.css', __FILE__));
-				wp_enqueue_style('dark-style');
-			}
-			if($css_style_type == 'light') {
-				wp_register_style('light-style', plugins_url('orgSeriesLightTheme.css', __FILE__));
-				wp_enqueue_style('light-style');
-			}
-		}
-		else {
+
+		} else {
 				$text = '';
 		}
 		echo $text;
