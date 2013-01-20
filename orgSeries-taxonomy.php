@@ -62,7 +62,8 @@ function &get_series($args = '') {
 }
 	
 function &get_orgserial($orgserial, $output = OBJECT, $filter = 'raw') {
-		return get_term($orgserial, 'series', $output, $filter);
+		$serie = get_term($orgserial, 'series', $output, $filter);
+		return $serie;
 }
 
 
