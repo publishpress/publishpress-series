@@ -265,6 +265,7 @@ function series_automation_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
+	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	?>
 	<div class="metabox-holder">	
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
@@ -280,9 +281,9 @@ function series_automation_core_fieldset() {
 					<small><em><?php _e('Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]', 'organize-series'); ?></em></small>
 					<br />
 					&emsp;<em><?php _e('.css style for:', 'organize-series'); ?></em><br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $org_opt['series_css_tougle']); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> <br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $org_opt['series_css_tougle']); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> <br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $org_opt['series_css_tougle']); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> <br />
+					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> <br />
+					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> <br />
+					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> <br />
 					<br />
 					<strong><?php _e('Series Table of Contents URL:', 'organize-series'); ?></strong><br />
 					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
