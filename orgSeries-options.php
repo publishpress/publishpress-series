@@ -266,6 +266,7 @@ function series_automation_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
+	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 	?>
 	<div class="metabox-holder">	
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
@@ -290,7 +291,7 @@ function series_automation_core_fieldset() {
 					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', 'organize-series'); ?></em></small><br /><br />
 					
 					<strong><?php _e('Series Per Page:', 'organize-series'); ?></strong>
-					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo htmlspecialchars($org_opt['series_perp_toc']); ?>" /><br />
+					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo (int) ($series_perp_toc); ?>" /><br />
 					<small><em><?php _e('Set how many series you want per page on the Series TOC Page.', 'organize-series'); ?></em></small><br /><br />
 					
 					<strong><?php _e('Series Custom Base:', 'organize-series'); ?></strong><br />
