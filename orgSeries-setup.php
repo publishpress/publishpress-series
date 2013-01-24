@@ -43,10 +43,10 @@ class orgSeries {
 		add_filter('wp_title', array(&$this, 'seriestoc_title'));
 		
 		//series post list box
-		add_action('the_content', array(&$this, 'add_series_post_list_box'));
+		add_action('the_content', array(&$this, 'add_series_post_list_box'), 12);
 		
 		//series meta strip
-		add_filter('the_content', array(&$this, 'add_series_meta'));
+		add_filter('the_content', array(&$this, 'add_series_meta'), 12);
 		add_filter('get_the_excerpt', array(&$this, 'orgseries_trim_excerpt'),1);
 		add_filter('the_excerpt', array(&$this, 'add_series_meta_excerpt'));
 		
