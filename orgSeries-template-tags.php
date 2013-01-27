@@ -362,8 +362,6 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 *
 * @package Organize Series WordPress Plugin
 * 
-* @param int $per_page  Indicates how many terms are displayed per page.
-* @param string $the_taxonomy  Indicates the taxonomy for which the page links will be generated.
 * @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
 * @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
 */

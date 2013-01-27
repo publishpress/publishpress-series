@@ -18,11 +18,11 @@ get_header(); ?>
 
 		<div id="container">
 			<div id="content" role="main">
-			<div class="stocpagination"> <?php series_toc_paginate('series'); ?> </div>
+			<div class="stocpagination"> <?php series_toc_paginate(); ?> </div>
 			
 			<?php wp_serieslist_display(); ?>
 
-			<div class="stocpagination"> <?php series_toc_paginate('series'); ?> </div>
+			<div class="stocpagination"> <?php series_toc_paginate(); ?> </div>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
