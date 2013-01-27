@@ -24,9 +24,10 @@
 * @param int $ser_ID The ID of the series we want to list the posts from.
 * @param bool|string  $referral  options are 'widget' | false.  Indicates what the referring location for calling this function is.  If 'widget' then widget specific code is applied. Defaults to false.
 * @param bool $display Indicates whether to return the post list (false) or to echo the post list (true).  Defaults to false.
+* @param bool|string $serieswidg_title The title for a list of other posts in the series displayed in widget.
 * @return string The post list as a assembled string ready for display (if $display is false)
 */
-function get_series_posts( $ser_ID = array(), $referral = false, $display = false ) {  
+function get_series_posts( $ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false ) {  
  	global $post, $orgseries;
 	if ( is_single() )
 		$cur_id = $post->ID; //to get the id of the current post being displayed.
@@ -58,14 +59,17 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE, $is_unpub_template);
 		if ( 'widget' == $referral ) {
-			$result .= '<h4>' . __('Other posts belonging to the Series: ', 'organize-series') . get_series_name($ser) . '</h4>';
+			if ($serieswidg_title != false)
+				$result .= '<h4>' . __($serieswidg_title, 'organize-series') . '</h4>';
 			$result .= '<ul>';
 		}
 		
 		foreach($posts_in_series as $seriespost) {
+			$short_title = get_post_meta($seriespost['id'], SPOST_SHORTTITLE_KEY, true);
 			if ($cur_id == $seriespost['id']) {
-				if ( 'widget' == $referral )
-					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id']) . '</li>';
+				if ( 'widget' == $referral ) {
+					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
+				}
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
 				continue;
@@ -333,15 +337,55 @@ function wp_serieslist_display_code( $series, $referral = false, $display = true
  * @param array ($args) This is so you can indicate various paramaters for what series you want displayed (see get_series for the description of the possible args).
 */ 
 function wp_serieslist_display( $referral = false, $args='' ) {  
+	global $orgseries;
+	$options = is_object($orgseries) ? $orgseries->settings : null;
+	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5 ;
+	$page = ( get_query_var('paged') ) ? get_query_var( 'paged' ) : 1;
+	$offset = ( $page-1 ) * $per_page;
+	
 	$defaults = array (
+		'number' => $per_page,
+		'offset' => $offset,
 		'hide_empty' => 1
 	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$series_list = get_series($args);
-	
+
 	foreach ($series_list as $series) {  
 		wp_serieslist_display_code($series, $referral); //layout code
 	}
+}
+
+/**
+* series_toc_paginate() - Will do the pagination for queried terms of selected custom taxonomy.
+*
+* @package Organize Series WordPress Plugin
+* 
+* @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
+* @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
+*/
+function series_toc_paginate($prev = "<< ", $next = " >>") {
+	global $wp_query, $wp_rewrite, $orgseries;
+	$options = is_object($orgseries) ? $orgseries->settings : NULL;
+	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5;
+	$current = $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1;
+	$total_terms = (int) wp_count_terms('series', array('hide_empty' => true));
+	$max_num_pages = ceil($total_terms/$per_page);;
+	$pagination = array(
+		'base' => @add_query_arg('paged','%#%'),
+		'format' => '',
+		'total' => (int) $max_num_pages,
+		'current' => $current,
+		'prev_text' => $prev,
+		'next_text' => $next,
+		'type' => 'plain'
+	);
+	if( $wp_rewrite->using_permalinks() )
+		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 'pg', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+	if( !empty($wp_query->query_vars['pg']) )
+		$pagination['add_args'] = array( 'pg' => get_query_var( 'pg' ) );
+	echo paginate_links( $pagination );
 }
 
 //series navigation strip on single-post display pages.
@@ -715,11 +759,14 @@ function series_description($series_id = 0) {
  * @param bool $linked - if true then the post will be linked to it's permalink page.
  * @return string $return - title text OR linked title text.
 */
-function series_post_title($post_ID, $linked=TRUE) {
+function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 	global $post;
 	if (!isset($post_ID))
 		$post_ID = (int)$post->ID;
-	$title = get_the_title($post_ID);
+	if(($short_title != false) && (!empty($short_title)))
+		$title = $short_title;
+	else
+		$title = get_the_title($post_ID);
 	if ($linked) {
 		$link = get_permalink($post_ID);
 		$return = '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';

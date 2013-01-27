@@ -112,6 +112,10 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$showseriestoc = $instance['seriestocdisplay-toggle'] ? '1' : '0';
 		$series_args = $args = apply_filters('widget_seriestoc_args', array('orderby' => 'name', 'show_count' => $c, 'hide_empty' => $e, 'echo' => false, 'name' => 'orgseries_dropdown'));
 		$title = $instance['title'];
+		if (isset($instance['serieswidget-title']) && count($instance['serieswidget-title']) > 0)
+			$widget_title = $instance['serieswidget-title'];
+		else
+			$widget_title = false;
 		$out = '';
 		if ( $showseriestoc ) {
 			if ( $instance['list-type'] == 'list' ) {
@@ -128,7 +132,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		if ( $showpostlist ) {
 			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
 				if ( $showseriestoc ) $out .= '<br /><br />';
-				$out .= get_series_posts('','widget');	
+				$out .= get_series_posts('','widget', false, $widget_title);	
 				}
 		}
 		
@@ -145,6 +149,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		global $orgseries;
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['serieswidget-title'] = strip_tags($new_instance['serieswidget-title']);
 		$instance['list-type'] = strip_tags($new_instance['list-type']);
 		$instance['show-count'] = (int) $new_instance['show-count'];
 		$instance['hide-empty'] = (int) $new_instance['hide-empty'];
@@ -159,6 +164,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => __('Series', 'organize-series'),
+			'serieswidget-title' => __('Other posts in series:', 'organize-series'),
 			'list-type' => 'list',
 			'show-count' => 1,
 			'hide-empty' => 1,
@@ -166,6 +172,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			'seriestocdisplay-toggle' => 1
 		));
 		$title = esc_attr( $instance['title'] );
+		$widget_title =  esc_attr($instance['serieswidget-title']);
 		$list_type = $instance['list-type'];
 		$show_count = $instance['show-count'];
 		$hide_empty = $instance['hide-empty'];
@@ -190,12 +197,18 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(use to select if a list of other posts in the series will show on posts that are part of a series', 'organize-series'); ?>
+			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(toggle if a list of other posts in the series will show on posts that are part of a series)', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series?', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('serieswidget-title'); ?>"><strong><?php _e('Series widget title:', 'organize-series'); ?></strong><br />
+			<small><?php _e('Put a text here to display it as a title of other posts in the series displayed in widget.', 'organize-series'); ?></small><br />
+			<input class="widefat" id="<?php echo $this->get_field_id('serieswidget-title'); ?>" name="<?php echo $this->get_field_name('serieswidget-title'); ?>" type="text" value="<?php echo $widget_title; ?>" /></label><br />
 		</p>
 		
 		<?php

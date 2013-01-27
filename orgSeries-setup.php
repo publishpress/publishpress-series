@@ -43,10 +43,10 @@ class orgSeries {
 		add_filter('wp_title', array(&$this, 'seriestoc_title'));
 		
 		//series post list box
-		add_action('the_content', array(&$this, 'add_series_post_list_box'));
+		add_action('the_content', array(&$this, 'add_series_post_list_box'), 12);
 		
 		//series meta strip
-		add_filter('the_content', array(&$this, 'add_series_meta'));
+		add_filter('the_content', array(&$this, 'add_series_meta'), 12);
 		add_filter('get_the_excerpt', array(&$this, 'orgseries_trim_excerpt'),1);
 		add_filter('the_excerpt', array(&$this, 'add_series_meta_excerpt'));
 		
@@ -239,6 +239,7 @@ class orgSeries {
 			'auto_tag_seriesmeta_toggle' => 1, //sets the auto-tag insertions for the series-meta information in posts that are part of a series.
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
+			'series_perp_toc' => 3,
 			'series_toc_title' => __('Series Table of Contents << ','organize-series'),
 		//new template options
 			'orgseries_api' => '',
@@ -260,7 +261,9 @@ class orgSeries {
 			'series_icon_width_latest_series' =>100,
 			//series posts order options
 			'series_posts_orderby' => 'meta_value',
-			'series_posts_order' => 'ASC'
+			'series_posts_order' => 'ASC',
+			//series meta style options
+			'series_css_tougle' => 'default'
 			);
 			
 			$this->settings = apply_filters('org_series_settings', $this->settings);
@@ -280,8 +283,10 @@ class orgSeries {
 		}
 		$custom_base = $series_toc_qv;
 		$cb_reg_ex = $settings['series_toc_url'].'\z';
+		$cb_reg_ex_page = $settings['series_toc_url'].'/page/?([0-9]{1,})/?$';
 		$new_rules = array( 
-			$cb_reg_ex => 'index.php?'.$series_toc_qv.'=series_toc' 
+			$cb_reg_ex => 'index.php?'.$series_toc_qv.'=series_toc',
+			$cb_reg_ex_page => 'index.php?'.$series_toc_qv.'=series_toc&paged=$matches[1]'
 			);
 		$the_rules = $new_rules + $the_rules;
 		return $the_rules;		
@@ -440,11 +445,25 @@ class orgSeries {
 	// Add .css to header if enabled via options
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
+		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
+		$text = '';
 		if ($this->settings['custom_css']) {
-			$csspath = $plugin_path.'orgSeries.css';
-			$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+			switch ( $css_style_type ) {
+				case 'dark':
+					wp_register_style('dark-style', plugins_url('orgSeriesDarkTheme.css', __FILE__));
+					wp_enqueue_style('dark-style');
+					break;
+				case 'light':
+					wp_register_style('light-style', plugins_url('orgSeriesLightTheme.css', __FILE__));
+					wp_enqueue_style('light-style');
+					break;
+				default:
+					$csspath = $plugin_path.'orgSeries.css';
+					$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+			}
+
 		} else {
-			$text = '';
+				$text = '';
 		}
 		echo $text;
 	}
