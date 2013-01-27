@@ -2,9 +2,11 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.3
-Tested up to: 3.4.2
-Stable tag: 2.4.3
+Requires at least: 3.4
+Tested up to: 3.5.1
+Stable tag: 2.4.4
+License: GPLv2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A plugin for managing the article series you write.
 
@@ -24,7 +26,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.3.9, Organize Series *requires* WordPress 3.3+ to work. Organize Series also requires PHP 5.2+.**
+**As of version 2.4.4, Organize Series *requires* WordPress 3.4+ to work. Organize Series also requires PHP 5.2+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
 
 **ALSO**: If you are upgrading make sure you read the upgrade notes.
 
@@ -45,7 +47,7 @@ I STRONGLY recommend that you take note of any changes you may have made on the 
 
 
 = Other Notes =
-If you customized the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy the file over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.
+If you customized the included `seriestoc.php` file (for Series Table of Contents Page) to fit your site theme better make sure you copy the file over to your theme directory so future upgrades of Organize Series won't overwrite your customizations.  The `seriestoc.php` file is already setup to work with the WordPress Twenty Twelve theme.
 
 That's it!  You might want to read through the Series Options page (as a submenu item under 'options') and the Manage->Series Page.  You'll also notice that your "write/edit" posts page now has a handy dandy series box on it for adding your posts to a series (and creating new series on the fly).
 
@@ -64,7 +66,7 @@ You sure can!  Just create a file called `taxonomy-series.php` and copy the code
 Yup.  Create a file named `taxonomy-series-{series-slug}.php` file and replace `{series-slug}` with the slug of your series and you'll be good to go!
 
 **Hang on, what I really want is to create a page that lists all the series available. You probably don't have that available do you?**
-Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
+Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series-toc\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
 
 **Wow there are sure a lot of features and ways of customizing the Organize Series plugin.  However I'm wondering can you put in ___________ feature?**
 Over the last couple of years I've received numerous requests for extra features for Organize Series and have done some custom development work for clients who have the resources to hire me to add stuff.  I simply have not had the time to write up all the features that people request without getting paid for it. Here's the thing though, there's been some really good ideas and I realize that not everyone is able to afford what it costs for custom development.  So I decided what I'd do is move to a pay-as-you-go model for new features.  I've created a website for [Organize Series](http://organizeseries.com) where you'll find all kinds of different add-ons to Organize Series that you can purchase and use along with the core plugin. You'll want to head on over there and see if there's anything you are looking for.  I've priced the add-ons at a low price so new features are more accessible to those of you who can't afford custom development work and yet still provides a way for me to get paid for the work I've done.  It's a win-win!!  You'll also want to check out the basic-support package available as well.
@@ -189,6 +191,24 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.4 =
+Alot of fixes and a couple new features with this release!  We're also a bit late, but we've tested Organize Series with WordPress 3.5 (and 3.5.1) and verified that everything works well with the latest verison of WP. Read on for the goods.
+
+**Bug Fixes**
+
+* Fixed an issue with the Jetpack plugin that caused the series-meta strip to disappear on single post pages when the Jetpack sharing module was enabled.
+* Fixed an issue where the Series icon (image) was not getting saved on the first save while creating a new series on the Manage series page.
+* Various minor compatibility fixes for WordPress 3.5 (and 3.5.1)
+* Various fixing up of PHP notice/warnings throughout the plugin. (8 fixes)
+* A problem with posts losing series information when saved within the Editorial Calendar plugin exposed an issue with how series information is saved with posts.  This was fixed and will apply to any plugins that use `apply_filters('save_post')`
+
+
+**Features**
+
+* **Paging on Series Table of Contents page**  This is been a much requested feature and we're pleased to make it available.  This release introduces a new option in the series options page for setting how many series are displayed in the table of contents.  As well, we've released a new template function `series_toc_paginate()` that allows you to indicate where you want the pagination links displayed.  You can see an example of the new function in the updated `seriestoc.php` file included with Organize Series.  Note: if you are using permalinks, make sure you regenerate your permalinks either by saving the series options page or visiting the WordPress permalinks setting page and saving the permalinks.  That will flush the wp_rewrite array and make sure paging works as expected.
+*  **Ability to change "Other Posts in Series..." text in Series TOC widget** This is another requested feature from users.  Basically in the Series Table of Contents widget, you now have the ability to modify the text that is displayed in the widget when a single post belonging to a series is viewed.  Some users have been using Organize Series for "Issues", or "Chapters" and this allows you to keep the language consistent.
+* **More css styling options** Eventually we're going to have an addon available that allows you to style series elements in the backend.  In the meantime, we've dropped in a couple of .css options for you to try with your theme.  One is for dark themes, and one is for light themes, and then there remains the default one that has always been included with Organize Series.  You can try out and select the new .css options via the Series Options page.
 
 = 2.4.3 = 
 Sorry folks... I released 2.4.2 with some bugs that needed fixed.  If you're not using the Organize Series Custom Post Type addon you don't need to upgrade but if you plan on purchasing and using it then you need this version of Organize Series.
@@ -406,12 +426,3 @@ Another bugfix release
 * Introduced with 2.2.1 was a bug where get_seriestoc() would not return the correct permalink for the series toc in certain cases.  This is fixed in 2.2.2
 
 * Fixed conflict with wp-hide-posts plugin. 	
-
-= 2.2.1 =
-This is a bugfix release
-
-* Fixed series archive bug:  When series_custom_base and series_toc_url were the same (as set on the series options page) then any links to specific series archive pages would load the series-toc page.  With this fix it is possible to have both set as the same without any problems.  (**NOTE:** After upgrading make sure to visit your series options page and make sure the custom_base and series_toc_url are set.  If not you will have problems with your sites rss feeds.)
-
-* Fixed scheduled post bug:  This bug affected scheduled posts that were a part of a series that lost all series information when they transitioned to a published post.  
-
-* Fixed draft and pending posts bug:  This bug affected posts that were saved as a draft or pending and then later published.  When published the "total parts in series" count would not increment.
