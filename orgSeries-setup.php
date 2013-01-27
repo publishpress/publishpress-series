@@ -283,8 +283,10 @@ class orgSeries {
 		}
 		$custom_base = $series_toc_qv;
 		$cb_reg_ex = $settings['series_toc_url'].'\z';
+		$cb_reg_ex_page = $settings['series_toc_url'].'/page/?([0-9]{1,})/?$';
 		$new_rules = array( 
-			$cb_reg_ex => 'index.php?'.$series_toc_qv.'=series_toc' 
+			$cb_reg_ex => 'index.php?'.$series_toc_qv.'=series_toc',
+			$cb_reg_ex_page => 'index.php?'.$series_toc_qv.'=series_toc&paged=$matches[1]'
 			);
 		$the_rules = $new_rules + $the_rules;
 		return $the_rules;		

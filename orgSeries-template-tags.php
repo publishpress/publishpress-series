@@ -367,19 +367,18 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 */
 function series_toc_paginate($prev = "<< ", $next = " >>") {
 	global $wp_query, $wp_rewrite, $orgseries;
-	$options = is_object($orgseries->settings) ? $orgseries->settings : NULL;
+	$options = is_object($orgseries) ? $orgseries->settings : NULL;
 	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5;
-	
-	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
-	$total_terms = wp_count_terms('series');
+	$current = $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1;
+	$total_terms = (int) wp_count_terms('series');
 	$max_num_pages = ceil($total_terms/$per_page);;
 	$pagination = array(
 		'base' => @add_query_arg('paged','%#%'),
 		'format' => '',
-		'total' => $max_num_pages,
+		'total' => (int) $max_num_pages,
 		'current' => $current,
-		'prev_text' => __($prev),
-		'next_text' => __($next),
+		'prev_text' => $prev,
+		'next_text' => $next,
 		'type' => 'plain'
 	);
 	if( $wp_rewrite->using_permalinks() )
