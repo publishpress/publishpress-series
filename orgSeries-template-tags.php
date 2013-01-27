@@ -370,7 +370,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>") {
 	$options = is_object($orgseries) ? $orgseries->settings : NULL;
 	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5;
 	$current = $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1;
-	$total_terms = (int) wp_count_terms('series');
+	$total_terms = (int) wp_count_terms('series', array('hide_empty' => true));
 	$max_num_pages = ceil($total_terms/$per_page);;
 	$pagination = array(
 		'base' => @add_query_arg('paged','%#%'),
