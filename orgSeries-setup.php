@@ -30,7 +30,7 @@ class orgSeries {
 		add_action('plugins_loaded', array(&$this, 'add_settings'), 10);
 		add_action('init', array(&$this, 'register_textdomain'));
 		add_action('init', array(&$this, 'register_taxonomy'),0);
-		add_action('init', array(&$this, 'register_scripts'));
+		add_action('admin_enqueue_scripts', array(&$this, 'register_scripts'));
 		add_action('init', array(&$this, 'maybe_fix_upgrade'));
 		add_filter('rewrite_rules_array', array(&$this,'seriestoc_rewrite_rules'));
 		//add_action('init', array($this, 'rewrite_rules'));
@@ -38,7 +38,7 @@ class orgSeries {
 		add_filter('query_vars', array(&$this,'orgSeries_add_queryvars'));
 		add_action('template_redirect', array(&$this,'orgSeries_toc_template')); //setsup the seriestoc url
 					
-		add_action('wp_head', array(&$this, 'orgSeries_header'));
+		add_action('wp_enqueue_scripts', array(&$this, 'orgSeries_header'));
 		add_action( 'wp_footer', array(&$this, 'series_dropdown_js'), 1 );
 		add_filter('wp_title', array(&$this, 'seriestoc_title'));
 		
