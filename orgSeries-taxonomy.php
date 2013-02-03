@@ -694,6 +694,7 @@ function inline_edit_series($column_name, $type) {
 			<span><?php _e('Part:', 'organize-series'); ?></span>
 			<input size="3" type="text" name="series_part" class="series_part"  />
 			<input type="hidden" name="series_post_id" class="series_post_id"  />
+			<input type="hidden" name="is_series_save" value="1" />
 		
 		
 	</div></div></fieldset>

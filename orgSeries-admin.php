@@ -209,7 +209,6 @@ function write_series_list( $series ) { //copied from write_nested_categories in
 			echo '<li id="series-'. $serial['series_ID'].'"><label for="in-series-'. $serial['series_ID']. '" class="selectit"><input value="' .  $serial['series_ID'] .  '" type="radio" name="post_series" id="in-series-' .  $serial['series_ID'] .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 			
 		}
-		echo '<input type="hidden" name="is_series_save" value="1" />';
 }
 
 /**
@@ -269,16 +268,18 @@ function orgSeries_custom_column_action($column_name, $id) {
 	$seriesid = null;
 	$series_part = null;
 	$series_name = null;
+	$column_content = null;
 	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 	
 	if ($column_name == 'series') {
+		$column_content .= '<div class="series_column">';
+		$column_content .= '<input type="hidden" name="is_series_save" value="1" />';
 		if ( $series = get_the_series($id, false) ) {
 			$seriesid = $series[0]->term_id;
 			$series_name = $series[0]->name;
 			$series_link = get_series_link($series_name);
 			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
 			$count = $series[0]->count;
-			$column_content = '';
 			
 			$draft_posts = get_posts( array(
 				'post_type'	=> $post_types,
@@ -293,20 +294,19 @@ function orgSeries_custom_column_action($column_name, $id) {
 				$drafts_included = "($all_serie_posts)";
 			}
 			
-				if ($series && get_post_status($id) == 'publish') {
-					$column_content = '<div class="series_column">'.sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
-					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
-					echo  $column_content;  
+			if ($series && get_post_status($id) == 'publish') {
+					$column_content .= sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
+					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
 				} else {
-					$column_content = '<div class="series_column">'.sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
-					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div></div>';
-					echo $column_content;
+					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
+					$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
 				}
-			} else {
-				$column_content = '<div class="series_column"><div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
-				$column_content .= '<em>'.__('No Series', 'organize-series').'</em></div>';
-				echo $column_content;
-			}
+		} else {
+			$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
+			$column_content .= '<em>'.__('No Series', 'organize-series').'</em>';
+		}
+		$column_content .= '</div>';
+		echo $column_content;
 	} 
 }
 
