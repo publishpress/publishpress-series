@@ -8,10 +8,6 @@
 	display: inline;
 }
 
-#seriesdiv input {
-	border: none;
-}
-
 #seriesdiv ul {
 	list-style: none;
 	padding: 0;
