@@ -434,6 +434,7 @@ function wp_set_post_series_draft_transition( $post ) {
 	
 function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
+	$post_shorttitle = array();
 
 	
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
