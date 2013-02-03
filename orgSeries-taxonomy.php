@@ -453,6 +453,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 	 } else {
 		$post_series = is_array($series_id) ? $series_id : array($series_id);
 	}
+
 	
 	$post_series = os_strarr_to_intarr($post_series);
 	if ( empty($post_series) || (count($post_series) >= count($old_series)) ) {
@@ -492,7 +493,7 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
 		$p_status = $post->post_status;
 		if($p_status != 'draft' && $p_status != 'future' && $p_status != 'pending')
-			$ispublished = TRUE;
+			$is_published = TRUE;
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
@@ -503,8 +504,9 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 				$p_ser_edit[] = $ser; //these are the series we need to set the parts for (leave the rest alone when we get to this section).
 			}
 		}
-				
-		/*print_r($count);
+		
+		/*var_dump($p_status);		
+		print_r($count);
 		print_r(' AND ');
 		print_r($c_chk);
 		exit; /**/
