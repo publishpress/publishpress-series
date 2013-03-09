@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**As of version 2.3.9, Organize Series *requires* WordPress 3.3+ to work. Organize Series also requires PHP 5.2+.**
+**As of version 2.4.4, Organize Series *requires* WordPress 3.4+ to work. Organize Series also requires PHP 5.2+.**
 
 **IMPORTANT LINKS**
 
@@ -191,6 +191,17 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.5 =
+A few fixes in this release
+
+**Bug Fixes**
+
+* fix for the issue where editing a post caused the series to reorder itself (see the report [here](http://code.roughsmootheng.in/redirect?http://wordpress.org/support/topic/on-editing-a-post-the-series-reorders-it-self?replies=3#post-3806479))
+* fix style issue for text field in "Post Title in Widget" series meta box.
+* fixed some "undefined offset" errors when adding a new post (seen with WP_DEBUG on)
+* fix for issue where a post could not be removed from a series via Quick Edit, which also fixed adding posts to a series in quick edit
+* changed the method for loading orgseries css styles/scripts to properly use wp_enqueue_scripts hook.
 
 = 2.4.4 =
 Alot of fixes and a couple new features with this release!  We're also a bit late, but we've tested Organize Series with WordPress 3.5 (and 3.5.1) and verified that everything works well with the latest verison of WP. Read on for the goods.
