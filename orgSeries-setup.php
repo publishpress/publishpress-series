@@ -125,7 +125,7 @@ class orgSeries {
 			$settings = get_option('org_series_options');
 			
 			if ( empty($settings['series_custom_base']) ) {
-				$settings['series_custom_base'] = SERIES_QUERY_VAR;
+				$settings['series_custom_base'] = SERIES_QUERYVAR;
 			} else {
 				$settings['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $settings['series_custom_base']);
 			}
