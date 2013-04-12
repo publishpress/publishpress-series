@@ -223,7 +223,7 @@ class orgSeries {
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
-			'query_var' => $taxonomy,
+			'query_var' => true,
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );
 	}
