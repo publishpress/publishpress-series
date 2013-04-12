@@ -125,13 +125,13 @@ class orgSeries {
 			$settings = get_option('org_series_options');
 			
 			if ( empty($settings['series_custom_base']) ) {
-				$settings['series_custom_base'] = 'series';
+				$settings['series_custom_base'] = SERIES_QUERY_VAR;
 			} else {
 				$settings['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $settings['series_custom_base']);
 			}
 			
 			if ( empty($settings['series_toc_url'] ) ) {
-				$settings['series_toc_url'] = 'series';
+				$settings['series_toc_url'] = SERIES_TOC_QUERYVAR;
 			} else {
 				$settings['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $settings['series_toc_url']);
 			}
@@ -196,7 +196,8 @@ class orgSeries {
 	
 	function register_taxonomy() {
 		$permalink_slug = $this->settings['series_custom_base'];
-		$taxonomy = 'series';
+		$taxonomy = SERIES_QUERYVAR;
+		$taxonomy_name = 'series';
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
 			'manage_terms' => 'manage_series',
@@ -224,7 +225,7 @@ class orgSeries {
 			'capabilities' => $capabilities,
 			'query_var' => $taxonomy,
 			);
-		register_taxonomy( $taxonomy, $object_type, $args );
+		register_taxonomy( $taxonomy_name, $object_type, $args );
 	}
 
 	function add_settings($reset = false) {
@@ -385,7 +386,7 @@ class orgSeries {
 			if (seriesdropdown) {
 				function onSeriesChange() {
 					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-						location.href = "<?php echo get_option('home'); ?>/?series="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+						location.href = "<?php echo get_option('home'); ?>/?<?php echo SERIES_QUERYVAR; ?>="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
 					}
 				}
 				seriesdropdown.onchange = onSeriesChange;
@@ -413,7 +414,7 @@ class orgSeries {
 	
 	function sort_series_page_join($join) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars['series'] == 0 ) || $wp_query->is_search ) return $join;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $join;
 		$os_join = " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
 		$join .= apply_filters('orgseries_sort_series_page_join', $os_join);
 		return $join;
@@ -421,7 +422,7 @@ class orgSeries {
 
 	function sort_series_page_where($where) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars['series'] == 0 ) || $wp_query->is_search ) return $where;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $where;
 		$part_key = SERIES_PART_KEY;
 		$os_where = " AND orgmeta.meta_key = '$part_key' ";
 		$where .= apply_filters('orgseries_sort_series_page_where', $os_where);
@@ -430,7 +431,7 @@ class orgSeries {
 
 	function sort_series_page_orderby($ordering) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars['series'] == 0 ) || $wp_query->is_search ) return $ordering;
+		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $ordering;
 		$settings = $this->settings;
 		$orderby = $settings['series_posts_orderby'];
 		if ( $orderby == 'meta_value' )

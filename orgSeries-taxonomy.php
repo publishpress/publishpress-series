@@ -322,7 +322,7 @@ function wp_dropdown_series( $args ) {
 		'hide_empty' => 1, 'child_of' => 0,
 		'exclude' => '', 'echo' => 1,
 		'selected' => 0, 'hierarchical' => 0,
-		'name' => 'series', 'id' => '',
+		'name' => SERIES_QUERYVAR, 'id' => '',
 		'class' => 'postform', 'depth' => 0,
 		'tab_index' => 0, 'taxonomy' => 'series',
 		'hide_if_empty' => false, 'context' => 'normal'
