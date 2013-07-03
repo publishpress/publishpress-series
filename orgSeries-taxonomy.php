@@ -7,7 +7,7 @@ In most cases, the series functions listed here are just "wrappers" to save havi
 /**
  * get_the_series() - calls up all the series info from the taxonomy tables (for a particular post).
 */	
-function get_the_series( $id = false, $cache = true ) { 
+function get_the_series( $id = false, $cache = true ) {
 	global $post, $term_cache;
 	
 	$id = (int) $id;
@@ -85,6 +85,18 @@ function delete_series_post_relationship($postid) {
 	return;
 }
 
+//this will reorder the series parts when a post of a serie is moved to trash.
+function reset_series_order_on_trash($postid) {
+	$id = (int) $postid;
+	$series = get_the_series($id);
+	
+	if ( !empty($series) ) {  //let's not waste any cycles
+		foreach ( $series as $ser ) {
+			wp_reset_series_order_meta_cache($id, $ser->term_id);
+		}
+	}
+}
+
 //call up series post is associated with -- needed for the post-edit panel specifically.
 function wp_get_post_series( $post_id = 0, $args = array() ) {
 	$post_id = (int) $post_id;
@@ -95,110 +107,146 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 }
 
 //function to set the order that the post is in a series.
-function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) { 
+function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, 'series');
 	$series_posts = array(); 
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false); 
+	$parts_array = array();
  	
-	if ($is_published) {
+	if ( $is_published ) {
 		$total_posts = count($series_posts) + 1;
-	}
-	else{
+	} else {
 		$total_p_posts = 0;
-		foreach($series_posts as $s_p){
+		foreach ( $series_posts as $s_p ) {
 			$s_pid = $s_p['id'];
 			$spost_status = get_post($s_pid)->post_status;
-			if($spost_status != 'draft' && $spost_status != 'future' && $spost_status!='pending')
+			if ( $spost_status != 'draft' && $spost_status != 'future' && $spost_status!='pending' ) {
 				$total_p_posts++;
+			}
 		}
 		$total_posts = $total_p_posts + 1;
 	}
 	
-	if (!isset($total_posts) || (($total_posts < $series_part) && !$is_published) || $series_part ==  0 || $total_posts == 1) {
-		if ($total_posts >=1) 
-			$series_part = $total_posts;
-	} 
-            
+	$unpub_count = 0;
+	foreach ( $series_posts as $sposts ) {
+		$spostid = $sposts['id'];
+		$spost_status = get_post($spostid)->post_status;
+		if ( $spost_status == 'draft' || $spost_status == 'future' || $spost_status == 'pending' ) {
+			$unpub_count += 1;
+		}
+	}
+
+	$published_posts = $total_posts - $unpub_count;
+	if ( (isset($total_posts)) && ( ($published_posts < $series_part ) || $series_part <=  0 || $published_posts == 1 ) ) {
+		if ( ($published_posts >= 1) && $is_published ) {
+			$series_part = $published_posts;
+		}
+		if ( !$is_published ) {
+			$series_part = $total_posts + $unpub_count;
+		}
+	}
+
+	if ( $is_published ) {
+		array_push($parts_array, $series_part);
+	}
+
 	$ticker = 1;
-	$count = $total_posts;
+	$count = $published_posts;
 	$drop = false;
-	$is_published = false;
 	$oldpart = 0;
 	$rise = null;
-	if ($count >= 1) {
-		foreach ($series_posts as $sposts) {
+	if ( $count >= 1 ) {
+		foreach ( $series_posts as $sposts ) {
 			$currentpart = $sposts['part']; 
 			$spostid = $sposts['id'];
 			$spost_status = get_post($spostid)->post_status;
 			$is_was_rise = FALSE;
                         
-			if ($spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending')
-				$not_published = FALSE;
-			else
-				$not_published = TRUE;
+			if ( $spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending' ) {
+				$current_published = TRUE;
+			} else {
+				$current_published = FALSE;
+			}
 			
-			if(!$not_published && !$is_published)
+			if ( $current_published && $is_published ) {
 				$spost_pchange = TRUE;
-			else 
+			} else {
 				$spost_pchange = FALSE;
-			
-			if (($currentpart >= $count || $currentpart != $ticker) && ($currentpart > 1) && (($currentpart - $oldpart) > 1) && !$not_published){
-				$newpart = ($currentpart - 1);
+			}
+
+			$rise_part = $currentpart + 1;
+			$drop_part = $currentpart - 1;
+
+			if ( ($currentpart >= $count || $currentpart != $ticker) && ($currentpart > 1) && (($currentpart - $oldpart) > 1) && $current_published && !in_array($drop_part, $parts_array) ) {
+				$newpart = $drop_part;
 				$drop = TRUE;
 			}
-			
-			if (( $ticker >= 1) && ( $series_part > 2 ) && ( ($series_part - $currentpart)  >= 1) && $drop  && $spost_pchange )  {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
-			}
-			
-			if ( (  $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count >= 2 ) && !$rise  && $spost_pchange ) {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
-			}
-			
-			if ( ( $ticker == 1 ) && ( $series_part == $currentpart ) && ( $series_part == 2 ) && !$rise  && $spost_pchange )  {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
-			}
+
+			if ( $spost_pchange ) {
+				if ( !in_array($drop_part, $parts_array) ) {
+					if ( ( $ticker >= 1) && ( $series_part > 2 ) && ( ($series_part - $currentpart) >= 1) && $drop ) {
+						$newpart = $drop_part;
+						$drop = TRUE;
+					}
+					
+					if ( ( $ticker == 1 ) && ( $currentpart == 2 ) && ($series_part != $currentpart) && ($count >= 2 ) && !$rise ) {
+						$newpart = $drop_part;
+						$drop = TRUE;
+					}
+					
+					if ( ( $ticker == 1 ) && ( $series_part == $currentpart ) && ( $series_part == 2 ) && !$rise ) {
+						$newpart = $drop_part;
+						$drop = TRUE;
+					}
+						
+					if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop ) {
+						$newpart = ($currentpart - 1);
+					}
+				}
+
+				if ( !in_array($rise_part, $parts_array) && ($currentpart != $count) ) {
+					if ( (($series_part == 1 ) && ($series_part >= $currentpart)) || (( $series_part == $currentpart ) && !$drop && ($currentpart - $oldpart) < 2) || (( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop && ($currentpart != $count)) ) {
+						$newpart = $rise_part;
+						$rise = TRUE;
+						$is_was_rise = TRUE;
+					}
+				}
 				
-			if ( ($series_part == $currentpart) && ( $series_part <= $count ) && ( $series_part > 1 ) && ($series_part != 2 ) && $drop  && $spost_pchange ) 
-				$newpart = ($currentpart - 1);
-			
-			if (( (($series_part == 1 ) && ($series_part >= $currentpart)) || (( $series_part == $currentpart ) && !$drop && ($currentpart - $oldpart) < 2) || (( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop && ($currentpart != $count)) ) && $spost_pchange && $currentpart != $count) {
-				$newpart = ($currentpart + 1);
-				$rise = TRUE;
-				$is_was_rise = TRUE;
-			}
-			
-			if(!$is_was_rise && $is_published)
-				$rise = TRUE;
-			
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($series_part != 1) && !$drop && !$rise && $spost_pchange ) {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
-			}
+				if ( !$is_was_rise && $is_published ) {
+					$rise = TRUE;
+				}
 				
-			if ( ($series_part == $currentpart) && ($series_part > ( $count - 2 ) ) && ($ticker == $count ) && ($series_part != 1) && !$rise  && $spost_pchange ) {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
+				if ( !in_array($drop_part, $parts_array) ) {	
+					if ( ($series_part == $currentpart) && ( $series_part > ( $count - 2 ) ) ) {
+						if ( ($series_part != 1) && !$drop && !$rise ) {
+							$newpart = $drop_part;
+							$drop = TRUE;
+						}
+						if ( ($ticker == $count ) && ($series_part != 1) && !$rise ) {
+							$newpart = $drop_part;
+							$drop = TRUE;
+						}
+					}
+						
+					if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1)) ) {
+						$newpart = $drop_part;
+						$drop = TRUE;
+					}
+				}
 			}
-			
-			if (!isset($newpart)) 
+
+			if ( !isset($newpart) ) {
 				$newpart = $currentpart;
-				
-			if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1)) && $spost_pchange ) {
-				$newpart = ($currentpart - 1);
-				$drop = TRUE;
 			}
 			
 			$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 			delete_post_meta($spostid, $series_part_key); 
 			add_post_meta($spostid, $series_part_key, $newpart);
-			if (!$not_published){
+			if ( $current_published ) {
 				$ticker++;
 				$oldpart = $newpart;
+				array_push($parts_array, $newpart);
 			}
 			unset($newpart);
 		}
@@ -234,7 +282,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	}
 	
 	foreach ($series_posts as $spost) {
-                                    $spost_status = get_post($spost['id'])->post_status;
+        $spost_status = get_post($spost['id'])->post_status;
 		if($spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending'){
 			$newpart = $addvalue;
 			delete_post_meta($spost['id'], $series_part_key);
@@ -415,7 +463,7 @@ function wp_list_series($args = '') {
 	return $output;
 }
 
-function wp_set_post_series_transition( $post ){
+function wp_set_post_series_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
@@ -492,8 +540,9 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 	exit;/**/
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
 		$p_status = $post->post_status;
-		if($p_status != 'draft' && $p_status != 'future' && $p_status != 'pending')
+		if ( $p_status != 'draft' && $p_status != 'future' && $p_status != 'pending' ) {
 			$is_published = TRUE;
+		}
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
@@ -542,23 +591,27 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 	$success = wp_set_object_terms($post_ID, $post_series, 'series');
 	
 	if ( empty($p_ser_edit) ) return; //let's get out we've done everything we need to do.
+	
 	if ( $success ) {
-		if($p_status == 'draft' || $p_status == 'future' || $p_status == 'pending')
+		if ( $p_status != 'draft' && $p_status != 'future' && $p_status != 'pending' ) {
 			$is_published = TRUE;
+		}
 		foreach ( $p_ser_edit as $ser_id ) {
 			if ( empty($series_part[$ser_id]) ) {
 				$s_pt = wp_series_part($post_ID, $ser_id);
 				if ( !$series_part ) $series_part = 0;
 			} 
 			//If post is not published its part stays as set by user
-			elseif(!$is_published) {
+			elseif ( !$is_published ) {
 				$s_pt = $series_part[$ser_id];
 			}
-			else{
-				if (isset($_GET['submit']))
+			else {
+				if ( isset($_GET['submit']) ) {
 					$set_spart = $_GET['series_part'];
-				else
+				}
+				else {
 					$set_spart =  $_POST['series_part'];
+				}
 				$s_pt = $set_spart[$ser_id];
 			}
 			/*print_r($s_pt);
@@ -626,7 +679,7 @@ function wp_create_single_series($series_name) {
 	return wp_insert_term( $series_name, 'series' );
 }
 
-function wp_create_series($series, $post_id = '') { 
+function wp_create_series($series, $post_id = '') {
 	$series_ids = '';
 	if ($id = series_exists($series) ) 
 		$series_ids = $id;
@@ -735,7 +788,9 @@ add_action('save_post','wp_set_post_series',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',10,1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
-add_action('delete_post','delete_series_post_relationship',1);
+add_action('delete_post','delete_series_post_relationship', 1);
+add_action('trash_post', 'reset_series_order_on_trash', 1);
+add_action('untrash_post', 'reset_series_order_on_trash', 1);
 
 //hooking into insert_term, update_term and delete_term 
 add_action('created_series', 'wp_insert_series',1, 2);
