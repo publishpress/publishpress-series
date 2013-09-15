@@ -108,7 +108,7 @@ class orgSeries {
 			icon VARCHAR(100) NOT NULL,
 			PRIMARY KEY term_id (term_id)
 		);";
-		require_once( ABSPATH . 'wp-admin/upgrade-functions.php' );
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
 	}
 	
