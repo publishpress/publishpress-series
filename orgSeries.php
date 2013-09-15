@@ -97,4 +97,5 @@ require_once($plugin_path . 'orgSeries-template-tags.php');
 require_once($plugin_path . 'orgSeries-utility.php');
 require_once($plugin_path . 'orgSeries-widgets.php');
 require_once($plugin_path . 'orgSeries-manage.php');
+require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
 ?>
