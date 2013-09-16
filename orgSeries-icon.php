@@ -14,7 +14,7 @@ function default_seriesicons_upload() {
 */
 function series_get_icons($series) {
 	global $wpdb;
-	$tablename = $wpdb->prefix . 'orgSeriesIcons';
+	$tablename = $wpdb->prefix . 'orgseriesicons';
 	
 	if ($row = $wpdb->get_row( $wpdb->prepare("SELECT icon FROM $tablename WHERE term_id=%d", $series) ) ) {
 		return $row->icon;
@@ -76,7 +76,7 @@ function stripslaghes_gpc_arr(&$arr) {
 */
 function seriesicons_write($series, $icon) {
 	global $wpdb;
-	$tablename = $wpdb->prefix . 'orgSeriesIcons'; 
+	$tablename = $wpdb->prefix . 'orgseriesicons'; 
 	
 	if ( empty($series)  || '' == $series || empty($icon) || '' == $icon )	return false;
 		
@@ -98,7 +98,7 @@ function seriesicons_write($series, $icon) {
 */
 function seriesicons_delete($series) {
 	global $wpdb;
-	$tablename = $wpdb->prefix . 'orgSeriesIcons';
+	$tablename = $wpdb->prefix . 'orgseriesicons';
 	
 	if ( empty($series)  || '' == $series  )	return false;
 
