@@ -268,7 +268,7 @@ class PluginUpdateEngineChecker {
 	function in_plugin_update_message($plugin_data) {
 		$plugininfo = $this->json_error;
 		//only display messages if there is a new version of the plugin.
-		if ( !isset($plugininfo) && empty($plugininfo) ) {
+		if ( empty($plugininfo) || !is_object( $plugininfo )  ) {
 			return false; //get out no data to display
 		}
 

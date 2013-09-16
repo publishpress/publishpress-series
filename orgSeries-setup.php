@@ -76,6 +76,9 @@ class orgSeries {
 			update_option('org_series_version', '2.2.9');
 			$this->update('2.2.9');
 		}
+
+		if ( $version_chk != $this->version )
+			update_option( 'orgseries_version', $this->version );
 		return;
 	}
 	
@@ -98,19 +101,17 @@ class orgSeries {
 			update_option( 'org_series_version', $this->version );
 		} else {
 			add_option("org_series_version", $this->version);
-		}
+		}/**/
 		
 	//create table for series icons
-	$table_name = $wpdb->prefix . "orgSeriesIcons";
-	if( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
-		$sql = "CREATE TABLE " . $table_name . " (
-			term_id INT NOT NULL,
-			icon VARCHAR(100) NOT NULL,
-			PRIMARY KEY term_id (term_id)
+	$table_name = $wpdb->prefix . "orgseriesicons";
+	$sql = "CREATE TABLE $table_name (
+		term_id INT NOT NULL,
+		icon VARCHAR(100) NOT NULL,
+		PRIMARY KEY  (term_id)
 		);";
-		require_once( ABSPATH . 'wp-admin/upgrade-functions.php' );
-		dbDelta( $sql );
-	}
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
 	
 	add_option( 'series_icon_path', '' );
 	add_option( 'series_icon_url', '' );
@@ -120,6 +121,8 @@ class orgSeries {
 	//function for all updates
 	function update($version) {
 		global $wpdb;
+
+
 		//upgrading from 2.2
 		if ( $version == '2.2'  || $version < '2.2') {
 			$settings = get_option('org_series_options');

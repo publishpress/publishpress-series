@@ -12,7 +12,7 @@ Author URI: http://www.unfoldingneurons.com
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 
-$os_version = '2.4.5';
+$os_version = '2.4.6-dev';
 ######################################
 
 ######################################
@@ -97,4 +97,5 @@ require_once($plugin_path . 'orgSeries-template-tags.php');
 require_once($plugin_path . 'orgSeries-utility.php');
 require_once($plugin_path . 'orgSeries-widgets.php');
 require_once($plugin_path . 'orgSeries-manage.php');
+require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
 ?>
