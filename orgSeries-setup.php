@@ -105,7 +105,7 @@ class orgSeries {
 	$sql = "CREATE TABLE $table_name (
 		term_id INT NOT NULL,
 		icon VARCHAR(100) NOT NULL,
-		UNIQUE KEY  term_id (term_id)
+		PRIMARY KEY  (term_id)
 	);";
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
