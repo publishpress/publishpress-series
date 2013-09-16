@@ -16,7 +16,7 @@ if ( $delete_series == 1 ) {
 	
 	$meta_key = "'%_series_part%'";
 	$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $meta_key) );
-	$table_name = $wpdb->prefix . "orgSeriesIcons";
+	$table_name = $wpdb->prefix . "orgseriesicons";
 	$drop_query = "DROP TABLE ". $table_name;
 	$wpdb->query( $drop_query );
 	delete_option('org_series_options');
