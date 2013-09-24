@@ -470,6 +470,8 @@ class orgSeries {
 	
 	//add series post-list box to a post in that series (on single.php view)
 	function add_series_post_list_box($content) {
+		if ( is_front_page() )
+			return $content;
 		if ($this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
 				$addcontent = $content;
@@ -481,9 +483,12 @@ class orgSeries {
 	
 	//add series meta information to posts that belong to a series.
 	function add_series_meta($content) {
+		if ( is_front_page() )
+			return $content;
 		if($this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$addcontent = $content;
+
 				$content = str_replace('%postcontent%', $addcontent, $series_meta);
 			}
 		}
@@ -508,6 +513,8 @@ class orgSeries {
 	
 	//add series navigation strip to posts that are part of a series (on single.php view)
 	function series_nav_filter($content) {
+		if ( is_front_page() )
+			return $content;
 		if (is_single() || is_page() ) {
 			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 				$addcontent = $content;
