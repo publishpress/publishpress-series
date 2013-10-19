@@ -97,9 +97,9 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	}
 		
 	if( stristr($replace, '%series_icon%') ) 
-	$replace = str_replace('%series_icon%', get_series_icon('fit_width=' .  $ser_width . '&link=0&series=' . $ser_id . '&display=0'), $replace);
+	$replace = str_replace('%series_icon%', get_series_icon('fit_width=' .  $ser_width . '&link=0&' . SERIES_QUERYVAR . '=' . $ser_id . '&display=0'), $replace);
 	if( stristr($replace, '%series_icon_linked%') ) 
-	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width= ' . $ser_width . '&series=' . $ser_id . '&display=0'), $replace);
+	$replace = str_replace('%series_icon_linked%', get_series_icon('fit_width= ' . $ser_width . '&' . SERIES_QUERYVAR . '=' . $ser_id . '&display=0'), $replace);
 	if( stristr($replace, '%series_title%') ) 
 	$replace = str_replace('%series_title%', the_series_title($ser_id, FALSE), $replace);
 	if( stristr($replace, '%series_title_linked%') ) 

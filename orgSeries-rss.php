@@ -18,7 +18,7 @@ function get_series_rss_link($echo = false, $series_id = '') {
 	if ( $series_id == '' ) return;
 	
 	if ( '' == $permalink_structure ) {
-		$link = get_option('home') . '?feed=rss2&amp;series=' . $series_id;
+		$link = get_option('home') . '?feed=rss2&amp;' . SERIES_QUERYVAR . '=' . $series_id;
 	} else {
 		$link = get_series_link($series_id);
 		$link = trailingslashit($link) . user_trailingslashit('feed', 'feed');
