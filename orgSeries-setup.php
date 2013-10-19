@@ -226,7 +226,7 @@ class orgSeries {
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
-			'query_var' => true,
+			'query_var' => $this->settings['series_custom_base'],
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );
 	}
@@ -274,7 +274,8 @@ class orgSeries {
 			update_option('org_series_options', $this->settings);
 			return true;
 		}
-		
+		if ( !defined('SERIES_QUERYVAR') )
+			define('SERIES_QUERYVAR', $this->settings['series_custom_base'] );  // get/post variable name for querying series from WP
 		return false;
 	}
 	
