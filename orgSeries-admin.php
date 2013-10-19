@@ -331,7 +331,7 @@ function add_series_to_right_now() {
 	$num_series = wp_count_terms('series');
 	$num = number_format_i18n( $num_series );
 	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
-	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=series';
+	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
 	if ( current_user_can( 'manage_series' ) ) {
 		$series_num = "<a href='$manage_link'>$num</a>";
 		$series_text = "<a href='$manage_link'>$text</a>";
