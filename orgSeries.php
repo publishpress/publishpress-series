@@ -75,8 +75,8 @@ $org_series_loc = $plugin_url;
 define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
 define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.
-define('SERIES_PATH', $plugin_path); //the path of the orgSeries files
-define('SERIES_QUERYVAR', 'series');  // get/post variable name for querying series from WP
+define('SERIES_PATH', $plugin_path); //the path of the orgSeries file
+//note 'SERIES_QUERY_VAR' is now defined in orgSeries class.
 define('SERIES_TOC_QUERYVAR', 'series-toc'); //get/post variable name for querying series-toc from WP
 define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
