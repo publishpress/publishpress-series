@@ -229,7 +229,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 						}
 					}
 						
-					if ( isset($oldpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1)) ) {
+					if ( isset($oldpart) && isset($newpart) && ($newpart - $oldpart) > 1 && !$drop && !$rise && ($newpart != ($count + 1)) ) {
 						$newpart = $drop_part;
 						$drop = TRUE;
 					}
