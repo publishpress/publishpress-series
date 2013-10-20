@@ -184,7 +184,7 @@ function get_series_toc( $link = TRUE ) {
  *
  * @return int $postlist_count - The number of posts in a series.
 */
-function wp_postlist_count($ser_id = false, $calc = false) {  
+function wp_postlist_count($ser_id = false, $calc = false) { 
 	if (!$ser_id && !$calc) 
 		return false; //need the $ser_id to caculate the number of posts in the series.
 	
@@ -566,6 +566,7 @@ function latest_series($display = true, $args = '') {
  * @return string - the final constructed series link.
 */
 function get_series_link( $series_id = '' ) {
+	global $orgseries;
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 	if ( empty($series_id) || $series_id == null )
 		$series_slug = get_query_var(SERIES_QUERYVAR);
@@ -734,6 +735,7 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
  * @return string description text
 */
 function series_description($series_id = 0) {
+	global $orgseries;
 	if ( !$series_id ) {
 		$ser_var = get_query_var(SERIES_QUERYVAR);
 		$ser_var = term_exists( $ser_var, SERIES_QUERYVAR );
@@ -788,7 +790,7 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
  * @return bool true if displayed page is a series.
 */
 function is_series( $slug = '' ) { 
-	global $wp_query;
+	global $wp_query, $orgseries;
 	$series = get_query_var(SERIES_QUERYVAR);
 	
 	if ( (!is_null($series) && ($series != '')) || (isset($wp_query->is_series) && $wp_query->is_series ))
@@ -845,11 +847,12 @@ function is_seriestoc() {
  * @return mixed|bool|string Will return false if image is not found.  Will return string containing assembled html code for image if $display is false.  Will echo image if the $display param = true.
  */
  function get_series_icon($params='') {
+ 	global $orgseries;
 	parse_str($params, $p);
 	if (!isset($p['fit_width'])) $p['fit_width']=-1;
 	if (!isset($p['fit_height'])) $p['fit_height']=-1;
 	if (!isset($p['expand'])) $p['expand']=false;
-	if (!isset($p['series'])) $p['series']=$GLOBALS['SERIES_QUERYVAR']; 
+	if (!isset($p['series'])) $p['series']= get_query_var(SERIES_QUERYVAR); 
 	if (!isset($p['prefix'])) $p['prefix'] = '';
 	if (!isset($p['suffix'])) $p['suffix'] = '';
 	if (!isset($p['class'])) $p['class'] = 'series-icon-' . $p['series'];
@@ -904,6 +907,7 @@ function is_seriestoc() {
  * @return string $my_series_name
 */
 function single_series_title($prefix = '', $display = true) {
+	global $orgseries;
 	$series_id = get_query_var(SERIES_QUERYVAR);
 	$serchk = term_exists( $series_id, SERIES_QUERYVAR );
 	
