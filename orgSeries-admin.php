@@ -313,7 +313,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 function orgSeries_custom_manage_posts_filter() {
 	global $orgseries;
 	$series_name = '';
-	if (isset($_GET['series'])) $series_name = $_GET['series'];
+	if (isset($_GET[SERIES_QUERYVAR])) $series_name = $_GET[SERIES_QUERYVAR];
 		
 	wp_dropdown_series('show_option_all='.__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
 }
