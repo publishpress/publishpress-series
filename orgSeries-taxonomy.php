@@ -464,12 +464,12 @@ function wp_list_series($args = '') {
 }
 
 function wp_set_post_series_transition( $post ) {
-	remove_action('save_post', 'wp_set_post_series');
+	remove_action('save_post', 'wp_set_post_series', 10);
 	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	//$series_id = $ser_id[0];
-	wp_set_post_series( $post_ID, $post, $ser_id, true );
+	wp_set_post_series( $post_ID, $post, true, $ser_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
@@ -477,10 +477,10 @@ function wp_set_post_series_draft_transition( $post ) {
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	//$series_id = $ser_id[0];
-	wp_set_post_series($post_ID, $post, $ser_id, true);
+	wp_set_post_series($post_ID, $post, true, $ser_id, true);
 }
 	
-function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_skip = false, $is_published = false) {
+function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	$post_shorttitle = array();
 
@@ -496,12 +496,10 @@ function wp_set_post_series( $post_ID = 0, $post, $series_id = array(), $dont_sk
 	$old_series = wp_get_post_series($post_ID);
 	
 	if ( empty($series_id) ) { 
-		if (isset($_POST['post_series'])) $post_series = is_array($_POST['post_series']) ? $_POST['post_series'] : array($_POST['post_series']);
-		if (isset($_GET['post_series'])) $post_series = is_array($_GET['post_series']) ? $_GET['post_series'] : array($_GET['post_series']);
+		$post_series = isset( $_REQUEST['post_series'] ) && is_array($_REQUEST['post_series'] ) ? $_REQUEST['post_series'] : array($_REQUEST['post_series']);
 	 } else {
 		$post_series = is_array($series_id) ? $series_id : array($series_id);
 	}
-
 	
 	$post_series = os_strarr_to_intarr($post_series);
 	if ( empty($post_series) || (count($post_series) >= count($old_series)) ) {
@@ -679,20 +677,6 @@ function wp_create_single_series($series_name) {
 	return wp_insert_term( $series_name, 'series' );
 }
 
-function wp_create_series($series, $post_id = '') {
-	$series_ids = '';
-	if ($id = series_exists($series) ) 
-		$series_ids = $id;
-	elseif ($id = wp_create_single_series($series) )
-			$series_ids = $id;
-	
-	else $series_ids = $_POST['post_series'];
-	
-	if ($post_id)
-		wp_set_post_series($post_id, $series_ids);
-	
-	return $series_ids;
-}
 
 // note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
 function wp_delete_series($series_ID, $taxonomy_id) {
