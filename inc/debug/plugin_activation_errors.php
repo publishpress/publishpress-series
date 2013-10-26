@@ -5,10 +5,10 @@
  * 		@return void
  */
 function orgseries_plugin_activation_errors() {
-	if ( WP_DEBUG === TRUE ) {
+	if ( defined('WP_DEBUG') && WP_DEBUG === TRUE ) {
 		$errors = ob_get_contents();
-		file_put_contents( SERIES_PATH . 'inc/debug/logs/espresso_plugin_activation_errors.html', $errors );
-		update_option( 'orgseries_plugin_activation_errors', $errors );
+		if ( !empty( $errors ) )
+			update_option( 'orgseries_plugin_activation_errors', $errors );
 	}	
 }
 add_action( 'activated_plugin', 'orgseries_plugin_activation_errors' );
