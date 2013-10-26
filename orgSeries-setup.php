@@ -171,14 +171,14 @@ class orgSeries {
 	
 	function register_scripts() {
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
-		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'));  
-		wp_register_script( 'ajaxseries', $url.'series.js', array('jquery', 'jquery-ui-core', 'jquery-color'), '20120910' );
+		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);  
+		wp_register_script( 'ajaxseries', $url.'series.js', array('jquery', 'jquery-ui-core', 'jquery-color'), ORG_SERIES_VERSION, TRUE );
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => esc_attr(__('Add', 'organize-series')),
 				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series'),
 				'addnonce' => wp_create_nonce('add-series-nonce')
 			));
-		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'));
+		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, TRUE);
 	}
 	
 	function orgSeries_roles() {
