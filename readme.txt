@@ -20,7 +20,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 **As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. Organize Series also requires PHP 5.2+.**
 
-**NOTE: Organize Series has not been designed to be multisite compatible at this time.  Feel free to try on multi-site but at your own risk. **
+**NOTE: Organize Series has not been designed to be multisite compatible at this time.  Feel free to try on multi-site but at your own risk.**
 
 **IMPORTANT LINKS**
 
