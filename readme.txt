@@ -20,7 +20,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 **As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. Organize Series also requires PHP 5.2+.**
 
-**NOTE: Organize Series has not been designed to be multisite compatible at this time.  Feel free to try on multi-site but at your own risk. **
+**NOTE: Organize Series has not been designed to be multisite compatible at this time.  Feel free to try on multi-site but at your own risk.**
 
 **IMPORTANT LINKS**
 
@@ -436,27 +436,3 @@ Two more bug fixes:
 Display Bug Fix
 
 * version 2.2.3 had a bug that affected the display of series icons on public facing side of your website.  This has been fixed.
-
-
-= 2.2.3 =
-
-More bugfixes
-
-* made some fixes in the javascript for the quick-edit implementation so Organize Series plays nicely with other plugins that hook into the quick-edit.
-
-* fixed an incorrect path pointer that broke the series-options page for users with a custom WP_CONTENT_DIR set.
-
-* modified the function returning the series_icon_url so it works correctly for users with a custom WP_CONTENT_DIR and WP_CONTENT_PATH set.
-
-
-= 2.2.2 =
-
-Another bugfix release
-
-* Fixed query bug:  When series archive pages were displayed, any widgets or other plugins querying posts (using $wp_query) on the page would not display expected posts (i.e. "Recent Posts" widget, Alikivia Sideposts, "Kates Gasis' Sideblog" plugin).  The custom joins/wheres/orderbys used by Organize Series are now isolated to only occur for the series posts being displayed.  Other queries on the page should be unaffected now.
-
-* Cleaned up errors shown by setting wp_debug as true in the wp-config.php file. 
-
-* Introduced with 2.2.1 was a bug where get_seriestoc() would not return the correct permalink for the series toc in certain cases.  This is fixed in 2.2.2
-
-* Fixed conflict with wp-hide-posts plugin. 	
