@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.4
-Tested up to: 3.5.1
-Stable tag: 2.4.5.1
+Requires at least: 3.5
+Tested up to: 3.7
+Stable tag: 2.4.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,9 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
-**As of version 2.4.4, Organize Series *requires* WordPress 3.4+ to work. Organize Series also requires PHP 5.2+.**
+**As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. Organize Series also requires PHP 5.2+.**
+
+**NOTE: Organize Series has not been designed to be multisite compatible at this time.  Feel free to try on multi-site but at your own risk. **
 
 **IMPORTANT LINKS**
 
@@ -26,7 +28,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.4.4, Organize Series *requires* WordPress 3.4+ to work. Organize Series also requires PHP 5.2+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
+**As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. Organize Series also requires PHP 5.2+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
 
 **ALSO**: If you are upgrading make sure you read the upgrade notes.
 
@@ -39,7 +41,8 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
-* no special notes for this release
+
+* **DO NOT UPGRADE TO THIS RELEASE (2.4.6) UNLESS YOUR WORDPRESS INSTALLATION IS AT VERSION 3.7**
 
 **ALSO**
 
@@ -191,6 +194,26 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.6 =
+**DO NOT UPGRADE TO THIS RELEASE UNLESS YOUR INSTALL OF WORDPRESS IS AT VERSION 3.7**
+An important fix for WP3.7 users is included in this release. The bug affected being able to actually attach posts to a series (or update posts attached to a series).  Please upgrade asap if you are using WP3.7.  If you are on earlier installs of WordPress this version of Organize Series WILL not work - so make sure you update to WP3.7 before using this version.
+
+I pushed this release out sooner than planned because of the above bug so there are some things that I planned for this release that didn't make it in.  However, here's all the things that did make it in:
+
+* fix for saving posts to a series in WP3.7
+* fix for editing a post with a series using quick-edit clearing series info
+* some more series part numbering fixes (when series are draft or scheduled)
+* fix for adding existing post to an existing series not sticking
+* fix for organize series sometimes causing plugin activation errors for other plugins when they are activated
+* fix for improper enqueuing of Organize Series scripts and add cache busting so any changes replicate with new versions of Organize Series.
+* fix some PHP notices and warnings
+* fix for series icon not saving
+* remove display of series navigation on a static frontpage (ht [schneidr](https://github.com/schneidr) ) - this was [via a pull request on github](https://github.com/roughsmoothengine/organize-series/pull/4), [join the party!](https://github.com/roughsmoothengine/organize-series)
+
+**New Feature**
+
+* whatever is set as the "Series Custom Base" in the series options page not only becomes the series endpoint when permalinks are on but ALSO now the queryvar (`?series=`) when permalinks are off.  This gives a lot more flexibility for how "series" are referred to on your site (with the side effect of also being able to eliminate conflicts with other plugins using "series" as the query_var). 
 
 = 2.4.5 =
 A few fixes in this release
