@@ -864,8 +864,13 @@ function is_seriestoc() {
 		$serieslist = get_the_series($GLOBALS['post']->ID);
 		if ( is_array($serieslist) ) $p['series'] = $serieslist[0]->term_id;
 	}
+
+
+	$p['series'] = series_exists($p['series']);
 	
 	if (!isset($p['series'])) return;
+
+	//make sure we get the id for the series (in case just the slug is given
 		
 	$icon = series_get_icons($p['series']);
 	$s_name = get_series_name($p['series']);

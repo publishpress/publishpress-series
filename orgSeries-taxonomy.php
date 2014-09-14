@@ -640,6 +640,9 @@ function wp_delete_post_series_relationship( $id, $ser_id = 0 ) {
 
 ### taxonomy checks for series ####
 function series_exists($series_name) {
+
+	$series_name = is_numeric($series_name) ? (int) $series_name : $series_name;
+
 	$id = term_exists($series_name, 'series');
 	if ( is_array($id) )
 		$id = $id['term_id'];
