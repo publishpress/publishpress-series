@@ -54,7 +54,7 @@ function get_series_order($posts, $postid = 0, $series_id = 0, $skip = TRUE, $on
 	$meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 
 	foreach ($posts as $spost) {
-		if ( $spost->post_status == 'publish' || !$only_published ) {
+		if ( ( $spost->post_status == 'publish' || $spost->post_status == 'private' ) || !$only_published ) {
 
 			if ($skip && $spost->ID == $postid) {
 				continue;
@@ -204,5 +204,56 @@ function os_strarr_to_intarr($array) {
 
 function os_this_to_int(&$val, $key) {
 		$val = (int) $val;
+}
+
+
+
+/**
+ * Will update term count based on object types of series.
+ *
+ * Based off of _update_post_term_count but with the modification of including private post status for updating the count.
+ *
+ * @access private
+ * @since 2.4.7
+ * @uses $wpdb
+ *
+ * @param array $terms List of Term taxonomy IDs
+ * @param object $taxonomy Current taxonomy object of terms
+ */
+function _os_update_post_term_count( $terms, $taxonomy ) {
+	global $wpdb;
+
+	$object_types = (array) $taxonomy->object_type;
+
+	foreach ( $object_types as &$object_type )
+		list( $object_type ) = explode( ':', $object_type );
+
+	$object_types = array_unique( $object_types );
+
+	if ( false !== ( $check_attachments = array_search( 'attachment', $object_types ) ) ) {
+		unset( $object_types[ $check_attachments ] );
+		$check_attachments = true;
+	}
+
+	if ( $object_types )
+		$object_types = esc_sql( array_filter( $object_types, 'post_type_exists' ) );
+
+	foreach ( (array) $terms as $term ) {
+		$count = 0;
+
+		// Attachments can be 'inherit' status, we need to base count off the parent's status if so
+		if ( $check_attachments )
+			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts p1 WHERE p1.ID = $wpdb->term_relationships.object_id AND ( post_status IN ( 'publish', 'private' ) OR ( post_status = 'inherit' AND post_parent > 0 AND ( SELECT post_status FROM $wpdb->posts WHERE ID = p1.post_parent ) = 'publish' ) ) AND post_type = 'attachment' AND term_taxonomy_id = %d", $term ) );
+
+		if ( $object_types )
+			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts WHERE $wpdb->posts.ID = $wpdb->term_relationships.object_id AND post_status IN ( 'publish', 'private' ) AND post_type IN ('" . implode("', '", $object_types ) . "') AND term_taxonomy_id = %d", $term ) );
+
+		/** This action is documented in wp-includes/taxonomy.php */
+		do_action( 'edit_term_taxonomy', $term, $taxonomy );
+		$wpdb->update( $wpdb->term_taxonomy, compact( 'count' ), array( 'term_taxonomy_id' => $term ) );
+
+		/** This action is documented in wp-includes/taxonomy.php */
+		do_action( 'edited_term_taxonomy', $term, $taxonomy );
+	}
 }
 ?>
