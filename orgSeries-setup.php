@@ -172,7 +172,8 @@ class orgSeries {
 	function register_scripts() {
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);
-		wp_register_script( 'ajaxseries', $url.'series.js', array('jquery', 'jquery-ui-core', 'jquery-color'), ORG_SERIES_VERSION, TRUE );
+		$add_series_js = current_user_can( 'manage_series' ) ? 'series.js' : 'series-restricted.js';
+		wp_register_script( 'ajaxseries', $url.$add_series_js, array('jquery', 'jquery-ui-core', 'jquery-color'), ORG_SERIES_VERSION, TRUE );
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => esc_attr(__('Add', 'organize-series')),
 				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series'),

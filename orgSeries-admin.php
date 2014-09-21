@@ -110,16 +110,18 @@ function admin_ajax_series() {
 	$series_name = trim($name);
 	if ( !$series_nicename = sanitize_title($series_name) )
 		$response['error'] = __('The name you picked isn\'t sanitizing correctly. Try something different.', 'organize-series');
-	if ( !$series_id = series_exists( $series_name ) ) {
-		$ser_id = wp_create_single_series( $series_name );
-		$series_id = $ser_id['term_id'];
-	} else {
-		$response['error'] = __('Hmm... it looks like there is already a series with that name. Try something else', 'organize-series');
+	if (  empty( $response['error'] ) ) {
+		if ( !$series_id = series_exists( $series_name ) ) {
+			$ser_id = wp_create_single_series( $series_name );
+			$series_id = $ser_id['term_id'];
+		} else {
+			$response['error'] = __('Hmm... it looks like there is already a series with that name. Try something else', 'organize-series');
+		}
+
+		$series_name = esc_html(stripslashes($series_name));
 	}
 
-	$series_name = esc_html(stripslashes($series_name));
-
-	if ( !isset($response['error'] ) ) {
+	if ( empty( $response['error'] ) ) {
 		$response = array(
 			'id' => $series_id,
 			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /><input type='hidden' name='is_series_save' value='1' /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
