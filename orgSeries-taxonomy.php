@@ -114,19 +114,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false);
 	$parts_array = array();
 
-	if ( $is_published ) {
-		$total_posts = count($series_posts) + 1;
-	} else {
-		$total_p_posts = 0;
-		foreach ( $series_posts as $s_p ) {
-			$s_pid = $s_p['id'];
-			$spost_status = get_post($s_pid)->post_status;
-			if ( $spost_status != 'draft' && $spost_status != 'future' && $spost_status!='pending' ) {
-				$total_p_posts++;
-			}
-		}
-		$total_posts = $total_p_posts + 1;
-	}
+	$total_posts = count( $series_posts ) + 1;
 
 	$unpub_count = 0;
 	foreach ( $series_posts as $sposts ) {
@@ -143,16 +131,14 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 			$series_part = $published_posts;
 		}
 		if ( !$is_published ) {
-			$series_part = $total_posts + $unpub_count;
+			$series_part = $total_posts < $series_part ? $total_posts : $series_part;
 		}
 	}
 
-	if ( $is_published ) {
-		array_push($parts_array, $series_part);
-	}
+	array_push($parts_array, $series_part);
 
 	$ticker = 1;
-	$count = $published_posts;
+	$count = $total_posts;
 	$drop = false;
 	$oldpart = 0;
 	$rise = null;
@@ -163,17 +149,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 			$spost_status = get_post($spostid)->post_status;
 			$is_was_rise = FALSE;
 
-			if ( $spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending' ) {
-				$current_published = TRUE;
-			} else {
-				$current_published = FALSE;
-			}
-
-			if ( $current_published && $is_published ) {
-				$spost_pchange = TRUE;
-			} else {
-				$spost_pchange = FALSE;
-			}
+			$spost_pchange=TRUE;
+			$current_published = TRUE;
 
 			$rise_part = $currentpart + 1;
 			$drop_part = $currentpart - 1;
@@ -282,13 +259,12 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 	}
 
 	foreach ($series_posts as $spost) {
-        $spost_status = get_post($spost['id'])->post_status;
-		if($spost_status != 'draft' && $spost_status != 'future' && $spost_status != 'pending'){
-			$newpart = $addvalue;
-			delete_post_meta($spost['id'], $series_part_key);
-			add_post_meta($spost['id'], $series_part_key, $newpart);
-			$addvalue++;
-		}
+		$spost_status = get_post($spost['id'])->post_status;
+		$newpart = $addvalue;
+		delete_post_meta($spost['id'], $series_part_key);
+		add_post_meta($spost['id'], $series_part_key, $newpart);
+		$addvalue++;
+
 	}
 
 	return true;
@@ -465,10 +441,8 @@ function wp_list_series($args = '') {
 
 function wp_set_post_series_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series', 10);
-	//remove_action('publish_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	//$series_id = $ser_id[0];
 	wp_set_post_series( $post_ID, $post, true, $ser_id, true );
 }
 
@@ -476,7 +450,6 @@ function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	//$series_id = $ser_id[0];
 	wp_set_post_series($post_ID, $post, true, $ser_id, true);
 }
 
@@ -492,9 +465,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || !isset($_REQUEST['is_series_save'] ) ) {
 		return;
 	}
-	//echo $post->post_status;
-	/*if ( $post->post_status == 'draft' || $post->post_status == 'pending' || $post->post_status == 'future' )
-		$update_count_forward = true;//*/
+
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 
@@ -511,15 +482,9 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		$match = array_diff($old_series, $post_series);
 	}
 
-	/*var_dump($match);
-	exit;/**/
 
 	if (empty($post_series) || ( count($post_series) == 1 && $post_series[0] == 0 ) ) $post_series = array();
 
-	/*print_r($post_series);
-	print_r($old_series);
-	print_r($match);
-	exit;/**/ //for test of values in quick edit
 
 	if ( isset($_POST) || isset($_GET)) {
 		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? $_POST['series_part'] : array($_POST['series_part']);
@@ -534,11 +499,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
 		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
 
-		/*if ( $update_count_forward )
-			wp_update_term_count( $post_series, 'series', false);//*/
 
-	/*print_r($series_part);
-	exit;/**/
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
 		$p_status = $post->post_status;
 		if ( $p_status != 'draft' && $p_status != 'future' && $p_status != 'pending' ) {
@@ -547,19 +508,13 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip && $is_published) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip ) {
 				$c_chk++;
 				continue;
 			} else {
 				$p_ser_edit[] = $ser; //these are the series we need to set the parts for (leave the rest alone when we get to this section).
 			}
 		}
-
-		/*var_dump($p_status);
-		print_r($count);
-		print_r(' AND ');
-		print_r($c_chk);
-		exit; /**/
 
 		if ( $c_chk == $count && !empty($post_series) && count($post_series) == count($old_series) && !$dont_skip ) return;  //there are no changes so let's just skip the rest
 
@@ -575,9 +530,6 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 
 	foreach ( $old_series as $os_id ) {
 		if ( !in_array($os_id, $post_series) ) {
-			/*print_r('made it here');
-			print_r($os_id);
-			/**/
 			wp_delete_post_series_relationship($post_ID, $os_id);
 			}
 	}
@@ -615,8 +567,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 				}
 				$s_pt = $set_spart[$ser_id];
 			}
-			/*print_r($s_pt);
-			exit;/**/
+
 			set_series_order($post_ID, $s_pt, $ser_id, $is_published);
 		}
 
