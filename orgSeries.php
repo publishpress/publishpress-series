@@ -2,8 +2,8 @@
 /*
 Plugin Name: Organize Series
 Plugin URI: http://organizeseries.com
-Version: 2.4.6
-Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 3.4+ and PHP 5.2+ to work. 
+Version: 2.4.7
+Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series. This version of Organize Series Plugin requires at least WordPress 3.4+ and PHP 5.2+ to work.
 Author: Darren Ethier
 Author URI: http://www.unfoldingneurons.com
 */
@@ -12,7 +12,7 @@ Author URI: http://www.unfoldingneurons.com
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 
-$os_version = '2.4.6';
+$os_version = '2.4.7';
 ######################################
 
 ######################################
@@ -42,17 +42,17 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 */
 
 /**
- * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin. 
+ * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
  *
  * @package Organize Series WordPress Plugin
  * @since 2.2
  */
- 
+
 /**
   * Nifty function to get the name of the directory orgSeries is installed in.
 */
 function orgSeries_dir(){
-	if (stristr(__FILE__, '/') ) 
+	if (stristr(__FILE__, '/') )
 		$orgdir = explode('/plugins/', dirname(__FILE__));
 	else
 		$orgdir = explode('\\plugins\\', dirname(__FILE__));
@@ -65,8 +65,8 @@ $org_dir_name = orgSeries_dir();
 	// Guess the location
 $plugin_path = '';
 $plugin_url = '';
-$plugin_path = plugin_dir_path(__FILE__); 
-$plugin_url = plugins_url('', __FILE__).'/'; 
+$plugin_path = plugin_dir_path(__FILE__);
+$plugin_url = plugins_url('', __FILE__).'/';
 $org_series_loc = $plugin_url;
 
 /**
@@ -82,7 +82,7 @@ define('SERIES_URL', 'series'); //URL tag to use when querying series archive pa
 define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
 define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
-define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.   
+define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
 
 /*
 *include all related files here
@@ -91,7 +91,7 @@ define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP r
 require_once($plugin_path . 'orgSeries-setup.php');
 require_once($plugin_path . 'orgSeries-options.php');
 require_once($plugin_path . 'orgSeries-rss.php');
-require_once($plugin_path . 'orgSeries-admin.php'); 
+require_once($plugin_path . 'orgSeries-admin.php');
 require_once($plugin_path . 'orgSeries-icon.php');
 require_once($plugin_path . 'orgSeries-taxonomy.php');
 require_once($plugin_path . 'orgSeries-template-tags.php');
