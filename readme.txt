@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.5
-Tested up to: 3.7
-Stable tag: 2.4.6
+Requires at least: 3.7
+Tested up to: 4.0
+Stable tag: 2.4.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,21 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.7 =
+
+Along with verifying that Organize Series work with the latest WP version there are a couple bugfixes and an enhancement in this release.
+
+**Bugfixes**
+
+* fix bug where users without 'manage_series' capability were able to add additional series in the post editor.
+* fix numerous php notices and warnings with WP_DEBUG on.
+
+
+**Enhancements**
+
+* Series can now have their parts set on draft, private, and scheduled posts (and the parts will stick).
+
 
 = 2.4.6 =
 **DO NOT UPGRADE TO THIS RELEASE UNLESS YOUR INSTALL OF WORDPRESS IS AT VERSION 3.7**
