@@ -345,8 +345,7 @@ function wp_dropdown_series( $args ) {
 		'show_last_update' => 0, 'show_count' => 0,
 		'hide_empty' => 1, 'child_of' => 0,
 		'exclude' => '', 'echo' => 1,
-		'selected' => 0, 'hierarchical' => 0,
-		'name' => SERIES_QUERYVAR, 'id' => '',
+		'selected' => 0, 'hierarchical' => 0, 'name' => SERIES_QUERYVAR, 'id' => '',
 		'class' => 'postform', 'depth' => 0,
 		'tab_index' => 0, 'taxonomy' => 'series',
 		'hide_if_empty' => false, 'context' => 'normal'
@@ -372,6 +371,11 @@ function wp_dropdown_series( $args ) {
 	if ( (int) $tab_index > 0 )
 		$tab_index_attribute = " tabindex=\"$tab_index\"";
 
+	//remove $name from the get_terms() query because it means something different in 4.2, so we'll just exclude it
+	//from $r
+	if ( isset( $r['name'] ) ) {
+		unset( $r['name'] );
+	}
 	$series = get_terms( $taxonomy, $r );
 	$name = esc_attr( $name );
 	$class = esc_attr( $class );
