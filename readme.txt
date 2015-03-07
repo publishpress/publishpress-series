@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.7
-Tested up to: 4.0
-Stable tag: 2.4.7
+Tested up to: 4.2
+Stable tag: 2.4.8
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,13 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.8 =
+
+This release primarily ensures Organize Series is compatible with 4.2 (especially with some of the taxonomy api changes).
+
+* Fix broken series filter on posts page with WordPress 4.2
+* Ensure compatibility with taxonomy api changes coming with WordPress 4.2
 
 = 2.4.7 =
 
