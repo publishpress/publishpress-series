@@ -366,8 +366,9 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 *
 * @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
 * @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
+* @param string $type array
 */
-function series_toc_paginate($prev = "<< ", $next = " >>") {
+function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
 	global $wp_query, $wp_rewrite, $orgseries;
 	$options = is_object($orgseries) ? $orgseries->settings : NULL;
 	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5;
@@ -387,7 +388,15 @@ function series_toc_paginate($prev = "<< ", $next = " >>") {
 		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 'pg', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
 	if( !empty($wp_query->query_vars['pg']) )
 		$pagination['add_args'] = array( 'pg' => get_query_var( 'pg' ) );
-	echo paginate_links( $pagination );
+	if ( !empty( $type ) ) {
+		$pagination['type'] = $type;
+	}
+	$links = paginate_links( $pagination );
+	if ( $type == 'array' ) {
+		return $links;
+	} else {
+		echo  paginate_links( $pagination );
+	}
 }
 
 //series navigation strip on single-post display pages.
