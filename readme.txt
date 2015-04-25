@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.7
 Tested up to: 4.2
-Stable tag: 2.4.8
+Stable tag: 2.4.9
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,12 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.4.9 =
+
+* Fix broken series-toc widget with list option.
+* Add argument to `series_toc_paginate()` function for setting pagination type.
+* escape add_query_arg()
 
 = 2.4.8 =
 
