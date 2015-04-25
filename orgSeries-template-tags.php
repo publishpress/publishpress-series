@@ -376,7 +376,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
 	$total_terms = (int) wp_count_terms('series', array('hide_empty' => true));
 	$max_num_pages = ceil($total_terms/$per_page);;
 	$pagination = array(
-		'base' => @add_query_arg('paged','%#%'),
+		'base' => esc_url_raw( add_query_arg('paged','%#%') ),
 		'format' => '',
 		'total' => (int) $max_num_pages,
 		'current' => $current,
