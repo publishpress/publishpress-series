@@ -10,7 +10,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 	function orgSeries_widget_latestseries() {
 		global $orgseries;
 		$widget_ops = array('description' => __('Use this to control the output of the latest series widget', 'organize-series'));
-		$this->WP_Widget('latestseries', __('Latest Series', 'organize-series'), $widget_ops);
+		parent::__construct('latestseries', __('Latest Series', 'organize-series'), $widget_ops);
 	}
 	
 	function widget( $args, $instance ) {
@@ -100,7 +100,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 	function orgSeries_widget_seriestoc() {
 		global $orgseries;
 		$widget_ops = array('description' => __('Use this to display the Series Table of contents', 'organize-series'));
-		$this->WP_WIDGET('seriestoc', __('Series TOC', 'organize-series'), $widget_ops);
+		parent::__construct('seriestoc', __('Series TOC', 'organize-series'), $widget_ops);
 	}
 	
 	function widget( $args, $instance ) {

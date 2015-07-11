@@ -16,7 +16,7 @@ class orgSeries {
 	var $org_domain = 'organize-series';
 
 	//__constructor
-	function orgSeries() {
+	public function __construct() {
 		global $wp_version;
 
 		// WordPress version check
