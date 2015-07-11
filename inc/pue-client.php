@@ -52,19 +52,19 @@ class PluginUpdateEngineChecker {
 	public $lang_domain = ''; //used to hold the localization domain for translations .
 	public $dismiss_upgrade; //for setting the dismiss upgrade option (per plugin).
 	public $pue_install_key; //we'll customize this later so each plugin can have it's own install key!
-		
+
 	/**
 	 * Class constructor.
-	 * 
+	 *
 	 * @param string $metadataUrl The URL of the plugin's metadata file.
-	 * @param string $pluginFile Fully qualified path to the main plugin file.
-	 * @param string $slug The plugin's 'slug'. 
-	 * @param array $options:  Will contain any options that need to be set in the class initialization for construct.  These are the keys:
-	 * 	@key integer $checkPeriod How often to check for updates (in hours). Defaults to checking every 12 hours. Set to 0 to disable automatic update checks.
-	 * 	@key string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'. 
-	 *  @key string $apikey used to authorize download updates from developer server
-	 *	@key string $lang_domain If the plugin file pue-client.php is included with is localized you can put the domain reference string here so any strings in this file get included in the localization.
-	 * @return void
+	 * @param string $slug        The plugin's 'slug'.
+	 * @param array $options      :  Will contain any options that need to be set in the class initialization for construct.  These are the keys:
+	 *
+	 * @internal param string $pluginFile Fully qualified path to the main plugin file.
+	 * @key      integer $checkPeriod How often to check for updates (in hours). Defaults to checking every 12 hours. Set to 0 to disable automatic update checks.
+	 * @key      string $optionName Where to store book-keeping info about update checks. Defaults to 'external_updates-$slug'.
+	 * @key      string $apikey used to authorize download updates from developer server
+	 * @key      string $lang_domain If the plugin file pue-client.php is included with is localized you can put the domain reference string here so any strings in this file get included in the localization.
 	 */
 	function __construct( $metadataUrl, $slug = '', $options = array() ){
 		$this->metadataUrl = $metadataUrl;
