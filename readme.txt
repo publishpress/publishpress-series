@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.7
-Tested up to: 4.2
-Stable tag: 2.4.9
+Tested up to: 4.3
+Stable tag: 2.5.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,11 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.5.0 =
+
+* Drop use of PHP4 style constructors
+* Enqueue styles properly. (ht [Michael Cannon](https://wordpress.org/support/profile/comprock) )
 
 = 2.4.9 =
 
