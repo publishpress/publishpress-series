@@ -38,7 +38,7 @@ class orgSeries {
 		add_filter('query_vars', array(&$this,'orgSeries_add_queryvars'));
 		add_action('template_redirect', array(&$this,'orgSeries_toc_template')); //setsup the seriestoc url
 
-		add_action('wp_enqueue_scripts', array(&$this, 'orgSeries_header'));
+		add_action('wp_enqueue_scripts', array($this, 'orgSeries_header'));
 		add_action( 'wp_footer', array(&$this, 'series_dropdown_js'), 1 );
 		add_filter('wp_title', array(&$this, 'seriestoc_title'));
 
@@ -451,7 +451,6 @@ class orgSeries {
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
 		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
-		$text = '';
 		if ($this->settings['custom_css']) {
 			switch ( $css_style_type ) {
 				case 'dark':
@@ -463,14 +462,12 @@ class orgSeries {
 					wp_enqueue_style('light-style');
 					break;
 				default:
-					$csspath = $plugin_path.'orgSeries.css';
-					$text = '<link rel="stylesheet" href="' . $csspath . '" type="text/css" media="screen" />';
+					wp_register_style( 'orgseries-default-css', $plugin_path . 'orgSeries.css' );
+					wp_enqueue_style( 'orgseries-default-css');
+					break;
 			}
 
-		} else {
-				$text = '';
-		}
-		echo $text;
+		} 
 	}
 
 	//add series post-list box to a post in that series (on single.php view)
