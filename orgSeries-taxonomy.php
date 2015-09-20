@@ -470,6 +470,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		return;
 	}
 
+
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
 
@@ -480,12 +481,12 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 	}
 
 	$post_series = os_strarr_to_intarr($post_series);
+
 	if ( empty($post_series) || (count($post_series) >= count($old_series)) ) {
 		$match = false;
 	} else {
 		$match = array_diff($old_series, $post_series);
 	}
-
 
 	if (empty($post_series) || ( count($post_series) == 1 && $post_series[0] == 0 ) ) $post_series = array();
 
@@ -512,7 +513,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && !$dont_skip ) {
+			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && ! empty( wp_series_part( $post_ID, $ser ) ) && !$dont_skip ) {
 				$c_chk++;
 				continue;
 			} else {
