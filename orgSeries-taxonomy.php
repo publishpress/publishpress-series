@@ -720,6 +720,52 @@ function bulk_edit_series($column_name, $type) {
 function inline_edit_series_js() {
 	wp_enqueue_script('inline-edit-series');
 }
+
+
+
+
+
+/**
+ * Callback for split_shared_term action in WP.
+ * This is used to help migrate users of Organize Series Multiples when term ids change.  This fix also will apply for
+ * users of Organize Series Groups as well.
+ * @param $old_term_id
+ * @param $new_term_id
+ * @param $term_taxonomy_id
+ * @param $taxonomy
+ */
+function org_series_maybe_update_post_parts( $old_term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+	global $wpdb;
+	//fix for series part for users of Organize Series Multiples
+	$old_meta_key = SERIES_PART_KEY . '_' . $old_term_id;
+	$new_meta_key = SERIES_PART_KEY . '_' . $new_term_id;
+	$wpdb->update(
+		$wpdb->postmeta,
+		array( 'meta_key' => $new_meta_key ),
+		array( 'meta_key' => $old_meta_key ),
+		array( '%s' ),
+		array( '%s' )
+	);
+
+	//fix for orgseries_grouping
+	$old_group_title = 'series_grouping_' . $old_term_id;
+	$new_group_title = 'series_grouping_' . $new_term_id;
+	$wpdb->update(
+		$wpdb->posts,
+		array(
+			'post_title' => $new_group_title,
+			'post_name' => $new_group_title
+		),
+		array(
+			'post_type' => 'series_grouping',
+			'post_name' => $old_group_title
+		),
+		array( '%s', '%s' ),
+		array( '%s', '%s' )
+	);
+}
+
+
 /**
  * add_action() and add_filter() calls go here.
 */
@@ -742,4 +788,7 @@ add_action('untrash_post', 'reset_series_order_on_trash', 1);
 add_action('created_series', 'wp_insert_series',1, 2);
 add_action('edited_series', 'wp_update_series',1, 2);
 add_action('delete_series', 'wp_delete_series', 10, 2);
+
+//prep for term splitting that happens in WP4.2+ (this is more for taking care of Organize Series Multiples users
+add_action( 'split_shared_term', 'org_series_maybe_update_post_parts', 10, 4 );
 ?>
