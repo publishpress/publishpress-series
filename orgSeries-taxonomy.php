@@ -766,6 +766,50 @@ function org_series_maybe_update_post_parts( $old_term_id, $new_term_id, $term_t
 }
 
 
+
+function orgseries_fix_terms_changed() {
+	if ( get_option( 'series_has_been_fixed', false ) ) {
+		return;
+	}
+	global $wpdb;
+	$terms_to_update = get_option('_split_terms');
+
+	if ( $terms_to_update ) {
+		foreach ( $terms_to_update as $old_term_id => $new_term_info ) {
+			foreach ( $new_term_info as $taxonomy => $new_term_id ) {
+				//fix series parts.
+				$old_meta_key = SERIES_PART_KEY . '_' . $old_term_id;
+				$new_meta_key = SERIES_PART_KEY . '_' . $new_term_id;
+				$wpdb->update(
+					$wpdb->postmeta,
+					array( 'meta_key' => $new_meta_key ),
+					array( 'meta_key' => $old_meta_key ),
+					array( '%s' ),
+					array( '%s' )
+				);
+				//fix for orgseries_grouping
+				$old_group_title = 'series_grouping_' . $old_term_id;
+				$new_group_title = 'series_grouping_' . $new_term_id;
+				$wpdb->update(
+					$wpdb->posts,
+					array(
+						'post_title' => $new_group_title,
+						'post_name'  => $new_group_title
+					),
+					array(
+						'post_type' => 'series_grouping',
+						'post_name' => $old_group_title
+					),
+					array( '%s', '%s' ),
+					array( '%s', '%s' )
+				);
+			}
+		}
+	}
+	update_option( 'series_has_been_fixed', true );
+}
+
+
 /**
  * add_action() and add_filter() calls go here.
 */
@@ -791,4 +835,4 @@ add_action('delete_series', 'wp_delete_series', 10, 2);
 
 //prep for term splitting that happens in WP4.2+ (this is more for taking care of Organize Series Multiples users
 add_action( 'split_shared_term', 'org_series_maybe_update_post_parts', 10, 4 );
-?>
+add_action( 'admin_init', 'orgseries_fix_terms_changed' );
