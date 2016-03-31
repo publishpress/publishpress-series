@@ -72,6 +72,7 @@ $org_series_loc = $plugin_url;
 /**
   * This sets the defaults for the constants for orgSeries
 */
+define( 'SERIES_PATH_URL', $plugin_url );
 define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
 define('SERIES_DIR' , $org_dir_name); //the name of the directory that orgSeries files are located.
 define('SERIES_LOC', $org_series_loc); //the uri of the orgSeries files.

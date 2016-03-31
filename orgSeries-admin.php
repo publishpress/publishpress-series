@@ -90,7 +90,7 @@ global $checkpage, $orgseries, $pagenow;
 function orgSeries_manage_script() {
 	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_script('media-upload');
-	wp_enqueue_script('orgseries_scripts', WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/orgseries_scripts.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, true);
+	wp_enqueue_script('orgseries_scripts', SERIES_PATH_URL . '/js/orgseries_scripts.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, true);
 }
 
 ######ON THE FLY ADD SERIES########
