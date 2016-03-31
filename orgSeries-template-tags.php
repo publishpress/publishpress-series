@@ -60,7 +60,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE, $is_unpub_template);
 		if ( 'widget' == $referral ) {
 			if ($serieswidg_title != false)
-				$result .= '<h4>' . __($serieswidg_title, 'organize-series') . '</h4>';
+				$result .= '<h4>' . __( $serieswidg_title, 'organize-series') . '</h4>';
 			$result .= '<ul>';
 		}
 
@@ -749,7 +749,7 @@ function series_description($series_id = 0) {
 	global $orgseries;
 	if ( !$series_id ) {
 		$ser_var = get_query_var(SERIES_QUERYVAR);
-		$ser_var = term_exists( $ser_var, SERIES_QUERYVAR );
+		$ser_var = term_exists( $ser_var, 'series' );
 		if ( !empty($ser_var) )
 			$series_id = $ser_var['term_id'];
 	}
