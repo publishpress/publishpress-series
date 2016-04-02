@@ -6,9 +6,7 @@
  * @since 2.2
 */
 
-global $pagenow;
-$checkpage = $pagenow;
-global $checkpage, $orgseries;
+global $pagenow, $orgseries;
 
 /**
  * All the add_action and apply_filter hooks for this file go here
@@ -17,7 +15,7 @@ global $checkpage, $orgseries;
 add_action('admin_print_styles', 'orgSeries_admin_header');
 
 ##ADMIN-Write/Edit Post Script loader
-//add_action('admin_print_scripts','orgSeries_admin_script');
+add_action('admin_print_scripts','orgSeries_admin_script');
 add_action('admin_print_scripts-post.php', 'orgSeries_post_script');
 add_action('admin_print_scripts-post-new.php', 'orgSeries_post_script');
 add_action('admin_print_scripts-edit-tags.php', 'orgSeries_manage_script');
@@ -48,7 +46,7 @@ function orgseries_load_custom_column_filters() {
 }
 
 
-if ( $checkpage != 'upload.php' )
+if ( $pagenow != 'upload.php' )
 		add_action('restrict_manage_posts', 'orgSeries_custom_manage_posts_filter');
 
 add_action('post_relatedlinks_list', 'add_series_management_link');
@@ -72,18 +70,12 @@ function orgSeries_post_script() {
 	wp_enqueue_script('ajaxseries');
 }
 function orgSeries_admin_script() {
-//load in the series.js script and set localization variables.
-global $checkpage, $orgseries, $pagenow;
+	//load in the series.js script and set localization variables.
+	global $pagenow;
 
-	if (isset($_GET['page']))
-		$checkpage = $_GET['page'];
-
-	if ('post-new.php' == $checkpage || 'post.php' == $checkpage) {
-		wp_enqueue_script( 'ajaxseries' );
+	if ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && 'series' == $_GET['taxonomy'] ) {
+		orgSeries_manage_script();
 	}
-
-	if ( 'edit-tags.php' == $checkpage && 'series' == $_GET['taxonomy'] )
-	orgSeries_manage_script();
 
 }
 
