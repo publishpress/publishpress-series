@@ -815,7 +815,7 @@ function is_series( $slug = '' ) {
 	//series slug.
 	if ( ! empty( $slug ) ) {
 		if ( $has_series_query_var && ! empty( $series ) ) {
-			if ( $series = $slug ) {
+			if ( $series == $slug ) {
 				return true;
 			}
 			
