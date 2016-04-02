@@ -3,8 +3,8 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.7
-Tested up to: 4.3
-Stable tag: 2.5.0
+Tested up to: 4.5
+Stable tag: 2.5.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,17 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.5.1 =
+
+- Fix "Warning: Creating default object from empty value"
+- Implement hook for handling the new split term behaviour in WP (also adds some fixes for issues in the database with split terms and correct part ordering).  Thanks to Marcus Tibesar for help troubleshooting using his site.
+- Make sure to overwrite empty series part if exists (previously saved empty series part would not get overwritten if updated to have a part on subsequent saves).
+- Fix PHP Fatal error: Call to a member function get() on null (ht [subharanjanm](https://github.com/subharanjanm) for the initial fix)
+- Fix Image modal for selecting new image not loading when editing a series in WP 4.5
+- fix enqueueing scripts correctly when in admin
+- fix `series_description` not returning the description for the series being viewed on a series archive page.
+- tested to ensure things work with WP 4.5
 
 = 2.5.0 =
 
