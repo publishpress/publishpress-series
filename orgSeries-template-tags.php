@@ -801,18 +801,35 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
  * @return bool true if displayed page is a series.
 */
 function is_series( $slug = '' ) {
-	global $wp_query, $orgseries;
+	global $wp_query;
 
-	if( ! empty( $wp_query ) ) {
-		$series = get_query_var(SERIES_QUERYVAR);
+	if ( $wp_query instanceof WP_Query ) {
+		$series = get_query_var( SERIES_QUERYVAR );
 	} else {
 		$series	= null;
 	}
 
-	if ( (!is_null($series) && ($series != '')) || (isset($wp_query->is_series) && $wp_query->is_series ))
-		return true;
-	else
-		return false;
+	$has_series_query_var = ! empty( $series ) || ( isset( $wp_query->is_series ) && $wp_query->is_series );
+
+	//if slug is not provided then just return result of $has_series_query_var, otherwise check for if this page is specific
+	//series slug.
+	if ( ! empty( $slug ) ) {
+		if ( $has_series_query_var && ! empty( $series ) ) {
+			if ( $series = $slug ) {
+				return true;
+			}
+			
+			//query_var may not be a slug but may be an id.
+			if ( is_numeric( $series ) ) {
+				$series_object = get_term_by( 'id', $series, 'series' );
+				if ( $series_object ) {
+					return true;
+				}
+			}
+		}
+	}
+	
+	return $has_series_query_var;
 }
 
 /**
