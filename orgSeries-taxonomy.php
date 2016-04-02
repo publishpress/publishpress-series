@@ -513,7 +513,8 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		$count = count($post_series);
 		$c_chk = 0;
 		foreach ( $post_series as $ser ) {
-			if (in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && ! empty( wp_series_part( $post_ID, $ser ) ) && !$dont_skip ) {
+			$series_part = wp_series_part( $post_ID, $ser )
+			if ( in_array($ser, $old_series) && $series_part[$ser] == wp_series_part($post_ID, $ser) && ! empty( $series_part ) ) && !$dont_skip ) {
 				$c_chk++;
 				continue;
 			} else {
