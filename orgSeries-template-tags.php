@@ -802,7 +802,12 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 */
 function is_series( $slug = '' ) {
 	global $wp_query, $orgseries;
-	$series = get_query_var(SERIES_QUERYVAR);
+
+	if( ! empty( $wp_query ) ) {
+		$series = get_query_var(SERIES_QUERYVAR);
+	} else {
+		$series	= null;
+	}
 
 	if ( (!is_null($series) && ($series != '')) || (isset($wp_query->is_series) && $wp_query->is_series ))
 		return true;
