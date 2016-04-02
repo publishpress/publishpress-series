@@ -827,6 +827,8 @@ function is_series( $slug = '' ) {
 				}
 			}
 		}
+
+		$has_series_query_var = false;
 	}
 	
 	return $has_series_query_var;
