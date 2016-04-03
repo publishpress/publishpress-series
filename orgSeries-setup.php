@@ -13,7 +13,6 @@ class orgSeries {
 
 	var $settings;
 	var $version = ORG_SERIES_VERSION;
-	var $org_domain = 'organize-series';
 
 	//__constructor
 	public function __construct() {

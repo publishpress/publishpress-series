@@ -6,7 +6,6 @@
  * @package WordPress
  * @since 2.3
  */
-global $org_domain;
 require_once(ABSPATH .'/wp-load.php');
 require_once( ABSPATH . 'wp-admin/admin.php' );
 require_once( ABSPATH . WPINC . '/feed.php' );
@@ -18,7 +17,7 @@ $date = false;
 add_filter('wp_feed_cache_transient_lifetime', create_function( '$a', "return $cache_time;" ) );
 $rss = fetch_feed('http://www.organizeseries.com/category/blog/feed/');
 ?>
-		<p><?php _e('The following will keep you updated with all the recent Organize Series Plugin related news by <a href="http://unfoldingneurons.com" title="Visit Darren Ethier\'s blog">Darren Ethier</a>.', $org_domain); ?></p>
+		<p><?php _e('The following will keep you updated with all the recent Organize Series Plugin related news by <a href="http://unfoldingneurons.com" title="Visit Darren Ethier\'s blog">Darren Ethier</a>.', 'organize-series'); ?></p>
 <?php
 if ( !is_wp_error( $rss ) ) {
 		$maxitems = $rss->get_item_quantity($size);
@@ -44,7 +43,7 @@ if ( !is_wp_error( $rss ) ) {
 	<?php
 		}
 	?>
-	<p class="readmore"><a href="http://www.organizeseries.com/category/blog"><?php _e('Read more', $org_domain); ?> &raquo;</a></p>
+	<p class="readmore"><a href="http://www.organizeseries.com/category/blog"><?php _e('Read more', 'organize-series'); ?> &raquo;</a></p>
 	<?php
 } else {
 	?>
