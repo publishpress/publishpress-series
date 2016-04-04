@@ -33,7 +33,6 @@ function get_series_rss_link($echo = false, $series_id = '') {
 
 function get_the_series_rss($type = 'rss') {
 	$series = get_the_series();
-	$home = get_bloginfo_rss('home');
 	$the_list = '';
 	$series_names = array();
 	
