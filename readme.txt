@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 3.7
 Tested up to: 4.5
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +194,13 @@ This version is a major update to the plugin and introduces big changes to the c
 
 
 == Changelog ==
+
+= 2.5.2 =
+
+- fix deprecated use of `get_bloginfo`
+- fix issues with modifying series part not sticking for posts already assigned a part.
+- fix uninitialized offset errors
+- ensure organize series localization is setup properly for wp.org translation.
 
 = 2.5.1 =
 
