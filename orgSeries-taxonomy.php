@@ -25,8 +25,13 @@ function get_the_series( $id = false, $cache = true ) {
 
 	$series = apply_filters('get_the_series', $series); //adds a new filter for users to hook into
 
-	if ( !empty($series) )
-		usort($series, '_usort_terms_by_name');
+	if ( !empty($series) ) {
+	    if ( function_exists('wp_list_sort') ) {
+	        wp_list_sort($series);
+        } else {
+		    usort( $series, '_usort_terms_by_name' );
+	    }
+	}
 
 	return $series;
 }
