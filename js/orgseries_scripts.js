@@ -12,8 +12,8 @@ jQuery(document).ready(function($) {
 			imageFrame.contents().find("input[value*='Insert']").val('Use as Series Image');
 			imageFrame.contents().find(".wp-post-thumbnail").text('');
 			imageFrame.contents().find("#media-items").hover(function() {
-			$("input[value*='Insert']", this).val('Use as Series Image');
-			$(".wp-post-thumbnail", this).text('');
+				$("input[value*='Insert']", this).val('Use as Series Image');
+				$(".wp-post-thumbnail", this).text('');
 			},
 			function () {
 				$("input[value*='Insert']", this).val('Use as Series Image');
@@ -26,12 +26,17 @@ jQuery(document).ready(function($) {
 	
 		
 	window.send_to_editor = function(html) {
-		  var imgurl = $('img',html).attr('src');
-		 $('#series_icon_loc').val(imgurl);
-		 $('#series_icon_loc_display').val(imgurl);
-		 tb_remove();
-		 var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" />";
-		 $('#selected-icon').html(view_image_url)
+		console.log(html);
+			var imgurl = $('img',html).attr('src');
+			//account for breakage that got introduced in some WP version. This allows for back compat.
+			if ( typeof imgurl === 'undefined' ) {
+                imgurl = $(html).attr('src');
+            }
+			$('#series_icon_loc').val(imgurl);
+			$('#series_icon_loc_display').val(imgurl);
+			tb_remove();
+			var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" />";
+			$('#selected-icon').html(view_image_url)
 	}
 
 	$('#submit').click(function(){
