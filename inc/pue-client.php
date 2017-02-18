@@ -132,33 +132,33 @@ class PluginUpdateEngineChecker {
 	 */
 	function installHooks(){
 		//Override requests for plugin information
-		add_filter('plugins_api', array(&$this, 'injectInfo'), 10, 3);
+		add_filter('plugins_api', array($this, 'injectInfo'), 10, 3);
 		
 		//Insert our update info into the update array maintained by WP
-		add_filter('site_transient_update_plugins', array(&$this,'injectUpdate')); //WP 3.0+
+		add_filter('site_transient_update_plugins', array($this,'injectUpdate')); //WP 3.0+
 				
 		//Set up the periodic update checks
 		$cronHook = 'check_plugin_updates-' . $this->slug;
 		if ( $this->checkPeriod > 0 ){
 			
 			//Trigger the check via Cron
-			add_filter('cron_schedules', array(&$this, '_addCustomSchedule'));
+			add_filter('cron_schedules', array($this, '_addCustomSchedule'));
 			if ( !wp_next_scheduled($cronHook) && !defined('WP_INSTALLING') ) {
 				$scheduleName = 'every' . $this->checkPeriod . 'hours';
 				wp_schedule_event(time(), $scheduleName, $cronHook);
 			}
-			add_action($cronHook, array(&$this, 'checkForUpdates'));
+			add_action($cronHook, array($this, 'checkForUpdates'));
 			
 			//In case Cron is disabled or unreliable, we also manually trigger 
 			//the periodic checks while the user is browsing the Dashboard. 
-			add_action( 'admin_init', array(&$this, 'maybeCheckForUpdates') );
+			add_action( 'admin_init', array($this, 'maybeCheckForUpdates') );
 			
 		} else {
 			//Periodic checks are disabled.
 			wp_clear_scheduled_hook($cronHook);
 		}
 		//dashboard message "dismiss upgrade" link
-		add_action( "wp_ajax_".$this->dismiss_upgrade, array(&$this, 'dashboard_dismiss_upgrade')); 
+		add_action( "wp_ajax_".$this->dismiss_upgrade, array($this, 'dashboard_dismiss_upgrade')); 
 	}
 	
 	
@@ -249,7 +249,7 @@ class PluginUpdateEngineChecker {
 		//admin display for if the update check reveals that there is a new version but the API key isn't valid.  
 		if ( isset($pluginInfo->api_invalid) )  { //we have json_error returned let's display a message
 			$this->json_error = $pluginInfo;
-			add_action('admin_notices', array(&$this, 'display_json_error'));  
+			add_action('admin_notices', array($this, 'display_json_error'));  
 			return null;
 		}
 		
@@ -364,7 +364,7 @@ class PluginUpdateEngineChecker {
 		
 		$state->update = $this->requestUpdate();
 		update_option($this->optionName, $state);
-		add_action('after_plugin_row_'.$this->pluginFile, array(&$this, 'in_plugin_update_message'));
+		add_action('after_plugin_row_'.$this->pluginFile, array($this, 'in_plugin_update_message'));
 	}
 	
 	/**
@@ -388,7 +388,7 @@ class PluginUpdateEngineChecker {
 			$this->checkForUpdates();
 		}
 		
-		add_action('after_plugin_row_'.$this->pluginFile, array(&$this, 'in_plugin_update_message')); 
+		add_action('after_plugin_row_'.$this->pluginFile, array($this, 'in_plugin_update_message')); 
 	}
 	
 	/**

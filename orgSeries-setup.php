@@ -20,48 +20,48 @@ class orgSeries {
 
 		// WordPress version check
 		if ( version_compare($wp_version, '3.0', '<'))
-			add_action('admin_notices', array(&$this, 'update_warning'));
+			add_action('admin_notices', array($this, 'update_warning'));
 
 		//install OrgSeries
-		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array(&$this, 'org_series_install'));
+		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array($this, 'org_series_install'));
 
 		//all other actions and filters...
-		add_action('plugins_loaded', array(&$this, 'add_settings'), 10);
-		add_action('init', array(&$this, 'register_textdomain'));
-		add_action('init', array(&$this, 'register_taxonomy'),0);
-		add_action('admin_enqueue_scripts', array(&$this, 'register_scripts'));
-		add_action('init', array(&$this, 'maybe_fix_upgrade'));
-		add_filter('rewrite_rules_array', array(&$this,'seriestoc_rewrite_rules'));
+		add_action('plugins_loaded', array($this, 'add_settings'), 10);
+		add_action('init', array($this, 'register_textdomain'));
+		add_action('init', array($this, 'register_taxonomy'),0);
+		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));
+		add_action('init', array($this, 'maybe_fix_upgrade'));
+		add_filter('rewrite_rules_array', array($this,'seriestoc_rewrite_rules'));
 		//add_action('init', array($this, 'rewrite_rules'));
 		add_action('parse_query', array( $this, 'seriestoc_parsequery') );
-		add_filter('query_vars', array(&$this,'orgSeries_add_queryvars'));
-		add_action('template_redirect', array(&$this,'orgSeries_toc_template')); //setsup the seriestoc url
+		add_filter('query_vars', array($this,'orgSeries_add_queryvars'));
+		add_action('template_redirect', array($this,'orgSeries_toc_template')); //setsup the seriestoc url
 
 		add_action('wp_enqueue_scripts', array($this, 'orgSeries_header'));
-		add_action( 'wp_footer', array(&$this, 'series_dropdown_js'), 1 );
-		add_filter('wp_title', array(&$this, 'seriestoc_title'));
+		add_action( 'wp_footer', array($this, 'series_dropdown_js'), 1 );
+		add_filter('wp_title', array($this, 'seriestoc_title'));
 
 		//series post list box
-		add_action('the_content', array(&$this, 'add_series_post_list_box'), 12);
+		add_action('the_content', array($this, 'add_series_post_list_box'), 12);
 
 		//series meta strip
-		add_filter('the_content', array(&$this, 'add_series_meta'), 12);
-		add_filter('get_the_excerpt', array(&$this, 'orgseries_trim_excerpt'),1);
-		add_filter('the_excerpt', array(&$this, 'add_series_meta_excerpt'));
+		add_filter('the_content', array($this, 'add_series_meta'), 12);
+		add_filter('get_the_excerpt', array($this, 'orgseries_trim_excerpt'),1);
+		add_filter('the_excerpt', array($this, 'add_series_meta_excerpt'));
 
 		//joins, wheres, sortbys
-		add_filter('posts_join_paged', array(&$this, 'sort_series_page_join'));
-		add_filter('posts_where', array(&$this,'sort_series_page_where'));
-		add_filter('posts_orderby', array(&$this,'sort_series_page_orderby'));
+		add_filter('posts_join_paged', array($this, 'sort_series_page_join'));
+		add_filter('posts_where', array($this,'sort_series_page_where'));
+		add_filter('posts_orderby', array($this,'sort_series_page_orderby'));
 
 		//series post-navigation
-		add_action('the_content', array(&$this, 'series_nav_filter'));
+		add_action('the_content', array($this, 'series_nav_filter'));
 
 		//broswer page title
-		add_filter('wp_title', array(&$this, 'add_series_wp_title'));
+		add_filter('wp_title', array($this, 'add_series_wp_title'));
 
 		//settings link on plugin page
-		add_filter('plugin_action_links', array(&$this, 'AddPluginActionLink'), 10, 2);
+		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
 	}
 
 	function update_warning() {
