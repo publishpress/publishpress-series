@@ -90,7 +90,7 @@ There have been some changes to how I provide support for Organize Series. Here 
 
 1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will NOT be actively responding to usage/installation help.  If I don't respond to forum posts I'm not being rude or snubbing you, I just simply don't have time to respond because priority goes customers who have paid for support (see below).
 
-1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to the private support forums that I will be active on.
+1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to support via email.
 
 == Screenshots ==
 1. Organize Series Options Page:  There are so many possibilities for how Organzie Series can be customized. Nearly everything can be done on the built-in options page.
