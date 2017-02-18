@@ -296,7 +296,10 @@ class orgSeries {
 		return $the_rules;
 	}
 
-	function seriestoc_parsequery( WP_Query $wp_query ) {
+	function seriestoc_parsequery( $wp_query ) {
+	    if ( ! $wp_query instanceof WP_Query ) {
+	        return;
+        }
 		$settings = $this->settings;
 		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
 			$series_toc_qv = $settings['series_toc_url'].'-toc';
@@ -343,35 +346,44 @@ class orgSeries {
 
 	function seriestoc_title( $title ) {
 		global $wp_query;
-		$settings = $this->settings;
-
-		if ( !isset($wp_query->is_seriestoc) || !$wp_query->is_seriestoc ) return $title;
-
-		$seriestoc_title = $settings['series_toc_title'];
-		if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
-		$title = $seriestoc_title  .  $title;
+		if ( $wp_query instanceof WP_Query ) {
+			$settings = $this->settings;
+			
+			if ( ! isset( $wp_query->is_seriestoc ) || ! $wp_query->is_seriestoc ) {
+				return $title;
+			}
+			
+			$seriestoc_title = $settings['series_toc_title'];
+			if ( $seriestoc_title == '' ) {
+				$seriestoc_title = __( 'Series Table of Contents', 'organize-series' );
+			}
+			$title = $seriestoc_title . $title;
+		}
 		return $title;
 	}
 
 	function orgSeries_toc_template() {
 		global $wp_query;
 		$settings = $this->settings;
-		if ( isset($wp_query->is_seriestoc) && $wp_query->is_seriestoc ) {
-				$template = locate_template(array('seriestoc.php')); //checks in child theme (if child theme) and then parent theme.  props Ricky (jeshyr)
-			if (!$template)
-				$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR .'/seriestoc.php';
-
-			/*function seriestoc_title( $title ) {
-				$seriestoc_title = $settings['series_toc_title'];
-				if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
-				$title = $seriestoc_title . ' &laquo; ' . $title;
-				return $title;
-			}*/
-
-			//add_filter('wp_title', 'seriestoc_title');
-			if ($template) {
-				include($template);
-				exit;
+		if ( $wp_query instanceof WP_Query ) {
+			if ( isset( $wp_query->is_seriestoc ) && $wp_query->is_seriestoc ) {
+				$template = locate_template( array( 'seriestoc.php' ) ); //checks in child theme (if child theme) and then parent theme.  props Ricky (jeshyr)
+				if ( ! $template ) {
+					$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR . '/seriestoc.php';
+				}
+				
+				/*function seriestoc_title( $title ) {
+					$seriestoc_title = $settings['series_toc_title'];
+					if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
+					$title = $seriestoc_title . ' &laquo; ' . $title;
+					return $title;
+				}*/
+				
+				//add_filter('wp_title', 'seriestoc_title');
+				if ( $template ) {
+					include( $template );
+					exit;
+				}
 			}
 		}
 	}
@@ -381,7 +393,7 @@ class orgSeries {
 		global $wp_rewrite;
 		$settings = $this->settings;
 		$series_custom_base = $settings['series_custom_base'];
-		if ( !($wp_rewrite->using_permalinks()) ) {
+		if ( $wp_rewrite instanceof WP_Rewrite && !($wp_rewrite->using_permalinks()) ) {
 			?>
 			<script type='text/javascript'><!--
 			var seriesdropdown = document.getElementById("orgseries_dropdown");
@@ -416,32 +428,49 @@ class orgSeries {
 
 	function sort_series_page_join($join) {
 		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $join;
-		$os_join = " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
-		$join .= apply_filters('orgseries_sort_series_page_join', $os_join);
+		if ( $wp_query instanceof WP_Query && $wpdb instanceof wpdb ) {
+			if ( ! is_series() || ( is_series() && is_feed() ) || ! empty( $wp_query->request ) || ( is_admin() && $wp_query->query_vars[ SERIES_QUERYVAR ] == 0 ) || $wp_query->is_search ) {
+				return $join;
+			}
+			$os_join = " LEFT JOIN $wpdb->postmeta orgmeta ON($wpdb->posts.ID = orgmeta.post_id) ";
+			$join .= apply_filters( 'orgseries_sort_series_page_join', $os_join );
+		}
 		return $join;
 	}
 
 	function sort_series_page_where($where) {
-		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $where;
-		$part_key = SERIES_PART_KEY;
-		$os_where = " AND orgmeta.meta_key = '$part_key' ";
-		$where .= apply_filters('orgseries_sort_series_page_where', $os_where);
+		global $wp_query;
+		if ( $wp_query instanceof WP_Query ) {
+			if ( ! is_series() || ( is_series() && is_feed() ) || ! empty( $wp_query->request ) || ( is_admin() && $wp_query->query_vars[ SERIES_QUERYVAR ] == 0 ) || $wp_query->is_search ) {
+				return $where;
+			}
+			$part_key = SERIES_PART_KEY;
+			$os_where = " AND orgmeta.meta_key = '$part_key' ";
+			$where .= apply_filters( 'orgseries_sort_series_page_where', $os_where );
+		}
 		return $where;
 	}
 
 	function sort_series_page_orderby($ordering) {
-		global $wp_query, $wpdb;
-		if (!is_series() || ( is_series() && is_feed() ) || !empty($wp_query->request) || ( is_admin() && $wp_query->query_vars[SERIES_QUERYVAR] == 0 ) || $wp_query->is_search ) return $ordering;
-		$settings = $this->settings;
-		$orderby = $settings['series_posts_orderby'];
-		if ( $orderby == 'meta_value' )
-			$orderby = 'orgmeta.'.$orderby . '+ 0';
-		$order = $settings['series_posts_order'];
-		if (!isset($orderby)) $orderby = "post_date";
-		if (!isset($order)) $order = "DESC";
-		$ordering = " $orderby $order ";
+		global $wp_query;
+		if ( $wp_query instanceof WP_Query ) {
+			if ( ! is_series() || ( is_series() && is_feed() ) || ! empty( $wp_query->request ) || ( is_admin() && $wp_query->query_vars[ SERIES_QUERYVAR ] == 0 ) || $wp_query->is_search ) {
+				return $ordering;
+			}
+			$settings = $this->settings;
+			$orderby  = $settings['series_posts_orderby'];
+			if ( $orderby == 'meta_value' ) {
+				$orderby = 'orgmeta.' . $orderby . '+ 0';
+			}
+			$order = $settings['series_posts_order'];
+			if ( ! isset( $orderby ) ) {
+				$orderby = "post_date";
+			}
+			if ( ! isset( $order ) ) {
+				$order = "DESC";
+			}
+			$ordering = " $orderby $order ";
+		}
 		return apply_filters('orgseries_sort_series_page_orderby', $ordering);
 	}
 
