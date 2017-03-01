@@ -3,7 +3,7 @@
 
 function default_seriesicons_upload() {
 	$def_path = apply_filters( 'orgseries_icons_path', ABSPATH );
-	$def_url = apply_filters( 'orgseries_icons_url', trailingslashit(get_bloginfo('wpurl')) );
+	$def_url = apply_filters( 'orgseries_icons_url', home_url() );
 	return array($def_path, $def_url);
 }
 
