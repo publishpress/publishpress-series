@@ -21,7 +21,7 @@ function manage_series_columns_action($content, $column_name, $id) {
 		
 		if ( $series_icon = series_get_icons($id)) {
 			$series_url = seriesicons_url();
-			$icon = $series_url . '/' . $series_icon;
+			$icon = $series_url . $series_icon;
 			$output .= '<img src="' . $icon . '" title="' . $series_icon . '" width="50" alt="' . $icon . '" />';
 		} else {
 			$output .= __('No Series Icon', 'organize-series');
