@@ -200,6 +200,14 @@ function orgseries_option_page() {
 					<?php do_action('orgseries_token_description'); ?>
 				</div>
 			</div>
+            <div id="organize-series-extensions" class="postbox">
+                <h3 class="handle"><span><?php _e('Organize Series News', 'organize-series'); ?></span></h3>
+                <div class="inside">
+                    <div id="orgseriesnews">
+                        <?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/orgSeries-feed.php'); ?>
+                    </div> <?php /*rss feed related */ ?>
+                </div>
+            </div>
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
