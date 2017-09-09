@@ -13,7 +13,7 @@ if ( !class_exists('PluginUpdateEngineChecker') ):
 	 */
 	class PluginUpdateEngineChecker {
 	    
-	    static $notice_registered = false;
+	    static private $notice_registered = false;
 	    
 		public function __construct()
 		{
