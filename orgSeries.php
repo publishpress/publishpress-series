@@ -42,6 +42,9 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+//composer autolaod
+require __DIR__ . '/vendor/autoload.php';
+
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
  *
