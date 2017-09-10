@@ -1,6 +1,6 @@
 <?php
 
-namespace OrganizeSeries\inc\thirdparty\edd;
+namespace OrganizeSeries\libraries\edd;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -123,7 +123,7 @@ class PluginUpdater {
 	}
 
 	/**
-	 * show update nofication row -- needed for multisite subsites, because WP won't tell you otherwise!
+	 * show update notification row -- needed for multisite subsites, because WP won't tell you otherwise!
 	 *
 	 * @param string  $file
 	 * @param array   $plugin
