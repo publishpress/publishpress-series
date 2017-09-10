@@ -1,0 +1,180 @@
+<?php
+
+namespace OrganizeSeries\domain\model;
+
+use OrganizeSeries\domain\exceptions\InvalidEntityException;
+use OrganizeSeries\domain\exceptions\LicenseKeyRequestError;
+use stdClass;
+
+/**
+ * LicenseKeyRepository
+ * Used to interact with LicenseKey entities/retrieving and persisting to the wp_option.
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   1.0.0
+ */
+class LicenseKeyRepository {
+
+    /**
+     * Prefix for the option saving the key.  OS extensions should provide the extension name.
+     */
+    const OPTION_PREFIX_LICENSE_KEY = 'os_license_key_';
+
+
+    /**
+     * Prefix for the option saving the license key data. OS extensions should provide the extension name.
+     */
+    const OPTION_PREFIX_LICENSE_KEY_DATA = 'os_license_key_data_';
+
+
+    /**
+     * The url for license key api requests.
+     */
+    const URL_LICENSE_KEY_API = 'https://organizeseries.com';
+
+
+	/**
+	 * @var LicenseKeyCollection
+	 */
+	private $collection;
+	
+	
+	/**
+	 * @var LicenseKeyFactory
+	 */
+	private $factory;
+	
+	
+	public function __construct(LicenseKeyCollection $collection, LicenseKeyFactory $factory)
+	{
+		$this->collection = $collection;
+		$this->factory = $factory;
+	}
+
+
+    /**
+     * Retrieve a License Key object from the wp_option for the given extension.
+     *
+     * @param string $extension_slug
+     * @return LicenseKey
+     * @throws InvalidEntityException
+     */
+	public function getLicenseKeyByExtension($extension_slug)
+    {
+        if ($this->collection->has($extension_slug)) {
+            return $this->collection->get($extension_slug);
+        }
+
+        return $this->getFromOption($extension_slug);
+    }
+
+
+    /**
+     * Persists the license key and license data to the wp_options table.
+     * @param $extension_slug
+     * @throws InvalidEntityException
+     */
+    public function updateLicenseKeyByExtension($extension_slug)
+    {
+        $license_key = $this->getLicenseKeyByExtension($extension_slug);
+        update_option(self::OPTION_PREFIX_LICENSE_KEY_DATA, $license_key->forStorage());
+        update_option(self::OPTION_PREFIX_LICENSE_KEY, $license_key->getLicenseKey());
+    }
+
+
+    /**
+     * Used to verify the license key data via the remote api.
+     *
+     * @param string  $extension_slug
+     * @param string  $license_key
+     * @param integer $item_id The id of the product on OrganizeSeries.com
+     * @throws InvalidEntityException
+     * @throws LicenseKeyRequestError
+     */
+    public function remoteLicenseKeyVerification($extension_slug, $license_key, $item_id)
+    {
+        // data to send in our API request
+        $api_params = array(
+            'edd_action' => 'activate_license',
+            'license'    => $license_key,
+            'item_id'    => $item_id,
+			'url'        => home_url()
+		);
+
+        // Call the custom API.
+        $response = wp_remote_post(
+            self::URL_LICENSE_KEY_API,
+            array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params )
+        );
+        // make sure the response came back okay
+        if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+            $message =  ( is_wp_error( $response ) && ! empty( $response->get_error_message() ) )
+                ? $response->get_error_message()
+                : esc_html__( 'An error occurred, please try again.', 'organize-series' );
+            throw new LicenseKeyRequestError($message);
+        }
+        $this->replaceInCollection(
+            $extension_slug,
+            $this->factory->create(
+                json_decode( wp_remote_retrieve_body( $response ) ),
+                $license_key
+            )
+        );
+        $this->updateLicenseKeyByExtension($extension_slug);
+    }
+
+
+    /**
+     * This replaces (or adds) the given LicenseKey object to the collection
+     *
+     * @param string     $extension_slug
+     * @param LicenseKey $license_key
+     * @throws InvalidEntityException
+     */
+    private function replaceInCollection($extension_slug, LicenseKey $license_key) {
+	    if ($this->collection->has($extension_slug)) {
+	        $this->collection->detach(
+	            $this->collection->get($extension_slug)
+            );
+        }
+        $this->collection->add($license_key, $extension_slug);
+    }
+
+
+    /**
+     * This uses the factory to create a LicenseKey object from the wp_options for the given extension_slug.
+     *
+     * @param string $extension_slug
+     * @return LicenseKey
+     * @throws InvalidEntityException
+     */
+    private function getFromOption($extension_slug)
+    {
+        $this->maybeInitializeOptions($extension_slug);
+        $this->replaceInCollection(
+            $extension_slug,
+            $this->factory->create(
+                get_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_slug),
+                get_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug)
+            )
+        );
+        return $this->getLicenseKeyByExtension($extension_slug);
+    }
+
+
+    /**
+     * Always called when first getting license key data and license key from the option to ensure
+     * we aren't autolaoding these.
+     *
+     * @param string $extension_slug
+     */
+    private function maybeInitializeOptions($extension_slug)
+    {
+        // we just have to check one of the options because if one is initialized, they both are!
+        if (false === get_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug)) {
+            add_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug, '', '', 'no');
+            add_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_slug, new stdClass, '', 'no');
+        }
+    }
+}
