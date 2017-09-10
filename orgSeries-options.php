@@ -201,11 +201,17 @@ function orgseries_option_page() {
 				</div>
 			</div>
             <div id="organize-series-extensions" class="postbox">
-                <h3 class="handle"><span><?php _e('Organize Series News', 'organize-series'); ?></span></h3>
+                <h3 class="handle"><span><?php _e('Organize Series Extensions', 'organize-series'); ?></span></h3>
                 <div class="inside">
-                    <div id="orgseriesnews">
-                        <?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/orgSeries-feed.php'); ?>
-                    </div> <?php /*rss feed related */ ?>
+                    <p>
+                        <?php
+                        esc_html_e(
+                           'This is where all the license key fields will appear for your Organize Series extensions.',
+                           'organize-series'
+                        );
+                        ?>
+                    </p>
+                    <?php do_action('OSA_extension_license_key_fields'); ?>
                 </div>
             </div>
 			</div>
