@@ -1,6 +1,6 @@
 <?php
 
-namespace OrganizeSeries\views\admin;
+namespace OrganizeSeries\domain\services\admin;
 
 use OrganizeSeries\domain\model\LicenseKeyRepository;
 
