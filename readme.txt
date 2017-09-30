@@ -2,7 +2,8 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.7
+Requires at least: 4.7
+Requires PHP: 5.6
 Tested up to: 4.7.3
 Stable tag: 2.5.6
 License: GPLv2
