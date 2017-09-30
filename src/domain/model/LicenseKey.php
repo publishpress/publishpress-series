@@ -322,8 +322,5 @@ class LicenseKey
     {
         $this->license_key = trim($license_key);
     }
-
-
-
 }
 

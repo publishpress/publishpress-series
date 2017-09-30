@@ -1,0 +1,25 @@
+{
+  "name": "organize-series",
+  "version": "1.0.0",
+  "description": "Assets for the Organize Series WordPress plugin",
+  "main": "webpack.dev.js",
+  "scripts": {
+    "watch": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "Darren Ethier",
+  "license": "GPL-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@wordpress/dom-ready": "0.1.0-beta.2",
+    "axios": "^0.16.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.6.0",
+    "webpack-merge": "^4.1.0"
+  }
+}

@@ -2,7 +2,11 @@
 
 namespace OrganizeSeries\domain\services\admin;
 
-use OrganizeSeries\domain\model\LicenseKeyRepository;
+use DomainException;
+use function ob_end_clean;
+use function ob_get_contents;
+use OrganizeSeries\domain\Meta;
+use OrganizeSeries\domain\model\LicenseKey;
 
 /**
  * LicenseKeyForm
@@ -13,12 +17,43 @@ use OrganizeSeries\domain\model\LicenseKeyRepository;
  */
 class LicenseKeyForm
 {
-	
-	private $license_key_repository;
-	
-	
-	public function __construct(LicenseKeyRepository $license_key_repository)
+
+    /**
+     * @var LicenseKey
+     */
+	private $license_key;
+
+
+    /**
+     * The slug for the extension this form belongs to.
+     * @var string
+     */
+	private $extension_slug;
+
+
+    /**
+     * LicenseKeyForm constructor.
+     *
+     * @param LicenseKey $license_key
+     * @param string     $extension_slug
+     */
+	public function __construct(LicenseKey $license_key, $extension_slug)
 	{
-	
+        $this->license_key = $license_key;
+        $this->extension_slug = $extension_slug;
 	}
+
+
+    /**
+     * Outputs the form for this license key
+     *
+     * @return string
+     * @throws DomainException
+     */
+	public function printForm()
+    {
+        $license_key = $this->license_key;
+        $extension_slug = $this->extension_slug;
+        require Meta::adminTemplatePath() . 'license_key_form.template.php';
+    }
 }

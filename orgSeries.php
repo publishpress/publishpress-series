@@ -44,6 +44,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 //composer autolaod
 require __DIR__ . '/vendor/autoload.php';
+/** @todo add php version compatability detector (that will only load the plugin if PHP5.6+ is present) */
 
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
@@ -88,6 +89,38 @@ define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
 define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
 define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
+
+
+
+/**
+ * @todo move this into the LicenseFormManager
+ *       use Root::container::make() to load the Router
+ *       register HasHooksRoute for LicenseFormManager.
+ *       setup a LicenseKeyManager class that is used for registering Extensions on
+ *       LicenseKeyRegisteredExtensions.  It can implement HasHooks route that returns true everywhere and
+ *       thus load on every request.  It's sole purpose is to provide a hook point for
+ *       Organize Series Add-ons to register their extensions.
+ */
+add_action('wp_enqueue_scripts', function(){
+    wp_localize_script(
+        'osjs',
+        '_osConfig',
+        array(
+            'url' => site_url(),
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'debug' => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG
+        )
+    );
+    wp_localize_script(
+        'osjs',
+        '_osi18n',
+        array(
+            'deactivateButtonText' => esc_html__('Deactivate License', 'organize-series'),
+            'activateButtonText' => esc_html__('Activate License', 'organize-series')
+        )
+    );
+    wp_enqueue_script('os-admin', SERIES_PATH_URL . 'src/assets/dist/os-admin-global.dist.js', array('osjs'), ORG_SERIES_VERSION, true);
+});
 
 /*
 *include all related files here

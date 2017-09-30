@@ -2,8 +2,10 @@
 
 namespace OrganizeSeries\domain\model;
 
+use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\exceptions\LicenseKeyRequestError;
+use OrganizeSeries\domain\Meta;
 use stdClass;
 
 /**
@@ -29,9 +31,16 @@ class LicenseKeyRepository {
 
 
     /**
-     * The url for license key api requests.
+     * Action used to indicate activating license.
      */
-    const URL_LICENSE_KEY_API = 'https://organizeseries.com';
+    const ACTION_LICENSE_KEY_ACTIVATION = 'activate_license';
+
+
+    /**
+     * Action used to indicate deactivating license.
+     */
+    const ACTION_LICENSE_KEY_DEACTIVATION = 'deactivate_license';
+
 
 
 	/**
@@ -86,25 +95,25 @@ class LicenseKeyRepository {
     /**
      * Used to verify the license key data via the remote api.
      *
-     * @param string  $extension_slug
-     * @param string  $license_key
-     * @param integer $item_id The id of the product on OrganizeSeries.com
+     * @param ExtensionIdentifier $extension
+     * @param string              $license_key
+     * @param string              $action
      * @throws InvalidEntityException
      * @throws LicenseKeyRequestError
      */
-    public function remoteLicenseKeyVerification($extension_slug, $license_key, $item_id)
+    public function remoteLicenseKeyVerification(ExtensionIdentifier $extension, $license_key, $action)
     {
         // data to send in our API request
         $api_params = array(
-            'edd_action' => 'activate_license',
+            'edd_action' => $action,
             'license'    => $license_key,
-            'item_id'    => $item_id,
+            'item_id'    => $extension->getProductId(),
 			'url'        => home_url()
 		);
 
         // Call the custom API.
         $response = wp_remote_post(
-            self::URL_LICENSE_KEY_API,
+            Meta::licensingApiUri(),
             array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params )
         );
         // make sure the response came back okay
@@ -115,13 +124,13 @@ class LicenseKeyRepository {
             throw new LicenseKeyRequestError($message);
         }
         $this->replaceInCollection(
-            $extension_slug,
+            $extension->getSlug(),
             $this->factory->create(
                 json_decode( wp_remote_retrieve_body( $response ) ),
                 $license_key
             )
         );
-        $this->updateLicenseKeyByExtension($extension_slug);
+        $this->updateLicenseKeyByExtension($extension->getSlug());
     }
 
 
