@@ -87,6 +87,11 @@ class Container
                 $container[HasHooksRouteCollection::class]
             );
         };
+        $this->container[RouteRegistrar::class] = function($container) {
+            return new RouteRegistrar(
+                $container[Router::class]
+            );
+        };
     }
 
 
