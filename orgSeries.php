@@ -44,7 +44,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 //composer autolaod
 require __DIR__ . '/vendor/autoload.php';
-/** @todo add php version compatability detector (that will only load the plugin if PHP5.6+ is present) */
+
 
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
@@ -121,8 +121,6 @@ add_action('wp_enqueue_scripts', function(){
     );
     wp_enqueue_script('os-admin', SERIES_PATH_URL . 'src/assets/dist/os-admin-global.dist.js', array('osjs'), ORG_SERIES_VERSION, true);
 });
-//PHPVERSION warning @todo modify because not needed for this version
-require_once $plugin_path . 'orgSeries-version-check.php';
 
 /*
 *include all related files here
