@@ -1,5 +1,5 @@
 <?php
-namespace EventEspresso\domain\services;
+namespace OrganizeSeries\domain\services;
 
 use OrganizeSeries\domain\model\AjaxJsonResponse;
 use OrganizeSeries\domain\model\CombinedNoticeCollection;

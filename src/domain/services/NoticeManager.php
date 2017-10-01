@@ -1,6 +1,6 @@
 <?php
 
-namespace EventEspresso\domain\services;
+namespace OrganizeSeries\domain\services;
 
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\interfaces\AbstractNotice;

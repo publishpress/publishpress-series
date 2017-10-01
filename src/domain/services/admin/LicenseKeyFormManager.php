@@ -3,14 +3,11 @@
 namespace OrganizeSeries\domain\services\admin;
 
 use DomainException;
-use EventEspresso\domain\services\AjaxJsonResponseManager;
-use EventEspresso\domain\services\NoticeManager;
+use OrganizeSeries\domain\services\AjaxJsonResponseManager;
+use OrganizeSeries\domain\services\NoticeManager;
 use Exception;
 use OrganizeSeries\application\IncomingRequest;
-use OrganizeSeries\domain\exceptions\EntityNotFoundException;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
-use OrganizeSeries\domain\exceptions\LicenseKeyRequestError;
-use OrganizeSeries\domain\exceptions\NonceFailException;
 use OrganizeSeries\domain\interfaces\HasHooksInterface;
 use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\AjaxJsonResponse;

@@ -2,8 +2,8 @@
 
 namespace OrganizeSeries\application;
 
-use EventEspresso\domain\services\AjaxJsonResponseManager;
-use EventEspresso\domain\services\NoticeManager;
+use OrganizeSeries\domain\services\AjaxJsonResponseManager;
+use OrganizeSeries\domain\services\NoticeManager;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\model\CombinedNoticeCollection;
 use OrganizeSeries\domain\model\ControllerRouteCollection;
