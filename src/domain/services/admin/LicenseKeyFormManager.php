@@ -129,7 +129,7 @@ class LicenseKeyFormManager implements HasHooksInterface
            wp_enqueue_script(
                'os-admin-settings',
                Meta::assetsUrl() . 'dist/os-admin-settings.js',
-               array('osjs'),
+               array('osjs', 'jquery'),
                Meta::getVersion(),
                true
            );
