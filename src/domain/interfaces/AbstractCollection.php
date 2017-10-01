@@ -9,13 +9,19 @@ use SplObjectStorage;
 class AbstractCollection extends SplObjectStorage implements CollectionInterface
 {
 	/**
-	 * @var ClassOrInterfaceFullyQualifiedName
+	 * @var string
 	 */
 	private $class_or_interface_restricted_to;
-	
+
+
+    /**
+     * AbstractCollection constructor.
+     *
+     * @param ClassOrInterfaceFullyQualifiedName $class_or_interface_restricted_to
+     */
 	public function __construct(ClassOrInterfaceFullyQualifiedName $class_or_interface_restricted_to)
 	{
-		$this->class_or_interface_restricted_to = $class_or_interface_restricted_to;
+		$this->class_or_interface_restricted_to = $class_or_interface_restricted_to->__toString();
 	}
 
     /**
