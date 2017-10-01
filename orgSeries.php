@@ -86,6 +86,11 @@ define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Fiel
 define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
 
+/**
+ * PHP Version warning
+ */
+require_once $plugin_path . 'orgSeries-version-check.php';
+
 /*
 *include all related files here
 */
