@@ -12,12 +12,6 @@ Text Domain: organize-series
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
-
-use OrganizeSeries\application\Root;
-use OrganizeSeries\application\Router;
-use OrganizeSeries\application\RouteRegistrar;
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
-
 $os_version = '2.5.7';
 ######################################
 
@@ -155,10 +149,6 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
     require_once $plugin_path . 'inc/debug/plugin_activation_errors.php';
 
     //new bootstrapping, eventually this will replace all of the above.
-    Root::container()->make(
-        new ClassOrInterfaceFullyQualifiedName(Router::class)
-    );
-    Root::container()->make(
-        new ClassOrInterfaceFullyQualifiedName(RouteRegistrar::class)
-    );
+    require $plugin_path . 'bootstrap.php';
+
 }
