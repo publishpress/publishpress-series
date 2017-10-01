@@ -60,7 +60,7 @@ class RouteRegistrar
                 new RouteIdentifier(
                     function (IncomingRequest $request) use ($is_admin) {
                         return $is_admin
-                               && ($request->get('page', 'orgseries_options_page')
+                               && ($request->get('page', false) === 'orgseries_options_page'
                                    || $request->hasAjaxActions(
                                        array('os_license_key_activation', 'os_license_key_deactivation')
                                 )
