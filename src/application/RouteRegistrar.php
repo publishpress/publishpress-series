@@ -9,7 +9,6 @@ use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\model\HasHooksRoute;
 use OrganizeSeries\domain\model\RouteIdentifier;
 use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
-use function wp_doing_ajax;
 
 /**
  * RouteRegistrar
