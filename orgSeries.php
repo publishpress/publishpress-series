@@ -91,50 +91,91 @@ define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
 
 
-
-/**
- * @todo move this into the LicenseFormManager
- *       use Root::container::make() to load the Router
- *       register HasHooksRoute for LicenseFormManager.
- *       setup a LicenseKeyManager class that is used for registering Extensions on
- *       LicenseKeyRegisteredExtensions.  It can implement HasHooks route that returns true everywhere and
- *       thus load on every request.  It's sole purpose is to provide a hook point for
- *       Organize Series Add-ons to register their extensions.
- */
-add_action('wp_enqueue_scripts', function(){
-    wp_localize_script(
-        'osjs',
-        '_osConfig',
-        array(
-            'url' => site_url(),
-            'ajaxUrl' => admin_url('admin-ajax.php'),
-            'debug' => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG
-        )
-    );
-    wp_localize_script(
-        'osjs',
-        '_osi18n',
-        array(
-            'deactivateButtonText' => esc_html__('Deactivate License', 'organize-series'),
-            'activateButtonText' => esc_html__('Activate License', 'organize-series')
-        )
-    );
-    wp_enqueue_script('os-admin', SERIES_PATH_URL . 'src/assets/dist/os-admin-global.dist.js', array('osjs'), ORG_SERIES_VERSION, true);
-});
-
-/*
-*include all related files here
-*/
-//require utility files here first...?
-require_once($plugin_path . 'orgSeries-setup.php');
-require_once($plugin_path . 'orgSeries-options.php');
-require_once($plugin_path . 'orgSeries-rss.php');
-require_once($plugin_path . 'orgSeries-admin.php');
-require_once($plugin_path . 'orgSeries-icon.php');
-require_once($plugin_path . 'orgSeries-taxonomy.php');
-require_once($plugin_path . 'orgSeries-template-tags.php');
-require_once($plugin_path . 'orgSeries-utility.php');
-require_once($plugin_path . 'orgSeries-widgets.php');
-require_once($plugin_path . 'orgSeries-manage.php');
-require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
+//check for php version requirements
+if (version_compare(PHP_VERSION, '5.6') === -1) {
+    /**
+     * Show notices about Organize Series requiring PHP 5.6 or higher.
+     */
+    add_action('admin_notices', 'os_version_requirement_notice');
+    function os_version_requirement_notice() {
 ?>
+        <div class="notice notice-error">
+            <p>
+                <?php
+                    printf(
+                        esc_html__(
+                            'Organize Series %1$srequires PHP 5.6%2$s or greater.  Your website does not meet the requirements so the plugin is not fully activated.',
+                            'organize-series'
+                        ),
+                        '<strong>',
+                        '</strong>'
+                    );
+                    echo '<br>';
+                    printf(
+                        esc_html__(
+                            'Most web hosts provide an easy path to update the php version on your website.  We recommend updating to PHP 7 or greater. Before you update, you will want to make sure other plugins and your theme are compatible (see %1$sthis article for more info%2$s).',
+                            'organize-series'
+                        ),
+                        '<a href="https://kb.yoast.com/kb/site-ready-php-7/">',
+                        '</a>'
+                    );
+                ?>
+            </p>
+            <p>
+                <?php
+                    esc_html_e(
+                        'To remove this notice you can either deactivate the plugin or upgrade the php version on your server.',
+                        'organize-series'
+                    )
+                ?>
+            </p>
+        </div>
+<?php
+    }
+} else {
+    /**
+     * @todo move this into the LicenseFormManager
+     *       use Root::container::make() to load the Router
+     *       register HasHooksRoute for LicenseFormManager.
+     *       setup a LicenseKeyManager class that is used for registering Extensions on
+     *       LicenseKeyRegisteredExtensions.  It can implement HasHooks route that returns true everywhere and
+     *       thus load on every request.  It's sole purpose is to provide a hook point for
+     *       Organize Series Add-ons to register their extensions.
+     */
+    add_action('wp_enqueue_scripts', function(){
+        wp_localize_script(
+            'osjs',
+            '_osConfig',
+            array(
+                'url' => site_url(),
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'debug' => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG
+            )
+        );
+        wp_localize_script(
+            'osjs',
+            '_osi18n',
+            array(
+                'deactivateButtonText' => esc_html__('Deactivate License', 'organize-series'),
+                'activateButtonText' => esc_html__('Activate License', 'organize-series')
+            )
+        );
+        wp_enqueue_script('os-admin', SERIES_PATH_URL . 'src/assets/dist/os-admin-global.dist.js', array('osjs'), ORG_SERIES_VERSION, true);
+    });
+
+    /*
+    *include all related files here
+    */
+//require utility files here first...?
+    require_once($plugin_path . 'orgSeries-setup.php');
+    require_once($plugin_path . 'orgSeries-options.php');
+    require_once($plugin_path . 'orgSeries-rss.php');
+    require_once($plugin_path . 'orgSeries-admin.php');
+    require_once($plugin_path . 'orgSeries-icon.php');
+    require_once($plugin_path . 'orgSeries-taxonomy.php');
+    require_once($plugin_path . 'orgSeries-template-tags.php');
+    require_once($plugin_path . 'orgSeries-utility.php');
+    require_once($plugin_path . 'orgSeries-widgets.php');
+    require_once($plugin_path . 'orgSeries-manage.php');
+    require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
+}
