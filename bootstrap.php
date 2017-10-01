@@ -1,12 +1,12 @@
 <?php
 use OrganizeSeries\application\Root;
-use OrganizeSeries\application\Router;
 use OrganizeSeries\application\RouteRegistrar;
+use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 
-Root::container()->make(
-    new ClassOrInterfaceFullyQualifiedName(Router::class)
-);
+//initialize Meta (path registration etc)
+Meta::init(__FILE__, ORG_SERIES_VERSION);
+//register routes
 Root::container()->make(
     new ClassOrInterfaceFullyQualifiedName(RouteRegistrar::class)
 );
