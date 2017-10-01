@@ -2,9 +2,9 @@
 Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
-Requires at least: 3.7
-Tested up to: 4.7.3
-Stable tag: 2.5.6
+Requires at least: 4.7
+Tested up to: 4.8.2
+Stable tag: 2.5.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,9 +16,9 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
 
-Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
+>> **NOTE: Organize Series now requires at least WordPress 4.7.  Also in an upcoming version of Organize Series, the required version of PHP required is 5.6 or greater.  As of Organize Series version 2.5.7, if a version lower than PHP 5.6 is detected on your website, there will be a notice shown with more information and to prompt upgrading your website to be on a later version of PHP.**
 
-**As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. While Organize Series *may* work on PHP5.2 it is recommended (and supported) for PHP5.3+.**
+Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
 **NOTE: Organize Series has not been designed to be multisite compatible at this time.  Some users are finding it works great for their needs but your mileage may vary. Feel free to try on multi-site but at your own risk.**
 
@@ -28,7 +28,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.4.6, Organize Series *requires* WordPress 3.7+ to work. Organize Series also requires PHP 5.2+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
+**As of version 2.5.7, Organize Series *requires* WordPress 4.7+ to work. Organize Series also currently requires PHP 5.3+ but an upcoming release will require PHP 5.6+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
 
 **ALSO**: If you are upgrading make sure you read the upgrade notes.
 
@@ -42,7 +42,7 @@ You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
 
-* **DO NOT UPGRADE TO THIS RELEASE (2.4.6) UNLESS YOUR WORDPRESS INSTALLATION IS AT VERSION 3.7**
+* **DO NOT UPGRADE TO THIS RELEASE (2.5.7) UNLESS YOUR WORDPRESS INSTALLATION IS AT VERSION 4.7**
 
 **ALSO**
 
@@ -126,7 +126,7 @@ There have been some changes to how I provide support for Organize Series. Here 
 The following is a brief overview of all the features in Organize Series.
 
 #### Integration with WordPress taxonomy system
-Beginning with version 2.3, WordPress introduced a database and core change that resulted in a new taxonomy system.  The core WordPress has two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
+Included with WordPress out of the box are two taxonomies - "categories" and "tags".  Organize Series introduces a new taxonomy "series".  Thanks to the rich api provided to plugin authors by WordPress, Organize Series takes advantage of (as much as possible) the built-in WP goodness!  As an added bonus - plugin developers can expand on what Organize Series offers by interacting with the new series taxonomy and the built-in filters/hooks.
 
 #### More "organize" for taking care of your series...
 Check these additions to your WordPress administration:
@@ -187,12 +187,9 @@ Have fun - and get writing those series!!
 
 == Upgrade Notice ==
 
-= to 2.2 from earlier versions =
-This version is a major update to the plugin and introduces big changes to the core code and structure of the plugin.  Care has been given to make the upgrade as seamless as possible for users of previous versions but you will definitely want to read over the changelog to see if there are any changes that will impact you.
-
 *AS ALWAYS - BACKUP YOUR BLOG FIRST BEFORE UPGRADING!!*
 
 
 == Changelog ==
 
-Changelog is no longer bundled with the readme.  For latest commits see the [commit list on github](https://github.com/roughsmoothengine/organize-series/commits/master) or the [release tags](https://github.com/roughsmoothengine/organize-series/releases)
+Changelog is no longer bundled with the readme.  For latest commits see the [commit list on github](https://github.com/roughsmoothengine/organize-series/commits/master) or the [release tags](https://github.com/roughsmoothengine/organize-series/releases).  You can also view the [closed milestones on github](https://github.com/roughsmoothengine/organize-series/milestones?state=closed) to see what changed within a release.
