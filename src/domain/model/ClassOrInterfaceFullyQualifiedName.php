@@ -31,7 +31,7 @@ class ClassOrInterfaceFullyQualifiedName
 	public function __construct($class_or_interface_fqcn)
 	{
 		$class_or_interface_fqcn = (string) $class_or_interface_fqcn;
-		if (! interface_exists($class_or_interface_fqcn) || ! class_exists($class_or_interface_fqcn)) {
+		if (! interface_exists($class_or_interface_fqcn) && ! class_exists($class_or_interface_fqcn)) {
 			throw new InvalidInterfaceException($class_or_interface_fqcn);
 		}
 		$this->class_or_interface_fqcn = $class_or_interface_fqcn;
