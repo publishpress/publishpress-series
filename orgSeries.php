@@ -13,6 +13,11 @@ Text Domain: organize-series
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
 
+use OrganizeSeries\application\Root;
+use OrganizeSeries\application\Router;
+use OrganizeSeries\application\RouteRegistrar;
+use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
+
 $os_version = '2.5.7';
 ######################################
 
@@ -133,49 +138,27 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
 <?php
     }
 } else {
-    /**
-     * @todo move this into the LicenseFormManager
-     *       use Root::container::make() to load the Router
-     *       register HasHooksRoute for LicenseFormManager.
-     *       setup a LicenseKeyManager class that is used for registering Extensions on
-     *       LicenseKeyRegisteredExtensions.  It can implement HasHooks route that returns true everywhere and
-     *       thus load on every request.  It's sole purpose is to provide a hook point for
-     *       Organize Series Add-ons to register their extensions.
-     */
-    add_action('wp_enqueue_scripts', function(){
-        wp_localize_script(
-            'osjs',
-            '_osConfig',
-            array(
-                'url' => site_url(),
-                'ajaxUrl' => admin_url('admin-ajax.php'),
-                'debug' => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG
-            )
-        );
-        wp_localize_script(
-            'osjs',
-            '_osi18n',
-            array(
-                'deactivateButtonText' => esc_html__('Deactivate License', 'organize-series'),
-                'activateButtonText' => esc_html__('Activate License', 'organize-series')
-            )
-        );
-        wp_enqueue_script('os-admin', SERIES_PATH_URL . 'src/assets/dist/os-admin-global.dist.js', array('osjs'), ORG_SERIES_VERSION, true);
-    });
-
     /*
-    *include all related files here
+    * include all related files here
     */
-//require utility files here first...?
-    require_once($plugin_path . 'orgSeries-setup.php');
-    require_once($plugin_path . 'orgSeries-options.php');
-    require_once($plugin_path . 'orgSeries-rss.php');
-    require_once($plugin_path . 'orgSeries-admin.php');
-    require_once($plugin_path . 'orgSeries-icon.php');
-    require_once($plugin_path . 'orgSeries-taxonomy.php');
-    require_once($plugin_path . 'orgSeries-template-tags.php');
-    require_once($plugin_path . 'orgSeries-utility.php');
-    require_once($plugin_path . 'orgSeries-widgets.php');
-    require_once($plugin_path . 'orgSeries-manage.php');
-    require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
+    //require utility files here first...?
+    require_once $plugin_path . 'orgSeries-setup.php';
+    require_once $plugin_path . 'orgSeries-options.php';
+    require_once $plugin_path . 'orgSeries-rss.php';
+    require_once $plugin_path . 'orgSeries-admin.php';
+    require_once $plugin_path . 'orgSeries-icon.php';
+    require_once $plugin_path . 'orgSeries-taxonomy.php';
+    require_once $plugin_path . 'orgSeries-template-tags.php';
+    require_once $plugin_path . 'orgSeries-utility.php';
+    require_once $plugin_path . 'orgSeries-widgets.php';
+    require_once $plugin_path . 'orgSeries-manage.php';
+    require_once $plugin_path . 'inc/debug/plugin_activation_errors.php';
+
+    //new bootstrapping, eventually this will replace all of the above.
+    Root::container()->make(
+        new ClassOrInterfaceFullyQualifiedName(Router::class)
+    );
+    Root::container()->make(
+        new ClassOrInterfaceFullyQualifiedName(RouteRegistrar::class)
+    );
 }
