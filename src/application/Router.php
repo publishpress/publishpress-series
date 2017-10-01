@@ -108,7 +108,7 @@ class Router {
     private function loadFromCollection(AbstractCollection $collection) {
         foreach ($collection as $route) {
             if ($route->getRouteIdentifier()->isOnRoute($this->request)) {
-                $route_executor = Root::container()->make($route->getControllerFullyQualifiedClassname());
+                $route_executor = Root::container()->make($route->getFullyQualifiedClassName());
                 $this->execute($route_executor);
             }
         }

@@ -4,8 +4,9 @@ namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
+use OrganizeSeries\domain\interfaces\RouteInterface;
 
-class ControllerRoute
+class ControllerRoute implements RouteInterface
 {
     /**
      * @var ClassOrInterfaceFullyQualifiedName
@@ -69,7 +70,7 @@ class ControllerRoute
     /**
      * @return ClassOrInterfaceFullyQualifiedName
      */
-    public function getControllerFullyQualifiedClassname()
+    public function getFullyQualifiedClassName()
     {
         return $this->controller_fully_qualified_classname;
     }

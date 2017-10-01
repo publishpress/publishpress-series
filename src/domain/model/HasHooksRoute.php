@@ -3,8 +3,9 @@ namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
+use OrganizeSeries\domain\interfaces\RouteInterface;
 
-class HasHooksRoute
+class HasHooksRoute implements RouteInterface
 {
     /**
      * @var ClassOrInterfaceFullyQualifiedName
@@ -28,7 +29,7 @@ class HasHooksRoute
         ClassOrInterfaceFullyQualifiedName $fully_qualified_class_name,
         RouteIdentifierInterface $route_identifier
     ) {
-        $this->setFullyQualifiedHooksClassName($fully_qualified_class_name);
+        $this->setFullyQualifiedClassName($fully_qualified_class_name);
         $this->setRouteIdentifier($route_identifier);
     }
 
@@ -46,7 +47,7 @@ class HasHooksRoute
      * @param ClassOrInterfaceFullyQualifiedName $fully_qualified_hooks_class_name
      * @throws InvalidArgumentException
      */
-    private function setFullyQualifiedHooksClassName($fully_qualified_hooks_class_name)
+    private function setFullyQualifiedClassName($fully_qualified_hooks_class_name)
     {
         if (! in_array(
             'OrganizeSeries\domain\interfaces\HasHooksInterface',
@@ -70,7 +71,7 @@ class HasHooksRoute
     /**
      * @return ClassOrInterfaceFullyQualifiedName
      */
-    public function getFullyQualifiedHooksClassName()
+    public function getFullyQualifiedClassName()
     {
         return $this->fully_qualified_hooks_class_name;
     }
