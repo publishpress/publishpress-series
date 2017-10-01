@@ -72,7 +72,7 @@ class IncomingRequest
         $this->post = $post;
         $this->cookie = $cookie;
         $this->is_ajax = wp_doing_ajax();
-        $this->params = array_merge($this->get, $this->post);
+        $this->parameters = array_merge($this->get, $this->post);
         $this->ip_address = $this->deriveIpAddress();
     }
 
