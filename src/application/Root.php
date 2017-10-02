@@ -7,7 +7,6 @@ use OrganizeSeries\domain\exceptions\InvalidInterfaceException;
 use OrganizeSeries\domain\interfaces\AbstractBootstrap;
 use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
-use OrganizeSeries\domain\model\ExtensionMetaCollection;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 use Pimple\Container as PimpleContainer;
 
