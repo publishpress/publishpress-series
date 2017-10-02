@@ -1,12 +1,14 @@
 <?php
 use OrganizeSeries\application\Root;
-use OrganizeSeries\application\RouteRegistrar;
-use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
+use OrganizeSeries\domain\services\CoreBootstrap;
+
 
 //initialize Meta (path registration etc)
-Meta::init(__FILE__, ORG_SERIES_VERSION);
+Root::initialize(__FILE__, ORG_SERIES_VERSION);
 //register routes
 Root::container()->make(
-    new ClassOrInterfaceFullyQualifiedName(RouteRegistrar::class)
+    new ClassOrInterfaceFullyQualifiedName(CoreBootstrap::class)
 );
+//this is the hook that all Organize Series Extensions should hook in on.
+do_action('AHOS__bootstrapped');

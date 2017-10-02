@@ -20,44 +20,43 @@ abstract class AbstractMeta
      * Equivalent to the `__FILE__` for the main plugin file.
      * @var string
      */
-    private static $file;
+    protected $file;
 
 
     /**
      * The WordPress basename for the plugin.
      * @var string
      */
-    private static $basename;
+    protected $basename;
 
 
     /**
      * The base path for the plugin (within the src) folder.
      */
-    private static $base_path;
+    protected $base_path;
 
 
     /**
      * The base url for the plugin (within the src) folder
      * @var string
      */
-    private static $base_url;
+    protected $base_url;
 
 
     /**
      * The plugin version.
      * @var string
      */
-    private static $version;
+    protected $version;
 
 
-
-    public static function init($plugin_file, $version)
+    public function __construct($plugin_file, $version)
     {
-        self::$file = $plugin_file;
-        self::$version = $version;
-        self::$basename = plugin_basename($plugin_file);
-        self::$base_path = plugin_dir_path($plugin_file);
-        self::$base_url = plugin_dir_url($plugin_file);
+        $this->file = $plugin_file;
+        $this->version = $version;
+        $this->basename = plugin_basename($plugin_file);
+        $this->base_path = plugin_dir_path($plugin_file);
+        $this->base_url = plugin_dir_url($plugin_file);
     }
 
 
@@ -65,70 +64,44 @@ abstract class AbstractMeta
      * @return string
      * @throws DomainException
      */
-    public static function getFile()
+    public function getFile()
     {
-        self::verifyInitialized(__METHOD__);
-        return self::$file;
+        return $this->file;
     }
 
     /**
      * @return string
      * @throws DomainException
      */
-    public static function getBasename()
+    public function getBasename()
     {
-        self::verifyInitialized(__METHOD__);
-        return self::$basename;
+        return $this->basename;
     }
 
     /**
      * @return mixed
      * @throws DomainException
      */
-    public static function getBasePath()
+    public function getBasePath()
     {
-        self::verifyInitialized(__METHOD__);
-        return self::$base_path;
+        return $this->base_path;
     }
 
     /**
      * @return string
      * @throws DomainException
      */
-    public static function getBaseUrl()
+    public function getBaseUrl()
     {
-        self::verifyInitialized(__METHOD__);
-        return self::$base_url;
+        return $this->base_url;
     }
 
     /**
      * @return string
      * @throws DomainException
      */
-    public static function getVersion()
+    public function getVersion()
     {
-        self::verifyInitialized(__METHOD__);
-        return self::$version;
-    }
-
-
-    /**
-     * @param string $method
-     * @throws DomainException
-     */
-    private static function verifyInitialized($method)
-    {
-        if (self::$file === '') {
-            throw new DomainException(
-                sprintf(
-                    esc_html__(
-                        '%1$s needs to be called before %2$s can return a value.',
-                        'organize-series'
-                    ),
-                    get_called_class() . '::init()',
-                    "{$method}()"
-                )
-            );
-        }
+        return $this->version;
     }
 }

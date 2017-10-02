@@ -13,9 +13,9 @@ class Meta extends AbstractMeta {
      * @return string
      * @throws DomainException
      */
-    public static function adminTemplatePath()
+    public function adminTemplatePath()
     {
-        return self::getBasePath() . 'domain/views/admin/templates/';
+        return $this->getBasePath() . 'src/views/admin/templates/';
     }
 
 
@@ -24,9 +24,9 @@ class Meta extends AbstractMeta {
      * @return string
      * @throws DomainException
      */
-    public static function adminTemplateUrl()
+    public function adminTemplateUrl()
     {
-        return self::getBaseUrl() . 'domain/views/admin/templates/';
+        return $this->getBaseUrl() . 'src/views/admin/templates/';
     }
 
 
@@ -35,9 +35,9 @@ class Meta extends AbstractMeta {
      * @return string
      * @throws DomainException
      */
-    public static function assetsPath()
+    public function assetsPath()
     {
-        return self::getBasePath() . 'src/assets/';
+        return $this->getBasePath() . 'src/assets/';
     }
 
 
@@ -46,9 +46,9 @@ class Meta extends AbstractMeta {
      * @return string
      * @throws DomainException
      */
-    public static function assetsUrl()
+    public function assetsUrl()
     {
-        return self::getBaseUrl() . 'src/assets/';
+        return $this->getBaseUrl() . 'src/assets/';
     }
 
 
@@ -56,7 +56,7 @@ class Meta extends AbstractMeta {
      * The url to the api for licensing.
      * @return string
      */
-    public static function licensingApiUri()
+    public function licensingApiUri()
     {
         return defined('OS_LICENSING_URI')
             ? OS_LICENSING_URI

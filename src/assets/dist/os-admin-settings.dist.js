@@ -87,19 +87,19 @@ module.exports = __webpack_require__(4);
 "use strict";
 
 
-var _domReady = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"@wordpress/dom-ready\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _domReady = __webpack_require__(5);
 
 var _domReady2 = _interopRequireDefault(_domReady);
 
-var _jquery = __webpack_require__(5);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _osjs = __webpack_require__(6);
+var _osjs = __webpack_require__(7);
 
 var os = _interopRequireWildcard(_osjs);
 
-var _wpNoticeBuilder = __webpack_require__(7);
+var _wpNoticeBuilder = __webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -219,18 +219,41 @@ var CONTAINER_NOTICES_CLASS = 'os-license-notices';
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = jQuery;
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/**
+ * Specify a function to execute when the DOM is fully loaded.
+ *
+ * @param {Function} callback A function to execute after the DOM is ready.
+ *
+ * @returns {void}
+ */
+var domReady = function domReady(callback) {
+  if (document.readyState === 'complete') {
+    return callback();
+  }
+
+  document.addEventListener('DOMContentLoaded', callback);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (domReady);
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = osjs;
+module.exports = jQuery;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports) {
+
+module.exports = osjs;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -3,19 +3,19 @@
 namespace OrganizeSeries\domain\services\admin;
 
 use DomainException;
+use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\services\AjaxJsonResponseManager;
 use OrganizeSeries\domain\services\NoticeManager;
 use Exception;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\interfaces\HasHooksInterface;
-use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\AjaxJsonResponse;
 use OrganizeSeries\domain\model\ErrorNotice;
 use OrganizeSeries\domain\model\ExtensionIdentifier;
 use OrganizeSeries\domain\model\LicenseKeyAjaxRequest;
 use OrganizeSeries\domain\model\LicenseKeyAjaxResponse;
-use OrganizeSeries\domain\model\LicenseKeyRegisteredExtensions;
+use OrganizeSeries\domain\model\RegisteredExtensions;
 use OrganizeSeries\domain\model\LicenseKeyRepository;
 use OrganizeSeries\domain\model\SuccessNotice;
 use OrganizeSeries\domain\services\AssetRegistry;
@@ -39,7 +39,7 @@ class LicenseKeyFormManager implements HasHooksInterface
 
 
     /**
-     * @var LicenseKeyRegisteredExtensions
+     * @var RegisteredExtensions
      */
     private $registered_extensions;
 
@@ -77,15 +77,15 @@ class LicenseKeyFormManager implements HasHooksInterface
     /**
      * LicenseKeyFormManager constructor.
      *
-     * @param LicenseKeyRepository           $license_key_repository
-     * @param LicenseKeyRegisteredExtensions $registered_extensions
-     * @param AssetRegistry                  $asset_registry
-     * @param AjaxJsonResponseManager        $response_manager
-     * @param NoticeManager                  $notice_manager
+     * @param LicenseKeyRepository    $license_key_repository
+     * @param RegisteredExtensions    $registered_extensions
+     * @param AssetRegistry           $asset_registry
+     * @param AjaxJsonResponseManager $response_manager
+     * @param NoticeManager           $notice_manager
      */
     public function __construct(
         LicenseKeyRepository $license_key_repository,
-        LicenseKeyRegisteredExtensions $registered_extensions,
+        RegisteredExtensions $registered_extensions,
         AssetRegistry $asset_registry,
         AjaxJsonResponseManager $response_manager,
         NoticeManager $notice_manager
@@ -128,9 +128,9 @@ class LicenseKeyFormManager implements HasHooksInterface
         $this->asset_registry->registerOnDemandCallback(function(){
            wp_enqueue_script(
                'os-admin-settings',
-               Meta::assetsUrl() . 'dist/os-admin-settings.js',
+               Root::coreMeta()->assetsUrl() . 'dist/os-admin-settings.dist.js',
                array('osjs', 'jquery'),
-               Meta::getVersion(),
+               Root::coreMeta()->getVersion(),
                true
            );
         });
@@ -152,7 +152,7 @@ class LicenseKeyFormManager implements HasHooksInterface
      */
     private function registerFiltersAndActions()
     {
-        add_action('OSA_extension_license_key_fields', array($this, 'printLicenseKeyForms'));
+        add_action('AHOS__extension_license_key_fields', array($this, 'printLicenseKeyForms'));
     }
 
 
@@ -168,7 +168,7 @@ class LicenseKeyFormManager implements HasHooksInterface
             foreach ($this->registered_extensions as $extension) {
                 $slug = $extension->getSlug();
                 $this->license_key_forms[$slug] = new LicenseKeyForm(
-                    $this->license_key_repository->getLicenseKeyByExtension($slug),
+                    $this->license_key_repository->getLicenseKeyByExtension($extension),
                     $slug
                 );
             }
@@ -232,7 +232,7 @@ class LicenseKeyFormManager implements HasHooksInterface
                 $request->getLicenseKey(),
                 $state_change
             );
-            $license_key = $this->license_key_repository->getLicenseKeyByExtension($extension_identifier->getSlug());
+            $license_key = $this->license_key_repository->getLicenseKeyByExtension($extension_identifier);
             $this->notice_manager->addSingleNotice(
                 new SuccessNotice(
                     $activation

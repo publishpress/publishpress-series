@@ -74,7 +74,7 @@ $plugin_url = plugins_url('', __FILE__).'/';
 $org_series_loc = $plugin_url;
 
 /**
-  * This sets the defaults for the constants for orgSeries
+ * This sets the defaults for the constants for orgSeries
 */
 define( 'SERIES_PATH_URL', $plugin_url );
 define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
@@ -132,22 +132,6 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
 <?php
     }
 } else {
-    /*
-    * include all related files here
-    */
-    //require utility files here first...?
-    require_once $plugin_path . 'orgSeries-setup.php';
-    require_once $plugin_path . 'orgSeries-options.php';
-    require_once $plugin_path . 'orgSeries-rss.php';
-    require_once $plugin_path . 'orgSeries-admin.php';
-    require_once $plugin_path . 'orgSeries-icon.php';
-    require_once $plugin_path . 'orgSeries-taxonomy.php';
-    require_once $plugin_path . 'orgSeries-template-tags.php';
-    require_once $plugin_path . 'orgSeries-utility.php';
-    require_once $plugin_path . 'orgSeries-widgets.php';
-    require_once $plugin_path . 'orgSeries-manage.php';
-    require_once $plugin_path . 'inc/debug/plugin_activation_errors.php';
-
     //new bootstrapping, eventually this will replace all of the above.
     require $plugin_path . 'bootstrap.php';
 

@@ -120,15 +120,24 @@ class LicenseKey
      */
     private $license_key;
 
+
+    /**
+     * @var ExtensionIdentifier
+     */
+    private $extension_identifier;
+
     /**
      * LicenseKey constructor.
      *
-     * @param stdClass $license This is whatever is returned from the stored option in the db.
-     * @param string   $license_key  The license key associated with this data.
+     * @param stdClass            $license     This is whatever is returned from the stored option in the db.
+     * @param string              $license_key The license key associated with this data.
+     * @param ExtensionIdentifier $extension_identifier  Will be used as the fallback for item names etc if there is no
+     *                                                   no info available yet.
      */
-	public function __construct(stdClass $license, $license_key)
+	public function __construct(stdClass $license, $license_key, ExtensionIdentifier $extension_identifier)
     {
         $this->setup($license);
+        $this->extension_identifier = $extension_identifier;
         $this->license_key = $license_key;
     }
 
@@ -194,7 +203,9 @@ class LicenseKey
      */
     public function getItemName()
     {
-        return $this->item_name;
+        return empty($this->item_name)
+            ? $this->extension_identifier->getName()
+            : $this->item_name;
     }
 
     /**

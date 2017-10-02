@@ -4,7 +4,7 @@ namespace OrganizeSeries\domain\services;
 use Closure;
 use DomainException;
 use InvalidArgumentException;
-use OrganizeSeries\domain\Meta;
+use OrganizeSeries\application\Root;
 
 /**
  * AssetRegistry
@@ -81,9 +81,9 @@ class AssetRegistry
     {
         wp_register_script(
             'osjs',
-            Meta::assetsUrl() . 'dist/osjs.dist.js',
+            Root::coreMeta()->assetsUrl() . 'dist/osjs.dist.js',
             array(),
-            Meta::getVersion(),
+            Root::coreMeta()->getVersion(),
             true
         );
     }

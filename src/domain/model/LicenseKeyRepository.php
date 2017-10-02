@@ -5,7 +5,6 @@ namespace OrganizeSeries\domain\model;
 use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\exceptions\LicenseKeyRequestError;
-use OrganizeSeries\domain\Meta;
 use stdClass;
 
 /**
@@ -55,8 +54,10 @@ class LicenseKeyRepository {
 	private $factory;
 	
 	
-	public function __construct(LicenseKeyCollection $collection, LicenseKeyFactory $factory)
-	{
+	public function __construct(
+	    LicenseKeyCollection $collection,
+        LicenseKeyFactory $factory
+    ) {
 		$this->collection = $collection;
 		$this->factory = $factory;
 	}
@@ -65,28 +66,29 @@ class LicenseKeyRepository {
     /**
      * Retrieve a License Key object from the wp_option for the given extension.
      *
-     * @param string $extension_slug
+     * @param ExtensionIdentifier $extension_identifier
      * @return LicenseKey
      * @throws InvalidEntityException
      */
-	public function getLicenseKeyByExtension($extension_slug)
+	public function getLicenseKeyByExtension(ExtensionIdentifier $extension_identifier)
     {
-        if ($this->collection->has($extension_slug)) {
-            return $this->collection->get($extension_slug);
+        if ($this->collection->has($extension_identifier->getSlug())) {
+            return $this->collection->get($extension_identifier->getSlug());
         }
 
-        return $this->getFromOption($extension_slug);
+        return $this->getFromOption($extension_identifier);
     }
 
 
     /**
      * Persists the license key and license data to the wp_options table.
-     * @param $extension_slug
+     *
+     * @param ExtensionIdentifier $extension_identifier
      * @throws InvalidEntityException
      */
-    public function updateLicenseKeyByExtension($extension_slug)
+    public function updateLicenseKeyByExtension(ExtensionIdentifier $extension_identifier)
     {
-        $license_key = $this->getLicenseKeyByExtension($extension_slug);
+        $license_key = $this->getLicenseKeyByExtension($extension_identifier);
         update_option(self::OPTION_PREFIX_LICENSE_KEY_DATA, $license_key->forStorage());
         update_option(self::OPTION_PREFIX_LICENSE_KEY, $license_key->getLicenseKey());
     }
@@ -113,7 +115,7 @@ class LicenseKeyRepository {
 
         // Call the custom API.
         $response = wp_remote_post(
-            Meta::licensingApiUri(),
+            Root::coreMeta()->licensingApiUri(),
             array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params )
         );
         // make sure the response came back okay
@@ -127,10 +129,11 @@ class LicenseKeyRepository {
             $extension->getSlug(),
             $this->factory->create(
                 json_decode( wp_remote_retrieve_body( $response ) ),
-                $license_key
+                $license_key,
+                $extension
             )
         );
-        $this->updateLicenseKeyByExtension($extension->getSlug());
+        $this->updateLicenseKeyByExtension($extension);
     }
 
 
@@ -154,21 +157,22 @@ class LicenseKeyRepository {
     /**
      * This uses the factory to create a LicenseKey object from the wp_options for the given extension_slug.
      *
-     * @param string $extension_slug
+     * @param ExtensionIdentifier$extension_identifier
      * @return LicenseKey
      * @throws InvalidEntityException
      */
-    private function getFromOption($extension_slug)
+    private function getFromOption(ExtensionIdentifier $extension_identifier)
     {
-        $this->maybeInitializeOptions($extension_slug);
+        $this->maybeInitializeOptions($extension_identifier->getSlug());
         $this->replaceInCollection(
-            $extension_slug,
+            $extension_identifier->getSlug(),
             $this->factory->create(
-                get_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_slug),
-                get_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug)
+                get_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_identifier->getSlug()),
+                get_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_identifier->getSlug()),
+                $extension_identifier
             )
         );
-        return $this->getLicenseKeyByExtension($extension_slug);
+        return $this->getLicenseKeyByExtension($extension_identifier);
     }
 
 

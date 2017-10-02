@@ -3,9 +3,7 @@
 namespace OrganizeSeries\domain\services\admin;
 
 use DomainException;
-use function ob_end_clean;
-use function ob_get_contents;
-use OrganizeSeries\domain\Meta;
+use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\model\LicenseKey;
 
 /**
@@ -54,6 +52,6 @@ class LicenseKeyForm
     {
         $license_key = $this->license_key;
         $extension_slug = $this->extension_slug;
-        require Meta::adminTemplatePath() . 'license_key_form.template.php';
+        require Root::coreMeta()->adminTemplatePath() . 'license_key_form.template.php';
     }
 }

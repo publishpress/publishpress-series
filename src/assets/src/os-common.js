@@ -63,7 +63,7 @@ window.addEventListener('error', function(e) {
     if (e.error.stack) {
         e.error.message += '\n' + e.error.stack;
     }
-    if (os.config.debug) {
+    if (config.debug) {
         console.log(e.error.message);
     }
 });

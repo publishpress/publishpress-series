@@ -7,7 +7,7 @@ use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\interfaces\AbstractCollection;
 
 /**
- * LicenseKeyRegisteredExtensions
+ * RegisteredExtensions
  * Simple collection used to hold all registered extensions for Organize Series.
  * Collection holds instances of ExtensionIdentifier
  *
@@ -15,7 +15,7 @@ use OrganizeSeries\domain\interfaces\AbstractCollection;
  * @author  Darren Ethier
  * @since   1.0.0
  */
-class LicenseKeyRegisteredExtensions extends AbstractCollection {
+class RegisteredExtensions extends AbstractCollection {
 
     public function __construct()
     {

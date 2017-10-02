@@ -17,23 +17,14 @@ class RouteIdentifier implements RouteIdentifierInterface
 
 
     /**
-     * Used to indicate whether this is an admin route or not.
-     * @var bool
-     */
-    private $is_admin;
-
-
-    /**
      * RouteIdentifier constructor.
      *
      * @param Closure $is_on_route_callback
-     * @param bool    $is_admin
      * @throws InvalidArgumentException
      */
-    public function __construct($is_on_route_callback, $is_admin)
+    public function __construct($is_on_route_callback)
     {
         $this->setIsOnRouteCallback($is_on_route_callback);
-        $this->setIsAdmin($is_admin);
     }
 
     /**
@@ -47,16 +38,6 @@ class RouteIdentifier implements RouteIdentifierInterface
         $route_callback = $this->is_on_route_callback;
         return $route_callback($request);
     }
-
-    /**
-     * Return whether the route is an admin route or not.
-     *
-     * @return bool
-     */
-    public function isAdminRoute()
-    {
-        return $this->is_admin;
-}
 
     /**
      * @param Closure $is_on_route_callback
@@ -76,13 +57,5 @@ class RouteIdentifier implements RouteIdentifierInterface
             );
         }
         $this->is_on_route_callback = $is_on_route_callback;
-    }
-
-    /**
-     * @param bool $is_admin
-     */
-    private function setIsAdmin($is_admin)
-    {
-        $this->is_admin = filter_var($is_admin, FILTER_VALIDATE_BOOLEAN);
     }
 }

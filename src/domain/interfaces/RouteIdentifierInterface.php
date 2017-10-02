@@ -12,12 +12,4 @@ interface RouteIdentifierInterface
      * @return bool
      */
     public function isOnRoute(IncomingRequest $request);
-
-
-
-    /**
-     * Return whether the route is an admin route or not.
-     * @return bool
-     */
-    public function isAdminRoute();
 }
