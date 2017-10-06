@@ -10,10 +10,10 @@ class NonceFailException extends InvalidArgumentException
      * NonceFailException constructor.
      *
      * @param string $message
-     * @param string $code
+     * @param int    $code
      * @param Exception|null   $previous
      */
-    public function __construct($message = '', $code = '', $previous = null) {
+    public function __construct($message = '', $code = 0, $previous = null) {
         if ($message === '') {
             $message = esc_html__(
                 'Nonce fail.',

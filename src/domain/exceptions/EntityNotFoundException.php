@@ -21,10 +21,10 @@ class EntityNotFoundException extends InvalidArgumentException
      *
      * @param string $expected_entity
      * @param string $message
-     * @param string $code
+     * @param int $code
      * @param Exception       $previous
      */
-    public function __construct($expected_entity, $message = '', $code = '', $previous = null)
+    public function __construct($expected_entity, $message = '', $code = 0, $previous = null)
     {
         $message = sprintf(
             esc_html__(
