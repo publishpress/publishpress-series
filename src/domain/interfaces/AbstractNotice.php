@@ -14,14 +14,32 @@ use const FILTER_VALIDATE_BOOLEAN;
 abstract class AbstractNotice
 {
 
+    /**
+     * The notice message.
+     * @var string
+     */
     private $message;
+
+    /**
+     * Whether or not the notice should be dismissible.
+     * @var bool
+     */
     private $is_dismissible;
 
 
-    public function __construct($message, $is_dismissible = false)
+    /**
+     * An associative array of data to include with the message (will be parsed so each key/value pair is on its own
+     * separate line separated by '<br>'.
+     * @var array
+     */
+    private $data;
+
+
+    public function __construct($message, $is_dismissible = false, array $data = array())
     {
         $this->message = (string) $message;
         $this->is_dismissible = filter_var($is_dismissible, FILTER_VALIDATE_BOOLEAN);
+        $this->data = $data;
     }
 
     /**
@@ -29,7 +47,14 @@ abstract class AbstractNotice
      * @return string
      */
     public function getMessage() {
-        return $this->message;
+        $message = $this->message;
+        if ($this->data) {
+            foreach ($this->data as $key => $value) {
+                $message .= '<br>';
+                $message .= $key . ': ' . $value;
+            }
+        }
+        return $message;
     }
 
 
