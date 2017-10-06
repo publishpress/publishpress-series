@@ -278,17 +278,4 @@ class IncomingRequest
             && $this->get('action', false)
             && in_array($this->get('action'), $actions_to_check, true);
     }
-
-
-    /**
-     * @param ClassOrInterfaceFullyQualifiedName $json_class_fully_qualified_name  What JsonRequest class will be used.
-     * @return null
-     */
-    public function getAjaxJson(ClassOrInterfaceFullyQualifiedName $json_class_fully_qualified_name)
-    {
-        if (! $this->is_ajax) {
-            return null;
-        }
-    }
-
 }
