@@ -130,10 +130,18 @@ var CONTAINER_NOTICES_CLASS = 'os-license-notices';
             license_key: (0, _jquery2.default)('#os-license-key-' + buttonData.extension).val(),
             extension: buttonData.extension
         },
-            container = (0, _jquery2.default)('#os-license-key-container-' + buttonData.extension);
-        os.ajax(data, function (response) {
+            containerSelector = '#os-license-key-container-' + buttonData.extension,
+            container = (0, _jquery2.default)(containerSelector),
+            spinnerSelector = containerSelector + ' ' + '.spinner';
+        if (os.config.debug) {
+            console.log(data);
+        }
+        os.toggleAjaxSpinner(spinnerSelector);
+        os.ajax(data, true, function (response) {
+            os.toggleAjaxSpinner(spinnerSelector);
             handleLicenseKeySuccess(container, activationAction, nonceField, response);
         }, function (error) {
+            os.toggleAjaxSpinner(spinnerSelector);
             handleLicenseKeyError(container, activationAction, error);
         });
     });

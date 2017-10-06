@@ -18,13 +18,13 @@ $key = $license_key->getLicenseKey();
     </h3>
     <label class="description" for="os-license-key-<?php echo $extension_slug; ?>"><?php esc_html_e('Enter your license key: ', 'organize-series'); ?></label>
     <input id="os-license-key-<?php echo $extension_slug; ?>" type="text" name="os_license_key_<?php echo $extension_slug; ?>" class="regular-text" value="<?php echo $key; ?>">
-    <?php if (! empty($key)) : ?>
     <div class="os-license-key-meta">
+        <?php if (! empty($key)) : ?>
         <p>
             <strong>Expires:</strong><?php echo $license_key->getExpires(); ?>
         </p>
+        <?php endif;?>
     </div>
-    <?php endif;?>
     <div class="license-key-submit-button">
         <?php wp_nonce_field('os_license_key_nonce_' . $extension_slug, 'os_license_key_nonce_' . $extension_slug); ?>
         <?php if ($license_key->getStatus() === 'valid') : ?>
@@ -32,5 +32,6 @@ $key = $license_key->getLicenseKey();
         <?php else: ?>
             <input data-extension="<?php echo $extension_slug; ?>" type="submit" class="button-secondary activation-button js-license-submit" name="os_license_key_activate" value="<?php esc_html_e('Activate License', 'organize-series'); ?>">
         <?php endif; ?>
+        <span class="spinner"></span>
     </div>
 </div>

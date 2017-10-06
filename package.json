@@ -9,7 +9,9 @@
   },
   "author": "Darren Ethier",
   "license": "GPL-2.0",
-  "dependencies": {},
+  "dependencies": {
+    "qs": "^6.5.1"
+  },
   "devDependencies": {
     "@wordpress/dom-ready": "0.1.0-beta.2",
     "axios": "^0.16.2",

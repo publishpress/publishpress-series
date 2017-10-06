@@ -27,13 +27,22 @@ domReady(function(){
                 license_key : $('#os-license-key-' + buttonData.extension).val(),
                 extension : buttonData.extension
             },
-            container = $('#os-license-key-container-' + buttonData.extension);
+            containerSelector = '#os-license-key-container-' + buttonData.extension,
+            container = $(containerSelector),
+            spinnerSelector = containerSelector + ' ' + '.spinner';
+        if (os.config.debug) {
+            console.log(data);
+        }
+        os.toggleAjaxSpinner(spinnerSelector);
             os.ajax(
                 data,
+                true,
                 function(response) {
+                    os.toggleAjaxSpinner(spinnerSelector);
                     handleLicenseKeySuccess(container, activationAction, nonceField, response);
                 },
                 function(error) {
+                    os.toggleAjaxSpinner(spinnerSelector);
                     handleLicenseKeyError(container, activationAction, error);
                 }
             );
