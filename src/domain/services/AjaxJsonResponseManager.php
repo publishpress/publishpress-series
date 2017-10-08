@@ -44,7 +44,8 @@ class AjaxJsonResponseManager
             'notices' => $this->notice_manager->getAllNotices(),
             'data' => $response->getData(),
             'content' => $response->getContent(),
-            'nonce' => $response->getNonce()
+            'nonce' => $response->getNonce(),
+            'success' => $response->isSuccess()
         );
         wp_send_json($json_response, 200);
     }

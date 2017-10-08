@@ -55,7 +55,7 @@ export function ajax(data, formUrlEncoded = false, successCallback, failCallback
         typeof successCallback === 'function'
             ? successCallback(response)
             : console.log(response)
-    }).catch(function (response) {
+    }).catch(function (error) {
         typeof failCallback === 'function'
             ? failCallback(error)
             : console.log(error);

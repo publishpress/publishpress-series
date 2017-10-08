@@ -19,9 +19,9 @@ $key = $license_key->getLicenseKey();
     <label class="description" for="os-license-key-<?php echo $extension_slug; ?>"><?php esc_html_e('Enter your license key: ', 'organize-series'); ?></label>
     <input id="os-license-key-<?php echo $extension_slug; ?>" type="text" name="os_license_key_<?php echo $extension_slug; ?>" class="regular-text" value="<?php echo $key; ?>">
     <div class="os-license-key-meta">
-        <?php if (! empty($key)) : ?>
+        <?php if (! empty($key) && ! empty($license_key->getExpires())) : ?>
         <p>
-            <strong>Expires:</strong><?php echo $license_key->getExpires(); ?>
+            <strong>Expires:</strong> <?php echo $license_key->getExpires(); ?>
         </p>
         <?php endif;?>
     </div>

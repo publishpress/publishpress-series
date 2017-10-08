@@ -22,10 +22,13 @@ class LicenseKeyAjaxResponse extends AjaxJsonResponse
     private function getMetaContent(LicenseKey $license_key)
     {
         if ($license_key->isSuccess()) {
-            return '<p>'
-                   . '<span class="dashicons dashicons-yes os-key-active"></span>'
-                   . '<strong>Expires:</strong>' . $license_key->getExpires()
-                   . '</p>';
+            if ($license_key->getExpires() !== '') {
+                return '<p>'
+                       . '<span class="dashicons dashicons-yes os-key-active"></span>'
+                       . '<strong>Expires:</strong> ' . $license_key->getExpires()
+                       . '</p>';
+            }
+            return '&nbsp;';
         }
         return '<p>'
             . '<span class="dashicons dashicons-no os-key-inactive"></span>'

@@ -12,7 +12,7 @@ import {noticeBuilder} from "./modules/wp-notice-builder";
 
 const ACTION_ACTIVATION = 'activation';
 const ACTION_DEACTIVATION = 'deactivation';
-const CONTAINER_NOTICES_CLASS = 'os-license-notices';
+const CONTAINER_NOTICES_CLASS = '.os-license-notices';
 
 domReady(function(){
     $('.os-license-key-container').on('click', '.js-license-submit', function(e){
@@ -100,6 +100,9 @@ domReady(function(){
      * @param {Object} container  jQuery selector for the container containing the button.
      */
     function switchButton(activationAction, container) {
+        if (os.config.debug) {
+            console.log(activationAction);
+        }
         let currentButton = $('.js-license-submit', container),
             classReplaced = ACTION_ACTIVATION === activationAction
                 ? ACTION_ACTIVATION + '-button'
@@ -124,9 +127,15 @@ domReady(function(){
      */
     function showNotices(notices, container)
     {
-        if (typeof notices !== 'undefined' || typeof notices !== 'string') {
+        if (typeof notices !== 'string') {
+            if (os.config.debug) {
+                console.log(notices);
+            }
             throw new TypeError('Invalid notices type. Expected a string.');
         }
+        /** @todo left off here trying to figure out why this isn't showing the notices!)
+         *  - also need to figure out why our global error handler in os-common.js isn't working as expected.
+         */
         $(CONTAINER_NOTICES_CLASS, container).html(notices);
     }
 

@@ -2,6 +2,8 @@
 
 namespace OrganizeSeries\domain\model;
 
+use DateTime;
+use Exception;
 use stdClass;
 
 class LicenseKey
@@ -155,7 +157,7 @@ class LicenseKey
                 continue;
             }
             if (property_exists($this, $key)) {
-                $this->$key = $value;
+                $this->{$key} = $value;
             }
         }
     }
@@ -241,7 +243,22 @@ class LicenseKey
      */
     public function getExpires()
     {
-        return $this->expires;
+        //because EDD returns the expires value in different types (could be unix timestamp, could be formmatted date,
+        //could be the string 'lifetime'.
+        try {
+            $expires = ! empty($this->expires) && $this->expires !== 'lifetime'
+                ? new DateTime($this->expires)
+                : $this->expires;
+        } catch(Exception $e) {
+            //basically if its a unix timestamp we don't want to convert it (currently anyways)
+            $expires = '';
+        }
+        $expires = $this->expires === 'lifetime'
+            ? 'lifetime'
+            : $expires;
+        return $expires instanceof DateTime
+            ? $expires->format('F j, Y')
+            : '';
     }
 
     /**
@@ -314,14 +331,14 @@ class LicenseKey
     public function forStorage()
     {
         $license = new stdClass;
-        foreach (get_object_vars($this) as $property) {
-            if ($property === 'license_key') {
+        foreach (get_class_vars(get_class($this)) as $property => $value) {
+            if ($property === 'license_key' || $property === 'extension_identifier') {
                 continue;
-            } else if ($property === 'status') {
-                $license->license = $this->$property;
+            } elseif ($property === 'status') {
+                $license->license = $this->{$property};
                 continue;
             }
-            $license->$property = $this->$property;
+            $license->{$property} = $this->{$property};
         }
         return $license;
     }

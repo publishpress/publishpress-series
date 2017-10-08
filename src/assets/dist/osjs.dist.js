@@ -10193,7 +10193,7 @@ function ajax(data) {
     }
     _axios2.default.post(config.ajaxUrl, data).then(function (response) {
         typeof successCallback === 'function' ? successCallback(response) : console.log(response);
-    }).catch(function (response) {
+    }).catch(function (error) {
         typeof failCallback === 'function' ? failCallback(error) : console.log(error);
     });
 }

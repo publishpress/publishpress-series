@@ -89,8 +89,14 @@ class LicenseKeyRepository {
     public function updateLicenseKeyByExtension(ExtensionIdentifier $extension_identifier)
     {
         $license_key = $this->getLicenseKeyByExtension($extension_identifier);
-        update_option(self::OPTION_PREFIX_LICENSE_KEY_DATA, $license_key->forStorage());
-        update_option(self::OPTION_PREFIX_LICENSE_KEY, $license_key->getLicenseKey());
+        update_option(
+            self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_identifier->getSlug(),
+            $license_key->forStorage()
+        );
+        update_option(
+            self::OPTION_PREFIX_LICENSE_KEY . $extension_identifier->getSlug(),
+            $license_key->getLicenseKey()
+        );
     }
 
 

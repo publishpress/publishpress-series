@@ -209,13 +209,13 @@ class LicenseKeyFormManager implements HasHooksInterface
 
     public function activateLicenseKey()
     {
-        $this->doLicenseKeyRequest(LicenseKeyRepository::ACTION_LICENSE_KEY_ACTIVATION);
+        $this->doLicenseKeyRequest();
     }
 
 
     public function deactivateLicenseKey()
     {
-        $this->doLicenseKeyRequest(LicenseKeyRepository::ACTION_LICENSE_KEY_DEACTIVATION);
+        $this->doLicenseKeyRequest(false);
     }
 
 
