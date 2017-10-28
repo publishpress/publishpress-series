@@ -182,8 +182,12 @@ function get_series_list( $default = 0 ) {
 			}
 		}
 
-		$result = apply_filters( 'get_series_list', $result );
-		usort( $result, '_usort_series_by_name' );
+		$unsorted_result = $result;
+        $result = apply_filters(
+            'get_series_list',
+            usort( $result, '_usort_series_by_name' ),
+            $unsorted_result
+        );
 
 		return $result;
 	}
