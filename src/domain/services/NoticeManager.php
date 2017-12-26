@@ -15,7 +15,7 @@ use OrganizeSeries\domain\model\WarningNotice;
  * NoticeManager
  * Interface for all notice management/retrieval
  *
- * @package EventEspresso\domain\services
+ * @package OrganizeSeries\domain\services
  * @author  Darren Ethier
  * @since   1.0.0
  */
