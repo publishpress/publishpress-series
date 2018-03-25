@@ -11,7 +11,7 @@ Text Domain: organize-series
 
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Organize Series Plugin
-//	can be found at http://www.unfoldingneurons.com/neurotic-plugins/organize-series-wordpress-plugin/
+//	can be found at http://organizeseries.com
 
 $os_version = '2.5.8.rc.004';
 ######################################
