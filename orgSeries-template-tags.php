@@ -595,6 +595,8 @@ function get_series_link( $series_id = '' ) {
 
 	$serieslink = get_term_link($series_slug, 'series');
 
+	$serieslink = is_wp_error($serieslink) ? '' : $serieslink;
+
 	return apply_filters('series_link', $serieslink, $series_id);
 }
 
