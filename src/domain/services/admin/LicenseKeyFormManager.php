@@ -101,7 +101,6 @@ class LicenseKeyFormManager implements HasHooksInterface
     /**
      * This will be called by the Router and provides an incoming request object for usage in the class.
      * @param IncomingRequest $incoming_request
-     * @throws DomainException
      */
     public function setHooks(IncomingRequest $incoming_request)
     {
@@ -115,7 +114,6 @@ class LicenseKeyFormManager implements HasHooksInterface
     /**
      * Used to setup all the assets on AssetsRegistry and register data..
      *
-     * @throws DomainException
      */
     private function loadAssets()
     {
@@ -128,9 +126,9 @@ class LicenseKeyFormManager implements HasHooksInterface
         $this->asset_registry->registerOnDemandCallback(function(){
            wp_enqueue_script(
                'os-admin-settings',
-               Root::coreMeta()->assetsUrl() . 'dist/os-admin-settings.dist.js',
-               array('osjs', 'jquery'),
-               Root::coreMeta()->getVersion(),
+               $this->asset_registry->getAssetJs(AssetRegistry::ASSET_NAMESPACE, 'admin-settings'),
+               array('osjs-core', 'jquery'),
+               null,
                true
            );
         });
@@ -219,6 +217,10 @@ class LicenseKeyFormManager implements HasHooksInterface
     }
 
 
+    /**
+     * @param bool $activation
+     * @throws InvalidEntityException
+     */
     private function doLicenseKeyRequest($activation = true)
     {
         $state_change = $activation

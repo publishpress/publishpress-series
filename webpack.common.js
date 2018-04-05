@@ -1,19 +1,15 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const osassets = './src/assets/src/';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const combineLoaders = require('webpack-combine-loaders');
+const autoprefixer = require('autoprefixer');
+const osassets = './assets/src/';
 /** see below for multiple configurations.
- * - one configuration would be to have os-common.js built as a library with the target being osjs.[name]
- *   (see how gutenberg exported wpjs object: https://github.com/WordPress/gutenberg/blob/master/webpack.config.js)
- * - the other configuration will be something similar to below where we setup the "main" js files that would be
- *   enqueued by wp.
- * - a problem I will encounter is that I'm using webpack-merge to do a dev and a production build.  That makes things
- *   more tricky with the multiple configurations.
- *
  */
 /** https://webpack.js.org/configuration/configuration-types/#exporting-multiple-configurations */
 
 module.exports = [
     {
+        configName: 'os-common',
         entry: {
             'common' : [
                 'babel-polyfill',
@@ -29,15 +25,16 @@ module.exports = [
             ]
         },
         output: {
-            filename: 'osjs.dist.js',
-            path: path.resolve(__dirname, 'src/assets/dist'),
+            filename: 'osjs.[chunkhash].dist.js',
+            path: path.resolve(__dirname, 'assets/dist'),
             library: ['osjs'],
             libraryTarget: 'this'
         },
     },
     {
+        configName: 'os-admin-global',
         entry: {
-            'os-admin-global': [
+            'admin-global': [
                 osassets + 'admin-main.js'
             ]
         },
@@ -51,18 +48,19 @@ module.exports = [
             ]
         },
         output: {
-            filename: '[name].dist.js',
-            path: path.resolve(__dirname, 'src/assets/dist'),
+            filename: 'os-[name].[chunkhash].dist.js',
+            path: path.resolve(__dirname, 'assets/dist'),
             library: ['osAdminGlobal'],
             libraryTarget: 'this'
         },
     },
     {
+        configName: 'base',
         entry: {
-            'os-frontend-global': [
+            'frontend-global': [
                 osassets + 'frontend.js'
             ],
-            'os-admin-settings' : [
+            'admin-settings' : [
                 osassets + 'admin-settings.js',
                 osassets + 'license-management.js'
             ]
@@ -71,19 +69,53 @@ module.exports = [
             jquery : "jQuery",
             osjs : 'osjs',
             osAdminGlobal : 'osAdminGlobal'
-
         },
-        plugins: [
-            new CleanWebpackPlugin(['src/assets/dist'])
-        ],
         output: {
-            filename: '[name].dist.js',
-            path: path.resolve(__dirname, 'src/assets/dist')
+            filename: '[name].[chunkhash].dist.js',
+            path: path.resolve(__dirname, 'assets/dist')
         },
         module: {
             rules: [
-                { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: "babel-loader"
+                },
+                {
+                    test: /\.css$/,
+                    loader: ExtractTextPlugin.extract(
+                        combineLoaders([
+                            {
+                                loader: 'css-loader',
+                                query: {
+                                    modules: true,
+                                    localIdentName: '[local]',
+                                },
+                                //can't use minimize because cssnano (the
+                                // dependency) doesn't parser the browserlist
+                                // extension in package.json correctly, there's
+                                // a pending update for it but css-loader
+                                // doesn't have the latest yet.
+                                // options: {
+                                //     minimize: true
+                                // }
+                            },
+                            {
+                                loader: 'postcss-loader',
+                                options: {
+                                    plugins: function() {
+                                        return [autoprefixer];
+                                    },
+                                    sourceMap: true,
+                                },
+                            },
+                        ]),
+                    ),
+                },
             ]
-        }
+        },
+        watchOptions: {
+            poll: 1000,
+        },
     }
 ];

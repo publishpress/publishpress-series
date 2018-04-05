@@ -1,6 +1,7 @@
 <?php
 namespace OrganizeSeries\domain\services;
 
+use DomainException;
 use InvalidArgumentException;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\application\Root;
@@ -25,6 +26,9 @@ class CoreBootstrap extends AbstractBootstrap
         return true;
     }
 
+    /**
+     * @throws DomainException
+     */
     private function requireLegacyOrganizeSeries()
     {
         /** ugh but necessary for back-compat until things are deprecated fully */

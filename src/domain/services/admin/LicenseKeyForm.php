@@ -45,7 +45,6 @@ class LicenseKeyForm
     /**
      * Outputs the form for this license key
      *
-     * @return string
      * @throws DomainException
      */
 	public function printForm()

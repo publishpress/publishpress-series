@@ -37,7 +37,7 @@ class Meta extends AbstractMeta {
      */
     public function assetsPath()
     {
-        return $this->getBasePath() . 'src/assets/';
+        return $this->getBasePath() . 'assets/';
     }
 
 
@@ -48,7 +48,7 @@ class Meta extends AbstractMeta {
      */
     public function assetsUrl()
     {
-        return $this->getBaseUrl() . 'src/assets/';
+        return $this->getBaseUrl() . 'assets/';
     }
 
 
@@ -61,5 +61,25 @@ class Meta extends AbstractMeta {
         return defined('OS_LICENSING_URI')
             ? OS_LICENSING_URI
             : 'https://organizeseries.com';
+    }
+
+
+    /**
+     * @return string
+     * @throws DomainException
+     */
+    public function assetsDistPath()
+    {
+        return $this->assetsPath() . 'dist/';
+    }
+
+
+    /**
+     * @return string
+     * @throws DomainException
+     */
+    public function assetsDistUrl()
+    {
+        return $this->assetsUrl() . 'dist/';
     }
 }

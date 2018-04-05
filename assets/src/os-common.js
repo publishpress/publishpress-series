@@ -85,6 +85,6 @@ window.addEventListener('error', function(e) {
         e.error.message += '\n' + e.error.stack;
     }
     if (config.debug) {
-        console.log(e.error.message);
+        console.error(e.error.message);
     }
 });

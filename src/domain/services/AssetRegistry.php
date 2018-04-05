@@ -5,6 +5,7 @@ use Closure;
 use DomainException;
 use InvalidArgumentException;
 use OrganizeSeries\application\Root;
+use OrganizeSeries\domain\exceptions\InvalidFilePathException;
 
 /**
  * AssetRegistry
@@ -16,10 +17,14 @@ use OrganizeSeries\application\Root;
  */
 class AssetRegistry
 {
+    const ASSET_TYPE_CSS = 'css';
+    const ASSET_TYPE_JS = 'js';
+    const ASSET_NAMESPACE = 'core';
+
     private $js_data = array();
     private $i18n = array();
     private $on_demand_script_callbacks = array();
-
+    private $manifest_data = array();
 
     /**
      * This keeps track of all scripts with registered data.  It is used to prevent duplicate data objects setup in the
@@ -29,8 +34,20 @@ class AssetRegistry
     private $script_handles_with_data = array();
 
 
+    /**
+     * AssetRegistry constructor.
+     *
+     * @throws InvalidArgumentException
+     * @throws InvalidFilePathException
+     * @throws DomainException
+     */
     public function __construct()
     {
+        $this->registerManifestFile(
+            self::ASSET_NAMESPACE,
+            Root::coreMeta()->assetsDistUrl(),
+            Root::coreMeta()->assetsDistPath() . 'build-manifest.json'
+        );
         $this->initializeJsData();
         $this->initializeI18n();
         add_action('wp_enqueue_scripts', array($this, 'scripts'), 1);
@@ -42,6 +59,9 @@ class AssetRegistry
     }
 
 
+    /**
+     * Initialize the jsData property
+     */
     private function initializeJsData()
     {
         $this->js_data = array(
@@ -52,6 +72,9 @@ class AssetRegistry
     }
 
 
+    /**
+     * Initialize the i18n property
+     */
     private function initializeI18n()
     {
         $this->i18n = array();
@@ -63,7 +86,6 @@ class AssetRegistry
      * Used to register globally accessible core scripts.
      * Also used to add the eejs.data object to the source for any js having eejs-core as a dependency.
      *
-     * @throws DomainException
      */
     public function scripts()
     {
@@ -75,15 +97,21 @@ class AssetRegistry
     /**
      * This is where all global script registration happens.  These are scripts that are exposed globally for
      * dependencies elsewhere.
-     * @throws DomainException
      */
     private function registerGlobalScripts()
     {
         wp_register_script(
-            'osjs',
-            Root::coreMeta()->assetsUrl() . 'dist/osjs.dist.js',
+            'os-runner',
+            $this->getAssetJs(self::ASSET_NAMESPACE, 'runner'),
             array(),
-            Root::coreMeta()->getVersion(),
+            null,
+            true
+        );
+        wp_register_script(
+            'osjs-core',
+            $this->getAssetJs(self::ASSET_NAMESPACE, 'common'),
+            array('os-runner'),
+            null,
             true
         );
     }
@@ -241,9 +269,7 @@ class AssetRegistry
                 throw new InvalidArgumentException(
                     sprintf(
                         __(
-                            'The value for %1$s already exists in the %2$s property.
-                            Overrides are not allowed. Since the value of this data is an array, you may want to use the
-                            %3$s method to push your value to the array.',
+                            'The value for %1$s already exists in the %2$s property. Overrides are not allowed. Since the value of this data is an array, you may want to use the %3$s method to push your value to the array.',
                             'organize-series'
                         ),
                         $key,
@@ -255,8 +281,7 @@ class AssetRegistry
             throw new InvalidArgumentException(
                 sprintf(
                     __(
-                        'The value for %1$s already exists in the %2$s property. Overrides are not
-                        allowed.  Consider attaching your value to a different key',
+                        'The value for %1$s already exists in the %2$s property. Overrides are not allowed.  Consider attaching your value to a different key',
                         'organize-series'
                     ),
                     $key,
@@ -309,5 +334,118 @@ class AssetRegistry
                 );
             }
         }
+    }
+
+
+    /**
+     * Wrapper for getting just a js asset url
+     * @param string $namespace
+     * @param string $chunk_name
+     * @return string
+     */
+    public function getAssetJs($namespace, $chunk_name)
+    {
+        return $this->getAssetUrl($namespace, $chunk_name, self::ASSET_TYPE_JS);
+    }
+
+
+    /**
+     * Wrapper for getting just a css asset url
+     * @param string $namespace
+     * @param string $chunk_name
+     * @return string
+     */
+    public function getAssetCss($namespace, $chunk_name)
+    {
+        return $this->getAssetUrl($namespace, $chunk_name, self::ASSET_TYPE_CSS);
+    }
+
+
+    /**
+     * Get the actual asset path for asset manifests.
+     * If there is no asset path found for the given $chunk_name, then the $chunk_name is returned.
+     * @param string $namespace  The namespace associated with the manifest file hosting the map of chunk_name to actual
+     *                           asset file location.
+     * @param string $chunk_name
+     * @param string $asset_type
+     * @return string
+     * @since $VID:$
+     */
+    public function getAssetUrl($namespace, $chunk_name, $asset_type)
+    {
+        $url = isset(
+            $this->manifest_data[$namespace][$chunk_name][$asset_type],
+            $this->manifest_data[$namespace]['url_base']
+        )
+            ? $this->manifest_data[$namespace]['url_base']
+              . $this->manifest_data[$namespace][$chunk_name][$asset_type]
+            : $chunk_name;
+        return apply_filters(
+            'FHOS__OrganizeSeries_domain_services_AssetRegistry__getAssetUrl',
+            $url,
+            $namespace,
+            $chunk_name,
+            $asset_type
+        );
+    }
+
+
+    /**
+     * Used to register a js/css manifest file with the registered_manifest_files property.
+     *
+     * @param string $namespace     Provided to associate the manifest file with a specific namespace.
+     * @param string $url_base      The url base for the manifest file location.
+     * @param string $manifest_file The absolute path to the manifest file.
+     * @throws InvalidArgumentException
+     * @throws InvalidFilePathException
+     * @since $VID:$
+     */
+    public function registerManifestFile($namespace, $url_base, $manifest_file)
+    {
+        if (isset($this->manifest_data[$namespace])) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    esc_html__(
+                        'The namespace for this manifest file has already been registered, choose a namespace other than %s',
+                        'organize-series'
+                    ),
+                    $namespace
+                )
+            );
+        }
+        if (filter_var($url_base, FILTER_VALIDATE_URL) === false) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    esc_html__(
+                        'The provided value for %1$s is not a valid url.  The url provided was: %2$s',
+                        'organize-series'
+                    ),
+                    '$url_base',
+                    $url_base
+                )
+            );
+        }
+        $this->manifest_data[$namespace] = $this->decodeManifestFile($manifest_file);
+        if (! isset($this->manifest_data[$namespace]['url_base'])) {
+            $this->manifest_data[$namespace]['url_base'] = trailingslashit($url_base);
+        }
+    }
+
+
+
+    /**
+     * Decodes json from the provided manifest file.
+     *
+     * @since $VID:$
+     * @param string $manifest_file Path to manifest file.
+     * @return array
+     * @throws InvalidFilePathException
+     */
+    private function decodeManifestFile($manifest_file)
+    {
+        if (! file_exists($manifest_file)) {
+            throw new InvalidFilePathException($manifest_file);
+        }
+        return json_decode(file_get_contents($manifest_file), true);
     }
 }
