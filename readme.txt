@@ -16,7 +16,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
 
->> **NOTE: Organize Series now requires at least WordPress 4.7.  Also in an upcoming version of Organize Series, the required version of PHP required is 5.6 or greater.  As of Organize Series version 2.5.7, if a version lower than PHP 5.6 is detected on your website, there will be a notice shown with more information and to prompt upgrading your website to be on a later version of PHP.**
+>> **NOTE: Organize Series now requires at least WordPress 4.7.  Also in an upcoming version of Organize Series, the required version of PHP required is 5.6 or greater.  As of Organize Series version 2.5.8, if a version lower than PHP 5.6 is detected on your website, there will be a notice shown with more information and to prompt upgrading your website to be on a later version of PHP.**
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
