@@ -25,7 +25,7 @@ if ( !is_wp_error( $rss ) ) {
 		
 		//store total number of items in the feed
 		$i = 0;
-		$total_entries = count($rss_items);
+		$total_entries = is_array($rss_items) ? count($rss_items) : 0;
 		
 		//output html
 		?>
