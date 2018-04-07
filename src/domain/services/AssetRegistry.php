@@ -149,8 +149,8 @@ class AssetRegistry
     public function enqueueData()
     {
         $this->removeAlreadyRegisteredDataForScriptHandles();
-        wp_localize_script('osjs', '_osConfig', $this->js_data);
-        wp_localize_script('osjs', '_osi18n', $this->i18n);
+        wp_localize_script('osjs-core', '_osConfig', $this->js_data);
+        wp_localize_script('osjs-core', '_osi18n', $this->i18n);
         $this->addRegisteredScriptHandlesWithData('osjs');
     }
 
