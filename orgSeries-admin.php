@@ -162,6 +162,7 @@ function get_series_list( $default = 0 ) {
 	if ( empty( $checked_series ) ) {
 		if ( $post_ID ) {
 			$checked_series = wp_get_post_series( $post_ID );
+			$checked_series = is_array($checked_series) ? $checked_series : array();
 
 			if ( count( $checked_series ) == 0 ) {
 				$checked_series[] = $default;
@@ -285,7 +286,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 				'taxonomy'	=> 'series',
 				'term'	=> $series_name
 			) );
-			$count_draft_posts = count($draft_posts);
+			$count_draft_posts = is_array($draft_posts) ? count($draft_posts) : 0;
 			$drafts_included = '';
 			if($count_draft_posts != 0){
 				$all_serie_posts = $count_draft_posts+$count;

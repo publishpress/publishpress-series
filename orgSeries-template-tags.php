@@ -117,7 +117,7 @@ function wp_postlist_display() {
 	$settings = $orgseries->settings;
 	$serarray = get_the_series();
 	$postlist = '';
-	$count = count($serarray);
+	$count = is_array($serarray) ? count($serarray) : 0;
 	$i = 1;
 	$trigger = false;
 
@@ -264,7 +264,7 @@ function wp_seriesmeta_write($excerpt = FALSE) {
 	$settings = $orgseries->settings;
 	$serarray = get_the_series();
 	$series_meta = '';
-	$count = count($serarray);
+	$count = is_array($serarray) ? count($serarray) : 0;
 	$i = 1;
 	$trigger = false;
 	if (!empty($serarray) ) {
@@ -486,7 +486,7 @@ function wp_assemble_series_nav() {
 	$settings = $orgseries->settings;
 	$series = get_the_series();
 	$nav = '';
-	$count = count($series);
+	$count = is_array($series) ? count($series) : 0;
 	$i = 1;
 	$trigger = false;
 		if (!empty($series)) {
@@ -594,6 +594,8 @@ function get_series_link( $series_id = '' ) {
 		return false;
 
 	$serieslink = get_term_link($series_slug, 'series');
+
+	$serieslink = is_wp_error($serieslink) ? '' : $serieslink;
 
 	return apply_filters('series_link', $serieslink, $series_id);
 }

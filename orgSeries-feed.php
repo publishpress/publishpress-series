@@ -15,7 +15,7 @@ $size = 5;
 $date = false;
 //let's set the cache time for simple pie
 add_filter('wp_feed_cache_transient_lifetime', create_function( '$a', "return $cache_time;" ) );
-$rss = fetch_feed('http://www.organizeseries.com/category/blog/feed/');
+$rss = fetch_feed('http://organizeseries.com/category/blog/feed/');
 ?>
 		<p><?php _e('The following will keep you updated with all the recent Organize Series Plugin related news by <a href="http://unfoldingneurons.com" title="Visit Darren Ethier\'s blog">Darren Ethier</a>.', 'organize-series'); ?></p>
 <?php
@@ -25,7 +25,7 @@ if ( !is_wp_error( $rss ) ) {
 		
 		//store total number of items in the feed
 		$i = 0;
-		$total_entries = count($rss_items);
+		$total_entries = is_array($rss_items) ? count($rss_items) : 0;
 		
 		//output html
 		?>

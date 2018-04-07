@@ -119,7 +119,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false);
 	$parts_array = array();
 
-	$total_posts = count( $series_posts ) + 1;
+	$total_posts = is_array($series_posts) ? count( $series_posts ) + 1 : 1;
 
 	$unpub_count = 0;
 	foreach ( $series_posts as $sposts ) {
@@ -478,6 +478,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 
 	$post_ID = (int) $post_ID;
 	$old_series = wp_get_post_series($post_ID);
+	$old_series = is_array($old_series) ? $old_series : array();
 
 	if ( empty($series_id) ) {
 		$post_series = isset( $_REQUEST['post_series'] ) && is_array($_REQUEST['post_series'] ) ? $_REQUEST['post_series'] : array($_REQUEST['post_series']);
