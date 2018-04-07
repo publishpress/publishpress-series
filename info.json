@@ -9,7 +9,6 @@
   "wpOrgPluginName": "Organize Series",
   "wpOrgPluginUrl": "http://organizeseries.com",
   "name": "Organize Series",
-  "jsBuildDirectory" : "./",
   "releaseFilesRemove": [
     "src/tests/**",
     "src/acceptance_tests/**",
