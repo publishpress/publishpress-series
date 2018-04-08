@@ -109,8 +109,8 @@ module.exports = [
                                     sourceMap: true,
                                 },
                             },
-                        ]),
-                    ),
+                        ])
+                    )
                 },
             ]
         },
