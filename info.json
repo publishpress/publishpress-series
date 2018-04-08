@@ -19,8 +19,7 @@
     "src\/wp-assets\/**",
     "src\/.travis.yml",
     "src\/ISSUE_TEMPLATE.md",
-    "src\/PULL_REQUEST_TEMPLATE.md",
-    "src\/assets\/src\/**"
+    "src\/PULL_REQUEST_TEMPLATE.md"
   ],
   "decafFilesRemove": [
     "src\/tests\/**",
@@ -32,7 +31,6 @@
     "src\/wp-assets\/**",
     "src\/ISSUE_TEMPLATE.md",
     "src\/PULL_REQUEST_TEMPLATE.md",
-    "src\/assets\/src\/**",
     "src\/README.md"
   ]
 }
