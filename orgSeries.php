@@ -12,7 +12,6 @@ Text Domain: organize-series
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Organize Series Plugin
 //	can be found at http://organizeseries.com
-
 $os_version = '2.5.9.rc.001';
 
 ######################################
@@ -43,6 +42,10 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+//composer autolaod
+require __DIR__ . '/vendor/autoload.php';
+
+
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
  *
@@ -72,7 +75,7 @@ $plugin_url = plugins_url('', __FILE__).'/';
 $org_series_loc = $plugin_url;
 
 /**
-  * This sets the defaults for the constants for orgSeries
+ * This sets the defaults for the constants for orgSeries
 */
 define( 'SERIES_PATH_URL', $plugin_url );
 define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
@@ -87,24 +90,50 @@ define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Fiel
 define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
 define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
 
-/**
- * PHP Version warning
- */
-require_once $plugin_path . 'orgSeries-version-check.php';
 
-/*
-*include all related files here
-*/
-//require utility files here first...?
-require_once($plugin_path . 'orgSeries-setup.php');
-require_once($plugin_path . 'orgSeries-options.php');
-require_once($plugin_path . 'orgSeries-rss.php');
-require_once($plugin_path . 'orgSeries-admin.php');
-require_once($plugin_path . 'orgSeries-icon.php');
-require_once($plugin_path . 'orgSeries-taxonomy.php');
-require_once($plugin_path . 'orgSeries-template-tags.php');
-require_once($plugin_path . 'orgSeries-utility.php');
-require_once($plugin_path . 'orgSeries-widgets.php');
-require_once($plugin_path . 'orgSeries-manage.php');
-require_once($plugin_path . 'inc/debug/plugin_activation_errors.php');
+//check for php version requirements
+if (version_compare(PHP_VERSION, '5.6') === -1) {
+    /**
+     * Show notices about Organize Series requiring PHP 5.6 or higher.
+     */
+    add_action('admin_notices', 'os_version_requirement_notice');
+    function os_version_requirement_notice() {
 ?>
+        <div class="notice notice-error">
+            <p>
+                <?php
+                    printf(
+                        esc_html__(
+                            'Organize Series %1$srequires PHP 5.6%2$s or greater.  Your website does not meet the requirements so the plugin is not fully activated.',
+                            'organize-series'
+                        ),
+                        '<strong>',
+                        '</strong>'
+                    );
+                    echo '<br>';
+                    printf(
+                        esc_html__(
+                            'Most web hosts provide an easy path to update the php version on your website.  We recommend updating to PHP 7 or greater. Before you update, you will want to make sure other plugins and your theme are compatible (see %1$sthis article for more info%2$s).',
+                            'organize-series'
+                        ),
+                        '<a href="https://kb.yoast.com/kb/site-ready-php-7/">',
+                        '</a>'
+                    );
+                ?>
+            </p>
+            <p>
+                <?php
+                    esc_html_e(
+                        'To remove this notice you can either deactivate the plugin or upgrade the php version on your server.',
+                        'organize-series'
+                    )
+                ?>
+            </p>
+        </div>
+<?php
+    }
+} else {
+    //new bootstrapping, eventually this will replace all of the above.
+    require $plugin_path . 'bootstrap.php';
+
+}

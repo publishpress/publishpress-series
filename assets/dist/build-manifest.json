@@ -1,0 +1,17 @@
+{
+  "admin-global": {
+    "js": "os-admin-global.cbbf4b3b5696126db45c.dist.js"
+  },
+  "admin-settings": {
+    "js": "admin-settings.3a4ff5f663606d4c35ea.dist.js"
+  },
+  "frontend-global": {
+    "js": "frontend-global.259e94f751b5eb8c3fba.dist.js"
+  },
+  "runner": {
+    "js": "runner.8fddc7151a73a6877479.dist.js"
+  },
+  "common": {
+    "js": "osjs.5f0013577c66de9c2c0f.dist.js"
+  }
+}

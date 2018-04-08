@@ -200,6 +200,20 @@ function orgseries_option_page() {
 					<?php do_action('orgseries_token_description'); ?>
 				</div>
 			</div>
+            <div id="organize-series-extensions" class="postbox">
+                <h3 class="handle"><span><?php _e('Organize Series Extensions', 'organize-series'); ?></span></h3>
+                <div class="inside">
+                    <p>
+                        <?php
+                        esc_html_e(
+                           'This is where all the license key fields will appear for your Organize Series extensions.',
+                           'organize-series'
+                        );
+                        ?>
+                    </p>
+                    <?php do_action('AHOS__extension_license_key_fields'); ?>
+                </div>
+            </div>
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
@@ -311,10 +325,6 @@ function series_automation_core_fieldset() {
 					<span style="background-color:#ff3366; padding: 5px; padding-bottom: 8px;">
 					<input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Organize Series related data from the database when deleting this plugin?  (BE CAREFUL!)', 'organize-series'); ?>
 					</span>
-					<br />
-					<br />
-					<strong><?php _e('Organize Series API Key', 'organize-series'); ?></strong><input type="text" name="<?php echo $org_name; ?>[orgseries_api]" value="<?php echo trim($org_opt['orgseries_api']); ?>" style="width:300px;"/><br />
-					<small><em><?php printf(__('The API key is for users who have purchased a <a href="%s" title="Click Here to read about the packages available">Paid package</a> and/or a <a href="%s" title="Click here to see all addons available">commercial addon</a>. If this is you, you can obtain your API key by logging into <a href="%s">OrganizeSeries.com</a> and you\'ll see it with your user profile.',  'organize-series'), 'http://organizeseries.com/pricing/', 'http://organizeseries.com/download/', 'http://organizeseries.com'); ?></em></small>
 					</div>
 				</div>
 			</div>

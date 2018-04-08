@@ -3,6 +3,7 @@ Contributors: nerrad
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
+Requires PHP: 5.6
 Tested up to: 4.8.2
 Stable tag: 2.5.7
 License: GPLv2
@@ -16,7 +17,7 @@ The *Organize Series WordPress Plugin* helps with the organization and presentat
 
 *Organize Series* actually **adds** a new taxonomy to the WordPress taxonomy structure so your blog would have "categories", "tags", and "series" as the taxonomy types.
 
->> **NOTE: Organize Series now requires at least WordPress 4.7.  Also in an upcoming version of Organize Series, the required version of PHP required is 5.6 or greater.  As of Organize Series version 2.5.7, if a version lower than PHP 5.6 is detected on your website, there will be a notice shown with more information and to prompt upgrading your website to be on a later version of PHP.**
+>> **NOTE: Organize Series now requires at least WordPress 4.7.  Also, the required version of PHP is 5.6 or greater.  The plugin will automatically deactivate itself if you are using less than PHP 5.6.**
 
 Make sure you check out the [features section in the "other notes" tab](http://wordpress.org/extend/plugins/organize-series/other_notes/) for all the neat stuff you can do!
 
@@ -28,7 +29,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 == Installation ==
 
-**As of version 2.5.7, Organize Series *requires* WordPress 4.7+ to work. Organize Series also currently requires PHP 5.3+ but an upcoming release will require PHP 5.6+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
+**As of version 2.5.7, Organize Series *requires* WordPress 4.7+ to work. Organize Series also currently requires PHP 5.6+.  Organize Series *may* work with earlier versions of WordPress but support is not provided for earlier versions and use at your own risk.**
 
 **ALSO**: If you are upgrading make sure you read the upgrade notes.
 
@@ -42,7 +43,7 @@ You can do the above or just use the new plugin install integrated in WordPress.
 
 = Upgrading =
 
-* **DO NOT UPGRADE TO THIS RELEASE (2.5.7) UNLESS YOUR WORDPRESS INSTALLATION IS AT VERSION 4.7**
+* **DO NOT UPGRADE TO THIS RELEASE (2.5.7) UNLESS YOUR WORDPRESS INSTALLATION IS AT VERSION 4.7 and you have PHP 5.6+ on your server**
 
 **ALSO**
 
