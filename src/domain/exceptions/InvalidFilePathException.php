@@ -9,7 +9,7 @@ use InvalidArgumentException;
  *
  * @package       OrganzieSeries\domain\exceptions
  * @author        Darren Ethier
- * @since         $VID:$
+ * @since         2.5.9
  */
 class InvalidFilePathException extends InvalidArgumentException {
 
