@@ -184,9 +184,10 @@ function get_series_list( $default = 0 ) {
 		}
 
 		$unsorted_result = $result;
+        usort( $result, '_usort_series_by_name' );
         $result = apply_filters(
             'get_series_list',
-            usort( $result, '_usort_series_by_name' ),
+            $result,
             $unsorted_result
         );
 
