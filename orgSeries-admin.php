@@ -12,7 +12,7 @@ global $pagenow, $orgseries;
  * All the add_action and apply_filter hooks for this file go here
 */
 //add action for admin-series.css and thickbox
-add_action('admin_print_styles', 'orgSeries_admin_header');
+add_action('admin_enqueue_scripts', 'orgSeries_admin_header');
 
 ##ADMIN-Write/Edit Post Script loader
 add_action('admin_print_scripts','orgSeries_admin_script');
