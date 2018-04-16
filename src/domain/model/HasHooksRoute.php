@@ -2,13 +2,14 @@
 namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
+use OrganizeSeries\domain\interfaces\HasHooksInterface;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 use OrganizeSeries\domain\interfaces\RouteInterface;
 
 class HasHooksRoute implements RouteInterface
 {
     /**
-     * @var ClassOrInterfaceFullyQualifiedName
+     * @var string
      */
     private $fully_qualified_hooks_class_name;
 
@@ -21,12 +22,12 @@ class HasHooksRoute implements RouteInterface
     /**
      * HasHooksRoute constructor.
      *
-     * @param ClassOrInterfaceFullyQualifiedName $fully_qualified_class_name
+     * @param string $fully_qualified_class_name
      * @param RouteIdentifierInterface           $route_identifier
      * @throws InvalidArgumentException
      */
     public function __construct(
-        ClassOrInterfaceFullyQualifiedName $fully_qualified_class_name,
+        $fully_qualified_class_name,
         RouteIdentifierInterface $route_identifier
     ) {
         $this->setFullyQualifiedClassName($fully_qualified_class_name);
@@ -44,14 +45,14 @@ class HasHooksRoute implements RouteInterface
     }
 
     /**
-     * @param ClassOrInterfaceFullyQualifiedName $fully_qualified_hooks_class_name
+     * @param string $fully_qualified_hooks_class_name
      * @throws InvalidArgumentException
      */
     private function setFullyQualifiedClassName($fully_qualified_hooks_class_name)
     {
         if (! in_array(
-            'OrganizeSeries\domain\interfaces\HasHooksInterface',
-            class_implements($fully_qualified_hooks_class_name->__toString()),
+            HasHooksInterface::class,
+            class_implements($fully_qualified_hooks_class_name),
             true
         )) {
             throw new InvalidArgumentException(
@@ -60,8 +61,8 @@ class HasHooksRoute implements RouteInterface
                         'The provided object fully qualified class name (%1$s) must implement the %2$s interface.',
                         'organize-series'
                     ),
-                    $fully_qualified_hooks_class_name->__toString(),
-                    'OrganizeSeries\domain\interfaces\HasHooksInterface'
+                    $fully_qualified_hooks_class_name,
+                    HasHooksInterface::class
                 )
             );
         }
@@ -69,7 +70,7 @@ class HasHooksRoute implements RouteInterface
     }
 
     /**
-     * @return ClassOrInterfaceFullyQualifiedName
+     * @return string
      */
     public function getFullyQualifiedClassName()
     {

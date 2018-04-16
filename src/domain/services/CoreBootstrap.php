@@ -8,7 +8,6 @@ use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\exceptions\InvalidInterfaceException;
 use OrganizeSeries\domain\interfaces\AbstractBootstrap;
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\model\HasHooksRoute;
 use OrganizeSeries\domain\model\RouteIdentifier;
 use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
@@ -67,7 +66,7 @@ class CoreBootstrap extends AbstractBootstrap
         $is_admin = is_admin();
         $this->getRouter()->registerHasHooksRoute(
             new HasHooksRoute(
-                new ClassOrInterfaceFullyQualifiedName(LicenseKeyFormManager::class),
+                LicenseKeyFormManager::class,
                 new RouteIdentifier(
                     function (IncomingRequest $request) use ($is_admin) {
                         return $is_admin

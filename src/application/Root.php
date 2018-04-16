@@ -6,7 +6,6 @@ use InvalidArgumentException;
 use OrganizeSeries\domain\exceptions\InvalidInterfaceException;
 use OrganizeSeries\domain\interfaces\AbstractBootstrap;
 use OrganizeSeries\domain\Meta;
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 use Pimple\Container as PimpleContainer;
 
@@ -49,13 +48,10 @@ class Root
 	public static function initialize($file, $version)
     {
         if (! self::$initialized) {
-            $core_meta_fqcn = new ClassOrInterfaceFullyQualifiedName(
-                Meta::class
-            );
             self::container()->registerParameter('coreVersion', $version);
             self::container()->registerParameter('coreFile', $file);
             self::container()->registerDependency(
-                $core_meta_fqcn,
+                Meta::class,
                 function ($container) {
                     return new Meta(
                         $container['coreFile'],
@@ -63,7 +59,7 @@ class Root
                     );
                 }
             );
-            self::$core_meta = self::container()->make($core_meta_fqcn);
+            self::$core_meta = self::container()->make(Meta::class);
         }
     }
 
@@ -75,22 +71,21 @@ class Root
      *
      * @param string                             $file
      * @param string                             $version
-     * @param ClassOrInterfaceFullyQualifiedName $extension_meta_fully_qualified_class_name
+     * @param string $extension_meta_fully_qualified_class_name
      * @throws InvalidArgumentException
      */
     public static function initializeExtensionMeta(
         $file,
         $version,
-        ClassOrInterfaceFullyQualifiedName $extension_meta_fully_qualified_class_name
+        $extension_meta_fully_qualified_class_name
     ) {
-        $parameter_prefix = md5($extension_meta_fully_qualified_class_name->__toString());
+        $parameter_prefix = md5($extension_meta_fully_qualified_class_name);
 	    self::container()->registerParameter($parameter_prefix . 'File', $file);
 	    self::container()->registerParameter($parameter_prefix . 'Version', $version);
 	    self::container()->registerDependency(
 	        $extension_meta_fully_qualified_class_name,
             function ($container) use ($parameter_prefix, $extension_meta_fully_qualified_class_name) {
-	            $class_name = $extension_meta_fully_qualified_class_name->__toString();
-	            return new $class_name(
+	            return new $extension_meta_fully_qualified_class_name(
 	                $container[$parameter_prefix . 'File'],
                     $container[$parameter_prefix . 'Version']
                 );
@@ -126,13 +121,12 @@ class Root
      * Extensions can use this to register their bootstrap file with the Container.
      * Bootstrap is the only class that has to be registered this way.  All other classes the extension uses should be
      * registered within their Bootstrap file.
-     * @param ClassOrInterfaceFullyQualifiedName $bootstrap_class
+     * @param string $bootstrap_class
      * @throws InvalidArgumentException
      */
-	public static function registerAndLoadExtensionBootstrap(ClassOrInterfaceFullyQualifiedName $bootstrap_class)
+	public static function registerAndLoadExtensionBootstrap($bootstrap_class)
     {
-        $bootstrap_fully_qualified_class_name = $bootstrap_class->__toString();
-        if (! in_array(AbstractBootstrap::class, class_parents($bootstrap_class->__toString()), true))
+        if (! in_array(AbstractBootstrap::class, class_parents($bootstrap_class), true))
         {
             throw new InvalidArgumentException(
                 sprintf(
@@ -147,8 +141,8 @@ class Root
         }
         self::container()->registerDependency(
             $bootstrap_class,
-            function($container) use ($bootstrap_fully_qualified_class_name) {
-                return new $bootstrap_fully_qualified_class_name(
+            function($container) use ($bootstrap_class) {
+                return new $bootstrap_class(
                     $container[ExtensionsRegistry::class],
                     $container[Router::class],
                     self::container()

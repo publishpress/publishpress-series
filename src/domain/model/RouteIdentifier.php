@@ -2,7 +2,6 @@
 namespace OrganizeSeries\domain\model;
 
 use Closure;
-use const FILTER_VALIDATE_BOOLEAN;
 use InvalidArgumentException;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;

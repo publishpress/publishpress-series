@@ -18,11 +18,7 @@ class LicenseKeyCollection extends AbstractCollection
 {
 	public function __construct()
 	{
-		parent::__construct(
-			new ClassOrInterfaceFullyQualifiedName(
-				'OrganizeSeries\domain\model\LicenseKey'
-			)
-		);
+		parent::__construct(LicenseKey::class);
 	}
 
 

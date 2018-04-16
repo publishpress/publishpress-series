@@ -4,12 +4,10 @@ namespace OrganizeSeries\application;
 
 use Closure;
 use InvalidArgumentException;
-use OrganizeSeries\domain\model\ExtensionMetaCollection;
 use OrganizeSeries\domain\services\AjaxJsonResponseManager;
 use OrganizeSeries\domain\services\CoreBootstrap;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 use OrganizeSeries\domain\services\NoticeManager;
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\model\CombinedNoticeCollection;
 use OrganizeSeries\domain\model\ControllerRouteCollection;
 use OrganizeSeries\domain\model\HasHooksRouteCollection;
@@ -118,25 +116,27 @@ class Container
     /**
      * Convenience wrapper to use for getting services.
      *
-     * @param ClassOrInterfaceFullyQualifiedName $fully_qualified_name
+     * @param  string $fully_qualified_class_name
+     *
      * @return mixed
      */
-    public function make(ClassOrInterfaceFullyQualifiedName $fully_qualified_name)
+    public function make($fully_qualified_class_name)
     {
-        return $this->container[$fully_qualified_name->__toString()];
+        return $this->container[$fully_qualified_class_name];
     }
 
 
     /**
      * Extensions can use this to register a dependency with the container.
-     * @param ClassOrInterfaceFullyQualifiedName $main_class_name
-     * @param Closure                            $dependency_callback
+     *
+     * @param string  $fully_qualified_main_class_name
+     * @param Closure $dependency_callback
      */
     public function registerDependency(
-        ClassOrInterfaceFullyQualifiedName $main_class_name,
+        $fully_qualified_main_class_name,
         Closure $dependency_callback
     ) {
-        $this->container[$main_class_name->__toString()] = $dependency_callback;
+        $this->container[$fully_qualified_main_class_name] = $dependency_callback;
     }
 
 
@@ -161,7 +161,7 @@ class Container
                         'The %1$s already has a parameter indexed with the name: %2$s.',
                         'organize-series'
                     ),
-                    'Pimple\Container',
+                    PimpleContainer::class,
                     $name
                 )
             );

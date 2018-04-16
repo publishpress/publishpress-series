@@ -2,8 +2,6 @@
 namespace OrganizeSeries\domain\services;
 
 use OrganizeSeries\domain\model\AjaxJsonResponse;
-use OrganizeSeries\domain\model\CombinedNoticeCollection;
-use OrganizeSeries\domain\model\SingleNoticeCollection;
 
 /**
  * AjaxJsonResponseManager

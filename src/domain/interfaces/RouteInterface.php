@@ -1,8 +1,6 @@
 <?php
 namespace OrganizeSeries\domain\interfaces;
 
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
-
 /**
  * Interface RouteInterface
  * Any route classes should implement this interface.
@@ -16,7 +14,7 @@ interface RouteInterface
 {
     /**
      * Should return the fqcn for the class used to execute the route.
-     * @return ClassOrInterfaceFullyQualifiedName
+     * @return string
      */
     public function getFullyQualifiedClassName();
 

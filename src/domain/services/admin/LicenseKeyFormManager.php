@@ -3,7 +3,6 @@
 namespace OrganizeSeries\domain\services\admin;
 
 use DomainException;
-use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\services\AjaxJsonResponseManager;
 use OrganizeSeries\domain\services\NoticeManager;
 use Exception;
@@ -226,8 +225,8 @@ class LicenseKeyFormManager implements HasHooksInterface
         $state_change = $activation
             ? LicenseKeyRepository::ACTION_LICENSE_KEY_ACTIVATION
             : LicenseKeyRepository::ACTION_LICENSE_KEY_DEACTIVATION;
+        $request              = new LicenseKeyAjaxRequest($this->request);
         try {
-            $request              = new LicenseKeyAjaxRequest($this->request);
             $extension_identifier = $this->registered_extensions->getExtensionBySlug($request->getExtension());
             $this->license_key_repository->remoteLicenseKeyVerification(
                 $extension_identifier,

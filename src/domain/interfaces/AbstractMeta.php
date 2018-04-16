@@ -3,7 +3,6 @@
 namespace OrganizeSeries\domain\interfaces;
 
 use DomainException;
-use Exception;
 
 /**
  * AbstractMeta
@@ -62,7 +61,6 @@ abstract class AbstractMeta
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function getFile()
     {
@@ -71,7 +69,6 @@ abstract class AbstractMeta
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function getBasename()
     {
@@ -80,7 +77,6 @@ abstract class AbstractMeta
 
     /**
      * @return mixed
-     * @throws DomainException
      */
     public function getBasePath()
     {
@@ -89,7 +85,6 @@ abstract class AbstractMeta
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function getBaseUrl()
     {
@@ -98,7 +93,6 @@ abstract class AbstractMeta
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function getVersion()
     {

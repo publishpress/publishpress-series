@@ -16,10 +16,6 @@ class SingleNoticeCollection extends AbstractCollection
 {
     public function __construct()
     {
-        parent::__construct(
-            new ClassOrInterfaceFullyQualifiedName(
-                AbstractNotice::class
-            )
-        );
+        parent::__construct(AbstractNotice::class);
     }
 }

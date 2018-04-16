@@ -3,13 +3,14 @@
 namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
+use OrganizeSeries\domain\interfaces\ControllerInterface;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 use OrganizeSeries\domain\interfaces\RouteInterface;
 
 class ControllerRoute implements RouteInterface
 {
     /**
-     * @var ClassOrInterfaceFullyQualifiedName
+     * @var string
      */
     private $controller_fully_qualified_classname;
 
@@ -22,12 +23,12 @@ class ControllerRoute implements RouteInterface
     /**
      * ControllerRoute constructor.
      *
-     * @param ClassOrInterfaceFullyQualifiedName $fully_qualified_name
+     * @param string $fully_qualified_name
      * @param RouteIdentifierInterface           $route_identifier
      * @throws InvalidArgumentException
      */
     public function __construct(
-        ClassOrInterfaceFullyQualifiedName $fully_qualified_name,
+        $fully_qualified_name,
         RouteIdentifierInterface $route_identifier
     ) {
         $this->setControllerFullyQualifiedClassname($fully_qualified_name);
@@ -35,14 +36,14 @@ class ControllerRoute implements RouteInterface
     }
 
     /**
-     * @param ClassOrInterfaceFullyQualifiedName $controller_fully_qualified_classname
+     * @param $controller_fully_qualified_classname
      * @throws InvalidArgumentException
      */
-    private function setControllerFullyQualifiedClassname(ClassOrInterfaceFullyQualifiedName $controller_fully_qualified_classname)
+    private function setControllerFullyQualifiedClassname($controller_fully_qualified_classname)
     {
         if (! in_array(
             'OrganizeSeries\domain\interfaces\ControllerInterface',
-            class_implements($controller_fully_qualified_classname->__toString()),
+            class_implements($controller_fully_qualified_classname),
             true
         )) {
             throw new InvalidArgumentException(
@@ -51,8 +52,8 @@ class ControllerRoute implements RouteInterface
                         'The provided object fully qualified class name (%1$s) must implement the %2$s interface.',
                         'organize-series'
                     ),
-                    $controller_fully_qualified_classname->__toString(),
-                    'OrganizeSeries\domain\interfaces\ControllerInterface'
+                    $controller_fully_qualified_classname,
+                    ControllerInterface::class
                 )
             );
         }
@@ -68,7 +69,7 @@ class ControllerRoute implements RouteInterface
     }
 
     /**
-     * @return ClassOrInterfaceFullyQualifiedName
+     * @return string
      */
     public function getFullyQualifiedClassName()
     {

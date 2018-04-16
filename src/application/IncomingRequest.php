@@ -1,7 +1,6 @@
 <?php
 namespace OrganizeSeries\application;
 
-use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use function wp_doing_ajax;
 
 /**
