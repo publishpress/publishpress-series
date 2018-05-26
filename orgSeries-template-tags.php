@@ -37,7 +37,8 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 	if ( !is_single() && ( !isset($ser_ID) ) )
 		return false;
 
-	if (!empty($ser_ID) ) $ser_ID = is_array($ser_ID) ? $ser_ID : array($ser_ID);
+	$ser_ID = $ser_ID === '' ? array() : $ser_ID;
+	$ser_ID = is_array($ser_ID) ? $ser_ID : array($ser_ID);
 
 	if ( !isset($ser_ID) || empty($ser_ID) ) {
 		$serarray = get_the_series();
