@@ -59,10 +59,14 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		$is_unpub_template = apply_filters('unpublished_post_template', $is_unpub_template);
 
 		$posts_in_series = get_series_order($series_post, 0, $ser, FALSE, $is_unpub_template);
-		if ( 'widget' == $referral ) {
+		if ( 'other' == $referral ) {
 			if ($serieswidg_title != false)
 				$result .= '<h4>' . __( $serieswidg_title, 'organize-series') . '</h4>';
-			$result .= '<ul>';
+		}
+		else{
+			if ($serieswidg_title != false)
+				$result .= '<h4>' . __( $serieswidg_title, 'organize-series') . '</h4>';
+				$result .= '<ul>';
 		}
 
 		foreach($posts_in_series as $seriespost) {
@@ -80,7 +84,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 
 			if ( in_array( $post_status, array( 'publish', 'private' ) ) ) {
 				if ( 'widget' == $referral )
-					$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
+					$result .= '<li>' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
 			}
@@ -88,7 +92,8 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 				$result .= apply_filters('unpublished_post_template', $settings, $seriespost, $ser);
 		}
 
-		if ( 'widget' == $referral ) {
+		if ( 'other' == $referral ) {
+		}else {
 			$result .= '</ul>';
 		}
 	}
