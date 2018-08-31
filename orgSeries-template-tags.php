@@ -80,7 +80,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 
 			if ( in_array( $post_status, array( 'publish', 'private' ) ) ) {
 				if ( 'widget' == $referral )
-					$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
+					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
 			}
