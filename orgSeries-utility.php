@@ -122,6 +122,8 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%next_post_custom%', wp_series_nav($id, TRUE, TRUE), $replace);
 	if( stristr($replace, '%previous_post_custom%') )
 	$replace = str_replace('%previous_post_custom%', wp_series_nav($id, FALSE, TRUE), $replace);
+	if( stristr($replace, '%post_title_list_short%') )
+	$replace = str_replace('%post_title_list_short%', get_series_posts($id, TRUE), $replace);
 
 	$replace = apply_filters('post_orgseries_token_replace', $replace, $referral, $id, $p_id, $ser_id);
 	return $replace;
