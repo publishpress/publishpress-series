@@ -10,6 +10,7 @@
 /**
 * get_series_posts() - use to call up the list of posts in a supplied series id.  The style of the outputted display is determined by the PostList template on the Series Options page in the WordPress admin.
 * AUTOTAG - is part of the postlist_template call [autotag option - "Display list of series on post pages"
+ *
 * @package Organize Series WordPress Plugin
 * @since 2.0
 *
