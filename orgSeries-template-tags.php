@@ -81,7 +81,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 
 			if ( in_array( $post_status, array( 'publish', 'private' ) ) ) {
 				if ( 'widget' == $referral )
-					$result .= '<li>' . series_post_title($seriespost['id']) . '</li>';
+					$result .= '<li>' . series_post_title($seriespost['id'], true, $short_title ) . '</li>';
 				else
 					$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
 			}
@@ -441,7 +441,6 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
 	$cur_part = (int) get_post_meta($cur_id, $series_part_key, true);
 	$series_posts = get_objects_in_term($series_ID, 'series');
-	$posts_in_series = array();
 	$posts_in_series = get_series_order($series_posts, $cur_id, $series_ID);
 	$result = '';
 
