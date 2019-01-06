@@ -439,7 +439,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	$cur_id = $post->ID;
 	$settings = $orgseries->settings;
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
-	$cur_part = get_post_meta($cur_id, $series_part_key, true);
+	$cur_part = (int) get_post_meta($cur_id, $series_part_key, true);
 	$series_posts = get_objects_in_term($series_ID, 'series');
 	$posts_in_series = array();
 	$posts_in_series = get_series_order($series_posts, $cur_id, $series_ID);
@@ -449,7 +449,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
 		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID))  ;
 		if ($next) {
-			if ( ($seriespost['part'] - $cur_part) == 1) {
+			if ( ( (int) $seriespost['part'] - $cur_part) === 1) {
 					if ( !empty($custom_next) ) $title = $custom_next;
 					else $title = get_the_title($seriespost['id']);
 					$link = get_permalink($seriespost['id']);
@@ -458,7 +458,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 		}
 
 		if (!$next) {
-			if (($cur_part - $seriespost['part']) == 1) {
+			if (($cur_part - (int) $seriespost['part']) === 1) {
 					if (!empty($custom_prev)) $title = $custom_prev;
 						else $title = get_the_title($seriespost['id']);
 					$link = get_permalink($seriespost['id']);
