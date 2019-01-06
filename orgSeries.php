@@ -42,9 +42,6 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
-//composer autolaod
-require __DIR__ . '/vendor/autoload.php';
-
 
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
@@ -133,6 +130,8 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
 <?php
     }
 } else {
+    //composer autolaod
+    require __DIR__ . '/vendor/autoload.php';
     //new bootstrapping, eventually this will replace all of the above.
     require $plugin_path . 'bootstrap.php';
 
