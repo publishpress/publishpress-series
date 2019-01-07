@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 4.9.5
+Tested up to: 5.0.2
 Stable tag: 2.5.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,6 +62,10 @@ It makes it easier for you to write a series of posts on your blog/website and h
 
 **So?**
 Well, one of the best ways to build an audience on your blog/website is to write short posts about the same subject over a period of time rather than one long post.  There are numerous SEO benefits to this as well.  Organize Series takes the hassle out of managing the serial posts and you can just focus on writing.  Another way of saying this is, Organize Series takes the work out of organizing series so that you write more and your readers can EASILY follow along.
+
+**Does Organize Series work with the new editor in WordPress 5.0+?**
+
+Short answer is yes it does.  You'll still see the series selector in the `Document` sidebar found in the editor.  However there is a current quirk where if you leave the part field empty for a series assigned to a post, it will not automatically update with the part number until the page is complete refreshed. Currently this is to be expected and the part was assigned.
 
 **Can I customize the archive page for series?**
 You sure can!  Just create a file called `taxonomy-series.php` and copy the code from your themes `archive.php` file and use that as the basis for building out how the series archive page looks.  You'll also want to take a look at all the template tags you can use for series in the `orgSeries-template-tags.php` file.
