@@ -7,11 +7,11 @@ use Throwable;
 
 /**
  * LicenseKeyRequestError
- *
+ * Thrown when a key is not a valid license key.
  *
  * @package OrganizeSeries\domain\exceptions
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class LicenseKeyRequestError extends Exception
 {

@@ -10,7 +10,7 @@ use function wp_doing_ajax;
  *
  * @package OrganizeSeries\application
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class IncomingRequest
 {

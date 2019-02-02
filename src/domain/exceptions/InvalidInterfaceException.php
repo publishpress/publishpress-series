@@ -5,6 +5,14 @@ namespace OrganizeSeries\domain\exceptions;
 use Exception;
 use Throwable;
 
+/**
+ * InvalidInterfaceException
+ * Used when the fqcn is not a valid interface.
+ *
+ * @package OrganizeSeries\domain\exceptions
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class InvalidInterfaceException extends Exception
 {
 

@@ -11,7 +11,7 @@ use DomainException;
  *
  * @package OrganizeSeries\domain\interfaces
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 abstract class AbstractMeta
 {
@@ -49,6 +49,12 @@ abstract class AbstractMeta
     protected $version;
 
 
+    /**
+     * AbstractMeta constructor.
+     *
+     * @param $plugin_file
+     * @param $version
+     */
     public function __construct($plugin_file, $version)
     {
         $this->file = $plugin_file;

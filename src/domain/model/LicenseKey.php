@@ -6,6 +6,14 @@ use DateTime;
 use Exception;
 use stdClass;
 
+/**
+ * LicenseKey
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class LicenseKey
 {
 

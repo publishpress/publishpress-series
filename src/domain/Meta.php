@@ -5,13 +5,21 @@ namespace OrganizeSeries\domain;
 use DomainException;
 use OrganizeSeries\domain\interfaces\AbstractMeta;
 
-class Meta extends AbstractMeta {
-
+/**
+ * Meta
+ *
+ *
+ * @package OrganizeSeries\domain
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
+class Meta extends AbstractMeta
+{
 
     /**
      * Path to the admin view templates.
+     *
      * @return string
-     * @throws DomainException
      */
     public function adminTemplatePath()
     {
@@ -21,8 +29,8 @@ class Meta extends AbstractMeta {
 
     /**
      * Url to the admin view templates.
+     *
      * @return string
-     * @throws DomainException
      */
     public function adminTemplateUrl()
     {
@@ -32,8 +40,8 @@ class Meta extends AbstractMeta {
 
     /**
      * Path to the assets folder
+     *
      * @return string
-     * @throws DomainException
      */
     public function assetsPath()
     {
@@ -43,8 +51,8 @@ class Meta extends AbstractMeta {
 
     /**
      * Url to the assets folder
+     *
      * @return string
-     * @throws DomainException
      */
     public function assetsUrl()
     {
@@ -54,6 +62,7 @@ class Meta extends AbstractMeta {
 
     /**
      * The url to the api for licensing.
+     *
      * @return string
      */
     public function licensingApiUri()
@@ -66,7 +75,6 @@ class Meta extends AbstractMeta {
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function assetsDistPath()
     {
@@ -76,7 +84,6 @@ class Meta extends AbstractMeta {
 
     /**
      * @return string
-     * @throws DomainException
      */
     public function assetsDistUrl()
     {

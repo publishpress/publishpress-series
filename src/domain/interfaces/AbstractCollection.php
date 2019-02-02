@@ -6,6 +6,14 @@ use LimitIterator;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use SplObjectStorage;
 
+/**
+ * AbstractCollection
+ *
+ *
+ * @package OrganizeSeries\domain\interfaces
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class AbstractCollection extends SplObjectStorage implements CollectionInterface
 {
 	/**

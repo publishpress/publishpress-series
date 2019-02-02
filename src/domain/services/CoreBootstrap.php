@@ -12,12 +12,22 @@ use OrganizeSeries\domain\model\HasHooksRoute;
 use OrganizeSeries\domain\model\RouteIdentifier;
 use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 
+/**
+ * CoreBootstrap
+ *
+ *
+ * @package OrganizeSeries\domain\services
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class CoreBootstrap extends AbstractBootstrap
 {
 
     /**
      * Load legacy.  Eventually we'll put in here the php version check rather than in the main file.
+     *
      * @return bool
+     * @throws DomainException
      */
     protected function initialized()
     {
@@ -25,8 +35,9 @@ class CoreBootstrap extends AbstractBootstrap
         return true;
     }
 
+
     /**
-     * @throws DomainException
+     *
      */
     private function requireLegacyOrganizeSeries()
     {

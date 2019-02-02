@@ -6,6 +6,14 @@ use InvalidArgumentException;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 
+/**
+ * RouteIdentifier
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class RouteIdentifier implements RouteIdentifierInterface
 {
     /**

@@ -4,6 +4,14 @@ namespace OrganizeSeries\domain\exceptions;
 use Exception;
 use InvalidArgumentException;
 
+/**
+ * NonceFailException
+ *
+ *
+ * @package OrganizeSeries\domain\exceptions
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class NonceFailException extends InvalidArgumentException
 {
     /**

@@ -14,7 +14,7 @@ use Pimple\Container as PimpleContainer;
  * This provides access to base services that are used everywhere (i.e. DI container).
  * @package OrganizeSeries\application
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class Root
 {

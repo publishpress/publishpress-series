@@ -1,6 +1,14 @@
 <?php
 namespace OrganizeSeries\domain\model;
 
+/**
+ * LicenseKeyAjaxResponse
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class LicenseKeyAjaxResponse extends AjaxJsonResponse
 {
     /**

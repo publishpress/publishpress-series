@@ -3,6 +3,7 @@
 namespace OrganizeSeries\domain\services\admin;
 
 use DomainException;
+use OrganizeSeries\domain\exceptions\NonceFailException;
 use OrganizeSeries\domain\services\AjaxJsonResponseManager;
 use OrganizeSeries\domain\services\NoticeManager;
 use Exception;
@@ -26,7 +27,7 @@ use OrganizeSeries\domain\services\AssetRegistry;
  *
  * @package OrganizeSeries\domain\services\admin
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class LicenseKeyFormManager implements HasHooksInterface
 {
@@ -204,12 +205,18 @@ class LicenseKeyFormManager implements HasHooksInterface
     }
 
 
+    /**
+     * @throws InvalidEntityException
+     */
     public function activateLicenseKey()
     {
         $this->doLicenseKeyRequest();
     }
 
 
+    /**
+     * @throws InvalidEntityException
+     */
     public function deactivateLicenseKey()
     {
         $this->doLicenseKeyRequest(false);
@@ -219,6 +226,7 @@ class LicenseKeyFormManager implements HasHooksInterface
     /**
      * @param bool $activation
      * @throws InvalidEntityException
+     * @throws NonceFailException
      */
     private function doLicenseKeyRequest($activation = true)
     {

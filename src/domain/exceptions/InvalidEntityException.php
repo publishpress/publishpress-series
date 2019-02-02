@@ -4,6 +4,14 @@ namespace OrganizeSeries\domain\exceptions;
 
 use Exception;
 
+/**
+ * InvalidEntityException
+ * Thrown when an entity isn't an instance of the expected fqcn.
+ *
+ * @package OrganizeSeries\domain\exceptions
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class InvalidEntityException extends Exception
 {
 

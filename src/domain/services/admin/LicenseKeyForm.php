@@ -11,7 +11,7 @@ use OrganizeSeries\domain\model\LicenseKey;
  * Used for displaying and processing license key form.
  * @package OrganizeSeries\views\admin
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class LicenseKeyForm
 {

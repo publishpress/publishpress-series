@@ -7,6 +7,14 @@ use OrganizeSeries\domain\interfaces\ControllerInterface;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 use OrganizeSeries\domain\interfaces\RouteInterface;
 
+/**
+ * ControllerRoute
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class ControllerRoute implements RouteInterface
 {
     /**

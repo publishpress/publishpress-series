@@ -20,6 +20,14 @@ use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 use OrganizeSeries\domain\services\AssetRegistry;
 use Pimple\Container as PimpleContainer;
 
+/**
+ * Container
+ * Dependency Injection Container
+ *
+ * @package OrganizeSeries\application
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class Container
 {
     /**

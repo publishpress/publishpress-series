@@ -10,7 +10,7 @@ use InvalidArgumentException;
  *
  * @package OrgnaizeSeries\domain\model
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class FileLocation
 {

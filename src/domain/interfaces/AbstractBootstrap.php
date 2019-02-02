@@ -5,6 +5,14 @@ use OrganizeSeries\application\Container;
 use OrganizeSeries\application\Router;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 
+/**
+ * AbstractBootstrap
+ * Add-ons can extend this for their bootstrap.
+ *
+ * @package OrganizeSeries\domain\interfaces
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 abstract class AbstractBootstrap
 {
 

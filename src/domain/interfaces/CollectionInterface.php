@@ -9,7 +9,7 @@ namespace OrganizeSeries\domain\interfaces;
  * @package OrganizeSeries\domain\interfaces
  * @subpackage
  * @author  Darren Ethier
- * @since   2.5.7
+ * @since   2.5.9
  */
 interface CollectionInterface
 {

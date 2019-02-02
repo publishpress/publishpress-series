@@ -4,6 +4,14 @@ namespace OrganizeSeries\domain\model;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\interfaces\AbstractAjaxRequest;
 
+/**
+ * LicenseKeyAjaxRequest
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class LicenseKeyAjaxRequest extends AbstractAjaxRequest
 {
     /**

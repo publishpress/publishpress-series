@@ -11,7 +11,7 @@ use InvalidArgumentException;
  *
  * @package OrganizeSeries\domain\exceptions
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class EntityNotFoundException extends InvalidArgumentException
 {

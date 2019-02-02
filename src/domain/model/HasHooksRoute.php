@@ -6,6 +6,14 @@ use OrganizeSeries\domain\interfaces\HasHooksInterface;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 use OrganizeSeries\domain\interfaces\RouteInterface;
 
+/**
+ * HasHooksRoute
+ *
+ *
+ * @package OrganizeSeries\domain\model
+ * @author  Darren Ethier
+ * @since   2.5.9
+ */
 class HasHooksRoute implements RouteInterface
 {
     /**

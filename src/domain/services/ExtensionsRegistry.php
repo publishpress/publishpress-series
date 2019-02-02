@@ -18,7 +18,7 @@ use OrganizeSeries\libraries\edd\PluginUpdater;
  *
  * @package OrganizeSeries\domain\services
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class ExtensionsRegistry implements HasHooksInterface
 {

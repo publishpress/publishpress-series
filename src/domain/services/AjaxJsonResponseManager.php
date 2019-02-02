@@ -10,7 +10,7 @@ use OrganizeSeries\domain\model\AjaxJsonResponse;
  *
  * @package EventEspresso\domain\services
  * @author  Darren Ethier
- * @since   1.0.0
+ * @since   2.5.9
  */
 class AjaxJsonResponseManager
 {
