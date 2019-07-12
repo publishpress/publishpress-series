@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.0.2
-Stable tag: 2.5.7
+Stable tag: 2.5.12
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,28 +77,21 @@ Yup.  Create a file named `taxonomy-series-{series-slug}.php` file and replace `
 Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series-toc\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
 
 **Wow there are sure a lot of features and ways of customizing the Organize Series plugin.  However I'm wondering can you put in ___________ feature?**
-Over the last couple of years I've received numerous requests for extra features for Organize Series and have done some custom development work for clients who have the resources to hire me to add stuff.  I simply have not had the time to write up all the features that people request without getting paid for it. Here's the thing though, there's been some really good ideas and I realize that not everyone is able to afford what it costs for custom development.  So I decided what I'd do is move to a pay-as-you-go model for new features.  I've created a website for [Organize Series](http://organizeseries.com) where you'll find all kinds of different add-ons to Organize Series that you can purchase and use along with the core plugin. You'll want to head on over there and see if there's anything you are looking for.  I've priced the add-ons at a low price so new features are more accessible to those of you who can't afford custom development work and yet still provides a way for me to get paid for the work I've done.  It's a win-win!!  You'll also want to check out the basic-support package available as well.
+Organize Series is a passion project and I don't have as much time as I'd like to build additional features requested by customers, so I focus on the things that interest me. There's a number of add-ons you can check out [here](https://organizeseries.com/downloads/) and one of those might be what you need. 
 
 If you don't see an add-on that has the feature you want for Organize Series, write up a request here on the [WordPress Support Forums](http://wordpress.org/support) (make sure you tag the post with organize-series) and I might just develop it as the next add-on!!
-
-**Sounds like you are going to be moving to a paid model for Organize Series...does that mean I'll eventually have to pay for all the goodness Organize Series offers?**
-Nope.  The CORE Organize Series plugin WILL ALWAYS REMAIN FREE.  The only thing that I'm charging for going forward is support and the add-ons.
-This will also provide extra incentive for me to keep the core plugin *rock'in* for users and always up to date with the current version of WordPress.  I will also work hard at fixing any bugs etc. that get discovered.  The core plugin has EVERYTHING a user needs to organize series on their blog and that will never change (i.e. I won't remove features from the core).  However, from time to time there are users who want something extra (e.g. the ability to "group" series) and thats where add-ons come in.  From time to time I will release free add-ons as well, you'll want to bookmark [OrganizeSeries.com](http://organizeseries.com) so you'll catch the news when that happens.
-
-Oh and one more thing.  Organize Series will always be GPL and so will ALL the add-ons that I write.  Just thought I'd put that in here.
-
 
 
 == Support ==
 
 There have been some changes to how I provide support for Organize Series. Here are the different options for support:
 
-1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will NOT be actively responding to usage/installation help.  If I don't respond to forum posts I'm not being rude or snubbing you, I just simply don't have time to respond because priority goes customers who have paid for support (see below).
+1. Post any support questions on the WordPress Forums at [wordpress.org](http://wordpress.org/support). I will keep an eye on the forums for bug reports but will NOT be actively responding to usage/installation help.  If I don't respond to forum posts I'm not being rude or snubbing you, I just simply don't have time to respond. Organize Series is not my full-time job.  It's just a passion project.
 
-1. Subscribe to the Paid Basic Support Plan I am offering for Organize Series at [organizeseries.com](http://organizeseries.com).  This will give access to support via email.
+1. Submit issues at the [Organize Series repository on github](https://github.com/roughsmoothengine/organize-series/issues). Or better yet contribute a pull request!
 
 == Screenshots ==
-1. Organize Series Options Page:  There are so many possibilities for how Organzie Series can be customized. Nearly everything can be done on the built-in options page.
+1. Organize Series Options Page:  There are so many possibilities for how Organize Series can be customized. Nearly everything can be done on the built-in options page.
 
 2. Manage Series Page:  All your series can be edited via the integrated "Manage Series" page.
 
@@ -183,7 +176,7 @@ Oh and don't forget...
 
 FINALLY...
 #### Organize Series Addons
-Organize series now has [it's own website](http://organizeseries.com) where you can purchase additional addons that bring additional functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested that I don't have the time to develop for free.  Providing this add-on marketplace enables me to bring the features that have been requested to users of Organize Series at an affordable price.  You'll want to check out the Basic Support package as well.
+Organize series now has [it's own website](http://organizeseries.com) where you can find additional addons that bring extra functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested but keep in mind this is done in my spare time.
 
 == Usage ==
 All usage instructions are available at [OrganizeSeries.com](http://organizeseries.com).
