@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 	$("label.inline-edit-tags").remove(":contains('Series')");
-	$('#the-list').on( 'click', 'a.editinline', function() {
+	$('#the-list').on( 'click', 'a.editinline, button.editinline', function() {
 		var id, type, editRowData, rowData, series_check, series_part, series_text;
 		var r_id = inlineEditPost.getId(this);
 		type = $('table.widefat').hasClass('page') ? 'page' : 'post';
