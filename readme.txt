@@ -4,8 +4,8 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 5.0.2
-Stable tag: 2.5.12
+Tested up to: 5.3
+Stable tag: 2.5.13
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,7 +77,7 @@ Yup.  Create a file named `taxonomy-series-{series-slug}.php` file and replace `
 Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series-toc\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
 
 **Wow there are sure a lot of features and ways of customizing the Organize Series plugin.  However I'm wondering can you put in ___________ feature?**
-Organize Series is a passion project and I don't have as much time as I'd like to build additional features requested by customers, so I focus on the things that interest me. There's a number of add-ons you can check out [here](https://organizeseries.com/downloads/) and one of those might be what you need. 
+Organize Series is a passion project and I don't have as much time as I'd like to build additional features requested by customers, so I focus on the things that interest me. There's a number of add-ons you can check out [here](https://organizeseries.com/downloads/) and one of those might be what you need.
 
 If you don't see an add-on that has the feature you want for Organize Series, write up a request here on the [WordPress Support Forums](http://wordpress.org/support) (make sure you tag the post with organize-series) and I might just develop it as the next add-on!!
 
