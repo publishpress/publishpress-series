@@ -5,6 +5,9 @@ jQuery(document).ready( function($) {
 	
 	/*$('#serieschecklist').wpList( { alt: '', response: 'series-ajax-response', confirm: myConfirm } ); /**/
 	
+	// @todo Testing todos with the workflow.
+	// And this is a multiline todo. If you see this
+	// you can ignore it.
 	
 	$('#seriesadd').click( function() {
 		$('input','#serieschecklist').removeProp('checked');
