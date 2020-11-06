@@ -158,7 +158,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 			$is_was_rise = FALSE;
 
 			$spost_pchange=TRUE;
-			$current_published = TRUE;
+			$current_published = $spost_status == "publish";
 
 			$rise_part = $currentpart + 1;
 			$drop_part = $currentpart - 1;
@@ -221,7 +221,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 				}
 			}
 
-			if ( !isset($newpart) ) {
+			if ( !isset($newpart) ) { // we don't need to change this post's part
 				$newpart = $currentpart;
 			}
 
