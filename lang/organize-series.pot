@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Organize Series Core Plugin\n"
+"Project-Id-Version: Publishpress Series Core Plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-27 17:22-0500\n"
 "PO-Revision-Date: 2013-01-27 17:23-0500\n"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-feed.php:21
 msgid ""
-"The following will keep you updated with all the recent Organize Series "
+"The following will keep you updated with all the recent Publishpress Series "
 "Plugin related news by <a href=\"http://unfoldingneurons.com\" title=\"Visit "
 "Darren Ethier's blog\">Darren Ethier</a>."
 msgstr ""
@@ -148,7 +148,7 @@ msgid "Settings"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:34
-msgid "Organize Series Options"
+msgid "Publishpress Series Options"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:34
@@ -156,15 +156,15 @@ msgid "Series Options"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:47
-msgid "Organize Series Plugin Options have been RESET"
+msgid "Publishpress Series Plugin Options have been RESET"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:52
-msgid "Organize Series Plugin Options have been updated"
+msgid "Publishpress Series Plugin Options have been updated"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:124
-msgid "  Organize Series Plugin Options"
+msgid "  Publishpress Series Plugin Options"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:134
@@ -174,7 +174,7 @@ msgstr ""
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:136
 msgid ""
 "Plugin information can be found <a href=\"http://organizeseries.com\" title="
-"\"The Organize Series Website\">here</a>"
+"\"The Publishpress Series Website\">here</a>"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:137
@@ -186,12 +186,12 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:138
 msgid ""
-"You can also show you like Organize Series by <a href=\"http://wordpress.org/"
+"You can also show you like Publishpress Series by <a href=\"http://wordpress.org/"
 "extend/plugins/organize-series\">rating it</a> at wordpress.org"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:151
-msgid "Organize Series News"
+msgid "Publishpress Series News"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:160
@@ -204,7 +204,7 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:163
 msgid ""
-"Click here to find out how you can help with translating Organize Series"
+"Click here to find out how you can help with translating Publishpress Series"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:168
@@ -306,7 +306,7 @@ msgstr ""
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:246
 msgid ""
 "Choose from the following options for turning on or off automatic insertion "
-"of template tags for Organize Series into your blog.  If you wish to have "
+"of template tags for Publishpress Series into your blog.  If you wish to have "
 "more control over the location of the template tags (you power user you) "
 "then deselect as needed."
 msgstr ""
@@ -450,12 +450,12 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:312
 msgid ""
-"Delete all Organize Series related data from the database when deleting this "
+"Delete all Publishpress Series related data from the database when deleting this "
 "plugin?  (BE CAREFUL!)"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:316
-msgid "Organize Series API Key"
+msgid "Publishpress Series API Key"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:317
@@ -569,7 +569,7 @@ msgstr ""
 msgid ""
 "This will control the layout/style and contents that will be returned with "
 "the latest_series() template tag (both via widget and/or manual calls).  "
-"NOTE: Organize Series %tokens% can be used in this field."
+"NOTE: Publishpress Series %tokens% can be used in this field."
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:374
@@ -596,7 +596,7 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-setup.php:69
 msgid ""
-"Your WordPress version is too old. Organize Series 2.2 requires at least "
+"Your WordPress version is too old. Publishpress Series 2.2 requires at least "
 "WordPress 3.0 to function correctly. Please update your blog via Tools &gt; "
 "Upgrade."
 msgstr ""
@@ -810,7 +810,7 @@ msgid ""
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:156
-msgid "Organize Series API: "
+msgid "Publishpress Series API: "
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/inc/orgSeries_updates.php:272
@@ -818,7 +818,7 @@ msgstr ""
 msgid ""
 "<p>There is an automatic update for %s available but your api-key has not "
 "been set.  Please go to the <a href=\"options-general.php?"
-"page=orgseries_options_page\">Organize Series Options page</a> to set your "
+"page=orgseries_options_page\">Publishpress Series Options page</a> to set your "
 "api_key for this addon.</p>"
 msgstr ""
 
@@ -827,7 +827,7 @@ msgstr ""
 msgid ""
 "<p>There is an automatic update for %s available but your api-key is "
 "invalid.  Either you have entered the wrong key on the <a href=\"options-"
-"general.php?page=orgseries_options_page\">Organize Series Options</a> page "
+"general.php?page=orgseries_options_page\">Publishpress Series Options</a> page "
 "OR you no longer have access to the updates for this plugin.  Automatic "
 "upgrades for single website install's are gained via the <a href=\"http://"
 "organizeseries.com/pricing\">Basic Support package</a>.  Automatic upgrades "

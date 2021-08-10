@@ -8,7 +8,7 @@ use OrganizeSeries\domain\interfaces\AbstractCollection;
 
 /**
  * RegisteredExtensions
- * Simple collection used to hold all registered extensions for Organize Series.
+ * Simple collection used to hold all registered extensions for Publishpress Series.
  * Collection holds instances of ExtensionIdentifier
  *
  * @package OrganizeSeries\domain\model

@@ -2,7 +2,7 @@
 /**
  * This file contains all the code for the orgSeries widgets.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.2
 **/
 class orgSeries_widget_latestseries extends WP_Widget {

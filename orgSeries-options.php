@@ -1,8 +1,8 @@
 <?php
 /**
-* This file contains all the necessary code for the Organize Series Options page.
+* This file contains all the necessary code for the Publishpress Series Options page.
 *
-* @package Organize Series
+* @package Publishpress Series
 * @since 2.2
 */
 
@@ -31,7 +31,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 function orgseries_create_options() {
 	global $orgseries;
 		
-	$page = add_options_page(__('Organize Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
+	$page = add_options_page(__('Publishpress Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
 }
@@ -44,12 +44,12 @@ function orgseries_validate($input) {
 		
 		if ($reset_options = $orgseries->add_settings(true)) {
 			$input = $orgseries->settings;
-			$update['updated_output'] = '<div class="updated"><p>'. __('Organize Series Plugin Options have been RESET','organize-series').'</p></div>';
+			$update['updated_output'] = '<div class="updated"><p>'. __('Publishpress Series Plugin Options have been RESET','organize-series').'</p></div>';
 			update_option('orgseries_update_message', $update['updated_output']);
 			return $input;
 		}
 	} else {
-		$update['updated_output'] = '<div class="updated"><p>' . __('Organize Series Plugin Options have been updated','organize-series') . '</p></div>';
+		$update['updated_output'] = '<div class="updated"><p>' . __('Publishpress Series Plugin Options have been updated','organize-series') . '</p></div>';
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
@@ -121,7 +121,7 @@ function orgseries_option_page() {
 	?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br /></div>
-		<h2><img src="<?php echo plugins_url('/images/orgseriesicon.png', __FILE__);?>" /><?php _e('  Organize Series Plugin Options', 'organize-series'); ?></h2>
+		<h2><img src="<?php echo plugins_url('/images/orgseriesicon.png', __FILE__);?>" /><?php _e('  Publishpress Series Plugin Options', 'organize-series'); ?></h2>
 	<?php
 	echo $org_update_message;
 	update_option('orgseries_update_message','');
@@ -130,40 +130,6 @@ function orgseries_option_page() {
 		<div id="side-info-column" class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
 				
-				<div id="plugin-info-div" class="postbox">
-					<h3 class="hndle"><span><?php _e('Plugin Info', 'organize-series') ?></span></h3>
-					<div class="inside">
-					<p><?php _e('Plugin information can be found <a href="http://organizeseries.com" title="The Organize Series Website">here</a>','organize-series'); ?></p>
-					<p><?php _e('If you\'d like to donate to <a href="http://www.unfoldingneurons.com" title="Darren Ethier\'s (author) Blog">me</a> as an expression of thanks for the release of this plugin feel free to do so - and thanks!', 'organize-series'); ?></p>
-					<p><?php _e('You can also show you like Organize Series by <a href="http://wordpress.org/extend/plugins/organize-series">rating it</a> at wordpress.org', 'organize-series'); ?></p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick" />
-						<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
-						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-			" />
-				</form>
-				</div>
-			</div>
-			<?php if (file_exists(ABSPATH . WPINC . '/feed.php')) { ?>	
-			
-			<div id="organize-series-feed" class="postbox">	
-				<h3 class="handle"><span><?php _e('Organize Series News', 'organize-series'); ?></span></h3>
-				<div class="inside">
-				<div id="orgseriesnews">
-					<?php include(WP_CONTENT_DIR.'/plugins/' . SERIES_DIR .'/orgSeries-feed.php'); ?>
-				</div> <?php /*rss feed related */ ?>
-				</div>
-			</div>
-				<?php } ?>
-			<!-- ADS HERE -->
-			<a href="http://organizeseries.com/download" title="<?php _e('Click here to see all the awesome addons available', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/OS_Addons_logo.png', __FILE__); ?>" /></a>
-			<br />
-			<a href="http://organizeseries.com/pricing" title="<?php _e('Click here to find out about the Basic Support Package', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/OS_BasicSupport_logo.png', __FILE__); ?>" /></a>
-			<a href="http://organizeseries.com/translating" title="<?php _e('Click here to find out how you can help with translating Organize Series', 'organize-series'); ?>"><img src="<?php echo plugins_url('/images/help-translate-logo.png', __FILE__); ?>" /></a>
-			<br />
-			<br />
-			<!-- end ads -->
 			<div id="token-legend" class="postbox">
 				<h3 class="handle"><span><?php _e('Token legend', 'organize-series'); ?></span></h3>
 				<div class="inside">
@@ -201,12 +167,12 @@ function orgseries_option_page() {
 				</div>
 			</div>
             <div id="organize-series-extensions" class="postbox">
-                <h3 class="handle"><span><?php _e('Organize Series Extensions', 'organize-series'); ?></span></h3>
+                <h3 class="handle"><span><?php _e('Publishpress Series Extensions', 'organize-series'); ?></span></h3>
                 <div class="inside">
                     <p>
                         <?php
                         esc_html_e(
-                           'This is where all the license key fields will appear for your Organize Series extensions.',
+                           'This is where all the license key fields will appear for your Publishpress Series extensions.',
                            'organize-series'
                         );
                         ?>
@@ -257,7 +223,7 @@ function orgseries_option_page() {
 function orgseries_main_section() {
 	global $orgseries;
 	?>
-	<p><?php _e('Choose from the following options for turning on or off automatic insertion of template tags for Organize Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.', 'organize-series'); ?></p>
+	<p><?php _e('Choose from the following options for turning on or off automatic insertion of template tags for Publishpress Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -323,7 +289,7 @@ function series_automation_core_fieldset() {
 					<br />
 					<br />
 					<span style="background-color:#ff3366; padding: 5px; padding-bottom: 8px;">
-					<input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Organize Series related data from the database when deleting this plugin?  (BE CAREFUL!)', 'organize-series'); ?>
+					<input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Publishpress Series related data from the database when deleting this plugin?  (BE CAREFUL!)', 'organize-series'); ?>
 					</span>
 					</div>
 				</div>
@@ -378,7 +344,7 @@ function series_templates_core_fieldset() {
 					<textarea name="<?php echo $org_name; ?>[latest_series_before_template]" id="latest_series_before_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_before_template']); ?></textarea><br />
 					<br />
 					<strong><?php _e('Latest Series (inner tags):', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: Organize Series %tokens% can be used in this field.', 'organize-series'); ?></small><br />
+					<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: Publishpress Series %tokens% can be used in this field.', 'organize-series'); ?></small><br />
 					<textarea name="<?php echo $org_name; ?>[latest_series_inner_template]" id="latest_series_inner_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_inner_template']); ?></textarea><br />
 					<br />
 					<strong><?php _e('Latest Series (tags after):', 'organize-series'); ?></strong><br />
