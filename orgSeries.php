@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Organize Series
+Plugin Name: Publishpress Series
 Plugin URI: http://organizeseries.com
 Version: 2.5.14.rc.001
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series.
@@ -10,16 +10,16 @@ Text Domain: organize-series
 */
 
 ### INSTALLATION/USAGE INSTRUCTIONS ###
-//	Installation and/or usage instructions for the Organize Series Plugin
+//	Installation and/or usage instructions for the Publishpress Series Plugin
 //	can be found at http://organizeseries.com
 $os_version = '2.5.14.rc.001';
 
 ######################################
 
 ######################################
-// Organize Series Wordpress Plugin
+// Publishpress Series Wordpress Plugin
 //
-//"Organize Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
+//"Publishpress Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -38,7 +38,7 @@ $os_version = '2.5.14.rc.001';
 
 ######################################
 /* Changelog
-Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for the list of all the changes in Organize Series.
+Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for the list of all the changes in Publishpress Series.
 
 */
 
@@ -46,7 +46,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 /**
  * Ths file contains all requires/includes for all files packaged with orgSeries and has all the setup/initialization code for the WordPress plugin.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.2
  */
 
@@ -91,7 +91,7 @@ define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP r
 //check for php version requirements
 if (version_compare(PHP_VERSION, '5.6') === -1) {
     /**
-     * Show notices about Organize Series requiring PHP 5.6 or higher.
+     * Show notices about Publishpress Series requiring PHP 5.6 or higher.
      */
     add_action('admin_notices', 'os_version_requirement_notice');
     function os_version_requirement_notice() {
@@ -101,7 +101,7 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
                 <?php
                     printf(
                         esc_html__(
-                            'Organize Series %1$srequires PHP 5.6%2$s or greater.  Your website does not meet the requirements so the plugin is not fully activated.',
+                            'Publishpress Series %1$srequires PHP 5.6%2$s or greater.  Your website does not meet the requirements so the plugin is not fully activated.',
                             'organize-series'
                         ),
                         '<strong>',

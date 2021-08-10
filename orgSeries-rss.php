@@ -1,5 +1,5 @@
 <?php
-//This file contains all the feed related functions for organize series
+//This file contains all the feed related functions for publishpress series
 
 //add_actions for rss/atom
 add_action('rss2_item', 'the_series_rss');

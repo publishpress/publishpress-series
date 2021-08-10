@@ -10,5 +10,5 @@ Root::initialize(__FILE__, ORG_SERIES_VERSION);
 Root::container()->make(
     new ClassOrInterfaceFullyQualifiedName(CoreBootstrap::class)
 );
-//this is the hook that all Organize Series Extensions should hook in on.
+//this is the hook that all Publishpress Series Extensions should hook in on.
 do_action('AHOS__bootstrapped');

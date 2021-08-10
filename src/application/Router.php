@@ -20,7 +20,7 @@ use OrganizeSeries\domain\model\HasHooksRouteCollection;
  * 2. HasHooksInterface (OrganizeSeries\domain\interfaces\HasHooksInterface)
  *      Classes implementing this interface have a `setHooks` method.  There may be more than one
  *      of these classes registered per route.  They have the responsibility of simply hooking into aspects of a given
- *      route (or routes) to enhance what's already there.  Typically Organize Series will be registering
+ *      route (or routes) to enhance what's already there.  Typically Publishpress Series will be registering
  *      HasHooks classes for routes because they hook into functionality already loaded via a controller. HasHooks
  *      classes are always called BEFORE the controller is called.  These classes are registered via the
  *      HasHooksRoute value object.

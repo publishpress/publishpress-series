@@ -89,7 +89,7 @@ class LicenseKey
 
 
     /**
-     * The payment id for the license key (on Organize Series Website)
+     * The payment id for the license key (on Publishpress Series Website)
      * @var string
      */
     private $payment_id = '';
@@ -280,7 +280,7 @@ class LicenseKey
     }
 
     /**
-     * The payment id for the license key (on Organize Series Website)
+     * The payment id for the license key (on Publishpress Series Website)
      * @return string
      */
     public function getPaymentId()

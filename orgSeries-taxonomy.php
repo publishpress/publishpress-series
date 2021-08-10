@@ -1,5 +1,5 @@
 <?php
-/* This file is for all the Organize Series related Term Queries and "template tags".
+/* This file is for all the Publishpress Series related Term Queries and "template tags".
 
 In most cases, the series functions listed here are just "wrappers" to save having to call the built-in functions for WordPress Custom Taxonomies.
  */
@@ -734,8 +734,8 @@ function inline_edit_series_js() {
 
 /**
  * Callback for split_shared_term action in WP.
- * This is used to help migrate users of Organize Series Multiples when term ids change.  This fix also will apply for
- * users of Organize Series Groups as well.
+ * This is used to help migrate users of Publishpress Series Multiples when term ids change.  This fix also will apply for
+ * users of Publishpress Series Groups as well.
  * @param $old_term_id
  * @param $new_term_id
  * @param $term_taxonomy_id
@@ -743,7 +743,7 @@ function inline_edit_series_js() {
  */
 function org_series_maybe_update_post_parts( $old_term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
 	global $wpdb;
-	//fix for series part for users of Organize Series Multiples
+	//fix for series part for users of Publishpress Series Multiples
 	$old_meta_key = SERIES_PART_KEY . '_' . $old_term_id;
 	$new_meta_key = SERIES_PART_KEY . '_' . $new_term_id;
 	$wpdb->update(
@@ -840,6 +840,6 @@ add_action('created_series', 'wp_insert_series',1, 2);
 add_action('edited_series', 'wp_update_series',1, 2);
 add_action('delete_series', 'wp_delete_series', 10, 2);
 
-//prep for term splitting that happens in WP4.2+ (this is more for taking care of Organize Series Multiples users
+//prep for term splitting that happens in WP4.2+ (this is more for taking care of Publishpress Series Multiples users
 add_action( 'split_shared_term', 'org_series_maybe_update_post_parts', 10, 4 );
 add_action( 'admin_init', 'orgseries_fix_terms_changed' );

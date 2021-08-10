@@ -5,7 +5,7 @@
  * 2. Is it a hook into the WordPress core?  Then it doesn't belong in here.
  * 3. Is it a "template tag" function?  Then it belongs in series-template-tags.php
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.2
 */
 

@@ -3,7 +3,7 @@
 /**
 * This file contains the orgSeries class which initializes the plugin and provides global variables/methods for use in the rest of the plugin.
 *
-* @package Organize Series
+* @package Publishpress Series
 * @since 2.2
 */
 
@@ -65,7 +65,7 @@ class orgSeries {
 	}
 
 	function update_warning() {
-		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Organize Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
+		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
 		echo trim($msg);
 	}
 
