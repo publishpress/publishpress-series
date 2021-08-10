@@ -256,4 +256,35 @@ function _os_update_post_term_count( $terms, $taxonomy ) {
 		do_action( 'edited_term_taxonomy', $term, $taxonomy->name );
 	}
 }
+
+
+
+function ppseries_admin_pages(){
+
+    $pseries_pages = [
+        'orgseries_options_page'
+    ];
+    
+   return apply_filters('ppseries_admin_pages', $pseries_pages);
+}
+
+function is_ppseries_admin_pages(){
+
+	global $pagenow;
+
+    $admin_pages = ppseries_admin_pages();
+
+    if (
+        ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && ( isset($_GET['taxonomy']) && 'series' == $_GET['taxonomy'])  ) ||
+        ( isset( $_GET['page'] ) && in_array( $_GET['page'], $admin_pages ) )
+    ) {
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
 ?>
