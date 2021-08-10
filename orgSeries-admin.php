@@ -26,6 +26,12 @@ add_action('wp_ajax_add_series', 'admin_ajax_series');
 add_action('admin_init', 'orgseries_load_custom_column_actions', 10);
 add_action('admin_init', 'orgseries_load_custom_column_filters', 10);
 
+// Load JavaScript and CSS
+add_action('admin_enqueue_scripts','orgSeries_admin_assets');
+//add footer credit
+add_action( 'in_admin_footer', 'orgSeries_admin_footer' );
+
+
 function orgseries_load_custom_column_actions() {
 	//support for custom post types
 	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
@@ -77,8 +83,58 @@ function orgSeries_admin_script() {
 		orgSeries_manage_script();
 	}
 
+    wp_register_style('pps-admin-common', SERIES_PATH_URL . 'assets/css/pressshack-admin.css', [], ORG_SERIES_VERSION);
+	if (is_ppseries_admin_pages()) {
+		wp_enqueue_style( 'pps-admin-common' );
+	}
+
+}
+function orgSeries_admin_assets() {
+
+    wp_register_script( 'pps-admin-js', SERIES_PATH_URL . 'assets/js/admin.js', array( 'jquery' ), ORG_SERIES_VERSION );
+    wp_register_style('pps-admin-common', SERIES_PATH_URL . 'assets/css/pressshack-admin.css', [], ORG_SERIES_VERSION);
+
+	if (is_ppseries_admin_pages()) {
+		wp_enqueue_style( 'pps-admin-common' );
+        wp_enqueue_script( 'pps-admin-js' );
+	}
 }
 
+function orgSeries_admin_footer() {
+
+	if (is_ppseries_admin_pages()) {
+	?>
+        <div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
+	        <footer>
+    	        <div class="pp-rating">
+	                <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
+	                    <?php printf(__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'), '<strong>PublishPress Series</strong>', '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+		    );
+	?>              </a>
+	            </div>
+
+        	    <hr>
+	            <nav>
+	                <ul>
+	                    <li><a href="https://publishpress.com/publishpress-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('About PublishPress Series', 'organize-series');?>"><?php _e('About', 'organize-series');?></a></li>
+    	                <li><a href="https://publishpress.com/knowledge-base/how-to-use-publishpress-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('PublishPress Series Documentation', 'organize-series');?>"><?php _e('Documentation', 'organize-series');?></a></li>
+	                    <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php _e('Contact the PublishPress team', 'organize-series');?>"><?php _e('Contact', 'organize-series');?></a></li>
+	                    <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
+	                    <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
+	                </ul>
+	            </nav>
+
+    	        <div class="pp-pressshack-logo">
+	                <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
+            	        <img src="<?php echo SERIES_PATH_URL . 'assets/images/publishpress-logo.png';?>" />
+	                </a>
+	            </div>
+	        </footer>
+        </div>
+        <div class="clear"></div>
+	<?php
+    }
+}
 function orgSeries_manage_script() {
 	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_script('media-upload');
