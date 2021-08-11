@@ -15,14 +15,18 @@
 }
 
 ul#serieschecklist {
-    height: 12em;
+    max-height: 12em;
     overflow: auto;
     margin: 0px;
     padding: 0px;
     margin-top: 8px;
     margin-right: 6px;
     margin-left: 10px;
+    margin-bottom: 10px;
     padding-left: 5px;
+    background-color: #eee;
+    padding: 5px;
+    text-indent: 10px;
 }
 
 ul#serieschecklist li {
@@ -33,8 +37,36 @@ ul#serieschecklist li span.li-series-name {
     padding-left: 5px;
 }
 
-#ajaxseries input {
-    border: 1px solid #ccc;
+ul#serieschecklist li {
+white-space: nowrap;
+background-color: #f4f4f4;
+margin: 0;
+line-height:25px;
+padding-bottom: 4px;
+}
+
+ul#serieschecklist li label {
+font-size: 13px;
+}
+
+ul#serieschecklist li:nth-child(even){
+  background-color:white;
+}
+
+#ajaxseries input[type="text"] {
+    width: 70%;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 4px;
+    border: 1px solid #8c8f94;
+    background-color: #fff;
+    color: #2c3338;
+    padding: 0 8px;
+    line-height: 2;
+    min-height: 30px;
+    margin: 0 4px 0 0;
+}
+#ajaxseries #seriesadd {
+  width: 20%;
 }
 
 #serieshowto {
