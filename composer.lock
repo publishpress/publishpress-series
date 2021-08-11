@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10c79ba9dbd17026856d79814e972351",
+    "content-hash": "6a9189dbb0924a20afdb38584268fb76",
     "packages": [
         {
             "name": "composer/installers",
@@ -177,6 +177,52 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "publishpress/wordpress-version-notices",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/WordPress-Version-Notices.git",
+                "reference": "57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/WordPress-Version-Notices/zipball/57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3",
+                "reference": "57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20",
+                "pimple/pimple": "^3"
+            },
+            "require-dev": {
+                "lucatume/wp-browser": "^2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PPVersionNotices\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com",
+                    "homepage": "https://publishpress.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for displaying version notices for Pro plugins in WordPress.",
+            "support": {
+                "issues": "https://github.com/publishpress/WordPress-Version-Notices/issues",
+                "source": "https://github.com/publishpress/WordPress-Version-Notices/tree/1.1.3"
+            },
+            "time": "2021-07-14T16:15:47+00:00"
         }
     ],
     "packages-dev": [],
@@ -188,5 +234,6 @@
     "platform": {
         "php": ">=5.6"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

@@ -135,4 +135,14 @@ if (version_compare(PHP_VERSION, '5.6') === -1) {
     //new bootstrapping, eventually this will replace all of the above.
     require $plugin_path . 'bootstrap.php';
 
+
+		function init_free_pp_series()
+		{
+    	if (is_admin() && !defined('SERIES_PRO_VERSION')) {
+        	require_once(SERIES_PATH . '/includes-core/PPSeriesCoreAdmin.php');
+        	new \PublishPress\Series\PPSeriesCoreAdmin();
+    }
+		}
+		add_action('plugins_loaded', 'init_free_pp_series');
+
 }
