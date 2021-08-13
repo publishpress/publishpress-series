@@ -19,7 +19,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 	static $this_plugin;
 	global $orgseries;
 	if ( !$this_plugin ) $this_plugin = 'organize-series/orgSeries.php';
-	 
+
 	if ( $file == $this_plugin ) {
 		$settings_link = '<a href="options-general.php?page=orgseries_options_page">'.__("Settings", 'organize-series').'</a>';
 		 array_unshift($links, $settings_link);
@@ -30,7 +30,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 //add orgSeries to the options submenu and register settings
 function orgseries_create_options() {
 	global $orgseries;
-		
+
 	$page = add_options_page(__('Publishpress Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
@@ -41,7 +41,7 @@ function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
 	$newinput = array();
 	if ( isset($input['reset_option']) && $input['reset_option'] == 1 ) {
-		
+
 		if ($reset_options = $orgseries->add_settings(true)) {
 			$input = $orgseries->settings;
 			$update['updated_output'] = '<div class="updated"><p>'. __('Publishpress Series Plugin Options have been RESET','organize-series').'</p></div>';
@@ -60,13 +60,13 @@ function orgseries_validate($input) {
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
-	
+
 	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', $input['series_perp_toc']));
-	
+
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
 	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
 	$newinput['orgseries_api'] = trim($input['orgseries_api']);
-	
+
 	//template options
 	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
 	$newinput['series_post_list_post_template'] = trim(stripslashes($input['series_post_list_post_template']));
@@ -82,12 +82,12 @@ function orgseries_validate($input) {
 	$newinput['latest_series_before_template'] = trim(stripslashes($input['latest_series_before_template']));
 	$newinput['latest_series_inner_template'] = trim(stripslashes($input['latest_series_inner_template']));
 	$newinput['latest_series_after_template'] = trim(stripslashes($input['latest_series_after_template']));
-	
+
 	//series-icon related settings
 	$newinput['series_icon_width_series_page'] = (int) $input['series_icon_width_series_page'];
 	$newinput['series_icon_width_post_page'] = (int) $input['series_icon_width_post_page'];
 	$newinput['series_icon_width_latest_series'] = (int) $input['series_icon_width_latest_series'];
-	
+
 	$newinput['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	$return_input = apply_filters('orgseries_options', $newinput, $input);
 	update_option('orgseries_update_message', $update['updated_output']);
@@ -105,10 +105,10 @@ function orgseries_options_init() {
 	register_setting($orgseries_options, $org_opt, 'orgseries_validate');
 	add_settings_section('series_automation_settings', 'Automation Settings', 'orgseries_main_section', 'orgseries_options_page');
 	add_settings_field('series_automation_core_fieldset','<br />Series Automation Core Options', 'series_automation_core_fieldset', 'orgseries_options_page', 'series_automation_settings');
-	
+
 	add_settings_section('series_templates_settings', '<br /><br />Template Tag Options', 'orgseries_templates_section', 'orgseries_options_page');
 	add_settings_field('series_templates_core_fieldset', 'Series Templates Core Options', 'series_templates_core_fieldset', 'orgseries_options_page', 'series_templates_settings');
-	
+
 	add_settings_section('series_icon_settings', '<br /><br />Series Icon Options', 'orgseries_icon_section', 'orgseries_options_page');
 	add_settings_field('series_icon_core_fieldset', 'Series Icon Core Options', 'series_icon_core_fieldset', 'orgseries_options_page', 'series_icon_settings');
 }
@@ -129,7 +129,7 @@ function orgseries_option_page() {
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
 		<div id="side-info-column" class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
-				
+
 			<div id="token-legend" class="postbox">
 				<h3 class="handle"><span><?php _e('Token legend', 'organize-series'); ?></span></h3>
 				<div class="inside">
@@ -162,24 +162,11 @@ function orgseries_option_page() {
 						<em><?php _e('Will display the total number of posts in a series', 'organize-series'); ?></em><br /><br />
 					<strong>%series_description%</strong><br />
 						<em><?php _e('Will display the description for the series', 'organize-series'); ?></em>
-					
+
 					<?php do_action('orgseries_token_description'); ?>
 				</div>
 			</div>
-            <div id="organize-series-extensions" class="postbox">
-                <h3 class="handle"><span><?php _e('Publishpress Series Extensions', 'organize-series'); ?></span></h3>
-                <div class="inside">
-                    <p>
-                        <?php
-                        esc_html_e(
-                           'This is where all the license key fields will appear for your Publishpress Series extensions.',
-                           'organize-series'
-                        );
-                        ?>
-                    </p>
-                    <?php do_action('AHOS__extension_license_key_fields'); ?>
-                </div>
-            </div>
+            <?php do_action('ppseries_licence_key_form'); ?>
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
@@ -189,20 +176,20 @@ function orgseries_option_page() {
 				<table class="widefat seriesmanage">
 				<tbody id="the-list">
 				<tr><td>
-				
+
 					<?php do_settings_sections('orgseries_options_page'); ?>
-					
+
 				</td></tr>
 				</tbody>
 				</table>
 				<br />
-				<?php 
-				//$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series'); 
+				<?php
+				//$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
 				//$script_text = "javascript:return confirm('".$submit_text."')"
 				?>
 				<span class="submit">
 					<input type="hidden" name="org_series_options[updated_output]" value="" />
-					<input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" /> 
+					<input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
 					<input type="submit" name="update_orgseries" value="<?php _e('Update Options', 'organize-series'); ?>" />
 					<input type="submit" name="option_reset" value="<?php _e('Reset options to default', 'organize-series'); ?>" />
 				</span>
@@ -248,7 +235,7 @@ function series_automation_core_fieldset() {
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 	?>
-	<div class="metabox-holder">	
+	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;">
 					<div class="inside" style="padding: 10px;">
@@ -269,11 +256,11 @@ function series_automation_core_fieldset() {
 					<strong><?php _e('Series Table of Contents URL:', 'organize-series'); ?></strong><br />
 					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
 					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', 'organize-series'); ?></em></small><br /><br />
-					
+
 					<strong><?php _e('Series Per Page:', 'organize-series'); ?></strong>
 					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo (int) ($series_perp_toc); ?>" /><br />
 					<small><em><?php _e('Set how many series you want per page on the Series TOC Page.', 'organize-series'); ?></em></small><br /><br />
-					
+
 					<strong><?php _e('Series Custom Base:', 'organize-series'); ?></strong><br />
 					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />
 					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages. NOTE: This ONLY applies when you have "Permalinks" enabled in WordPress', 'organize-series'); ?></em></small><br /><br />
@@ -303,7 +290,7 @@ function series_templates_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
-	<div class="metabox-holder">	
+	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-series-template-core" class="postbox" style="line-height:normal;">
 				<div class="inside" style="padding: 10px;">
@@ -349,7 +336,7 @@ function series_templates_core_fieldset() {
 					<br />
 					<strong><?php _e('Latest Series (tags after):', 'organize-series'); ?></strong><br />
 					<small><?php _e('Put here any html you want after latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_after_template']); ?></textarea><br />	
+					<textarea name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_after_template']); ?></textarea><br />
 				</div>
 			</div>
 		</div>
@@ -369,7 +356,7 @@ function series_icon_core_fieldset() {
 				<input name="<?php echo $org_name;?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="text" value="<?php echo $org_opt['series_icon_width_series_page']; ?>" size="10" /> <?php _e('Width for icon on series table of contents page (in pixels).', 'organize-series'); ?>
 				<br />
 				<input name="<?php echo $org_name;?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="text" value="<?php echo $org_opt['series_icon_width_post_page']; ?>" size="10" /> <?php _e('Width for icon on a post page (in pixels).', 'organize-series'); ?>
-				<br />	
+				<br />
 				<input name="<?php echo $org_name;?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="text" value="<?php echo $org_opt['series_icon_width_latest_series']; ?>" size="10" /> <?php _e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?>
 			</div>
 		</div>
