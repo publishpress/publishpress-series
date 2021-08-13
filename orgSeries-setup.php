@@ -301,6 +301,10 @@ class orgSeries {
 	        return;
         }
 		$settings = $this->settings;
+
+		if(!is_array($settings)){
+			return;
+		}
 		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
 			$series_toc_qv = $settings['series_toc_url'].'-toc';
 		} else {
@@ -348,11 +352,11 @@ class orgSeries {
 		global $wp_query;
 		if ( $wp_query instanceof WP_Query ) {
 			$settings = $this->settings;
-			
+
 			if ( ! isset( $wp_query->is_seriestoc ) || ! $wp_query->is_seriestoc ) {
 				return $title;
 			}
-			
+
 			$seriestoc_title = $settings['series_toc_title'];
 			if ( $seriestoc_title == '' ) {
 				$seriestoc_title = __( 'Series Table of Contents', 'organize-series' );
@@ -371,14 +375,14 @@ class orgSeries {
 				if ( ! $template ) {
 					$template = WP_CONTENT_DIR . '/plugins/' . SERIES_DIR . '/seriestoc.php';
 				}
-				
+
 				/*function seriestoc_title( $title ) {
 					$seriestoc_title = $settings['series_toc_title'];
 					if ( $seriestoc_title == '' ) $seriestoc_title = __('Series Table of Contents', 'organize-series');
 					$title = $seriestoc_title . ' &laquo; ' . $title;
 					return $title;
 				}*/
-				
+
 				//add_filter('wp_title', 'seriestoc_title');
 				if ( $template ) {
 					include( $template );
@@ -494,7 +498,7 @@ class orgSeries {
 					break;
 			}
 
-		} 
+		}
 	}
 
 	//add series post-list box to a post in that series (on single.php view)
