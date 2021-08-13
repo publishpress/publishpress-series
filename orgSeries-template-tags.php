@@ -806,6 +806,10 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 function is_series( $slug = '' ) {
 	global $wp_query;
 
+  if (!defined('SERIES_QUERYVAR')) {
+    return false;
+  }
+  
 	if ( $wp_query instanceof WP_Query ) {
 		$series = get_query_var( SERIES_QUERYVAR );
 	} else {
@@ -821,7 +825,7 @@ function is_series( $slug = '' ) {
 			if ( $series == $slug ) {
 				return true;
 			}
-			
+
 			//query_var may not be a slug but may be an id.
 			if ( is_numeric( $series ) ) {
 				$series_object = get_term_by( 'id', $series, 'series' );
@@ -833,7 +837,7 @@ function is_series( $slug = '' ) {
 
 		$has_series_query_var = false;
 	}
-	
+
 	return $has_series_query_var;
 }
 
