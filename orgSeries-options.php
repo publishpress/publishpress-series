@@ -126,6 +126,17 @@ function orgseries_option_page() {
 	echo $org_update_message;
 	update_option('orgseries_update_message','');
 	?>
+
+  <h2 class="nav-tab-wrapper ppseries-settings-tab">
+  <?php
+    $settings_tabs = ppseries_admin_settings_tabs();
+    foreach($settings_tabs as $settings_tab_key => $settings_tab_label){
+      echo '<a id="'.$settings_tab_key.'-series-tab" class="nav-tab" href="#'.$settings_tab_key.'">'.$settings_tab_label.'</a>';
+    }
+  ?>
+  </h2>
+
+
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
 		<div id="side-info-column" class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
@@ -177,7 +188,7 @@ function orgseries_option_page() {
 				<tbody id="the-list">
 				<tr><td>
 
-					<?php do_settings_sections('orgseries_options_page'); ?>
+					<?php ppseries_do_settings_sections('orgseries_options_page'); ?>
 
 				</td></tr>
 				</tbody>
