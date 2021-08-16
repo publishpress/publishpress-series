@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Publishpress Series
+Plugin Name: PublishPress Series
 Plugin URI: http://organizeseries.com
 Version: 2.5.14.rc.002
 Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series.
-Author: Darren Ethier
+Author: PublishPress
 Author URI: http://www.unfoldingneurons.com
 Text Domain: organize-series
 */
@@ -99,6 +99,7 @@ if (defined('PPSERIES_FILE') || $pro_active) {
 }
 define ('PPSERIES_FILE', __FILE__ );
 define ('PPSERIES_PATH', plugin_dir_path(__FILE__));
+define ('PPSERIES_BASE_NAME', plugin_basename(__FILE__));
 
 //check for php version requirements
 if (version_compare(PHP_VERSION, '5.6') === -1) {

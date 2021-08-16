@@ -177,3 +177,10 @@ input #seriesadd {
 .license-key-submit-button {
     margin-top: 10px;
 }
+.ppseries-warning {
+    border: 1px solid rgb(230, 219, 84);
+    color: #8a8a8a;
+    font-size: 13px;
+    padding: 12px 25px;
+    background-color: rgb(254, 255, 224);
+}

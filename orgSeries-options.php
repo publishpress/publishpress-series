@@ -18,7 +18,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
  function inject_orgseries_settings_link($links, $file) {
 	static $this_plugin;
 	global $orgseries;
-	if ( !$this_plugin ) $this_plugin = 'organize-series/orgSeries.php';
+	if ( !$this_plugin ) $this_plugin = PPSERIES_BASE_NAME;
 
 	if ( $file == $this_plugin ) {
 		$settings_link = '<a href="options-general.php?page=orgseries_options_page">'.__("Settings", 'organize-series').'</a>';
