@@ -54,7 +54,7 @@ ul#serieschecklist li:nth-child(even){
 }
 
 #ajaxseries input[type="text"] {
-    width: 70%;
+    width: 67%;
     box-shadow: 0 0 0 transparent;
     border-radius: 4px;
     border: 1px solid #8c8f94;
@@ -64,9 +64,12 @@ ul#serieschecklist li:nth-child(even){
     line-height: 2;
     min-height: 30px;
     margin: 0 4px 0 0;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin-bottom: 1px;
 }
-#ajaxseries #seriesadd {
-  width: 20%;
+#serie_post_shorttitle {
+  width: 100%;
 }
 
 #serieshowto {
