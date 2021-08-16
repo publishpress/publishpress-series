@@ -184,3 +184,6 @@ input #seriesadd {
     padding: 12px 25px;
     background-color: rgb(254, 255, 224);
 }
+.ppseries-hide-content {
+  display: none;
+}

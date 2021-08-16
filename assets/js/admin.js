@@ -40,6 +40,38 @@
     }
 
 
+    // -------------------------------------------------------------
+    //   Settings tab click
+    // -------------------------------------------------------------
+    $(document).on('click', '.ppseries-settings-tab .nav-tab', function (e) {
+      e.preventDefault();
+      var current_content = $(this).attr('href');
+      $('.ppseries-settings-tab .nav-tab').removeClass('nav-tab-active');
+      $('.ppseries-settings-tab-content').addClass('ppseries-hide-content');
+
+      $(this).addClass('nav-tab-active');
+      $(current_content+'-series-content').removeClass('ppseries-hide-content');
+
+      if (typeof(localStorage) != 'undefined' && localStorage != null) {
+          localStorage.setItem("pp_series_activetab", current_content);
+      }
+
+    });
+
+    // -------------------------------------------------------------
+    //   Display active group
+    // -------------------------------------------------------------
+    var pp_series_activetab = '';
+    if (typeof(localStorage) != 'undefined' && localStorage != null) {
+        pp_series_activetab = localStorage.getItem("pp_series_activetab");
+    }
+    if (pp_series_activetab !== '' && $(pp_series_activetab+'-series-tab').length) {
+        $(pp_series_activetab+'-series-tab').trigger('click');
+    } else {
+        $('#series_automation_settings-series-tab').trigger('click');
+    }
+
+
   })
 
 })(jQuery)
