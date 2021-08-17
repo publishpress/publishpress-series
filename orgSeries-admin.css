@@ -185,5 +185,5 @@ input #seriesadd {
     background-color: rgb(254, 255, 224);
 }
 .ppseries-hide-content {
-  display: none;
+  display: none !important;
 }

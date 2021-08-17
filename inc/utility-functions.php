@@ -61,4 +61,12 @@ function pps_os_version_requirement_notice() {
     }
 		}
 	}
+
+	if(!function_exists('ppseries_settings_template_tabbed_callback')){
+		add_filter('ppseries_settings_series_templates_settings_tabbed', 'ppseries_settings_template_tabbed_callback');
+		function ppseries_settings_template_tabbed_callback(){
+			return true;
+		}
+	}
+
 ?>

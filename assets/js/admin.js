@@ -48,9 +48,15 @@
       var current_content = $(this).attr('href');
       $('.ppseries-settings-tab .nav-tab').removeClass('nav-tab-active');
       $('.ppseries-settings-tab-content').addClass('ppseries-hide-content');
+      $('.has-sidebar-content.ppseries-settings-body-content').removeAttr('id');
 
       $(this).addClass('nav-tab-active');
       $(current_content+'-series-content').removeClass('ppseries-hide-content');
+
+      if($(current_content+'-series-tab').hasClass('series-tab-content')){
+        $('.has-sidebar-content.ppseries-settings-body-content').attr('id', 'post-body-content');
+        $(current_content.replace("#", ".")+'-series-sidebar').removeClass('ppseries-hide-content');
+      }
 
       if (typeof(localStorage) != 'undefined' && localStorage != null) {
           localStorage.setItem("pp_series_activetab", current_content);

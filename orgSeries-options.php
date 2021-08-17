@@ -131,18 +131,24 @@ function orgseries_option_page() {
   <?php
     $settings_tabs = ppseries_admin_settings_tabs();
     foreach($settings_tabs as $settings_tab_key => $settings_tab_label){
-      echo '<a id="'.$settings_tab_key.'-series-tab" class="nav-tab" href="#'.$settings_tab_key.'">'.$settings_tab_label.'</a>';
+      if(apply_filters('ppseries_settings_'.$settings_tab_key.'_tabbed', false)){
+        $tabbled_class = 'series-tab-content';
+      }else{
+        $tabbled_class = '';
+      }
+      echo '<a id="'.$settings_tab_key.'-series-tab" class="nav-tab '.$tabbled_class.'" href="#'.$settings_tab_key.'">'.$settings_tab_label.'</a>';
     }
   ?>
   </h2>
 
 
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
-		<div id="side-info-column" class="inner-sidebar">
+
+		<div id="side-info-column" class="inner-sidebar ppseries-settings-tab-content series_templates_settings-series-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
 
 			<div id="token-legend" class="postbox">
-				<h3 class="handle"><span><?php _e('Token legend', 'organize-series'); ?></span></h3>
+				<h3 class="handle"><span><?php _e('Overview', 'organize-series'); ?></span></h3>
 				<div class="inside">
 					<p><small><?php _e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
 					<strong>%series_icon%</strong><br />
@@ -181,7 +187,7 @@ function orgseries_option_page() {
 			</div>
 		</div>
 		<div id="post-body" class="has-sidebar">
-			<div id="post-body-content" class="has-sidebar-content">
+			<div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
 				<form action="options.php" method="post" id="series_options" name="series_options">
 				<?php settings_fields('orgseries_options'); ?>
 				<table class="widefat seriesmanage">
