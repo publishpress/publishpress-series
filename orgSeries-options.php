@@ -64,8 +64,8 @@ function orgseries_validate($input) {
 	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', $input['series_perp_toc']));
 
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
-	$newinput['series_toc_title'] = trim(stripslashes($input['series_toc_title']));
-	$newinput['orgseries_api'] = trim($input['orgseries_api']);
+	$newinput['series_toc_title'] = isset($input['series_toc_title']) ? trim(stripslashes($input['series_toc_title'])) : '';
+	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim($input['orgseries_api']) : '';
 
 	//template options
 	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
