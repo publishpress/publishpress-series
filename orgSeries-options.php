@@ -121,7 +121,7 @@ function orgseries_option_page() {
 	?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br /></div>
-		<h2><img src="<?php echo plugins_url('/images/orgseriesicon.png', __FILE__);?>" /><?php _e('  Publishpress Series Plugin Options', 'organize-series'); ?></h2>
+		<h2><?php _e('PublishPress Series Plugin Options', 'organize-series'); ?></h2>
 	<?php
 	echo $org_update_message;
 	update_option('orgseries_update_message','');
