@@ -252,6 +252,7 @@ function series_automation_core_fieldset() {
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 	?>
+  <h2 class="ppseries-settings-header"><?php _e('Series Automation Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;">
@@ -307,6 +308,7 @@ function series_templates_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
+  <h2 class="ppseries-settings-header"><?php _e('Series Templates Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-series-template-core" class="postbox" style="line-height:normal;">
@@ -366,6 +368,7 @@ function series_icon_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
+  <h2 class="ppseries-settings-header"><?php _e('Series Icon Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 	<div class="postbox-container" style="width: 99%;line-height:normal;">
 		<div id="topic-toc-settings-icon-core" class="postbox" style="line-height:normal;">
