@@ -466,8 +466,13 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 	$post_series = null;
 	$post_shorttitle = array();
 
-	if ( !is_bool($update) )
+	if ( !is_bool($update) ){
 		return; //safety check for users on earlier version of WP (so existing series don't get messed up)
+	}
+
+	if(!is_object($post)){
+		return;
+	}
 
 
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.

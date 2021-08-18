@@ -333,9 +333,52 @@ function ppseries_do_settings_sections( $page ) {
 			continue;
 		}
 		echo '<table class="form-table" role="presentation">';
-		do_settings_fields( $page, $section['id'] );
+		ppseries_do_settings_fields( $page, $section['id'] );
 		echo '</table>';
 		echo '</div>';
+	}
+}
+
+/**
+ * Print out the settings fields for a particular settings section.
+ *
+ * Part of the Settings API. Use this in a settings page to output
+ * a specific section. Should normally be called by do_settings_sections()
+ * rather than directly.
+ *
+ * @global array $wp_settings_fields Storage array of settings fields and their pages/sections.
+ *
+ * @since 2.7.0
+ *
+ * @param string $page Slug title of the admin page whose settings fields you want to show.
+ * @param string $section Slug title of the settings section whose fields you want to show.
+ */
+function ppseries_do_settings_fields( $page, $section ) {
+	global $wp_settings_fields;
+
+	if ( ! isset( $wp_settings_fields[ $page ][ $section ] ) ) {
+		return;
+	}
+
+	foreach ( (array) $wp_settings_fields[ $page ][ $section ] as $field ) {
+		$class = '';
+
+		if ( ! empty( $field['args']['class'] ) ) {
+			$class = ' class="' . esc_attr( $field['args']['class'] ) . '"';
+		}
+
+		echo "<tr{$class}>";
+
+		if ( ! empty( $field['args']['label_for'] ) ) {
+			//echo '<th scope="row"><label for="' . esc_attr( $field['args']['label_for'] ) . '">' . $field['title'] . '</label></th>';
+		} else {
+			//echo '<th scope="row">' . $field['title'] . '</th>';
+		}
+
+		echo '<td>';
+		call_user_func( $field['callback'], $field['args'] );
+		echo '</td>';
+		echo '</tr>';
 	}
 }
 
