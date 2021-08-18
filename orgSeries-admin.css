@@ -193,3 +193,7 @@ input #seriesadd {
 .ppseries-settings-header {
   padding-left: 0 !important;
 }
+
+.ppseries-spinner {
+    float: none !important;
+}
