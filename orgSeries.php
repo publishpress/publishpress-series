@@ -99,6 +99,7 @@ if (defined('PPSERIES_FILE') || $pro_active) {
 }
 define ('PPSERIES_FILE', __FILE__ );
 define ('PPSERIES_PATH', plugin_dir_path(__FILE__));
+define ('PPSERIES_URL', plugin_dir_url(__FILE__));
 define ('PPSERIES_BASE_NAME', plugin_basename(__FILE__));
 
 //check for php version requirements

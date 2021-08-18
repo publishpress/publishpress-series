@@ -13,10 +13,13 @@
         }
     ],
     "require": {
-        "php": ">=5.6",
-        "composer/installers": "v1.0.6",
-        "pimple/pimple": "~3.0",
-        "publishpress/wordpress-version-notices": "^1.1"
+      "pimple/pimple": "3.2.3.*",
+      "symfony/polyfill-ctype": "1.19.*",
+      "sabre/vobject": "^3.4",
+      "psr/container": "1.0.0",
+      "composer/installers": "v1.0.6",
+      "publishpress/wordpress-version-notices": "^1.1",
+      "alledia/wordpress-edd-license-integration": "^2.3"
     },
     "autoload": {
         "psr-4": {"OrganizeSeries\\": "src/"}

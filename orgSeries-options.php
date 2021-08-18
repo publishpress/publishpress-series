@@ -111,6 +111,18 @@ function orgseries_options_init() {
 
 	add_settings_section('series_icon_settings', '<br /><br />Series Icon Options', 'orgseries_icon_section', 'orgseries_options_page');
 	add_settings_field('series_icon_core_fieldset', 'Series Icon Core Options', 'series_icon_core_fieldset', 'orgseries_options_page', 'series_icon_settings');
+
+	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
+	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
+
+
+  add_filter( 'ppseries_admin_settings_tabs', 'ppseries_filter_admin_settings_tabs');
+}
+
+
+function ppseries_filter_admin_settings_tabs($settings_tabs){
+  $settings_tabs['series_uninstall_settings'] = __('Uninstall', 'organize-series-cpt');
+  return $settings_tabs;
 }
 
 function orgseries_option_page() {
@@ -227,7 +239,6 @@ function orgseries_option_page() {
 function orgseries_main_section() {
 	global $orgseries;
 	?>
-	<p><?php _e('Choose from the following options for turning on or off automatic insertion of template tags for Publishpress Series into your blog.  If you wish to have more control over the location of the template tags (you power user you) then deselect as needed.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -245,6 +256,12 @@ function orgseries_icon_section() {
 	<?php
 }
 
+function orgseries_uninstall_section() {
+	global $orgseries;
+	?>
+	<?php
+}
+
 function series_automation_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
@@ -255,47 +272,42 @@ function series_automation_core_fieldset() {
   <h2 class="ppseries-settings-header"><?php _e('Series Automation Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
-			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;">
+			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;border:unset;">
 					<div class="inside" style="padding: 10px;">
-					<input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /> <?php _e('Display series post list box?', 'organize-series'); ?>
-					<small><em><?php _e('Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the listing of posts in a series when a post is displayed that is part of a series.  [default=selected]', 'organize-series'); ?></em></small><br /><br />
-					<input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /> <?php _e('Display series navigation links?', 'organize-series'); ?>
-					<small><em><?php _e('Selecting this will indicate that you would like the plugin to automatically insert the code into your theme for the displaying the series navigation links.  [default=selected]', 'organize-series'); ?></em></small><br /><br />
-					<input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /> <?php _e('Display series meta information with posts?', 'organize-series'); ?>
-					<small><em><?php _e('Series meta will include whatever is listed in the Template tag options for the series meta tag (see settings on this page). [default = selected]', 'organize-series'); ?></em></small><br /><br />
-					<input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /> <?php _e('Use custom .css?', 'organize-series'); ?>
-					<small><em><?php _e('Leaving this box checked will make the plugin use the included .css file.  If you uncheck it you will need to add styling for the plugin in your themes "style.css" file. [default = checked]', 'organize-series'); ?></em></small>
+					<label><input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /> <?php _e('Display series post list box?', 'organize-series'); ?></label><br /><br />
+					<label><input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /> <?php _e('Display series navigation links?', 'organize-series'); ?></label>
+				<br /><br />
+					<label><input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /> <?php _e('Display series meta information with posts?', 'organize-series'); ?></label>
+					<br /><br />
+					<label><input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /> <?php _e('Use custom .css?', 'organize-series'); ?></label>
+
 					<br />
 					&emsp;<em><?php _e('.css style for:', 'organize-series'); ?></em><br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> <br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> <br />
-					&emsp;<input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> <br />
+					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> </label><br />
+					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> </label><br />
+					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> </label><br />
 					<br />
 					<strong><?php _e('Series Table of Contents URL:', 'organize-series'); ?></strong><br />
 					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
-					<small><em><?php _e('Enter the path where you want the Series Table of Contents to be shown. NOTE: this ONLY applies when you have "Permalinks" enabled in WordPress.', 'organize-series'); ?></em></small><br /><br />
+					<br />
 
 					<strong><?php _e('Series Per Page:', 'organize-series'); ?></strong>
 					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo (int) ($series_perp_toc); ?>" /><br />
-					<small><em><?php _e('Set how many series you want per page on the Series TOC Page.', 'organize-series'); ?></em></small><br /><br />
+					<br />
 
 					<strong><?php _e('Series Custom Base:', 'organize-series'); ?></strong><br />
 					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />
-					<small><em><?php _e('Set what you want to use as the base for referring to your series structure in permalinks series archive pages. NOTE: This ONLY applies when you have "Permalinks" enabled in WordPress', 'organize-series'); ?></em></small><br /><br />
-					<strong><?php _e('Series Table of Contents Title:', 'organize-series'); ?></strong><input type="text" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>" style="width:300px;"/><br />
-					<small><em><?php _e('Enter what you want to appear in the browser title when readers are viewing the series table of contents page.', 'organize-series'); ?></em></small><br /> <br />
-					<input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $org_opt['series_posts_orderby']); ?> /><?php _e('order by series part', 'organize-series'); ?>
-					<input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $org_opt['series_posts_orderby']); ?> /><?php _e('Order by date', 'organize-series'); ?>
 					<br />
-					<input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $org_opt['series_posts_order']); ?> /><?php _e('Ascending', 'organize-series'); ?>
-					<input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $org_opt['series_posts_order']); ?> /><?php _e('Descending', 'organize-series'); ?>
+					<strong><?php _e('Series Table of Contents Title:', 'organize-series'); ?></strong><br /><input type="text" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>" style="width:300px;"/><br />
 					<br />
-					<small><em><?php _e('You can choose what order you want the posts on a series archive page to be displayed.  Default is by date, descending.', 'organize-series'); ?></em></small>
+					<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $org_opt['series_posts_orderby']); ?> /><?php _e('order by series part', 'organize-series'); ?></label>
+					<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $org_opt['series_posts_orderby']); ?> /><?php _e('Order by date', 'organize-series'); ?></label>
 					<br />
+					<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $org_opt['series_posts_order']); ?> /><?php _e('Ascending', 'organize-series'); ?></label>
+					<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $org_opt['series_posts_order']); ?> /><?php _e('Descending', 'organize-series'); ?></label>
 					<br />
-					<span style="background-color:#ff3366; padding: 5px; padding-bottom: 8px;">
-					<input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Publishpress Series related data from the database when deleting this plugin?  (BE CAREFUL!)', 'organize-series'); ?>
-					</span>
+
+
 					</div>
 				</div>
 			</div>
@@ -382,6 +394,19 @@ function series_icon_core_fieldset() {
 		</div>
 	</div>
 	</div>
+	<?php
+}
+
+function series_uninstall_core_fieldset() {
+	global $orgseries;
+	$org_opt = $orgseries->settings;
+	$org_name = 'org_series_options';
+	?>
+  <h2 class="ppseries-settings-header"><?php _e('Series Settings', 'organize-series'); ?></h2>
+  <span style="padding: 5px; padding-bottom: 8px;">
+  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Publishpress Series related data from the database when deleting this plugin?', 'organize-series'); ?> <strong><?php _e('(BE CAREFUL!)', 'organize-series'); ?>
+    </strong></label>
+  </span>
 	<?php
 }
 ?>
