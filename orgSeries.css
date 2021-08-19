@@ -53,7 +53,6 @@ li.serieslist-li {
 	margin: 0 10px 0px 10px;
 	padding: 0 20px 20px;
 	border: 1px solid #1E3A96;
-	border-right-width: 0;
 	border-bottom-width: 3px;
 	min-width: 125px;
 }
