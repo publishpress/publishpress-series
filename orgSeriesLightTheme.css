@@ -12,6 +12,9 @@
 	margin-right: 0px;
 	min-width: 125px;
 }
+.seriesbox img {
+	padding-top: 20px;
+}
 .seriesbox ul.serieslist-ul {
 	padding-left: 20px;
 }

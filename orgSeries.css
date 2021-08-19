@@ -59,7 +59,7 @@ li.serieslist-li {
 }
 
 .seriesbox img {
-	margin: 0px 12.5px 0 12.5px;
+	padding-top: 20px;
 }
 
 h3.series-title-post-page {

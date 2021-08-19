@@ -13,6 +13,9 @@
 .seriesbox ul.serieslist-ul {
 	padding-left: 20px;
 }
+.seriesbox img {
+	padding-top: 20px;
+}
 .seriesmeta {
 	background-color: #222;
 	font-size: .8em;
