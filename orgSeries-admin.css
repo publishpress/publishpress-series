@@ -1,3 +1,8 @@
+.ppseries-settings-table input[type=text], 
+.ppseries-settings-table input[type=number], 
+.ppseries-settings-table select {
+    width: 300px;
+}
 .post-series {
     display: inline;
     margin: 0;
