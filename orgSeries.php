@@ -3,7 +3,7 @@
 Plugin Name: PublishPress Series
 Plugin URI: http://organizeseries.com
 Version: 2.5.14.rc.002
-Description: This plugin adds a number of features to wordpress that enable you to easily write and organize a series of posts and display the series dynamically in your blog. You can associate "icons" or "logos" with the various series.
+Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 Author: PublishPress
 Author URI: http://www.unfoldingneurons.com
 Text Domain: organize-series
