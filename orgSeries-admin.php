@@ -63,7 +63,7 @@ add_action( 'right_now_content_table_end', 'add_series_to_right_now');
 add_action('add_meta_boxes', 'orgseries_add_meta_box', 9);
 
 function orgSeries_admin_header() {
-	$plugin_path = SERIES_LOC;
+	$plugin_path = PPSERIES_URL;
 	$csspath = $plugin_path . "orgSeries-admin.css";
 	wp_register_style( 'orgSeries-admin', $csspath );
 	wp_enqueue_style( 'orgSeries-admin' );
@@ -293,7 +293,11 @@ global $post, $postdata, $content, $orgseries;
 		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
 			<p id="part-description" class="howto"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p></br>
 		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
-		<p id="part-description" class="howto"><?php _e('A "short" title of the post that will be used in the series widget. [Leave blank to use a full title]', 'organize-series'); ?></p>
+		<p id="part-description" class="howto">
+			<?php _e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
+			<br />
+		<?php _e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?>
+	</p>
 		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
 		<input type="hidden" name="is_series_save" value="1" />
 	<?php
