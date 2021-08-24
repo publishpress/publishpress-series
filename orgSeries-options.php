@@ -31,7 +31,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 function orgseries_create_options() {
 	global $orgseries;
 
-	$page = add_options_page(__('Publishpress Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
+	$page = add_options_page(__('PublishPress Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
 }
@@ -44,12 +44,12 @@ function orgseries_validate($input) {
 
 		if ($reset_options = $orgseries->add_settings(true)) {
 			$input = $orgseries->settings;
-			$update['updated_output'] = '<div class="updated"><p>'. __('Publishpress Series Plugin Options have been RESET','organize-series').'</p></div>';
+			$update['updated_output'] = '<div class="updated"><p>'. __('PublishPress Series Plugin Options have been RESET','organize-series').'</p></div>';
 			update_option('orgseries_update_message', $update['updated_output']);
 			return $input;
 		}
 	} else {
-		$update['updated_output'] = '<div class="updated"><p>' . __('Publishpress Series Plugin Options have been updated','organize-series') . '</p></div>';
+		$update['updated_output'] = '<div class="updated"><p>' . __('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
@@ -362,7 +362,7 @@ function series_templates_core_fieldset() {
 					<textarea name="<?php echo $org_name; ?>[latest_series_before_template]" id="latest_series_before_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_before_template']); ?></textarea><br />
 					<br />
 					<strong><?php _e('Latest Series (inner tags):', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: Publishpress Series %tokens% can be used in this field.', 'organize-series'); ?></small><br />
+					<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: PublishPress Series %tokens% can be used in this field.', 'organize-series'); ?></small><br />
 					<textarea name="<?php echo $org_name; ?>[latest_series_inner_template]" id="latest_series_inner_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_inner_template']); ?></textarea><br />
 					<br />
 					<strong><?php _e('Latest Series (tags after):', 'organize-series'); ?></strong><br />
@@ -404,7 +404,7 @@ function series_uninstall_core_fieldset() {
 	?>
   <h2 class="ppseries-settings-header"><?php _e('Series Settings', 'organize-series'); ?></h2>
   <span style="padding: 5px; padding-bottom: 8px;">
-  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all Publishpress Series related data from the database when deleting this plugin?', 'organize-series'); ?> <strong><?php _e('(BE CAREFUL!)', 'organize-series'); ?>
+  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all PublishPress Series related data from the database when deleting this plugin?', 'organize-series'); ?> <strong><?php _e('(BE CAREFUL!)', 'organize-series'); ?>
     </strong></label>
   </span>
 	<?php
