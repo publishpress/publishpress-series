@@ -6,30 +6,30 @@
  * @since 2.2
 **/
 class orgSeries_widget_latestseries extends WP_Widget {
-	
+
 	public function __construct() {
 		global $orgseries;
 		$widget_ops = array('description' => __('Use this to control the output of the latest series widget', 'organize-series'));
 		parent::__construct('latestseries', __('Latest Series', 'organize-series'), $widget_ops);
 	}
-	
+
 	function widget( $args, $instance ) {
 		global $orgseries;
 		extract( $args, EXTR_SKIP );
-		
+
 		$title = isset($instance['title']) ? $instance['title'] : __('Most Recent Series', 'organize-series');
 		$orderby = isset($instance['orderby']) ? $instance['orderby'] : 'name';
 		$number = isset($instance['number']) ? $instance['number'] : '5';
 		$order = isset($instance['order']) ? $instance['order'] : 'ASC';
 		$hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : 0;
-		
+
 		$series_args = $args = apply_filters('widget_latestseries_args', array('hide_empty' => $hide_empty, 'orderby' => $orderby, 'number' => $number, 'order' => $order));
-		
+
 		$out = latest_series(false,$args);
-		
+
 		if ( !empty( $out ) ) {
 			echo $before_widget;
-			
+
 			if ( $title )
 				echo $before_title . $title . $after_title;
 			?>
@@ -48,16 +48,16 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$instance['orderby'] = $new_instance['orderby'];
 		$instance['number'] = strip_tags($new_instance['number']);
 		$instance['order'] = $new_instance['order'];
-		
+
 		return $instance;
 	}
-	
+
 	function form( $instance ) {
 		global $orgseries;
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array('title'=> '', 'hide_empty' => 0, 'orderby' => 'name', 'number' => '5', 'order' => 'ASC') );
 		$title = esc_attr( $instance['title'] );
-		$hide_empty = $instance['hide_empty']; 
+		$hide_empty = $instance['hide_empty'];
 		$seriesoptionsurl = menu_page_url( 'manage_series', false );
 ;
 		$number = (int) $instance['number'];
@@ -96,13 +96,13 @@ class orgSeries_widget_latestseries extends WP_Widget {
 }
 
 class orgSeries_widget_seriestoc extends WP_Widget {
-	
+
 	public function __construct() {
 		global $orgseries;
 		$widget_ops = array('description' => __('Use this to display the Series Table of contents', 'organize-series'));
-		parent::__construct('seriestoc', __('Series TOC', 'organize-series'), $widget_ops);
+		parent::__construct('seriestoc', __('Series Table of Contents', 'organize-series'), $widget_ops);
 	}
-	
+
 	function widget( $args, $instance ) {
 		global $orgseries, $wp_query;
 		extract( $args, EXTR_SKIP );
@@ -130,14 +130,14 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				$out = wp_dropdown_series( $series_args );
 			}
 		}
-		
+
 		if ( $showpostlist ) {
 			if ( ( $wp_query->is_single ) && $showpostlist && $series = get_the_series() ) {
 				if ( $showseriestoc ) $out .= '<br /><br />';
-				$out .= get_series_posts('','widget', false, $widget_title);	
+				$out .= get_series_posts('','widget', false, $widget_title);
 				}
 		}
-		
+
 		if ( !empty($out) ) {
 			echo $before_widget;
 			if ( $title )
@@ -146,7 +146,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			echo $after_widget;
 		}
 	}
-	
+
 	function update( $new_instance, $old_instance ) {
 		global $orgseries;
 		$instance = $old_instance;
@@ -157,10 +157,10 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$instance['hide-empty'] = (int) $new_instance['hide-empty'];
 		$instance['postlistdisplay-toggle'] = (int) $new_instance['postlistdisplay-toggle'];
 		$instance['seriestocdisplay-toggle'] = (int) $new_instance['seriestocdisplay-toggle'];
-		
+
 		return $instance;
 	}
-	
+
 	function form( $instance ) {
 		global $orgseries;
 		//Defaults
@@ -186,33 +186,34 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
-			<?php _e('Series list options:', 'organize-series'); ?><br />
+			<?php _e('Show list of all series', 'organize-series'); ?><br />
 			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
 			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('show-count'); ?>"><?php _e('Show post count?', 'organize-series'); ?>
+			<label for="<?php echo $this->get_field_id('show-count'); ?>"><?php _e('Show post count', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('show-count'); ?>" name="<?php echo $this->get_field_name('show-count'); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><?php _e('Hide empty series?', 'organize-series'); ?>
+			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><?php _e('Hide empty series', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('(toggle if a list of other posts in the series will show on posts that are part of a series)', 'organize-series'); ?>
+			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><?php _e('Show other posts in the current series', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series?', 'organize-series'); ?>
+			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><?php _e('Show the List of Series', 'organize-series'); ?>
 			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('serieswidget-title'); ?>"><strong><?php _e('Series widget title:', 'organize-series'); ?></strong><br />
-			<small><?php _e('Put a text here to display it as a title of other posts in the series displayed in widget.', 'organize-series'); ?></small><br />
-			<input class="widefat" id="<?php echo $this->get_field_id('serieswidget-title'); ?>" name="<?php echo $this->get_field_name('serieswidget-title'); ?>" type="text" value="<?php echo $widget_title; ?>" /></label><br />
+				<input class="widefat" id="<?php echo $this->get_field_id('serieswidget-title'); ?>" name="<?php echo $this->get_field_name('serieswidget-title'); ?>" type="text" value="<?php echo $widget_title; ?>" />
+			<small><?php _e('This text will display above other posts in this series.', 'organize-series'); ?></small><br />
+			</label><br />
 		</p>
-		
+
 		<?php
 	}
 }
