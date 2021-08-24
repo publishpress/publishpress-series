@@ -252,7 +252,7 @@ function orgseries_templates_section() {
 function orgseries_icon_section() {
 	global $orgseries;
 	?>
-	<p><?php _e('This section is for setting the series icon options (note if you do not include one of the %tokens% for series icon in the template settings section then series-icons will not be displayed. All images for series-icons will upload into your default wordpress upload directory.', 'organize-series'); ?></p>
+	<p><?php _e('This section is for the icons that show with your series. Note that you must use a tokens for the icon in the "Templates" settings.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -380,16 +380,36 @@ function series_icon_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
-  <h2 class="ppseries-settings-header"><?php _e('Series Icon Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 	<div class="postbox-container" style="width: 99%;line-height:normal;">
 		<div id="topic-toc-settings-icon-core" class="postbox" style="line-height:normal;">
-			<div class="inside" style="padding: 10px;">
-				<input name="<?php echo $org_name;?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="text" value="<?php echo $org_opt['series_icon_width_series_page']; ?>" size="10" /> <?php _e('Width for icon on series table of contents page (in pixels).', 'organize-series'); ?>
-				<br />
-				<input name="<?php echo $org_name;?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="text" value="<?php echo $org_opt['series_icon_width_post_page']; ?>" size="10" /> <?php _e('Width for icon on a post page (in pixels).', 'organize-series'); ?>
-				<br />
-				<input name="<?php echo $org_name;?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="text" value="<?php echo $org_opt['series_icon_width_latest_series']; ?>" size="10" /> <?php _e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?>
+			<div class="inside">
+
+          <table class="form-table ppseries-settings-table">
+            <tbody>
+
+              <tr valign="top">
+                <th scope="row"><label for="series_icon_width_series_page"><?php _e('Width for icon on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
+                <td><input  min="1" max="1000000000"name="<?php echo $org_name;?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo $org_opt['series_icon_width_series_page']; ?>" /></p>
+                </td>
+                </tr>
+
+                <tr valign="top">
+                  <th scope="row"><label for="series_icon_width_post_page"><?php _e('Width for icon on a post page (in pixels).', 'organize-series'); ?></label></th>
+                  <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo $org_opt['series_icon_width_post_page']; ?>" /></p>
+                  </td>
+                  </tr>
+
+                  <tr valign="top">
+                    <th scope="row"><label for="series_icon_width_latest_series"><?php _e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
+                    <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo $org_opt['series_icon_width_latest_series']; ?>" /></p>
+                    </td>
+                    </tr>
+
+            </tbody>
+        </table>
+
+
 			</div>
 		</div>
 	</div>
