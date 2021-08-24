@@ -219,8 +219,8 @@ function orgseries_option_page() {
 				<span class="submit">
 					<input type="hidden" name="org_series_options[updated_output]" value="" />
 					<input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
-					<input type="submit" name="update_orgseries" value="<?php _e('Update Options', 'organize-series'); ?>" />
-					<input type="submit" name="option_reset" value="<?php _e('Reset options to default', 'organize-series'); ?>" />
+					<input type="submit" class="button-primary" name="update_orgseries" value="<?php _e('Update Options', 'organize-series'); ?>" />
+					<input type="submit" class="button" name="option_reset" value="<?php _e('Reset options to default', 'organize-series'); ?>" />
 				</span>
 				</form>
 				<div id="TBcontent" class="reset_dialog" style="display:none;">
@@ -404,8 +404,7 @@ function series_uninstall_core_fieldset() {
 	?>
   <h2 class="ppseries-settings-header"><?php _e('Series Settings', 'organize-series'); ?></h2>
   <span style="padding: 5px; padding-bottom: 8px;">
-  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all PublishPress Series related data from the database when deleting this plugin?', 'organize-series'); ?> <strong><?php _e('(BE CAREFUL!)', 'organize-series'); ?>
-    </strong></label>
+  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?> </label>
   </span>
 	<?php
 }
