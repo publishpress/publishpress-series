@@ -3,6 +3,10 @@
 .ppseries-settings-table select {
     width: 300px;
 }
+.ppseries-full-width {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+}
 .post-series {
     display: inline;
     margin: 0;

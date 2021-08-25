@@ -245,7 +245,6 @@ function orgseries_main_section() {
 function orgseries_templates_section() {
 	global $orgseries;
 	?>
-	<p><?php _e('This section is where you tell the plugin how you would like to format the various displays of the series information.  Only play with this if you are familiar with html/css.  Use the "template tokens" to indicate where various series related data should go and/or where the template tag should be inserted (if auto-tag is enabled).', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -342,54 +341,96 @@ function series_templates_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
-  <h2 class="ppseries-settings-header"><?php _e('Series Templates Core Options', 'organize-series'); ?></h2>
 	<div class="metabox-holder">
 		<div class="postbox-container" style="width: 99%;line-height:normal;">
-			<div id="topic-toc-settings-series-template-core" class="postbox" style="line-height:normal;">
-				<div class="inside" style="padding: 10px;">
-					<strong><?php _e('Series Post List Template:', 'organize-series'); ?></strong><br />
-					<small><?php _e('This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" rows="4" class="template"><?php echo htmlspecialchars($org_opt['series_post_list_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Series Post List Post Title Template:', 'organize-series'); ?></strong><br />
-					<small><?php _e('Use this to indicate what html tags will surround the post title in the series post list.', 'organize-series'); ?></small><br/>
-					<textarea name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_list_post_template']); ?></textarea><br />
-					<br />
-					<?php do_action('plist_ptitle_template_unpublished') ?>
-					<strong><?php _e('Series Post List Current Post Title Template:', 'organize-series'); ?></strong><br />
-					<small><?php _e('Use this to style how you want the post title in the post list that is the same as the current post to be displayed.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_list_currentpost_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Series Post Navigation Template:', 'organize-series'); ?></strong><br />
-					<small><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_post_nav_template']);?></textarea><br />
-					<br />
-					<input name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" type="text" value="<?php echo htmlspecialchars($org_opt['series_nextpost_nav_custom_text']); ?>" size="40" /> <?php _e('Custom Next Post Text (if this is left blank, the post title will be used)', 'organize-series'); ?><br />
-					<input name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" type="text" value="<?php echo htmlspecialchars($org_opt['series_prevpost_nav_custom_text']); ?>" size="40" /> <?php _e('Custom previous post navigation text. (if this is left blank, the post title will be used)', 'organize-series'); ?><br />
-					<br />
-					<strong><?php _e('Series Table of Contents Listings:', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_table_of_contents_box_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Series Meta:', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_meta_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['series_meta_excerpt_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Latest Series (tags before):', 'organize-series'); ?></strong><br />
-					<small><?php _e('Put here any html you want before latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[latest_series_before_template]" id="latest_series_before_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_before_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Latest Series (inner tags):', 'organize-series'); ?></strong><br />
-					<small><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: PublishPress Series %tokens% can be used in this field.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[latest_series_inner_template]" id="latest_series_inner_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_inner_template']); ?></textarea><br />
-					<br />
-					<strong><?php _e('Latest Series (tags after):', 'organize-series'); ?></strong><br />
-					<small><?php _e('Put here any html you want after latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></small><br />
-					<textarea name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" rows="4"  class="template"><?php echo htmlspecialchars($org_opt['latest_series_after_template']); ?></textarea><br />
+			<div id="topic-toc-settings-series-template-core" style="line-height:normal;">
+				<div class="inside" style="padding: 0;margin: 0;">
+          			
+					<table class="form-table ppseries-settings-table">
+            			<tbody>
+							
+							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php _e('Series Post List Template:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php _e('Series Post List Post Title Template:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Use this to indicate what html tags will surround the post title in the series post list.', 'organize-series'); ?></small></p>
+								</td>
+							</tr>
+							<?php do_action('plist_ptitle_template_unpublished') ?>
+							
+							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php _e('Series Post List Current Post Title Template:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Use this to style how you want the post title in the post list that is the same as the current post to be displayed.', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation Template:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_nav_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation Template:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_nav_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php _e('Custom Next Post Text', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('if this is left blank, the post title will be used', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Custom previous post navigation text', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('if this is left blank, the post title will be used', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_table_of_contents_box_template"><?php _e('Series Table of Contents Listings:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_table_of_contents_box_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('This will control how and what series meta information is displayed with posts that are part of a series. [template tag -> wp_seriesmeta_write()]', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_excerpt_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="latest_series_before_template"><?php _e('Latest Series (tags before):', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_before_template]" id="latest_series_before_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Put here any html you want before latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="latest_series_inner_template"><?php _e('Latest Series (inner tags):', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_inner_template]" id="latest_series_inner_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('This will control the layout/style and contents that will be returned with the latest_series() template tag (both via widget and/or manual calls).  NOTE: PublishPress Series %tokens% can be used in this field.', 'organize-series'); ?></p>
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="latest_series_after_template"><?php _e('Latest Series (tags after):', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])); ?>" class="ppseries-full-width">
+									<br /><p class="ppseries-field-description description"><?php _e('Put here any html you want after latest series information NOTE: series template tokens WILL NOT be converted here.', 'organize-series'); ?></p>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
 				</div>
 			</div>
 		</div>
