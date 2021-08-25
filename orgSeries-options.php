@@ -269,49 +269,71 @@ function series_automation_core_fieldset() {
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 	?>
-  <h2 class="ppseries-settings-header"><?php _e('Series Automation Core Options', 'organize-series'); ?></h2>
-	<div class="metabox-holder">
-		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;border:unset;">
-					<div class="inside" style="padding: 10px;">
-					<label><input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /> <?php _e('Display series post list box?', 'organize-series'); ?></label><br /><br />
-					<label><input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /> <?php _e('Display series navigation links?', 'organize-series'); ?></label>
-				<br /><br />
-					<label><input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /> <?php _e('Display series meta information with posts?', 'organize-series'); ?></label>
-					<br /><br />
-					<label><input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /> <?php _e('Use custom .css?', 'organize-series'); ?></label>
+					<div class="inside" style="padding: 0;margin: 0;">
 
-					<br />
-					&emsp;<em><?php _e('.css style for:', 'organize-series'); ?></em><br />
-					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> </label><br />
-					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> </label><br />
-					&emsp;<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> </label><br />
-					<br />
-					<strong><?php _e('Series Table of Contents URL:', 'organize-series'); ?></strong><br />
-					<?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /><br />
-					<br />
+          				<table class="form-table ppseries-settings-table">
+            				<tbody>
 
-					<strong><?php _e('Series Per Page:', 'organize-series'); ?></strong>
-					<input type="text" name="<?php echo $org_name; ?>[series_perp_toc]" style="width:40px" value="<?php echo (int) ($series_perp_toc); ?>" /><br />
-					<br />
+								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php _e('Display series post list box?', 'organize-series'); ?></label></th>
+									<td><input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /></td>
+								</tr>
 
-					<strong><?php _e('Series Custom Base:', 'organize-series'); ?></strong><br />
-					<input type="text" name="<?php echo $org_name; ?>[series_custom_base]" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /><br />
-					<br />
-					<strong><?php _e('Series Table of Contents Title:', 'organize-series'); ?></strong><br /><input type="text" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>" style="width:300px;"/><br />
-					<br />
-					<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $org_opt['series_posts_orderby']); ?> /><?php _e('order by series part', 'organize-series'); ?></label>
-					<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $org_opt['series_posts_orderby']); ?> /><?php _e('Order by date', 'organize-series'); ?></label>
-					<br />
-					<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $org_opt['series_posts_order']); ?> /><?php _e('Ascending', 'organize-series'); ?></label>
-					<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $org_opt['series_posts_order']); ?> /><?php _e('Descending', 'organize-series'); ?></label>
-					<br />
+								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php _e('Display series navigation links?', 'organize-series'); ?></label></th>
+									<td><input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="auto_tag_seriesmeta_toggle"><?php _e('Display series meta information with posts?', 'organize-series'); ?></label></th>
+									<td><input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="custom_css"><?php _e('Use custom .css?', 'organize-series'); ?></label></th>
+									<td><input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for=""><?php _e('.css style for:', 'organize-series'); ?></label></th>
+									<td>
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> </label><br />
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> </label><br />
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> </label>
+									</td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php _e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
+									<td><?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_perp_toc"><?php _e('Series Per Page:', 'organize-series'); ?></label></th>
+									<td><input type="number" name="<?php echo $org_name; ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
+									<td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php _e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
+									<td><input type="text" id="series_toc_title" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>"/></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for=""><?php _e('Order series by:', 'organize-series'); ?></label></th>
+									<td>
+										<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $org_opt['series_posts_orderby']); ?> /><?php _e('Series part', 'organize-series'); ?></label> &nbsp;
+										<label><input name="<?php echo $org_name; ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $org_opt['series_posts_orderby']); ?> /><?php _e('Order by date', 'organize-series'); ?></label>
+									</td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for=""><?php _e('Series order method', 'organize-series'); ?></label></th>
+									<td>
+										<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $org_opt['series_posts_order']); ?> /><?php _e('Ascending', 'organize-series'); ?></label>&nbsp;
+										<label><input name="<?php echo $org_name; ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $org_opt['series_posts_order']); ?> /><?php _e('Descending', 'organize-series'); ?></label></td>
+								</tr>
+
+            					</tbody>
+        					</table>
 
 
 					</div>
 				</div>
-			</div>
-		</div>
 	<?php
 }
 
