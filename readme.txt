@@ -190,4 +190,21 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
-Changelog is no longer bundled with the readme.  For latest commits see the [commit list on github](https://github.com/roughsmoothengine/organize-series/commits/master) or the [release tags](https://github.com/roughsmoothengine/organize-series/releases).  You can also view the [closed milestones on github](https://github.com/roughsmoothengine/organize-series/milestones?state=closed) to see what changed within a release.
+v2.6.0- [==== UNRELEASED ===]
+* Updated: New name and remove previous sidebar branding #98
+* Fixed: Clean up sidebar box in post editingg screen #99
+* Fixed: Fix "Use of undefined constant SERIES_QUERYVAR" error #86
+* Fixed: PHP Notice: Trying to access array offset on value of type null #117
+* Fixed: Edit series error #126
+* Fixed: Series settings screen cleanup #129
+* Fixed: PHP Notice: Undefined index notices on settings update #144
+* Fixed: PHP Notice: Trying to access array offset on value of type null on series single page #147
+* Fixed: Improve CSS on frontend #162
+* Fixed: Use new Media Library for series icon selection #141
+* Fixed: Series TOC Widget improvements #163
+* Fixed: Latest Series widget doesn't load #164
+* Added: Package add-ons into Pro version #101
+* Added: Add Upgrade banner for Pro version #100
+* Added: Add the PublishPress Footer to free version #97
+
+For older commits, commits see the [commit list on Github](https://github.com/publishpress/publishpress-series/commits/master) or the [release tags](https://github.com/publishpress/publishpress-series/releases). You can also view the [closed milestones on github](https://github.com/publishpress/publishpress-series/milestones?state=closed) to see what changed within a release.
