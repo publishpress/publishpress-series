@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.3
-Stable tag: 2.5.13
+Stable tag: 2.6.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -190,7 +190,7 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
-v2.6.0- [==== UNRELEASED ===]
+v2.6.0- 2021-08-26
 * Updated: New name and remove previous sidebar branding #98
 * Fixed: Clean up sidebar box in post editingg screen #99
 * Fixed: Fix "Use of undefined constant SERIES_QUERYVAR" error #86
