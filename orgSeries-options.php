@@ -485,10 +485,19 @@ function series_uninstall_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
-  <h2 class="ppseries-settings-header"><?php _e('Series Settings', 'organize-series'); ?></h2>
-  <span style="padding: 5px; padding-bottom: 8px;">
-  <label><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /> <?php _e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?> </label>
-  </span>
-	<?php
+	<table class="form-table ppseries-settings-table">
+    	<tbody>
+        	<tr valign="top">
+            	<th scope="row"><label for="kill_on_delete">
+                	    <?php _e('Series Settings', 'organize-series'); ?>
+                	</label>
+                	<br /><small style="color: #646970;">
+                    	<?php _e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?></label>
+                	</small>
+            	</th>
+            	<td><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /></td>
+        	</tr>
+    </tbody>
+	</table>	<?php
 }
 ?>

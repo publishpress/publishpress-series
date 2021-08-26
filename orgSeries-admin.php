@@ -116,8 +116,8 @@ function orgSeries_admin_footer() {
         	    <hr>
 	            <nav>
 	                <ul>
-	                    <li><a href="https://publishpress.com/publishpress-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('About PublishPress Series', 'organize-series');?>"><?php _e('About', 'organize-series');?></a></li>
-    	                <li><a href="https://publishpress.com/knowledge-base/how-to-use-publishpress-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('PublishPress Series Documentation', 'organize-series');?>"><?php _e('Documentation', 'organize-series');?></a></li>
+	                    <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php _e('About PublishPress Series', 'organize-series');?>"><?php _e('About', 'organize-series');?></a></li>
+    	                <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('PublishPress Series Documentation', 'organize-series');?>"><?php _e('Documentation', 'organize-series');?></a></li>
 	                    <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php _e('Contact the PublishPress team', 'organize-series');?>"><?php _e('Contact', 'organize-series');?></a></li>
 	                    <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
 	                    <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>

@@ -2,7 +2,7 @@
 /*
 Plugin Name: PublishPress Series
 Plugin URI: http://organizeseries.com
-Version: 2.5.14.rc.002
+Version: 2.6.0
 Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 Author: PublishPress
 Author URI: http://www.unfoldingneurons.com
@@ -12,7 +12,7 @@ Text Domain: organize-series
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Publishpress Series Plugin
 //	can be found at http://organizeseries.com
-$os_version = '2.5.14.rc.002';
+$os_version = '2.6.0';
 
 ######################################
 
