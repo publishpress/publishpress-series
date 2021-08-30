@@ -208,3 +208,13 @@ input #seriesadd {
 .ppseries-spinner {
     float: none !important;
 }
+.ppseries-settings-tab-content .form-table th {
+    width: 300px !important;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 782px) {
+    .ppseries-settings-tab-content .form-table th {
+        width: auto !important;
+    }
+}

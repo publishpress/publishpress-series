@@ -1,10 +1,10 @@
 === Publishpress Series  ===
-Contributors: nerrad
-Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7871313
+Contributors: publishpress, kevinB, stevejburge, andergmartins, olatechpro
+Author: publishpress
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 5.3
+Tested up to: 5.8
 Stable tag: 2.6.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
