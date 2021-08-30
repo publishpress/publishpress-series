@@ -36,7 +36,7 @@ ul#serieschecklist {
     background-color: #eee;
     padding: 5px;
     text-indent: 10px;
-    margin-left: 15px;
+    margin-left: 0;
 }
 
 ul#serieschecklist li {
@@ -44,7 +44,7 @@ ul#serieschecklist li {
 }
 
 ul#serieschecklist li span.li-series-name {
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 ul#serieschecklist li {
@@ -92,7 +92,7 @@ ul#serieschecklist li:nth-child(even){
     font-size: 11px;
     margin: 0 5px;
     display: block;
-    margin-left: 15px;
+    margin-left: 0;
 }
 
 #seriespart input, #seriespart input:focus {
