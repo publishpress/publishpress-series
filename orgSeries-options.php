@@ -251,7 +251,7 @@ function orgseries_templates_section() {
 function orgseries_icon_section() {
 	global $orgseries;
 	?>
-	<p><?php _e('This section is for the icons that show with your series. Note that you must use a tokens for the icon in the "Templates" settings.', 'organize-series'); ?></p>
+	<p><?php _e('This section is for the icons that show with your series. Note that you must use a token for the icon in the "Templates" settings.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -268,7 +268,7 @@ function series_automation_core_fieldset() {
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 	?>
-			<div id="topic-toc-settings-automation-core" class="postbox" style="line-height:normal;border:unset;">
+			<div id="topic-toc-settings-automation-core" class="" style="line-height:normal;border:unset;">
 					<div class="inside" style="padding: 0;margin: 0;">
 
           				<table class="form-table ppseries-settings-table">
@@ -445,7 +445,7 @@ function series_icon_core_fieldset() {
 	?>
 	<div class="metabox-holder">
 	<div class="postbox-container" style="width: 99%;line-height:normal;">
-		<div id="topic-toc-settings-icon-core" class="postbox" style="line-height:normal;">
+		<div id="topic-toc-settings-icon-core" class="" style="line-height:normal;">
 			<div class="inside">
 
           <table class="form-table ppseries-settings-table">
