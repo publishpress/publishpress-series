@@ -16,55 +16,36 @@
 .post-series li {
     display: inline;
 }
-
-#seriesdiv ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 10px;
-}
-
 ul#serieschecklist {
     max-height: 12em;
     overflow: auto;
-    margin: 0px;
-    padding: 0px;
-    margin-top: 8px;
-    margin-right: 6px;
-    margin-left: 10px;
+    border-bottom: solid 1px #dcdcde;
+    padding-bottom: 10px;
+}
+.series-part-wrap {
+    border-bottom: solid 1px #dcdcde;
+    padding-bottom: 10px;
     margin-bottom: 10px;
-    padding-left: 5px;
-    background-color: #eee;
-    padding: 5px;
-    text-indent: 10px;
-    margin-left: 0;
 }
-
-ul#serieschecklist li {
-    margin: 0px;
-}
-
 ul#serieschecklist li span.li-series-name {
     padding-left: 0;
 }
-
-ul#serieschecklist li {
-white-space: nowrap;
-background-color: #f4f4f4;
-margin: 0;
-line-height:25px;
-padding-bottom: 4px;
-}
-
 ul#serieschecklist li label {
-font-size: 13px;
+    clear: both;
+    font-size: 13px;
 }
-
-ul#serieschecklist li:nth-child(even){
-  background-color:white;
+ul#serieschecklist li {
+    margin-bottom: 6px !important;
+}
+.series-metadiv.categorydiv div.tabs-panel {
+    min-height: unset !important; 
+    max-height: unset !important;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 #ajaxseries input[type="text"] {
-    width: 67%;
+    width: 62%;
     box-shadow: 0 0 0 transparent;
     border-radius: 4px;
     border: 1px solid #8c8f94;
@@ -123,11 +104,6 @@ input #seriesadd {
     margin-bottom: 2px;
     text-align: center;
     width: 37px;
-}
-
-#jaxseries {
-    margin: 0;
-    padding: 0;
 }
 
 #seriessearchform, #post-query-submit2 {

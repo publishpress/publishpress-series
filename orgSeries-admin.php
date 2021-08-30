@@ -285,13 +285,17 @@ global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	$ser_id = wp_get_post_series( $id );
 	?>
+    <div class="series-metadiv categorydiv">
+        <div class="tabs-panel">
 	<p id="jaxseries"></p>
 		<span id="series-ajax-response"></span>
-		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
+		<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
+        <div class="series-part-wrap">
 		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description" class="howto"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p></br>
+			<p id="part-description" class="howto"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p>
+        </div>
 		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
 		<p id="part-description" class="howto">
 			<?php _e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
@@ -300,6 +304,8 @@ global $post, $postdata, $content, $orgseries;
 	</p>
 		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
 		<input type="hidden" name="is_series_save" value="1" />
+    </div>
+    </div>
 	<?php
 }
 
