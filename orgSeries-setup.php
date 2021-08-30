@@ -217,7 +217,8 @@ class orgSeries {
 			'update_item' => __('Update Series', 'organize-series'),
 			'add_new_item' => __('Add New Series', 'organize-series'),
 			'new_item_name' => __('New Series Name', 'organize-series'),
-			'menu_name' => __('Manage Series', 'organize-series')
+			'menu_name' => __('Manage Series', 'organize-series'),
+			'not_found' => __('No series found', 'organize-series')
 			);
 		$args = array(
 			'update_count_callback' => '_os_update_post_term_count',
