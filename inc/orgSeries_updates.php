@@ -273,7 +273,7 @@ class PluginUpdateChecker {
 			}
 
 			if ( $pluginInfo->api_invalid ) {
-				$msg = sprintf(__('<p>There is an automatic update for %s available but your api-key is invalid.  Either you have entered the wrong key on the <a href="options-general.php?page=orgseries_options_page">Publishpress Series Options</a> page OR you no longer have access to the updates for this plugin.  Automatic upgrades for single website install\'s are gained via the <a href="http://organizeseries.com/pricing">Basic Support package</a>.  Automatic upgrades for multiple website install\'s are available via the <a href="http://organizeseries.com/pricing">All Addons package or the Lifetime Membership package.</a></p>', $this->lang_domain), $pluginName);
+				$msg = sprintf(__('<p>There is an automatic update for %s available but your api-key is invalid.  Either you have entered the wrong key on the <a href="options-general.php?page=orgseries_options_page">Publishpress Series Options</a> page OR you no longer have access to the updates for this plugin.  Automatic upgrades for single website install\'s are gained via the <a href="https://publishpress.com/pricing">Basic Support package</a>.  Automatic upgrades for multiple website install\'s are available via the <a href="https://publishpress.com/pricing">All Addons package or the Lifetime Membership package.</a></p>', $this->lang_domain), $pluginName);
 			}
 			//Dismiss code below is obtained from the Gravity Forms Plugin by rocketgenius.com
 			?>

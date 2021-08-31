@@ -25,7 +25,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 **IMPORTANT LINKS**
 
-[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](http://organizeseries.com) | [OrgSeries ADDONS](http://organizeseries.com/download/) | [OrgSeries Twitter](http://twitter.com/organizeseries)
+[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](https://publishpress.com) | [OrgSeries ADDONS](https://publishpress.com/download/) | [OrgSeries Twitter](http://twitter.com/organizeseries)
 
 == Installation ==
 
@@ -168,7 +168,7 @@ Do you actually *like* going into the guts of your theme files?  Then, you'll lo
 
 You can also edit the default .css file for orgSeries OR point to your custom .css in `styles.css` for your theme.
 
-Oh, if you implement Publishpress Series in a cool way [let me know here](http://organizeseries.com/contact/)
+Oh, if you implement Publishpress Series in a cool way [let me know here](https://publishpress.com/contact/)
 
 Oh and don't forget...
 
@@ -176,10 +176,10 @@ Oh and don't forget...
 
 FINALLY...
 #### Publishpress Series Addons
-Publishpress Series now has [it's own website](http://organizeseries.com) where you can find additional addons that bring extra functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested but keep in mind this is done in my spare time.
+Publishpress Series now has [it's own website](https://publishpress.com) where you can find additional addons that bring extra functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested but keep in mind this is done in my spare time.
 
 == Usage ==
-All usage instructions are available at [OrganizeSeries.com](http://organizeseries.com).
+All usage instructions are available at [OrganizeSeries.com](https://publishpress.com).
 
 Have fun - and get writing those series!!
 

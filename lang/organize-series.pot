@@ -173,13 +173,13 @@ msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:136
 msgid ""
-"Plugin information can be found <a href=\"http://organizeseries.com\" title="
+"Plugin information can be found <a href=\"https://publishpress.com\" title="
 "\"The Publishpress Series Website\">here</a>"
 msgstr ""
 
 #: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series/orgSeries-options.php:137
 msgid ""
-"If you'd like to donate to <a href=\"http://www.unfoldingneurons.com\" title="
+"If you'd like to donate to <a href=\"https://publishpress.com\" title="
 "\"Darren Ethier's (author) Blog\">me</a> as an expression of thanks for the "
 "release of this plugin feel free to do so - and thanks!"
 msgstr ""
