@@ -193,8 +193,22 @@ class orgSeries {
 	}
 
 	function register_textdomain() {
-		$plugin_dir = basename(dirname(__FILE__)).'/lang';
-		load_plugin_textdomain('organize-series', false, $plugin_dir);
+
+        $domain = 'organize-series';
+		$mofile_custom = sprintf( '%s-%s.mo', $domain, get_locale() );
+		$locations = array(
+				trailingslashit( WP_LANG_DIR . '/' . $domain ),
+				trailingslashit( WP_LANG_DIR . '/loco/plugins/'),
+				trailingslashit( WP_LANG_DIR ),
+				trailingslashit( PPSERIES_PATH . 'languages' ),
+			);
+		// Try custom locations in WP_LANG_DIR.
+		foreach ( $locations as $location ) {
+			if ( load_textdomain( 'organize-series', $location . $mofile_custom ) ) {
+				return true;
+			}
+		}
+
 	}
 
 	function register_taxonomy() {
