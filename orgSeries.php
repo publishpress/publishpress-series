@@ -7,6 +7,7 @@ Description: PublishPress Series allows you to group content together into a ser
 Author: PublishPress
 Author URI: https://publishpress.com
 Text Domain: organize-series
+Domain Path: /languages
 */
 
 ### INSTALLATION/USAGE INSTRUCTIONS ###
