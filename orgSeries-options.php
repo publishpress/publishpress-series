@@ -271,6 +271,9 @@ function series_automation_core_fieldset() {
 			<div id="topic-toc-settings-automation-core" class="" style="line-height:normal;border:unset;">
 					<div class="inside" style="padding: 0;margin: 0;">
 
+
+	<h1><?php _e('Display on single posts', 'organize-series'); ?></h1>
+
           				<table class="form-table ppseries-settings-table">
             				<tbody>
 
@@ -297,6 +300,9 @@ function series_automation_core_fieldset() {
 										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> </label>
 									</td>
 								</tr>
+
+
+								<tr valign="top"><th scope="row" colspan="2"><h1><?php _e('Display on series overview screens', 'organize-series'); ?></h1></th></tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php _e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td><?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /></td>
