@@ -290,7 +290,7 @@ function is_ppseries_admin_pages(){
 function ppseries_admin_settings_tabs(){
 
     $settings_tabs = [
-        'series_automation_settings' 	=> 'General',
+        'series_automation_settings' 	=> 'Display',
 				'series_icon_settings' 				=> 'Icons',
 				'series_templates_settings' 	=> 'Templates',
     ];
