@@ -62,18 +62,18 @@ class orgSeries_widget_latestseries extends WP_Widget {
 ;
 		$number = (int) $instance['number'];
 		?>
-		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'organize-series'); ?></label>
+		<p class="ppseries-widget-paragraph">
+			<label for="<?php echo $this->get_field_id('title'); ?>"><strong><?php _e('Title', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
-		<p>
+		<p class="ppseries-widget-paragraph">
 			<?php printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', 'organize-series'), $seriesoptionsurl); ?>
 		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e('Don\'t show series with no posts?', 'organize-series'); ?></label>
+		<p class="ppseries-widget-paragraph">
+			<label for="<?php echo $this->get_field_id('hide_empty'); ?>"><strong><?php _e('Don\'t show series with no posts?', 'organize-series'); ?></strong></label>
 			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>" />
 			<br />
-			<label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e( 'Order by:' ); ?></label>
+			<label for="<?php echo $this->get_field_id('orderby'); ?>"><strong><?php _e( 'Order by:' ); ?></strong></label>
 			<select name="<?php echo $this->get_field_name('orderby'); ?>" id="<?php echo $this->get_field_id('orderby'); ?>" class="widefat">
 				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php _e('Number of posts in Series', 'organize-series'); ?></option>
 				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php _e('Name of Series', 'organize-series'); ?></option>
@@ -82,12 +82,12 @@ class orgSeries_widget_latestseries extends WP_Widget {
 				<option value="rand"<?php selected( $instance['orderby'], 'rand' ); ?>><?php _e('Random', 'organize-series'); ?></option>
 			</select>
 		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of series to display:', 'organize-series'); ?></label>
+		<p class="ppseries-widget-paragraph">
+			<label for="<?php echo $this->get_field_id('number'); ?>"><strong><?php _e('Number of series to display:', 'organize-series'); ?></strong></label>
 			<input class="widefat" type="text" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" value="<?php echo $number; ?>" />
 		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('order'); ?>"><?php _e('Display Order: ', 'organize-series'); ?></label>
+		<p class="ppseries-widget-paragraph">
+			<label for="<?php echo $this->get_field_id('order'); ?>"><strong><?php _e('Display Order: ', 'organize-series'); ?></strong></label><br />
 			<?php _e('ASC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-asc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="ASC" <?php checked('ASC', $instance['order']); ?>/>
 			<?php _e('DESC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-desc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="DESC" <?php checked('DESC', $instance['order']); ?>/>
 		</p>

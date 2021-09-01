@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -189,6 +189,17 @@ Have fun - and get writing those series!!
 
 
 == Changelog ==
+
+v2.6.1- [===Unreleased===]
+* Fixed: More room on settings pages #183
+* Fixed: Clean up for icons screen #181
+* Fixed: Series page shows "No tags found." #182
+* Fixed: Small design issues in metabox #160
+* Fixed: Multiple series list overlays fields #188
+* Fixed: Make plugin translatable #186
+* Fixed: Quick Edit problem with Multiples #196
+* Fixed: Changes to 'General' Settings #199
+* Fixed: Formatting issues with Latest Series Widget #198
 
 v2.6.0- 2021-08-26
 * Updated: New name and remove previous sidebar branding #98

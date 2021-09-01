@@ -187,6 +187,9 @@ input #seriesadd {
 .ppseries-settings-tab-content .form-table th {
     width: 300px !important;
 }
+.ppseries-widget-paragraph {
+    font-size: 13px !important;
+}
 
 /* Mobile styles */
 @media only screen and (max-width: 782px) {
