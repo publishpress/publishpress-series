@@ -3,7 +3,7 @@
  * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.  Usage instructions are given in more detail in the orgSeries Usage Tips series (http://UnfoldingNeurons.com/series/organize-series-usage-tips).
  * THEME AUTHORS/POWER USERS NOTE:  if you see AUTOTAG in the function description that means that you need to disable the corresponding autotag toggle in the series options page before being able to use the function manually in your theme.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
 */
 
@@ -11,7 +11,7 @@
 * get_series_posts() - use to call up the list of posts in a supplied series id.  The style of the outputted display is determined by the PostList template on the Series Options page in the WordPress admin.
 * AUTOTAG - is part of the postlist_template call [autotag option - "Display list of series on post pages"
  *
-* @package Organize Series WordPress Plugin
+* @package Publishpress Series WordPress Plugin
 * @since 2.0
 *
 * @uses is_single() - checks if this is a single post page being displayed.
@@ -105,7 +105,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
  * Use this on a single post display page (is_single()).  Use this template tag in the loop.
  * AUTOTAG - uses the postlist display template on the series->options page [AUTOTAG option - "Display list of series on post page?"]
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_option() - pull all the 'org_series_options' for templating info.
@@ -145,7 +145,7 @@ function wp_postlist_display() {
 /**
  * get_series_toc() - use this to display or return the link for the series table of contents
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_option()  'org_series_options' from the _options table.
@@ -178,7 +178,7 @@ function get_series_toc( $link = TRUE ) {
 /**
  * wp_postlist_count() - counts the number of posts in the series the post belongs to IF it belongs to a series.
  * Should be used in the WordPress loop.
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_orgserial - returns the series information for a single series (using the supplied series_id)
@@ -214,7 +214,7 @@ function wp_postlist_count($ser_id = false, $calc = false) {
 /**
  * wp_series_part() - For a post that is part of a series, this function returns the value for what part this post is in the series.
  * Should be used in the WordPress loop.
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_post_meta() - Gets the part of the series the post is from the post metadata table.
@@ -252,7 +252,7 @@ function wp_series_part( $id = 0, $ser_id = 0, $calc = false ) {
  * wp_seriesmeta_write() - use this to insert meta information (post part and series count) about the series the post belongs to IF it belongs to a series.
  * AUTOTAG - part of the series meta template [AUTOTAG OPTION "Display series meta information with posts?"]
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_option() - pull org_series_options for templating information.
@@ -297,7 +297,7 @@ function wp_seriesmeta_write($excerpt = FALSE) {
  * wp_serieslist_display_code() - Will output the a formatted list of the indicated series.
  * Does not have to be in the loop.   Requires a series id for the $series param.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_option() - for getting 'series_table_of_contents_box_template' info from the series options field in the options db table.
@@ -331,7 +331,7 @@ function wp_serieslist_display_code( $series, $referral = false, $display = true
  * wp_serieslist_display() - Will output a formatted list of all series
  * Does not have to be in the loop.  Is used in the default template for the series table of contents page.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_series() - gets all the series data from the blog (but won't grab empty series).
@@ -364,7 +364,7 @@ function wp_serieslist_display( $referral = false, $args='' ) {
 /**
 * series_toc_paginate() - Will do the pagination for queried terms of selected custom taxonomy.
 *
-* @package Organize Series WordPress Plugin
+* @package Publishpress Series WordPress Plugin
 *
 * @param string $prev  A symbol or a word to be displayed in the pagination as a link to the previous page.
 * @param string $next  A symbol or a word to be displayed in the pagination as a link to the next page.
@@ -406,7 +406,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
  * wp_series_nav() - assembles the links for the next or previous post links.
  * YOU can call this if you simply want to output either the next post in a series or the previous post in a series but it will not return both.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_post_meta() - will get the current series part for the displayed post.
@@ -418,7 +418,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
  *
  * @param int $series_ID REQUIRED
  * @param bool $next  if TRUE will output the next post in the series.  if FALSE will output the previous post in the series.
- * @param bool $customtext (THIS paramater is deprecated as of Organize Series 2.3.6)
+ * @param bool $customtext (THIS paramater is deprecated as of Publishpress Series 2.3.6)
  * @param bool $display if TRUE will echo the linked post.  if FALSE will return the linked post.
  * @param bool $calc = indicates whether the function should try to figure out the $series_id for the user.
  *
@@ -473,7 +473,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
  * wp_assemble_series_nav() - outputs the entire series nav "strip" according to the template set in series options.
  * Needs to be in the loop.  AUTOTAG - will display automatically with posts that are a part of a series IF the %postcontent% token is in the series nav template.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_option() - gets the 'series_post_nav_template' from the options table.
@@ -515,7 +515,7 @@ function wp_assemble_series_nav() {
 /**
  * latest_series() - gets the most recent series from the database according to the latest post-modified date and uses the latest_series template from series options for how it is displayed.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.1
  *
  * @uses get_option() - to get the 'latest_series_template' from the options table.
@@ -564,7 +564,7 @@ function latest_series($display = true, $args = '') {
  * get_series_link() - returns what the url is for the series id passed as the parameter.
  * requires series_id
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_series_permastruct() - gets the permastructure for series.
@@ -604,7 +604,7 @@ function get_series_link( $series_id = '' ) {
 /**
  * get_the_series_by_ID() - providing a series_id this function will return the series name.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_orgserial() - calls up the series information for one series by the provided series_Id
@@ -626,7 +626,7 @@ function get_the_series_by_ID( $series_ID ) {
  * in_series() - will check if the current post is in a given series OR if the post is in ANY series (when series ID isn't provided. Works similarily to in_category()
  * Needs to be in the loop.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_object_term_cache() - pulls info from the wp_cache if there.
@@ -670,7 +670,7 @@ function in_series( $series_term = 0 ) { //check if the current post is in the g
 /**
  * get_series_name() - Using the supplied series_id this function will return the series name.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_orgSerial() - returns series information for supplied series ID.
@@ -694,7 +694,7 @@ function get_series_name($series_id, $slug = false) {
  *
  * This is different from get_series_name in that it allows for choosing to have the title hyperlinked or not & displayed or not.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_series_name()
@@ -740,7 +740,7 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 /**
  * series_description() - Gets the description of the series from the database for the supplied series_id
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_term_field()
@@ -765,7 +765,7 @@ function series_description($series_id = 0) {
 /**
  * series_post_title() - gets the post title of a post that is part of the series with the supplied post_ID (if not in loop - if in loop the post ID will be taken from the global $post object)
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_the_title() - get's the title of the post with the supplied post ID.
@@ -795,7 +795,7 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 /**
  * is_series() - checks if displayed page is a series related page.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.1
  *
  * @ $wp_query;
@@ -806,6 +806,10 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 function is_series( $slug = '' ) {
 	global $wp_query;
 
+  if (!defined('SERIES_QUERYVAR')) {
+    return false;
+  }
+  
 	if ( $wp_query instanceof WP_Query ) {
 		$series = get_query_var( SERIES_QUERYVAR );
 	} else {
@@ -821,7 +825,7 @@ function is_series( $slug = '' ) {
 			if ( $series == $slug ) {
 				return true;
 			}
-			
+
 			//query_var may not be a slug but may be an id.
 			if ( is_numeric( $series ) ) {
 				$series_object = get_term_by( 'id', $series, 'series' );
@@ -833,14 +837,14 @@ function is_series( $slug = '' ) {
 
 		$has_series_query_var = false;
 	}
-	
+
 	return $has_series_query_var;
 }
 
 /**
  * is_seriestoc() - checks if displayed page is the main seriestoc page.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.1
  *
  * @ $wp_query;
@@ -858,7 +862,7 @@ function is_seriestoc() {
 /**
  * get_series_icon() -  Template tag for insertion of series-icons
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses parse_str()
@@ -936,7 +940,7 @@ function is_seriestoc() {
 /**
  * single_series_title() - another function to get a series name except this calls a series name on a series archive page without having to supply the series_id.
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.0
  *
  * @uses get_query_var() - to get the series_id

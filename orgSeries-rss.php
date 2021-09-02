@@ -1,5 +1,5 @@
 <?php
-//This file contains all the feed related functions for organize series
+//This file contains all the feed related functions for publishpress series
 
 //add_actions for rss/atom
 add_action('rss2_item', 'the_series_rss');
@@ -68,7 +68,7 @@ function the_series_atom() {
 }
 
 function series_ns() {
-	$ns = 'xmlns:series="http://organizeseries.com/"' . "\n\t";
+	$ns = 'xmlns:series="https://publishpress.com/"' . "\n\t";
 	echo $ns;
 }
 ?>

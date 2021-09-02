@@ -7,7 +7,7 @@ use OrganizeSeries\domain\model\SingleNoticeCollection;
 
 /**
  * AjaxJsonResponseManager
- * Responsible for packaging up consistent json response objects for Organize Series
+ * Responsible for packaging up consistent json response objects for Publishpress Series
  * Ajax requests.
  *
  * @package EventEspresso\domain\services

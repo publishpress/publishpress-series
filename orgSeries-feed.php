@@ -17,9 +17,9 @@ $date = false;
 add_filter('wp_feed_cache_transient_lifetime', function () use ($cache_time) {
     return $cache_time;
 });
-$rss = fetch_feed('http://organizeseries.com/category/blog/feed/');
+$rss = fetch_feed('https://publishpress.com/category/blog/feed/');
 ?>
-		<p><?php _e('The following will keep you updated with all the recent Organize Series Plugin related news by <a href="http://unfoldingneurons.com" title="Visit Darren Ethier\'s blog">Darren Ethier</a>.', 'organize-series'); ?></p>
+		<p><?php _e('The following will keep you updated with all the recent Publishpress Series Plugin related news by <a href="http://unfoldingneurons.com" title="Visit Darren Ethier\'s blog">Darren Ethier</a>.', 'organize-series'); ?></p>
 <?php
 if ( !is_wp_error( $rss ) ) {
 		$maxitems = $rss->get_item_quantity($size);
@@ -49,7 +49,7 @@ if ( !is_wp_error( $rss ) ) {
 	<?php
 } else {
 	?>
-	<h4>An error occurred with getting the feed from <a href="http://organizeseries.com">OrganizeSeries.com</a>.  There may be temporary maintenance occuring.  Feel free to follow our <a href="http://twitter.com/organizeseries">Twitter Stream</a> to keep up with what's happening.</h4>
+	<h4>An error occurred with getting the feed from <a href="https://publishpress.com">OrganizeSeries.com</a>.  There may be temporary maintenance occuring.  Feel free to follow our <a href="http://twitter.com/organizeseries">Twitter Stream</a> to keep up with what's happening.</h4>
 	<?php
 }
 ?>

@@ -2,7 +2,7 @@
 /**
  * This file contains all the code that hooks orgSeries into the various pages of the WordPress administration.   Some hooks will reference other files (series management, and series options).
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.2
 */
 
@@ -25,6 +25,12 @@ add_action('wp_ajax_add_series', 'admin_ajax_series');
 //add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
 add_action('admin_init', 'orgseries_load_custom_column_actions', 10);
 add_action('admin_init', 'orgseries_load_custom_column_filters', 10);
+
+// Load JavaScript and CSS
+add_action('admin_enqueue_scripts','orgSeries_admin_assets');
+//add footer credit
+add_action( 'in_admin_footer', 'orgSeries_admin_footer' );
+
 
 function orgseries_load_custom_column_actions() {
 	//support for custom post types
@@ -57,7 +63,7 @@ add_action( 'right_now_content_table_end', 'add_series_to_right_now');
 add_action('add_meta_boxes', 'orgseries_add_meta_box', 9);
 
 function orgSeries_admin_header() {
-	$plugin_path = SERIES_LOC;
+	$plugin_path = PPSERIES_URL;
 	$csspath = $plugin_path . "orgSeries-admin.css";
 	wp_register_style( 'orgSeries-admin', $csspath );
 	wp_enqueue_style( 'orgSeries-admin' );
@@ -77,12 +83,62 @@ function orgSeries_admin_script() {
 		orgSeries_manage_script();
 	}
 
+    wp_register_style('pps-admin-common', SERIES_PATH_URL . 'assets/css/pressshack-admin.css', [], ORG_SERIES_VERSION);
+	if (is_ppseries_admin_pages()) {
+		wp_enqueue_style( 'pps-admin-common' );
+	}
+
+}
+function orgSeries_admin_assets() {
+
+    wp_register_script( 'pps-admin-js', SERIES_PATH_URL . 'assets/js/admin.js', array( 'jquery' ), ORG_SERIES_VERSION );
+    wp_register_style('pps-admin-common', SERIES_PATH_URL . 'assets/css/pressshack-admin.css', [], ORG_SERIES_VERSION);
+
+	if (is_ppseries_admin_pages()) {
+		wp_enqueue_style( 'pps-admin-common' );
+        wp_enqueue_script( 'pps-admin-js' );
+	}
 }
 
+function orgSeries_admin_footer() {
+
+	if (is_ppseries_admin_pages()) {
+	?>
+        <div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
+	        <footer>
+    	        <div class="pp-rating">
+	                <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
+	                    <?php printf(__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'), '<strong>PublishPress Series</strong>', '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+		    );
+	?>              </a>
+	            </div>
+
+        	    <hr>
+	            <nav>
+	                <ul>
+	                    <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php _e('About PublishPress Series', 'organize-series');?>"><?php _e('About', 'organize-series');?></a></li>
+    	                <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('PublishPress Series Documentation', 'organize-series');?>"><?php _e('Documentation', 'organize-series');?></a></li>
+	                    <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php _e('Contact the PublishPress team', 'organize-series');?>"><?php _e('Contact', 'organize-series');?></a></li>
+	                    <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
+	                    <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
+	                </ul>
+	            </nav>
+
+    	        <div class="pp-pressshack-logo">
+	                <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
+            	        <img src="<?php echo SERIES_PATH_URL . 'assets/images/publishpress-logo.png';?>" />
+	                </a>
+	            </div>
+	        </footer>
+        </div>
+        <div class="clear"></div>
+	<?php
+    }
+}
 function orgSeries_manage_script() {
 	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_script('media-upload');
-	wp_enqueue_script('orgseries_scripts', SERIES_PATH_URL . '/js/orgseries_scripts.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, true);
+	wp_enqueue_script('orgseries_scripts', SERIES_PATH_URL . 'js/orgseries_scripts.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, true);
 }
 
 ######ON THE FLY ADD SERIES########
@@ -229,17 +285,27 @@ global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	$ser_id = wp_get_post_series( $id );
 	?>
+    <div class="series-metadiv categorydiv">
+        <div class="tabs-panel">
 	<p id="jaxseries"></p>
 		<span id="series-ajax-response"></span>
-		<ul id="serieschecklist" class="list:series serieschecklist form-no-clear">
+		<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
+        <div class="series-part-wrap">
 		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p></br>
+			<p id="part-description" class="howto"><?php _e('Note: that if you leave this blank or enter an invalid number the post will automatically be appended to the rest of the posts in the series', 'organize-series'); ?></p>
+        </div>
 		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
-		<p id="part-description"><?php _e('A "short" title of the post that will be used in the series widget. [Leave blank to use a full title]', 'organize-series'); ?></p>
+		<p id="part-description" class="howto">
+			<?php _e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
+			<br />
+		<?php _e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?>
+	</p>
 		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
 		<input type="hidden" name="is_series_save" value="1" />
+    </div>
+    </div>
 	<?php
 }
 

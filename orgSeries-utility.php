@@ -5,7 +5,7 @@
  * 2. Is it a hook into the WordPress core?  Then it doesn't belong in here.
  * 3. Is it a "template tag" function?  Then it belongs in series-template-tags.php
  *
- * @package Organize Series WordPress Plugin
+ * @package Publishpress Series WordPress Plugin
  * @since 2.2
 */
 
@@ -256,4 +256,130 @@ function _os_update_post_term_count( $terms, $taxonomy ) {
 		do_action( 'edited_term_taxonomy', $term, $taxonomy->name );
 	}
 }
+
+
+
+function ppseries_admin_pages(){
+
+    $pseries_pages = [
+        'orgseries_options_page'
+    ];
+
+   return apply_filters('ppseries_admin_pages', $pseries_pages);
+}
+
+function is_ppseries_admin_pages(){
+
+	global $pagenow;
+
+    $admin_pages = ppseries_admin_pages();
+
+    if (
+        ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && ( isset($_GET['taxonomy']) && 'series' == $_GET['taxonomy'])  ) ||
+        ( isset( $_GET['page'] ) && in_array( $_GET['page'], $admin_pages ) )
+    ) {
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+function ppseries_admin_settings_tabs(){
+
+    $settings_tabs = [
+        'series_automation_settings' 	=> 'Display',
+				'series_icon_settings' 				=> 'Icons',
+				'series_templates_settings' 	=> 'Templates',
+    ];
+
+   return apply_filters('ppseries_admin_settings_tabs', $settings_tabs);
+}
+
+/**
+ * Prints out all settings sections added to a particular settings page
+ *
+ * Part of the Settings API. Use this in a settings page callback function
+ * to output all the sections and fields that were added to that $page with
+ * add_settings_section() and add_settings_field()
+ *
+ * @global array $wp_settings_sections Storage array of all settings sections added to admin pages.
+ * @global array $wp_settings_fields Storage array of settings fields and info about their pages/sections.
+ * @since 2.7.0
+ *
+ * @param string $page The slug name of the page whose settings sections you want to output.
+ */
+function ppseries_do_settings_sections( $page ) {
+	global $wp_settings_sections, $wp_settings_fields;
+
+	if ( ! isset( $wp_settings_sections[ $page ] ) ) {
+		return;
+	}
+
+	foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
+
+		echo '<div id="'.$section['id'].'-series-content" class="ppseries-settings-tab-content ppseries-hide-content">';
+		/*if ( $section['title'] ) {
+			echo "<h2>{$section['title']}</h2>\n";
+		}*/
+
+		if ( $section['callback'] ) {
+			call_user_func( $section['callback'], $section );
+		}
+
+		if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
+			continue;
+		}
+		echo '<table class="form-table" role="presentation">';
+		ppseries_do_settings_fields( $page, $section['id'] );
+		echo '</table>';
+		echo '</div>';
+	}
+}
+
+/**
+ * Print out the settings fields for a particular settings section.
+ *
+ * Part of the Settings API. Use this in a settings page to output
+ * a specific section. Should normally be called by do_settings_sections()
+ * rather than directly.
+ *
+ * @global array $wp_settings_fields Storage array of settings fields and their pages/sections.
+ *
+ * @since 2.7.0
+ *
+ * @param string $page Slug title of the admin page whose settings fields you want to show.
+ * @param string $section Slug title of the settings section whose fields you want to show.
+ */
+function ppseries_do_settings_fields( $page, $section ) {
+	global $wp_settings_fields;
+
+	if ( ! isset( $wp_settings_fields[ $page ][ $section ] ) ) {
+		return;
+	}
+
+	foreach ( (array) $wp_settings_fields[ $page ][ $section ] as $field ) {
+		$class = '';
+
+		if ( ! empty( $field['args']['class'] ) ) {
+			$class = ' class="' . esc_attr( $field['args']['class'] ) . '"';
+		}
+
+		echo "<tr{$class}>";
+
+		if ( ! empty( $field['args']['label_for'] ) ) {
+			//echo '<th scope="row"><label for="' . esc_attr( $field['args']['label_for'] ) . '">' . $field['title'] . '</label></th>';
+		} else {
+			//echo '<th scope="row">' . $field['title'] . '</th>';
+		}
+
+		echo '<td>';
+		call_user_func( $field['callback'], $field['args'] );
+		echo '</td>';
+		echo '</tr>';
+	}
+}
+
 ?>

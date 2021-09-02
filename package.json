@@ -1,7 +1,7 @@
 {
   "name": "organize-series",
   "version": "1.0.0",
-  "description": "Assets for the Organize Series WordPress plugin",
+  "description": "Assets for the Publishpress Series WordPress plugin",
   "main": "webpack.dev.js",
   "scripts": {
     "watch": "webpack --watch --config webpack.dev.js",

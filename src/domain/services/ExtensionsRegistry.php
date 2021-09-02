@@ -13,7 +13,7 @@ use OrganizeSeries\libraries\edd\PluginUpdater;
 /**
  * ExtensionsRegistry
  * Addons should include this in their bootstrap process to register themselves.
- * This provides an interface for Organize Series Extensions to register with core as well as
+ * This provides an interface for Publishpress Series Extensions to register with core as well as
  * automatically doing update checks using the PluginUpdater class.
  *
  * @package OrganizeSeries\domain\services
@@ -47,7 +47,7 @@ class ExtensionsRegistry implements HasHooksInterface
 
 
     /**
-     * Extensions should interface with this method to register themselves with Organize Series core.
+     * Extensions should interface with this method to register themselves with Publishpress Series core.
      * @param ExtensionIdentifier $extension_identifier
      * @throws InvalidEntityException
      */

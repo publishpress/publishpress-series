@@ -35,10 +35,10 @@ if ( !class_exists('PluginUpdateEngineChecker') ):
 			?>
             <div class="notice error">
                 <p>
-                    Organize Series Add-on licensing has changed.  This notice only appears by sites affected by this change.  You can read more about the change <a href="http://docs.organizeseries.com/article/77-licensing-changes-in-organize-series">here.</a>
+                    Publishpress Series Add-on licensing has changed.  This notice only appears by sites affected by this change.  You can read more about the change <a href="http://docs.organizeseries.com/article/77-licensing-changes-in-organize-series">here.</a>
                 </p>
                 <p>
-                    The new fields for your license keys are found in the sidebar on this page, labelled "Extension Licenses".  This notice will disappear once all of your Organize Series add-ons have been updated.
+                    The new fields for your license keys are found in the sidebar on this page, labelled "Extension Licenses".  This notice will disappear once all of your Publishpress Series add-ons have been updated.
                 </p>
             </div>
 			<?php

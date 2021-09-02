@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
 	var add_image_url, image_url_collection;
 	add_image_url = image_url_collection;
-		
+
 	if (add_image_url == '') add_image_url = "No images selected";
-	
-	$('#upload_image_button').click(function() {
+
+	$('#upload_image_button2').click(function() {
 		var formfield = $('#series_icon_loc').attr('name');
 		tb_show('', 'media-upload.php?type=image&amp;TB_iframe=1');
 		var imageFrame = $('#TB_iframeContent');
@@ -19,12 +19,12 @@ jQuery(document).ready(function($) {
 				$("input[value*='Insert']", this).val('Use as Series Image');
 				$(".wp-post-thumbnail", this).text('');
 			});
-			
+
 		});
 		return false;
 	});
-	
-		
+
+
 	window.send_to_editor = function(html) {
 		console.log(html);
 			var imgurl = $('img',html).attr('src');
@@ -48,4 +48,6 @@ jQuery(document).ready(function($) {
 		$(series_icon_loc_display).val('');
 		$('#selected-icon').empty();
 	});
+
+
 });

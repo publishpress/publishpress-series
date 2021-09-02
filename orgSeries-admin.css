@@ -1,3 +1,12 @@
+.ppseries-settings-table input[type=text], 
+.ppseries-settings-table input[type=number], 
+.ppseries-settings-table select {
+    width: 300px;
+}
+.ppseries-full-width {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+}
 .post-series {
     display: inline;
     margin: 0;
@@ -7,34 +16,51 @@
 .post-series li {
     display: inline;
 }
-
-#seriesdiv ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 10px;
-}
-
 ul#serieschecklist {
-    height: 12em;
+    max-height: 12em;
     overflow: auto;
-    margin: 0px;
-    padding: 0px;
-    margin-top: 8px;
-    margin-right: 6px;
-    margin-left: 10px;
-    padding-left: 5px;
+    border-bottom: solid 1px #dcdcde;
+    padding-bottom: 10px;
 }
-
-ul#serieschecklist li {
-    margin: 0px;
+.series-part-wrap {
+    border-bottom: solid 1px #dcdcde;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
-
 ul#serieschecklist li span.li-series-name {
-    padding-left: 5px;
+    padding-left: 0;
+}
+ul#serieschecklist li label {
+    clear: both;
+    font-size: 13px;
+}
+ul#serieschecklist li {
+    margin-bottom: 6px !important;
+}
+.series-metadiv.categorydiv div.tabs-panel {
+    min-height: unset !important; 
+    max-height: unset !important;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
-#ajaxseries input {
-    border: 1px solid #ccc;
+#ajaxseries input[type="text"] {
+    width: 62%;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 4px;
+    border: 1px solid #8c8f94;
+    background-color: #fff;
+    color: #2c3338;
+    padding: 0 8px;
+    line-height: 2;
+    min-height: 30px;
+    margin: 0 4px 0 0;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin-bottom: 1px;
+}
+#serie_post_shorttitle {
+  width: 100%;
 }
 
 #serieshowto {
@@ -47,6 +73,7 @@ ul#serieschecklist li span.li-series-name {
     font-size: 11px;
     margin: 0 5px;
     display: block;
+    margin-left: 0;
 }
 
 #seriespart input, #seriespart input:focus {
@@ -77,11 +104,6 @@ input #seriesadd {
     margin-bottom: 2px;
     text-align: center;
     width: 37px;
-}
-
-#jaxseries {
-    margin: 0;
-    padding: 0;
 }
 
 #seriessearchform, #post-query-submit2 {
@@ -141,4 +163,37 @@ input #seriesadd {
 
 .license-key-submit-button {
     margin-top: 10px;
+}
+
+.ppseries-warning {
+    border: 1px solid rgb(230, 219, 84);
+    color: #8a8a8a;
+    font-size: 13px;
+    padding: 12px 25px;
+    background-color: rgb(254, 255, 224);
+}
+
+.ppseries-hide-content {
+  display: none !important;
+}
+
+.ppseries-settings-header {
+  padding-left: 0 !important;
+}
+
+.ppseries-spinner {
+    float: none !important;
+}
+.ppseries-settings-tab-content .form-table th {
+    width: 300px !important;
+}
+.ppseries-widget-paragraph {
+    font-size: 13px !important;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 782px) {
+    .ppseries-settings-tab-content .form-table th {
+        width: auto !important;
+    }
 }
