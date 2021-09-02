@@ -25,7 +25,7 @@ Make sure you check out the [features section in the "other notes" tab](http://w
 
 **IMPORTANT LINKS**
 
-[Author's Website](http://unfoldingneurons.com) | [OrganizeSeries.com](https://publishpress.com) | [OrgSeries ADDONS](https://publishpress.com/download/) | [OrgSeries Twitter](http://twitter.com/organizeseries)
+[Author's Website](http://publishpress.com) | [publishpress.com](http://publishpress.com) | [OrgSeries ADDONS](http://publishpress.com/download/) | [OrgSeries Twitter](http://twitter.com/organizeseries)
 
 == Installation ==
 
@@ -77,7 +77,7 @@ Yup.  Create a file named `taxonomy-series-{series-slug}.php` file and replace `
 Hey, I've got you covered there as well!  In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series-toc\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
 
 **Wow there are sure a lot of features and ways of customizing the Publishpress Series plugin.  However I'm wondering can you put in ___________ feature?**
-Publishpress Series is a passion project and I don't have as much time as I'd like to build additional features requested by customers, so I focus on the things that interest me. There's a number of add-ons you can check out [here](https://organizeseries.com/downloads/) and one of those might be what you need.
+Publishpress Series is a passion project and I don't have as much time as I'd like to build additional features requested by customers, so I focus on the things that interest me. There's a number of add-ons you can check out [here](https://publishpress.com/downloads/) and one of those might be what you need.
 
 If you don't see an add-on that has the feature you want for Publishpress Series, write up a request here on the [WordPress Support Forums](http://wordpress.org/support) (make sure you tag the post with organize-series) and I might just develop it as the next add-on!!
 
@@ -91,33 +91,24 @@ There have been some changes to how I provide support for Publishpress Series. H
 1. Submit issues at the [Publishpress Series repository on github](https://github.com/roughsmoothengine/organize-series/issues). Or better yet contribute a pull request!
 
 == Screenshots ==
-1. Publishpress Series Options Page:  There are so many possibilities for how Publishpress Series can be customized. Nearly everything can be done on the built-in options page.
+1. When you're writing a post, you can easily add a post to an existing series, or start a new series. 
 
-2. Manage Series Page:  All your series can be edited via the integrated "Manage Series" page.
+2. It's easy to keep track of what posts have been added to a series. You can also filter the post list by series giving you a quick way to see all the posts you’ve already added to the series. 
 
-3. Also, via the "manage series" page, users can attach images to serve as a "series icon" for their series.  This is fully integrated with the built-in media uploader of WordPress.
+3. Right out-of-the-box, the Series meta box will be automatically added to posts that are a part of a series. 
 
-4. When writing a new post, you can use the Series Box to attach the post to a series and choose what part that post will be in the series. You can also create a new series on the fly if needed.
+4. Right out-of-the-box, the Series meta box will be automatically added to posts that are a part of a series. 
 
-5. Publishpress Series fully integrates with the Edit Posts page in WordPress.  In this screenshot you can see the custom column that lists any series information attached to a post.
+5. Right out-of-the-box, the Series meta box will be automatically added to posts that are a part of a series. 
 
-6. Another feature with the integration into the Edit Posts page is the ability to filter the posts shown by series.
+6. The Pro version of PublishPress Series provides a set of WordPress “shortcodes” that provide users a way to easily insert various series information into their posts.
 
-7. You can also use the "Quick-Edit" WordPress feature to edit series information for posts.
+7. The PublishPress Series core plugin groups posts together in series. The Pro version gives the ability to put series together in groups.
 
-8. Publishpress Series inserts all your series information into the "Right Now" Dashboard widget.
+8. The Pro version provides additional tokens to use in the series options page for customizing various series templates. 
 
-9. Here's the screenshot for the Series Widget Settings...
+9. The PublishPress Series core plugin groups posts together in series. The Pro version gives the ability to put series together in groups.
 
-10. ...and the screenshot of how it looks on the blog (on a page that is part of a series).
-
-11. The screenshot of the Latest Series widget settings box...
-
-12. ...and the screenshot of the results on the blog.
-
-13. What the series-meta information strip looks like (looks can be customized).
-
-14. What the list of posts in the series looks like (also can be customized).
 
 == Features ==
 
@@ -168,7 +159,7 @@ Do you actually *like* going into the guts of your theme files?  Then, you'll lo
 
 You can also edit the default .css file for orgSeries OR point to your custom .css in `styles.css` for your theme.
 
-Oh, if you implement Publishpress Series in a cool way [let me know here](https://publishpress.com/contact/)
+Oh, if you implement Publishpress Series in a cool way [let me know here](http://publishpress.com/contact/)
 
 Oh and don't forget...
 
@@ -176,10 +167,10 @@ Oh and don't forget...
 
 FINALLY...
 #### Publishpress Series Addons
-Publishpress Series now has [it's own website](https://publishpress.com) where you can find additional addons that bring extra functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested but keep in mind this is done in my spare time.
+Publishpress Series now has [it's own website](http://publishpress.com) where you can find additional addons that bring extra functionality to the core plugin. I'm releasing as many addons as I can based on features users have requested but keep in mind this is done in my spare time.
 
 == Usage ==
-All usage instructions are available at [OrganizeSeries.com](https://publishpress.com).
+All usage instructions are available at [publishpress.com](http://publishpress.com).
 
 Have fun - and get writing those series!!
 
@@ -190,7 +181,7 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
-v2.6.1- [===Unreleased===]
+v2.6.1- 2021-09-02
 * Fixed: More room on settings pages #183
 * Fixed: Clean up for icons screen #181
 * Fixed: Series page shows "No tags found." #182
