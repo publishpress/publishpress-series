@@ -285,7 +285,7 @@ global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	$ser_id = wp_get_post_series( $id );
 	?>
-    <div class="series-metadiv categorydiv">
+    <div class="series-metadiv">
         <div class="tabs-panel">
 	<p id="jaxseries"></p>
 		<span id="series-ajax-response"></span>
