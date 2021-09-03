@@ -183,6 +183,7 @@ Have fun - and get writing those series!!
 
 v2.6.2- [===unreleased===]
 * Fixed: Yoast SEO issue #206
+* Fixed: Move "Reset options" to uninstall tab #208
 
 v2.6.1- 2021-09-02
 * Fixed: More room on settings pages #183
