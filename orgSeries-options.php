@@ -121,7 +121,7 @@ function orgseries_options_init() {
 
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
-  $settings_tabs['series_uninstall_settings'] = __('Uninstall', 'organize-series-cpt');
+  $settings_tabs['series_uninstall_settings'] = __('Uninstall / Reset', 'organize-series-cpt');
   return $settings_tabs;
 }
 
@@ -220,13 +220,12 @@ function orgseries_option_page() {
 					<input type="hidden" name="org_series_options[updated_output]" value="" />
 					<input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
 					<input type="submit" class="button-primary" name="update_orgseries" value="<?php _e('Update Options', 'organize-series'); ?>" />
-					<input type="submit" class="button" name="option_reset" value="<?php _e('Reset options to default', 'organize-series'); ?>" />
 				</span>
 				</form>
 				<div id="TBcontent" class="reset_dialog" style="display:none;">
-					<p> Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.</p>
-					<input type="submit" id="TBcancel" value="Cancel" />
-					<input type="submit" id="TBsubmit" value="Yes" />
+					<p> <?php _e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
+					<input type="submit" id="TBcancel" class="button" value="<?php esc_attr_e('No', 'organize-series'); ?>" />
+					<input type="submit" id="TBsubmit" class="alignright button-primary" value="<?php esc_attr_e('Yes', 'organize-series'); ?>" />
 				</div>
 		</div>
 		</div>
@@ -503,6 +502,15 @@ function series_uninstall_core_fieldset() {
             	</th>
             	<td><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /></td>
         	</tr>
+
+			<tr valign="top">
+            	<th scope="row"><label>
+                	    <?php _e('Reset settings', 'organize-series'); ?>
+                	</label>
+            	</th>
+            	<td><input type="submit" class="button" name="option_reset" value="<?php _e('Reset options to default', 'organize-series'); ?>" /></td>
+        	</tr>
+
     </tbody>
 	</table>	<?php
 }
