@@ -181,6 +181,9 @@ Have fun - and get writing those series!!
 
 == Changelog ==
 
+v2.6.2- [===unreleased===]
+* Fixed: Yoast SEO issue #206
+
 v2.6.1- 2021-09-02
 * Fixed: More room on settings pages #183
 * Fixed: Clean up for icons screen #181

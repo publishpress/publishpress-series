@@ -37,9 +37,12 @@ ul#serieschecklist li label {
 ul#serieschecklist li {
     margin-bottom: 6px !important;
 }
-.series-metadiv.categorydiv div.tabs-panel {
-    min-height: unset !important; 
-    max-height: unset !important;
+
+.series-metadiv div.tabs-panel {
+    overflow: auto;
+    padding: 0 .9em;
+    border: solid 1px #dcdcde;
+    background-color: #fff;
     padding-bottom: 10px;
     padding-top: 10px;
 }
