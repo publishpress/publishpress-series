@@ -288,15 +288,15 @@ function series_automation_core_fieldset() {
 									<td><input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for="custom_css"><?php _e('Use custom .css?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="custom_css"><?php _e('Use Series css styles', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for=""><?php _e('.css style for:', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for=""><?php _e('Style options', 'organize-series'); ?></label></th>
 									<td>
-										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' dark themes', 'organize-series'); ?> </label><br />
-										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' light themes', 'organize-series'); ?> </label><br />
-										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e(' default .css style', 'organize-series'); ?> </label>
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use default style', 'organize-series'); ?> </label><br />
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use dark style', 'organize-series'); ?> </label><br />
+										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use light style', 'organize-series'); ?> </label>
 									</td>
 								</tr>
 
