@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -185,6 +185,8 @@ v2.6.2- [===unreleased===]
 * Fixed: Yoast SEO issue #206
 * Fixed: Move "Reset options" to uninstall tab #208
 * Fixed: Improve settings option labels #205
+* Fixed: 2.6.1 is causing a JavaScript error in core #213
+
 
 v2.6.1- 2021-09-02
 * Fixed: More room on settings pages #183
