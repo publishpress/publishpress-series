@@ -23,7 +23,7 @@ class orgSeries {
 			add_action('admin_notices', array($this, 'update_warning'));
 
 		//install OrgSeries
-		add_action('activate_'.SERIES_DIR.'/orgSeries.php', array($this, 'org_series_install'));
+		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
 
 		//all other actions and filters...
 		add_action('plugins_loaded', array($this, 'add_settings'), 10);
@@ -239,7 +239,7 @@ class orgSeries {
 			'labels' => $labels,
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
-			//'capabilities' => $capabilities,
+			'capabilities' => $capabilities,
 			'query_var' => $this->settings['series_custom_base'],
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );
