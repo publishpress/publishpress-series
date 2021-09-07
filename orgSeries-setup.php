@@ -239,7 +239,7 @@ class orgSeries {
 			'labels' => $labels,
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
-			'capabilities' => $capabilities,
+			//'capabilities' => $capabilities,
 			'query_var' => $this->settings['series_custom_base'],
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );

@@ -186,6 +186,8 @@ v2.6.2- [===unreleased===]
 * Fixed: Move "Reset options" to uninstall tab #208
 * Fixed: Improve settings option labels #205
 * Fixed: 2.6.1 is causing a JavaScript error in core #213
+* Fixed: Can't add icon/image to a series #187
+
 
 
 v2.6.1- 2021-09-02
