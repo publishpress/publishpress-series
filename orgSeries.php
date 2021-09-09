@@ -20,7 +20,7 @@ $os_version = '2.6.2';
 ######################################
 // Publishpress Series Wordpress Plugin
 //
-//"Publishpress Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
+// "PublishPress Series Plugin" is copyright (c) 2007-2021 Darren Ethier and also PublishPress LLC. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -34,7 +34,6 @@ $os_version = '2.6.2';
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //
-//It goes without saying that this is a plugin for WordPress and I have no interest in developing it for other platforms so please, don't ask ;).
 //
 
 ######################################
