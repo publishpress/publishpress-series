@@ -1,12 +1,8 @@
-Publishpress Series
+PublishPress Series
 ===============
 
 A WordPress plugin for managing the article series you write.
 
-For info about the plugin you have two places you can check out:
+[Publishpress Series on WordPress.org](http://wordpress.org/extend/plugins/organize-series)
 
-1. [OrganizeSeries.com](http://organizeseries.com)
-2. [Publishpress Series on WordPress.org](http://wordpress.org/extend/plugins/organize-series)
-
-
-We've moved Publishpress Series on to github to allow for collaboration on improving the plugin from other people who want to get involved.
+We've moved PublishPress Series on to Github to allow for collaboration on improving the plugin from other people who want to get involved.
