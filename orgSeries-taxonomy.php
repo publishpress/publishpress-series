@@ -56,8 +56,10 @@ function &get_series($args = '') {
 
 	$series = get_terms('series', $args);
 
-	if ( empty($series) )
+	if (is_wp_error($series) || empty($series)) {
+		$series = [];
 		return $series;
+	}
 
 	$cache[ $key ] = $series;
 	wp_cache_set( 'get_series', $cache, 'series' );
