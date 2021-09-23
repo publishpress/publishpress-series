@@ -52,7 +52,10 @@ function &get_series($args = '') {
 	$key = md5( serialize($args) );
 	if ( $cache = wp_cache_get('get_series','series') )
 		if ( isset( $cache[ $key ] ) )
-			return apply_filters('get_series', $cache[$key],$args);
+			$series = apply_filters('get_series', $cache[$key], $args);
+			if (!empty($series)) {
+				return $series;
+			}
 
 	$series = get_terms('series', $args);
 
