@@ -395,7 +395,7 @@ function series_templates_core_fieldset() {
 							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Custom previous post navigation text', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							

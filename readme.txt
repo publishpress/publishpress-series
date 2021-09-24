@@ -130,6 +130,14 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.6.3- [===unreleased===]
+* Fixed: Fix "invalid_taxonomy" WP_Error #88
+* Fixed: Append to series on action Scheduled to Published #83
+* Fixed: Fix "Only variable references should be returned by reference" #89
+* Fixed: Edit Series screen has bold text over-run #225
+* Fixed: More clarity on "Templates" tab #226
+* Fixed: Template previous button arrows are in the wrong direction and not saving #233
+
 v2.6.2- 2021-09-07
 * Fixed: Yoast SEO issue #206
 * Fixed: Move "Reset options" to uninstall tab #208
