@@ -346,14 +346,19 @@ function series_templates_core_fieldset() {
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
 	?>
-	<div class="metabox-holder">
-		<div class="postbox-container" style="width: 99%;line-height:normal;">
 			<div id="topic-toc-settings-series-template-core" style="line-height:normal;">
 				<div class="inside" style="padding: 0;margin: 0;">
           			
 					<table class="form-table ppseries-settings-table">
             			<tbody>
-							
+							<tr valign="top">
+    							<th scope="row" colspan="2" style="padding-top: 0;">
+        							<h1>
+            							<?php _e('Series Post List Box', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
+    							</th>
+							</tr>
 							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php _e('Series Post List Template:', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_template'])); ?>" class="ppseries-full-width">
 									<br /><p class="ppseries-field-description description"><?php _e('This affects the list of series in a post on the page of a post belonging to a series [template tag -> wp_postlist_display()]', 'organize-series'); ?></p>
@@ -372,7 +377,16 @@ function series_templates_core_fieldset() {
 									<br /><p class="ppseries-field-description description"><?php _e('Use this to style how you want the post title in the post list that is the same as the current post to be displayed.', 'organize-series'); ?></p>
 								</td>
 							</tr>
-							
+
+							<tr valign="top">
+    							<th scope="row" colspan="2">
+        							<h1>
+            							<?php _e('Series Navigation Box', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php _e('This display is shown at the bottom of all posts in a series.', 'organize-series'); ?></p>
+    							</th>
+							</tr>
+
 							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation Template:', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_nav_template'])); ?>" class="ppseries-full-width">
 									<br /><p class="ppseries-field-description description"><?php _e('Use this to style the Next/Previous post navigation strip on posts that are part of a series. (Don\'t forget to use the %postcontent% token to indicate where you want the navigation to show).', 'organize-series'); ?></p>
@@ -402,6 +416,15 @@ function series_templates_core_fieldset() {
 									<br /><p class="ppseries-field-description description"><?php _e('This will affect how each series is listed on the Series Table of Contents Page (created at plugin init) [template tag -> wp_serieslist_display()]', 'organize-series'); ?></p>
 								</td>
 							</tr>
+
+							<tr valign="top">
+    							<th scope="row" colspan="2">
+        							<h1>
+            							<?php _e('Series Meta Box', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
+    							</th>
+							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_template'])); ?>" class="ppseries-full-width">
@@ -413,6 +436,15 @@ function series_templates_core_fieldset() {
 								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_excerpt_template'])); ?>" class="ppseries-full-width">
 									<br /><p class="ppseries-field-description description"><?php _e('This will control how and what series meta information is displayed with posts that are part of a series when the_excerpt is called. [template tag -> wp_seriesmeta_write(true)]', 'organize-series'); ?></p>
 								</td>
+							</tr>
+
+							<tr valign="top">
+    							<th scope="row" colspan="2">
+        							<h1>
+            							<?php _e('Latest Series', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php _e('This display is used by the "Series Table of Contents" widget.', 'organize-series'); ?></p>
+    							</th>
 							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="latest_series_before_template"><?php _e('Latest Series (tags before):', 'organize-series'); ?></label></th>
@@ -438,8 +470,6 @@ function series_templates_core_fieldset() {
 
 				</div>
 			</div>
-		</div>
-	</div>
 	<?php
 }
 
