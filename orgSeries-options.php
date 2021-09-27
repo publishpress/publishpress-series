@@ -360,7 +360,7 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php _e('Series Post List Template:', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_template'])); ?>" class="ppseries-full-width">
+								<td><textarea name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))); ?></textarea>
 								</td>
 							</tr>
 							
@@ -385,7 +385,7 @@ function series_templates_core_fieldset() {
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation Template:', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_nav_template'])); ?>" class="ppseries-full-width">
+								<td><textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))); ?></textarea>
 								</td>
 							</tr>
 							
@@ -400,7 +400,7 @@ function series_templates_core_fieldset() {
 							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="series_table_of_contents_box_template"><?php _e('Series Table of Contents Listings:', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_table_of_contents_box_template'])); ?>" class="ppseries-full-width">
+								<td><textarea name="<?php echo $org_name; ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_table_of_contents_box_template']))); ?></textarea>
 								</td>
 							</tr>
 
@@ -414,12 +414,14 @@ function series_templates_core_fieldset() {
 							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_template'])); ?>" class="ppseries-full-width">
+								<td><textarea name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))); ?></textarea>
+	
 								</td>
 							</tr>
 							
 							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_meta_excerpt_template'])); ?>" class="ppseries-full-width">
+								<td>
+									<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
 								</td>
 							</tr>
 
