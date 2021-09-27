@@ -137,6 +137,9 @@ v2.6.3- [===unreleased===]
 * Fixed: Edit Series screen has bold text over-run #225
 * Fixed: More clarity on "Templates" tab #226
 * Fixed: Template previous button arrows are in the wrong direction and not saving #233
+* Fixed: Show the ID in Manage Series #237
+* Fixed: Metabox is not entirely clear with Multiple Series #229
+* Fixed: Larger boxes for Templates area #236
 
 v2.6.2- 2021-09-07
 * Fixed: Yoast SEO issue #206
