@@ -214,7 +214,13 @@ function admin_inline_series_ajax() {
  */
 function get_series_list( $default = 0 ) {
 	global $post, $postdata, $checked_series;
-	$post_ID = isset( $post ) ? $post->ID : $postdata->ID;
+	if(isset( $post ) && is_object($post)){
+		$post_ID = $post->ID;
+	}else if (isset( $postdata ) && is_object($postdata)){
+		$post_ID = $post->ID;
+	}else {
+		$post_ID = false;
+	}
 
 	if ( empty( $checked_series ) ) {
 		if ( $post_ID ) {
