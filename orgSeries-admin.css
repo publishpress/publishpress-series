@@ -2,6 +2,24 @@
     resize: none;
     height: 70px;
 }
+.pp-widget-series {
+    border-bottom: solid 1px #dcdcde;
+    list-style: none;
+    margin: 0 !important;
+    overflow: auto;
+    padding: 10px !important;
+    border: solid 1px #dcdcde;
+    background-color: #fff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    max-height: 12em;
+}
+.pp-widget-series-li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.69230769;
+    word-wrap: break-word;
+}
 .ppseries-settings-table input[type=text], 
 .ppseries-settings-table input[type=number], 
 .ppseries-settings-table select {
