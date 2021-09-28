@@ -106,6 +106,8 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%series_title_linked%', the_series_title($ser_id), $replace);
 	if( stristr($replace, '%post_title_list%') )
 	$replace = str_replace('%post_title_list%', get_series_posts($id, $referral), $replace);
+	if( stristr($replace, '%post_title_list_short%') ) 
+	$replace = str_replace('%post_title_list_short%', get_series_posts($id, TRUE), $replace);
 	if( stristr($replace, '%post_title%') )
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
 	if( stristr($replace, '%post_title_linked%') )

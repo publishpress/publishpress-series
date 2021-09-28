@@ -175,6 +175,8 @@ function orgseries_option_page() {
 						<em><?php _e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></em><br /><br />
 					<strong>%post_title_list%</strong><br />
 						<em><?php _e('Is the location token for where the contents of the post list post templates will appear.', 'organize-series'); ?></em><br /><br />
+						<strong>%post_title_list_short%</strong><br />
+						<em><?php _e('Is the location token for where the contents of the post list post templates will appear and use provided widget post short title.', 'organize-series'); ?></em><br /><br />
 					<strong>%post_title%</strong><br />
 						<em><?php _e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
 					<strong>%post_title_linked%</strong><br />
