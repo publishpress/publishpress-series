@@ -142,7 +142,8 @@ v2.6.3- [===unreleased===]
 * Fixed: Larger boxes for Templates area #236
 * Feature: Allow "Table of Contents" widget to show a specified series #234
 * Added: Add a review request #210
-* Added: Add a review request #210
+* Added: Include Italian translation #253
+* Fixed: Series Grouping using categories #216
 
 v2.6.2- 2021-09-07
 * Fixed: Yoast SEO issue #206
