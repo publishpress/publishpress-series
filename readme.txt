@@ -130,7 +130,7 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
-v2.6.3- [===unreleased===]
+v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
 * Fixed: Append to series on action Scheduled to Published #83
 * Fixed: Fix "Only variable references should be returned by reference" #89
