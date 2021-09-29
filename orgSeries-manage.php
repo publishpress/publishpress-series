@@ -11,6 +11,7 @@ add_action('series_add_form_fields', 'add_series_form_fields',1);
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
 	$columns['icon'] = __('Icon', 'organize-series');
+	$columns['series_id'] = __('ID', 'organize-series');
 	return $columns;
 }
 
@@ -28,6 +29,11 @@ function manage_series_columns_action($content, $column_name, $id) {
 		}
 		
 	}
+
+	if ($column_name === 'series_id') {
+		$output .= $id;
+	}
+	
 	return $output;
 }
 

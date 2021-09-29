@@ -2,7 +2,7 @@
 /*
 Plugin Name: PublishPress Series
 Plugin URI: https://publishpress.com
-Version: 2.6.2
+Version: 2.6.3
 Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 Author: PublishPress
 Author URI: https://publishpress.com
@@ -13,14 +13,14 @@ Domain Path: /languages
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Publishpress Series Plugin
 //	can be found at https://publishpress.com
-$os_version = '2.6.2';
+$os_version = '2.6.3';
 
 ######################################
 
 ######################################
 // Publishpress Series Wordpress Plugin
 //
-//"Publishpress Series Plugin" is copyright (c) 2007-2012 Darren Ethier. This program is free software; you can redistribute it and/or
+// "PublishPress Series Plugin" is copyright (c) 2007-2021 Darren Ethier and also PublishPress LLC. This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
@@ -34,7 +34,6 @@ $os_version = '2.6.2';
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //
-//It goes without saying that this is a plugin for WordPress and I have no interest in developing it for other platforms so please, don't ask ;).
 //
 
 ######################################

@@ -1,6 +1,7 @@
 <?php
 /**
- * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.  Usage instructions are given in more detail in the orgSeries Usage Tips series (http://UnfoldingNeurons.com/series/organize-series-usage-tips).
+ * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.  
+ 
  * THEME AUTHORS/POWER USERS NOTE:  if you see AUTOTAG in the function description that means that you need to disable the corresponding autotag toggle in the series options page before being able to use the function manually in your theme.
  *
  * @package Publishpress Series WordPress Plugin
