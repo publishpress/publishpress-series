@@ -385,17 +385,17 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation Template:', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php _e('Series Post Navigation:', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))); ?></textarea>
 								</td>
 							</tr>
 							
-							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php _e('Custom Next Post Text', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php _e('Next Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							
-							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Custom previous post navigation text', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Previous Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
