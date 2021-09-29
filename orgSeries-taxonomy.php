@@ -52,12 +52,17 @@ function &get_series($args = '') {
 	$key = md5( serialize($args) );
 	if ( $cache = wp_cache_get('get_series','series') )
 		if ( isset( $cache[ $key ] ) )
-			return apply_filters('get_series', $cache[$key],$args);
+			$series = apply_filters('get_series', $cache[$key], $args);
+			if (!empty($series)) {
+				return $series;
+			}
 
 	$series = get_terms('series', $args);
 
-	if ( empty($series) )
+	if (is_wp_error($series) || empty($series)) {
+		$series = [];
 		return $series;
+	}
 
 	$cache[ $key ] = $series;
 	wp_cache_set( 'get_series', $cache, 'series' );
@@ -121,6 +126,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 
 	$total_posts = is_array($series_posts) ? count( $series_posts ) + 1 : 1;
 
+	// Find out how many posts in this series are unpublished
 	$unpub_count = 0;
 	foreach ( $series_posts as $sposts ) {
 		$spostid = $sposts['id'];
@@ -130,6 +136,8 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 		}
 	}
 
+	// If the given Series Part is either higher than the current # of published posts, <=0, or # of published posts is only one,
+	// then set variable $series_part to the maximum value
 	$published_posts = $total_posts - $unpub_count;
 	if ( (isset($total_posts)) && ( ($published_posts < $series_part ) || $series_part <=  0 || $published_posts == 1 ) ) {
 		if ( ($published_posts >= 1) && $is_published ) {
@@ -155,7 +163,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 			$is_was_rise = FALSE;
 
 			$spost_pchange=TRUE;
-			$current_published = TRUE;
+			$current_published = $spost_status == "publish";
 
 			$rise_part = $currentpart + 1;
 			$drop_part = $currentpart - 1;
@@ -187,7 +195,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 					}
 				}
 
-				if ( !in_array($rise_part, $parts_array) && ($currentpart != $count) ) {
+				if ( !in_array($rise_part, $parts_array) && (($currentpart != $count ) && ($currentpart !== '')) ) {
 					if ( (($series_part == 1 ) && ($series_part >= $currentpart)) || (( $series_part == $currentpart ) && !$drop && ($currentpart - $oldpart) < 2) || (( $series_part < $currentpart ) && ( $currentpart == $oldpart ) && !$drop && ($currentpart != $count)) ) {
 						$newpart = $rise_part;
 						$rise = TRUE;
@@ -218,7 +226,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 				}
 			}
 
-			if ( !isset($newpart) ) {
+			if ( !isset($newpart) ) { // we don't need to change this post's part
 				$newpart = $currentpart;
 			}
 
@@ -453,6 +461,9 @@ function wp_set_post_series_transition( $post ) {
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
 	wp_set_post_series( $post_ID, $post, true, $ser_id, true );
+	// ensure the post is added as the last part in the series
+	$current_part = wp_series_part( $post_ID, $ser_id );
+	if( empty($current_part) ) set_series_order( $post_ID, 0, $ser_id, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {

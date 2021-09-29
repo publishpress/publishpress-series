@@ -280,12 +280,6 @@ if (!class_exists('PP_Series_Modules_Reviews')) {
                 $triggers = apply_filters('pp_series_reviews_triggers', [
                     'time_installed' => [
                         'triggers' => [
-                            'instant'     => [//TODO - Remove before release
-                                'message'    => sprintf($time_message, __('1 week', 'organize-series')),
-                                'conditions' => [ true ],
-                                'link'       => 'https://wordpress.org/support/plugin/organize-series/reviews/?rate=5#rate-response',
-                                'pri'        => 10,
-                            ],//TODO - Remove before release
                             'one_week'     => [
                                 'message'    => sprintf($time_message, __('1 week', 'organize-series')),
                                 'conditions' => [
