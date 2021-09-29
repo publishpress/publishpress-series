@@ -360,18 +360,18 @@ function series_templates_core_fieldset() {
 									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
-							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php _e('Series Post List Template:', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php _e('Series Post List', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))); ?></textarea>
 								</td>
 							</tr>
 							
-							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php _e('Series Post List Post Title Template:', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php _e('Series Post List Post Title', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							<?php do_action('plist_ptitle_template_unpublished') ?>
 							
-							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php _e('Series Post List Current Post Title Template:', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php _e('Series Post List Current Post Title', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
