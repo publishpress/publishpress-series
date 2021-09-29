@@ -274,7 +274,7 @@ if (!class_exists('PP_Series_Modules_Reviews')) {
 
             if (!isset($triggers)) {
 
-                $time_message = __("Hey, you've been using PublishPress Series for %s on your site. We hope the plugin has been useful. Please could you quickly leave a 5-star rating on WordPress.org? It really does help to keep series growing.",
+                $time_message = __("Hey, you've been using PublishPress Series for %s on your site. We hope the plugin has been useful. Please could you quickly leave a 5-star rating on WordPress.org? It really does help to keep PublishPress Series growing.",
                     'organize-series');
 
                 $triggers = apply_filters('pp_series_reviews_triggers', [
@@ -361,6 +361,7 @@ if (!class_exists('PP_Series_Modules_Reviews')) {
             <div class="notice notice-success is-dismissible pp-series-notice">
 
                 <p>
+                <img src="<?php echo PPSERIES_URL ?>/assets/images/icon-256x256.png" class="logo" alt=""/>
                     <?php echo $tigger['message']; ?>
                 </p>
                 <p>
