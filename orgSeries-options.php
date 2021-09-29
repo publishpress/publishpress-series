@@ -379,6 +379,27 @@ function series_templates_core_fieldset() {
 							<tr valign="top">
     							<th scope="row" colspan="2">
         							<h1>
+            							<?php _e('Series Meta Box', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
+    							</th>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
+								<td><textarea name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))); ?></textarea>
+	
+								</td>
+							</tr>
+							
+							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
+								<td>
+									<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
+								</td>
+							</tr>
+
+							<tr valign="top">
+    							<th scope="row" colspan="2">
+        							<h1>
             							<?php _e('Series Navigation Box', 'organize-series'); ?>
         							</h1>
 									<p class="description"><?php _e('This display is shown at the bottom of all posts in a series.', 'organize-series'); ?></p>
@@ -397,27 +418,6 @@ function series_templates_core_fieldset() {
 							
 							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Previous Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])); ?>" class="ppseries-full-width">
-								</td>
-							</tr>
-
-							<tr valign="top">
-    							<th scope="row" colspan="2">
-        							<h1>
-            							<?php _e('Series Meta Box', 'organize-series'); ?>
-        							</h1>
-									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
-    							</th>
-							</tr>
-							
-							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))); ?></textarea>
-	
-								</td>
-							</tr>
-							
-							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
-								<td>
-									<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
 								</td>
 							</tr>
 
