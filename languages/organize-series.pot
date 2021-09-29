@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Publishpress Series Core Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 15:45+0000\n"
+"POT-Creation-Date: 2021-09-29 14:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Darren Ethier <darren@roughsmootheng.in>\n"
 "Language-Team: Darren Ethier <darren@organizeseries.com>\n"
@@ -44,15 +44,15 @@ msgstr ""
 msgid "%s does not exist or is not reachable."
 msgstr ""
 
-#: inc/review/review-request.php:298
+#: inc/review/review-request.php:292
 msgid "1 month"
 msgstr ""
 
-#: inc/review/review-request.php:284 inc/review/review-request.php:290
+#: inc/review/review-request.php:284
 msgid "1 week"
 msgstr ""
 
-#: inc/review/review-request.php:306
+#: inc/review/review-request.php:300
 msgid "3 months"
 msgstr ""
 
@@ -109,15 +109,15 @@ msgstr ""
 msgid "ASC: "
 msgstr ""
 
-#: orgSeries-options.php:333
+#: orgSeries-options.php:332
 msgid "Ascending"
 msgstr ""
 
-#: inc/review/review-request.php:370
+#: inc/review/review-request.php:365
 msgid "Click here to add your rating for PublishPress Series"
 msgstr ""
 
-#: orgSeries-options.php:228
+#: orgSeries-options.php:227
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
@@ -139,20 +139,12 @@ msgstr ""
 msgid "Current series icon:"
 msgstr ""
 
-#: orgSeries-options.php:394
-msgid "Custom Next Post Text"
-msgstr ""
-
-#: orgSeries-options.php:399
-msgid "Custom previous post navigation text"
-msgstr ""
-
 #: src/views/admin/templates/license_key_form.template.php:31
 #: src/domain/services/admin/LicenseKeyFormManager.php:122
 msgid "Deactivate License"
 msgstr ""
 
-#: orgSeries-options.php:516
+#: orgSeries-options.php:510
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
@@ -168,15 +160,15 @@ msgstr ""
 msgid "DESC: "
 msgstr ""
 
-#: orgSeries-options.php:334
+#: orgSeries-options.php:333
 msgid "Descending"
 msgstr ""
 
-#: orgSeries-options.php:306
+#: orgSeries-options.php:305
 msgid "Display on series overview screens"
 msgstr ""
 
-#: orgSeries-options.php:276
+#: orgSeries-options.php:275
 msgid "Display on single posts"
 msgstr ""
 
@@ -184,15 +176,15 @@ msgstr ""
 msgid "Display Order: "
 msgstr ""
 
-#: orgSeries-options.php:289
+#: orgSeries-options.php:288
 msgid "Display series meta information with posts?"
 msgstr ""
 
-#: orgSeries-options.php:285
+#: orgSeries-options.php:284
 msgid "Display series navigation links?"
 msgstr ""
 
-#: orgSeries-options.php:281
+#: orgSeries-options.php:280
 msgid "Display series post list box?"
 msgstr ""
 
@@ -217,7 +209,7 @@ msgstr ""
 msgid ""
 "Hey, you've been using PublishPress Series for %s on your site. We hope the "
 "plugin has been useful. Please could you quickly leave a 5-star rating on "
-"WordPress.org? It really does help to keep series growing."
+"WordPress.org? It really does help to keep PublishPress Series growing."
 msgstr ""
 
 #: orgSeries-widgets.php:229
@@ -235,7 +227,7 @@ msgstr ""
 msgid "https://publishpress.com"
 msgstr ""
 
-#: inc/review/review-request.php:374
+#: inc/review/review-request.php:369
 msgid "I already did"
 msgstr ""
 
@@ -258,31 +250,31 @@ msgstr ""
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr ""
 
-#: orgSeries-options.php:179
+#: orgSeries-options.php:178
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear and use provided widget post short title."
 msgstr ""
 
-#: orgSeries-options.php:177
+#: orgSeries-options.php:176
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear."
 msgstr ""
 
-#: orgSeries-widgets.php:13 orgSeries-options.php:433
+#: orgSeries-widgets.php:13 orgSeries-options.php:427
 msgid "Latest Series"
 msgstr ""
 
-#: orgSeries-options.php:444
+#: orgSeries-options.php:438
 msgid "Latest Series (inner tags):"
 msgstr ""
 
-#: orgSeries-options.php:449
+#: orgSeries-options.php:443
 msgid "Latest Series (tags after):"
 msgstr ""
 
-#: orgSeries-options.php:439
+#: orgSeries-options.php:433
 msgid "Latest Series (tags before):"
 msgstr ""
 
@@ -313,7 +305,7 @@ msgstr ""
 msgid "Manage Series"
 msgstr ""
 
-#: inc/review/review-request.php:372
+#: inc/review/review-request.php:367
 msgid "Maybe later"
 msgstr ""
 
@@ -338,7 +330,11 @@ msgstr ""
 msgid "New Series Name"
 msgstr ""
 
-#: orgSeries-options.php:229
+#: orgSeries-options.php:414
+msgid "Next Post"
+msgstr ""
+
+#: orgSeries-options.php:228
 msgid "No"
 msgstr ""
 
@@ -374,11 +370,11 @@ msgstr ""
 msgid "Number of series to display:"
 msgstr ""
 
-#: orgSeries-options.php:327
+#: orgSeries-options.php:326
 msgid "Order by date"
 msgstr ""
 
-#: orgSeries-options.php:324
+#: orgSeries-options.php:323
 msgid "Order series by:"
 msgstr ""
 
@@ -386,7 +382,7 @@ msgstr ""
 msgid "Other posts in series:"
 msgstr ""
 
-#: orgSeries-options.php:163
+#: orgSeries-options.php:162
 msgid "Overview"
 msgstr ""
 
@@ -409,8 +405,12 @@ msgstr ""
 msgid "Post title in widget:"
 msgstr ""
 
-#: orgSeries-setup.php:577
+#: orgSeries-setup.php:576
 msgid "Posts from the series: "
+msgstr ""
+
+#: orgSeries-options.php:419
+msgid "Previous Post"
 msgstr ""
 
 #. Author of the plugin
@@ -443,7 +443,7 @@ msgstr ""
 msgid "PublishPress Series Options"
 msgstr ""
 
-#: orgSeries-options.php:136
+#: orgSeries-options.php:135
 msgid "PublishPress Series Plugin Options"
 msgstr ""
 
@@ -463,22 +463,22 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: orgSeries-options.php:527
+#: orgSeries-options.php:521
 msgid "Reset options to default"
 msgstr ""
 
-#: orgSeries-options.php:524
+#: orgSeries-options.php:518
 msgid "Reset settings"
 msgstr ""
 
-#: orgSeries-options.php:169
+#: orgSeries-options.php:168
 #, php-format
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
 msgstr ""
 
-#: orgSeries-options.php:175
+#: orgSeries-options.php:174
 #, php-format
 msgid ""
 "Same as %series_title% except that it will also be linked to the series page"
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Series"
 msgstr ""
 
-#: orgSeries-options.php:316
+#: orgSeries-options.php:315
 msgid "Series Custom Base:"
 msgstr ""
 
@@ -510,23 +510,23 @@ msgstr ""
 msgid "Series Icon Upload:"
 msgstr ""
 
-#: orgSeries-options.php:424
+#: orgSeries-options.php:394
 msgid "Series Meta (with excerpts):"
 msgstr ""
 
-#: orgSeries-options.php:412
+#: orgSeries-options.php:382
 msgid "Series Meta Box"
 msgstr ""
 
-#: orgSeries-options.php:418
+#: orgSeries-options.php:388
 msgid "Series Meta:"
 msgstr ""
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:272
 msgid "Series Navigation"
 msgstr ""
 
-#: orgSeries-options.php:383
+#: orgSeries-options.php:403
 msgid "Series Navigation Box"
 msgstr ""
 
@@ -534,11 +534,11 @@ msgstr ""
 msgid "Series Options"
 msgstr ""
 
-#: orgSeries-options.php:331
+#: orgSeries-options.php:330
 msgid "Series order method"
 msgstr ""
 
-#: orgSeries-options.php:326
+#: orgSeries-options.php:325
 msgid "Series part"
 msgstr ""
 
@@ -546,31 +546,31 @@ msgstr ""
 msgid "Series Part:"
 msgstr ""
 
-#: orgSeries-options.php:312
+#: orgSeries-options.php:311
 msgid "Series Per Page:"
 msgstr ""
 
-#: orgSeries-options.php:359
+#: orgSeries-options.php:363
+msgid "Series Post List"
+msgstr ""
+
+#: orgSeries-options.php:358
 msgid "Series Post List Box"
 msgstr ""
 
-#: orgSeries-options.php:375
-msgid "Series Post List Current Post Title Template:"
+#: orgSeries-options.php:374
+msgid "Series Post List Current Post Title"
 msgstr ""
 
-#: orgSeries-options.php:369
-msgid "Series Post List Post Title Template:"
+#: orgSeries-options.php:368
+msgid "Series Post List Post Title"
 msgstr ""
 
-#: orgSeries-options.php:364
-msgid "Series Post List Template:"
+#: orgSeries-options.php:409
+msgid "Series Post Navigation:"
 msgstr ""
 
-#: orgSeries-options.php:389
-msgid "Series Post Navigation Template:"
-msgstr ""
-
-#: orgSeries-options.php:513
+#: orgSeries-options.php:507
 msgid "Series Settings"
 msgstr ""
 
@@ -578,7 +578,7 @@ msgstr ""
 msgid "Series Slug"
 msgstr ""
 
-#: orgSeries-widgets.php:103 orgSeries-setup.php:377
+#: orgSeries-widgets.php:103 orgSeries-setup.php:376
 msgid "Series Table of Contents"
 msgstr ""
 
@@ -586,15 +586,11 @@ msgstr ""
 msgid "Series Table of Contents << "
 msgstr ""
 
-#: orgSeries-options.php:404
-msgid "Series Table of Contents Listings:"
-msgstr ""
-
-#: orgSeries-options.php:320
+#: orgSeries-options.php:319
 msgid "Series Table of Contents Title:"
 msgstr ""
 
-#: orgSeries-options.php:308
+#: orgSeries-options.php:307
 msgid "Series Table of Contents URL:"
 msgstr ""
 
@@ -606,11 +602,11 @@ msgstr ""
 msgid "Series:"
 msgstr ""
 
-#: orgSeries-setup.php:575
+#: orgSeries-setup.php:574
 msgid "Series: "
 msgstr ""
 
-#: orgSeries-options.php:24 orgSeries-setup.php:589
+#: orgSeries-options.php:24 orgSeries-setup.php:588
 msgid "Settings"
 msgstr ""
 
@@ -634,7 +630,7 @@ msgstr ""
 msgid "Sorry but you don't have permission to add series"
 msgstr ""
 
-#: orgSeries-options.php:297
+#: orgSeries-options.php:296
 msgid "Style options"
 msgstr ""
 
@@ -666,7 +662,7 @@ msgstr ""
 msgid "The %1$s method can only be used to register a child of %2%s."
 msgstr ""
 
-#: orgSeries-options.php:165
+#: orgSeries-options.php:164
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -745,19 +741,19 @@ msgid ""
 "can only be used to push values to this data element when it is an array."
 msgstr ""
 
-#: orgSeries-options.php:385
+#: orgSeries-options.php:405
 msgid "This display is shown at the bottom of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:361 orgSeries-options.php:414
+#: orgSeries-options.php:360 orgSeries-options.php:384
 msgid "This display is shown at the top of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:435
+#: orgSeries-options.php:429
 msgid "This display is used by the \"Series Table of Contents\" widget."
 msgstr ""
 
-#: orgSeries-options.php:255
+#: orgSeries-options.php:254
 msgid ""
 "This section is for the icons that show with your series. Note that you must "
 "use a token for the icon in the \"Templates\" settings."
@@ -767,18 +763,18 @@ msgstr ""
 msgid "This text will display above other posts in this series."
 msgstr ""
 
-#: orgSeries-options.php:171
+#: orgSeries-options.php:170
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
 
-#: orgSeries-options.php:167
+#: orgSeries-options.php:166
 msgid "This will be replaced with the series icon for a series."
 msgstr ""
 
-#: orgSeries-options.php:173
+#: orgSeries-options.php:172
 msgid "This will be replaced with the title of a series"
 msgstr ""
 
@@ -797,7 +793,7 @@ msgstr ""
 msgid "Unable to retrieve an instance of %1$s. Not found."
 msgstr ""
 
-#: orgSeries-options.php:224
+#: orgSeries-options.php:223
 msgid "Update Options"
 msgstr ""
 
@@ -809,23 +805,23 @@ msgstr ""
 msgid "Upload an image for the series."
 msgstr ""
 
-#: orgSeries-options.php:300
+#: orgSeries-options.php:299
 msgid "Use dark style"
 msgstr ""
 
-#: orgSeries-options.php:299
+#: orgSeries-options.php:298
 msgid "Use default style"
 msgstr ""
 
-#: orgSeries-options.php:301
+#: orgSeries-options.php:300
 msgid "Use light style"
 msgstr ""
 
-#: orgSeries-options.php:293
+#: orgSeries-options.php:292
 msgid "Use Series css styles"
 msgstr ""
 
-#: orgSeries-options.php:189
+#: orgSeries-options.php:188
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
@@ -847,26 +843,26 @@ msgstr ""
 msgid "When Series was Created"
 msgstr ""
 
-#: orgSeries-options.php:488
+#: orgSeries-options.php:482
 msgid "Width for icon if displayed via the latest series template (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:482
+#: orgSeries-options.php:476
 msgid "Width for icon on a post page (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:476
+#: orgSeries-options.php:470
 msgid "Width for icon on series table of contents page (in pixels)"
 msgstr ""
 
-#: orgSeries-options.php:187
+#: orgSeries-options.php:186
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
 
-#: orgSeries-options.php:185
+#: orgSeries-options.php:184
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -874,29 +870,29 @@ msgid ""
 "title of the post"
 msgstr ""
 
-#: orgSeries-options.php:181
+#: orgSeries-options.php:180
 msgid "Will be replaced with the post title of a post in the series"
 msgstr ""
 
-#: orgSeries-options.php:183
+#: orgSeries-options.php:182
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
 
-#: orgSeries-options.php:195
+#: orgSeries-options.php:194
 msgid "Will display the description for the series"
 msgstr ""
 
-#: orgSeries-options.php:193
+#: orgSeries-options.php:192
 msgid "Will display the total number of posts in a series"
 msgstr ""
 
-#: orgSeries-options.php:191
+#: orgSeries-options.php:190
 msgid "Will display what part of a series the post is"
 msgstr ""
 
-#: orgSeries-options.php:230
+#: orgSeries-options.php:229
 msgid "Yes"
 msgstr ""
 
