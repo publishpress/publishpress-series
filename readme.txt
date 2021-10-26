@@ -130,6 +130,10 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.7.0- [===unreleased===]
+* Fixed: Clarify what HTML is allowed in templates #273
+* Fixed: Update the Reviews box class #274
+
 v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
 * Fixed: Append to series on action Scheduled to Published #83

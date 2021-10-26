@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdf4bd4a16c4341f77def81a4736b710",
+    "content-hash": "8997a3acc12258b36251b4b33c46d02e",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -314,6 +314,59 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "publishpress/wordpress-reviews",
+            "version": "v1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/wordpress-reviews.git",
+                "reference": "cdb61a0367975f1daf10e42f52eda1cf291909a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/wordpress-reviews/zipball/cdb61a0367975f1daf10e42f52eda1cf291909a5",
+                "reference": "cdb61a0367975f1daf10e42f52eda1cf291909a5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20"
+            },
+            "require-dev": {
+                "overtrue/phplint": "^2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "ReviewsController.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                },
+                {
+                    "name": "Daniel Iser",
+                    "homepage": "https://github.com/danieliser/WP-Product-In-Dash-Review-Requests"
+                }
+            ],
+            "description": "Library for showing a five-star review banner.",
+            "homepage": "http://publishpress.com/",
+            "keywords": [
+                "review",
+                "reviews",
+                "wordpress plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/publishpress/wordpress-reviews/issues",
+                "source": "https://github.com/publishpress/wordpress-reviews/tree/v1.1.8"
+            },
+            "time": "2021-10-21T21:57:05+00:00"
+        },
+        {
             "name": "publishpress/wordpress-version-notices",
             "version": "1.1.3",
             "source": {
@@ -518,5 +571,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
