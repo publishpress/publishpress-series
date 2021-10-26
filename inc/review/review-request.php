@@ -21,7 +21,7 @@ class SeriesReview
     public function init()
     {
         // .......
-        add_filter('publishpress_wp_reviews_display_banner_organize-series', [$this, 'shouldDisplayBanner']);
+        add_filter('organize-series_wp_reviews_allow_display_notice', [$this, 'shouldDisplayBanner']);
         
         $this->reviewController->init();
     }
