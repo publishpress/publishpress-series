@@ -21,13 +21,16 @@ class SeriesReview
     public function init()
     {
         // .......
-        add_filter('publishpress_wp_reviews_display_banner_publishpress', [$this, 'shouldDisplayBanner']);
+        add_filter('publishpress_wp_reviews_display_banner_organize-series', [$this, 'shouldDisplayBanner']);
         
         $this->reviewController->init();
     }
     
     public function shouldDisplayBanner($shouldDisplay)
     {
+        if(is_ppseries_admin_pages()){
+            return true;
+        }
         return false;
     }
 }
