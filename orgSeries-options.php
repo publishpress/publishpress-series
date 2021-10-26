@@ -159,6 +159,15 @@ function orgseries_option_page() {
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
 
 			<div id="token-legend" class="postbox">
+
+				<h3 class="handle"><span><?php _e('Allowed Html', 'organize-series'); ?></span></h3>
+					<div class="inside">
+						<?php $html_list = '<div> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
+						echo '<p><code>'. htmlentities ($html_list) .'</code></p>';
+						?>
+					</div>
+
+				</p>
 				<h3 class="handle"><span><?php _e('Overview', 'organize-series'); ?></span></h3>
 				<div class="inside">
 					<p><small><?php _e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
