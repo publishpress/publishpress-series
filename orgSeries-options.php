@@ -76,6 +76,7 @@ function orgseries_validate($input) {
 	$newinput['series_post_nav_template'] = trim(stripslashes($input['series_post_nav_template']));
 	$newinput['series_nextpost_nav_custom_text'] = trim(stripslashes($input['series_nextpost_nav_custom_text']));
 	$newinput['series_prevpost_nav_custom_text'] = trim(stripslashes($input['series_prevpost_nav_custom_text']));
+	$newinput['series_firstpost_nav_custom_text'] = trim(stripslashes($input['series_firstpost_nav_custom_text']));
 	$newinput['series_posts_orderby'] = trim(stripslashes($input['series_posts_orderby']));
 	$newinput['series_posts_order'] = trim(stripslashes($input['series_posts_order']));
 	$newinput['latest_series_before_template'] = trim(stripslashes($input['latest_series_before_template']));
@@ -193,6 +194,8 @@ function orgseries_option_page() {
 						<em><?php _e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
 					<strong>%next_post%</strong><br />
 						<em><?php _e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
+					<strong>%first_post%</strong><br />
+						<em><?php _e('Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the \'Custom First Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
 					<strong>%postcontent%</strong><br />
 						<em><?php _e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', 'organize-series'); ?></em><br /><br />
 					<strong>%series_part%</strong><br />
@@ -358,7 +361,7 @@ function series_templates_core_fieldset() {
 	?>
 			<div id="topic-toc-settings-series-template-core" style="line-height:normal;">
 				<div class="inside" style="padding: 0;margin: 0;">
-          			
+
 					<table class="form-table ppseries-settings-table">
             			<tbody>
 							<tr valign="top">
@@ -373,13 +376,13 @@ function series_templates_core_fieldset() {
 								<td><textarea name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))); ?></textarea>
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php _e('Series Post List Post Title', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							<?php do_action('plist_ptitle_template_unpublished') ?>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php _e('Series Post List Current Post Title', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])); ?>" class="ppseries-full-width">
 								</td>
@@ -393,13 +396,13 @@ function series_templates_core_fieldset() {
 									<p class="description"><?php _e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php _e('Series Meta:', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo $org_name; ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))); ?></textarea>
-	
+
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
 								<td>
 									<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
@@ -419,14 +422,19 @@ function series_templates_core_fieldset() {
 								<td><textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))); ?></textarea>
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php _e('Next Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php _e('Previous Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+								</td>
+							</tr>
+
+							<tr valign="top"><th scope="row"><label for="series_firstpost_nav_custom_text"><?php _e('First Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo $org_name; ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
@@ -438,17 +446,17 @@ function series_templates_core_fieldset() {
 									<p class="description"><?php _e('This display is used by the "Series Table of Contents" widget.', 'organize-series'); ?></p>
     							</th>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="latest_series_before_template"><?php _e('Latest Series (tags before):', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_before_template]" id="latest_series_before_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="latest_series_inner_template"><?php _e('Latest Series (inner tags):', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_inner_template]" id="latest_series_inner_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])); ?>" class="ppseries-full-width">
 								</td>
 							</tr>
-							
+
 							<tr valign="top"><th scope="row"><label for="latest_series_after_template"><?php _e('Latest Series (tags after):', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[latest_series_after_template]" id="latest_series_after_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])); ?>" class="ppseries-full-width">
 								</td>

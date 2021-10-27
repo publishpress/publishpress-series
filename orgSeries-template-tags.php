@@ -435,6 +435,16 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 		}
 	}
 
+	$prev = false;
+	if(!$next){
+		$prev = true;
+	}
+	$first = false;
+	if((int)$next ===2){
+		$next = $prev = false;
+		$first = true;
+	}
+
 
 	if (empty($series_ID)) return false; //we can't do anything without the series_ID;
 	$cur_id = $post->ID;
@@ -447,8 +457,9 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 
 	foreach ($posts_in_series as $seriespost) {
 		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
-		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID))  ;
-		if ($next) {
+		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
+		$custom_first = esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
+		if ($next && !$first) {
 			if ( ( (int) $seriespost['part'] - $cur_part) === 1) {
 					if ( !empty($custom_next) ) $title = $custom_next;
 					else $title = get_the_title($seriespost['id']);
@@ -457,7 +468,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 					}
 		}
 
-		if (!$next) {
+		if (!$next && !$first) {
 			if (($cur_part - (int) $seriespost['part']) === 1) {
 					if (!empty($custom_prev)) $title = $custom_prev;
 						else $title = get_the_title($seriespost['id']);
@@ -465,6 +476,22 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 					$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 				}
 		}
+
+		
+		if($first && !$next && !$prev){
+			if((int) $seriespost['part'] === 1)
+			{
+				if ( !empty($custom_first) ){
+					$title = $custom_first;
+				}else{
+					$title = get_the_title($seriespost['id']);
+				}
+				$link = get_permalink($seriespost['id']);
+				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+			}
+		}
+		
+		
 	}
 		if ($display) echo $result;
 			else return $result;
