@@ -112,8 +112,13 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
 	if( stristr($replace, '%post_title_linked%') )
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
-	if( stristr($replace, '%series_part%') )
-	$replace = str_replace('%series_part%', wp_series_part($p_id, $ser_id), $replace);
+	if( stristr($replace, '%series_part%') ){
+		if(empty(trim(wp_series_part($p_id, $ser_id)))){
+			$replace = str_replace('%series_part%', '[0]', $replace);
+		}else{
+			$replace = str_replace('%series_part%', wp_series_part($p_id, $ser_id), $replace);
+		}
+	}
 	if( stristr($replace, '%series_description%') )
 	$replace = str_replace('%series_description%', series_description($ser_id), $replace);
 	if( stristr($replace, '%next_post%') )

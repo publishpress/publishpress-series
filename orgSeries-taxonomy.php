@@ -157,7 +157,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 	$rise = null;
 	if ( $count >= 1 ) {
 		foreach ( $series_posts as $sposts ) {
-			$currentpart = $sposts['part'];
+			$currentpart = absint($sposts['part']);
 			$spostid = $sposts['id'];
 			$spost_status = get_post($spostid)->post_status;
 			$is_was_rise = FALSE;
