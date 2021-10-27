@@ -63,6 +63,7 @@ function orgseries_validate($input) {
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
+	$newinput['series_post_list_limit'] = trim(stripslashes($input['series_post_list_limit']));
 	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
@@ -299,19 +300,23 @@ function series_automation_core_fieldset() {
           				<table class="form-table ppseries-settings-table">
             				<tbody>
 
-								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php _e('Display series post list box?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php _e('Display Series Post List box?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo $org_name;?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php _e('Display series navigation links?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="series_post_list_limit"><?php _e('Maximum number of items in Series Post List', 'organize-series'); ?></label></th>
+									<td><input min="0" name="<?php echo $org_name;?>[series_post_list_limit]" value="<?php echo ( isset($org_opt['series_post_list_limit']) ? htmlspecialchars($org_opt['series_post_list_limit']) : ''); ?>" id="series_post_list_limit" type="number" /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php _e('Display Series Navigation links ?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo $org_name; ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for="auto_tag_seriesmeta_toggle"><?php _e('Display series meta information with posts?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="auto_tag_seriesmeta_toggle"><?php _e('Display Series Meta information?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo $org_name; ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for="custom_css"><?php _e('Use Series css styles', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="custom_css"><?php _e('Use PublishPress Series CSS styles?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo $org_name; ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /></td>
 								</tr>
 

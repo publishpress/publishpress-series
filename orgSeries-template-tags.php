@@ -55,6 +55,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 	$posts_in_series = array();
 	$settings = $orgseries->settings;
 	$result = '';
+	$limit = isset($settings['series_post_list_limit']) ? (int)$settings['series_post_list_limit'] : 0;
 	foreach ( $ser_ID as $ser ) {
 		$series_post = get_objects_in_term($ser, 'series');
 		$is_unpub_template = TRUE;
@@ -67,6 +68,9 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 			$result .= '<ul>';
 		}
 
+		if ( 'post-list' === $referral && $limit > 0  ) {
+			$posts_in_series = array_slice($posts_in_series, 0, $limit);
+		}
 		foreach($posts_in_series as $seriespost) {
 			$short_title = get_post_meta($seriespost['id'], SPOST_SHORTTITLE_KEY, true);
 			if ($cur_id == $seriespost['id']) {
