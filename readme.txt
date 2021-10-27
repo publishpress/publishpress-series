@@ -133,6 +133,7 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 v2.7.0- [===unreleased===]
 * Fixed: Clarify what HTML is allowed in templates #273
 * Fixed: Update the Reviews box class #274
+* Fixed: Add message to draft series without part number #261
 
 v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
