@@ -16,7 +16,7 @@ class PPSeriesCoreAdmin {
                                 'message'  => 'You\'re using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s',
                                 'link'     => 'https://publishpress.com/links/series-banner',
                                 'screens'  => [
-                                    ['base' => 'settings_page_orgseries_options_page', 'id'   => 'settings_page_orgseries_options_page'],
+                                    ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
                                     ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => 'series' ],
                                     ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => 'series' ]
                                 ]

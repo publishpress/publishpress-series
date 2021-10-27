@@ -58,7 +58,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array('title'=> '', 'hide_empty' => 0, 'orderby' => 'name', 'number' => '5', 'order' => 'ASC') );
 		$title = esc_attr( $instance['title'] );
 		$hide_empty = $instance['hide_empty'];
-		$seriesoptionsurl = admin_url( 'options-general.php?page=orgseries_options_page' );
+		$seriesoptionsurl = ppseries_series_settings_page();
 ;
 		$number = (int) $instance['number'];
 		?>
