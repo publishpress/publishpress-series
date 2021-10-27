@@ -135,6 +135,7 @@ v2.7.0- [===unreleased===]
 * Fixed: Update the Reviews box class #274
 * Fixed: Add message to draft series without part number #261
 * Feature: Added %first_post% token to series navigation #232
+* Fixed: Incorrect Yoast SEO attributes for Series TOC page #82
 
 v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
