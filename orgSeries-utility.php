@@ -392,4 +392,9 @@ function ppseries_do_settings_fields( $page, $section ) {
 	}
 }
 
+function ppseries_series_settings_page(){
+
+   return admin_url( 'admin.php?page=orgseries_options_page');
+}
+
 ?>

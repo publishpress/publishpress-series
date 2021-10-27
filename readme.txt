@@ -136,6 +136,7 @@ v2.7.0- [===unreleased===]
 * Fixed: Add message to draft series without part number #261
 * Feature: Added %first_post% token to series navigation #232
 * Fixed: Incorrect Yoast SEO attributes for Series TOC page #82
+* Added: New menu link for Series #278
 
 v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88

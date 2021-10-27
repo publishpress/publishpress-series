@@ -21,7 +21,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 	if ( !$this_plugin ) $this_plugin = PPSERIES_BASE_NAME;
 
 	if ( $file == $this_plugin ) {
-		$settings_link = '<a href="options-general.php?page=orgseries_options_page">'.__("Settings", 'organize-series').'</a>';
+		$settings_link = '<a href="'. ppseries_series_settings_page() .'">'.__("Settings", 'organize-series').'</a>';
 		 array_unshift($links, $settings_link);
 	}
 	return $links;
@@ -31,9 +31,19 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 function orgseries_create_options() {
 	global $orgseries;
 
-	$page = add_options_page(__('PublishPress Series Options', 'organize-series'), __('Series Options', 'organize-series'), 'manage_options', 'orgseries_options_page', 'orgseries_option_page');
+	$page = add_menu_page(
+		__('PublishPress Series Options', 'organize-series'),
+		__('Series', 'organize-series'),
+		'manage_options',
+		'orgseries_options_page',
+		'orgseries_option_page',
+		'dashicons-book-alt',
+		68
+	);
+
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
+	
 }
 
 //validate form values

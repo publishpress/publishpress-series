@@ -40,6 +40,7 @@ class orgSeries {
 		add_action('wp_enqueue_scripts', array($this, 'orgSeries_header'));
 		add_action( 'wp_footer', array($this, 'series_dropdown_js'), 1 );
 		add_filter('wp_title', array($this, 'seriestoc_title'));
+		add_filter('pre_get_document_title', array($this, 'seriestoc_title'), 20);//https://github.com/publishpress/publishpress-series/issues/82
 
 		//series post list box
 		add_action('the_content', array($this, 'add_series_post_list_box'), 12);
@@ -586,7 +587,7 @@ class orgSeries {
 		if( empty($this_plugin) ) $this_plugin = plugin_basename(__FILE__);
 
 		if ( $file == $this_plugin ) {
-			$settings_link = '<a href="' . admin_url( 'options-general.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings', 'organize-series') . '</a>';
+			$settings_link = '<a href="' . admin_url( 'admin.php?page='.SERIES_DIR.'/orgSeries-options.php' ) . '">' . __('Settings', 'organize-series') . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 
