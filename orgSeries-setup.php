@@ -272,6 +272,7 @@ class orgSeries {
 			'series_post_nav_template' => '%postcontent%<fieldset><legend>'. __('Series Navigation','organize-series') .'</legend><span class="series-nav-left">%previous_post%</span><span class="series-nav-right">%next_post%</span></fieldset>',
 			'series_nextpost_nav_custom_text' => '%post_title% >>',
 			'series_prevpost_nav_custom_text' => '<< %post_title%',
+			'series_firstpost_nav_custom_text' => 'Series Home',
 			//series_icon related settings
 			'series_icon_width_series_page' => 200,
 			'series_icon_width_post_page' =>100,
