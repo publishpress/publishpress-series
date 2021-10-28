@@ -93,6 +93,9 @@ function orgseries_validate($input) {
 	$newinput['latest_series_before_template'] = trim(stripslashes($input['latest_series_before_template']));
 	$newinput['latest_series_inner_template'] = trim(stripslashes($input['latest_series_inner_template']));
 	$newinput['latest_series_after_template'] = trim(stripslashes($input['latest_series_after_template']));
+	$newinput['series_post_list_position'] = trim(stripslashes($input['series_post_list_position']));
+	$newinput['series_metabox_position'] = trim(stripslashes($input['series_metabox_position']));
+	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
 
 	//series-icon related settings
 	$newinput['series_icon_width_series_page'] = (int) $input['series_icon_width_series_page'];
@@ -290,6 +293,7 @@ function series_automation_core_fieldset() {
 	$org_name = 'org_series_options';
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
+
 	?>
 			<div id="topic-toc-settings-automation-core" class="" style="line-height:normal;border:unset;">
 					<div class="inside" style="padding: 0;margin: 0;">
@@ -373,6 +377,12 @@ function series_templates_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
+	
+	$post_box_locations = [
+		'default'=> __('As in Template', 'organize-series'),
+		'top' 	 => __('Top', 'organize-series'),
+		'bottom' => __('Bottom', 'organize-series'),
+	];
 	?>
 			<div id="topic-toc-settings-series-template-core" style="line-height:normal;">
 				<div class="inside" style="padding: 0;margin: 0;">
@@ -391,6 +401,20 @@ function series_templates_core_fieldset() {
 								<td><textarea name="<?php echo $org_name; ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))); ?></textarea>
 								</td>
 							</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_post_list_position"><?php _e('Series Post List box Location', 'organize-series'); ?></label></th>
+									<td>
+										<select name="<?php echo $org_name;?>[series_post_list_position]" id="series_post_list_position">
+										<?php 
+										foreach($post_box_locations as $key => $label){
+											$selected = ( isset($org_opt['series_post_list_position']) && $org_opt['series_post_list_position'] === $key ) ? 'selected="selected"' : ''; 
+											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+											
+										}
+										?>
+										</select>
+									</td>
+								</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php _e('Series Post List Post Title', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])); ?>" class="ppseries-full-width">
@@ -418,6 +442,20 @@ function series_templates_core_fieldset() {
 								</td>
 							</tr>
 
+								<tr valign="top"><th scope="row"><label for="series_metabox_position"><?php _e('Series Metabox Location', 'organize-series'); ?></label></th>
+									<td>
+										<select name="<?php echo $org_name;?>[series_metabox_position]" id="series_metabox_position">
+										<?php 
+										foreach($post_box_locations as $key => $label){
+											$selected = ( isset($org_opt['series_metabox_position']) && $org_opt['series_metabox_position'] === $key ) ? 'selected="selected"' : ''; 
+											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+											
+										}
+										?>
+										</select>
+									</td>
+								</tr>
+
 							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php _e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
 								<td>
 									<textarea name="<?php echo $org_name; ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
@@ -437,6 +475,20 @@ function series_templates_core_fieldset() {
 								<td><textarea name="<?php echo $org_name; ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))); ?></textarea>
 								</td>
 							</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_navigation_box_position"><?php _e('Series Post Navigation Location', 'organize-series'); ?></label></th>
+									<td>
+										<select name="<?php echo $org_name;?>[series_navigation_box_position]" id="series_navigation_box_position">
+										<?php 
+										foreach($post_box_locations as $key => $label){
+											$selected = ( isset($org_opt['series_navigation_box_position']) && $org_opt['series_navigation_box_position'] === $key ) ? 'selected="selected"' : ''; 
+											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+											
+										}
+										?>
+										</select>
+									</td>
+								</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php _e('Next Post', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo $org_name; ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
