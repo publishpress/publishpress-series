@@ -106,8 +106,8 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 	function widget( $args, $instance ) {
 		global $orgseries, $wp_query;
 		extract( $args, EXTR_SKIP );
-		$c = isset($instance['show-count']) ? '1' : '0';
-		$e = isset($instance['hide-empty']) ? '1' : '0';
+		$show_count = isset($instance['show-count']) ? (int)$instance['show-count'] : 0;
+		$hide_empty = isset($instance['hide-empty']) ? (int)$instance['hide-empty'] : 0;
 		$showpostlist = isset($instance['postlistdisplay-toggle']) ? '1' : '0';
 		$showseriestoc =isset( $instance['seriestocdisplay-toggle']) ? '1' : '0';
 		$series_id = (isset($instance['series-id']) && (int)$instance['series-id'] > 0) ? $instance['series-id'] : '';
@@ -115,12 +115,43 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$os_orderby = $instance['os_orderby'];
 		$os_order = $instance['os_order'];
 		$os_exclude = (array)$instance['os_exclude'];
+		$os_exclude = array_filter($os_exclude);
 		$os_include = (array)$instance['os_include'];
+		$os_include = array_filter($os_include);
 		$os_number = $instance['os_number'];
 		$os_offset = $instance['os_offset'];
 		$os_search = $instance['os_search'];
 
-		$series_args = $args = apply_filters('widget_seriestoc_args', array('orderby' => 'name', 'show_count' => $c, 'hide_empty' => $e, 'echo' => false ));
+		//prepare args
+		$series_widget_args = [];
+		$series_widget_args['orderby'] = $os_orderby;
+		$series_widget_args['order'] = $os_order;
+		$series_widget_args['show_count'] = $show_count;
+		$series_widget_args['hide_empty'] = $hide_empty;
+		$series_widget_args['echo'] = false;
+		if(count($os_exclude) > 0){
+			$series_widget_args['exclude'] = join(", ", $os_exclude);
+		}
+		if(count($os_exclude) > 0){
+			$series_widget_args['include'] = join(", ", $os_exclude);
+		}
+		if((int)$os_number > 0){
+			$series_widget_args['number'] = $os_number;
+		}
+		if((int)$os_offset > 0){
+			$series_widget_args['offset'] = $os_offset;
+		}
+		if(!empty(trim($os_search))){
+			$series_widget_args['search'] = $os_search;
+		}
+
+		$series_widget_args['orderby'] = $os_orderby;
+		$series_widget_args['orderby'] = $os_orderby;
+
+		$series_args = $args = apply_filters('widget_seriestoc_args', $series_widget_args);
+
+		
+		write_log($series_args);
 		$title = $instance['title'];
 		$series_id = '';
 
@@ -219,7 +250,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$os_number = $instance['os_number'];
 		$os_offset = $instance['os_offset'];
 		$os_search = $instance['os_search'];
-		$series_list = ppseries_get_series_list();
+		$series_array_list = ppseries_get_series_list();
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><strong><?php _e('Title', 'organize-series'); ?></strong></label>
@@ -227,31 +258,24 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<?php _e('Series', 'organize-series'); ?>
-		<ul class="pp-widget-series">
-				<?php 
-				$series_list = get_series_list($series_id);
-				$series_default = (int)$series_id === 0 ? 'checked' : '';
-				echo '<li  class="pp-widget-series-li" id="pp-widget-series-li-0">
-						<label for="pp-widget-series-item-0" class="selectit">
-						<input value="0" type="radio" name="'. $this->get_field_name('series-id') .'"
-						 id="pp-widget-series-item-0"
-						 '. $series_default .'> 
-						<span class="li-series-name">'.__('Current series', 'organize-series').'</span></label></li>';
-				if(is_array($series_list) && count($series_list) > 0){
-					foreach($series_list as $serie_list){
-						$series_checked = (int)$serie_list['checked'] > 0 ? 'checked' : '';
-						echo '
-						<li  class="pp-widget-series-li" id="pp-widget-series-li-'.$serie_list['series_ID'].'">
-						<label for="pp-widget-series-item-'.$serie_list['series_ID'].'" class="selectit">
-						<input value="'.$serie_list['series_ID'].'" type="radio" name="'. $this->get_field_name('series-id') .'"
-						 id="pp-widget-series-item-'.$serie_list['series_ID'].'"
-						 '.$series_checked.'> 
-						<span class="li-series-name">'.$serie_list['ser_name'].'</span></label></li>';
-					}
+			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><strong><?php _e('Show Series Table Of Content', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
+		</p>
 
-				}?>
-		</ul>
+		<p>
+			<strong><?php _e('Show Series Table Of Content as', 'organize-series'); ?></strong><br />
+			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
+			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('show-count'); ?>"><strong><?php _e('Show post count', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo $this->get_field_id('show-count'); ?>" name="<?php echo $this->get_field_name('show-count'); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><strong><?php _e('Hide empty series', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 
 		<p>
@@ -294,8 +318,8 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('os_exclude').''; ?>"><strong><?php _e('Exclude series', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo $this->get_field_id('os_exclude').''; ?>" name="<?php echo $this->get_field_name('os_exclude'); ?>[]" multiple>
 				<?php 
-				if(is_array($series_list) && count($series_list) > 0) {
-					foreach($series_list as $key => $label){
+				if(is_array($series_array_list) && count($series_array_list) > 0) {
+					foreach($series_array_list as $key => $label){
 						$selected = in_array($key, $os_exclude) ? 'selected="selected"' : '';
 						echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
 					}
@@ -308,8 +332,8 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('os_include').''; ?>"><strong><?php _e('Include series', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo $this->get_field_id('os_include').''; ?>" name="<?php echo $this->get_field_name('os_include'); ?>[]" multiple>
 				<?php 
-				if(is_array($series_list) && count($series_list) > 0) {
-					foreach($series_list as $key => $label){
+				if(is_array($series_array_list) && count($series_array_list) > 0) {
+					foreach($series_array_list as $key => $label){
 						$selected = in_array($key, $os_include) ? 'selected="selected"' : '';
 						echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
 					}
@@ -336,25 +360,37 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<strong><?php _e('Show list of all series', 'organize-series'); ?></strong><br />
-			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
-			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('show-count'); ?>"><strong><?php _e('Show post count', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('show-count'); ?>" name="<?php echo $this->get_field_name('show-count'); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><strong><?php _e('Hide empty series', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
-		</p>
-		<p>
 			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><strong><?php _e('Show other posts in the current series', 'organize-series'); ?></strong>
 			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
+
+
 		<p>
-			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><strong><?php _e('Show the List of Series', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
+			<?php _e('Series', 'organize-series'); ?>
+		<ul class="pp-widget-series">
+				<?php 
+				$series_list = get_series_list($series_id);
+				$series_default = (int)$series_id === 0 ? 'checked' : '';
+				echo '<li  class="pp-widget-series-li" id="pp-widget-series-li-0">
+						<label for="pp-widget-series-item-0" class="selectit">
+						<input value="0" type="radio" name="'. $this->get_field_name('series-id') .'"
+						 id="pp-widget-series-item-0"
+						 '. $series_default .'> 
+						<span class="li-series-name">'.__('Current series', 'organize-series').'</span></label></li>';
+				if(is_array($series_list) && count($series_list) > 0){
+					foreach($series_list as $serie_list){
+						$series_checked = (int)$serie_list['checked'] > 0 ? 'checked' : '';
+						echo '
+						<li  class="pp-widget-series-li" id="pp-widget-series-li-'.$serie_list['series_ID'].'">
+						<label for="pp-widget-series-item-'.$serie_list['series_ID'].'" class="selectit">
+						<input value="'.$serie_list['series_ID'].'" type="radio" name="'. $this->get_field_name('series-id') .'"
+						 id="pp-widget-series-item-'.$serie_list['series_ID'].'"
+						 '.$series_checked.'> 
+						<span class="li-series-name">'.$serie_list['ser_name'].'</span></label></li>';
+					}
+
+				}?>
+		</ul>
 		</p>
 
 		<p>
