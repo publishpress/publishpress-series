@@ -1,7 +1,7 @@
 <?php
 /**
- * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.  
- 
+ * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.
+
  * THEME AUTHORS/POWER USERS NOTE:  if you see AUTOTAG in the function description that means that you need to disable the corresponding autotag toggle in the series options page before being able to use the function manually in your theme.
  *
  * @package Publishpress Series WordPress Plugin
@@ -481,7 +481,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 				}
 		}
 
-		
+
 		if($first && !$next && !$prev){
 			if((int) $seriespost['part'] === 1)
 			{
@@ -494,8 +494,8 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
 			}
 		}
-		
-		
+
+
 	}
 		if ($display) echo $result;
 			else return $result;
@@ -841,7 +841,7 @@ function is_series( $slug = '' ) {
   if (!defined('SERIES_QUERYVAR')) {
     return false;
   }
-  
+
 	if ( $wp_query instanceof WP_Query ) {
 		$series = get_query_var( SERIES_QUERYVAR );
 	} else {

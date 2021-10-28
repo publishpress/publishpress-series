@@ -259,6 +259,10 @@ class orgSeries {
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
 			'series_perp_toc' => 3,
+			'series_post_list_limit' => '',
+			'series_post_list_position' => 'default',
+			'series_metabox_position' => 'default',
+			'series_navigation_box_position' => 'default',
 			'series_toc_title' => __('Series Table of Contents << ','organize-series'),
 		//new template options
 			'orgseries_api' => '',
@@ -521,8 +525,17 @@ class orgSeries {
 	function add_series_post_list_box($content) {
 		if ($this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
-				$addcontent = $content;
-				$content = str_replace('%postcontent%', $addcontent, $postlist);
+				$position = isset($this->settings['series_post_list_position']) ? $this->settings['series_post_list_position'] : 'default';
+				if($position === 'top'){
+					$postlist = str_replace('%postcontent%', '', $postlist);
+					$content = $postlist.$content;
+				}elseif($position === 'bottom'){
+					$postlist = str_replace('%postcontent%', '', $postlist);
+					$content = $content.$postlist;
+				}else{
+					$addcontent = $content;
+					$content = str_replace('%postcontent%', $addcontent, $postlist);
+				}
 			}
 		}
 		return $content;
@@ -532,8 +545,17 @@ class orgSeries {
 	function add_series_meta($content) {
 		if($this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
-				$addcontent = $content;
-				$content = str_replace('%postcontent%', $addcontent, $series_meta);
+				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
+				if($position === 'top'){
+					$series_meta = str_replace('%postcontent%', '', $series_meta);
+					$content = $series_meta.$content;
+				}elseif($position === 'bottom'){
+					$series_meta = str_replace('%postcontent%', '', $series_meta);
+					$content = $content.$series_meta;
+				}else{
+					$addcontent = $content;
+					$content = str_replace('%postcontent%', $addcontent, $series_meta);
+				}
 			}
 		}
 		return $content;
@@ -548,8 +570,17 @@ class orgSeries {
 		if ( is_single() ) return;
 		if($this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write(true)) {
-				$addcontent = $content;
-				$content = str_replace('%postcontent%', $addcontent, $series_meta);
+				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
+				if($position === 'top'){
+					$series_meta = str_replace('%postcontent%', '', $series_meta);
+					$content = $series_meta.$content;
+				}elseif($position === 'bottom'){
+					$series_meta = str_replace('%postcontent%', '', $series_meta);
+					$content = $content.$series_meta;
+				}else{
+					$addcontent = $content;
+					$content = str_replace('%postcontent%', $addcontent, $series_meta);
+				}
 			}
 		}
 		return $content;
@@ -559,8 +590,17 @@ class orgSeries {
 	function series_nav_filter($content) {
 		if (is_single() || is_page() ) {
 			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
-				$addcontent = $content;
-				$content = str_replace('%postcontent%', $addcontent, $series_nav);
+				$position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
+				if($position === 'top'){
+					$series_nav = str_replace('%postcontent%', '', $series_nav);
+					$content = $series_nav.$content;
+				}elseif($position === 'bottom'){
+					$series_nav = str_replace('%postcontent%', '', $series_nav);
+					$content = $content.$series_nav;
+				}else{
+					$addcontent = $content;
+					$content = str_replace('%postcontent%', $addcontent, $series_nav);
+				}
 			}
 		}
 		return $content;
