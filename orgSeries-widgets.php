@@ -150,8 +150,6 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 
 		$series_args = $args = apply_filters('widget_seriestoc_args', $series_widget_args);
 
-		
-		write_log($series_args);
 		$title = $instance['title'];
 		$series_id = '';
 

@@ -68,31 +68,58 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 			$result .= '<ul>';
 		}
 
-		if ( 'post-list' === $referral && $limit > 0  ) {
-			$posts_in_series = array_slice($posts_in_series, 0, $limit);
-		}
+		$result_list = [];
+	   	$last_array_key = 0;
 		foreach($posts_in_series as $seriespost) {
+			$current_result = '';
 			$short_title = get_post_meta($seriespost['id'], SPOST_SHORTTITLE_KEY, true);
 			if ($cur_id == $seriespost['id']) {
+				$current_post_id = $seriespost['id'];
 				if ( 'widget' == $referral ) {
-					$result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
+					$current_result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
+				} else{
+					$current_result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
 				}
-				else
-					$result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
+				$result_list[$seriespost['id']] = $current_result;
 				continue;
 			}
 
 			$post_status = get_post_status( $seriespost['id'] );
 
 			if ( in_array( $post_status, array( 'publish', 'private' ) ) ) {
-				if ( 'widget' == $referral )
-					$result .= '<li>' . series_post_title($seriespost['id'], true, $short_title ) . '</li>';
-				else
-					$result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
+				if ( 'widget' == $referral ){
+					$current_result .= '<li>' . series_post_title($seriespost['id'], true, $short_title ) . '</li>';
+				}else{
+					$current_result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
+				}
+			} else{
+				$current_result .= apply_filters('unpublished_post_template', $settings, $seriespost, $ser);
 			}
-			else
-				$result .= apply_filters('unpublished_post_template', $settings, $seriespost, $ser);
+			$result_list[$seriespost['id']] = $current_result;
 		}
+
+		if ( 'post-list' === $referral && $limit > 0 && count($result_list) >  $limit) {
+		
+		
+			$current_post_data 	= $result_list[$current_post_id];
+			$result_limit    	= array_chunk($result_list, $limit, true);
+			$result_limit    	= $result_limit[0];
+ 
+			if(!array_key_exists($current_post_id, $result_limit)){
+				$last_array_key = key(array_slice($result_limit, -1, 1, true));
+				unset($result_limit[$last_array_key]);
+				$result_limit[$current_post_id] = $current_post_data;
+				$result_list = $result_limit;
+				ksort($result_list);
+			}else {
+				$result_list = $result_limit;
+			}
+
+			$result .= join(" ", $result_list);
+		}else{
+			$result .= join(" ", $result_list);
+		}
+
 
 		if ( 'widget' == $referral ) {
 			$result .= '</ul>';
