@@ -139,6 +139,7 @@ v2.7.0- [===unreleased===]
 * Added: New menu link for Series #278
 * Added: Post list series limit #271
 * Feature: Allow users to change the navigation, metabox or post series box position #270
+* Feature: Allow users to change the navigation, metabox or post series box position #270
 
 
 v2.6.3- 2021-09-29

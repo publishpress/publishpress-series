@@ -397,4 +397,17 @@ function ppseries_series_settings_page(){
    return admin_url( 'admin.php?page=orgseries_options_page');
 }
 
+function ppseries_get_series_list() {
+	$series_get = get_series(['hide_empty' => false]);
+
+	$series_list = array();
+	$series_list[0] = __('Auto/None', 'organize-series');
+	
+	foreach ($series_get as $series) {
+		$series_list[$series->term_id] = $series->name;
+	}
+	
+	return $series_list;
+}
+
 ?>
