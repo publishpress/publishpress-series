@@ -43,7 +43,7 @@ function orgseries_create_options() {
 
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
-	
+
 }
 
 //validate form values
@@ -327,8 +327,9 @@ function series_automation_core_fieldset() {
 								<tr valign="top"><th scope="row"><label for=""><?php _e('Style options', 'organize-series'); ?></label></th>
 									<td>
 										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use default style', 'organize-series'); ?> </label><br />
+                                        <label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_box" type="radio" value="box" <?php checked('box', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use box style', 'organize-series'); ?> </label><br />
 										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use dark style', 'organize-series'); ?> </label><br />
-										<label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use light style', 'organize-series'); ?> </label>
+                                        <label><input name="<?php echo $org_name; ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', $org_opt['custom_css']) ?> /><?php _e('Use light style', 'organize-series'); ?> </label>
 									</td>
 								</tr>
 
@@ -377,7 +378,7 @@ function series_templates_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
-	
+
 	$post_box_locations = [
 		'default'=> __('As in Template', 'organize-series'),
 		'top' 	 => __('Top', 'organize-series'),
@@ -405,11 +406,11 @@ function series_templates_core_fieldset() {
 								<tr valign="top"><th scope="row"><label for="series_post_list_position"><?php _e('Series Post List box Location', 'organize-series'); ?></label></th>
 									<td>
 										<select name="<?php echo $org_name;?>[series_post_list_position]" id="series_post_list_position">
-										<?php 
+										<?php
 										foreach($post_box_locations as $key => $label){
-											$selected = ( isset($org_opt['series_post_list_position']) && $org_opt['series_post_list_position'] === $key ) ? 'selected="selected"' : ''; 
+											$selected = ( isset($org_opt['series_post_list_position']) && $org_opt['series_post_list_position'] === $key ) ? 'selected="selected"' : '';
 											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
-											
+
 										}
 										?>
 										</select>
@@ -445,11 +446,11 @@ function series_templates_core_fieldset() {
 								<tr valign="top"><th scope="row"><label for="series_metabox_position"><?php _e('Series Metabox Location', 'organize-series'); ?></label></th>
 									<td>
 										<select name="<?php echo $org_name;?>[series_metabox_position]" id="series_metabox_position">
-										<?php 
+										<?php
 										foreach($post_box_locations as $key => $label){
-											$selected = ( isset($org_opt['series_metabox_position']) && $org_opt['series_metabox_position'] === $key ) ? 'selected="selected"' : ''; 
+											$selected = ( isset($org_opt['series_metabox_position']) && $org_opt['series_metabox_position'] === $key ) ? 'selected="selected"' : '';
 											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
-											
+
 										}
 										?>
 										</select>
@@ -479,11 +480,11 @@ function series_templates_core_fieldset() {
 								<tr valign="top"><th scope="row"><label for="series_navigation_box_position"><?php _e('Series Post Navigation Location', 'organize-series'); ?></label></th>
 									<td>
 										<select name="<?php echo $org_name;?>[series_navigation_box_position]" id="series_navigation_box_position">
-										<?php 
+										<?php
 										foreach($post_box_locations as $key => $label){
-											$selected = ( isset($org_opt['series_navigation_box_position']) && $org_opt['series_navigation_box_position'] === $key ) ? 'selected="selected"' : ''; 
+											$selected = ( isset($org_opt['series_navigation_box_position']) && $org_opt['series_navigation_box_position'] === $key ) ? 'selected="selected"' : '';
 											echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
-											
+
 										}
 										?>
 										</select>

@@ -512,6 +512,10 @@ class orgSeries {
 					wp_register_style('light-style', plugins_url('orgSeriesLightTheme.css', __FILE__));
 					wp_enqueue_style('light-style');
 					break;
+				case 'box':
+					wp_register_style('orgseries-box-css', plugins_url('orgSeriesBoxTheme.css', __FILE__));
+					wp_enqueue_style('orgseries-box-css');
+					break;
 				default:
 					wp_register_style( 'orgseries-default-css', $plugin_path . 'orgSeries.css' );
 					wp_enqueue_style( 'orgseries-default-css');
