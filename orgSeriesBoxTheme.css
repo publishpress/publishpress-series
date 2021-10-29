@@ -58,12 +58,3 @@
 	padding: 20px;
 	margin-bottom: 20px;
 }
-.seriesbox a:hover,
-.seriesbox a:focus,
-.seriesbox a:active,
-.seriesmeta a:hover,
-.seriesmeta a:focus,
-.seriesmeta a:active {
-	color: #000;
-	text-decoration: none;
-}
