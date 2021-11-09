@@ -1,0 +1,61 @@
+.seriesbox {
+	float: right;
+	background: #fff;
+	color: #444;
+	text-align: left;
+	font-size: .8em;
+	margin: 0 0 20px 20px !important;
+	padding: 0 30px 30px;
+	min-width: 450px;
+	box-shadow: 0 6px 50px rgba(0,0,0,.09);
+}
+.seriesbox .center {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.seriesbox .center a[title]{
+	font-size: 1.3em;
+	line-height: 1.4em;
+	padding-top: 10px;
+	display: block;
+}
+.seriesbox br {
+	display: none;
+}
+.seriesbox img {
+	padding-top: 20px;
+	float: left;
+	margin-right: 20px;
+	width: 100px;
+	height: auto;
+}
+.seriesbox ul.serieslist-ul {
+	padding-left: 0;
+	list-style: none;
+	width: calc( 100% - 120px );
+	float: right;
+	margin: 0;
+}
+.seriesbox ul.serieslist-ul li {
+	 margin: 0;
+	 padding: 10px 0;
+	 border-top: 1px solid #ddd;
+	 line-height: 25px;
+}
+.seriesbox .center a[title],
+.seriesbox .center a[title]:hover,
+.seriesbox .center a[title]:focus,
+.seriesbox .center a[title]:active,
+.seriesbox ul.serieslist-ul li a,
+.seriesbox ul.serieslist-ul li a:hover,
+.seriesbox ul.serieslist-ul li a:focus,
+.seriesbox ul.serieslist-ul li a:active {
+	 text-decoration: none;
+}
+.seriesmeta {
+	background-color: #e5f3ff;
+	font-size: .8em;
+	display: block;
+	padding: 20px;
+	margin-bottom: 20px;
+}
