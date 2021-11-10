@@ -108,12 +108,14 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 			if(!array_key_exists($current_post_id, $result_limit)){
 				$last_array_key = key(array_slice($result_limit, -1, 1, true));
 				unset($result_limit[$last_array_key]);
-				$result_limit[$current_post_id] = $current_post_data;
-				$result_list = $result_limit;
-				ksort($result_list);
 			}else {
-				$result_list = $result_limit;
+				unset($result_limit[$current_post_id]);
 			}
+            //add to the middle of array
+            $add_position = round(count($result_limit)/2);
+            $new_item[$current_post_id] = $current_post_data;
+            $result_list = array_merge(array_slice($result_limit, 0, $add_position), $new_item, array_slice($result_limit, $add_position));
+
 
 			$result .= join(" ", $result_list);
 		}else{
@@ -125,6 +127,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 			$result .= '</ul>';
 		}
 	}
+
 
 	if ( !$display )
 		return $result;
