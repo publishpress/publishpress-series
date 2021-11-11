@@ -28,10 +28,10 @@ class SeriesReview
     
     public function shouldDisplayBanner($shouldDisplay)
     {
-        if(is_ppseries_admin_pages()){
+        /*if(is_ppseries_admin_pages()){
             return true;
-        }
-        return false;
+        }*/
+        return true;
     }
 }
 
