@@ -140,6 +140,7 @@ v2.7.0- [===unreleased===]
 * Added: Post list series limit #271
 * Feature: Allow users to change the navigation, metabox or post series box position #270
 * Feature: Improve the "Series Table of Content" widge #238
+* Fixed: wp_serieslist_display() Not Working #287
 
 
 v2.6.3- 2021-09-29
