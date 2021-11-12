@@ -300,7 +300,7 @@ function series_automation_core_fieldset() {
 					<div class="inside" style="padding: 0;margin: 0;">
 
 
-	<h1><?php _e('Display on single posts', 'organize-series'); ?></h1>
+	<h1><?php _e('Display on single posts in a series', 'organize-series'); ?></h1>
 
           				<table class="form-table ppseries-settings-table">
             				<tbody>
@@ -335,7 +335,7 @@ function series_automation_core_fieldset() {
 								</tr>
 
 
-								<tr valign="top"><th scope="row" colspan="2"><h1><?php _e('Display on series overview screens', 'organize-series'); ?></h1></th></tr>
+								<tr valign="top"><th scope="row" colspan="2"><h1><?php _e('Display on Series Table of Contents screens', 'organize-series'); ?></h1></th></tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php _e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td><?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /></td>
