@@ -46,6 +46,39 @@ function orgseries_create_options() {
 
 }
 
+function ppseries_register_temporary_taxonomy(){
+    //let register taxonomy if not exist for migration purpose
+		$object_type = apply_filters('orgseries_posttype_support', array('post'));
+		$capabilities = array(
+			'manage_terms' => 'manage_series',
+			'edit_terms' => 'manage_series',
+			'delete_terms' => 'manage_series',
+			'assign_terms' => 'manage_series'
+			);
+		$labels = array(
+			'name' => _x('Series', 'taxonomy general name', 'organize-series'),
+			'singular_name' => _x('Series', 'taxonomy singular name', 'organize-series'),
+			'search_items' => __('Search Series', 'organize-series'),
+			'popular_items' => __('Popular Series', 'organize-series'),
+			'all_items' => __('All Series', 'organize-series'),
+			'edit_item' => __('Edit Series', 'organize-series'),
+			'update_item' => __('Update Series', 'organize-series'),
+			'add_new_item' => __('Add New Series', 'organize-series'),
+			'new_item_name' => __('New Series Name', 'organize-series'),
+			'menu_name' => __('Manage Series', 'organize-series'),
+			'not_found' => __('No series found', 'organize-series')
+			);
+		$args = array(
+			'update_count_callback' => '_os_update_post_term_count',
+			'labels' => $labels,
+			'rewrite' => array( 'slug' => 'series', 'with_front' => true ),
+			'show_ui' => true,
+			'capabilities' => $capabilities,
+			'query_var' => 'series',
+			);
+		register_taxonomy( 'series', $object_type, $args );
+}
+
 //validate form values
 function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
@@ -58,6 +91,36 @@ function orgseries_validate($input) {
 			update_option('orgseries_update_message', $update['updated_output']);
 			return $input;
 		}
+	}elseif ( isset($_POST['migrate_series']) && (int)$_POST['migrate_series'] === 1 ) {
+
+        global $wpdb;
+
+        ppseries_register_temporary_taxonomy();
+
+        $input = $orgseries->settings;
+
+
+        $args = array(
+            'hide_empty' => false,
+            'taxonomy' => 'series'
+        );
+        $terms = get_terms($args);
+
+        $count = 0;
+            
+        foreach ( $terms as $term ) {
+            $count++;
+            $update = $wpdb->update(
+                $wpdb->prefix . 'term_taxonomy',
+                [ 'taxonomy' => ppseries_get_series_slug() ],
+                [ 'term_taxonomy_id' => $term->term_id ],
+                [ '%s' ],
+                [ '%d' ]
+            );
+        }
+        $update['updated_output'] = '<div class="updated"><p>'. sprintf(__('%1$s series migrated to new taxonomy', 'organize-series'), $count) .'</p></div>';
+        update_option('orgseries_update_message', $update['updated_output']);
+        return $input;
 	} else {
 		$update['updated_output'] = '<div class="updated"><p>' . __('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
 	}
@@ -97,11 +160,15 @@ function orgseries_validate($input) {
 	$newinput['series_post_list_position'] = trim(stripslashes($input['series_post_list_position']));
 	$newinput['series_metabox_position'] = trim(stripslashes($input['series_metabox_position']));
 	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
+	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? $input['series_taxonomy_slug'] : 'series' );
 
 	//series-icon related settings
 	$newinput['series_icon_width_series_page'] = (int) $input['series_icon_width_series_page'];
 	$newinput['series_icon_width_post_page'] = (int) $input['series_icon_width_post_page'];
 	$newinput['series_icon_width_latest_series'] = (int) $input['series_icon_width_latest_series'];
+
+    //we need to maintain series slug settings separately
+    update_option('pp_series_taxonomy_slug', $newinput['series_taxonomy_slug']);
 
 	$newinput['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	$return_input = apply_filters('orgseries_options', $newinput, $input);
@@ -118,6 +185,7 @@ function orgseries_options_init() {
 	$orgseries_options = 'orgseries_options';
 	$org_opt = 'org_series_options';
 	register_setting($orgseries_options, $org_opt, 'orgseries_validate');
+
 	add_settings_section('series_automation_settings', 'Automation Settings', 'orgseries_main_section', 'orgseries_options_page');
 	add_settings_field('series_automation_core_fieldset','<br />Series Automation Core Options', 'series_automation_core_fieldset', 'orgseries_options_page', 'series_automation_settings');
 
@@ -126,6 +194,9 @@ function orgseries_options_init() {
 
 	add_settings_section('series_icon_settings', '<br /><br />Series Icon Options', 'orgseries_icon_section', 'orgseries_options_page');
 	add_settings_field('series_icon_core_fieldset', 'Series Icon Core Options', 'series_icon_core_fieldset', 'orgseries_options_page', 'series_icon_settings');
+
+	add_settings_section('series_taxonomy_base_settings', 'Series Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
+	add_settings_field('series_taxonomy_base_core_fieldset', 'Series Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
 
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
@@ -136,7 +207,8 @@ function orgseries_options_init() {
 
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
-  $settings_tabs['series_uninstall_settings'] = __('Uninstall / Reset', 'organize-series-cpt');
+  $settings_tabs['series_taxonomy_base_settings'] = __('Series Taxonomy', 'organize-series');
+  $settings_tabs['series_uninstall_settings'] = __('Uninstall / Reset', 'organize-series');
   return $settings_tabs;
 }
 
@@ -283,6 +355,12 @@ function orgseries_icon_section() {
 }
 
 function orgseries_uninstall_section() {
+	global $orgseries;
+	?>
+	<?php
+}
+
+function orgseries_taxonomy_base_section() {
 	global $orgseries;
 	?>
 	<?php
@@ -585,6 +663,36 @@ function series_icon_core_fieldset() {
 	</div>
 	</div>
 	<?php
+}
+
+function series_taxonomy_base_core_fieldset() {
+	global $orgseries;
+	$org_opt = $orgseries->settings;
+	$org_name = 'org_series_options';
+	?>
+	<table class="form-table ppseries-settings-table">
+    	<tbody>
+            <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
+                <td><input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/></td>
+            </tr>
+            <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
+			<tr valign="top">
+            	<th scope="row"><label>
+                	    <?php _e('Migrate', 'organize-series'); ?>
+                	</label>
+            	</th>
+            	<td>
+                    <button type="submit" class="button" name="migrate_series" value="1"><?php _e('Migrate series to new taxonomy', 'organize-series'); ?></button>
+                    <div><br />
+                    <font color="red"><?php _e('Running this will delete all series terms before moving them to the new taxonomy', 'organize-series'); ?></font>
+                    </div>
+                    <span class="spinner ppseries-spinner"></span>
+                </td>
+        	</tr>
+            <?php } ?>
+
+    </tbody>
+	</table>	<?php
 }
 
 function series_uninstall_core_fieldset() {

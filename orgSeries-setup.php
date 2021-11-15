@@ -144,7 +144,7 @@ class orgSeries {
 
 		//upgrading for versions before 2.3. We're updating the series_part meta key to the new format for all posts that are a part of a series.
 		if ( $version < '2.3' ) {
-			$query = "SELECT p.ID, pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part' AND tt.taxonomy = 'series'";
+			$query = "SELECT p.ID, pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part' AND tt.taxonomy = '".ppseries_get_series_slug()."'";
 			$posts = $wpdb->get_results($query);
 
 			//let's cycle through the posts and update the meta_keys to the new format.
@@ -214,7 +214,7 @@ class orgSeries {
 
 	function register_taxonomy() {
 		$permalink_slug = $this->settings['series_custom_base'];
-		$taxonomy_name = 'series';
+		$taxonomy_name = ppseries_get_series_slug();
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
 			'manage_terms' => 'manage_series',
@@ -287,7 +287,9 @@ class orgSeries {
 			'series_posts_orderby' => 'meta_value',
 			'series_posts_order' => 'ASC',
 			//series meta style options
-			'series_css_tougle' => 'default'
+			'series_css_tougle' => 'default',
+			//series meta style options
+			'series_taxonomy_slug' => 'series',
 			);
 
 			$this->settings = apply_filters('org_series_settings', $this->settings);
@@ -299,9 +301,13 @@ class orgSeries {
         }
 
         if(!isset($this->settings['series_table_of_contents_box_template'])){// this need to move to upgrade function
-
             $this->settings['series_table_of_contents_box_template'] = '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>';
         }
+
+        if(!isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
+            $this->settings['series_taxonomy_slug'] = 'series';
+        }
+        
 		return false;
 	}
 

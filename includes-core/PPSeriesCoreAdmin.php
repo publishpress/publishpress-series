@@ -17,8 +17,8 @@ class PPSeriesCoreAdmin {
                                 'link'     => 'https://publishpress.com/links/series-banner',
                                 'screens'  => [
                                     ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
-                                    ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => 'series' ],
-                                    ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => 'series' ]
+                                    ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
+                                    ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ]
                                 ]
                             ];
 

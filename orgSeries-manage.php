@@ -3,10 +3,57 @@
 */
 
 //hook into the edit columns on "manage series" page
-add_filter('manage_edit-series_columns', 'manage_series_columns');
-add_filter('manage_series_custom_column', 'manage_series_columns_action',1,3);
-add_action('series_edit_form_fields','edit_series_form_fields',1,2);
-add_action('series_add_form_fields', 'add_series_form_fields',1);
+add_filter('manage_edit-'.ppseries_get_series_slug().'_columns', 'manage_series_columns');
+add_filter('manage_'.ppseries_get_series_slug().'_custom_column', 'manage_series_columns_action',1,3);
+add_action(''.ppseries_get_series_slug().'_edit_form_fields','edit_series_form_fields', 10,2);
+add_action(''.ppseries_get_series_slug().'_add_form_fields', 'add_series_form_fields', 10);
+//hooking into insert_term, update_term and delete_term
+add_action('created_'.ppseries_get_series_slug().'', 'wp_insert_series', 10, 2);
+add_action('edited_'.ppseries_get_series_slug().'', 'wp_update_series', 10, 2);
+add_action('delete_'.ppseries_get_series_slug().'', 'wp_delete_series', 10, 2);
+
+// note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
+function wp_delete_series($series_ID, $taxonomy_id) {
+	global $wpdb;
+	seriesicons_delete($series_ID);
+	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
+}
+
+function wp_insert_series($series_id, $taxonomy_id) {
+	global $_POST;
+	$series_icon_loc = '';
+
+	extract($_POST, EXTR_SKIP);
+	$series_icon = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : null;
+
+	if ( isset($series_icon) || $series_icon != '' ) {
+		$build_path = seriesicons_url();
+		$series_icon = str_replace($build_path, '', $series_icon);
+	}
+
+	$series_icon = seriesicons_write($series_id, $series_icon);
+}
+
+function wp_update_series($series_id, $taxonomy_id) {
+	global $_POST;
+	extract($_POST, EXTR_SKIP);
+	if ( empty($series_icon_loc) ) $series_icon_loc = '';
+	if ( empty($delete_image) ) $delete_image = false;
+
+	$series_icon = $series_icon_loc;
+
+	if ( !empty($series_icon) || $series_icon != '' ) {
+		$build_path = seriesicons_url();
+		$series_icon = str_replace($build_path, '', $series_icon);
+
+	}
+
+	if ($delete_image) {
+		seriesicons_delete($series_id);
+	} else {
+		$series_icon = seriesicons_write($series_id, $series_icon);
+	}
+}
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
@@ -56,9 +103,12 @@ function edit_series_form_fields($series, $taxonomy) {
 	global $orgseries;
 	$series_icon = get_series_icon('fit_width=100&fit_height=100&link=0&expand=true&display=0&series='.$series->term_id);
 	$icon_loc = series_get_icons($series->term_id);
-	if ($icon_loc || $icon_loc != '')
+	if ($icon_loc || $icon_loc != ''){
 		$series_icon_loc = seriesicons_url() . $icon_loc;
-	else $series_icon_loc = '';
+    }else{
+	    $series_icon_loc = '';
+    }
+
 	?>
 			<tr valign="top">
 				<?php if ( $series->term_id != '' ) { ?>
