@@ -4,16 +4,16 @@ $settings = $orgseries->settings;
 $delete_series = $settings['kill_on_delete'];
 
 if ( $delete_series == 1 ) {
-	$query = "SELECT term_id FROM $wpdb->term_taxonomy WHERE taxonomy = 'series'";
-	$series_ids = $wpdb->get_results($query);	
+	$query = "SELECT term_id FROM $wpdb->term_taxonomy WHERE taxonomy = '".ppseries_get_series_slug()."'";
+	$series_ids = $wpdb->get_results($query);
 	 foreach ( $series_ids as $series ) {
 		$series = (int) $series->term_id;
-		
+
 		$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", $series ) );
 		$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->term_taxonomy WHERE term_taxonomy_id = %d", $series ) );
 		$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->terms WHERE term_id = %d", $series ) );
 	}
-	
+
 	$meta_key = "'%_series_part%'";
 	$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $meta_key) );
 	$table_name = $wpdb->prefix . "orgseriesicons";
@@ -29,5 +29,5 @@ if ( $delete_series == 1 ) {
 	delete_option('series_icon_url');
 	delete_option('series_icon_filetypes');
 }
-		
+
 ?>

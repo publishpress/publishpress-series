@@ -31,6 +31,23 @@ add_action('admin_enqueue_scripts','orgSeries_admin_assets');
 //add footer credit
 add_action( 'in_admin_footer', 'orgSeries_admin_footer' );
 
+add_action('wp_ajax_ppseries_pro_migrate_series_by_ajax', 'ppseries_pro_migrate_series_by_ajax');
+
+
+
+function ppseries_pro_migrate_series_by_ajax()
+{
+
+    //instantiate response default value
+    $response['status'] = 'error';
+    $response['content'] = '<font color="red">'.__('An error occured', 'organize-series').'</font>';
+
+    $response['status'] = 'success';
+    $response['content'] = sprintf(__('%1$s series migrated to new taxonomy', 'organize-series'), $count);
+
+    wp_send_json($response);
+
+}
 
 function orgseries_load_custom_column_actions() {
 	//support for custom post types
@@ -79,7 +96,7 @@ function orgSeries_admin_script() {
 	//load in the series.js script and set localization variables.
 	global $pagenow;
 
-	if ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && 'series' == $_GET['taxonomy'] ) {
+	if ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && ppseries_get_series_slug() == $_GET['taxonomy'] ) {
 		orgSeries_manage_script();
 	}
 
@@ -330,7 +347,7 @@ function orgSeries_custom_column_filter($defaults) {
 	$post_types = apply_filters( 'orgseries_posttype_support', array('post') );
 	if ( isset($_REQUEST['post_type']) && !in_array($_REQUEST['post_type'], $post_types) )
 		return $defaults; //get out we only want this showing up on post post types for now.*/
-	$defaults['series'] = __('Series', 'organize-series');
+	$defaults[ppseries_get_series_slug()] = __('Series', 'organize-series');
 	return $defaults;
 }
 
@@ -342,7 +359,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 	$column_content = null;
 	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 
-	if ($column_name == 'series') {
+	if ($column_name == ppseries_get_series_slug()) {
 		$column_content .= '<div class="series_column">';
 		$column_content .= '<input type="hidden" name="is_series_save" value="1" />';
 		if ( $series = get_the_series($id, false) ) {
@@ -355,7 +372,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$draft_posts = get_posts( array(
 				'post_type'	=> $post_types,
 				'post_status' => array('draft', 'future', 'pending'),
-				'taxonomy'	=> 'series',
+				'taxonomy'	=> ppseries_get_series_slug(),
 				'term'	=> $series_name
 			) );
 			$count_draft_posts = is_array($draft_posts) ? count($draft_posts) : 0;
@@ -405,7 +422,7 @@ function add_series_management_link() {
 
 function add_series_to_right_now() {
 	global $orgseries;
-	$num_series = wp_count_terms('series');
+	$num_series = wp_count_terms(ppseries_get_series_slug());
 	$num = number_format_i18n( $num_series );
 	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;

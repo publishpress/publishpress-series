@@ -106,7 +106,7 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%series_title_linked%', the_series_title($ser_id), $replace);
 	if( stristr($replace, '%post_title_list%') )
 	$replace = str_replace('%post_title_list%', get_series_posts($id, $referral), $replace);
-	if( stristr($replace, '%post_title_list_short%') ) 
+	if( stristr($replace, '%post_title_list_short%') )
 	$replace = str_replace('%post_title_list_short%', get_series_posts($id, TRUE), $replace);
 	if( stristr($replace, '%post_title%') )
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
@@ -131,7 +131,7 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%next_post_custom%', wp_series_nav($id, TRUE, TRUE), $replace);
 	if( stristr($replace, '%previous_post_custom%') )
 	$replace = str_replace('%previous_post_custom%', wp_series_nav($id, FALSE, TRUE), $replace);
-	
+
 
 	$replace = apply_filters('post_orgseries_token_replace', $replace, $referral, $id, $p_id, $ser_id);
 	return $replace;
@@ -151,7 +151,7 @@ function get_series_permastruct() {
 	$series_token = '%' . SERIES_QUERYVAR . '%';
 
 	if ( $custom_base == '' )
-		$series_structure = trailingslashit( $wp_rewrite->front . SERIES_URL . "/$series_token");
+		$series_structure = trailingslashit( $wp_rewrite->front . ppseries_get_series_slug() . "/$series_token");
 
 	else
 		$series_structure = trailingslashit( $wp_rewrite->root . $custom_base . "/$series_token");
@@ -285,7 +285,7 @@ function is_ppseries_admin_pages(){
     $admin_pages = ppseries_admin_pages();
 
     if (
-        ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && ( isset($_GET['taxonomy']) && 'series' == $_GET['taxonomy'])  ) ||
+        ( ( 'edit-tags.php' == $pagenow || 'term.php' == $pagenow  ) && ( isset($_GET['taxonomy']) && ppseries_get_series_slug() == $_GET['taxonomy'])  ) ||
         ( isset( $_GET['page'] ) && in_array( $_GET['page'], $admin_pages ) )
     ) {
 
@@ -402,12 +402,21 @@ function ppseries_get_series_list() {
 
 	$series_list = array();
 	$series_list[0] = __('Auto/None', 'organize-series');
-	
+
 	foreach ($series_get as $series) {
 		$series_list[$series->term_id] = $series->name;
 	}
-	
+
 	return $series_list;
 }
 
+function ppseries_get_series_slug() {
+    global $orgseries;
+
+	$series_slug = get_option('pp_series_taxonomy_slug');
+
+    $series_slug = (!empty(trim($series_slug))) ? $series_slug : 'series';
+
+	return $series_slug;
+}
 ?>

@@ -9,23 +9,23 @@ add_action('atom_ns', 'series_ns');
 
 function get_series_rss_link($echo = false, $series_id = '') {
 	$permalink_structure = get_option('permalink_structure');
-	
+
 	//check for series_id and attempt to find it if possible
 	if ( $series_id == '' ) {
 		$series = get_query_var(SERIES_QUERYVAR);
 	}
-	
+
 	if ( $series_id == '' ) return;
-	
+
 	if ( '' == $permalink_structure ) {
 		$link = get_option('home') . '?feed=rss2&amp;' . SERIES_QUERYVAR . '=' . $series_id;
 	} else {
 		$link = get_series_link($series_id);
 		$link = trailingslashit($link) . user_trailingslashit('feed', 'feed');
 	}
-	
+
 	$link = apply_filters('series_feed_link', $link);
-	
+
 	if ( $echo )
 		echo $link;
 	return $link;
@@ -35,17 +35,17 @@ function get_the_series_rss($type = 'rss') {
 	$series = get_the_series();
 	$the_list = '';
 	$series_names = array();
-	
+
 	$filter = 'rss';
 	if ( 'atom' == $type )
 		$filter = 'raw';
-		
+
 	if ( !empty($series) ) foreach ( (array) $series as $serial ) {
-		$series_names[] = sanitize_term_field('name', $serial->name, $serial->term_id, 'series', $filter);
+		$series_names[] = sanitize_term_field('name', $serial->name, $serial->term_id, ppseries_get_series_slug(), $filter);
 	}
-	
+
 	$series_names = array_unique($series_names);
-	
+
 	foreach ( $series_names as $series_name ) {
 		if ( 'rdf' == $type )
 			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
@@ -54,7 +54,7 @@ function get_the_series_rss($type = 'rss') {
 		else
 			$the_list .= "\n\t\t<series:name><![CDATA[$series_name]]></series:name>\n";
 	}
-	
+
 	return apply_filters('the_series_rss', $the_list, $type);
 }
 

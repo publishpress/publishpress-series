@@ -57,7 +57,7 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 	$result = '';
 	$limit = isset($settings['series_post_list_limit']) ? (int)$settings['series_post_list_limit'] : 0;
 	foreach ( $ser_ID as $ser ) {
-		$series_post = get_objects_in_term($ser, 'series');
+		$series_post = get_objects_in_term($ser, ppseries_get_series_slug());
 		$is_unpub_template = TRUE;
 		$is_unpub_template = apply_filters('unpublished_post_template', $is_unpub_template);
 
@@ -410,7 +410,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
 	$options = is_object($orgseries) ? $orgseries->settings : NULL;
 	$per_page = is_array($options) && isset($options['series_perp_toc']) ? $options['series_perp_toc'] : 5;
 	$current = $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1;
-	$total_terms = (int) wp_count_terms('series', array('hide_empty' => true));
+	$total_terms = (int) wp_count_terms(ppseries_get_series_slug(), array('hide_empty' => true));
 	$max_num_pages = ceil($total_terms/$per_page);;
 	$pagination = array(
 		'base' => esc_url_raw( add_query_arg('paged','%#%') ),
@@ -485,7 +485,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	$settings = $orgseries->settings;
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
 	$cur_part = (int) get_post_meta($cur_id, $series_part_key, true);
-	$series_posts = get_objects_in_term($series_ID, 'series');
+	$series_posts = get_objects_in_term($series_ID, ppseries_get_series_slug());
 	$posts_in_series = get_series_order($series_posts, $cur_id, $series_ID);
 	$result = '';
 
@@ -646,9 +646,9 @@ function get_series_link( $series_id = '' ) {
 		$series_slug = get_query_var(SERIES_QUERYVAR);
 
 	if ( is_numeric($series_id) ) {
-		$series_slug = get_term_field( 'slug', $series_id, 'series' );
+		$series_slug = get_term_field( 'slug', $series_id, ppseries_get_series_slug() );
 	} else {
-		if ( $series_slug_get = get_term_by('name', htmlentities2($series_id), 'series' ) ) {
+		if ( $series_slug_get = get_term_by('name', htmlentities2($series_id), ppseries_get_series_slug() ) ) {
 				$series_slug = $series_slug_get;
 		}
 	}
@@ -656,7 +656,7 @@ function get_series_link( $series_id = '' ) {
 	if ( empty($series_slug) || $series_slug == null || $series_slug == '' )
 		return false;
 
-	$serieslink = get_term_link($series_slug, 'series');
+	$serieslink = get_term_link($series_slug, ppseries_get_series_slug());
 
 	$serieslink = is_wp_error($serieslink) ? '' : $serieslink;
 
@@ -713,10 +713,10 @@ function in_series( $series_term = 0 ) { //check if the current post is in the g
 	if ( $ser_ID )
 		$series_term = $ser_ID;
 
-	$series = get_object_term_cache($post->ID, 'series');
+	$series = get_object_term_cache($post->ID, ppseries_get_series_slug());
 
 	if ( false === $series )
-		$series = wp_get_object_terms($post->ID, 'series');
+		$series = wp_get_object_terms($post->ID, ppseries_get_series_slug());
 
 	if ( $check_any ) {
 		if ( $series ) return true;
@@ -814,14 +814,14 @@ function series_description($series_id = 0) {
 	global $orgseries;
 	if ( !$series_id ) {
 		$ser_var = get_query_var(SERIES_QUERYVAR);
-		$ser_var = term_exists( $ser_var, 'series' );
+		$ser_var = term_exists( $ser_var, ppseries_get_series_slug() );
 		if ( !empty($ser_var) )
 			$series_id = $ser_var['term_id'];
 	}
 
 	if ($series_id == '') return false;
 
-	return get_term_field('description', $series_id, 'series');
+	return get_term_field('description', $series_id, ppseries_get_series_slug());
 }
 
 /**
@@ -890,7 +890,7 @@ function is_series( $slug = '' ) {
 
 			//query_var may not be a slug but may be an id.
 			if ( is_numeric( $series ) ) {
-				$series_object = get_term_by( 'id', $series, 'series' );
+				$series_object = get_term_by( 'id', $series, ppseries_get_series_slug() );
 				if ( $series_object ) {
 					return true;
 				}
@@ -1025,7 +1025,7 @@ function single_series_title($prefix = '', $display = true) {
 	}
 
 	if ( !empty($series_id) ) {
-		$my_series = get_term($series_id, 'series', OBJECT, 'display');
+		$my_series = get_term($series_id, ppseries_get_series_slug(), OBJECT, 'display');
 		if ( is_wp_error( $my_series ) )
 			return false;
 		$my_series_name = apply_filters('single_series_title', $my_series->name);

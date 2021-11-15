@@ -52,7 +52,6 @@ if (!defined('ORG_SERIES_VERSION')) {
     define('SERIES_PATH', plugin_dir_path(__FILE__)); //the path of the orgSeries file
     //note 'SERIES_QUERY_VAR' is now defined in orgSeries class.
     define('SERIES_TOC_QUERYVAR', 'series-toc'); //get/post variable name for querying series-toc from WP
-    define('SERIES_URL', 'series'); //URL tag to use when querying series archive pages.
     define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
     define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
     define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
