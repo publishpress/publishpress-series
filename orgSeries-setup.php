@@ -296,15 +296,15 @@ class orgSeries {
 			update_option('org_series_options', $this->settings);
 			return true;
 		}
-		if ( !defined('SERIES_QUERYVAR') ){
+		if ( is_array($this->settings) &&  !defined('SERIES_QUERYVAR') ){
 			define('SERIES_QUERYVAR', $this->settings['series_custom_base'] );  // get/post variable name for querying series from WP
         }
 
-        if(!isset($this->settings['series_table_of_contents_box_template'])){// this need to move to upgrade function
+        if(is_array($this->settings) && !isset($this->settings['series_table_of_contents_box_template'])){// this need to move to upgrade function
             $this->settings['series_table_of_contents_box_template'] = '<div class="serieslist-box"><div class="imgset">%series_icon_linked%</div><div class="serieslist-content"><h2>%series_title_linked%</h2><p>%series_description%</p></div><hr style="clear: left; border: none" /></div>';
         }
 
-        if(!isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
+        if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
         
