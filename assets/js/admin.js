@@ -90,6 +90,28 @@
     });
 
 
+
+    // -------------------------------------------------------------
+    //   Series migration
+    // -------------------------------------------------------------
+    /*$(document).on('click', '.ppseries-migrate-series', function (e) {
+      e.preventDefault();
+      var button = $(this);
+      $(".ppseries-spinner").addClass("is-active");
+      button.attr('disabled', true);
+      $('.ppseries-migrate-series-response').remove();
+      var data = {
+          'action': 'ppseries_pro_migrate_series_by_ajax'
+      };
+      $.post(ajaxurl, data, function (response) {
+        $(".ppseries-spinner").removeClass("is-active");
+        button.attr('disabled', false);
+        $('.ppseries-migrate-series').after('<div class="ppseries-migrate-series-response" style="margin-top:10px;">'+response.content+'</div>');
+      });
+
+  });*/
+
+
   })
 
 })(jQuery)

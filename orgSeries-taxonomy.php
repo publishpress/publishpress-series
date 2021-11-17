@@ -18,10 +18,10 @@ function get_the_series( $id = false, $cache = true ) {
 	if ( empty($id) )
 		return false;
 
-	$series = $cache ? get_object_term_cache($id, 'series') : false;
+	$series = $cache ? get_object_term_cache($id, ppseries_get_series_slug()) : false;
 
 	if (false === $series )
-		$series = wp_get_object_terms($id, 'series');
+		$series = wp_get_object_terms($id, ppseries_get_series_slug());
 
 	$series = apply_filters('get_the_series', $series); //adds a new filter for users to hook into
 
@@ -38,7 +38,7 @@ function get_the_series( $id = false, $cache = true ) {
 
 // Get the ID of a series from its name
 function get_series_ID($series_name='default') {
-	$series = series_exists($series_name, 'series');
+	$series = series_exists($series_name, ppseries_get_series_slug());
 	if ( $series )
 		return $series;
 	return 0;
@@ -50,14 +50,14 @@ function &get_series($args = '') {
 	$series = array();
 
 	$key = md5( serialize($args) );
-	if ( $cache = wp_cache_get('get_series','series') )
+	if ( $cache = wp_cache_get('get_series', ppseries_get_series_slug()) )
 		if ( isset( $cache[ $key ] ) )
 			$series = apply_filters('get_series', $cache[$key], $args);
 			if (!empty($series)) {
 				return $series;
 			}
 
-	$series = get_terms('series', $args);
+	$series = get_terms(ppseries_get_series_slug(), $args);
 
 	if (is_wp_error($series) || empty($series)) {
 		$series = [];
@@ -65,14 +65,14 @@ function &get_series($args = '') {
 	}
 
 	$cache[ $key ] = $series;
-	wp_cache_set( 'get_series', $cache, 'series' );
+	wp_cache_set( 'get_series', $cache, ppseries_get_series_slug() );
 
 	$series = apply_filters('get_series', $series, $args);
 	return $series;
 }
 
 function &get_orgserial($orgserial, $output = OBJECT, $filter = 'raw') {
-		$serie = get_term($orgserial, 'series', $output, $filter);
+		$serie = get_term($orgserial, ppseries_get_series_slug(), $output, $filter);
 		return $serie;
 }
 
@@ -90,7 +90,7 @@ function delete_series_post_relationship($postid) {
 		foreach ( $series as $ser ) {
 			wp_reset_series_order_meta_cache($id, $ser->term_id);
 		}
-		return wp_delete_object_term_relationships($id, array('series'));
+		return wp_delete_object_term_relationships($id, array(ppseries_get_series_slug()));
 	}
 	return;
 }
@@ -112,14 +112,14 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 	$post_id = (int) $post_id;
 	$defaults = array('fields' => 'ids');
 	$args = wp_parse_args( $args, $defaults);
-	$series = wp_get_object_terms($post_id, 'series', $args);
+	$series = wp_get_object_terms($post_id, ppseries_get_series_slug(), $args);
 	return $series;
 }
 
 //function to set the order that the post is in a series.
 function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
-	$post_ids_in_series = get_objects_in_term($series_id, 'series');
+	$post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
 	$series_posts = array();
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false);
 	$parts_array = array();
@@ -157,7 +157,7 @@ function set_series_order($postid = 0, $series_part = 0, $series_id, $is_publish
 	$rise = null;
 	if ( $count >= 1 ) {
 		foreach ( $series_posts as $sposts ) {
-			$currentpart = $sposts['part'];
+			$currentpart = absint($sposts['part']);
 			$spostid = $sposts['id'];
 			$spost_status = get_post($spostid)->post_status;
 			$is_was_rise = FALSE;
@@ -251,7 +251,7 @@ function wp_reset_series_order_meta_cache ($post_id = 0, $series_id = 0, $reset 
 
 	if ( 0 == $series_id ) return false; //post is not a part of a series so no need to waste cycles.
 
-	$post_ids_in_series = get_objects_in_term($series_id, 'series');
+	$post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
 
 	$addvalue = 1;
 
@@ -338,7 +338,7 @@ function get_series_ordered( $args = '' ) {
 
 	$postTypes = "'" . implode("','",$postTypes) . "'";
 
-	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status IN ( 'publish', 'private' ) and tp.post_type in ($postTypes) WHERE tt.taxonomy = 'series' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
+	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status IN ( 'publish', 'private' ) and tp.post_type in ($postTypes) WHERE tt.taxonomy = '".ppseries_get_series_slug()."' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
 	$series = $wpdb->get_results($query);
 	return $series;
 }
@@ -360,14 +360,14 @@ function wp_dropdown_series( $args ) {
 		'exclude' => '', 'echo' => 1,
 		'selected' => 0, 'hierarchical' => 0, 'name' => SERIES_QUERYVAR, 'id' => '',
 		'class' => 'postform', 'depth' => 0,
-		'tab_index' => 0, 'taxonomy' => 'series',
+		'tab_index' => 0, 'taxonomy' => ppseries_get_series_slug(),
 		'hide_if_empty' => false, 'context' => 'normal'
 	);
 
 	$series_id = get_query_var(SERIES_QUERYVAR);
 
 	if ( is_numeric($series_id) && isset( $args['context'] ) && $args['context'] == 'normal' )
-		$series_id = get_term_field('slug', $series_id, 'series');
+		$series_id = get_term_field('slug', $series_id, ppseries_get_series_slug());
 
 	$defaults['selected'] = ( ! empty($series_id) || $series_id != NULL ) ? $series_id : 0;
 
@@ -442,7 +442,7 @@ function wp_list_series($args = '') {
 	global $orgseries;
 	$defaults = array(
 		'title_li' => __('Series', 'organize-series'),
-		'taxonomy' => 'series',
+		'taxonomy' => ppseries_get_series_slug(),
 		'echo' => 1
 	);
 	$args = wp_parse_args( $args, $defaults );
@@ -569,7 +569,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 		}
 	}
 
-	$success = wp_set_object_terms($post_ID, $post_series, 'series');
+	$success = wp_set_object_terms($post_ID, $post_series, ppseries_get_series_slug());
 
 	if ( empty($p_ser_edit) ) return; //let's get out we've done everything we need to do.
 
@@ -622,7 +622,7 @@ function series_exists($series_name) {
 
 	$series_name = is_numeric($series_name) ? (int) $series_name : $series_name;
 
-	$id = term_exists($series_name, 'series');
+	$id = term_exists($series_name, ppseries_get_series_slug());
 	if ( is_array($id) )
 		$id = $id['term_id'];
 	return $id;
@@ -638,7 +638,7 @@ function delete_series_object_relationship( $object_id, $terms ) {
 		$terms = array($terms);
 
 	foreach ( $terms as $term ) {
-		$t_obj = term_exists($term, 'series');
+		$t_obj = term_exists($term, ppseries_get_series_slug());
 		if ( is_object($t_obj) )
 			$t_ids[] = $t_obj->term_taxonomy_id;
 	}
@@ -646,7 +646,7 @@ function delete_series_object_relationship( $object_id, $terms ) {
 	if ( !empty($t_ids) ) {
 		$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
 		$wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id) );
-		wp_update_term_count($t_ids, 'series');
+		wp_update_term_count($t_ids, ppseries_get_series_slug());
 	}
 }
 
@@ -659,57 +659,14 @@ function wp_create_single_series($series_name) {
 	if ($id = series_exists($series_name) )
 		return $id;
 
-	return wp_insert_term( $series_name, 'series' );
+	return wp_insert_term( $series_name, ppseries_get_series_slug() );
 }
 
-
-// note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
-function wp_delete_series($series_ID, $taxonomy_id) {
-	global $wpdb;
-	seriesicons_delete($series_ID);
-	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
-}
-
-function wp_insert_series($series_id, $taxonomy_id) {
-	global $_POST;
-	$series_icon_loc = '';
-
-	extract($_POST, EXTR_SKIP);
-	$series_icon = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : null;
-
-	if ( isset($series_icon) || $series_icon != '' ) {
-		$build_path = seriesicons_url();
-		$series_icon = str_replace($build_path, '', $series_icon);
-	}
-
-	$series_icon = seriesicons_write($series_id, $series_icon);
-}
-
-function wp_update_series($series_id, $taxonomy_id) {
-	global $_POST;
-	extract($_POST, EXTR_SKIP);
-	if ( empty($series_icon_loc) ) $series_icon_loc = '';
-	if ( empty($delete_image) ) $delete_image = false;
-
-	$series_icon = $series_icon_loc;
-
-	if ( !empty($series_icon) || $series_icon != '' ) {
-		$build_path = seriesicons_url();
-		$series_icon = str_replace($build_path, '', $series_icon);
-
-	}
-
-	if ($delete_image) {
-		seriesicons_delete($series_id);
-	} else {
-		$series_icon = seriesicons_write($series_id, $series_icon);
-	}
-}
 
 function inline_edit_series($column_name, $type) {
 	global $orgseries;
 	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
-	if ( in_array($type, $posttypes) && $column_name == 'series' ) {
+	if ( in_array($type, $posttypes) && $column_name == ppseries_get_series_slug() ) {
 		?>
 	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
 		<div class="inline_edit_series_">
@@ -832,7 +789,6 @@ function orgseries_fix_terms_changed() {
 	update_option( 'series_has_been_fixed', true );
 }
 
-
 /**
  * add_action() and add_filter() calls go here.
 */
@@ -850,11 +806,6 @@ add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('delete_post','delete_series_post_relationship', 1);
 add_action('trash_post', 'reset_series_order_on_trash', 1);
 add_action('untrash_post', 'reset_series_order_on_trash', 1);
-
-//hooking into insert_term, update_term and delete_term
-add_action('created_series', 'wp_insert_series',1, 2);
-add_action('edited_series', 'wp_update_series',1, 2);
-add_action('delete_series', 'wp_delete_series', 10, 2);
 
 //prep for term splitting that happens in WP4.2+ (this is more for taking care of Publishpress Series Multiples users
 add_action( 'split_shared_term', 'org_series_maybe_update_post_parts', 10, 4 );

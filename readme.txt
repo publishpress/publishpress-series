@@ -130,6 +130,20 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.7.0- 2021-11-17
+* Fixed: Clarify what HTML is allowed in templates #273
+* Fixed: Update the Reviews box class #274
+* Fixed: Add message to draft series without part number #261
+* Feature: Added %first_post% token to series navigation #232
+* Fixed: Incorrect Yoast SEO attributes for Series TOC page #82
+* Added: New menu link for Series #278
+* Added: Post list series limit #271
+* Feature: Allow users to change the navigation, metabox or post series box position #270
+* Feature: Improve the "Series Table of Content" widge #238
+* Fixed: wp_serieslist_display() Not Working #287
+* Fixed: Issue with Seriously Simple Podcasting plugin #87
+* Fixed: PHP Notice: Trying to access array offse #298
+
 v2.6.3- 2021-09-29
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
 * Fixed: Append to series on action Scheduled to Published #83
