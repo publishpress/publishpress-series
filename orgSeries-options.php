@@ -684,7 +684,7 @@ function series_taxonomy_base_core_fieldset() {
             	<td>
                     <button type="submit" class="button" name="migrate_series" value="1"><?php _e('Migrate series to new taxonomy', 'organize-series'); ?></button>
                     <div><br />
-                    <font color="red"><?php _e('Running this will delete all series terms before moving them to the new taxonomy', 'organize-series'); ?></font>
+                    <font color="red"><?php _e('Please use with caution. Running this process will delete all the terms from the "Series" taxonomy and migrate them to a new taxonomy.', 'organize-series'); ?></font>
                     </div>
                     <span class="spinner ppseries-spinner"></span>
                 </td>
