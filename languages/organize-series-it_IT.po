@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - PublishPress Series &#8211; Organize WordPress Posts into a Series - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-29 14:58+0000\n"
+"PO-Revision-Date: 2021-11-17 12:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: Italian"
 
-#: orgSeries-widgets.php:221
+#: orgSeries-widgets.php:265
 msgid " Dropdown: "
 msgstr " A discesa: "
 
-#: orgSeries-widgets.php:222
+#: orgSeries-widgets.php:266
 msgid " List: "
 msgstr " Elenco: "
 
@@ -27,32 +27,31 @@ msgstr " Elenco: "
 msgid "%1$s is not a valid entity (expected: %2$s)."
 msgstr "%1$s non è un'entità valida (previsto: %2$s)."
 
+#: orgSeries-options.php:121 orgSeries-admin.php:46
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr ""
+
 #: src/domain/exceptions/InvalidInterfaceException.php:26
 msgid "%s does not exist or is not reachable."
 msgstr "%s non esiste o non è raggiungibile."
 
-#: inc/review/review-request.php:292
-msgid "1 month"
+#: orgSeries-admin.php:392
+#, php-format
+msgid ""
+"<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (Currently has no Part number)"
 msgstr ""
 
-#: inc/review/review-request.php:284
-msgid "1 week"
-msgstr ""
-
-#: inc/review/review-request.php:300
-msgid "3 months"
-msgstr ""
-
-#: orgSeries-admin.php:374
+#: orgSeries-admin.php:394
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (currently set as Part %4$s)"
 msgstr ""
 "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (attualmente fa parte di %4$s)"
 
-#: orgSeries-template-tags.php:166 orgSeries-template-tags.php:173
+#: orgSeries-template-tags.php:200 orgSeries-template-tags.php:207
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr "<a href=\"%s\" title=\"%s\">Serie</a>"
 
-#: orgSeries-admin.php:308
+#: orgSeries-admin.php:325
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -60,11 +59,11 @@ msgstr ""
 "Un titolo breve di questo articolo da usare el widget Serie. Lascia vuoto "
 "per usare il titolo completo."
 
-#: orgSeries-admin.php:119
+#: orgSeries-admin.php:136
 msgid "About"
 msgstr "Chi siamo"
 
-#: orgSeries-admin.php:119
+#: orgSeries-admin.php:136
 msgid "About PublishPress Series"
 msgstr "Informazioni su PublishPress Series"
 
@@ -73,39 +72,55 @@ msgstr "Informazioni su PublishPress Series"
 msgid "Activate License"
 msgstr "Attiva la licenza"
 
-#: orgSeries-setup.php:177
+#: orgSeries-setup.php:178
 msgid "Add New"
 msgstr "Aggiungi nuova"
 
-#: orgSeries-setup.php:232
+#: orgSeries-options.php:66 orgSeries-setup.php:233
 msgid "Add New Series"
 msgstr "Aggiungi nuova serie"
 
-#: orgSeries-setup.php:229
+#: orgSeries-options.php:63 orgSeries-setup.php:230
 msgid "All Series"
 msgstr "Tutte le serie"
 
-#: orgSeries-template-tags.php:163
+#: orgSeries-template-tags.php:197
 msgid "All the Series I've Written"
 msgstr "Tutte le serie che ho scritto"
+
+#: orgSeries-options.php:251
+msgid "Allowed Html"
+msgstr ""
+
+#: orgSeries-admin.php:43
+msgid "An error occured"
+msgstr ""
 
 #: src/domain/model/LicenseKeyRepository.php:131
 msgid "An error occurred, please try again."
 msgstr "Si è verificato un errore, riprova."
 
+#: orgSeries-options.php:462
+msgid "As in Template"
+msgstr ""
+
 #: orgSeries-widgets.php:91
 msgid "ASC: "
 msgstr "Cresc: "
 
-#: orgSeries-options.php:332
+#: orgSeries-widgets.php:304 orgSeries-options.php:443
 msgid "Ascending"
 msgstr "Crescente"
 
-#: inc/review/review-request.php:365
-msgid "Click here to add your rating for PublishPress Series"
+#: orgSeries-utility.php:404
+msgid "Auto/None"
 msgstr ""
 
-#: orgSeries-options.php:227
+#: orgSeries-options.php:464
+msgid "Bottom"
+msgstr ""
+
+#: orgSeries-options.php:326
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
@@ -114,19 +129,23 @@ msgstr ""
 "perderai tutte le personalizzazioni. Oppure puoi fare clic su Annulla e "
 "ritorna."
 
-#: orgSeries-admin.php:121
+#: orgSeries-admin.php:138
 msgid "Contact"
 msgstr "Contatto"
 
-#: orgSeries-admin.php:121
+#: orgSeries-admin.php:138
 msgid "Contact the PublishPress team"
 msgstr "Contatta il team di PublishPress"
 
-#: orgSeries-widgets.php:203
+#: orgSeries-widgets.php:285
+msgid "count"
+msgstr ""
+
+#: orgSeries-widgets.php:377
 msgid "Current series"
 msgstr ""
 
-#: orgSeries-manage.php:65
+#: orgSeries-manage.php:115
 msgid "Current series icon:"
 msgstr "Icona della serie corrente:"
 
@@ -135,7 +154,7 @@ msgstr "Icona della serie corrente:"
 msgid "Deactivate License"
 msgstr "Disattiva la licenza"
 
-#: orgSeries-options.php:510
+#: orgSeries-options.php:710
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
@@ -143,7 +162,7 @@ msgstr ""
 "Elimina dal database tutti i dati di PublishPress Series quando questo "
 "plugin viene eliminato."
 
-#: orgSeries-manage.php:80
+#: orgSeries-manage.php:130
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -155,35 +174,39 @@ msgstr ""
 msgid "DESC: "
 msgstr "Decr: "
 
-#: orgSeries-options.php:333
+#: orgSeries-widgets.php:303 orgSeries-options.php:444
 msgid "Descending"
 msgstr "Decrescente"
 
-#: orgSeries-options.php:305
-msgid "Display on series overview screens"
-msgstr "Visualizzazione sulle schermate di panoramica della serie"
+#: orgSeries-options.php:416
+msgid "Display on Series Table of Contents screens"
+msgstr ""
 
-#: orgSeries-options.php:275
-msgid "Display on single posts"
-msgstr "Visualizzazione sugli articoli singoli"
+#: orgSeries-options.php:381
+msgid "Display on single posts in a series"
+msgstr ""
 
 #: orgSeries-widgets.php:90
 msgid "Display Order: "
 msgstr "Ordine di visualizzazione: "
 
-#: orgSeries-options.php:288
-msgid "Display series meta information with posts?"
-msgstr "Visualizzare le informazioni meta con gli articoli?"
+#: orgSeries-options.php:398
+msgid "Display Series Meta information?"
+msgstr ""
 
-#: orgSeries-options.php:284
-msgid "Display series navigation links?"
+#: orgSeries-options.php:394
+#, fuzzy
+#| msgid "Display series navigation links?"
+msgid "Display Series Navigation links ?"
 msgstr "Visualizzare i link di navigazione della serie?"
 
-#: orgSeries-options.php:280
-msgid "Display series post list box?"
+#: orgSeries-options.php:386
+#, fuzzy
+#| msgid "Display series post list box?"
+msgid "Display Series Post List box?"
 msgstr "Visualizzare il riquadro elenco articoli della serie?"
 
-#: orgSeries-admin.php:120
+#: orgSeries-admin.php:137
 msgid "Documentation"
 msgstr "Documentazione"
 
@@ -191,7 +214,7 @@ msgstr "Documentazione"
 msgid "Don't show series with no posts?"
 msgstr "Non mostrare le serie senza articoli?"
 
-#: orgSeries-setup.php:230
+#: orgSeries-options.php:64 orgSeries-setup.php:231
 msgid "Edit Series"
 msgstr "Modifica serie"
 
@@ -199,19 +222,19 @@ msgstr "Modifica serie"
 msgid "Enter your license key: "
 msgstr "Inserisci la tua chiave di licenza: "
 
-#: inc/review/review-request.php:277
-#, php-format
-msgid ""
-"Hey, you've been using PublishPress Series for %s on your site. We hope the "
-"plugin has been useful. Please could you quickly leave a 5-star rating on "
-"WordPress.org? It really does help to keep PublishPress Series growing."
+#: orgSeries-widgets.php:316
+msgid "Exclude series"
 msgstr ""
 
-#: orgSeries-widgets.php:229
+#: orgSeries-options.php:583
+msgid "First Post"
+msgstr ""
+
+#: orgSeries-widgets.php:275
 msgid "Hide empty series"
 msgstr "Nascondi le serie vuote"
 
-#: orgSeries-admin.php:167
+#: orgSeries-admin.php:184
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try something "
 "else"
@@ -223,19 +246,15 @@ msgstr ""
 msgid "https://publishpress.com"
 msgstr "https://publishpress.com"
 
-#: inc/review/review-request.php:369
-msgid "I already did"
-msgstr ""
-
-#: orgSeries-manage.php:13
+#: orgSeries-manage.php:60
 msgid "Icon"
 msgstr "Icona"
 
-#: orgSeries-manage.php:14
+#: orgSeries-manage.php:61
 msgid "ID"
 msgstr ""
 
-#: orgSeries-admin.php:304
+#: orgSeries-admin.php:321
 msgid ""
 "If you leave this blank, this post will automatically be added to the end of "
 "the series."
@@ -243,17 +262,21 @@ msgstr ""
 "Se lo lasci vuoto, questo articolo verrà automaticamente aggiunto alla fine "
 "della serie."
 
-#: orgSeries-admin.php:111
+#: orgSeries-admin.php:128
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Se sei soddisfatto di %s, lasciaci una valutazione di %s!"
 
-#: orgSeries-options.php:178
+#: orgSeries-widgets.php:330
+msgid "Include series"
+msgstr ""
+
+#: orgSeries-options.php:275
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear and use provided widget post short title."
 msgstr ""
 
-#: orgSeries-options.php:176
+#: orgSeries-options.php:273
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear."
@@ -261,23 +284,23 @@ msgstr ""
 "È il token di posizione in cui verranno visualizzati i contenuti dei "
 "template degli articoli dell'elenco di articoli."
 
-#: orgSeries-widgets.php:13 orgSeries-options.php:427
+#: orgSeries-widgets.php:13 orgSeries-options.php:591
 msgid "Latest Series"
 msgstr "Ultime serie"
 
-#: orgSeries-options.php:438
+#: orgSeries-options.php:602
 msgid "Latest Series (inner tags):"
 msgstr "Ultima serie (inner tag):"
 
-#: orgSeries-options.php:443
+#: orgSeries-options.php:607
 msgid "Latest Series (tags after):"
 msgstr "Ultima serie (tag after):"
 
-#: orgSeries-options.php:433
+#: orgSeries-options.php:597
 msgid "Latest Series (tags before):"
 msgstr "Ultima serie (tag before):"
 
-#: orgSeries-setup.php:267 orgSeries-setup.php:268
+#: orgSeries-setup.php:272 orgSeries-setup.php:273
 msgctxt "leave the %tokens% as is when translating"
 msgid ""
 "This entry is part %series_part% of %total_posts_in_series% in the series "
@@ -296,16 +319,24 @@ msgstr "Chiave della licenza attivata con successo."
 msgid "License Key successfully deactivated."
 msgstr "Chiave della licenza disattivata con successo."
 
-#: orgSeries-admin.php:398
+#: orgSeries-admin.php:419
 msgid "Manage All Series"
 msgstr "Gestisci tutte le serie"
 
-#: orgSeries-setup.php:234
+#: orgSeries-options.php:68 orgSeries-setup.php:235
 msgid "Manage Series"
 msgstr "Gestione delle serie"
 
-#: inc/review/review-request.php:367
-msgid "Maybe later"
+#: orgSeries-options.php:390
+msgid "Maximum number of items in Series Post List"
+msgstr ""
+
+#: orgSeries-options.php:681
+msgid "Migrate"
+msgstr ""
+
+#: orgSeries-options.php:685
+msgid "Migrate series to new taxonomy"
 msgstr ""
 
 #: orgSeries-widgets.php:20
@@ -325,35 +356,39 @@ msgstr ""
 "altri plugin e il tema che stai utilizzando siano compatibili (vedi "
 "%1$squesto articolo per maggiori informazioni%2$s)."
 
+#: orgSeries-widgets.php:284
+msgid "name"
+msgstr ""
+
 #: orgSeries-widgets.php:79
 msgid "Name of Series"
 msgstr "Nome della serie"
 
-#: orgSeries-setup.php:233
+#: orgSeries-options.php:67 orgSeries-setup.php:234
 msgid "New Series Name"
 msgstr "Nome nuova serie"
 
-#: orgSeries-options.php:414
+#: orgSeries-options.php:573
 msgid "Next Post"
 msgstr ""
 
-#: orgSeries-options.php:228
+#: orgSeries-options.php:327
 msgid "No"
 msgstr "No"
 
-#: orgSeries-manage.php:70
+#: orgSeries-manage.php:120
 msgid "No icon currently"
 msgstr "Nessuna icona attualmente"
 
-#: orgSeries-admin.php:379
+#: orgSeries-admin.php:400
 msgid "No Series"
 msgstr "Nessuna serie"
 
-#: orgSeries-setup.php:235
+#: orgSeries-options.php:69 orgSeries-setup.php:236
 msgid "No series found"
 msgstr "Nessuna serie trovata"
 
-#: orgSeries-manage.php:28
+#: orgSeries-manage.php:75
 msgid "No Series Icon"
 msgstr "Nessuna icona per la serie"
 
@@ -361,7 +396,7 @@ msgstr "Nessuna icona per la serie"
 msgid "Nonce fail."
 msgstr "Nonce fallito."
 
-#: orgSeries-admin.php:270
+#: orgSeries-admin.php:287
 msgid "Not part of a series"
 msgstr "Non fa parte di una serie"
 
@@ -369,27 +404,43 @@ msgstr "Non fa parte di una serie"
 msgid "Number of posts in Series"
 msgstr "Numero di articoli nella serie"
 
+#: orgSeries-widgets.php:344
+msgid "Number of Series"
+msgstr ""
+
 #: orgSeries-widgets.php:86
 msgid "Number of series to display:"
 msgstr "Numero di serie da visualizzare:"
 
-#: orgSeries-options.php:326
+#: orgSeries-widgets.php:349
+msgid "Offset"
+msgstr ""
+
+#: orgSeries-widgets.php:299
+msgid "Order\t"
+msgstr ""
+
+#: orgSeries-widgets.php:280
+msgid "Order by\t"
+msgstr ""
+
+#: orgSeries-options.php:437
 msgid "Order by date"
 msgstr "Ordina per data"
 
-#: orgSeries-options.php:323
+#: orgSeries-options.php:434
 msgid "Order series by:"
 msgstr "Ordina serie per:"
 
-#: orgSeries-widgets.php:171
+#: orgSeries-widgets.php:219
 msgid "Other posts in series:"
 msgstr "Altri articoli della serie:"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:259
 msgid "Overview"
 msgstr "Panoramica"
 
-#: orgSeries-admin.php:371
+#: orgSeries-admin.php:388
 msgid ""
 "Part %1$s of %2$s%6$s in the series <br/><a href=\"%3$s\" title=\"%4$s\">"
 "%5$s</a>"
@@ -397,23 +448,29 @@ msgstr ""
 "Parte %1$s of %2$s%6$s della serie <br/><a href=\"%3$s\" title=\"%4$s\">"
 "%5$s</a>"
 
-#: orgSeries-taxonomy.php:707
+#: orgSeries-taxonomy.php:675
 msgid "Part:"
 msgstr "Parte:"
 
-#: orgSeries-setup.php:228
+#: orgSeries-options.php:687
+msgid ""
+"Please use with caution. Running this process will delete all the terms from "
+"the \"Series\" taxonomy and migrate them to a new taxonomy."
+msgstr ""
+
+#: orgSeries-options.php:62 orgSeries-setup.php:229
 msgid "Popular Series"
 msgstr "Serie popolari"
 
-#: orgSeries-admin.php:306
+#: orgSeries-admin.php:323
 msgid "Post title in widget:"
 msgstr "Titolo dell'articolo nel widget:"
 
-#: orgSeries-setup.php:576
+#: orgSeries-setup.php:635
 msgid "Posts from the series: "
 msgstr "Articoli della serie: "
 
-#: orgSeries-options.php:419
+#: orgSeries-options.php:578
 msgid "Previous Post"
 msgstr ""
 
@@ -443,23 +500,23 @@ msgstr ""
 "Questo è ideale per riviste, quotidiani, scrittori di novelle, insegnanti, "
 "artisti di fumetti e chiunque scriva diversi articoli sullo stesso argomento."
 
-#: orgSeries-admin.php:120
+#: orgSeries-admin.php:137
 msgid "PublishPress Series Documentation"
 msgstr "Documentazione di PublishPress Series"
 
-#: orgSeries-options.php:34
+#: orgSeries-options.php:35
 msgid "PublishPress Series Options"
 msgstr "Opzioni PublishPress Series"
 
-#: orgSeries-options.php:135
+#: orgSeries-options.php:223
 msgid "PublishPress Series Plugin Options"
 msgstr "Opzioni plugin PublishPress Series"
 
-#: orgSeries-options.php:47
+#: orgSeries-options.php:90
 msgid "PublishPress Series Plugin Options have been RESET"
 msgstr "Le opzioni del plugin PublishPress Series sono state reimpostate"
 
-#: orgSeries-options.php:52
+#: orgSeries-options.php:125
 msgid "PublishPress Series Plugin Options have been updated"
 msgstr "Le opzioni del plugin PublishPress Series sono state aggiornate"
 
@@ -471,15 +528,15 @@ msgstr "Casuale"
 msgid "Read more"
 msgstr "Leggi tutto"
 
-#: orgSeries-options.php:521
+#: orgSeries-options.php:721
 msgid "Reset options to default"
 msgstr "Reimposta le opzioni ai valori predefiniti"
 
-#: orgSeries-options.php:518
+#: orgSeries-options.php:718
 msgid "Reset settings"
 msgstr "Reimposta le impostazioni"
 
-#: orgSeries-options.php:168
+#: orgSeries-options.php:265
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
@@ -487,106 +544,122 @@ msgstr ""
 "Uguale a %series_icon% tranne per il fatto che l'icona della serie sarà "
 "collegata alla pagina della serie"
 
-#: orgSeries-options.php:174
+#: orgSeries-options.php:271
 msgid ""
 "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
 "Uguale a %series_title% tranne per il fatto che sarà collegato anche alla "
 "pagina della serie"
 
-#: orgSeries-setup.php:227
+#: orgSeries-widgets.php:355
+msgid "Search"
+msgstr ""
+
+#: orgSeries-options.php:61 orgSeries-setup.php:228
 msgid "Search Series"
 msgstr "Cerca serie"
 
-#: orgSeries-setup.php:178
+#: orgSeries-setup.php:179
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 "Seleziona \"Non fa parte di una serie\" per rimuovere i dati della serie "
 "dall'articolo"
 
-#: orgSeries-widgets.php:129
+#: orgSeries-widgets.php:168
 msgid "Select Series"
 msgstr "Seleziona serie"
 
-#: orgSeries-widgets.php:170 orgSeries-widgets.php:193
-#: orgSeries-taxonomy.php:436 orgSeries-admin.php:321 orgSeries-admin.php:333
-#: orgSeries-admin.php:406
+#: orgSeries-widgets.php:218 orgSeries-widgets.php:367
+#: orgSeries-taxonomy.php:444 orgSeries-options.php:36 orgSeries-admin.php:338
+#: orgSeries-admin.php:350 orgSeries-admin.php:427
 #, fuzzy
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-options.php:315
+#: orgSeries-options.php:426
 msgid "Series Custom Base:"
 msgstr "Base personalizzata della serie:"
 
-#: orgSeries-manage.php:85
+#: orgSeries-manage.php:135
 msgid "Series Icon Upload:"
 msgstr "Caricamento dell'icona della serie:"
 
-#: orgSeries-options.php:394
+#: orgSeries-widgets.php:287
+msgid "series id"
+msgstr ""
+
+#: orgSeries-options.php:539
 msgid "Series Meta (with excerpts):"
 msgstr "Meta serie (con riassunto):"
 
-#: orgSeries-options.php:382
+#: orgSeries-options.php:513
 msgid "Series Meta Box"
 msgstr ""
 
-#: orgSeries-options.php:388
+#: orgSeries-options.php:519
 msgid "Series Meta:"
 msgstr "Meta serie:"
 
-#: orgSeries-setup.php:272
+#: orgSeries-options.php:525
+msgid "Series Metabox Location"
+msgstr ""
+
+#: orgSeries-setup.php:278
 msgid "Series Navigation"
 msgstr "Navigazione serie"
 
-#: orgSeries-options.php:403
+#: orgSeries-options.php:548
 msgid "Series Navigation Box"
 msgstr ""
 
-#: orgSeries-options.php:34
-msgid "Series Options"
-msgstr "Opzioni Serie"
-
-#: orgSeries-options.php:330
+#: orgSeries-options.php:441
 msgid "Series order method"
 msgstr "Metodo di ordinamento serie"
 
-#: orgSeries-options.php:325
+#: orgSeries-options.php:436
 msgid "Series part"
 msgstr "Parte di serie"
 
-#: orgSeries-admin.php:303
+#: orgSeries-admin.php:320
 msgid "Series Part:"
 msgstr "Parte della serie:"
 
-#: orgSeries-options.php:311
+#: orgSeries-options.php:422
 msgid "Series Per Page:"
 msgstr "Serie per pagina:"
 
-#: orgSeries-options.php:363
+#: orgSeries-options.php:480
 msgid "Series Post List"
 msgstr ""
 
-#: orgSeries-options.php:358
+#: orgSeries-options.php:475
 msgid "Series Post List Box"
 msgstr ""
 
-#: orgSeries-options.php:374
+#: orgSeries-options.php:485
+msgid "Series Post List box Location"
+msgstr ""
+
+#: orgSeries-options.php:505
 #, fuzzy
 #| msgid "Series Post List Current Post Title Template:"
 msgid "Series Post List Current Post Title"
 msgstr ""
 "Template titolo articolo corrente nell'elenco degli articoli della serie:"
 
-#: orgSeries-options.php:368
+#: orgSeries-options.php:499
 msgid "Series Post List Post Title"
 msgstr ""
 
-#: orgSeries-options.php:409
+#: orgSeries-options.php:559
+msgid "Series Post Navigation Location"
+msgstr ""
+
+#: orgSeries-options.php:554
 msgid "Series Post Navigation:"
 msgstr ""
 
-#: orgSeries-options.php:507
+#: orgSeries-options.php:707
 msgid "Series Settings"
 msgstr "Impostazioni di Series"
 
@@ -594,68 +667,80 @@ msgstr "Impostazioni di Series"
 msgid "Series Slug"
 msgstr "Slug della serie"
 
-#: orgSeries-widgets.php:103 orgSeries-setup.php:376
+#: orgSeries-widgets.php:103 orgSeries-options.php:612 orgSeries-setup.php:395
 msgid "Series Table of Contents"
 msgstr "Indice delle serie"
 
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:266
 msgid "Series Table of Contents << "
 msgstr "Indice della serie << "
 
-#: orgSeries-options.php:319
+#: orgSeries-options.php:430
 msgid "Series Table of Contents Title:"
 msgstr "Titolo indice della serie:"
 
-#: orgSeries-options.php:307
+#: orgSeries-options.php:418
 msgid "Series Table of Contents URL:"
 msgstr "URL indice serie:"
 
-#: orgSeries-widgets.php:242
+#: orgSeries-options.php:210
+msgid "Series Taxonomy"
+msgstr ""
+
+#: orgSeries-options.php:675
+msgid "Series Taxonomy Slug:"
+msgstr ""
+
+#: orgSeries-widgets.php:395
 msgid "Series widget title:"
 msgstr "Titolo del widget della serie:"
 
-#: orgSeries-taxonomy.php:705
+#: orgSeries-taxonomy.php:673
 msgid "Series:"
 msgstr "Serie:"
 
-#: orgSeries-setup.php:574
+#: orgSeries-setup.php:633
 msgid "Series: "
 msgstr "Serie: "
 
-#: orgSeries-options.php:24 orgSeries-setup.php:588
+#: orgSeries-options.php:24 orgSeries-setup.php:647
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: orgSeries-widgets.php:220
-msgid "Show list of all series"
-msgstr "Mostra l'elenco di tutte le serie"
-
-#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:361
 msgid "Show other posts in the current series"
 msgstr "Mostra gli altri articoli della serie corrente"
 
-#: orgSeries-widgets.php:225
+#: orgSeries-widgets.php:270
 msgid "Show post count"
 msgstr "Mostra conteggio articolo"
 
-#: orgSeries-widgets.php:237
-msgid "Show the List of Series"
-msgstr "Mostra l'elenco delle serie"
+#: orgSeries-widgets.php:259
+msgid "Show Series Table Of Content"
+msgstr ""
 
-#: orgSeries-admin.php:150
+#: orgSeries-widgets.php:264
+msgid "Show Series Table Of Content as"
+msgstr ""
+
+#: orgSeries-widgets.php:286
+msgid "slug"
+msgstr ""
+
+#: orgSeries-admin.php:167
 msgid "Sorry but you don't have permission to add series"
 msgstr "Non hai il permesso per aggiungere delle serie"
 
-#: orgSeries-options.php:296
+#: orgSeries-options.php:406
 msgid "Style options"
 msgstr "Opzioni di stile"
 
-#: orgSeries-setup.php:225
+#: orgSeries-options.php:59 orgSeries-setup.php:226
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-setup.php:226
+#: orgSeries-options.php:60 orgSeries-setup.php:227
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Serie"
@@ -680,7 +765,7 @@ msgstr ""
 "Questo metodo %1$s può essere utilizzato solo per registrare un figlio di "
 "%2%s."
 
-#: orgSeries-options.php:164
+#: orgSeries-options.php:261
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -718,7 +803,7 @@ msgstr ""
 "il template della serie più recente nella pagina <a href=\"%s\">Opzioni di "
 "Series</a>."
 
-#: orgSeries-admin.php:161
+#: orgSeries-admin.php:178
 msgid ""
 "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
@@ -775,19 +860,26 @@ msgstr ""
 "può essere utilizzato soltanto per inviare valori a questo elemento dati "
 "quando è un array."
 
-#: orgSeries-options.php:405
+#: orgSeries-options.php:550
 msgid "This display is shown at the bottom of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:360 orgSeries-options.php:384
+#: orgSeries-options.php:477 orgSeries-options.php:515
 msgid "This display is shown at the top of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:429
+#: orgSeries-options.php:593
 msgid "This display is used by the \"Series Table of Contents\" widget."
 msgstr ""
 
-#: orgSeries-options.php:254
+#: orgSeries-options.php:614
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of Contents "
+"URL\"."
+msgstr ""
+
+#: orgSeries-options.php:353
 msgid ""
 "This section is for the icons that show with your series. Note that you must "
 "use a token for the icon in the \"Templates\" settings."
@@ -795,11 +887,11 @@ msgstr ""
 "Questa sezione è per le icone mostrate con la tua serie. Tieni presente che "
 "devi utilizzare un token per l'icona nelle impostazioni \"Template\"."
 
-#: orgSeries-widgets.php:244
+#: orgSeries-widgets.php:397
 msgid "This text will display above other posts in this series."
 msgstr "Questo testo verrà mostrato sopra agli altri articoli in questa serie."
 
-#: orgSeries-options.php:170
+#: orgSeries-options.php:267
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
@@ -810,15 +902,15 @@ msgstr ""
 "serie e richiede che sia impostato anche il template per ciascun titolo "
 "della serie."
 
-#: orgSeries-options.php:166
+#: orgSeries-options.php:263
 msgid "This will be replaced with the series icon for a series."
 msgstr "Questa verrà sostituita con l'icona della serie per una serie."
 
-#: orgSeries-options.php:172
+#: orgSeries-options.php:269
 msgid "This will be replaced with the title of a series"
 msgstr "Questo sarà sostituito con il titolo di una serie"
 
-#: orgSeries-widgets.php:66 orgSeries-widgets.php:189
+#: orgSeries-widgets.php:66 orgSeries-widgets.php:254
 msgid "Title"
 msgstr "Titolo"
 
@@ -830,39 +922,51 @@ msgstr ""
 "Per rimuovere questo avviso puoi disattivare il plugin oppure aggiornare la "
 "versione del php del tuo server."
 
+#: orgSeries-options.php:463
+msgid "Top"
+msgstr ""
+
 #: src/domain/exceptions/EntityNotFoundException.php:30
 msgid "Unable to retrieve an instance of %1$s. Not found."
 msgstr "Impossibile recuperare un'istanza di %1$s. Non è stata trovata."
 
-#: orgSeries-options.php:223
+#: orgSeries-options.php:211
+msgid "Uninstall / Reset"
+msgstr ""
+
+#: orgSeries-options.php:322
 msgid "Update Options"
 msgstr "Aggiorna opzioni"
 
-#: orgSeries-setup.php:231
+#: orgSeries-options.php:65 orgSeries-setup.php:232
 msgid "Update Series"
 msgstr "Aggiorna serie"
 
-#: orgSeries-manage.php:49 orgSeries-manage.php:89
+#: orgSeries-manage.php:96 orgSeries-manage.php:139
 msgid "Upload an image for the series."
 msgstr "Carica un'immagine per la serie."
 
-#: orgSeries-options.php:299
+#: orgSeries-options.php:409
+msgid "Use box style"
+msgstr ""
+
+#: orgSeries-options.php:410
 msgid "Use dark style"
 msgstr "Usa lo stile scuro"
 
-#: orgSeries-options.php:298
+#: orgSeries-options.php:408
 msgid "Use default style"
 msgstr "Usa lo stile predefinito"
 
-#: orgSeries-options.php:300
+#: orgSeries-options.php:411
 msgid "Use light style"
 msgstr "Usa lo stile chiaro"
 
-#: orgSeries-options.php:292
-msgid "Use Series css styles"
-msgstr "Usa lo stile CSS di Series"
+#: orgSeries-options.php:402
+msgid "Use PublishPress Series CSS styles?"
+msgstr ""
 
-#: orgSeries-options.php:188
+#: orgSeries-options.php:287
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
@@ -878,7 +982,7 @@ msgstr "Utilizza questo per controllare l'output del widget ultime serie"
 msgid "Use this to display the Series Table of contents"
 msgstr "Usa questo per visualizzare l'indice delle serie"
 
-#: orgSeries-admin.php:391
+#: orgSeries-admin.php:412
 msgid "View all series"
 msgstr "Visualizza tutte le serie"
 
@@ -886,21 +990,28 @@ msgstr "Visualizza tutte le serie"
 msgid "When Series was Created"
 msgstr "Quando è stata creata la serie"
 
-#: orgSeries-options.php:482
+#: orgSeries-options.php:652
 msgid "Width for icon if displayed via the latest series template (in pixels)."
 msgstr ""
 "Larghezza dell'icona se visualizzata tramite il template ultima serie (in "
 "pixels)."
 
-#: orgSeries-options.php:476
+#: orgSeries-options.php:646
 msgid "Width for icon on a post page (in pixels)."
 msgstr "Larghezza dell'icona sulla pagina di un articolo (in pixel)."
 
-#: orgSeries-options.php:470
+#: orgSeries-options.php:640
 msgid "Width for icon on series table of contents page (in pixels)"
 msgstr "Larghezza dell'icona sulla pagina indice di una serie (in pixel)."
 
-#: orgSeries-options.php:186
+#: orgSeries-options.php:285
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+
+#: orgSeries-options.php:283
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
@@ -911,7 +1022,7 @@ msgstr ""
 "navigazione personalizzato articolo successivo\". Se quel campo è vuoto, "
 "verrà usato come testo il titolo dell'articolo"
 
-#: orgSeries-options.php:184
+#: orgSeries-options.php:281
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -923,12 +1034,12 @@ msgstr ""
 "navigazione personalizzato articolo precedente\". Se quel campo è vuoto, "
 "verrà usato come testo il titolo dell'articolo"
 
-#: orgSeries-options.php:180
+#: orgSeries-options.php:277
 msgid "Will be replaced with the post title of a post in the series"
 msgstr ""
 "Verrà sostituito con il titolo dell'articolo di un articolo della serie"
 
-#: orgSeries-options.php:182
+#: orgSeries-options.php:279
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
@@ -936,23 +1047,35 @@ msgstr ""
 "Verrà sostituito con il titolo dell'articolo di un articolo della serie "
 "collegata alla visualizzazione della pagina di quell'articolo."
 
-#: orgSeries-options.php:194
+#: orgSeries-options.php:293
 msgid "Will display the description for the series"
 msgstr "Visualizzerà la descrizione per la serie"
 
-#: orgSeries-options.php:192
+#: orgSeries-options.php:291
 msgid "Will display the total number of posts in a series"
 msgstr "Visualizzerà il numero totale degli articoli di una serie"
 
-#: orgSeries-options.php:190
+#: orgSeries-options.php:289
 msgid "Will display what part of a series the post is"
 msgstr "Visualizzerà quale parte di una serie è l'articolo"
 
-#: orgSeries-options.php:229
+#: orgSeries-options.php:328
 msgid "Yes"
 msgstr "Sì"
 
-#: orgSeries-setup.php:68
+#: orgSeries-widgets.php:357
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names) - case insensitive"
+msgstr ""
+
+#: orgSeries-widgets.php:351
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+
+#: orgSeries-setup.php:69
 msgid ""
 "Your WordPress version is too old. Publishpress Series 2.2 requires at least "
 "WordPress 3.0 to function correctly. Please update your blog via Tools &gt; "
