@@ -673,7 +673,11 @@ function series_taxonomy_base_core_fieldset() {
 	<table class="form-table ppseries-settings-table">
     	<tbody>
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
-                <td><input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/></td>
+                <td>
+                    <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/>
+                    <br />
+                    <small><?php _e('This feature is helpful if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></small>
+                </td>
             </tr>
             <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
 			<tr valign="top">
@@ -684,7 +688,7 @@ function series_taxonomy_base_core_fieldset() {
             	<td>
                     <button type="submit" class="button" name="migrate_series" value="1"><?php _e('Migrate series to new taxonomy', 'organize-series'); ?></button>
                     <div><br />
-                    <font color="red"><?php _e('Please use with caution. Running this process will delete all the terms from the "Series" taxonomy and migrate them to a new taxonomy.', 'organize-series'); ?></font>
+                    <font color="red"><?php _e('Please use with caution. Running this process will delete all the terms from the current taxonomy and migrate them to a new taxonomy.', 'organize-series'); ?></font>
                     </div>
                     <span class="spinner ppseries-spinner"></span>
                 </td>
