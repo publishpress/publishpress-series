@@ -112,15 +112,15 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$showseriestoc =isset( $instance['seriestocdisplay-toggle']) ? '1' : '0';
 		$series_id = (isset($instance['series-id']) && (int)$instance['series-id'] > 0) ? $instance['series-id'] : '';
 
-		$os_orderby = $instance['os_orderby'];
-		$os_order = $instance['os_order'];
-		$os_exclude = (array)$instance['os_exclude'];
+		$os_orderby = isset($instance['os_orderby']) ? $instance['os_orderby'] : '';
+		$os_order = isset($instance['os_order']) ? $instance['os_order'] : '';
+		$os_exclude = isset($instance['os_exclude']) ? (array)$instance['os_exclude'] : [];
 		$os_exclude = array_filter($os_exclude);
-		$os_include = (array)$instance['os_include'];
+		$os_include = isset($instance['os_include']) ? (array)$instance['os_include'] : [];
 		$os_include = array_filter($os_include);
-		$os_number = $instance['os_number'];
-		$os_offset = $instance['os_offset'];
-		$os_search = $instance['os_search'];
+		$os_number = isset($instance['os_number']) ? $instance['os_number'] : '';
+		$os_offset = isset($instance['os_offset']) ? $instance['os_offset'] : '';
+		$os_search = isset($instance['os_search']) ? $instance['os_search'] : '';
 
 		//prepare args
 		$series_widget_args = [];
