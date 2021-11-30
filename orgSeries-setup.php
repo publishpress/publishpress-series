@@ -64,7 +64,7 @@ class orgSeries {
 		//settings link on plugin page
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
 	}
-
+    
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
 		echo trim($msg);

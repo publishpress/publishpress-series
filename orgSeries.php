@@ -43,6 +43,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 */
 
 require_once (dirname(__FILE__) . '/inc/utility-functions.php');
+register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
 if (!defined('ORG_SERIES_VERSION')) {
     define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
