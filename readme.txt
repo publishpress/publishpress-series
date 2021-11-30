@@ -133,6 +133,7 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 v2.7.1- [===unreleased===]
 * Fixed: PHP notices from the widget #303
 * Fixed: Visual bug with the "Series Taxonomy" choice #312
+* Fixed: Deprecated notices #307
 
 v2.7.0- 2021-11-17
 * Fixed: Clarify what HTML is allowed in templates #273
