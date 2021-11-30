@@ -34,7 +34,7 @@ function orgseries_create_options() {
 	$page = add_menu_page(
 		__('PublishPress Series Options', 'organize-series'),
 		__('Series', 'organize-series'),
-		'manage_options',
+		'manage_publishpress_series',
 		'orgseries_options_page',
 		'orgseries_option_page',
 		'dashicons-book-alt',
