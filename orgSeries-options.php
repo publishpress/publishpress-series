@@ -423,10 +423,6 @@ function series_automation_core_fieldset() {
 									<td><input type="number" name="<?php echo $org_name; ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
 								</tr>
 
-								<tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
-									<td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /></td>
-								</tr>
-
 								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php _e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
 									<td><input type="text" id="series_toc_title" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>"/></td>
 								</tr>
@@ -672,7 +668,7 @@ function series_taxonomy_base_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
-            <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
+            <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/>
                     <br />
@@ -694,6 +690,10 @@ function series_taxonomy_base_core_fieldset() {
                 </td>
         	</tr>
             <?php } ?>
+
+            <tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
+                <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /></td>
+            </tr>
 
     </tbody>
 	</table>	<?php
