@@ -117,7 +117,7 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 }
 
 //function to set the order that the post is in a series.
-function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) {
+function set_series_order($series_id, $postid = 0, $series_part = 0, $is_published = false) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
 	$series_posts = array();
@@ -460,20 +460,20 @@ function wp_set_post_series_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series', 10);
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series( $post_ID, $post, true, $ser_id, true );
+	wp_set_post_series( $post, true, $post_ID, $ser_id, true );
 	// ensure the post is added as the last part in the series
 	$current_part = wp_series_part( $post_ID, $ser_id );
-	if( empty($current_part) ) set_series_order( $post_ID, 0, $ser_id, true );
+	if( empty($current_part) ) set_series_order( $ser_id, $post_ID, 0, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series($post_ID, $post, true, $ser_id, true);
+	wp_set_post_series($post, true, $post_ID, $ser_id, true);
 }
 
-function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(), $dont_skip = false, $is_published = false) {
+function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	$post_shorttitle = array();
 
@@ -596,7 +596,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 				$s_pt = $set_spart[$ser_id];
 			}
 
-			set_series_order($post_ID, $s_pt, $ser_id, $is_published);
+			set_series_order($ser_id, $post_ID, $s_pt, $is_published);
 		}
 
 		return;
