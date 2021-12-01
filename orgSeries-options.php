@@ -416,8 +416,18 @@ function series_automation_core_fieldset() {
 								<tr valign="top"><th scope="row" colspan="2"><h1><?php _e('Display on Series Table of Contents screens', 'organize-series'); ?></h1></th></tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php _e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
-									<td><?php bloginfo('url') ?>/<input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" /></td>
+									<td>
+                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" />
+                                        <button onclick="gotoTOCUrl(event)" class="button">view page</button>
+                                    </td>
 								</tr>
+                                <script>
+                                    function gotoTOCUrl(e){
+                                        e.preventDefault();
+                                        var toc_url = document.getElementById("toc-home-url").innerHTML + document.getElementById("series_toc_url").value;
+                                        window.open(toc_url);
+                                    }
+                                </script>
 
 								<tr valign="top"><th scope="row"><label for="series_perp_toc"><?php _e('Series Per Page:', 'organize-series'); ?></label></th>
 									<td><input type="number" name="<?php echo $org_name; ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
