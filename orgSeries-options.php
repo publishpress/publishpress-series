@@ -107,7 +107,7 @@ function orgseries_validate($input) {
         $terms = get_terms($args);
 
         $count = 0;
-            
+
         foreach ( $terms as $term ) {
             $count++;
             $update = $wpdb->update(
@@ -250,7 +250,7 @@ function orgseries_option_page() {
 
 				<h3 class="handle"><span><?php _e('Allowed Html', 'organize-series'); ?></span></h3>
 					<div class="inside">
-						<?php $html_list = '<div> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
+						<?php $html_list = '<div> <img> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
 						echo '<p><code>'. htmlentities ($html_list) .'</code></p>';
 						?>
 					</div>

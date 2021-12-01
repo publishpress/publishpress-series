@@ -136,6 +136,7 @@ v2.7.1- [===unreleased===]
 * Fixed: Deprecated notices #307
 * Fixed: Capability to access the "Series" menu #313
 * Fixed: "Show Series Table Of Content" setting is broken in widget #308
+* Fixed: Allow users to customize buttons #311
 
 v2.7.0- 2021-11-17
 * Fixed: Clarify what HTML is allowed in templates #273
