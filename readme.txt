@@ -135,6 +135,7 @@ v2.7.1- [===unreleased===]
 * Fixed: Visual bug with the "Series Taxonomy" choice #312
 * Fixed: Deprecated notices #307
 * Fixed: Capability to access the "Series" menu #313
+* Fixed: "Show Series Table Of Content" setting is broken in widget #308
 
 v2.7.0- 2021-11-17
 * Fixed: Clarify what HTML is allowed in templates #273

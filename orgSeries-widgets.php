@@ -108,8 +108,8 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		extract( $args, EXTR_SKIP );
 		$show_count = isset($instance['show-count']) ? (int)$instance['show-count'] : 0;
 		$hide_empty = isset($instance['hide-empty']) ? (int)$instance['hide-empty'] : 0;
-		$showpostlist = isset($instance['postlistdisplay-toggle']) ? '1' : '0';
-		$showseriestoc =isset( $instance['seriestocdisplay-toggle']) ? '1' : '0';
+		$showpostlist = isset($instance['postlistdisplay-toggle']) ? $instance['postlistdisplay-toggle'] : 0;
+		$showseriestoc =isset( $instance['seriestocdisplay-toggle']) ? $instance['seriestocdisplay-toggle'] : 0;
 		$series_id = (isset($instance['series-id']) && (int)$instance['series-id'] > 0) ? $instance['series-id'] : '';
 
 		$os_orderby = isset($instance['os_orderby']) ? $instance['os_orderby'] : '';
