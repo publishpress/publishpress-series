@@ -10,6 +10,12 @@
 get_header();
 
 $description = get_the_archive_description();
+
+// CSS wrapper class for the design
+$series_options 	  = get_option('org_series_options');
+$series_layout_class  = 'pps-taxonomy-series';
+$series_layout_class .= isset($series_options['series_overview_page_layout']) ? ' pps-layout-' . $series_options['series_overview_page_layout'] : ' pps-layout-default';
+$series_layout_class .= isset($series_options['series_overview_page_columns']) ? ' pps-columns-' . $series_options['series_overview_page_columns'] : '';
 ?>
 <section id="primary" class="site-content">
     <div id="content" role="main">
@@ -23,25 +29,30 @@ $description = get_the_archive_description();
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : ?>
-				<?php the_post(); ?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<div class="<?php echo $series_layout_class ?>">
+				<?php while ( have_posts() ) : ?>
+					<?php the_post(); ?>
+						<article class="pps-taxonomy-series__post">
 
-						<header class="entry-header">
-							<?php
-							the_title( sprintf( '<h2 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' );
-							?>
-						</header><!-- .entry-header -->
-
-						<div class="entry-content">
-							<div class="post-thumbnail">
+							<div class="pps-taxonomy-series__thumbnail">
 								<?php the_post_thumbnail(); ?>
-							</div>
-							<?php the_excerpt(); ?>
-						</div><!-- .entry-content -->
+							</div><!-- .pps-taxonomy-series__thumbnail -->
 
-					</article><!-- #post-${ID} -->
-			<?php endwhile; ?>
+							<div class="pps-taxonomy-series__wrapper">
+								<?php
+								the_title(
+									sprintf( '<h2 class="pps-taxonomy-series__title"><a href="%s">', esc_url( get_permalink() ) ),
+									'</a></h2>'
+								);
+								?>
+								<div class="pps-taxonomy-series__content">
+									<?php the_excerpt(); ?>
+								</div>
+							</div><!-- .pps-taxonomy-series__content -->
+
+						</article><!-- .pps-taxonomy-series__post -->
+				<?php endwhile; ?>
+			</div>
 
 		<?php else : ?>
 			<p><?php esc_html_e( 'Sorry, no results found.', 'organize-series' ); ?></p>
