@@ -655,11 +655,12 @@ class orgSeries {
 	}
 
 	function series_load_tax_template($tax_template) {
+		$series_slug = ppseries_get_series_slug();
 		if (is_tax('series')) {
 			// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
-			$theme_template = locate_template( array('taxonomy-series.php') );
+			$theme_template = locate_template( array('taxonomy-' . $series_slug . '.php') );
 			if ( !$theme_template ) {
-            	$tax_template = dirname( __FILE__ ) . '/includes-core/templates/taxonomy-series.php';
+            	$tax_template = dirname( __FILE__ ) . '/includes-core/templates/taxonomy-' . $series_slug . '.php';
         	}
 		}
 		return $tax_template;
