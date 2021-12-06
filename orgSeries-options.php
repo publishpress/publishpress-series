@@ -195,8 +195,8 @@ function orgseries_options_init() {
 	add_settings_section('series_icon_settings', '<br /><br />Series Icon Options', 'orgseries_icon_section', 'orgseries_options_page');
 	add_settings_field('series_icon_core_fieldset', 'Series Icon Core Options', 'series_icon_core_fieldset', 'orgseries_options_page', 'series_icon_settings');
 
-	add_settings_section('series_taxonomy_base_settings', 'Series Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
-	add_settings_field('series_taxonomy_base_core_fieldset', 'Series Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
+	add_settings_section('series_taxonomy_base_settings', 'URLs and Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
+	add_settings_field('series_taxonomy_base_core_fieldset', 'URLs and Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
 
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
@@ -207,7 +207,7 @@ function orgseries_options_init() {
 
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
-  $settings_tabs['series_taxonomy_base_settings'] = __('Series Taxonomy', 'organize-series');
+  $settings_tabs['series_taxonomy_base_settings'] = __('URLs and Taxonomy', 'organize-series');
   $settings_tabs['series_uninstall_settings'] = __('Uninstall / Reset', 'organize-series');
   return $settings_tabs;
 }
@@ -682,7 +682,7 @@ function series_taxonomy_base_core_fieldset() {
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/>
                     <br />
-                    <small><?php _e('This feature is helpful if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></small>
+                    <small><?php _e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></small>
                 </td>
             </tr>
             <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
@@ -702,7 +702,10 @@ function series_taxonomy_base_core_fieldset() {
             <?php } ?>
 
             <tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
-                <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /></td>
+                <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /> <br />
+                    <small><?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?></small>
+                </td>
+                   
             </tr>
 
     </tbody>
