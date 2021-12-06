@@ -198,6 +198,9 @@ function orgseries_options_init() {
 	add_settings_section('series_taxonomy_base_settings', 'URLs and Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
 	add_settings_field('series_taxonomy_base_core_fieldset', 'URLs and Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
 
+    add_settings_section('series_overview_page_settings', 'Overview Page', 'orgseries_overview_page_section', 'orgseries_options_page');
+    add_settings_field('series_overview_page_core_fieldset', 'Overview Page', 'series_overview_page_core_fieldset', 'orgseries_options_page', 'series_overview_page_settings');
+
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
 
@@ -361,6 +364,12 @@ function orgseries_uninstall_section() {
 }
 
 function orgseries_taxonomy_base_section() {
+	global $orgseries;
+	?>
+	<?php
+}
+
+function orgseries_overview_page_section() {
 	global $orgseries;
 	?>
 	<?php
@@ -705,11 +714,20 @@ function series_taxonomy_base_core_fieldset() {
                 <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /> <br />
                     <small><?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?></small>
                 </td>
-                   
+
             </tr>
 
     </tbody>
 	</table>	<?php
+}
+
+function series_overview_page_core_fieldset() {
+	global $orgseries;
+	$org_opt = $orgseries->settings;
+	$org_name = 'org_series_options';
+	?>
+    Here!
+    <?php
 }
 
 function series_uninstall_core_fieldset() {
