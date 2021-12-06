@@ -116,6 +116,8 @@ class orgSeries {
 	add_option( 'series_icon_path', '' );
 	add_option( 'series_icon_url', '' );
 	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
+
+    pp_series_upgrade_function();
 	}
 
 	//function for all updates

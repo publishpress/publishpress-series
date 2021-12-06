@@ -2,7 +2,7 @@
 /*
 Plugin Name: PublishPress Series
 Plugin URI: https://publishpress.com
-Version: 2.7.0
+Version: 2.7.1
 Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 Author: PublishPress
 Author URI: https://publishpress.com
@@ -13,7 +13,7 @@ Domain Path: /languages
 ### INSTALLATION/USAGE INSTRUCTIONS ###
 //	Installation and/or usage instructions for the Publishpress Series Plugin
 //	can be found at https://publishpress.com
-$os_version = '2.7.0';
+$os_version = '2.7.1';
 
 ######################################
 
@@ -43,6 +43,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 */
 
 require_once (dirname(__FILE__) . '/inc/utility-functions.php');
+require_once (dirname(__FILE__) . '/includes-core/functions.php');
 register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
 if (!defined('ORG_SERIES_VERSION')) {
