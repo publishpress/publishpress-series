@@ -162,6 +162,10 @@ function orgseries_validate($input) {
 	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? $input['series_taxonomy_slug'] : 'series' );
 
+    // overview page options
+    $newinput['series_overview_page_layout'] = trim(stripslashes($input['series_overview_page_layout']));
+    $newinput['series_overview_page_columns'] = (int) $input['series_overview_page_columns'];
+
 	//series-icon related settings
 	$newinput['series_icon_width_series_page'] = (int) $input['series_icon_width_series_page'];
 	$newinput['series_icon_width_post_page'] = (int) $input['series_icon_width_post_page'];
@@ -723,10 +727,45 @@ function series_taxonomy_base_core_fieldset() {
 
 function series_overview_page_core_fieldset() {
 	global $orgseries;
-	$org_opt = $orgseries->settings;
-	$org_name = 'org_series_options';
-	?>
-    Here!
+	$org_opt               = $orgseries->settings;
+	$org_name              = 'org_series_options';
+    $overview_page_layouts = [
+		'default' => __('Default', 'organize-series'),
+		'grid' 	  => __('Grid', 'organize-series'),
+		'masonry' => __('Masonry', 'organize-series'),
+	];
+    ?>
+    <p><?php _e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
+    <table class="form-table ppseries-settings-table">
+    	<tbody>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="series_overview_page_layout"><?php _e('Layout:', 'organize-series'); ?></label>
+                </th>
+                <td>
+                    <select name="<?php echo $org_name;?>[series_overview_page_layout]" id="series_overview_page_layout">
+                    <?php
+                    foreach($overview_page_layouts as $key => $label){
+                        $selected = ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === $key ) ? 'selected="selected"' : '';
+                        echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+
+                    }
+                    ?>
+                    </select>
+                    <br/>
+                    <small><?php _e('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme.', 'organize-series'); ?></small>
+                </td>
+            </tr>
+            <tr valign="top" class="pps-row-columns"<?php echo ($org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
+                <th scope="row">
+                    <label for="series_overview_page_columns"><?php _e('Columns:', 'organize-series'); ?></label>
+                </th>
+                <td>
+                    <input min="0" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? htmlspecialchars($org_opt['series_overview_page_columns']) : ''); ?>" id="series_overview_page_columns" type="number" />
+                </td>
+            </tr>
+        </tbody>
+	</table>
     <?php
 }
 
