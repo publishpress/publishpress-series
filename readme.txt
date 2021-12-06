@@ -138,6 +138,7 @@ v2.7.1- [===unreleased===]
 * Fixed: "Show Series Table Of Content" setting is broken in widget #308
 * Added: Allow users to customize buttons #311
 * Added: "Click to view" for "Series Table of Contents URL" #320
+* Added: Add series group template to PRO version group addon #202
 
 v2.7.0- 2021-11-17
 * Fixed: Clarify what HTML is allowed in templates #273
