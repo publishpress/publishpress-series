@@ -63,8 +63,11 @@ class orgSeries {
 
 		//settings link on plugin page
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
+
+		// custom taxonomy template
+		add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
 	}
-    
+
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
 		echo trim($msg);
@@ -307,7 +310,7 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
-        
+
 		return false;
 	}
 
@@ -649,6 +652,17 @@ class orgSeries {
 		}
 
 		return $links;
+	}
+
+	function series_load_tax_template($tax_template) {
+		if (is_tax('series')) {
+			// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
+			$theme_template = locate_template( array('taxonomy-series.php') );
+			if ( !$theme_template ) {
+            	$tax_template = dirname( __FILE__ ) . '/includes-core/templates/taxonomy-series.php';
+        	}
+		}
+		return $tax_template;
 	}
 
 } //end of orgSeries class
