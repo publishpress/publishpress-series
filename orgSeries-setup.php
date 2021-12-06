@@ -516,7 +516,7 @@ class orgSeries {
 		return apply_filters('orgseries_sort_series_page_orderby', $ordering);
 	}
 
-	// Add .css to header if enabled via options
+	// Add CSS to header if enabled via options and CSS design if overview page is different to default
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
 		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
@@ -540,6 +540,15 @@ class orgSeries {
 					break;
 			}
 
+		}
+
+		if ($this->settings['series_overview_page_layout'] !== 'default') {
+			wp_enqueue_style(
+				'pps-series-overview-style',
+				plugins_url('css/series-overview.css', __FILE__),
+				'',
+				ORG_SERIES_VERSION
+			);
 		}
 	}
 
