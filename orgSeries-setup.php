@@ -24,6 +24,7 @@ class orgSeries {
 
 		//install OrgSeries
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
+        add_action( 'admin_init', 'pp_series_upgrade_version_upgrade');
 
 		//all other actions and filters...
 		add_action('plugins_loaded', array($this, 'add_settings'), 10);
@@ -119,6 +120,10 @@ class orgSeries {
 
     pp_series_upgrade_function();
 	}
+
+    function pp_series_upgrade_version_upgrade() {
+        pp_series_upgrade_function();
+    }
 
 	//function for all updates
 	function update($version) {
