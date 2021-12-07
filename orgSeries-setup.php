@@ -64,6 +64,9 @@ class orgSeries {
 
 		//settings link on plugin page
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
+
+		//add support for capabilities tab in PublishPress Capabilities
+		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
 	}
     
 	function update_warning() {
@@ -657,6 +660,14 @@ class orgSeries {
 
 		return $links;
 	}
+
+    //add support for capabilities tab in PublishPress Capabilities
+    function pp_series_cme_plugin_capabilities($plugin_caps){
+        
+        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
+
+        return $plugin_caps;
+    }
 
 } //end of orgSeries class
 
