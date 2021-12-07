@@ -26,6 +26,9 @@ class orgSeries {
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
         add_action( 'admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
 
+		//add support for capabilities tab in PublishPress Capabilities
+		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
+
 		//all other actions and filters...
 		add_action('plugins_loaded', array($this, 'add_settings'), 10);
 		add_action('init', array($this, 'register_textdomain'), 0);
@@ -64,9 +67,6 @@ class orgSeries {
 
 		//settings link on plugin page
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
-
-		//add support for capabilities tab in PublishPress Capabilities
-		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
 	}
     
 	function update_warning() {
@@ -126,6 +126,14 @@ class orgSeries {
 
     function pp_series_upgrade_version_upgrade() {
         pp_series_upgrade_function();
+    }
+
+    //add support for capabilities tab in PublishPress Capabilities
+    function pp_series_cme_plugin_capabilities($plugin_caps){
+        
+        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
+
+        return $plugin_caps;
     }
 
 	//function for all updates
@@ -660,14 +668,6 @@ class orgSeries {
 
 		return $links;
 	}
-
-    //add support for capabilities tab in PublishPress Capabilities
-    function pp_series_cme_plugin_capabilities($plugin_caps){
-        
-        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
-
-        return $plugin_caps;
-    }
 
 } //end of orgSeries class
 
