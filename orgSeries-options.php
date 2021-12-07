@@ -110,7 +110,7 @@ function orgseries_validate($input) {
 
         foreach ( $terms as $term ) {
             $count++;
-            $update = $wpdb->update(
+            $wpdb->update(
                 $wpdb->prefix . 'term_taxonomy',
                 [ 'taxonomy' => ppseries_get_series_slug() ],
                 [ 'term_taxonomy_id' => $term->term_id ],
