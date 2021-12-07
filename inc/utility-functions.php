@@ -73,6 +73,7 @@ function pps_os_version_requirement_notice() {
         //activation functions/codes
         function pp_series_upgrade_function()
         {
+            $version = get_option('pp_series_version');
     
           if ( !$version || $version < '2.7.1') {
               /**
