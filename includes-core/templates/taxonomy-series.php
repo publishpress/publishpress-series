@@ -13,8 +13,8 @@ $description = get_the_archive_description();
 
 // CSS wrapper class for the design
 $series_options 	  = get_option('org_series_options');
-$series_layout_class  = 'pps-taxonomy-series';
-$series_layout_class .= isset($series_options['series_overview_page_layout']) ? ' pps-layout-' . $series_options['series_overview_page_layout'] : ' pps-layout-default';
+$series_layout_class  = '';
+$series_layout_class .= isset($series_options['series_overview_page_layout']) ? 'pps-layout-' . $series_options['series_overview_page_layout'] : 'pps-layout-default';
 $series_layout_class .= isset($series_options['series_overview_page_columns']) ? ' pps-columns-' . $series_options['series_overview_page_columns'] : '';
 ?>
 <section id="primary" class="site-content">
@@ -29,14 +29,16 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 
 		<?php if ( have_posts() ) : ?>
 
-			<div class="<?php echo $series_layout_class ?>">
+			<div id="pps-taxonomy-series-overview" class="<?php echo $series_layout_class ?>">
 				<?php while ( have_posts() ) : ?>
 					<?php the_post(); ?>
-						<article class="pps-taxonomy-series__post">
+						<article class="pps-taxonomy-series__post<?php echo !has_post_thumbnail() ? ' pps-taxonomy-series__no-image' : '' ?>">
 
-							<div class="pps-taxonomy-series__thumbnail">
-								<?php the_post_thumbnail(); ?>
-							</div><!-- .pps-taxonomy-series__thumbnail -->
+							<?php if ( has_post_thumbnail() ) { ?>
+								<div class="pps-taxonomy-series__thumbnail">
+									<?php the_post_thumbnail(); ?>
+								</div><!-- .pps-taxonomy-series__thumbnail -->
+							<?php } ?>
 
 							<div class="pps-taxonomy-series__wrapper">
 								<?php

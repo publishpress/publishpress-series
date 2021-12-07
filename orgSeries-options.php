@@ -732,7 +732,7 @@ function series_overview_page_core_fieldset() {
     $overview_page_layouts = [
 		'default' => __('Default', 'organize-series'),
 		'grid' 	  => __('Grid', 'organize-series'),
-		'masonry' => __('Masonry', 'organize-series'),
+		'list'    => __('List', 'organize-series'),
 	];
     ?>
     <p><?php _e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
