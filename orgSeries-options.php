@@ -756,12 +756,12 @@ function series_overview_page_core_fieldset() {
                     <small><?php _e('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme.', 'organize-series'); ?></small>
                 </td>
             </tr>
-            <tr valign="top" class="pps-row-columns"<?php echo ($org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
+            <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
                 <th scope="row">
                     <label for="series_overview_page_columns"><?php _e('Columns:', 'organize-series'); ?></label>
                 </th>
                 <td>
-                    <input min="0" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? htmlspecialchars($org_opt['series_overview_page_columns']) : ''); ?>" id="series_overview_page_columns" type="number" />
+                    <input min="1" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? htmlspecialchars($org_opt['series_overview_page_columns']) : '1'); ?>" id="series_overview_page_columns" type="number" />
                 </td>
             </tr>
         </tbody>

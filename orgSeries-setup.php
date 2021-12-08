@@ -133,7 +133,7 @@ class orgSeries {
 
     //add support for capabilities tab in PublishPress Capabilities
     function pp_series_cme_plugin_capabilities($plugin_caps){
-        
+
         $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
 
         return $plugin_caps;
@@ -558,7 +558,7 @@ class orgSeries {
 
 		}
 
-		if ($this->settings['series_overview_page_layout'] !== 'default') {
+		if (isset($this->settings['series_overview_page_layout']) && $this->settings['series_overview_page_layout'] !== 'default') {
 			wp_enqueue_style(
 				'pps-series-overview-style',
 				plugins_url('css/series-overview.css', __FILE__),
