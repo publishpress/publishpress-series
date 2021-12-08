@@ -4,12 +4,21 @@
 
   .pps-taxonomy-series__pagination {
 
+    .pagination {
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+    }
+
     .nav-links {
+      justify-content: unset;
+      text-align: center;
+      display: block;
 
       > span,
       > a {
         margin: 20px 5px 0;
-        padding: 10px;
+        padding: 7px 10px;
         min-height: unset;
         min-width: 40px;
         font-size: 18px;
@@ -19,6 +28,8 @@
         border: none;
         box-shadow: none;
         border-radius: 4px;
+        float: none;
+        display: inline-block;
 
         &:first-child {
           margin-left: 0;
@@ -53,8 +64,8 @@
         &:hover,
         &:focus,
         &:active {
-          background: #fff;
-          color: #333;
+          background: #666;
+          color: #fff;
         }
       }
     }
