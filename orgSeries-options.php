@@ -753,7 +753,14 @@ function series_overview_page_core_fieldset() {
                     ?>
                     </select>
                     <br/>
-                    <small><?php _e('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme.', 'organize-series'); ?></small>
+                    <small>
+                        <?php
+                        echo sprintf(
+                            __('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme. You can also <a href="%s" target="_blank">customize the template</a>.', 'organize-series'),
+                            'https://publishpress.com/knowledge-base/series-archive-templates/'
+                        );
+                        _e('', 'organize-series'); ?>
+                    </small>
                 </td>
             </tr>
             <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
