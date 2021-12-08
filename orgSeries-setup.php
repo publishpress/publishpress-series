@@ -687,7 +687,7 @@ class orgSeries {
 			// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
 			$theme_template = locate_template( array('taxonomy-' . $series_slug . '.php') );
 			if ( !$theme_template ) {
-            	$tax_template = dirname( __FILE__ ) . '/includes-core/templates/taxonomy-' . $series_slug . '.php';
+            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
         	}
 		}
 		return $tax_template;
