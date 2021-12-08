@@ -56,6 +56,8 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 				<?php endwhile; ?>
 			</div>
 
+			<?php the_posts_pagination(); ?>
+
 		<?php else : ?>
 			<p><?php esc_html_e( 'Sorry, no results found.', 'organize-series' ); ?></p>
 		<?php endif; ?>
@@ -64,9 +66,8 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 </section><!-- #primary -->
 
 <?php
-if( is_active_sidebar('sidebar') ) {
-	get_sidebar();
+if(pp_series_locate_template( array( 'sidebar.php' ) )){
+    get_sidebar();
 }
-
 get_footer();
 ?>
