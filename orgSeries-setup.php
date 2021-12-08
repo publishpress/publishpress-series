@@ -24,6 +24,10 @@ class orgSeries {
 
 		//install OrgSeries
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
+        add_action( 'admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
+
+		//add support for capabilities tab in PublishPress Capabilities
+		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
 
 		//all other actions and filters...
 		add_action('plugins_loaded', array($this, 'add_settings'), 10);
@@ -122,6 +126,18 @@ class orgSeries {
 
     pp_series_upgrade_function();
 	}
+
+    function pp_series_upgrade_version_upgrade() {
+        pp_series_upgrade_function();
+    }
+
+    //add support for capabilities tab in PublishPress Capabilities
+    function pp_series_cme_plugin_capabilities($plugin_caps){
+        
+        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
+
+        return $plugin_caps;
+    }
 
 	//function for all updates
 	function update($version) {
