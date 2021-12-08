@@ -29,34 +29,39 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 
 		<?php if ( have_posts() ) : ?>
 
-			<div id="pps-taxonomy-series-overview" class="<?php echo $series_layout_class ?>">
-				<?php while ( have_posts() ) : ?>
-					<?php the_post(); ?>
-						<article class="pps-taxonomy-series__post<?php echo !has_post_thumbnail() ? ' pps-taxonomy-series__no-image' : '' ?>">
+			<div id="pps-taxonomy-series-overview">
+				<div class="<?php echo $series_layout_class ?>">
+					<?php while ( have_posts() ) : ?>
+						<?php the_post(); ?>
+							<article class="pps-taxonomy-series__post<?php echo !has_post_thumbnail() ? ' pps-taxonomy-series__no-image' : '' ?>">
 
-							<?php if ( has_post_thumbnail() ) { ?>
-								<div class="pps-taxonomy-series__thumbnail">
-									<?php the_post_thumbnail(); ?>
-								</div><!-- .pps-taxonomy-series__thumbnail -->
-							<?php } ?>
+								<?php if ( has_post_thumbnail() ) { ?>
+									<div class="pps-taxonomy-series__thumbnail">
+										<?php the_post_thumbnail(); ?>
+									</div><!-- .pps-taxonomy-series__thumbnail -->
+								<?php } ?>
 
-							<div class="pps-taxonomy-series__wrapper">
-								<?php
-								the_title(
-									sprintf( '<h2 class="pps-taxonomy-series__title"><a href="%s">', esc_url( get_permalink() ) ),
-									'</a></h2>'
-								);
-								?>
-								<div class="pps-taxonomy-series__content">
-									<?php the_excerpt(); ?>
-								</div>
-							</div><!-- .pps-taxonomy-series__content -->
+								<div class="pps-taxonomy-series__wrapper">
+									<?php
+									the_title(
+										sprintf( '<h2 class="pps-taxonomy-series__title"><a href="%s">', esc_url( get_permalink() ) ),
+										'</a></h2>'
+									);
+									?>
+									<div class="pps-taxonomy-series__content">
+										<?php the_excerpt(); ?>
+									</div>
+								</div><!-- .pps-taxonomy-series__content -->
 
-						</article><!-- .pps-taxonomy-series__post -->
-				<?php endwhile; ?>
-			</div>
+							</article><!-- .pps-taxonomy-series__post -->
+					<?php endwhile; ?>
+				</div>
 
-			<?php the_posts_pagination(); ?>
+				<div class="pps-taxonomy-series__pagination">
+					<?php the_posts_pagination(); ?>
+				</div><!-- .pps-taxonomy-series__pagination -->
+
+			</div><!-- #pps-taxonomy-series-overview -->
 
 		<?php else : ?>
 			<p><?php esc_html_e( 'Sorry, no results found.', 'organize-series' ); ?></p>

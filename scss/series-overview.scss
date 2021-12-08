@@ -1,5 +1,65 @@
 #pps-taxonomy-series-overview {
 
+  // Pagination
+
+  .pps-taxonomy-series__pagination {
+
+    .nav-links {
+
+      > span,
+      > a {
+        margin: 20px 5px 0;
+        padding: 10px;
+        min-height: unset;
+        min-width: 40px;
+        font-size: 18px;
+        text-align: center;
+        line-height: inherit;
+        text-decoration: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 4px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+        }
+      }
+
+      span {
+        background: rgba(0,0,0,0.1);
+        color: #333;
+
+        &:hover,
+        &:focus {
+          background: rgba(0,0,0,0.1);
+          color: #333;
+        }
+      }
+
+      a {
+        background: #333;
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: #fff;
+          color: #333;
+        }
+      }
+    }
+  }
+
   // General
 
   .pps-taxonomy-series__thumbnail {
@@ -14,7 +74,7 @@
 
   // Grid layout
 
-  &.pps-layout-grid {
+  .pps-layout-grid {
     display: grid;
     grid-gap: 40px;
 
@@ -57,7 +117,7 @@
 
   // List layout
 
-  &.pps-layout-list {
+  .pps-layout-list {
 
     .pps-taxonomy-series__post {
       display: grid;
