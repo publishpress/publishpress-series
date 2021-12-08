@@ -29,10 +29,8 @@ jQuery(document).ready(function($) {
     // Toggle a columns setting based on layout value
     $('#series_overview_page_layout').change(function(){
         if($(this).val() == 'grid'){
-            console.log($(this).val());
-			$('.ppseries-settings-table').find('tr.pps-row-columns').show();
+            $('.ppseries-settings-table').find('tr.pps-row-columns').show();
         } else {
-            console.log($(this).val());
             $('.ppseries-settings-table').find('tr.pps-row-columns').hide();
         }
 	});
