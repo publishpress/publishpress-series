@@ -2,11 +2,13 @@
 
   // General
 
-  .pps-taxonomy-series__wrapper {
+  .pps-taxonomy-series__thumbnail {
+    margin: 0;
+    padding: 0;
 
-    .pps-taxonomy-series__thumbnail {
-      margin: 0;
-      padding: 0;
+    img {
+      height: auto !important;
+      width: auto;
     }
   }
 
@@ -34,6 +36,10 @@
 
     &.pps-columns-5 {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    &.pps-columns-6 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .pps-taxonomy-series__post {
