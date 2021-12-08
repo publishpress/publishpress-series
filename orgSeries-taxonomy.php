@@ -473,6 +473,10 @@ function wp_set_post_series_draft_transition( $post ) {
 	wp_set_post_series($post, true, $post_ID, $ser_id, true);
 }
 
+function series_wp_save_post($post_ID, $post, $update){
+	wp_set_post_series($post, $update, $post_ID);
+}
+
 function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	$post_shorttitle = array();
@@ -799,7 +803,7 @@ add_action('bulk_edit_custom_box', 'bulk_edit_series',9,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
-add_action('save_post','wp_set_post_series',10,3);
+add_action('save_post','series_wp_save_post',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',10,1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
