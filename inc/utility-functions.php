@@ -92,4 +92,37 @@ function pps_os_version_requirement_notice() {
     
         }
     }
+
+    if (!function_exists('pp_series_locate_template')) {
+        /**
+         * Check if template exist in theme/child theme
+         * 
+         * We wouldn't use wordpress locate_template()
+         * as it support theme compact which load 
+         * default template for files like sidebar.php 
+         * even if it doesn't exist in theme
+         *
+         * @param array $template
+         * @return void
+         */
+        function pp_series_locate_template($template_names)
+        {
+            $located = false;
+            foreach ( (array) $template_names as $template_name ) {
+                if ( ! $template_name ) {
+                    continue;
+                }
+                if ( file_exists( STYLESHEETPATH . '/' . $template_name ) ) {
+                    $located = STYLESHEETPATH . '/' . $template_name;
+                    break;
+                } elseif ( file_exists( TEMPLATEPATH . '/' . $template_name ) ) {
+                    $located = TEMPLATEPATH . '/' . $template_name;
+                    break;
+                }
+            }
+
+            return $located;
+    
+        }
+    }
 ?>

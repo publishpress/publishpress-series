@@ -25,5 +25,9 @@ get_header(); ?>
 			</div><!-- #content -->
 		</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php 
+if(pp_series_locate_template( array( 'sidebar.php' ) )){
+    get_sidebar(); 
+}
+?>
 <?php get_footer(); ?>
