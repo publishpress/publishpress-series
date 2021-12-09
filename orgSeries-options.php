@@ -162,6 +162,10 @@ function orgseries_validate($input) {
 	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? $input['series_taxonomy_slug'] : 'series' );
 
+    // overview page options
+    $newinput['series_overview_page_layout'] = trim(stripslashes($input['series_overview_page_layout']));
+    $newinput['series_overview_page_columns'] = (int) $input['series_overview_page_columns'];
+
 	//series-icon related settings
 	$newinput['series_icon_width_series_page'] = (int) $input['series_icon_width_series_page'];
 	$newinput['series_icon_width_post_page'] = (int) $input['series_icon_width_post_page'];
@@ -197,6 +201,9 @@ function orgseries_options_init() {
 
 	add_settings_section('series_taxonomy_base_settings', 'URLs and Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
 	add_settings_field('series_taxonomy_base_core_fieldset', 'URLs and Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
+
+    add_settings_section('series_overview_page_settings', 'Overview Page', 'orgseries_overview_page_section', 'orgseries_options_page');
+    add_settings_field('series_overview_page_core_fieldset', 'Overview Page', 'series_overview_page_core_fieldset', 'orgseries_options_page', 'series_overview_page_settings');
 
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
@@ -361,6 +368,12 @@ function orgseries_uninstall_section() {
 }
 
 function orgseries_taxonomy_base_section() {
+	global $orgseries;
+	?>
+	<?php
+}
+
+function orgseries_overview_page_section() {
 	global $orgseries;
 	?>
 	<?php
@@ -705,11 +718,62 @@ function series_taxonomy_base_core_fieldset() {
                 <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /> <br />
                     <small><?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?></small>
                 </td>
-                   
+
             </tr>
 
     </tbody>
 	</table>	<?php
+}
+
+function series_overview_page_core_fieldset() {
+	global $orgseries;
+	$org_opt               = $orgseries->settings;
+	$org_name              = 'org_series_options';
+    $overview_page_layouts = [
+		'default' => __('Default', 'organize-series'),
+		'grid' 	  => __('Grid', 'organize-series'),
+		'list'    => __('List', 'organize-series'),
+	];
+    ?>
+    <p><?php _e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
+    <table class="form-table ppseries-settings-table">
+    	<tbody>
+            <tr valign="top">
+                <th scope="row">
+                    <label for="series_overview_page_layout"><?php _e('Layout:', 'organize-series'); ?></label>
+                </th>
+                <td>
+                    <select name="<?php echo $org_name;?>[series_overview_page_layout]" id="series_overview_page_layout">
+                    <?php
+                    foreach($overview_page_layouts as $key => $label){
+                        $selected = ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === $key ) ? 'selected="selected"' : '';
+                        echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+
+                    }
+                    ?>
+                    </select>
+                    <br/>
+                    <small>
+                        <?php
+                        echo sprintf(
+                            __('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme. You can also <a href="%s" target="_blank">customize the template</a>.', 'organize-series'),
+                            'https://publishpress.com/knowledge-base/series-archive-templates/'
+                        );
+                        _e('', 'organize-series'); ?>
+                    </small>
+                </td>
+            </tr>
+            <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
+                <th scope="row">
+                    <label for="series_overview_page_columns"><?php _e('Columns:', 'organize-series'); ?></label>
+                </th>
+                <td>
+                    <input min="1" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? htmlspecialchars($org_opt['series_overview_page_columns']) : '1'); ?>" id="series_overview_page_columns" type="number" />
+                </td>
+            </tr>
+        </tbody>
+	</table>
+    <?php
 }
 
 function series_uninstall_core_fieldset() {
