@@ -140,6 +140,8 @@ v2.7.1- [===unreleased===]
 * Added: "Click to view" for "Series Table of Contents URL" #320
 * Added: Add series group template to PRO version group addon #202
 * Fixed: Sidebar warning for theme without sidebar.php on custom template #335
+* Fixed: Improved design for Series overview page #309
+* Added: Bulk edit for series #338
 
 v2.7.0- 2021-11-17
 * Fixed: Clarify what HTML is allowed in templates #273
