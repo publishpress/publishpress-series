@@ -491,7 +491,7 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
 
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || !isset($_REQUEST['is_series_save'] ) ) {
+	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' && $_GET['post_series'] == -1 ) || !isset($_REQUEST['is_series_save'] ) ) {
 		return;
 	}
 
@@ -690,15 +690,26 @@ function inline_edit_series($column_name, $type) {
 function bulk_edit_series($column_name, $type) {
 	if ( $type == 'post' ) {
 		?>
-	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
-		<div class="inline-edit-group">
-		<label class="inline-edit-series">
-			<input type="hidden" name="bulk_edit_series" value="bulk" />
-		</label>
-		</div>
-	</div></fieldset>
+        <input type="hidden" name="bulk_edit_series" value="bulk" />
 		<?php
 	}
+
+
+	if ( $type == 'post' && $column_name == ppseries_get_series_slug() ) {
+		?>
+        <fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+            <div class="inline_edit_series_">
+                <span><?php _e('Series:', 'organize-series'); ?></span>
+                <?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&context=quick-edit'); ?>
+			    <input type="hidden" name="series_part" class="series_part"  />
+                <input type="hidden" name="series_post_id" class="series_post_id"  />
+                <input type="hidden" name="is_series_save" value="1" />
+    
+    
+        </div></div></fieldset>
+		<?php
+	}
+
 }
 
 function inline_edit_series_js() {
