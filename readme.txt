@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,7 +130,7 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
-v2.7.1- [===unreleased===]
+v2.7.1- 2021-12-09
 * Fixed: PHP notices from the widget #303
 * Fixed: Visual bug with the "Series Taxonomy" choice #312
 * Fixed: Deprecated notices #307
