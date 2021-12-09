@@ -69,4 +69,60 @@ function pps_os_version_requirement_notice() {
 		}
 	}
 
+    if (!function_exists('pp_series_upgrade_function')) {
+        //activation functions/codes
+        function pp_series_upgrade_function()
+        {
+            $version = get_option('pp_series_version');
+    
+          if ( !$version || $version < '2.7.1') {
+              /**
+               * add newly introduced manage_publishpress_series for administrator 
+               *#https://github.com/publishpress/publishpress-series/issues/313
+              **/
+            // Init roles
+            if ( function_exists( 'get_role' ) ) {
+                $role = get_role( 'administrator' );
+                if ( null !== $role && ! $role->has_cap( 'manage_publishpress_series' ) ) {
+                    $role->add_cap( 'manage_publishpress_series' );
+                }
+            }
+            update_option('pp_series_version', ORG_SERIES_VERSION);
+         }
+    
+        }
+    }
+
+    if (!function_exists('pp_series_locate_template')) {
+        /**
+         * Check if template exist in theme/child theme
+         * 
+         * We wouldn't use wordpress locate_template()
+         * as it support theme compact which load 
+         * default template for files like sidebar.php 
+         * even if it doesn't exist in theme
+         *
+         * @param array $template
+         * @return void
+         */
+        function pp_series_locate_template($template_names)
+        {
+            $located = false;
+            foreach ( (array) $template_names as $template_name ) {
+                if ( ! $template_name ) {
+                    continue;
+                }
+                if ( file_exists( STYLESHEETPATH . '/' . $template_name ) ) {
+                    $located = STYLESHEETPATH . '/' . $template_name;
+                    break;
+                } elseif ( file_exists( TEMPLATEPATH . '/' . $template_name ) ) {
+                    $located = TEMPLATEPATH . '/' . $template_name;
+                    break;
+                }
+            }
+
+            return $located;
+    
+        }
+    }
 ?>

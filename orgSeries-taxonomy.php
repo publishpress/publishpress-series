@@ -117,7 +117,7 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 }
 
 //function to set the order that the post is in a series.
-function set_series_order($postid = 0, $series_part = 0, $series_id, $is_published = false) {
+function set_series_order($series_id, $postid = 0, $series_part = 0, $is_published = false) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
 	$post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
 	$series_posts = array();
@@ -460,20 +460,24 @@ function wp_set_post_series_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series', 10);
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series( $post_ID, $post, true, $ser_id, true );
+	wp_set_post_series( $post, true, $post_ID, $ser_id, true );
 	// ensure the post is added as the last part in the series
 	$current_part = wp_series_part( $post_ID, $ser_id );
-	if( empty($current_part) ) set_series_order( $post_ID, 0, $ser_id, true );
+	if( empty($current_part) ) set_series_order( $ser_id, $post_ID, 0, true );
 }
 
 function wp_set_post_series_draft_transition( $post ) {
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series($post_ID, $post, true, $ser_id, true);
+	wp_set_post_series($post, true, $post_ID, $ser_id, true);
 }
 
-function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(), $dont_skip = false, $is_published = false) {
+function series_wp_save_post($post_ID, $post, $update){
+	wp_set_post_series($post, $update, $post_ID);
+}
+
+function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	$post_shorttitle = array();
 
@@ -487,7 +491,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 
 
 	//fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' ) || !isset($_REQUEST['is_series_save'] ) ) {
+	if ($post->post_type == 'revision' || ( isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' && $_GET['post_series'] == -1 ) || !isset($_REQUEST['is_series_save'] ) ) {
 		return;
 	}
 
@@ -596,7 +600,7 @@ function wp_set_post_series( $post_ID = 0, $post, $update, $series_id = array(),
 				$s_pt = $set_spart[$ser_id];
 			}
 
-			set_series_order($post_ID, $s_pt, $ser_id, $is_published);
+			set_series_order($ser_id, $post_ID, $s_pt, $is_published);
 		}
 
 		return;
@@ -686,15 +690,26 @@ function inline_edit_series($column_name, $type) {
 function bulk_edit_series($column_name, $type) {
 	if ( $type == 'post' ) {
 		?>
-	<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
-		<div class="inline-edit-group">
-		<label class="inline-edit-series">
-			<input type="hidden" name="bulk_edit_series" value="bulk" />
-		</label>
-		</div>
-	</div></fieldset>
+        <input type="hidden" name="bulk_edit_series" value="bulk" />
 		<?php
 	}
+
+
+	if ( $type == 'post' && $column_name == ppseries_get_series_slug() ) {
+		?>
+        <fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+            <div class="inline_edit_series_">
+                <span><?php _e('Series:', 'organize-series'); ?></span>
+                <?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&context=quick-edit'); ?>
+			    <input type="hidden" name="series_part" class="series_part"  />
+                <input type="hidden" name="series_post_id" class="series_post_id"  />
+                <input type="hidden" name="is_series_save" value="1" />
+    
+    
+        </div></div></fieldset>
+		<?php
+	}
+
 }
 
 function inline_edit_series_js() {
@@ -799,7 +814,7 @@ add_action('bulk_edit_custom_box', 'bulk_edit_series',9,2);
 add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
-add_action('save_post','wp_set_post_series',10,3);
+add_action('save_post','series_wp_save_post',10,3);
 add_action('future_to_publish','wp_set_post_series_transition',10,1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);

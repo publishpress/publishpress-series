@@ -24,6 +24,10 @@ class orgSeries {
 
 		//install OrgSeries
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
+        add_action( 'admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
+
+		//add support for capabilities tab in PublishPress Capabilities
+		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
 
 		//all other actions and filters...
 		add_action('plugins_loaded', array($this, 'add_settings'), 10);
@@ -63,6 +67,9 @@ class orgSeries {
 
 		//settings link on plugin page
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
+
+		// custom taxonomy template
+		add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
 	}
 
 	function update_warning() {
@@ -116,7 +123,21 @@ class orgSeries {
 	add_option( 'series_icon_path', '' );
 	add_option( 'series_icon_url', '' );
 	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
+
+    pp_series_upgrade_function();
 	}
+
+    function pp_series_upgrade_version_upgrade() {
+        pp_series_upgrade_function();
+    }
+
+    //add support for capabilities tab in PublishPress Capabilities
+    function pp_series_cme_plugin_capabilities($plugin_caps){
+
+        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
+
+        return $plugin_caps;
+    }
 
 	//function for all updates
 	function update($version) {
@@ -307,7 +328,7 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
-        
+
 		return false;
 	}
 
@@ -511,7 +532,7 @@ class orgSeries {
 		return apply_filters('orgseries_sort_series_page_orderby', $ordering);
 	}
 
-	// Add .css to header if enabled via options
+	// Add CSS to header if enabled via options and CSS design if overview page is different to default
 	function orgSeries_header() {
 		$plugin_path = SERIES_LOC;
 		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
@@ -535,6 +556,15 @@ class orgSeries {
 					break;
 			}
 
+		}
+
+		if (isset($this->settings['series_overview_page_layout']) && $this->settings['series_overview_page_layout'] !== 'default') {
+			wp_enqueue_style(
+				'pps-series-overview-style',
+				plugins_url('css/series-overview.css', __FILE__),
+				'',
+				ORG_SERIES_VERSION
+			);
 		}
 	}
 
@@ -649,6 +679,18 @@ class orgSeries {
 		}
 
 		return $links;
+	}
+
+	function series_load_tax_template($tax_template) {
+		$series_slug = ppseries_get_series_slug();
+		if (is_tax('series')) {
+			// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
+			$theme_template = locate_template( array('taxonomy-' . $series_slug . '.php') );
+			if ( !$theme_template ) {
+            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
+        	}
+		}
+		return $tax_template;
 	}
 
 } //end of orgSeries class
