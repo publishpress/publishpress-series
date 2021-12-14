@@ -83,7 +83,15 @@ function ppseries_register_temporary_taxonomy(){
 function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
 	$newinput = array();
-	if ( isset($input['reset_option']) && $input['reset_option'] == 1 ) {
+
+	
+    check_admin_referer('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
+    
+    if(!current_user_can('manage_publishpress_series')){
+        wp_die(__('Permission denied', 'organize-series'));
+    }
+    
+    if ( isset($input['reset_option']) && $input['reset_option'] == 1 ) {
 
 		if ($reset_options = $orgseries->add_settings(true)) {
 			$input = $orgseries->settings;
@@ -126,44 +134,44 @@ function orgseries_validate($input) {
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
-	$newinput['series_post_list_limit'] = trim(stripslashes($input['series_post_list_limit']));
+	$newinput['series_post_list_limit'] = sanitize_text_field(trim(stripslashes($input['series_post_list_limit'])));
 	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
-	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes($input['series_css_tougle']), 1) : 'default' );
+	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(sanitize_text_field(stripslashes($input['series_css_tougle'])), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
-	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_toc_url']);
-	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', $input['series_custom_base']);
+	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', sanitize_text_field($input['series_toc_url']));
+	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', sanitize_text_field($input['series_custom_base']));
 
-	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', $input['series_perp_toc']));
+	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', sanitize_text_field($input['series_perp_toc'])));
 
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
-	$newinput['series_toc_title'] = isset($input['series_toc_title']) ? trim(stripslashes($input['series_toc_title'])) : '';
-	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim($input['orgseries_api']) : '';
+	$newinput['series_toc_title'] = isset($input['series_toc_title']) ? trim(sanitize_text_field(stripslashes($input['series_toc_title']))) : '';
+	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(sanitize_text_field($input['orgseries_api'])) : '';
 
 	//template options
-	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
-	$newinput['series_post_list_post_template'] = trim(stripslashes($input['series_post_list_post_template']));
-	$newinput['series_post_list_currentpost_template'] = trim(stripslashes($input['series_post_list_currentpost_template']));
-	$newinput['series_meta_template'] = trim(stripslashes($input['series_meta_template']));
-	$newinput['series_meta_excerpt_template'] = trim(stripslashes($input['series_meta_excerpt_template']));
-    $newinput['series_table_of_contents_box_template'] = trim(stripslashes($input['series_table_of_contents_box_template']));
-	$newinput['series_post_nav_template'] = trim(stripslashes($input['series_post_nav_template']));
-	$newinput['series_nextpost_nav_custom_text'] = trim(stripslashes($input['series_nextpost_nav_custom_text']));
-	$newinput['series_prevpost_nav_custom_text'] = trim(stripslashes($input['series_prevpost_nav_custom_text']));
-	$newinput['series_firstpost_nav_custom_text'] = trim(stripslashes($input['series_firstpost_nav_custom_text']));
-	$newinput['series_posts_orderby'] = trim(stripslashes($input['series_posts_orderby']));
-	$newinput['series_posts_order'] = trim(stripslashes($input['series_posts_order']));
-	$newinput['latest_series_before_template'] = trim(stripslashes($input['latest_series_before_template']));
-	$newinput['latest_series_inner_template'] = trim(stripslashes($input['latest_series_inner_template']));
-	$newinput['latest_series_after_template'] = trim(stripslashes($input['latest_series_after_template']));
-	$newinput['series_post_list_position'] = trim(stripslashes($input['series_post_list_position']));
-	$newinput['series_metabox_position'] = trim(stripslashes($input['series_metabox_position']));
-	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
-	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? $input['series_taxonomy_slug'] : 'series' );
+	$newinput['series_post_list_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_template'])));
+	$newinput['series_post_list_post_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_post_template'])));
+	$newinput['series_post_list_currentpost_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_currentpost_template'])));
+	$newinput['series_meta_template'] = trim(sanitize_text_field(stripslashes($input['series_meta_template'])));
+	$newinput['series_meta_excerpt_template'] = trim(sanitize_text_field(stripslashes($input['series_meta_excerpt_template'])));
+    $newinput['series_table_of_contents_box_template'] = trim(sanitize_text_field(stripslashes($input['series_table_of_contents_box_template'])));
+	$newinput['series_post_nav_template'] = trim(sanitize_text_field(stripslashes($input['series_post_nav_template'])));
+	$newinput['series_nextpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_nextpost_nav_custom_text'])));
+	$newinput['series_prevpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_prevpost_nav_custom_text'])));
+	$newinput['series_firstpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_firstpost_nav_custom_text'])));
+	$newinput['series_posts_orderby'] = trim(sanitize_text_field(stripslashes($input['series_posts_orderby'])));
+	$newinput['series_posts_order'] = trim(sanitize_text_field(stripslashes($input['series_posts_order'])));
+	$newinput['latest_series_before_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_before_template'])));
+	$newinput['latest_series_inner_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_inner_template'])));
+	$newinput['latest_series_after_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_after_template'])));
+	$newinput['series_post_list_position'] = trim(sanitize_text_field(stripslashes($input['series_post_list_position'])));
+	$newinput['series_metabox_position'] = trim(sanitize_text_field(stripslashes($input['series_metabox_position'])));
+	$newinput['series_navigation_box_position'] = trim(sanitize_text_field(stripslashes($input['series_navigation_box_position'])));
+	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? sanitize_text_field($input['series_taxonomy_slug']) : 'series' );
 
     // overview page options
-    $newinput['series_overview_page_layout'] = trim(stripslashes($input['series_overview_page_layout']));
+    $newinput['series_overview_page_layout'] = trim(sanitize_text_field(stripslashes($input['series_overview_page_layout'])));
     $newinput['series_overview_page_columns'] = (int) $input['series_overview_page_columns'];
 
 	//series-icon related settings
@@ -172,7 +180,7 @@ function orgseries_validate($input) {
 	$newinput['series_icon_width_latest_series'] = (int) $input['series_icon_width_latest_series'];
 
     //we need to maintain series slug settings separately
-    update_option('pp_series_taxonomy_slug', $newinput['series_taxonomy_slug']);
+    update_option('pp_series_taxonomy_slug', sanitize_text_field($newinput['series_taxonomy_slug']));
 
 	$newinput['last_modified'] = gmdate("D, d M Y H:i:s", time());
 	$return_input = apply_filters('orgseries_options', $newinput, $input);
@@ -320,6 +328,7 @@ function orgseries_option_page() {
 				</table>
 				<br />
 				<?php
+                wp_nonce_field('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
 				//$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
 				//$script_text = "javascript:return confirm('".$submit_text."')"
 				?>
@@ -401,7 +410,7 @@ function series_automation_core_fieldset() {
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="series_post_list_limit"><?php _e('Maximum number of items in Series Post List', 'organize-series'); ?></label></th>
-									<td><input min="0" name="<?php echo $org_name;?>[series_post_list_limit]" value="<?php echo ( isset($org_opt['series_post_list_limit']) ? htmlspecialchars($org_opt['series_post_list_limit']) : ''); ?>" id="series_post_list_limit" type="number" /></td>
+									<td><input min="0" name="<?php echo $org_name;?>[series_post_list_limit]" value="<?php echo ( isset($org_opt['series_post_list_limit']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_limit'])) : ''); ?>" id="series_post_list_limit" type="number" /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php _e('Display Series Navigation links ?', 'organize-series'); ?></label></th>
@@ -430,7 +439,7 @@ function series_automation_core_fieldset() {
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php _e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td>
-                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo htmlspecialchars($org_opt['series_toc_url']); ?>" />
+                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo $org_name; ?>[series_toc_url]" id="series_toc_url" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_toc_url'])); ?>" />
                                         <button onclick="gotoTOCUrl(event)" class="button">view page</button>
                                     </td>
 								</tr>
@@ -447,7 +456,7 @@ function series_automation_core_fieldset() {
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php _e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
-									<td><input type="text" id="series_toc_title" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo htmlspecialchars($org_opt['series_toc_title']); ?>"/></td>
+									<td><input type="text" id="series_toc_title" name="<?php echo $org_name; ?>[series_toc_title]" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_toc_title'])); ?>"/></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for=""><?php _e('Order series by:', 'organize-series'); ?></label></th>
@@ -657,19 +666,19 @@ function series_icon_core_fieldset() {
 
               <tr valign="top">
                 <th scope="row"><label for="series_icon_width_series_page"><?php _e('Width for icon on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
-                <td><input  min="1" max="1000000000"name="<?php echo $org_name;?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo $org_opt['series_icon_width_series_page']; ?>" /></p>
+                <td><input  min="1" max="1000000000"name="<?php echo $org_name;?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_series_page']); ?>" /></p>
                 </td>
                 </tr>
 
                 <tr valign="top">
                   <th scope="row"><label for="series_icon_width_post_page"><?php _e('Width for icon on a post page (in pixels).', 'organize-series'); ?></label></th>
-                  <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo $org_opt['series_icon_width_post_page']; ?>" /></p>
+                  <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_post_page']); ?>" /></p>
                   </td>
                   </tr>
 
                   <tr valign="top">
                     <th scope="row"><label for="series_icon_width_latest_series"><?php _e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
-                    <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo $org_opt['series_icon_width_latest_series']; ?>" /></p>
+                    <td><input min="1" max="1000000000" name="<?php echo $org_name;?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_latest_series']); ?>" /></p>
                     </td>
                     </tr>
 
@@ -693,7 +702,7 @@ function series_taxonomy_base_core_fieldset() {
     	<tbody>
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
-                    <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo htmlspecialchars($org_opt['series_taxonomy_slug']); ?>"/>
+                    <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])); ?>"/>
                     <br />
                     <small><?php _e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></small>
                 </td>
@@ -715,7 +724,7 @@ function series_taxonomy_base_core_fieldset() {
             <?php } ?>
 
             <tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
-                <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo htmlspecialchars($org_opt['series_custom_base']); ?>" /> <br />
+                <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_custom_base'])); ?>" /> <br />
                     <small><?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?></small>
                 </td>
 
@@ -768,7 +777,7 @@ function series_overview_page_core_fieldset() {
                     <label for="series_overview_page_columns"><?php _e('Columns:', 'organize-series'); ?></label>
                 </th>
                 <td>
-                    <input min="1" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? htmlspecialchars($org_opt['series_overview_page_columns']) : '1'); ?>" id="series_overview_page_columns" type="number" />
+                    <input min="1" max="6" name="<?php echo $org_name;?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
                 </td>
             </tr>
         </tbody>

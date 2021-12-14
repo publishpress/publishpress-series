@@ -99,12 +99,12 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 		}
 
 		if ( 'post-list' === $referral && $limit > 0 && count($result_list) >  $limit) {
-		
-		
+
+
 			$current_post_data 	= $result_list[$current_post_id];
 			$result_limit    	= array_chunk($result_list, $limit, true);
 			$result_limit    	= $result_limit[0];
- 
+
 			if(!array_key_exists($current_post_id, $result_limit)){
 				$last_array_key = key(array_slice($result_limit, -1, 1, true));
 				unset($result_limit[$last_array_key]);
@@ -847,7 +847,7 @@ function series_post_title($post_ID, $linked=TRUE, $short_title = false) {
 		$title = get_the_title($post_ID);
 	if ($linked) {
 		$link = get_permalink($post_ID);
-		$return = '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+		$return = '<a href="' . $link . '" title="' . esc_attr($title) . '">' . $title . '</a>';
 	} else {
 		$return = $title;
 	}
