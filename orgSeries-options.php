@@ -765,7 +765,7 @@ function series_overview_page_core_fieldset() {
                         <small>
                             <?php
                             echo sprintf(
-                                __('Choosing a layout different to "Default" will override the taxonomy template from your theme. In case the result doesn\'t match with your theme design, you can customize the template <a href="%s" target="_blank">as explained here</a>.', 'organize-series'),
+                                __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
                                 'https://publishpress.com/knowledge-base/series-archive-templates/'
                             );
                             _e('', 'organize-series'); ?>
