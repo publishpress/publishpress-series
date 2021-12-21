@@ -84,7 +84,7 @@ class Container
             );
         };
         $this->container[IncomingRequest::class]           = function($container) {
-            return new IncomingRequest($_GET, $_POST, $_COOKIE);
+            return new IncomingRequest($_GET, $_POST, $_COOKIE);// phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
         };
         $this->container[ControllerRouteCollection::class] = function($container) {
             return new ControllerRouteCollection();

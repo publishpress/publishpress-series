@@ -295,7 +295,7 @@ class PluginUpdateChecker {
 		if (!is_array($os_ary))
 			$os_ary = array();
 
-		$os_ary[] = $_POST['version'];
+		$os_ary[] = sanitize_text_field($_POST['version']);
 		update_option($this->dismiss_upgrade, $os_ary);
 	}
 

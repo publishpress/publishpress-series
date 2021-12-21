@@ -86,12 +86,10 @@ function seriesicons_write($series, $icon) {
         return false;
     }
 
-	if ($wpdb->get_var( $wpdb->prepare("SELECT term_id FROM $tablename WHERE term_id=%d", $series) ) ) {
-
-		$wpdb->query( $wpdb->prepare("UPDATE $tablename SET icon=%s WHERE term_id=%d", $icon, $series) );
+	if ($wpdb->get_var( $wpdb->prepare("SELECT term_id FROM `$tablename` WHERE term_id=%d", $series) ) ) {
+		$wpdb->query( $wpdb->prepare("UPDATE `$tablename` SET icon=%s WHERE term_id=%d", $icon, $series) );
 	} else {
-		$wpdb->query( $wpdb->prepare("INSERT INTO $tablename (term_id, icon) VALUES (%d,%s)", $series, $icon) );
-
+        $wpdb->insert($tablename, array('icon' => $icon, 'term_id' => $series), array('%s','%d'));
 	}
 	return true;
 }

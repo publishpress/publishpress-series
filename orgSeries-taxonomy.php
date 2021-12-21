@@ -501,7 +501,7 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 	$old_series = is_array($old_series) ? $old_series : array();
 
 	if ( empty($series_id) ) {
-		$post_series = isset( $_REQUEST['post_series'] ) && is_array($_REQUEST['post_series'] ) ? $_REQUEST['post_series'] : array($_REQUEST['post_series']);
+		$post_series = isset( $_REQUEST['post_series'] ) && is_array($_REQUEST['post_series'] ) ? array_map('sanitize_text_field', $_REQUEST['post_series']) : array(sanitize_text_field($_REQUEST['post_series']));
 	 } else {
 		$post_series = is_array($series_id) ? $series_id : array($series_id);
 	}
@@ -518,14 +518,14 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
 
 	if ( isset($_POST) || isset($_GET)) {
-		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? $_POST['series_part'] : array($_POST['series_part']);
-		if ( isset($_GET['series_part']) ) $series_part = is_array($_GET['series_part']) ? $_GET['series_part'] : array($_GET['series_part']);
+		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? array_map('sanitize_text_field', $_POST['series_part']) : array(sanitize_text_field($_POST['series_part']));
+		if ( isset($_GET['series_part']) ) $series_part = is_array($_GET['series_part']) ? array_map('sanitize_text_field', $_GET['series_part']) : array(sanitize_text_field($_GET['series_part']));
 
 		//The "short" title of the post that will be displayed  in the OrgSeries widget.
 		if ( isset($_POST['serie_post_shorttitle']) )
-			$post_shorttitle = $_POST['serie_post_shorttitle'];
+			$post_shorttitle = sanitize_text_field($_POST['serie_post_shorttitle']);
 		if ( isset($_GET['serie_post_shorttitle']) )
-			$post_shorttitle = $_GET['serie_post_shorttitle'];
+			$post_shorttitle = sanitize_text_field($_GET['serie_post_shorttitle']);
 		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : '';
 		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
 		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
@@ -592,10 +592,10 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 			}
 			else {
 				if ( isset($_GET['submit']) ) {
-					$set_spart = $_GET['series_part'];
+					$set_spart = sanitize_text_field($_GET['series_part']);
 				}
 				else {
-					$set_spart =  $_POST['series_part'];
+					$set_spart =  sanitize_text_field($_POST['series_part']);
 				}
 				$s_pt = $set_spart[$ser_id];
 			}

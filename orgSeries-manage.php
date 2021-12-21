@@ -24,7 +24,7 @@ function wp_insert_series($series_id, $taxonomy_id) {
 	$series_icon_loc = '';
 
 	extract($_POST, EXTR_SKIP);
-	$series_icon = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : null;
+	$series_icon = isset($_POST['series_icon_loc']) ? sanitize_text_field($_POST['series_icon_loc']) : null;
 
 	if ( isset($series_icon) || $series_icon != '' ) {
 		$build_path = seriesicons_url();
@@ -49,9 +49,9 @@ function wp_update_series($series_id, $taxonomy_id) {
 	}
 
 	if ($delete_image) {
-		seriesicons_delete($series_id);
+		seriesicons_delete(absint($series_id));
 	} else {
-		$series_icon = seriesicons_write($series_id, $series_icon);
+		$series_icon = seriesicons_write(absint($series_id), sanitize_text_field($series_icon));
 	}
 }
 
