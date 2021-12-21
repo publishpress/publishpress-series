@@ -171,7 +171,7 @@ function admin_ajax_series() {
 	}
 	$new_nonce = wp_create_nonce('add-series-nonce');
 
-	$name = $_POST['newseries'];
+	$name = sanitize_text_field($_POST['newseries']);
 
 	$series_name = trim($name);
 	if ( !$series_nicename = sanitize_title($series_name) )
@@ -202,10 +202,10 @@ function admin_ajax_series() {
 ###AJAX FOR INLINE_SERIES UPDATE###
 function admin_inline_series_ajax() {
 	check_ajax_referer ( 'inlineeditnonce', '_inline_edit' );
-	$data[$seriesid] = isset($_POST['post_series']) ? $_POST['post_series'] : '';
-	$data[$series_part] = isset($_POST['series_part']) ? $_POST['series_part'] : '';
-	$data[$id] = isset($_POST['series_post_id']) ? $_POST['series_post_id'] : '';
-	$data[$is_series_save] = isset($_POST['is_series_save']) ? $_POST['is_series_save'] : 0;
+	$data[$seriesid] = isset($_POST['post_series']) ? sanitize_text_field($_POST['post_series']) : '';
+	$data[$series_part] = isset($_POST['series_part']) ? sanitize_text_field($_POST['series_part']) : '';
+	$data[$id] = isset($_POST['series_post_id']) ? sanitize_text_field($_POST['series_post_id']) : '';
+	$data[$is_series_save] = isset($_POST['is_series_save']) ? sanitize_text_field($_POST['is_series_save']) : 0;
 	/*$series_id = $_POST['post_series'];
 	$part = $_POST['series_part'];
 	$post_id = $_POST['series_post_id'];*/
@@ -407,7 +407,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 function orgSeries_custom_manage_posts_filter() {
 	global $orgseries;
 	$series_name = '';
-	if (isset($_GET[SERIES_QUERYVAR])) $series_name = $_GET[SERIES_QUERYVAR];
+	if (isset($_GET[SERIES_QUERYVAR])) $series_name = sanitize_text_field($_GET[SERIES_QUERYVAR]);
 
 	wp_dropdown_series('show_option_all='.__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
 }
