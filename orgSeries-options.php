@@ -84,13 +84,13 @@ function orgseries_validate($input) {
 	global $orgseries, $wp_rewrite;
 	$newinput = array();
 
-	
+
     check_admin_referer('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
-    
+
     if(!current_user_can('manage_publishpress_series')){
         wp_die(__('Permission denied', 'organize-series'));
     }
-    
+
     if ( isset($input['reset_option']) && $input['reset_option'] == 1 ) {
 
 		if ($reset_options = $orgseries->add_settings(true)) {
@@ -761,15 +761,16 @@ function series_overview_page_core_fieldset() {
                     }
                     ?>
                     </select>
-                    <br/>
-                    <small>
-                        <?php
-                        echo sprintf(
-                            __('Please note: choosing a layout different to "Default" will override the taxonomy template from your theme. You can also <a href="%s" target="_blank">customize the template</a>.', 'organize-series'),
-                            'https://publishpress.com/knowledge-base/series-archive-templates/'
-                        );
-                        _e('', 'organize-series'); ?>
-                    </small>
+                    <div id="series_overview_page_layout_desc">
+                        <small>
+                            <?php
+                            echo sprintf(
+                                __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
+                                'https://publishpress.com/knowledge-base/series-archive-templates/'
+                            );
+                            _e('', 'organize-series'); ?>
+                        </small>
+                    </div>
                 </td>
             </tr>
             <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
