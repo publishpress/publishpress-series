@@ -639,7 +639,9 @@ function series_templates_core_fieldset() {
 
                             <tr valign="top"><th scope="row"><label for="series_table_of_contents_box_template"><?php _e('Series Table of Contents', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo $org_name; ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_table_of_contents_box_template']))); ?></textarea>
-                                <small><?php _e('This display is used by the "Series Table of Contents". To find the URL for this display, go the "Display" tab and then "Series Table of Contents URL".', 'organize-series'); ?></small>
+                                <p class="description">
+                                    <?php _e('This display is used by the "Series Table of Contents". To find the URL for this display, go the "Display" tab and then "Series Table of Contents URL".', 'organize-series'); ?>
+                                </p>
 								</td>
 							</tr>
 
@@ -703,8 +705,9 @@ function series_taxonomy_base_core_fieldset() {
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php _e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo $org_name; ?>[series_taxonomy_slug]" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])); ?>"/>
-                    <br />
-                    <small><?php _e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></small>
+                    <p class="description">
+                        <?php _e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?>
+                    </p>
                 </td>
             </tr>
             <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
@@ -725,7 +728,9 @@ function series_taxonomy_base_core_fieldset() {
 
             <tr valign="top"><th scope="row"><label for="series_custom_base"><?php _e('Series Custom Base:', 'organize-series'); ?></label></th>
                 <td><input type="text" name="<?php echo $org_name; ?>[series_custom_base]" id="series_custom_base" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_custom_base'])); ?>" /> <br />
-                    <small><?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?></small>
+                    <p class="description">
+                        <?php _e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
+                    </p>
                 </td>
 
             </tr>
@@ -762,14 +767,14 @@ function series_overview_page_core_fieldset() {
                     ?>
                     </select>
                     <div id="series_overview_page_layout_desc">
-                        <small>
+                        <p class="description">
                             <?php
                             echo sprintf(
                                 __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
                                 'https://publishpress.com/knowledge-base/series-archive-templates/'
                             );
                             _e('', 'organize-series'); ?>
-                        </small>
+                        </p>
                     </div>
                 </td>
             </tr>
@@ -797,11 +802,13 @@ function series_uninstall_core_fieldset() {
             	<th scope="row"><label for="kill_on_delete">
                 	    <?php _e('Series Settings', 'organize-series'); ?>
                 	</label>
-                	<br /><small style="color: #646970;">
-                    	<?php _e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?></label>
-                	</small>
             	</th>
-            	<td><input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> /></td>
+            	<td>
+                    <label>
+                        <input name="<?php echo $org_name; ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> />
+                    	<?php _e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?>
+                	</label>
+                </td>
         	</tr>
 
 			<tr valign="top">
