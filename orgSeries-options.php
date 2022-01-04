@@ -134,11 +134,11 @@ function orgseries_validate($input) {
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
-	$newinput['series_post_list_limit'] = sanitize_text_field(trim(stripslashes($input['series_post_list_limit'])));
+	$newinput['series_post_list_limit'] = trim(stripslashes($input['series_post_list_limit']));
 	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
-	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(sanitize_text_field(stripslashes($input['series_css_tougle'])), 1) : 'default' );
+	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes($input['series_css_tougle']), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', sanitize_text_field($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', sanitize_text_field($input['series_custom_base']));
@@ -146,32 +146,32 @@ function orgseries_validate($input) {
 	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', sanitize_text_field($input['series_perp_toc'])));
 
 	if ( strlen($input['series_toc_url']) <= 0 ) $newinput['series_toc_url'] = false;
-	$newinput['series_toc_title'] = isset($input['series_toc_title']) ? trim(sanitize_text_field(stripslashes($input['series_toc_title']))) : '';
+	$newinput['series_toc_title'] = isset($input['series_toc_title']) ? trim(stripslashes($input['series_toc_title'])) : '';
 	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(sanitize_text_field($input['orgseries_api'])) : '';
 
 	//template options
-	$newinput['series_post_list_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_template'])));
-	$newinput['series_post_list_post_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_post_template'])));
-	$newinput['series_post_list_currentpost_template'] = trim(sanitize_text_field(stripslashes($input['series_post_list_currentpost_template'])));
-	$newinput['series_meta_template'] = trim(sanitize_text_field(stripslashes($input['series_meta_template'])));
-	$newinput['series_meta_excerpt_template'] = trim(sanitize_text_field(stripslashes($input['series_meta_excerpt_template'])));
-    $newinput['series_table_of_contents_box_template'] = trim(sanitize_text_field(stripslashes($input['series_table_of_contents_box_template'])));
-	$newinput['series_post_nav_template'] = trim(sanitize_text_field(stripslashes($input['series_post_nav_template'])));
-	$newinput['series_nextpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_nextpost_nav_custom_text'])));
-	$newinput['series_prevpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_prevpost_nav_custom_text'])));
-	$newinput['series_firstpost_nav_custom_text'] = trim(sanitize_text_field(stripslashes($input['series_firstpost_nav_custom_text'])));
-	$newinput['series_posts_orderby'] = trim(sanitize_text_field(stripslashes($input['series_posts_orderby'])));
-	$newinput['series_posts_order'] = trim(sanitize_text_field(stripslashes($input['series_posts_order'])));
-	$newinput['latest_series_before_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_before_template'])));
-	$newinput['latest_series_inner_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_inner_template'])));
-	$newinput['latest_series_after_template'] = trim(sanitize_text_field(stripslashes($input['latest_series_after_template'])));
-	$newinput['series_post_list_position'] = trim(sanitize_text_field(stripslashes($input['series_post_list_position'])));
-	$newinput['series_metabox_position'] = trim(sanitize_text_field(stripslashes($input['series_metabox_position'])));
-	$newinput['series_navigation_box_position'] = trim(sanitize_text_field(stripslashes($input['series_navigation_box_position'])));
+	$newinput['series_post_list_template'] = trim(stripslashes($input['series_post_list_template']));
+	$newinput['series_post_list_post_template'] = trim(stripslashes($input['series_post_list_post_template']));
+	$newinput['series_post_list_currentpost_template'] = trim(stripslashes($input['series_post_list_currentpost_template']));
+	$newinput['series_meta_template'] = trim(stripslashes($input['series_meta_template']));
+	$newinput['series_meta_excerpt_template'] = trim(stripslashes($input['series_meta_excerpt_template']));
+    $newinput['series_table_of_contents_box_template'] = trim(stripslashes($input['series_table_of_contents_box_template']));
+	$newinput['series_post_nav_template'] = trim(stripslashes($input['series_post_nav_template']));
+	$newinput['series_nextpost_nav_custom_text'] = trim(stripslashes($input['series_nextpost_nav_custom_text']));
+	$newinput['series_prevpost_nav_custom_text'] = trim(stripslashes($input['series_prevpost_nav_custom_text']));
+	$newinput['series_firstpost_nav_custom_text'] = trim(stripslashes($input['series_firstpost_nav_custom_text']));
+	$newinput['series_posts_orderby'] = trim(stripslashes($input['series_posts_orderby']));
+	$newinput['series_posts_order'] = trim(stripslashes($input['series_posts_order']));
+	$newinput['latest_series_before_template'] = trim(stripslashes($input['latest_series_before_template']));
+	$newinput['latest_series_inner_template'] = trim(stripslashes($input['latest_series_inner_template']));
+	$newinput['latest_series_after_template'] = trim(stripslashes($input['latest_series_after_template']));
+	$newinput['series_post_list_position'] = trim(stripslashes($input['series_post_list_position']));
+	$newinput['series_metabox_position'] = trim(stripslashes($input['series_metabox_position']));
+	$newinput['series_navigation_box_position'] = trim(stripslashes($input['series_navigation_box_position']));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? sanitize_text_field($input['series_taxonomy_slug']) : 'series' );
 
     // overview page options
-    $newinput['series_overview_page_layout'] = trim(sanitize_text_field(stripslashes($input['series_overview_page_layout'])));
+    $newinput['series_overview_page_layout'] = trim(stripslashes($input['series_overview_page_layout']));
     $newinput['series_overview_page_columns'] = (int) $input['series_overview_page_columns'];
 
 	//series-icon related settings
