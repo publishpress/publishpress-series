@@ -26,12 +26,24 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-    // Toggle a columns setting based on layout value
-    $('#series_overview_page_layout').change(function(){
+    // Overview page tab settings
+    $('#series_overview_page_layout').on('change', function(){
+        // Show / Hide columns field
         if($(this).val() == 'grid'){
             $('.ppseries-settings-table').find('tr.pps-row-columns').show();
         } else {
             $('.ppseries-settings-table').find('tr.pps-row-columns').hide();
         }
+        // Show / Hide layout description
+        if($(this).val() != 'default'){
+            $('#series_overview_page_layout_desc').show();
+        } else {
+            $('#series_overview_page_layout_desc').hide();
+        }
 	});
+
+    // Show / Hide layout description on load
+    if($('#series_overview_page_layout').val() == 'default'){
+        $('#series_overview_page_layout_desc').hide();
+    }
 });

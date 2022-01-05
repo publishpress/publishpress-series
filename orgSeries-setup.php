@@ -682,15 +682,21 @@ class orgSeries {
 	}
 
 	function series_load_tax_template($tax_template) {
-		$series_slug = ppseries_get_series_slug();
-		if (is_tax('series')) {
-			// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
-			$theme_template = locate_template( array('taxonomy-' . $series_slug . '.php') );
-			if ( !$theme_template ) {
-            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
-        	}
+		if (isset($this->settings['series_overview_page_layout']) && $this->settings['series_overview_page_layout'] !== 'default') {
+
+			$series_slug = ppseries_get_series_slug();
+			if (is_tax('series')) {
+				// Override taxonomy-series.php in child theme by pasting the file in root child theme folder
+				$theme_template = locate_template( array('taxonomy-' . $series_slug . '.php') );
+				if ( !$theme_template ) {
+	            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
+	        	}
+			}
+
+			return $tax_template;
 		}
-		return $tax_template;
+
+		return false;
 	}
 
 } //end of orgSeries class
