@@ -130,6 +130,10 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.7.3- [===unreleased===]
+* Fixed: HTML tags being stripped when saving #362
+* Fixed: PHP Warning: Undefined array key #354
+
 v2.7.2- 2022-01-05
 * Fixed: Make text easier to read #348
 * Fixed: Overview page layout description #346
