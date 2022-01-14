@@ -492,7 +492,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	foreach ($posts_in_series as $seriespost) {
 		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
 		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
-		$custom_first = esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
+		$custom_first = isset($settings['series_firstpost_nav_custom_text']) ? esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID)) : '';
 		if ($next && !$first) {
 			if ( ( (int) $seriespost['part'] - $cur_part) === 1) {
 					if ( !empty($custom_next) ) $title = $custom_next;
