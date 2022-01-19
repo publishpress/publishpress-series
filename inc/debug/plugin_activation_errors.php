@@ -22,7 +22,7 @@ add_action( 'activated_plugin', 'orgseries_plugin_activation_errors' );
  */
 function orgseries_debug_loaded() {
 	if ( $activation_errors = get_option( 'orgseries_plugin_activation_errors', FALSE )) {
-		echo '<div class="error"><p>' . $activation_errors . '</p></div>';
+		echo '<div class="error"><p>' . esc_html($activation_errors) . '</p></div>';
 		update_option( 'orgseries_plugin_activation_errors', FALSE );
 	}
 }

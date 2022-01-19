@@ -115,9 +115,10 @@ function edit_series_form_fields($series, $taxonomy) {
 				<th scope="row"><?php _e('Current series icon:', 'organize-series'); ?></th><?php } ?>
 				<td>
 					<?php if ($series_icon != '') {
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							echo $series_icon;
 						} else {
-							echo '<p>'. __('No icon currently', 'organize-series') .'</p>';
+							echo '<p>'. esc_html__('No icon currently', 'organize-series') .'</p>';
 						}
 					 ?>
 					<div id="selected-icon"></div>

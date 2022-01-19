@@ -153,8 +153,8 @@ class PluginUpdateChecker {
 		$org_opt = $orgseries->settings;
 		$org_name = 'org_series_options';
 		?>
-			<strong><?php _e('Publishpress Series API: ', $this->lang_domain); ?></strong>
-			<input name="<?php echo $org_name; ?>[orgseries_api]" id="orgseries_api" type="text" value="<?php echo trim($org_opt['orgseries_api']); ?>"  /><br /><br />
+			<strong><?php esc_html_e('Publishpress Series API: ', $this->lang_domain); ?></strong>
+			<input name="<?php echo esc_attr($org_name); ?>[orgseries_api]" id="orgseries_api" type="text" value="<?php echo esc_attr(trim($org_opt['orgseries_api'])); ?>"  /><br /><br />
 		<?php
 	}
 
@@ -277,13 +277,13 @@ class PluginUpdateChecker {
 			}
 			//Dismiss code below is obtained from the Gravity Forms Plugin by rocketgenius.com
 			?>
-				<div class="updated" style="padding:15px; position:relative;" id="orgseries_dashboard_message"><?php echo $msg ?>
-				<a href="javascript:void(0);" onclick="OrgSeriesDismissUpgrade();" style='float:right;'><?php _e("Dismiss") ?></a>
+				<div class="updated" style="padding:15px; position:relative;" id="orgseries_dashboard_message"><?php echo esc_html($msg) ?>
+				<a href="javascript:void(0);" onclick="OrgSeriesDismissUpgrade();" style='float:right;'><?php esc_html_e("Dismiss") ?></a>
             </div>
             <script type="text/javascript">
                 function OrgSeriesDismissUpgrade(){
                     jQuery("#orgseries_dashboard_message").slideUp();
-                    jQuery.post(ajaxurl, {action:"<?php echo $this->dismiss_upgrade; ?>", version:"<?php echo $pluginInfo->version; ?>", cookie: encodeURIComponent(document.cookie)});
+                    jQuery.post(ajaxurl, {action:"<?php echo esc_attr($this->dismiss_upgrade); ?>", version:"<?php echo esc_attr($pluginInfo->version); ?>", cookie: encodeURIComponent(document.cookie)});
                 }
             </script>
 			<?php

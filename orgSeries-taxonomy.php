@@ -432,8 +432,10 @@ function wp_dropdown_series( $args ) {
 
 	$output = apply_filters( 'wp_dropdown_series', $output );
 
-	if ( $echo )
-		echo $output;
+    if ($echo) {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo $output;
+    }
 
 	return $output;
 }
@@ -450,8 +452,10 @@ function wp_list_series($args = '') {
 	$args['echo'] = 0; // to make sure wp_list_categories is always returned for the wrapper.
 	$output = wp_list_categories( $args );
 
-	if ( $echo_ser )
-		echo $output;
+    if ($echo_ser) {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo $output;
+    }
 
 	return $output;
 }
