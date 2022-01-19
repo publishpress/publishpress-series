@@ -9,8 +9,8 @@ class RoboFile extends \PublishPressBuilder\PackageBuilderTasks
 {
     public function __construct()
     {
-        parent::__construct();
-
+        $this->setPluginFileName('orgSeries.php');
+        $this->setVersionConstantName('ORG_SERIES_VERSION');
         $this->appendToFileToIgnore(
             [
                 '.phplint.yml',
@@ -26,5 +26,7 @@ class RoboFile extends \PublishPressBuilder\PackageBuilderTasks
                 'vendor/publishpress/wordpress-version-notices/tests',
             ]
         );
+
+        parent::__construct();
     }
 }
