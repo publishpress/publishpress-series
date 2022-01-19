@@ -74,7 +74,7 @@ class orgSeries {
 
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
-		echo trim($msg);
+		echo esc_html(trim($msg));
 	}
 
 	function maybe_fix_upgrade() {
@@ -458,7 +458,7 @@ class orgSeries {
 			if (seriesdropdown) {
 				function onSeriesChange() {
 					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-						location.href = "<?php echo get_option('home'); ?>/?<?php echo SERIES_QUERYVAR; ?>="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+						location.href = "<?php echo esc_attr(get_option('home')); ?>/?<?php echo esc_attr(SERIES_QUERYVAR); ?>="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
 					}
 				}
 				seriesdropdown.onchange = onSeriesChange;
@@ -472,7 +472,7 @@ class orgSeries {
 			if (seriesdropdown) {
 			 function onSeriesChange() {
 					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-						location.href = "<?php echo get_option('home'); ?>/<?php echo $series_custom_base; ?>/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+						location.href = "<?php echo esc_attr(get_option('home')); ?>/<?php echo esc_attr($series_custom_base); ?>/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
 					}
 				}
 				seriesdropdown.onchange = onSeriesChange;

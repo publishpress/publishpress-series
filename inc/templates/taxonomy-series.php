@@ -30,7 +30,7 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 		<?php if ( have_posts() ) : ?>
 
 			<div id="pps-taxonomy-series-overview">
-				<div class="<?php echo $series_layout_class ?>">
+				<div class="<?php echo esc_attr($series_layout_class); ?>">
 					<?php while ( have_posts() ) : ?>
 						<?php the_post(); ?>
 							<article class="pps-taxonomy-series__post<?php echo !has_post_thumbnail() ? ' pps-taxonomy-series__no-image' : '' ?>">

@@ -9,8 +9,8 @@ class orgSeries_widget_latestseries extends WP_Widget {
 
 	public function __construct() {
 		global $orgseries;
-		$widget_ops = array('description' => __('Use this to control the output of the latest series widget', 'organize-series'));
-		parent::__construct('latestseries', __('Latest Series', 'organize-series'), $widget_ops);
+		$widget_ops = array('description' => esc_html__('Use this to control the output of the latest series widget', 'organize-series'));
+		parent::__construct('latestseries', esc_html__('Latest Series', 'organize-series'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -28,15 +28,22 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$out = latest_series(false,$args);
 
 		if ( !empty( $out ) ) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $before_widget;
 
-			if ( $title )
-				echo $before_title . $title . $after_title;
+            if ($title) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $before_title . $title . $after_title;
+            }
 			?>
 			<ul>
-				<?php echo $out; ?>
+				<?php 
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $out; 
+                ?>
 			</ul>
 			<?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo $after_widget;
 		}
 	}
@@ -63,33 +70,35 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$number = (int) $instance['number'];
 		?>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo $this->get_field_id('title'); ?>"><strong><?php _e('Title', 'organize-series'); ?></strong></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title', 'organize-series'); ?></strong></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 		<p class="ppseries-widget-paragraph">
-			<?php printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', 'organize-series'), $seriesoptionsurl); ?>
+			<?php 
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', 'organize-series'), esc_url($seriesoptionsurl)); ?>
 		</p>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo $this->get_field_id('hide_empty'); ?>"><strong><?php _e('Don\'t show series with no posts?', 'organize-series'); ?></strong></label>
-			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>" />
+			<label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Don\'t show series with no posts?', 'organize-series'); ?></strong></label>
+			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide_empty')); ?>" />
 			<br />
-			<label for="<?php echo $this->get_field_id('orderby'); ?>"><strong><?php _e( 'Order by:' ); ?></strong></label>
-			<select name="<?php echo $this->get_field_name('orderby'); ?>" id="<?php echo $this->get_field_id('orderby'); ?>" class="widefat">
-				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php _e('Number of posts in Series', 'organize-series'); ?></option>
-				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php _e('Name of Series', 'organize-series'); ?></option>
-				<option value="slug"<?php selected( $instance['orderby'], 'slug' ); ?>><?php _e('Series Slug', 'organize-series'); ?></option>
-				<option value="term_id"<?php selected( $instance['orderby'], 'term_id' ); ?>><?php _e('When Series was Created', 'organize-series'); ?></option>
-				<option value="rand"<?php selected( $instance['orderby'], 'rand' ); ?>><?php _e('Random', 'organize-series'); ?></option>
+			<label for="<?php echo esc_attr($this->get_field_id('orderby')); ?>"><strong><?php esc_html_e( 'Order by:' ); ?></strong></label>
+			<select name="<?php echo esc_attr($this->get_field_name('orderby')); ?>" id="<?php echo esc_attr($this->get_field_id('orderby')); ?>" class="widefat">
+				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php esc_html_e('Number of posts in Series', 'organize-series'); ?></option>
+				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php esc_html_e('Name of Series', 'organize-series'); ?></option>
+				<option value="slug"<?php selected( $instance['orderby'], 'slug' ); ?>><?php esc_html_e('Series Slug', 'organize-series'); ?></option>
+				<option value="term_id"<?php selected( $instance['orderby'], 'term_id' ); ?>><?php esc_html_e('When Series was Created', 'organize-series'); ?></option>
+				<option value="rand"<?php selected( $instance['orderby'], 'rand' ); ?>><?php esc_html_e('Random', 'organize-series'); ?></option>
 			</select>
 		</p>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo $this->get_field_id('number'); ?>"><strong><?php _e('Number of series to display:', 'organize-series'); ?></strong></label>
-			<input class="widefat" type="text" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" value="<?php echo $number; ?>" />
+			<label for="<?php echo esc_attr($this->get_field_id('number')); ?>"><strong><?php esc_html_e('Number of series to display:', 'organize-series'); ?></strong></label>
+			<input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('number')); ?>" name="<?php echo esc_attr($this->get_field_name('number')); ?>" value="<?php echo esc_attr($number); ?>" />
 		</p>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo $this->get_field_id('order'); ?>"><strong><?php _e('Display Order: ', 'organize-series'); ?></strong></label><br />
-			<?php _e('ASC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-asc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="ASC" <?php checked('ASC', $instance['order']); ?>/>
-			<?php _e('DESC: ', 'organize-series'); ?><input class="radio" id="<?php echo $this->get_field_id('order'); ?>-desc" name="<?php echo $this->get_field_name('order'); ?>" type="radio" value="DESC" <?php checked('DESC', $instance['order']); ?>/>
+			<label for="<?php echo esc_attr($this->get_field_id('order')); ?>"><strong><?php esc_html_e('Display Order: ', 'organize-series'); ?></strong></label><br />
+			<?php esc_html_e('ASC: ', 'organize-series'); ?><input class="radio" id="<?php echo esc_attr($this->get_field_id('order')); ?>-asc" name="<?php echo esc_attr($this->get_field_name('order')); ?>" type="radio" value="ASC" <?php checked('ASC', $instance['order']); ?>/>
+			<?php esc_html_e('DESC: ', 'organize-series'); ?><input class="radio" id="<?php echo esc_attr($this->get_field_id('order')); ?>-desc" name="<?php echo esc_attr($this->get_field_name('order')); ?>" type="radio" value="DESC" <?php checked('DESC', $instance['order']); ?>/>
 		</p>
 	<?php
 	}
@@ -179,10 +188,15 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		}
 
 		if ( !empty($out) ) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $before_widget;
-			if ( $title )
-				echo $before_title . $title . $after_title;
+            if ($title) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $before_title . $title . $after_title;
+            }
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $out;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $after_widget;
 		}
 	}
@@ -251,34 +265,34 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$series_array_list = ppseries_get_series_list();
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><strong><?php _e('Title', 'organize-series'); ?></strong></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title', 'organize-series'); ?></strong></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>"><strong><?php _e('Show Series Table Of Content', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('seriestocdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('seriestocdisplay-toggle'); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('seriestocdisplay-toggle')); ?>"><strong><?php esc_html_e('Show Series Table Of Content', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('seriestocdisplay-toggle')); ?>" name="<?php echo esc_attr($this->get_field_name('seriestocdisplay-toggle')); ?>" value="1" <?php checked('1', $seriestocdisplay_toggle); ?> /></label>
 		</p>
 
 		<p>
-			<strong><?php _e('Show Series Table Of Content as', 'organize-series'); ?></strong><br />
-			<label for="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>"><?php _e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-dropdown'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
-			<label for="<?php echo $this->get_field_id('list-type').'-list'; ?>"><?php _e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo $this->get_field_id('list-type').'-list'; ?>" name="<?php echo $this->get_field_name('list-type'); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
+			<strong><?php esc_html_e('Show Series Table Of Content as', 'organize-series'); ?></strong><br />
+			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>"><?php esc_html_e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>"><?php esc_html_e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('show-count'); ?>"><strong><?php _e('Show post count', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('show-count'); ?>" name="<?php echo $this->get_field_name('show-count'); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('show-count')); ?>"><strong><?php esc_html_e('Show post count', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('show-count')); ?>" name="<?php echo esc_attr($this->get_field_name('show-count')); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('hide-empty'); ?>"><strong><?php _e('Hide empty series', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('hide-empty'); ?>" name="<?php echo $this->get_field_name('hide-empty'); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('hide-empty')); ?>"><strong><?php esc_html_e('Hide empty series', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('hide-empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide-empty')); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 
 		<p>
-		<label for="<?php echo $this->get_field_id('os_orderby').''; ?>"><strong><?php _e('Order by	', 'organize-series'); ?></strong></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('os_orderby').''; ?>" name="<?php echo $this->get_field_name('os_orderby'); ?>">
+		<label for="<?php echo esc_attr($this->get_field_id('os_orderby')).''; ?>"><strong><?php esc_html_e('Order by	', 'organize-series'); ?></strong></label>
+			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_orderby')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_orderby')); ?>">
 				<?php 
 				$order_by_options = [
 					'name' 		=> __('name', 'organize-series'),
@@ -289,15 +303,16 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				
 				foreach($order_by_options as $key => $label){
 					$selected = $os_orderby === $key ? 'selected="selected"' : '';
-					echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
 				}
 				?>
 			</select>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_order').''; ?>"><strong><?php _e('Order	', 'organize-series'); ?></strong></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('os_order').''; ?>" name="<?php echo $this->get_field_name('os_order'); ?>">
+			<label for="<?php echo esc_attr($this->get_field_id('os_order')).''; ?>"><strong><?php esc_html_e('Order	', 'organize-series'); ?></strong></label>
+			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_order')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_order')); ?>">
 				<?php 
 				$order_options = [
 					'DESC' 		=> __('Descending', 'organize-series'),
@@ -306,20 +321,22 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 				
 				foreach($order_options as $key => $label){
 					$selected = $os_order === $key ? 'selected="selected"' : '';
-					echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
 				}
 				?>
 			</select>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_exclude').''; ?>"><strong><?php _e('Exclude series', 'organize-series'); ?></strong></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('os_exclude').''; ?>" name="<?php echo $this->get_field_name('os_exclude'); ?>[]" multiple>
+			<label for="<?php echo esc_attr($this->get_field_id('os_exclude')).''; ?>"><strong><?php esc_html_e('Exclude series', 'organize-series'); ?></strong></label>
+			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_exclude')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_exclude')); ?>[]" multiple>
 				<?php 
 				if(is_array($series_array_list) && count($series_array_list) > 0) {
 					foreach($series_array_list as $key => $label){
 						$selected = in_array($key, $os_exclude) ? 'selected="selected"' : '';
-						echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
 					}
 				}
 				?>
@@ -327,13 +344,14 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_include').''; ?>"><strong><?php _e('Include series', 'organize-series'); ?></strong></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('os_include').''; ?>" name="<?php echo $this->get_field_name('os_include'); ?>[]" multiple>
+			<label for="<?php echo esc_attr($this->get_field_id('os_include')).''; ?>"><strong><?php esc_html_e('Include series', 'organize-series'); ?></strong></label>
+			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_include')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_include')); ?>[]" multiple>
 				<?php 
 				if(is_array($series_array_list) && count($series_array_list) > 0) {
 					foreach($series_array_list as $key => $label){
 						$selected = in_array($key, $os_include) ? 'selected="selected"' : '';
-						echo '<option value="'.$key.'" '.$selected.'>'.$label.'</option>';
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
 					}
 				}
 				?>
@@ -341,50 +359,52 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_number'); ?>"><strong><?php _e('Number of Series', 'organize-series'); ?></strong></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('os_number'); ?>" name="<?php echo $this->get_field_name('os_number'); ?>" type="number" min="1" value="<?php echo $os_number; ?>" />
+			<label for="<?php echo esc_attr($this->get_field_id('os_number')); ?>"><strong><?php esc_html_e('Number of Series', 'organize-series'); ?></strong></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_number')); ?>" name="<?php echo esc_attr($this->get_field_name('os_number')); ?>" type="number" min="1" value="<?php echo esc_attr($os_number); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_offset'); ?>"><strong><?php _e('Offset', 'organize-series'); ?></strong></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('os_offset'); ?>" name="<?php echo $this->get_field_name('os_offset'); ?>" type="number" min="1" value="<?php echo $os_offset; ?>" />
-			<br /> <small><?php _e('You can select the offset for the number of series (useful for paging).  No offset if left blank', 'organize-series'); ?></small>
+			<label for="<?php echo esc_attr($this->get_field_id('os_offset')); ?>"><strong><?php esc_html_e('Offset', 'organize-series'); ?></strong></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_offset')); ?>" name="<?php echo esc_attr($this->get_field_name('os_offset')); ?>" type="number" min="1" value="<?php echo esc_attr($os_offset); ?>" />
+			<br /> <small><?php esc_html_e('You can select the offset for the number of series (useful for paging).  No offset if left blank', 'organize-series'); ?></small>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('os_search'); ?>"><strong><?php _e('Search', 'organize-series'); ?></strong></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('os_search'); ?>" name="<?php echo $this->get_field_name('os_search'); ?>" type="text" value="<?php echo $os_search; ?>" />
-			<br /> <small><?php _e('You can return any series that match this search string (matched against series names) - case insensitive', 'organize-series'); ?></small>
+			<label for="<?php echo esc_attr($this->get_field_id('os_search')); ?>"><strong><?php esc_html_e('Search', 'organize-series'); ?></strong></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_search')); ?>" name="<?php echo esc_attr($this->get_field_name('os_search')); ?>" type="text" value="<?php echo esc_attr($os_search); ?>" />
+			<br /> <small><?php esc_html_e('You can return any series that match this search string (matched against series names) - case insensitive', 'organize-series'); ?></small>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>"><strong><?php _e('Show other posts in the current series', 'organize-series'); ?></strong>
-			<input type="checkbox" id="<?php echo $this->get_field_id('postlistdisplay-toggle'); ?>" name="<?php echo $this->get_field_name('postlistdisplay-toggle'); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('postlistdisplay-toggle')); ?>"><strong><?php esc_html_e('Show other posts in the current series', 'organize-series'); ?></strong>
+			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('postlistdisplay-toggle')); ?>" name="<?php echo esc_attr($this->get_field_name('postlistdisplay-toggle')); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
 
 
 		<p>
-			<?php _e('Series', 'organize-series'); ?>
+			<?php esc_html_e('Series', 'organize-series'); ?>
 		<ul class="pp-widget-series">
 				<?php 
 				$series_list = get_series_list($series_id);
 				$series_default = (int)$series_id === 0 ? 'checked' : '';
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo '<li  class="pp-widget-series-li" id="pp-widget-series-li-0">
 						<label for="pp-widget-series-item-0" class="selectit">
-						<input value="0" type="radio" name="'. $this->get_field_name('series-id') .'"
+						<input value="0" type="radio" name="'. esc_attr($this->get_field_name('series-id')) .'"
 						 id="pp-widget-series-item-0"
-						 '. $series_default .'> 
-						<span class="li-series-name">'.__('Current series', 'organize-series').'</span></label></li>';
+						 '. esc_attr($series_default) .'> 
+						<span class="li-series-name">'.esc_html__('Current series', 'organize-series').'</span></label></li>';
 				if(is_array($series_list) && count($series_list) > 0){
 					foreach($series_list as $serie_list){
 						$series_checked = (int)$serie_list['checked'] > 0 ? 'checked' : '';
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo '
-						<li  class="pp-widget-series-li" id="pp-widget-series-li-'.$serie_list['series_ID'].'">
-						<label for="pp-widget-series-item-'.$serie_list['series_ID'].'" class="selectit">
-						<input value="'.$serie_list['series_ID'].'" type="radio" name="'. $this->get_field_name('series-id') .'"
-						 id="pp-widget-series-item-'.$serie_list['series_ID'].'"
-						 '.$series_checked.'> 
-						<span class="li-series-name">'.$serie_list['ser_name'].'</span></label></li>';
+						<li  class="pp-widget-series-li" id="pp-widget-series-li-'.esc_attr($serie_list['series_ID']).'">
+						<label for="pp-widget-series-item-'.esc_attr($serie_list['series_ID']).'" class="selectit">
+						<input value="'.esc_attr($serie_list['series_ID']).'" type="radio" name="'. esc_attr($this->get_field_name('series-id')) .'"
+						 id="pp-widget-series-item-'.esc_attr($serie_list['series_ID']).'"
+						 '. esc_attr($series_checked) .'> 
+						<span class="li-series-name">'.esc_html($serie_list['ser_name']).'</span></label></li>';
 					}
 
 				}?>
@@ -392,9 +412,9 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('serieswidget-title'); ?>"><strong><?php _e('Series widget title:', 'organize-series'); ?></strong><br />
-				<input class="widefat" id="<?php echo $this->get_field_id('serieswidget-title'); ?>" name="<?php echo $this->get_field_name('serieswidget-title'); ?>" type="text" value="<?php echo $widget_title; ?>" />
-			<small><?php _e('This text will display above other posts in this series.', 'organize-series'); ?></small><br />
+			<label for="<?php echo esc_attr($this->get_field_id('serieswidget-title')); ?>"><strong><?php esc_html_e('Series widget title:', 'organize-series'); ?></strong><br />
+				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('serieswidget-title')); ?>" name="<?php echo esc_attr($this->get_field_name('serieswidget-title')); ?>" type="text" value="<?php echo esc_attr($widget_title); ?>" />
+			<small><?php esc_html_e('This text will display above other posts in this series.', 'organize-series'); ?></small><br />
 			</label><br />
 		</p>
 
