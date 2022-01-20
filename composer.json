@@ -2,14 +2,14 @@
     "name": "roughsmoothengine/organize-series",
     "description": "A WordPress plugin for managing serial content.",
     "keywords": ["wordpress", "plugin", "organize-series"],
-    "homepage": "https://organizeseries.com",
+    "homepage": "https://publishpress.com/publishpress-series/",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [
         {
-            "name": "Darren Ethier",
-            "email": "darren@roughsmootheng.in",
-            "homepage": "http://unfoldingneurons.com"
+            "name": "PublishPress",
+            "email": "support@publishpress.com",
+            "homepage": "https://publishpress.com/"
         }
     ],
     "require": {
