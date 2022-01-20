@@ -125,7 +125,9 @@ function orgSeries_admin_footer() {
 	        <footer>
     	        <div class="pp-rating">
 	                <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
-	                    <?php printf(__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'), '<strong>PublishPress Series</strong>', '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+	                    <?php 
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        printf(__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'), '<strong>PublishPress Series</strong>', '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
 		    );
 	?>              </a>
 	            </div>
@@ -133,9 +135,9 @@ function orgSeries_admin_footer() {
         	    <hr>
 	            <nav>
 	                <ul>
-	                    <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php _e('About PublishPress Series', 'organize-series');?>"><?php _e('About', 'organize-series');?></a></li>
-    	                <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php _e('PublishPress Series Documentation', 'organize-series');?>"><?php _e('Documentation', 'organize-series');?></a></li>
-	                    <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php _e('Contact the PublishPress team', 'organize-series');?>"><?php _e('Contact', 'organize-series');?></a></li>
+	                    <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series');?>"><?php esc_html_e('About', 'organize-series');?></a></li>
+    	                <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series');?>"><?php esc_html_e('Documentation', 'organize-series');?></a></li>
+	                    <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series');?>"><?php esc_html_e('Contact', 'organize-series');?></a></li>
 	                    <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
 	                    <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
 	                </ul>
@@ -143,7 +145,7 @@ function orgSeries_admin_footer() {
 
     	        <div class="pp-pressshack-logo">
 	                <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
-            	        <img src="<?php echo SERIES_PATH_URL . 'assets/images/publishpress-logo.png';?>" />
+            	        <img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png') ;?>" />
 	                </a>
 	            </div>
 	        </footer>
@@ -284,9 +286,9 @@ function get_series_list( $default = 0 ) {
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /><span class="li-series-name">' . __('Not part of a series', 'organize-series') . '</span></label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /><span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-'. $serial['series_ID'].'"><label for="in-series-'. $serial['series_ID']. '" class="selectit"><input value="' .  $serial['series_ID'] .  '" type="radio" name="post_series" id="in-series-' .  $serial['series_ID'] .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
+			echo '<li id="series-'. esc_attr($serial['series_ID']) .'"><label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit"><input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 
 		}
 }
@@ -317,14 +319,14 @@ global $post, $postdata, $content, $orgseries;
 				<?php get_series_to_select(); ?>
 		</ul>
         <div class="series-part-wrap">
-		<span id="seriespart"><strong> <?php _e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="series_part" size="5" value="<?php echo get_post_meta($id, SERIES_PART_KEY, true); ?>" /></span>
-			<p id="part-description" class="howto"><?php _e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?></p>
+		<span id="seriespart"><strong> <?php esc_html_e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" /></span>
+			<p id="part-description" class="howto"><?php esc_html_e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?></p>
         </div>
-		<strong> <?php _e('Post title in widget:', 'organize-series'); ?></strong>
+		<strong> <?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
 		<p id="part-description" class="howto">
-			<?php _e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
+			<?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
 	</p>
-		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? $ser_id[0] : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo get_post_meta($id, SPOST_SHORTTITLE_KEY, true); ?>"/>
+		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>"/>
 		<input type="hidden" name="is_series_save" value="1" />
     </div>
     </div>
@@ -397,9 +399,10 @@ function orgSeries_custom_column_action($column_name, $id) {
 				}
 		} else {
 			$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">'.$seriesid.'</div><div class="series_inline_part">'.$series_part.'</div><div class="series_post_id">'.$id.'</div><div class="series_inline_name">'.$series_name.'</div></div>';
-			$column_content .= '<em>'.__('No Series', 'organize-series').'</em>';
+			$column_content .= '<em>'. esc_html__('No Series', 'organize-series').'</em>';
 		}
 		$column_content .= '</div>';
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $column_content;
 	}
 }
@@ -409,14 +412,14 @@ function orgSeries_custom_manage_posts_filter() {
 	$series_name = '';
 	if (isset($_GET[SERIES_QUERYVAR])) $series_name = sanitize_text_field($_GET[SERIES_QUERYVAR]);
 
-	wp_dropdown_series('show_option_all='.__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
+	wp_dropdown_series('show_option_all='. esc_attr__('View all series', 'organize-series').'&hide_empty=0&show_count=0&selected='.$series_name);
 }
 
 function add_series_management_link() {
 	global $orgseries;
 	$link = get_option('siteurl') . '/wp-admin/edit.php?page=' .  SERIES_DIR . '/orgSeries-manage.php';
 	?>
-	<li><a href="<?php echo $link; ?>"><?php _e('Manage All Series', 'organize-series'); ?></a></li>
+	<li><a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Manage All Series', 'organize-series'); ?></a></li>
 	<?php
 }
 
@@ -427,12 +430,14 @@ function add_series_to_right_now() {
 	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
 	if ( current_user_can( 'manage_series' ) ) {
-		$series_num = "<a href='$manage_link'>$num</a>";
-		$series_text = "<a href='$manage_link'>$text</a>";
+		$series_num = "<a href='". esc_url($manage_link) ."'>$num</a>";
+		$series_text = "<a href='". esc_url($manage_link). "'>$text</a>";
 	}
 
 	echo '<tr>';
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo '<td class="first b b-tags">'.$series_num.'</td>';
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo '<td class="t tags">' . $series_text . '</td>';
 	echo '<td></td><td></td></tr>';
 }

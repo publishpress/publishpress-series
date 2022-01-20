@@ -331,7 +331,7 @@ function ppseries_do_settings_sections( $page ) {
 
 	foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
 
-		echo '<div id="'.$section['id'].'-series-content" class="ppseries-settings-tab-content ppseries-hide-content">';
+		echo '<div id="'. esc_attr($section['id']).'-series-content" class="ppseries-settings-tab-content ppseries-hide-content">';
 		/*if ( $section['title'] ) {
 			echo "<h2>{$section['title']}</h2>\n";
 		}*/
@@ -377,7 +377,8 @@ function ppseries_do_settings_fields( $page, $section ) {
 		if ( ! empty( $field['args']['class'] ) ) {
 			$class = ' class="' . esc_attr( $field['args']['class'] ) . '"';
 		}
-
+        
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo "<tr{$class}>";
 
 		if ( ! empty( $field['args']['label_for'] ) ) {

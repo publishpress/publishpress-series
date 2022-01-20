@@ -27,7 +27,7 @@ function get_series_rss_link($echo = false, $series_id = '') {
 	$link = apply_filters('series_feed_link', $link);
 
 	if ( $echo )
-		echo $link;
+		echo esc_url($link);
 	return $link;
 }
 
@@ -60,15 +60,18 @@ function get_the_series_rss($type = 'rss') {
 
 
 function the_series_rss($type = 'rss') {
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo get_the_series_rss($type);
 }
 
 function the_series_atom() {
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo get_the_series_rss('atom');
 }
 
 function series_ns() {
 	$ns = 'xmlns:series="https://publishpress.com/"' . "\n\t";
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $ns;
 }
 ?>

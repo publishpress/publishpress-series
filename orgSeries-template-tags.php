@@ -129,10 +129,13 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 	}
 
 
-	if ( !$display )
-		return $result;
-	else
-		echo $result;
+    if (!$display) {
+        return $result;
+    }
+	else{
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo $result;
+    }
 }
 
 /**
@@ -196,17 +199,23 @@ function get_series_toc( $link = TRUE ) {
 	$url = get_bloginfo('url').'/'.$series_toc;
 	$title = __('All the Series I\'ve Written', 'organize-series');
 	if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
-		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
-		else
-			return $url;
+        if ($link) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), esc_url($url), esc_html($title));
+        }
+		else{
+            return $url;
+        }
 	} else {
 		$url = parse_url(get_bloginfo('url'));
 		$url = $url['path'] . '/?seriestoc=1';
-		if ( $link )
-			echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), $url, $title);
-		else
-			return $url;
+        if ($link) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), esc_url($url), esc_html($title));
+        }
+		else{
+            return $url;
+        }
 	}
 }
 
@@ -354,10 +363,12 @@ function wp_serieslist_display_code( $series, $referral = false, $display = true
 
 		if (isset($serID)) {
 			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
-			if ( $display )
-				echo $series_display;
-			else
-				return $series_display;
+            if ($display) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $series_display;
+            } else{
+                return $series_display;
+            }
 		}
 		return false;
 }
@@ -432,6 +443,7 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '' ) {
 	if ( $type == 'array' ) {
 		return $links;
 	} else {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo  paginate_links( $pagination );
 	}
 }
@@ -492,7 +504,7 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	foreach ($posts_in_series as $seriespost) {
 		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
 		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
-		$custom_first = esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
+		$custom_first = isset($settings['series_firstpost_nav_custom_text']) ? esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID)) : '';
 		if ($next && !$first) {
 			if ( ( (int) $seriespost['part'] - $cur_part) === 1) {
 					if ( !empty($custom_next) ) $title = $custom_next;
@@ -527,8 +539,12 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 
 
 	}
-		if ($display) echo $result;
-			else return $result;
+        if ($display) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $result;
+        } else {
+            return $result;
+        }
 }
 
 /**
@@ -616,10 +632,12 @@ function latest_series($display = true, $args = '') {
 
 	$result .= stripslashes($settings['latest_series_after_template']);
 
-	if ($display)
-		echo $result;
-	else
-		return $result;
+    if ($display) {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo $result;
+    } else {
+        return $result;
+    }
 }
 
 /**
@@ -790,10 +808,12 @@ function the_series_title($series_id=0, $linked=TRUE, $display=FALSE) {
 			}
 
 			$result = $prefix . $series_name . $suffix;
-			if ( $display )
-				echo $result;
-			else
-				return $result;
+            if ($display) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $result;
+            } else {
+                return $result;
+            }
 		}
 	}
 	return false;
@@ -989,8 +1009,9 @@ function is_seriestoc() {
 	if (is_file($file)) {
 		list($width, $height, $type, $attr) = getimagesize($file);
 		list($w, $h) = series_fit_rect($width, $height, $p['fit_width'], $p['fit_height'], $p['expand']);
-		$series_icon = $p['prefix'] . '<img class="' . $p['class'] . '" src="' . $url . '" width="' . $w . '" height="' . $h . '"  alt="' . $icon . '" />' . $p['suffix'];
+		$series_icon = $p['prefix'] . '<img class="' . esc_attr($p['class']) . '" src="' . esc_url($url) . '" width="' . esc_attr($w) . '" height="' . esc_attr($h) . '"  alt="' . esc_attr($icon) . '" />' . $p['suffix'];
 		if ($p['display'] == 1) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $series_icon;
 		 } else {
 			return $series_icon;
@@ -1030,10 +1051,13 @@ function single_series_title($prefix = '', $display = true) {
 			return false;
 		$my_series_name = apply_filters('single_series_title', $my_series->name);
 		if ( !empty($my_series_name) ) {
-			if ( $display )
-				echo $prefix, $my_series_name;
-			else
-				return $my_series_name;
+            if ($display) {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $prefix, $my_series_name;
+            }
+			else{
+                return $my_series_name;
+            }
 		}
 	}
 }

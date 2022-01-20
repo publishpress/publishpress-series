@@ -1,19 +1,31 @@
 <?php
-/*
-Plugin Name: PublishPress Series
-Plugin URI: https://publishpress.com
-Version: 2.7.2
-Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
-Author: PublishPress
-Author URI: https://publishpress.com
-Text Domain: organize-series
-Domain Path: /languages
-*/
-
-### INSTALLATION/USAGE INSTRUCTIONS ###
-//	Installation and/or usage instructions for the Publishpress Series Plugin
-//	can be found at https://publishpress.com
-$os_version = '2.7.2';
+/**
+ * Plugin Name: PublishPress Series
+ * Plugin URI: https://publishpress.com/publishpress-series/
+ * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
+ * Version: 2.7.3
+ * Author: PublishPress
+ * Author URI: https://publishpress.com/
+ * Text Domain: organize-series
+ * Domain Path: /languages
+ * Min WP Version: 4.9.7
+ * Requires PHP: 5.6.20
+ * License: GPLv3
+ *
+ * Copyright (c) 2022 PublishPress
+ *
+ * ------------------------------------------------------------------------------
+ * Based on Organize Series
+ * Author: Darren Ethier
+ * Copyright (c) 2007, 2011 Darren Ethier
+ * ------------------------------------------------------------------------------
+ *
+ * @package 	publishpress-series
+ * @author		PublishPress
+ * @copyright   Copyright (C) 2007, 2011 Darren Ethier; modifications Copyright (C) 2022 PublishPress
+ * @license		GNU General Public License version 2
+ * @link		https://publishpress.com/
+ */
 
 ######################################
 
@@ -47,7 +59,7 @@ require_once (dirname(__FILE__) . '/includes-core/functions.php');
 register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
 if (!defined('ORG_SERIES_VERSION')) {
-    define('ORG_SERIES_VERSION', $os_version); //the current version of the plugin
+    define('ORG_SERIES_VERSION', '2.7.3'); //the current version of the plugin
     define( 'SERIES_FILE_PATH', __FILE__ );
     define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
     define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.
