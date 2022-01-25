@@ -140,6 +140,7 @@ function orgseries_validate($input) {
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes(($input['series_css_tougle'])), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
+	$newinput['automatic_series_part'] = ( isset($input['automatic_series_part']) && $input['automatic_series_part'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_custom_base']));
 
@@ -223,7 +224,7 @@ function orgseries_options_init() {
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
   $settings_tabs['series_taxonomy_base_settings'] = esc_html__('URLs and Taxonomy', 'organize-series');
-  $settings_tabs['series_uninstall_settings'] = esc_html__('Uninstall / Reset', 'organize-series');
+  $settings_tabs['series_uninstall_settings'] = esc_html__('Advanced', 'organize-series');
   return $settings_tabs;
 }
 
@@ -806,6 +807,19 @@ function series_uninstall_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
+        	<tr valign="top">
+            	<th scope="row"><label for="automatic_series_part">
+                	    <?php esc_html_e('Automatic Numbering', 'organize-series'); ?>
+                	</label>
+            	</th>
+            	<td>
+                    <label>
+                        <input name="<?php echo esc_attr($org_name); ?>[automatic_series_part]" id="automatic_series_part" type="checkbox" value="1" <?php checked('1', $org_opt['automatic_series_part']); ?> />
+                    	<?php esc_html_e('Enable automatic renumbering of posts in a series.', 'organize-series'); ?>
+                	</label>
+                </td>
+        	</tr>
+
         	<tr valign="top">
             	<th scope="row"><label for="kill_on_delete">
                 	    <?php esc_html_e('Series Settings', 'organize-series'); ?>
