@@ -130,6 +130,9 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.7.5- [===unreleased===]
+* Fixed: Stop automatic re-numbering of posts within the series #376
+
 v2.7.4- 2022-01-20
 * Fixed: Series option update message
 

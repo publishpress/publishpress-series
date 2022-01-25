@@ -484,6 +484,11 @@ function series_wp_save_post($post_ID, $post, $update){
 function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false) {
 	$post_series = null;
 	$post_shorttitle = array();
+    global $orgseries;
+
+    $settings = $orgseries->settings;
+
+    $automatic_series_part = isset($settings['automatic_series_part']) ? (int)$settings['automatic_series_part'] : 0;
 
 	if ( !is_bool($update) ){
 		return; //safety check for users on earlier version of WP (so existing series don't get messed up)
@@ -520,11 +525,16 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
 	if (empty($post_series) || ( count($post_series) == 1 && $post_series[0] == 0 ) ) $post_series = array();
 
-
+  
 	if ( isset($_POST) || isset($_GET)) {
-		if ( isset($_POST['series_part']) ) $series_part = is_array($_POST['series_part']) ? array_map('sanitize_text_field', $_POST['series_part']) : array(sanitize_text_field($_POST['series_part']));
-		if ( isset($_GET['series_part']) ) $series_part = is_array($_GET['series_part']) ? array_map('sanitize_text_field', $_GET['series_part']) : array(sanitize_text_field($_GET['series_part']));
 
+        if (isset($_POST['series_part'])) {
+            $series_part = is_array($_POST['series_part']) ? array_map('sanitize_text_field', $_POST['series_part']) : array(sanitize_text_field($_POST['series_part']));
+        }
+        if (isset($_GET['series_part'])) {
+            $series_part = is_array($_GET['series_part']) ? array_map('sanitize_text_field', $_GET['series_part']) : array(sanitize_text_field($_GET['series_part']));
+        }
+      
 		//The "short" title of the post that will be displayed  in the OrgSeries widget.
 		if ( isset($_POST['serie_post_shorttitle']) )
 			$post_shorttitle = sanitize_text_field($_POST['serie_post_shorttitle']);
@@ -533,7 +543,6 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : '';
 		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
 		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
-
 
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
 		$p_status = $post->post_status;
@@ -579,19 +588,23 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
 	$success = wp_set_object_terms($post_ID, $post_series, ppseries_get_series_slug());
 
-	if ( empty($p_ser_edit) ) return; //let's get out we've done everything we need to do.
+    if (empty($p_ser_edit)) {
+        return; //let's get out we've done everything we need to do.
+    }
+
+  
 
 	if ( $success ) {
 		if ( $p_status != 'draft' && $p_status != 'future' && $p_status != 'pending' ) {
 			$is_published = TRUE;
 		}
 		foreach ( $p_ser_edit as $ser_id ) {
-			if ( empty($series_part[$ser_id]) ) {
+			if ( empty($series_part[$ser_id]) && $automatic_series_part > 0 ) {
 				$s_pt = wp_series_part($post_ID, $ser_id);
 				if ( !$series_part ) $series_part = 0;
 			}
 			//If post is not published its part stays as set by user
-			elseif ( !$is_published ) {
+			elseif ( !$is_published || $automatic_series_part === 0 ) {
 				$s_pt = $series_part[$ser_id];
 			}
 			else {
@@ -603,8 +616,15 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 				}
 				$s_pt = $set_spart[$ser_id];
 			}
-
-			set_series_order($ser_id, $post_ID, $s_pt, $is_published);
+            
+            if ($automatic_series_part > 0) 
+            {
+                set_series_order($ser_id, $post_ID, $s_pt, $is_published);
+            }else {
+                $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
+                delete_post_meta($post_ID, $series_part_key);
+                add_post_meta($post_ID, $series_part_key, $s_pt);
+            }
 		}
 
 		return;

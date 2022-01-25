@@ -73,22 +73,33 @@ function pps_os_version_requirement_notice() {
         //activation functions/codes
         function pp_series_upgrade_function()
         {
+
             $version = get_option('pp_series_version');
     
-          if ( !$version || $version < '2.7.1') {
-              /**
-               * add newly introduced manage_publishpress_series for administrator 
-               *#https://github.com/publishpress/publishpress-series/issues/313
-              **/
-            // Init roles
-            if ( function_exists( 'get_role' ) ) {
-                $role = get_role( 'administrator' );
-                if ( null !== $role && ! $role->has_cap( 'manage_publishpress_series' ) ) {
-                    $role->add_cap( 'manage_publishpress_series' );
-                }
-            }
-            update_option('pp_series_version', ORG_SERIES_VERSION);
-         }
+            if ( !$version || $version < '2.7.1') {
+                /**
+                 * add newly introduced manage_publishpress_series for administrator 
+                 *#https://github.com/publishpress/publishpress-series/issues/313
+                **/
+              // Init roles
+              if ( function_exists( 'get_role' ) ) {
+                  $role = get_role( 'administrator' );
+                  if ( null !== $role && ! $role->has_cap( 'manage_publishpress_series' ) ) {
+                      $role->add_cap( 'manage_publishpress_series' );
+                  }
+              }
+              update_option('pp_series_version', ORG_SERIES_VERSION);
+           }
+    
+           if (!get_option('pp_series_2_7_5_upgraded')) {
+                $settings = get_option('org_series_options');
+                $settings = apply_filters('org_series_settings', $settings);
+                //add new series settings
+                $settings['automatic_series_part'] = 1;
+                update_option('org_series_options', $settings);
+                update_option('pp_series_2_7_5_upgraded', true);
+          }
+
     
         }
     }

@@ -124,7 +124,6 @@ class orgSeries {
 	add_option( 'series_icon_url', '' );
 	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
 
-    pp_series_upgrade_function();
 	}
 
     function pp_series_upgrade_version_upgrade() {
@@ -207,9 +206,11 @@ class orgSeries {
 		global $wp_roles;
 		$roles = array('administrator', 'editor');
 		$capability = 'manage_series';
+		$capability_2 = 'manage_publishpress_series';
 
 		foreach ($roles as $role) {
 			$wp_roles->add_cap($role, $capability, true);
+			$wp_roles->add_cap($role, $capability_2, true);
 		}
 		return true;
 	}
@@ -273,6 +274,7 @@ class orgSeries {
 			$this->settings = array(
 				//main settings
 			'custom_css' => 1,
+			'automatic_series_part' => 1,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
