@@ -235,7 +235,7 @@ class orgSeries {
 	}
 
 	function register_taxonomy() {
-		$permalink_slug = $this->settings['series_custom_base'];
+		$permalink_slug = isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series';
 		$taxonomy_name = ppseries_get_series_slug();
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
@@ -263,7 +263,7 @@ class orgSeries {
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
-			'query_var' => $this->settings['series_custom_base'],
+			'query_var' => isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series',
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );
 	}
@@ -320,7 +320,7 @@ class orgSeries {
 			return true;
 		}
 		if ( is_array($this->settings) &&  !defined('SERIES_QUERYVAR') ){
-			define('SERIES_QUERYVAR', $this->settings['series_custom_base'] );  // get/post variable name for querying series from WP
+			define('SERIES_QUERYVAR', isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series' );  // get/post variable name for querying series from WP
         }
 
         if(is_array($this->settings) && !isset($this->settings['series_table_of_contents_box_template'])){// this need to move to upgrade function
@@ -336,7 +336,7 @@ class orgSeries {
 
 	function seriestoc_rewrite_rules( $the_rules ) {
 		$settings = $this->settings;
-		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
+		if ( isset($settings['series_custom_base']) && $settings['series_toc_url'] == $settings['series_custom_base'] ) {
 			$series_toc_qv = $settings['series_toc_url'].'-toc';
 		} else {
 			$series_toc_qv = $settings['series_toc_url'];
