@@ -819,6 +819,8 @@ function series_uninstall_core_fieldset() {
                 	</label>
                 </td>
         	</tr>
+            
+            <?php do_action('pp_series_advanced_tab_middle'); ?>
 
         	<tr valign="top">
             	<th scope="row"><label for="kill_on_delete">
