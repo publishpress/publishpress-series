@@ -124,7 +124,6 @@ class orgSeries {
 	add_option( 'series_icon_url', '' );
 	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
 
-    pp_series_upgrade_function();
 	}
 
     function pp_series_upgrade_version_upgrade() {
@@ -207,9 +206,11 @@ class orgSeries {
 		global $wp_roles;
 		$roles = array('administrator', 'editor');
 		$capability = 'manage_series';
+		$capability_2 = 'manage_publishpress_series';
 
 		foreach ($roles as $role) {
 			$wp_roles->add_cap($role, $capability, true);
+			$wp_roles->add_cap($role, $capability_2, true);
 		}
 		return true;
 	}
@@ -234,7 +235,7 @@ class orgSeries {
 	}
 
 	function register_taxonomy() {
-		$permalink_slug = $this->settings['series_custom_base'];
+		$permalink_slug = isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series';
 		$taxonomy_name = ppseries_get_series_slug();
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
@@ -262,7 +263,7 @@ class orgSeries {
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
-			'query_var' => $this->settings['series_custom_base'],
+			'query_var' => isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series',
 			);
 		register_taxonomy( $taxonomy_name, $object_type, $args );
 	}
@@ -273,6 +274,7 @@ class orgSeries {
 			$this->settings = array(
 				//main settings
 			'custom_css' => 1,
+			'automatic_series_part' => 1,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
@@ -318,7 +320,7 @@ class orgSeries {
 			return true;
 		}
 		if ( is_array($this->settings) &&  !defined('SERIES_QUERYVAR') ){
-			define('SERIES_QUERYVAR', $this->settings['series_custom_base'] );  // get/post variable name for querying series from WP
+			define('SERIES_QUERYVAR', isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series' );  // get/post variable name for querying series from WP
         }
 
         if(is_array($this->settings) && !isset($this->settings['series_table_of_contents_box_template'])){// this need to move to upgrade function
@@ -334,7 +336,7 @@ class orgSeries {
 
 	function seriestoc_rewrite_rules( $the_rules ) {
 		$settings = $this->settings;
-		if ( $settings['series_toc_url'] == $settings['series_custom_base'] ) {
+		if ( isset($settings['series_custom_base']) && $settings['series_toc_url'] == $settings['series_custom_base'] ) {
 			$series_toc_qv = $settings['series_toc_url'].'-toc';
 		} else {
 			$series_toc_qv = $settings['series_toc_url'];

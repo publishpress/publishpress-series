@@ -114,7 +114,7 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
 	if( stristr($replace, '%series_part%') ){
 		if(empty(trim(wp_series_part($p_id, $ser_id)))){
-			$replace = str_replace('%series_part%', '[0]', $replace);
+			$replace = str_replace('%series_part%', '<font color="red">[part not set]</font>', $replace);
 		}else{
 			$replace = str_replace('%series_part%', wp_series_part($p_id, $ser_id), $replace);
 		}

@@ -140,6 +140,7 @@ function orgseries_validate($input) {
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes(($input['series_css_tougle'])), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
+	$newinput['automatic_series_part'] = ( isset($input['automatic_series_part']) && $input['automatic_series_part'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_custom_base']));
 
@@ -223,7 +224,7 @@ function orgseries_options_init() {
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
   $settings_tabs['series_taxonomy_base_settings'] = esc_html__('URLs and Taxonomy', 'organize-series');
-  $settings_tabs['series_uninstall_settings'] = esc_html__('Uninstall / Reset', 'organize-series');
+  $settings_tabs['series_uninstall_settings'] = esc_html__('Advanced', 'organize-series');
   return $settings_tabs;
 }
 
@@ -409,7 +410,7 @@ function series_automation_core_fieldset() {
             				<tbody>
 
 								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Series Post List box?', 'organize-series'); ?></label></th>
-									<td><input name="<?php echo esc_attr($org_name);?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', $org_opt['auto_tag_toggle']); ?> /></td>
+									<td><input name="<?php echo esc_attr($org_name);?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', isset($org_opt['auto_tag_toggle']) ? $org_opt['auto_tag_toggle'] : ''); ?> /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="series_post_list_limit"><?php esc_html_e('Maximum number of items in Series Post List', 'organize-series'); ?></label></th>
@@ -417,15 +418,15 @@ function series_automation_core_fieldset() {
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php esc_html_e('Display Series Navigation links ?', 'organize-series'); ?></label></th>
-									<td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_nav_toggle']); ?> /></td>
+									<td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', isset($org_opt['auto_tag_nav_toggle']) ? $org_opt['auto_tag_nav_toggle'] : ''); ?> /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="auto_tag_seriesmeta_toggle"><?php esc_html_e('Display Series Meta information?', 'organize-series'); ?></label></th>
-									<td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', $org_opt['auto_tag_seriesmeta_toggle']); ?> /></td>
+									<td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', isset($org_opt['auto_tag_seriesmeta_toggle']) ? $org_opt['auto_tag_seriesmeta_toggle'] : ''); ?> /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="custom_css"><?php esc_html_e('Use PublishPress Series CSS styles?', 'organize-series'); ?></label></th>
-									<td><input name="<?php echo esc_attr($org_name); ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', $org_opt['custom_css']); ?> /></td>
+									<td><input name="<?php echo esc_attr($org_name); ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Style options', 'organize-series'); ?></label></th>
@@ -442,7 +443,7 @@ function series_automation_core_fieldset() {
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td>
-                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_toc_url'])); ?>" />
+                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
                                         <button onclick="gotoTOCUrl(event)" class="button">view page</button>
                                     </td>
 								</tr>
@@ -459,20 +460,20 @@ function series_automation_core_fieldset() {
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php esc_html_e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
-									<td><input type="text" id="series_toc_title" name="<?php echo esc_attr($org_name); ?>[series_toc_title]" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_toc_title'])); ?>"/></td>
+									<td><input type="text" id="series_toc_title" name="<?php echo esc_attr($org_name); ?>[series_toc_title]" value="<?php echo isset($org_opt['series_toc_title']) ? esc_attr(htmlspecialchars($org_opt['series_toc_title'])) : ''; ?>"/></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Order series by:', 'organize-series'); ?></label></th>
 									<td>
-										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', $org_opt['series_posts_orderby']); ?> /><?php esc_html_e('Series part', 'organize-series'); ?></label> &nbsp;
-										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', $org_opt['series_posts_orderby']); ?> /><?php esc_html_e('Order by date', 'organize-series'); ?></label>
+										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', isset($org_opt['series_posts_orderby']) ? $org_opt['series_posts_orderby'] : ''); ?> /><?php esc_html_e('Series part', 'organize-series'); ?></label> &nbsp;
+										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', isset($org_opt['series_posts_orderby']) ? $org_opt['series_posts_orderby'] : ''); ?> /><?php esc_html_e('Order by date', 'organize-series'); ?></label>
 									</td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Series order method', 'organize-series'); ?></label></th>
 									<td>
-										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', $org_opt['series_posts_order']); ?> /><?php esc_html_e('Ascending', 'organize-series'); ?></label>&nbsp;
-										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', $org_opt['series_posts_order']); ?> /><?php esc_html_e('Descending', 'organize-series'); ?></label></td>
+										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Ascending', 'organize-series'); ?></label>&nbsp;
+										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Descending', 'organize-series'); ?></label></td>
 								</tr>
 
             					</tbody>
@@ -509,7 +510,7 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php esc_html_e('Series Post List', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))); ?></textarea>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_list_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))) : ''; ?></textarea>
 								</td>
 							</tr>
 
@@ -529,13 +530,13 @@ function series_templates_core_fieldset() {
 								</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							<?php do_action('plist_ptitle_template_unpublished') ?>
 
 							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Series Post List Current Post Title', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo isset($org_opt['series_post_list_currentpost_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
@@ -549,7 +550,7 @@ function series_templates_core_fieldset() {
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php esc_html_e('Series Meta:', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))); ?></textarea>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_meta_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))) : ''; ?></textarea>
 
 								</td>
 							</tr>
@@ -571,7 +572,7 @@ function series_templates_core_fieldset() {
 
 							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php esc_html_e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
 								<td>
-									<textarea name="<?php echo esc_attr($org_name); ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))); ?></textarea>
+									<textarea name="<?php echo esc_attr($org_name); ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_meta_excerpt_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))) : ''; ?></textarea>
 								</td>
 							</tr>
 
@@ -585,7 +586,7 @@ function series_templates_core_fieldset() {
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php esc_html_e('Series Post Navigation:', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))); ?></textarea>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_nav_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))) : ''; ?></textarea>
 								</td>
 							</tr>
 
@@ -605,12 +606,12 @@ function series_templates_core_fieldset() {
 								</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
@@ -629,22 +630,22 @@ function series_templates_core_fieldset() {
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="latest_series_before_template"><?php esc_html_e('Latest Series (tags before):', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_before_template]" id="latest_series_before_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_before_template]" id="latest_series_before_template" value="<?php echo isset($org_opt['latest_series_before_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="latest_series_inner_template"><?php esc_html_e('Latest Series (inner tags):', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_inner_template]" id="latest_series_inner_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_inner_template]" id="latest_series_inner_template" value="<?php echo isset($org_opt['latest_series_inner_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
 							<tr valign="top"><th scope="row"><label for="latest_series_after_template"><?php esc_html_e('Latest Series (tags after):', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_after_template]" id="latest_series_after_template" value="<?php echo esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])); ?>" class="ppseries-full-width">
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_after_template]" id="latest_series_after_template" value="<?php echo isset($org_opt['latest_series_after_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 
                             <tr valign="top"><th scope="row"><label for="series_table_of_contents_box_template"><?php esc_html_e('Series Table of Contents', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" class="ppseries-textarea ppseries-full-width"><?php echo esc_html(htmlspecialchars(stripslashes($org_opt['series_table_of_contents_box_template']))); ?></textarea>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_table_of_contents_box_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_table_of_contents_box_template']))) : ''; ?></textarea>
                                 <p class="description">
                                     <?php esc_html_e('This display is used by the "Series Table of Contents". To find the URL for this display, go the "Display" tab and then "Series Table of Contents URL".', 'organize-series'); ?>
                                 </p>
@@ -674,19 +675,19 @@ function series_icon_core_fieldset() {
 
               <tr valign="top">
                 <th scope="row"><label for="series_icon_width_series_page"><?php esc_html_e('Width for icon on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
-                <td><input  min="1" max="1000000000"name="<?php echo esc_attr($org_name);?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_series_page']); ?>" /></p>
+                <td><input  min="1" max="1000000000"name="<?php echo esc_attr($org_name);?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo isset($org_opt['series_icon_width_series_page']) ? esc_attr($org_opt['series_icon_width_series_page']) : ''; ?>" /></p>
                 </td>
                 </tr>
 
                 <tr valign="top">
                   <th scope="row"><label for="series_icon_width_post_page"><?php esc_html_e('Width for icon on a post page (in pixels).', 'organize-series'); ?></label></th>
-                  <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name);?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_post_page']); ?>" /></p>
+                  <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name);?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo isset($org_opt['series_icon_width_post_page']) ? esc_attr($org_opt['series_icon_width_post_page']) : ''; ?>" /></p>
                   </td>
                   </tr>
 
                   <tr valign="top">
                     <th scope="row"><label for="series_icon_width_latest_series"><?php esc_html_e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
-                    <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name);?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo esc_attr($org_opt['series_icon_width_latest_series']); ?>" /></p>
+                    <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name);?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo isset($org_opt['series_icon_width_latest_series']) ? esc_attr($org_opt['series_icon_width_latest_series']) : ''; ?>" /></p>
                     </td>
                     </tr>
 
@@ -710,7 +711,7 @@ function series_taxonomy_base_core_fieldset() {
     	<tbody>
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php esc_html_e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
-                    <input type="text" id="series_taxonomy_slug" name="<?php echo esc_attr($org_name); ?>[series_taxonomy_slug]" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])); ?>"/>
+                    <input type="text" id="series_taxonomy_slug" name="<?php echo esc_attr($org_name); ?>[series_taxonomy_slug]" value="<?php echo isset($org_opt['series_taxonomy_slug']) ? esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])) : ''; ?>"/>
                     <p class="description">
                         <?php esc_html_e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?>
                     </p>
@@ -733,7 +734,7 @@ function series_taxonomy_base_core_fieldset() {
             <?php } ?>
 
             <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
-                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo esc_attr(htmlspecialchars($org_opt['series_custom_base'])); ?>" /> <br />
+                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
                     <p class="description">
                         <?php esc_html_e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
                     </p>
@@ -807,13 +808,28 @@ function series_uninstall_core_fieldset() {
 	<table class="form-table ppseries-settings-table">
     	<tbody>
         	<tr valign="top">
+            	<th scope="row"><label for="automatic_series_part">
+                	    <?php esc_html_e('Automatic Numbering', 'organize-series'); ?>
+                	</label>
+            	</th>
+            	<td>
+                    <label>
+                        <input name="<?php echo esc_attr($org_name); ?>[automatic_series_part]" id="automatic_series_part" type="checkbox" value="1" <?php checked('1', isset($org_opt['automatic_series_part']) ? $org_opt['automatic_series_part'] : ''); ?> />
+                    	<?php esc_html_e('Enable automatic renumbering of posts in a series.', 'organize-series'); ?>
+                	</label>
+                </td>
+        	</tr>
+            
+            <?php do_action('pp_series_advanced_tab_middle'); ?>
+
+        	<tr valign="top">
             	<th scope="row"><label for="kill_on_delete">
                 	    <?php esc_html_e('Series Settings', 'organize-series'); ?>
                 	</label>
             	</th>
             	<td>
                     <label>
-                        <input name="<?php echo esc_attr($org_name); ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', $org_opt['kill_on_delete']); ?> />
+                        <input name="<?php echo esc_attr($org_name); ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', isset($org_opt['kill_on_delete']) ? $org_opt['kill_on_delete'] : ''); ?> />
                     	<?php esc_html_e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?>
                 	</label>
                 </td>
