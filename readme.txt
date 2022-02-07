@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.7.4
+Stable tag: 2.7.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,8 +130,11 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
-v2.7.5- [===unreleased===]
+v2.7.5- 2022-02-07
 * Fixed: Stop automatic re-numbering of posts within the series #376
+* Fixed: WPDebug shows a bunch of errors in the Settings #381
+* Fixed: Notice: Undefined index: series_custom_base #380
+* Fixed: Problem with Series Post List box and %series_part% #382
 
 v2.7.4- 2022-01-20
 * Fixed: Series option update message
