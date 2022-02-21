@@ -1,0 +1,20 @@
+// CSS for taxonomy-series template when using TWenty Twenty-One theme
+#series-primary {
+
+  #series-content {
+
+    > * {
+      margin: 0 auto;
+    }
+
+    > .page-header {
+      max-width: var(--responsive--alignwide-width);
+    }
+
+    #pps-taxonomy-series-overview {
+      max-width: var(--responsive--aligndefault-width);
+      margin-top: calc(3 * var(--global--spacing-vertical));
+      margin-bottom: calc(3 * var(--global--spacing-vertical));
+    }
+  }
+}
