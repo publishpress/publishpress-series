@@ -76,10 +76,10 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		<p class="ppseries-widget-paragraph">
 			<?php 
             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            printf(__('The layout and content of this widget can be adjusted via the latest-series-template on the <a href="%s">Series Options</a> page.', 'organize-series'), esc_url($seriesoptionsurl)); ?>
+            printf(__('The layout and content of this widget can be adjusted via the <a href="%s">Latest Series</a> area.', 'organize-series'), esc_url($seriesoptionsurl)); ?>
 		</p>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Don\'t show series with no posts?', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Hide series with no posts?', 'organize-series'); ?></strong></label>
 			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide_empty')); ?>" />
 			<br />
 			<label for="<?php echo esc_attr($this->get_field_id('orderby')); ?>"><strong><?php esc_html_e( 'Order by:' ); ?></strong></label>

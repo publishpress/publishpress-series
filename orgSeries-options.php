@@ -625,7 +625,7 @@ function series_templates_core_fieldset() {
         							<h1>
             							<?php esc_html_e('Latest Series', 'organize-series'); ?>
         							</h1>
-									<p class="description"><?php esc_html_e('This display is used by the "Series Table of Contents" widget.', 'organize-series'); ?></p>
+									<p class="description"><?php esc_html_e('This display is used by the "Latest Series" widget.', 'organize-series'); ?></p>
     							</th>
 							</tr>
 
