@@ -573,6 +573,9 @@ function series_templates_core_fieldset() {
 							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php esc_html_e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
 								<td>
 									<textarea name="<?php echo esc_attr($org_name); ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_meta_excerpt_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))) : ''; ?></textarea>
+                                    <p class="description">
+                                    <?php esc_html_e('This control how and what series meta information is displayed with posts that are part of a series when the_excerpt is used. ', 'organize-series'); ?>
+                                </p>
 								</td>
 							</tr>
 
