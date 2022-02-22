@@ -710,8 +710,7 @@ class orgSeries {
 		$themes = [
 			'twentynineteen',
 			'twentytwenty',
-			'twentytwentyone',
-			'twentytwentytwo'
+			'twentytwentyone'
 		];
 		$ctheme = wp_get_theme();
 		$ptheme = wp_get_theme()->parent();
