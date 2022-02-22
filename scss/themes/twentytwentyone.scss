@@ -17,5 +17,18 @@
       margin-top: calc(3 * var(--global--spacing-vertical));
       margin-bottom: calc(3 * var(--global--spacing-vertical));
     }
+
+    > .serieslist-box {
+      max-width: var(--responsive--aligndefault-width);
+      margin-top: 10px;
+    }
+
+    .serieslist-box {
+      width: auto;
+    }
+
+    .page-header + .serieslist-box {
+      margin-top: calc(3 * var(--global--spacing-vertical));
+    }
   }
 }

@@ -3,6 +3,11 @@
 
   #series-content {
 
+    .serieslist-box {
+      width: auto;
+      margin-top: 10px;
+    }
+
     @media (min-width: 768px){
 
       > * {

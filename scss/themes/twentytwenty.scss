@@ -4,8 +4,12 @@
 
   #series-content {
 
+    .serieslist-box {
+      margin-bottom: 10px;
+    }
+
     > * {
-      max-width: 100rem;
+      max-width: 58rem;
       margin: 0 auto;
     }
 
@@ -14,10 +18,10 @@
       padding: 8rem 0;
 
       > .page-title {
-        font-size: 3.2rem;
+        font-size: 8.4rem;
         font-weight: 700;
         letter-spacing: -0.026666667em;
-        margin-top: 0;
+        margin: 0;
       }
 
       > .archive-description {
