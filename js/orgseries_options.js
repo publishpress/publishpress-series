@@ -14,17 +14,29 @@ jQuery(document).ready(function($) {
         document.series_options.submit();
     });
 
-	$('#custom_css').click(function(e) {
-		var is_checked = $('input#custom_css').is(':checked');
+    $('#auto_tag_toggle').click(function(e) {
+      var is_checked = $('input#auto_tag_toggle').is(':checked');
 
-		if (is_checked) {
-			$("input[class='css_style']").attr('disabled', false);
-		}
+      if (is_checked) {
+        $(".series_post_list_limit_row").show();
+      }
+  
+      if (!is_checked) {
+        $(".series_post_list_limit_row").hide();
+      }
+    });
 
-		if (!is_checked) {
-			$("input[class='css_style']").attr('disabled', true);
-		}
-	});
+    $('#custom_css').click(function(e) {
+      var is_checked = $('input#custom_css').is(':checked');
+  
+      if (is_checked) {
+        $("input[class='css_style']").attr('disabled', false);
+      }
+  
+      if (!is_checked) {
+        $("input[class='css_style']").attr('disabled', true);
+      }
+    });
 
     // Overview page tab settings
     $('#series_overview_page_layout').on('change', function(){
