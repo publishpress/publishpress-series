@@ -694,11 +694,44 @@ class orgSeries {
 	            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
 	        	}
 			}
+			$this->series_load_theme_css();
 
 			return $tax_template;
 		}
 
 		return false;
+	}
+
+	/*
+	 * CSS to fix core themes styling for Taxonomy Series template
+	 *
+	 */
+	function series_load_theme_css(){
+		$themes = [
+			'twentynineteen',
+			'twentytwenty',
+			'twentytwentyone',
+			'twentytwentytwo'
+		];
+		$ctheme = wp_get_theme();
+		$ptheme = wp_get_theme()->parent();
+
+		if(
+			in_array($ctheme->get('TextDomain'), $themes)
+			|| (!empty($ptheme) && in_array($ptheme->get('TextDomain'), $themes))
+		){
+			if($ctheme->get('TextDomain')){
+				$textdomain = $ctheme->get('TextDomain');
+			} else {
+				$textdomain = $ptheme->get('TextDomain'); // Parent text domain
+			}
+			wp_enqueue_style(
+				'orgseries-' . $textdomain,
+				plugins_url('css/themes/' . $textdomain . '.css', __FILE__),
+				array(),
+				ORG_SERIES_VERSION
+			);
+		}
 	}
 
 } //end of orgSeries class

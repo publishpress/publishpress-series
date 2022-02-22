@@ -17,8 +17,8 @@ $series_layout_class  = '';
 $series_layout_class .= isset($series_options['series_overview_page_layout']) ? 'pps-layout-' . $series_options['series_overview_page_layout'] : 'pps-layout-default';
 $series_layout_class .= isset($series_options['series_overview_page_columns']) ? ' pps-columns-' . $series_options['series_overview_page_columns'] : '';
 ?>
-<section id="primary" class="site-content">
-    <div id="content" role="main">
+<section id="series-primary" class="site-content">
+    <div id="series-content" role="main">
 
 		<header class="page-header">
 			<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>

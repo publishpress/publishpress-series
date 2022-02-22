@@ -90,27 +90,27 @@
     grid-gap: 40px;
 
     &.pps-columns-1 {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(1, minmax( 0, 1fr ));
     }
 
     &.pps-columns-2 {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax( 0, 1fr ));
     }
 
     &.pps-columns-3 {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, minmax( 0, 1fr ));
     }
 
     &.pps-columns-4 {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, minmax( 0, 1fr ));
     }
 
     &.pps-columns-5 {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(5, minmax( 0, 1fr ));
     }
 
     &.pps-columns-6 {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(6, minmax( 0, 1fr ));
     }
 
     .pps-taxonomy-series__post {
