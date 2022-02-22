@@ -644,6 +644,15 @@ function series_templates_core_fieldset() {
 								</td>
 							</tr>
 
+							<tr valign="top">
+    							<th scope="row" colspan="2">
+        							<h1>
+            							<?php esc_html_e('Series Table of Contents', 'organize-series'); ?>
+        							</h1>
+									<p class="description"><?php esc_html_e('This display is used by the "Series Table of Contents" widget, shortcode, and URL.', 'organize-series'); ?></p>
+    							</th>
+							</tr>
+
                             <tr valign="top"><th scope="row"><label for="series_table_of_contents_box_template"><?php esc_html_e('Series Table of Contents', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_table_of_contents_box_template]" id="series_table_of_contents_box_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_table_of_contents_box_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_table_of_contents_box_template']))) : ''; ?></textarea>
                                 <p class="description">
