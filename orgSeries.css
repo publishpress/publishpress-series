@@ -80,6 +80,7 @@ p.series-description {
 
 .series-nav-left {
 	float: left;
+    margin-right: 20px;
 }
 
 .series-nav-right {
