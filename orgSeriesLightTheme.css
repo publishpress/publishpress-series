@@ -39,3 +39,7 @@
 .seriesmeta a:active {
 	color: #000;
 }
+
+.series-nav-left {
+    margin-right: 20px;
+}
