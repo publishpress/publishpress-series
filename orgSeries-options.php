@@ -211,9 +211,6 @@ function orgseries_options_init() {
 	add_settings_section('series_taxonomy_base_settings', 'URLs and Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
 	add_settings_field('series_taxonomy_base_core_fieldset', 'URLs and Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
 
-    add_settings_section('series_overview_page_settings', 'Overview Page', 'orgseries_overview_page_section', 'orgseries_options_page');
-    add_settings_field('series_overview_page_core_fieldset', 'Overview Page', 'series_overview_page_core_fieldset', 'orgseries_options_page', 'series_overview_page_settings');
-
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
 
@@ -386,12 +383,6 @@ function orgseries_taxonomy_base_section() {
 	<?php
 }
 
-function orgseries_overview_page_section() {
-	global $orgseries;
-	?>
-	<?php
-}
-
 function series_automation_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
@@ -399,6 +390,11 @@ function series_automation_core_fieldset() {
 	$series_css_tougle = is_array($org_opt) && isset($org_opt['series_css_tougle']) ? $org_opt['series_css_tougle'] : 'default';
 	$series_perp_toc = is_array($org_opt) && isset($org_opt['series_perp_toc']) ? $org_opt['series_perp_toc'] : 10;
 
+    $overview_page_layouts = [
+		'default' => __('Default', 'organize-series'),
+		'grid' 	  => __('Grid', 'organize-series'),
+		'list'    => __('List', 'organize-series'),
+	];
 	?>
 			<div id="topic-toc-settings-automation-core" class="" style="line-height:normal;border:unset;">
 					<div class="inside" style="padding: 0;margin: 0;">
@@ -475,6 +471,58 @@ function series_automation_core_fieldset() {
 										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Ascending', 'organize-series'); ?></label>&nbsp;
 										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Descending', 'organize-series'); ?></label></td>
 								</tr>
+
+								<tr valign="top">
+                                    <th scope="row" colspan="2">
+                                        <h1><?php esc_html_e('Series Overview', 'organize-series'); ?></h1>
+									    <p class="description"><?php esc_html_e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
+                                    </th>
+                                </tr>
+
+                                <tr valign="top">
+                                    <th scope="row">
+                                        <label for="series_overview_page_layout"><?php esc_html_e('Layout:', 'organize-series'); ?></label>
+                                    </th>
+                                    <td>
+                                        <select name="<?php echo esc_attr($org_name);?>[series_overview_page_layout]" id="series_overview_page_layout">
+                                        <?php
+                                        foreach($overview_page_layouts as $key => $label){
+                                            $selected = ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === $key ) ? 'selected="selected"' : '';
+                                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                            echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
+
+                                        }
+                                        ?>
+                                        </select>
+                                        <div id="series_overview_page_layout_desc">
+                                            <p class="description">
+                                                <?php
+                                                echo sprintf(
+                                                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                    __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
+                                                    'https://publishpress.com/knowledge-base/series-archive-templates/'
+                                                );
+                                                _e('', 'organize-series'); ?>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
+                                    <th scope="row">
+                                        <label for="series_overview_page_columns"><?php esc_html_e('Columns:', 'organize-series'); ?></label>
+                                    </th>
+                                    <td>
+                                        <input min="1" max="6" name="<?php echo esc_attr($org_name);?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
+                                    </td>
+                                </tr>
+                                
+                                <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
+                                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
+                                        <p class="description">
+                                            <?php esc_html_e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
+                                        </p>
+                                    </td>
+                                </tr>
 
             					</tbody>
         					</table>
@@ -745,71 +793,8 @@ function series_taxonomy_base_core_fieldset() {
         	</tr>
             <?php } ?>
 
-            <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
-                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
-                    <p class="description">
-                        <?php esc_html_e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
-                    </p>
-                </td>
-
-            </tr>
-
     </tbody>
 	</table>	<?php
-}
-
-function series_overview_page_core_fieldset() {
-	global $orgseries;
-	$org_opt               = $orgseries->settings;
-	$org_name              = 'org_series_options';
-    $overview_page_layouts = [
-		'default' => __('Default', 'organize-series'),
-		'grid' 	  => __('Grid', 'organize-series'),
-		'list'    => __('List', 'organize-series'),
-	];
-    ?>
-    <p><?php esc_html_e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
-    <table class="form-table ppseries-settings-table">
-    	<tbody>
-            <tr valign="top">
-                <th scope="row">
-                    <label for="series_overview_page_layout"><?php esc_html_e('Layout:', 'organize-series'); ?></label>
-                </th>
-                <td>
-                    <select name="<?php echo esc_attr($org_name);?>[series_overview_page_layout]" id="series_overview_page_layout">
-                    <?php
-                    foreach($overview_page_layouts as $key => $label){
-                        $selected = ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === $key ) ? 'selected="selected"' : '';
-                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
-
-                    }
-                    ?>
-                    </select>
-                    <div id="series_overview_page_layout_desc">
-                        <p class="description">
-                            <?php
-                            echo sprintf(
-                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
-                                'https://publishpress.com/knowledge-base/series-archive-templates/'
-                            );
-                            _e('', 'organize-series'); ?>
-                        </p>
-                    </div>
-                </td>
-            </tr>
-            <tr valign="top" class="pps-row-columns"<?php echo ( isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"' ?>>
-                <th scope="row">
-                    <label for="series_overview_page_columns"><?php esc_html_e('Columns:', 'organize-series'); ?></label>
-                </th>
-                <td>
-                    <input min="1" max="6" name="<?php echo esc_attr($org_name);?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
-                </td>
-            </tr>
-        </tbody>
-	</table>
-    <?php
 }
 
 function series_uninstall_core_fieldset() {
