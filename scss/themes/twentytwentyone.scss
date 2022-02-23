@@ -1,4 +1,4 @@
-// CSS for taxonomy-series template when using TWenty Twenty-One theme
+// CSS for taxonomy-series, seriestoc and taxonomy-series_group templates when using Twenty Twenty-One theme
 #series-primary {
 
   #series-content {
@@ -11,10 +11,24 @@
       max-width: var(--responsive--alignwide-width);
     }
 
+    #series-post,
     #pps-taxonomy-series-overview {
       max-width: var(--responsive--aligndefault-width);
       margin-top: calc(3 * var(--global--spacing-vertical));
       margin-bottom: calc(3 * var(--global--spacing-vertical));
+    }
+
+    > .serieslist-box {
+      max-width: var(--responsive--aligndefault-width);
+      margin-top: 10px;
+    }
+
+    .serieslist-box {
+      width: auto;
+    }
+
+    .page-header + .serieslist-box {
+      margin-top: calc(3 * var(--global--spacing-vertical));
     }
   }
 }

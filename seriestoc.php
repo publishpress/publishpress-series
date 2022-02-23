@@ -16,18 +16,18 @@
 
 get_header(); ?>
 
-		<section id="primary" class="site-content">
-			<div id="content" role="main">
-			
+		<section id="series-primary" class="site-content">
+			<div id="series-content" role="main">
+
 			<?php wp_serieslist_display(); ?>
 
 			<div class="stocpagination"> <?php series_toc_paginate(); ?> </div>
 			</div><!-- #content -->
 		</section><!-- #primary -->
 
-<?php 
+<?php
 if(pp_series_locate_template( array( 'sidebar.php' ) )){
-    get_sidebar(); 
+    get_sidebar();
 }
 ?>
 <?php get_footer(); ?>
