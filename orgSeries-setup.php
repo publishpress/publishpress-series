@@ -190,6 +190,10 @@ class orgSeries {
 	}
 
 	function register_scripts() {
+        global $orgseries;
+        $org_opt = $orgseries->settings;
+        $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int)$org_opt['metabox_show_add_new'] : 0;
+
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);
 		$add_series_js = current_user_can( 'manage_series' ) ? 'series.js' : 'series-restricted.js';
@@ -197,7 +201,8 @@ class orgSeries {
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => esc_attr(__('Add New', 'organize-series')),
 				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series'),
-				'addnonce' => wp_create_nonce('add-series-nonce')
+				'addnonce' => wp_create_nonce('add-series-nonce'),
+				'addnewstyle' => ($metabox_show_add_new === 0) ? 'display: none;' : '',
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, TRUE);
 	}
@@ -275,6 +280,9 @@ class orgSeries {
 				//main settings
 			'custom_css' => 1,
 			'automatic_series_part' => 1,
+			'metabox_show_add_new' => 0,
+			'metabox_show_series_part' => 0,
+			'metabox_show_post_title_in_widget' => 0,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.

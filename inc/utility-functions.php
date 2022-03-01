@@ -101,6 +101,19 @@ function pps_os_version_requirement_notice() {
                 }
                 update_option('pp_series_2_7_5_upgraded', true);
           }
+    
+          if (!get_option('pp_series_2_8_0_upgraded')) {
+               $settings = get_option('org_series_options');
+               $settings = apply_filters('org_series_settings', $settings);
+               //add new series settings only if not fresh installation
+               if ($settings) {
+                   $settings['metabox_show_post_title_in_widget'] = 0;
+                   $settings['metabox_show_series_part'] = 0;
+                   $settings['metabox_show_add_new'] = 0;
+                   update_option('org_series_options', $settings);
+               }
+               update_option('pp_series_2_8_0_upgraded', true);
+         }
 
     
         }
