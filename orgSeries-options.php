@@ -590,13 +590,13 @@ function series_templates_core_fieldset() {
 									</td>
 								</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title (Linked Post)', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							<?php do_action('plist_ptitle_template_unpublished') ?>
 
-							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Series Post List Current Post Title', 'organize-series'); ?></label></th>
+							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Series Post List Post Title (Current Post)', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo isset($org_opt['series_post_list_currentpost_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
