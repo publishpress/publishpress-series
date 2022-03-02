@@ -41,6 +41,8 @@ function orgseries_create_options() {
 		68
 	);
 
+    do_action('publishpress_series_admin_menu_page');
+
 	add_action('admin_init', 'orgseries_options_init');
 	add_action('admin_print_scripts-' . $page, 'orgseries_options_scripts');
 

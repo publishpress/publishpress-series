@@ -73,22 +73,15 @@ function pps_os_version_requirement_notice() {
         //activation functions/codes
         function pp_series_upgrade_function()
         {
-
-            $version = get_option('pp_series_version');
     
-            if ( !$version || $version < '2.7.1') {
-                /**
-                 * add newly introduced manage_publishpress_series for administrator 
-                 *#https://github.com/publishpress/publishpress-series/issues/313
-                **/
-              // Init roles
+            if (!get_option('pp_series_2_7_1_upgraded')) {
               if ( function_exists( 'get_role' ) ) {
                   $role = get_role( 'administrator' );
                   if ( null !== $role && ! $role->has_cap( 'manage_publishpress_series' ) ) {
                       $role->add_cap( 'manage_publishpress_series' );
                   }
               }
-              update_option('pp_series_version', ORG_SERIES_VERSION);
+              update_option('pp_series_2_7_1_upgraded', true);
            }
     
            if (!get_option('pp_series_2_7_5_upgraded')) {
