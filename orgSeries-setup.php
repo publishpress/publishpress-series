@@ -47,7 +47,7 @@ class orgSeries {
 		add_filter('pre_get_document_title', array($this, 'seriestoc_title'), 20);//https://github.com/publishpress/publishpress-series/issues/82
 
 		//series post list box
-		add_action('the_content', array($this, 'add_series_post_list_box'), 12);
+		add_filter('the_content', array($this, 'add_series_post_list_box'), 12);
 
 		//series meta strip
 		add_filter('the_content', array($this, 'add_series_meta'), 12);
@@ -60,7 +60,7 @@ class orgSeries {
 		add_filter('posts_orderby', array($this,'sort_series_page_orderby'));
 
 		//series post-navigation
-		add_action('the_content', array($this, 'series_nav_filter'));
+		add_filter('the_content', array($this, 'series_nav_filter'));
 
 		//broswer page title
 		add_filter('wp_title', array($this, 'add_series_wp_title'));
@@ -70,7 +70,33 @@ class orgSeries {
 
 		// custom taxonomy template
 		add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
+
+        //fix series content issue for Beaver Builder header and footer
+        add_action('fl_theme_builder_before_render_footer', array($this, 'remove_series_content'));
+        add_action('fl_theme_builder_before_render_header', array($this, 'remove_series_content'));
+
+        add_action('fl_theme_builder_after_render_footer', array($this, 'add_series_content'));
+        add_action('fl_theme_builder_after_render_header', array($this, 'add_series_content'));
+
 	}
+
+    /**
+     * Fix series content issue for Beaver Builder header and footer
+     * 
+     * https://github.com/publishpress/publishpress-series/issues/306
+     */
+    public function remove_series_content(){
+        add_filter('pp_series_add_series_content', '__return_false');
+    }
+
+    /**
+     * Fix series content issue for Beaver Builder header and footer
+     * 
+     * https://github.com/publishpress/publishpress-series/issues/306
+     */
+    public function add_series_content(){
+        add_filter('pp_series_add_series_content', '__return_true');
+    }
 
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
@@ -579,8 +605,14 @@ class orgSeries {
 	}
 
 	//add series post-list box to a post in that series (on single.php view)
-	function add_series_post_list_box($content) {
-		if ($this->settings['auto_tag_toggle']) {
+	public function add_series_post_list_box($content) {
+
+        /**
+        * Filter whether to add series content
+        */
+        $add_series_content = apply_filters('pp_series_add_series_content', true);
+        
+		if ($add_series_content && $this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
 				$position = isset($this->settings['series_post_list_position']) ? $this->settings['series_post_list_position'] : 'default';
 				if($position === 'top'){
@@ -599,8 +631,14 @@ class orgSeries {
 	}
 
 	//add series meta information to posts that belong to a series.
-	function add_series_meta($content) {
-		if($this->settings['auto_tag_seriesmeta_toggle']) {
+	public function add_series_meta($content) {
+
+        /**
+        * Filter whether to add series content
+        */
+        $add_series_content = apply_filters('pp_series_add_series_content', true);
+        
+		if($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
 				if($position === 'top'){
@@ -644,9 +682,15 @@ class orgSeries {
 	}
 
 	//add series navigation strip to posts that are part of a series (on single.php view)
-	function series_nav_filter($content) {
+	public function series_nav_filter($content) {
 		if (is_single() || is_page() ) {
-			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
+
+            /**
+            * Filter whether to add series content
+            */
+            $add_series_content = apply_filters('pp_series_add_series_content', true);
+
+			if($add_series_content && $this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 				$position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
 				if($position === 'top'){
 					$series_nav = str_replace('%postcontent%', '', $series_nav);
