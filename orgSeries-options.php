@@ -415,7 +415,8 @@ function series_automation_core_fieldset() {
 					<div class="inside" style="padding: 0;margin: 0;">
 
 
-	<h1><?php esc_html_e('Display on single posts in a series', 'organize-series'); ?></h1>
+	                    <h1><?php esc_html_e('Display on single posts in a series', 'organize-series'); ?></h1>
+						<p class="description"><?php esc_html_e('Choose the design for pages that are included in a series.', 'organize-series'); ?></p>
 
           				<table class="form-table ppseries-settings-table">
             				<tbody>
@@ -450,7 +451,8 @@ function series_automation_core_fieldset() {
 								</tr>
 
 
-								<tr valign="top"><th scope="row" colspan="2"><h1><?php esc_html_e('Display on Series Table of Contents screens', 'organize-series'); ?></h1></th></tr>
+								<tr valign="top"><th scope="row" colspan="2"><h1><?php esc_html_e('Display on Series Table of Contents screens', 'organize-series'); ?></h1>
+									<p class="description"><?php esc_html_e('Choose the design for the page where all your Series are displayed.', 'organize-series'); ?></p></th></tr>
 
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td>
@@ -476,7 +478,7 @@ function series_automation_core_fieldset() {
 
 								<tr valign="top">
                                     <th scope="row" colspan="2">
-                                        <h1><?php esc_html_e('Series Overview', 'organize-series'); ?></h1>
+                                        <h1><?php esc_html_e('Display on Series Overview screens', 'organize-series'); ?></h1>
 									    <p class="description"><?php esc_html_e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
                                     </th>
                                 </tr>
