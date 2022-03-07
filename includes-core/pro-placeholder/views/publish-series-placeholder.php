@@ -8,7 +8,7 @@
                 <img src="<?php echo esc_url(SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/images/publish-series-mobile.jpg'); ?>" class="pp-series-mobile">
                 <div class="pp-series-menus-promo-content">
                     <p>
-                        <?php esc_html_e('PublishPress Series pro enables easy bulk publishing of all posts in a series at once.', 'organize-series'); ?>
+                        <?php esc_html_e('PublishPress Series Pro enables easy bulk publishing of all posts in a series at once.', 'organize-series'); ?>
                     </p>
                     <p>
                         <a href="https://publishpress.com/links/series-banner" target="_blank">

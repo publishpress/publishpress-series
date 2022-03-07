@@ -61,46 +61,6 @@ class PPSeriesCoreAdmin {
             12
         );
 
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Multiple Series', 'organize-series'),
-            esc_html__('Multiple Series', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-multiple-series',
-            [$this, 'placeholderPageMultipleSerires'],
-            12
-        );
-
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Series CPT Support', 'organize-series'),
-            esc_html__('Series CPT Support', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-cpt-support',
-            [$this, 'placeholderPageCPTSupport'],
-            12
-        );
-
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Extra Tokens', 'organize-series'),
-            esc_html__('Extra Tokens', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-extra-tokens',
-            [$this, 'placeholderPageExtraTokens'],
-            12
-        );
-
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Series Shortcodes', 'organize-series'),
-            esc_html__('Series Shortcodes', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-series-shortcodes',
-            [$this, 'placeholderPageSeriesShortcodes'],
-            12
-        );
-
     }
 
     public function placeholderPagePublishSeries(){
@@ -113,30 +73,6 @@ class PPSeriesCoreAdmin {
         wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
         wp_enqueue_style( 'pps-pro-placeholder-css' );
         include_once __DIR__ . '/pro-placeholder/views/series-group-placeholder.php';
-    }
-
-    public function placeholderPageMultipleSerires(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/multiple-series-placeholder.php';
-    }
-
-    public function placeholderPageCPTSupport(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/cpt-support-placeholder.php';
-    }
-
-    public function placeholderPageExtraTokens(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/extra-tokens-placeholder.php';
-    }
-
-    public function placeholderPageSeriesShortcodes(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/series-shortcodes.php';
     }
 
 }
