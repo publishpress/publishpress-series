@@ -614,7 +614,11 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 				else {
 					$set_spart =  sanitize_text_field($_POST['series_part']);
 				}
-				$s_pt = $set_spart[$ser_id];
+                if(!empty($set_spart)){
+                    $s_pt = $set_spart[$ser_id];
+                }else{
+                    $s_pt = '';
+                }
 			}
             
             if ($automatic_series_part > 0) 
