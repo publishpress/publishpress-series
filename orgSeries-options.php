@@ -376,13 +376,14 @@ function orgseries_templates_section() {
 function orgseries_icon_section() {
 	global $orgseries;
 	?>
-	<p><?php esc_html_e('This section is for the icons that show with your series. Note that you must use a token for the icon in the "Templates" settings.', 'organize-series'); ?></p>
+	<p class="description"><?php esc_html_e('This section is for the icons that show with your series. Note that you must use a token for the icon in the "Templates" settings.', 'organize-series'); ?></p>
 	<?php
 }
 
 function orgseries_uninstall_section() {
 	global $orgseries;
 	?>
+	<p class="description"><?php esc_html_e('Please change these settings carefully as they make significant changes to PublishPress Series.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -395,6 +396,7 @@ function orgseries_taxonomy_base_section() {
 function orgseries_metabox_section() {
 	global $orgseries;
 	?>
+	<p class="description"><?php esc_html_e('These settings allow you to customize the metabox on the post editing screen.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -519,7 +521,7 @@ function series_automation_core_fieldset() {
                                         <input min="1" max="6" name="<?php echo esc_attr($org_name);?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
                                     </td>
                                 </tr>
-                                
+
                                 <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
                                     <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
                                         <p class="description">
@@ -821,19 +823,19 @@ function series_metabox_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
-            
+
             <tr valign="top"><th scope="row"><label for="metabox_show_add_new"><?php esc_html_e('Show "Add New"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_add_new]" value="1" id="metabox_show_add_new" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_add_new']) ? $org_opt['metabox_show_add_new'] : ''); ?> /></td>
             </tr>
-            
+
             <tr valign="top"><th scope="row"><label for="metabox_show_series_part"><?php esc_html_e('Show "Series Part"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_series_part]" value="1" id="metabox_show_series_part" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_series_part']) ? $org_opt['metabox_show_series_part'] : ''); ?> /></td>
             </tr>
-            
+
             <tr valign="top"><th scope="row"><label for="metabox_show_post_title_in_widget"><?php esc_html_e('Show "Post title in widget"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_post_title_in_widget]" value="1" id="metabox_show_post_title_in_widget" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_post_title_in_widget']) ? $org_opt['metabox_show_post_title_in_widget'] : ''); ?> /></td>
             </tr>
-            
+
         </tbody>
 	</table>	<?php
 }
@@ -853,11 +855,11 @@ function series_uninstall_core_fieldset() {
             	<td>
                     <label>
                         <input name="<?php echo esc_attr($org_name); ?>[automatic_series_part]" id="automatic_series_part" type="checkbox" value="1" <?php checked('1', isset($org_opt['automatic_series_part']) ? $org_opt['automatic_series_part'] : ''); ?> />
-                    	<?php esc_html_e('Enable automatic renumbering of posts in a series.', 'organize-series'); ?>
+                    	<span class="description"><?php esc_html_e('Enable automatic renumbering of posts in a series.', 'organize-series'); ?></span>
                 	</label>
                 </td>
         	</tr>
-            
+
             <?php do_action('pp_series_advanced_tab_middle'); ?>
 
         	<tr valign="top">
@@ -868,7 +870,7 @@ function series_uninstall_core_fieldset() {
             	<td>
                     <label>
                         <input name="<?php echo esc_attr($org_name); ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', isset($org_opt['kill_on_delete']) ? $org_opt['kill_on_delete'] : ''); ?> />
-                    	<?php esc_html_e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?>
+                    	<span class="description"><?php esc_html_e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?></span>
                 	</label>
                 </td>
         	</tr>
