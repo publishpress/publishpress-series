@@ -213,8 +213,8 @@ function orgseries_options_init() {
 	add_settings_section('series_icon_settings', '<br /><br />Series Icon Options', 'orgseries_icon_section', 'orgseries_options_page');
 	add_settings_field('series_icon_core_fieldset', 'Series Icon Core Options', 'series_icon_core_fieldset', 'orgseries_options_page', 'series_icon_settings');
 
-	add_settings_section('series_taxonomy_base_settings', 'URLs and Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
-	add_settings_field('series_taxonomy_base_core_fieldset', 'URLs and Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
+	add_settings_section('series_taxonomy_base_settings', 'Taxonomy', 'orgseries_taxonomy_base_section', 'orgseries_options_page');
+	add_settings_field('series_taxonomy_base_core_fieldset', 'Taxonomy', 'series_taxonomy_base_core_fieldset', 'orgseries_options_page', 'series_taxonomy_base_settings');
 
 	add_settings_section('series_metabox_settings', 'Metabox', 'orgseries_metabox_section', 'orgseries_options_page');
 	add_settings_field('series_metabox_core_fieldset', 'Metabox', 'series_metabox_core_fieldset', 'orgseries_options_page', 'series_metabox_settings');
@@ -228,7 +228,7 @@ function orgseries_options_init() {
 
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
-    $settings_tabs['series_taxonomy_base_settings'] = esc_html__('URLs and Taxonomy', 'organize-series');
+    $settings_tabs['series_taxonomy_base_settings'] = esc_html__('Taxonomy', 'organize-series');
     $settings_tabs['series_metabox_settings'] = esc_html__('Metabox', 'organize-series');
     $settings_tabs['series_uninstall_settings'] = esc_html__('Advanced', 'organize-series');
     return $settings_tabs;
@@ -364,12 +364,14 @@ function orgseries_option_page() {
 function orgseries_main_section() {
 	global $orgseries;
 	?>
+    <p class="description"><?php _e('These settings allow you to customize the main frontend screens in PublishPress Series.', 'organize-series'); ?></p>
 	<?php
 }
 
 function orgseries_templates_section() {
 	global $orgseries;
 	?>
+    <p class="description"><?php _e('These templates allow you to customize the frontend appearance of PublishPress Series.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -390,6 +392,7 @@ function orgseries_uninstall_section() {
 function orgseries_taxonomy_base_section() {
 	global $orgseries;
 	?>
+    <p class="description"><?php esc_html_e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?></p>
 	<?php
 }
 
@@ -792,7 +795,7 @@ function series_taxonomy_base_core_fieldset() {
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo esc_attr($org_name); ?>[series_taxonomy_slug]" value="<?php echo isset($org_opt['series_taxonomy_slug']) ? esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])) : ''; ?>"/>
                     <p class="description">
-                        <?php esc_html_e('This feature allows you to create a new taxonomy for this plugin to use if you don\'t want to use the default "Series" taxonomy.', 'organize-series'); ?>
+                        <?php esc_html_e('To create a new taxonomy, enter the new name and click the "Update Options" button.', 'organize-series'); ?>
                     </p>
                 </td>
             </tr>
