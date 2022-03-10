@@ -1,3 +1,7 @@
+.ppseries-settings-tab-content .description {
+    font-weight: initial;
+}
+
 .ppseries-textarea {
     resize: none;
     height: 70px;
