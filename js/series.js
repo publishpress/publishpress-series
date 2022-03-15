@@ -1,8 +1,6 @@
 jQuery(document).ready( function($) {
 	var myConfirm = function() { return '' !== $('#newseries').val(); };
 
-	$('#jaxseries').prepend('<span id="ajaxseries" style="' + seriesL10n.addnewstyle + '"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off"/><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="' + seriesL10n.add + '" /><input type="hidden"/><input type="hidden"/></span><span id="series-ajax-response"></span><span id="add-series-nonce" class="hidden">' + seriesL10n.addnonce + '</span>');
-
 	/*$('#serieschecklist').wpList( { alt: '', response: 'series-ajax-response', confirm: myConfirm } ); /**/
 
 

@@ -314,11 +314,14 @@ global $post, $postdata, $content, $orgseries;
 
     $metabox_show_series_part = isset($org_opt['metabox_show_series_part']) ? (int)$org_opt['metabox_show_series_part'] : 0;
     $metabox_show_post_title_in_widget = isset($org_opt['metabox_show_post_title_in_widget']) ? (int)$org_opt['metabox_show_post_title_in_widget'] : 0;
+    $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int)$org_opt['metabox_show_add_new'] : 0;
 
 	?>
     <div class="series-metadiv">
         <div class="tabs-panel">
-	<p id="jaxseries"></p>
+	<p id="jaxseries">
+    <span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off"/><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden"/><input type="hidden"/></span><span id="series-ajax-response"></span><span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
+    </p>
 		<span id="series-ajax-response"></span>
 		<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
 				<?php get_series_to_select(); ?>
