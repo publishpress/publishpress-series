@@ -218,7 +218,7 @@ class orgSeries {
 	function register_scripts() {
         global $orgseries;
         $org_opt = $orgseries->settings;
-        $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int)$org_opt['metabox_show_add_new'] : 0;
+
 
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);
@@ -228,7 +228,6 @@ class orgSeries {
 				'add' => esc_attr(__('Add New', 'organize-series')),
 				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series'),
 				'addnonce' => wp_create_nonce('add-series-nonce'),
-				'addnewstyle' => ($metabox_show_add_new === 0) ? 'display: none;' : '',
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, TRUE);
 	}
