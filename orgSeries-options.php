@@ -850,6 +850,9 @@ function series_uninstall_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
+
+            <?php do_action('pp_series_advanced_tab_top'); ?>
+
         	<tr valign="top">
             	<th scope="row"><label for="automatic_series_part">
                 	    <?php esc_html_e('Automatic Numbering', 'organize-series'); ?>
