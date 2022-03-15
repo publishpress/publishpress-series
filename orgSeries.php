@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 2.7.5
+ * Version: 2.8.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -59,7 +59,7 @@ require_once (dirname(__FILE__) . '/includes-core/functions.php');
 register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
 if (!defined('ORG_SERIES_VERSION')) {
-    define('ORG_SERIES_VERSION', '2.7.5'); //the current version of the plugin
+    define('ORG_SERIES_VERSION', '2.8.0'); //the current version of the plugin
     define( 'SERIES_FILE_PATH', __FILE__ );
     define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
     define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.
@@ -108,8 +108,14 @@ if ($pro_active) {
 }
 
 if (defined('PPSERIES_FILE') || $pro_active) {
+    if(!function_exists('deactivate_plugins')){
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }    
+    //deactivate current plugin if pro is active
+    deactivate_plugins( plugin_basename( __FILE__ ) );
 	return;
 }
+
 define ('PPSERIES_FILE', __FILE__ );
 define ('PPSERIES_PATH', plugin_dir_path(__FILE__));
 define ('PPSERIES_URL', plugin_dir_url(__FILE__));

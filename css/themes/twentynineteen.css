@@ -1,0 +1,1 @@
+#series-primary #series-content .serieslist-box{width:auto;margin-top:10px}@media (min-width: 768px){#series-primary #series-content>*{margin:calc(3 * 1rem) calc(10% + 60px) calc(1rem / 2)}}@media (max-width: 767px){#series-primary #series-content>.page-header{margin-top:0}#series-primary #series-content>*{margin:calc(3 * 1rem) 1rem 1rem}}

@@ -1,0 +1,47 @@
+// CSS for taxonomy-series, seriestoc and taxonomy-series_group templates when using Twenty Twenty theme
+#series-primary {
+  padding: 0;
+
+  #series-content {
+
+    .serieslist-box {
+      margin-bottom: 10px;
+    }
+
+    > * {
+      max-width: 58rem;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 8rem 0;
+
+      > .page-title {
+        font-size: 8.4rem;
+        font-weight: 700;
+        letter-spacing: -0.026666667em;
+        margin: 0;
+      }
+
+      > .archive-description {
+        font-size: 2rem;
+        margin-top: 2.5rem;
+      }
+    }
+
+    @media (min-width: 700px){
+
+      > * {
+        width: calc(100% - 8rem);
+      }
+    }
+
+    @media (max-width: 699px){
+
+      > * {
+        width: calc(100% - 4rem);
+      }
+    }
+  }
+}

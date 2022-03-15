@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.7.5
+Stable tag: 2.8.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,32 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 
 == Changelog ==
+
+v2.8.0- 2022-03-15
+* Fixed: New theme with better design #272
+* Fixed: Improved design for "Publish Series" screen #436
+* Fixed: Improved design for Series overview page #309
+* Fixed: Using "id="primary" for series overview page messes up with primary widget area #353
+* Fixed: Improve design for Series taxonomy #395
+* Fixed: PHP 8 issue in settings #400
+* Fixed: Latest Series widget text #402
+* Fixed: New area for Series Table of Contents #403
+* Fixed: Series Meta (with excerpts): #404
+* Fixed: Small text cleanup in "Display" #406
+* Fixed: Improved design for Groups page #394
+* Fixed: Move the "Overview" tab #405
+* Fixed: Need spacing in Navigation template #418
+* Fixed: Styling not working for group and toc pages #421
+* Fixed: Simplify the metabox #408
+* Fixed: Series Post List Post Title (unpublished) Template: #401
+* Fixed: Issue with "the_content" hook #306
+* Fixed: Move series order to overview section #424
+* Fixed: Disable Series Free when Series Pro is installed #440
+* Fixed: "Publish Series" feature only works with "Pending Review" #437
+* Fixed: Using "Publish posts in series" produces a 0 for part number #454
+* Fixed: Scheduled posts marked with no Part #452
+* Fixed: Consistent design for Settings #434
+* Fixed: Move series "Add New" metabox to html #433
 
 v2.7.5- 2022-02-07
 * Fixed: Stop automatic re-numbering of posts within the series #376

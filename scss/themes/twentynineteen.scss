@@ -1,0 +1,29 @@
+// CSS for taxonomy-series, seriestoc and taxonomy-series_group templates when using Twenty Nineteen theme
+#series-primary {
+
+  #series-content {
+
+    .serieslist-box {
+      width: auto;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 768px){
+
+      > * {
+        margin: calc(3 * 1rem) calc(10% + 60px) calc(1rem / 2);
+      }
+    }
+
+    @media (max-width: 767px){
+
+      > .page-header {
+        margin-top: 0;
+      }
+
+      > * {
+        margin: calc(3 * 1rem) 1rem 1rem;
+      }
+    }
+  }
+}

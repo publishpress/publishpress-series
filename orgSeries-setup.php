@@ -47,7 +47,7 @@ class orgSeries {
 		add_filter('pre_get_document_title', array($this, 'seriestoc_title'), 20);//https://github.com/publishpress/publishpress-series/issues/82
 
 		//series post list box
-		add_action('the_content', array($this, 'add_series_post_list_box'), 12);
+		add_filter('the_content', array($this, 'add_series_post_list_box'), 12);
 
 		//series meta strip
 		add_filter('the_content', array($this, 'add_series_meta'), 12);
@@ -60,7 +60,7 @@ class orgSeries {
 		add_filter('posts_orderby', array($this,'sort_series_page_orderby'));
 
 		//series post-navigation
-		add_action('the_content', array($this, 'series_nav_filter'));
+		add_filter('the_content', array($this, 'series_nav_filter'));
 
 		//broswer page title
 		add_filter('wp_title', array($this, 'add_series_wp_title'));
@@ -70,7 +70,33 @@ class orgSeries {
 
 		// custom taxonomy template
 		add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
+
+        //fix series content issue for Beaver Builder header and footer
+        add_action('fl_theme_builder_before_render_footer', array($this, 'remove_series_content'));
+        add_action('fl_theme_builder_before_render_header', array($this, 'remove_series_content'));
+
+        add_action('fl_theme_builder_after_render_footer', array($this, 'add_series_content'));
+        add_action('fl_theme_builder_after_render_header', array($this, 'add_series_content'));
+
 	}
+
+    /**
+     * Fix series content issue for Beaver Builder header and footer
+     * 
+     * https://github.com/publishpress/publishpress-series/issues/306
+     */
+    public function remove_series_content(){
+        add_filter('pp_series_add_series_content', '__return_false');
+    }
+
+    /**
+     * Fix series content issue for Beaver Builder header and footer
+     * 
+     * https://github.com/publishpress/publishpress-series/issues/306
+     */
+    public function add_series_content(){
+        add_filter('pp_series_add_series_content', '__return_true');
+    }
 
 	function update_warning() {
 		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
@@ -190,6 +216,10 @@ class orgSeries {
 	}
 
 	function register_scripts() {
+        global $orgseries;
+        $org_opt = $orgseries->settings;
+
+
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);
 		$add_series_js = current_user_can( 'manage_series' ) ? 'series.js' : 'series-restricted.js';
@@ -197,7 +227,7 @@ class orgSeries {
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => esc_attr(__('Add New', 'organize-series')),
 				'how' => __('Select "Not part of a series" to remove any series data from post', 'organize-series'),
-				'addnonce' => wp_create_nonce('add-series-nonce')
+				'addnonce' => wp_create_nonce('add-series-nonce'),
 			));
 		wp_register_script( 'orgseries_options', $url.'orgseries_options.js', array('jquery', 'thickbox'), ORG_SERIES_VERSION, TRUE);
 	}
@@ -275,6 +305,9 @@ class orgSeries {
 				//main settings
 			'custom_css' => 1,
 			'automatic_series_part' => 1,
+			'metabox_show_add_new' => 0,
+			'metabox_show_series_part' => 0,
+			'metabox_show_post_title_in_widget' => 0,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
 			'auto_tag_nav_toggle' => 1, //sets the auto-tag insertions for the series navigation strip.
@@ -571,8 +604,14 @@ class orgSeries {
 	}
 
 	//add series post-list box to a post in that series (on single.php view)
-	function add_series_post_list_box($content) {
-		if ($this->settings['auto_tag_toggle']) {
+	public function add_series_post_list_box($content) {
+
+        /**
+        * Filter whether to add series content
+        */
+        $add_series_content = apply_filters('pp_series_add_series_content', true);
+        
+		if ($add_series_content && $this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
 				$position = isset($this->settings['series_post_list_position']) ? $this->settings['series_post_list_position'] : 'default';
 				if($position === 'top'){
@@ -591,8 +630,14 @@ class orgSeries {
 	}
 
 	//add series meta information to posts that belong to a series.
-	function add_series_meta($content) {
-		if($this->settings['auto_tag_seriesmeta_toggle']) {
+	public function add_series_meta($content) {
+
+        /**
+        * Filter whether to add series content
+        */
+        $add_series_content = apply_filters('pp_series_add_series_content', true);
+        
+		if($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
 				if($position === 'top'){
@@ -636,9 +681,15 @@ class orgSeries {
 	}
 
 	//add series navigation strip to posts that are part of a series (on single.php view)
-	function series_nav_filter($content) {
+	public function series_nav_filter($content) {
 		if (is_single() || is_page() ) {
-			if($this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
+
+            /**
+            * Filter whether to add series content
+            */
+            $add_series_content = apply_filters('pp_series_add_series_content', true);
+
+			if($add_series_content && $this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav() ) {
 				$position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
 				if($position === 'top'){
 					$series_nav = str_replace('%postcontent%', '', $series_nav);
@@ -694,11 +745,43 @@ class orgSeries {
 	            	$tax_template = dirname( __FILE__ ) . '/inc/templates/taxonomy-' . $series_slug . '.php';
 	        	}
 			}
+			$this->series_load_theme_css();
 
 			return $tax_template;
 		}
 
 		return false;
+	}
+
+	/*
+	 * CSS to fix core themes styling for Taxonomy Series template
+	 *
+	 */
+	function series_load_theme_css(){
+		$themes = [
+			'twentynineteen',
+			'twentytwenty',
+			'twentytwentyone'
+		];
+		$ctheme = wp_get_theme();
+		$ptheme = wp_get_theme()->parent();
+
+		if(
+			in_array($ctheme->get('TextDomain'), $themes)
+			|| (!empty($ptheme) && in_array($ptheme->get('TextDomain'), $themes))
+		){
+			if($ctheme->get('TextDomain')){
+				$textdomain = $ctheme->get('TextDomain');
+			} else {
+				$textdomain = $ptheme->get('TextDomain'); // Parent text domain
+			}
+			wp_enqueue_style(
+				'orgseries-' . $textdomain,
+				plugins_url('css/themes/' . $textdomain . '.css', __FILE__),
+				array(),
+				ORG_SERIES_VERSION
+			);
+		}
 	}
 
 } //end of orgSeries class

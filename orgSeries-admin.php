@@ -286,7 +286,7 @@ function get_series_list( $default = 0 ) {
 */
 function write_series_list( $series ) { //copied from write_nested_categories in template.php
 	global $orgseries;
-		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /><span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
+		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
 			echo '<li id="series-'. esc_attr($serial['series_ID']) .'"><label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit"><input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
 
@@ -310,23 +310,41 @@ function series_edit_meta_box() {
 global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	$ser_id = wp_get_post_series( $id );
+	$org_opt = $orgseries->settings;
+
+    $metabox_show_series_part = isset($org_opt['metabox_show_series_part']) ? (int)$org_opt['metabox_show_series_part'] : 0;
+    $metabox_show_post_title_in_widget = isset($org_opt['metabox_show_post_title_in_widget']) ? (int)$org_opt['metabox_show_post_title_in_widget'] : 0;
+    $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int)$org_opt['metabox_show_add_new'] : 0;
+
 	?>
     <div class="series-metadiv">
         <div class="tabs-panel">
-	<p id="jaxseries"></p>
+	<p id="jaxseries">
+    <span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off"/><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden"/><input type="hidden"/></span><span id="series-ajax-response"></span><span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
+    </p>
 		<span id="series-ajax-response"></span>
 		<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
 				<?php get_series_to_select(); ?>
 		</ul>
-        <div class="series-part-wrap">
-		<span id="seriespart"><strong> <?php esc_html_e('Series Part:', 'organize-series'); ?>   </strong><input type="text" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" /></span>
-			<p id="part-description" class="howto"><?php esc_html_e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?></p>
+
+        <div class="series-part-wrap" style="<?php echo ($metabox_show_series_part === 0) ? 'display: none;' : ''; ?>">
+            <span id="seriespart">
+                <strong> <?php esc_html_e('Series Part:', 'organize-series'); ?>   </strong>
+                <input type="text" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" />
+            </span>
+            <p id="part-description" class="howto">
+                <?php esc_html_e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?>
+            </p>
         </div>
-		<strong> <?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
-		<p id="part-description" class="howto">
-			<?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
-	</p>
-		<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>"/>
+
+        <div class="series-metabox-post-title-in-widget" style="<?php echo ($metabox_show_post_title_in_widget === 0) ? 'display: none;' : ''; ?>">
+            <strong> <?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
+            <p id="part-description" class="howto">
+                <?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
+            </p>
+            <input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>"/>
+        </div>
+
 		<input type="hidden" name="is_series_save" value="1" />
     </div>
     </div>
