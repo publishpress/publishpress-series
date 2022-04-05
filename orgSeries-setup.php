@@ -69,7 +69,9 @@ class orgSeries {
 		add_filter('plugin_action_links', array($this, 'AddPluginActionLink'), 10, 2);
 
 		// custom taxonomy template
-		add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
+		if (is_tax('series')) {
+			add_filter('taxonomy_template', array($this, 'series_load_tax_template'));
+		}
 
         //fix series content issue for Beaver Builder header and footer
         add_action('fl_theme_builder_before_render_footer', array($this, 'remove_series_content'));
