@@ -746,11 +746,9 @@ class orgSeries {
 	        	}
 			}
 			$this->series_load_theme_css();
-
-			return $tax_template;
 		}
 
-		return false;
+		return $tax_template;
 	}
 
 	/*
