@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.8
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,13 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 
 == Changelog ==
+
+v2.8.1- 2022-04-11
+* Fixed: Custom Post Type Archive not working anymore #474
+* Fixed: Issue with Post Title in Widget #473
+* Fixed: Small changes to "Display" settings #466
+* Fixed: "Series" should be "Settings" #470
+* Fixed: Two issues with Series Table of Contents #465
 
 v2.8.0- 2022-03-15
 * Fixed: New theme with better design #272
