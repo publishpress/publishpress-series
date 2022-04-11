@@ -40,6 +40,14 @@ function orgseries_create_options() {
 		'dashicons-book-alt',
 		68
 	);
+    add_submenu_page(
+        'orgseries_options_page',
+        __( 'Settings', 'organize-series' ),
+        __( 'Settings', 'organize-series' ),
+        'admin_simple_tags',
+        'orgseries_options_page',
+        'orgseries_option_page'
+    );
 
     do_action('publishpress_series_admin_menu_page');
 
