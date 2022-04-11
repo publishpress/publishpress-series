@@ -455,36 +455,10 @@ function series_automation_core_fieldset() {
 									</td>
 								</tr>
 
-
-								<tr valign="top"><th scope="row" colspan="2"><h1><?php esc_html_e('Display on Series Table of Contents screens', 'organize-series'); ?></h1>
-									<p class="description"><?php esc_html_e('Choose the design for the page where all your Series are displayed.', 'organize-series'); ?></p></th></tr>
-
-								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
-									<td>
-                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
-                                        <button onclick="gotoTOCUrl(event)" class="button">view page</button>
-                                    </td>
-								</tr>
-                                <script>
-                                    function gotoTOCUrl(e){
-                                        e.preventDefault();
-                                        var toc_url = document.getElementById("toc-home-url").innerHTML + document.getElementById("series_toc_url").value;
-                                        window.open(toc_url);
-                                    }
-                                </script>
-
-								<tr valign="top"><th scope="row"><label for="series_perp_toc"><?php esc_html_e('Series Per Page:', 'organize-series'); ?></label></th>
-									<td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
-								</tr>
-
-								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php esc_html_e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
-									<td><input type="text" id="series_toc_title" name="<?php echo esc_attr($org_name); ?>[series_toc_title]" value="<?php echo isset($org_opt['series_toc_title']) ? esc_attr(htmlspecialchars($org_opt['series_toc_title'])) : ''; ?>"/></td>
-								</tr>
-
 								<tr valign="top">
                                     <th scope="row" colspan="2">
                                         <h1><?php esc_html_e('Display on Series Overview screens', 'organize-series'); ?></h1>
-									    <p class="description"><?php esc_html_e('Choose the design for the taxonomy page where a Series is displayed.', 'organize-series'); ?></p>
+									    <p class="description"><?php esc_html_e('Choose the design for the taxonomy page where a single Series is displayed.', 'organize-series'); ?></p>
                                     </th>
                                 </tr>
 
@@ -544,6 +518,32 @@ function series_automation_core_fieldset() {
 									<td>
 										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Ascending', 'organize-series'); ?></label>&nbsp;
 										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Descending', 'organize-series'); ?></label></td>
+								</tr>
+
+
+								<tr valign="top"><th scope="row" colspan="2"><h1><?php esc_html_e('Display on Series Table of Contents screens', 'organize-series'); ?></h1>
+									<p class="description"><?php esc_html_e('Choose the design for the page where all your Series are displayed.', 'organize-series'); ?></p></th></tr>
+
+								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
+									<td>
+                                        <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
+                                        <button onclick="gotoTOCUrl(event)" class="button">view page</button>
+                                    </td>
+								</tr>
+                                <script>
+                                    function gotoTOCUrl(e){
+                                        e.preventDefault();
+                                        var toc_url = document.getElementById("toc-home-url").innerHTML + document.getElementById("series_toc_url").value;
+                                        window.open(toc_url);
+                                    }
+                                </script>
+
+								<tr valign="top"><th scope="row"><label for="series_perp_toc"><?php esc_html_e('Series Per Page:', 'organize-series'); ?></label></th>
+									<td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
+								</tr>
+
+								<tr valign="top"><th scope="row"><label for="series_toc_title"><?php esc_html_e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
+									<td><input type="text" id="series_toc_title" name="<?php echo esc_attr($org_name); ?>[series_toc_title]" value="<?php echo isset($org_opt['series_toc_title']) ? esc_attr(htmlspecialchars($org_opt['series_toc_title'])) : ''; ?>"/></td>
 								</tr>
 
             					</tbody>
