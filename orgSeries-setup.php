@@ -319,7 +319,7 @@ class orgSeries {
 			'series_post_list_position' => 'default',
 			'series_metabox_position' => 'default',
 			'series_navigation_box_position' => 'default',
-			'series_toc_title' => __('Series Table of Contents << ','organize-series'),
+			'series_toc_title' => __('All Series','organize-series'),
 		//new template options
 			'orgseries_api' => '',
 			'series_post_list_template' => '<div class="seriesbox"><div class="center">%series_icon_linked%<br />%series_title_linked%</div><ul class="serieslist-ul">%post_title_list%</ul></div>%postcontent%',
@@ -746,11 +746,9 @@ class orgSeries {
 	        	}
 			}
 			$this->series_load_theme_css();
-
-			return $tax_template;
 		}
 
-		return false;
+		return $tax_template;
 	}
 
 	/*

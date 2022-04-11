@@ -536,12 +536,17 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
         }
       
 		//The "short" title of the post that will be displayed  in the OrgSeries widget.
-		if ( isset($_POST['serie_post_shorttitle']) )
-			$post_shorttitle = sanitize_text_field($_POST['serie_post_shorttitle']);
-		if ( isset($_GET['serie_post_shorttitle']) )
-			$post_shorttitle = sanitize_text_field($_GET['serie_post_shorttitle']);
-		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : '';
+        if (isset($_POST['serie_post_shorttitle'])) {
+            $post_shorttitle = is_array($_POST['serie_post_shorttitle']) ? array_map('sanitize_text_field', $_POST['serie_post_shorttitle']) : sanitize_text_field($_POST['serie_post_shorttitle']);
+        }
+        if (isset($_GET['serie_post_shorttitle'])) {
+            $post_shorttitle = is_array($_GET['serie_post_shorttitle']) ? array_map('sanitize_text_field', $_GET['serie_post_shorttitle']) : sanitize_text_field($_GET['serie_post_shorttitle']);
+        }
+        
+		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : 0;
 		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
+
+
 		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
 
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
