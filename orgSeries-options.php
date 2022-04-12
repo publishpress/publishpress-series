@@ -42,9 +42,9 @@ function orgseries_create_options() {
 	);
     add_submenu_page(
         'orgseries_options_page',
-        __( 'Settings', 'organize-series' ),
-        __( 'Settings', 'organize-series' ),
-        'admin_simple_tags',
+        __('Settings', 'organize-series'),
+        __('Settings', 'organize-series'),
+        'manage_publishpress_series',
         'orgseries_options_page',
         'orgseries_option_page'
     );
