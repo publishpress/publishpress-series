@@ -4,8 +4,8 @@ Author: publishpress
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 5.8
-Stable tag: 2.8.1
+Tested up to: 5.9.3
+Stable tag: 2.8.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,10 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 
 == Changelog ==
+
+v2.8.2- 2022-04-12
+* Fixed: Issue with series menu permission #488
+* Fixed: Remove lines and paddings from Series Metabox #484
 
 v2.8.1- 2022-04-11
 * Fixed: Custom Post Type Archive not working anymore #474

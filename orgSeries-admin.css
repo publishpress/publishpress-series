@@ -178,6 +178,11 @@ input #seriesadd {
     width: 20%;
 }
 
+#seriesdiv .inside {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 /** License Key Containers **/
 .os-license-key-container {
     background-color: #ebebeb;
