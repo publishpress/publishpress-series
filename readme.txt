@@ -130,6 +130,10 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.8.2- 2022-04-12
+* Fixed: Issue with series menu permission #488
+* Fixed: Remove lines and paddings from Series Metabox #484
+
 v2.8.1- 2022-04-11
 * Fixed: Custom Post Type Archive not working anymore #474
 * Fixed: Issue with Post Title in Widget #473
