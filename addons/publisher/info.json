@@ -1,0 +1,37 @@
+{
+  "versionFile":"series_issue_manager.php",
+  "slug":"organize-series-publisher",
+  "textDomain": "organize-series-publisher",
+  "wpOrgSlug":"organize-series-publisher",
+  "wpOrgMainFileSlug": "organize-series-publisher",
+  "wpOrgUser": "nerrad",
+  "wpOrgRelease": "2.2.4",
+  "wpOrgPluginName": "PublishPress Series Publisher",
+  "wpOrgPluginUrl": "http://organizeseries.com",
+  "name": "PublishPress Series Publisher",
+  "releaseFilesRemove": [
+    "src/tests/**",
+    "src/acceptance_tests/**",
+    "src/docs/**",
+    "src/info.json",
+    "src/readme.txt",
+    "src/wp-assets/**",
+    "src/.travis.yml",
+    "src/ISSUE_TEMPLATE.md",
+    "src/PULL_REQUEST_TEMPLATE.md",
+    "src/assets/src/**"
+  ],
+  "decafFilesRemove": [
+    "src/tests/**",
+    "src/acceptance_tests/**",
+    "src/docs/**",
+    "src/info.json",
+    "src/.travis.yml",
+    "src/caffeinated",
+    "src/wp-assets/**",
+    "src/ISSUE_TEMPLATE.md",
+    "src/PULL_REQUEST_TEMPLATE.md",
+    "src/assets/src/**",
+    "src/README.md"
+  ]
+}
