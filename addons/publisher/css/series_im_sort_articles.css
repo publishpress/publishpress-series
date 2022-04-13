@@ -1,0 +1,20 @@
+.pp-series-publisher-wrap .inner-sidebar #side-sortables {
+    width: 300px;
+}
+
+.pp-series-publisher-wrap .has-right-sidebar .inner-sidebar {
+    width: 301px;
+}
+
+.pp-series-publisher-wrap .has-right-sidebar #post-body-content {
+    max-width: 910px;
+}
+
+@media screen and (max-width: 782px){
+    
+    .pp-series-publisher-wrap .has-right-sidebar #post-body-content,
+    .pp-series-publisher-wrap .has-right-sidebar .inner-sidebar,
+    .pp-series-publisher-wrap .inner-sidebar #side-sortables {
+        width: 100%;
+    }
+}

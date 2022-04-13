@@ -15,7 +15,8 @@ class PPSeriesCoreAdmin {
                                 'screens'  => [
                                     ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
                                     ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
-                                    ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ]
+                                    ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
+                                    ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ]
                                 ]
                             ];
 

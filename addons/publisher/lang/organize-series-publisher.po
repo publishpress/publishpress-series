@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Publisher\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-09 21:12-0500\n"
+"PO-Revision-Date: 2012-09-09 21:13-0500\n"
+"Last-Translator: Darren Ethier <darren@roughsmootheng.in>\n"
+"Language-Team: Darren Ethier <darren@organizeseries.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;_ngettext:1;2;_x;_n\n"
+"X-Poedit-Basepath: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/"
+"orgseries-testing/wp-content/plugins/organize-series-publisher\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/"
+"orgseries-testing/wp-content/plugins/organize-series-publisher\n"
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:2
+msgid "Manage Series to Publish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:7
+msgid "Series Name"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:25
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:27
+msgid "Published"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:28
+msgid "Publish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:31
+msgid "Unpublished"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:32
+msgid "Unpublish"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:35
+msgid "Ignored"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_admin_main.php:36
+msgid "Ignore"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:26
+msgid "Publishing Series:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:32
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:75
+msgid "Publish Issue"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:44
+msgid "Publication Date/Time:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:85
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part. Keep in mind that any <strong>Draft</"
+"strong> posts that are a part of this series will not show up in this list "
+"and will not be published."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:99
+#, php-format
+msgid "No pending posts in %1$s"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_im_article_list.php:101
+#, php-format
+msgid "Series %1$s does not exist"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:34
+msgid ""
+"PublishPress Series Publisher requires the PublishPress Series plugin to be "
+"installed and activated in order to work.  Plugin won't activate until this "
+"condition is met."
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:40
+msgid "Manage Series Issues"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:40
+msgid "Publish Series"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:211
+msgid "Create as unpublished:"
+msgstr ""
+
+#: /Users/drenobi/Documents/Dropbox/WebProjects/htdocs/orgseries-testing/wp-content/plugins/organize-series-publisher/series_issue_manager.php:214
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
