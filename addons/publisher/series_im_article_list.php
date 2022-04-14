@@ -23,8 +23,8 @@
 ?>
 <div class="wrap pp-series-publisher-wrap">
 <?php if ( have_posts() && isset( $series[0] ) ) : ?>
-  <h1><?php _e('Publishing Series:', 'organize-series-publisher');?> <?php echo $series[0]->name; ?></h1>
-  <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series-publisher'); ?></p>
+  <h1><?php _e('Publishing Series:', 'organize-series');?> <?php echo $series[0]->name; ?></h1>
+  <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?></p>
   <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
 
@@ -34,9 +34,9 @@
     <table class="wp-list-table widefat fixed striped table-view-list posts">
             <thead>
             <tr>
-                <th scope="col" id="title" class="manage-column column-title column-primary"><?php esc_html_e('Title', 'organize-series-publisher'); ?></th>
-                <th scope="col" id="authors" class="manage-column column-authors"><?php esc_html_e('Authors', 'organize-series-publisher'); ?></th>
-                <th scope="col" id="preview" class="manage-column column-preview"><?php esc_html_e('Preview', 'organize-series-publisher'); ?></th>	
+                <th scope="col" id="title" class="manage-column column-title column-primary"><?php esc_html_e('Title', 'organize-series'); ?></th>
+                <th scope="col" id="authors" class="manage-column column-authors"><?php esc_html_e('Authors', 'organize-series'); ?></th>
+                <th scope="col" id="preview" class="manage-column column-preview"><?php esc_html_e('Preview', 'organize-series'); ?></th>	
             </tr>
             </thead>
             <tbody class="im_article_list">
@@ -60,7 +60,7 @@
                     </td>
                     <td class="title column-preview">
                         <a href="<?php echo esc_url(home_url('?p='.get_the_ID().'&preview=true')); ?>">
-                            <?php esc_html_e('Preview', 'organize-series-publisher'); ?>
+                            <?php esc_html_e('Preview', 'organize-series'); ?>
                         </a>
                     </td>
                 </tr>
@@ -74,7 +74,7 @@
         <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
         <div id="submitdiv" class="postbox">
           <div class="postbox-header">
-            <h2 class="hndle ui-sortable-handle"><?php _e('Publish Series', 'organize-series-publisher'); ?></h2>
+            <h2 class="hndle ui-sortable-handle"><?php _e('Publish Series', 'organize-series'); ?></h2>
           </div>
           <form id="im_publish_form" method="get" action="edit.php">
             <div class="hidden-fields">
@@ -87,7 +87,7 @@
               <div id="minor-publishing">
                 <div id="misc-publishing-actions">
                   <div class="misc-pub-section misc-pub-section-last" style="margin:0;">
-                    <p><?php _e('Publication Date/Time:', 'organize-series-publisher'); ?></p>
+                    <p><?php _e('Publication Date/Time:', 'organize-series'); ?></p>
                     <div id='timestampdiv'>
                       <?php
                         global $wp_locale;
@@ -118,7 +118,7 @@
                 </div>
               </div>
               <div id="major-publishing-actions">
-                <div id="publishing-action"><input type="submit" value="<?php _e('Publish Series', 'organize-series-publisher'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.im_article_list tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));alert(im_post_IDS);" /></div>
+                <div id="publishing-action"><input type="submit" value="<?php _e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.im_article_list tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));alert(im_post_IDS);" /></div>
                 <div class="clear"></div>
               </div>
             </div>
@@ -133,8 +133,8 @@
     <br class="clear" />
   </div>
 <?php elseif ( isset( $series[0] ) ): ?>
-  <h2><?php echo sprintf(__('No pending posts in %1$s', 'organize-series-publisher'), $series[0]->name); ?></h2>
+  <h2><?php echo sprintf(__('No pending posts in %1$s', 'organize-series'), $series[0]->name); ?></h2>
 <?php else: ?>
-  <h2><?php echo sprintf(__('Series %1$s does not exist', 'organize-series-publisher'), $series_ID); ?></h2>
+  <h2><?php echo sprintf(__('Series %1$s does not exist', 'organize-series'), $series_ID); ?></h2>
 <?php endif; ?>
 </div>

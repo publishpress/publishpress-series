@@ -16,7 +16,7 @@ if (!defined('OS_PUBLISHER_VERSION')) {
 if (!function_exists('series_issue_manager_manage_page')) {
 function series_issue_manager_manage_page() {
   if ( function_exists('add_submenu_page') ) {
-    $page = add_submenu_page( 'edit.php', __('Manage Series Issues','organize-series-publisher'), __('Publish Series','organize-series-publisher'), 'publish_posts', 'manage-issues', 'series_issue_manager_admin' );
+    $page = add_submenu_page( 'edit.php', __('Manage Series Issues','organize-series'), __('Publish Series','organize-series'), 'publish_posts', 'manage-issues', 'series_issue_manager_admin' );
     add_action("admin_print_scripts-$page", 'series_issue_manager_scripts');
   }
 }
@@ -39,19 +39,24 @@ function series_issue_manager_admin() {
   if ( $series_ID ) {
     $series_ID = (int)$series_ID;
     switch($action) {
-      case "list":
-        include_once('series_im_article_list.php');
+      case "part":
+        include_once('series_im_article_part.php');
         break;
-      case "publish":
+      case "order":
         $post_IDs = isset($_GET['posts'])?sanitize_text_field($_GET['posts']):null;
-        $pub_time['mm'] = isset($_GET['mm'])?sanitize_text_field($_GET['mm']):null;
-        $pub_time['jj'] = isset($_GET['jj'])?sanitize_text_field($_GET['jj']):null;
-        $pub_time['aa'] = isset($_GET['aa'])?sanitize_text_field($_GET['aa']):null;
-        $pub_time['hh'] = isset($_GET['hh'])?sanitize_text_field($_GET['hh']):null;
-        $pub_time['mn'] = isset($_GET['mn'])?sanitize_text_field($_GET['mn']):null;
-        if ( $post_IDs ) series_issue_manager_publish($series_ID, $post_IDs, $pub_time, $published, $unpublished);
+        if ( $post_IDs ) series_issue_manager_part($series_ID, $post_IDs);
         include_once('series_im_admin_main.php');
         break;
+        case "publish":
+          $post_IDs = isset($_GET['posts'])?sanitize_text_field($_GET['posts']):null;
+          $pub_time['mm'] = isset($_GET['mm'])?sanitize_text_field($_GET['mm']):null;
+          $pub_time['jj'] = isset($_GET['jj'])?sanitize_text_field($_GET['jj']):null;
+          $pub_time['aa'] = isset($_GET['aa'])?sanitize_text_field($_GET['aa']):null;
+          $pub_time['hh'] = isset($_GET['hh'])?sanitize_text_field($_GET['hh']):null;
+          $pub_time['mn'] = isset($_GET['mn'])?sanitize_text_field($_GET['mn']):null;
+          if ( $post_IDs ) series_issue_manager_publish($series_ID, $post_IDs, $pub_time, $published, $unpublished);
+          include_once('series_im_admin_main.php');
+          break;
       case "unpublish":
         series_issue_manager_unpublish($series_ID, $published, $unpublished);
         include_once('series_im_admin_main.php');
@@ -77,6 +82,30 @@ function series_issue_manager_admin() {
   } else {
     include_once('series_im_admin_main.php');
   }
+}
+}
+
+if (!function_exists('series_issue_manager_part')) {
+function series_issue_manager_part( $series_ID, $post_IDs) {
+
+
+    //delete all series part
+    foreach ( explode(',',$post_IDs) as $post_ID ) {
+        $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
+		delete_post_meta( $post_ID, $part_key);
+        add_post_meta($post_ID, $part_key, '');
+    }
+
+    // $post_IDs should have all pending posts' IDs in the series
+    $counter = 0;
+    $current_sn = 0;
+    foreach ( explode(',',$post_IDs) as $post_ID ) {
+        $current_sn++;
+      $post_ID = (int)$post_ID;
+      $post = get_post( $post_ID );
+      publisher_wp_set_post_series( $post,true,$post_ID, $series_ID, false );
+      $counter++;
+    }
 }
 }
 
@@ -282,10 +311,10 @@ function series_issue_manager_add_series_form() {
 	?>
         <div class="form-field">
 			<label for="series_publish">
-			<p><?php _e('Create as unpublished:', 'organize-series-publisher') ?>
+			<p><?php _e('Create as unpublished:', 'organize-series') ?>
 				<input style="float:left; width: 20px;" name="series_publish" id="series_publish" type="checkbox" value="unpublish" />
 			</p>
-				<p><?php _e('When checked, all posts you assign to this series will remain unpublished until you publish the entire series.', 'organize-series-publisher'); ?></p>
+				<p><?php _e('When checked, all posts you assign to this series will remain unpublished until you publish the entire series.', 'organize-series'); ?></p>
 			</label>
         </div>
    <?php
@@ -356,7 +385,16 @@ function pps_publisher_unpublished_success_message_admin_notice()
 {
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo pps_publisher_admin_notices_helper(
-        esc_html__('The posts in your series were successfully unpublished.', 'organize-series-publisher')
+        esc_html__('The posts in your series were successfully unpublished.', 'organize-series')
+    );
+}
+
+
+function pps_publisher_order_success_message_admin_notice()
+{
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo pps_publisher_admin_notices_helper(
+        esc_html__('Congratulations. Your series order was updated successfully.', 'organize-series')
     );
 }
 
@@ -380,12 +418,12 @@ function pps_publisher_published_success_message_admin_notice()
     if($publish_at > strtotime(current_time('mysql'))) {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was scheduled successfully.', 'organize-series-publisher')
+            esc_html__('Congratulations. Your series was scheduled successfully.', 'organize-series')
         );
     }else{
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was published successfully.', 'organize-series-publisher')
+            esc_html__('Congratulations. Your series was published successfully.', 'organize-series')
         );
     }
 }
@@ -419,6 +457,9 @@ function ppseries_publisher_admin_init(){
       add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_unpublish');
     }elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'publish') {
       add_action('admin_notices', "pps_publisher_published_success_message_admin_notice");
+      add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_publish');
+    }elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'order') {
+      add_action('admin_notices', "pps_publisher_order_success_message_admin_notice");
       add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_publish');
     }
 }
