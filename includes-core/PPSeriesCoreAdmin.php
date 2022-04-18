@@ -43,8 +43,8 @@ class PPSeriesCoreAdmin {
     public function publishpress_series_admin_menu_page(){
         add_submenu_page(
             'orgseries_options_page',
-            esc_html__('Series Group', 'organize-series'),
-            esc_html__('Series Group', 'organize-series'),
+            esc_html__('Series Groups', 'organize-series'),
+            esc_html__('Series Groups', 'organize-series'),
             'manage_publishpress_series',
             'pp-series-pro-placeholders-series-group',
             [$this, 'placeholderPageSeriesGroup'],
