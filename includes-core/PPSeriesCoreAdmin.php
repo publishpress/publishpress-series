@@ -41,17 +41,6 @@ class PPSeriesCoreAdmin {
     }
 
     public function publishpress_series_admin_menu_page(){
-
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Publish Series', 'organize-series'),
-            esc_html__('Publish Series', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-publish-series',
-            [$this, 'placeholderPagePublishSeries'],
-            12
-        );
-
         add_submenu_page(
             'orgseries_options_page',
             esc_html__('Series Group', 'organize-series'),
@@ -61,13 +50,6 @@ class PPSeriesCoreAdmin {
             [$this, 'placeholderPageSeriesGroup'],
             12
         );
-
-    }
-
-    public function placeholderPagePublishSeries(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/publish-series-placeholder.php';
     }
 
     public function placeholderPageSeriesGroup(){
