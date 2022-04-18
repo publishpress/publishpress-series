@@ -536,6 +536,26 @@ function series_automation_core_fieldset() {
 									<td>
                                         <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
                                         <button onclick="gotoTOCUrl(event)" class="button">view page</button>
+
+                                        <?php 
+                                        global $wp_rewrite;
+                                        if ( empty( $wp_rewrite->permalink_structure ) ) {
+                                            ?>
+                                            <div class="publishpress-series-permalink-error">
+                                                <p>
+                                                    <?php 
+                                                    printf(
+                                                        esc_html__( 'You must %1s update your permalink structure %2s to something other than the default for Series Table of Contents url to work.', 'organize-series' ),
+                                                        '<a href="' . admin_url('options-permalink.php') . '">',
+                                                        '</a>'
+                                                    ); 
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+
                                     </td>
 								</tr>
                                 <script>
