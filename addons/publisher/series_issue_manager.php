@@ -47,6 +47,9 @@ function series_issue_manager_admin() {
         if ( $post_IDs ) series_issue_manager_part($series_ID, $post_IDs);
         include_once('series_im_admin_main.php');
         break;
+        case "list":
+          include_once('series_im_article_list.php');
+          break;
         case "publish":
           $post_IDs = isset($_GET['posts'])?sanitize_text_field($_GET['posts']):null;
           $pub_time['mm'] = isset($_GET['mm'])?sanitize_text_field($_GET['mm']):null;
