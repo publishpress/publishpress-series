@@ -48,7 +48,6 @@
       var current_content = $(this).attr('href');
       $('.ppseries-settings-tab .nav-tab').removeClass('nav-tab-active');
       $('.ppseries-settings-tab-content').addClass('ppseries-hide-content');
-      $('.has-sidebar-content.ppseries-settings-body-content').removeAttr('id');
       $('input[name="update_orgseries"]').show();
 
       if( current_content === '#series_license_settings'){
@@ -58,8 +57,8 @@
       $(this).addClass('nav-tab-active');
       $(current_content+'-series-content').removeClass('ppseries-hide-content');
 
-      if($(current_content+'-series-tab').hasClass('series-tab-content')){
-        $('.has-sidebar-content.ppseries-settings-body-content').attr('id', 'post-body-content');
+      if ($(current_content + '-series-tab').hasClass('series-tab-content'))
+      {
         $(current_content.replace("#", ".")+'-series-sidebar').removeClass('ppseries-hide-content');
       }
 
