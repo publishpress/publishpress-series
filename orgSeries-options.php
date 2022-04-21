@@ -557,7 +557,7 @@ function series_automation_core_fieldset() {
                                                 <p>
                                                     <?php 
                                                     printf(
-                                                        esc_html__( 'You must %1s update your permalink structure %2s to something other than the default for Series Table of Contents url to work.', 'organize-series' ),
+                                                        esc_html__( 'You must %1s update your permalink structure %2s to something other than "Plain" for the Series Table of Contents URL to work.', 'organize-series' ),
                                                         '<a href="' . admin_url('options-permalink.php') . '">',
                                                         '</a>'
                                                     ); 
