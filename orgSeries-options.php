@@ -264,7 +264,7 @@ function orgseries_option_page() {
       if(apply_filters('ppseries_settings_'.$settings_tab_key.'_tabbed', false)){
         $tabbled_class = 'series-tab-content';
       }else{
-        $tabbled_class = 'series-tab-content';
+        $tabbled_class =  !defined('SERIES_PRO_VERSION') ? 'series-tab-content' : '';
       }
       // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
       echo '<a id="'. esc_attr($settings_tab_key) .'-series-tab" class="nav-tab '. esc_attr($tabbled_class) .'" href="#'. $settings_tab_key .'">'.$settings_tab_label.'</a>';
