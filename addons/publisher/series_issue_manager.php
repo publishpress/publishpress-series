@@ -175,7 +175,7 @@ if (!function_exists('publisher_wp_set_post_series')) {
                 } else {
                     $s_pt = wp_series_part($post_ID, $ser_id);
                 }
-                
+
                 if ($part) {
                     $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
                     $s_pt = $part;
@@ -190,7 +190,7 @@ if (!function_exists('publisher_wp_set_post_series')) {
                     }
                 }
             }
-    
+
             return;
         } else {
             return false;
@@ -345,7 +345,7 @@ function pps_publisher_published_success_message_admin_notice()
     $pub_time['aa'] = isset($_GET['aa'])?sanitize_text_field($_GET['aa']):null;
     $pub_time['hh'] = isset($_GET['hh'])?sanitize_text_field($_GET['hh']):null;
     $pub_time['mn'] = isset($_GET['mn'])?sanitize_text_field($_GET['mn']):null;
-    
+
     // see if we have a valid publication date/time
     $publish_at = strtotime($pub_time['aa'].'-'.$pub_time['mm'].'-'.$pub_time['jj'].' '.$pub_time['hh'].':'.$pub_time['mn']);
 
@@ -433,7 +433,7 @@ function ppseries_publisher_admin_init()
     } elseif (isset($_REQUEST['page']) && $_REQUEST['page'] === 'manage-issues'
             && (
                 isset($_REQUEST['action']) && $_REQUEST['action'] === 'pps-publisher-delete-posts'
-                || isset($_REQUEST['part_action']) && $_REQUEST['part_action'] === 'pps-publisher-delete-posts' 
+                || isset($_REQUEST['part_action']) && $_REQUEST['part_action'] === 'pps-publisher-delete-posts'
             )
             && isset($_REQUEST['series_post'])
             && isset($_REQUEST['_wpnonce'])
@@ -465,6 +465,7 @@ class PPS_Publisher_Admin
 
     // WP_List_Table object
     public $series_part_table;
+    public $series_publish_table;
 
     /**
      * Constructor
@@ -509,7 +510,7 @@ class PPS_Publisher_Admin
 
         add_action("load-$page", [$this, 'screen_option']);
     }
-    
+
     public function series_issue_manager_scripts()
     {
         wp_enqueue_script("series_im_sort_articles", plugin_dir_url(__FILE__)."/js/series_im_sort_articles.js", array( 'jquery-ui-sortable' ), ORG_SERIES_VERSION, true);
@@ -521,8 +522,15 @@ class PPS_Publisher_Admin
      */
     public function screen_option()
     {
-        include_once 'series-part-post-table.php';
-        $this->series_part_table = new PPS_Publisher_Post_Part_Table();
+        if(isset($_GET['action']) && $_GET['action'] === 'list'){
+            include_once 'series-publish-post-table.php';
+            $this->series_publish_table = new PPS_Publisher_Post_Publish_Table();
+
+        }
+        if(isset($_GET['action']) && ($_GET['action'] === 'part' || $_GET['action'] === 'order')){
+            include_once 'series-part-post-table.php';
+            $this->series_part_table = new PPS_Publisher_Post_Part_Table();
+        }
     }
 
     public function series_issue_manager_admin()
@@ -530,7 +538,7 @@ class PPS_Publisher_Admin
         $published = get_option('im_published_series');
         $unpublished = get_option('im_unpublished_series');
         $series = get_series('orderby=name&hide_empty=0');
-      
+
         // Make sure the options exist
         if ($published === false) {
             $published = array();
@@ -540,11 +548,11 @@ class PPS_Publisher_Admin
             $unpublished = array();
             update_option('im_unpublished_series', $unpublished);
         }
-      
+
         // See if we have GET parameters
         $series_ID = isset($_GET['series_ID'])? (int)$_GET['series_ID']:null;
         $action = isset($_GET['action'])? sanitize_text_field($_GET['action']):null;
-      
+
         if ($series_ID) {
             $series_ID = (int)$series_ID;
             switch ($action) {
@@ -559,7 +567,7 @@ class PPS_Publisher_Admin
                 $this->ppseries_publisher_part_output($series_ID);
                 break;
             case "list":
-                include_once 'series_im_article_list.php';
+                $this->ppseries_publisher_publish_output($series_ID);
                 break;
             case "publish":
                 $post_IDs = isset($_GET['posts'])?sanitize_text_field($_GET['posts']):null;
@@ -600,6 +608,111 @@ class PPS_Publisher_Admin
         }
     }
 
+    public function ppseries_publisher_publish_output($series_ID)
+    {
+        $series = get_term($series_ID);
+        $this->series_publish_table->prepare_items();
+        ?>
+
+        <div class="wrap pp-series-publisher-wrap">
+
+            <h1><?php esc_html_e('Publishing Series:', 'organize-series'); ?>
+                <?php echo esc_html($series->name); ?>
+            </h1>
+            <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?>
+            </p>
+            <div id="poststuff">
+                <div id="post-body" class="metabox-holder columns-2">
+
+                <div id="post-body-content" style="position: relative;">
+                        <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
+                        <?php
+
+                            if (!empty($_REQUEST['orderby'])) {
+                                echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
+                            }
+                            if (!empty($_REQUEST['order'])) {
+                                echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
+                            }
+                            if (!empty($_REQUEST['page'])) {
+                                echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
+                            }
+                        ?>
+                            <?php $this->series_publish_table->display(); //Display the table ?>
+                        </form>
+                        <div class="form-wrap edit-term-notes">
+                            <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
+                        </div>
+                    </div>
+
+                    <div id="postbox-container-1" class="postbox-container">
+                        <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
+                            <div id="submitdiv" class="postbox">
+                                <div class="postbox-header">
+                                    <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Publish Series', 'organize-series'); ?>
+                                    </h2>
+                                </div>
+                                <form id="im_publish_form" method="get" action="edit.php">
+                                    <div class="hidden-fields">
+                                        <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
+                                        <input type="hidden" name="action" id="im_publish_action" value="publish" />
+                                        <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
+                                        <input type="hidden" name="posts" id="im_publish_posts" value="" />
+                                    </div>
+                                    <div class="inside">
+                                        <div id="minor-publishing">
+                                            <div id="misc-publishing-actions">
+                                            <div class="misc-pub-section misc-pub-section-last" style="margin:0;">
+                                                <p><?php _e('Publication Date/Time:', 'organize-series'); ?></p>
+                                                <div id='timestampdiv'>
+                                                <?php
+                                                    global $wp_locale;
+                                                    $time_adj = time() + (get_option( 'gmt_offset' ) * 3600 );
+                                                    $jj = gmdate( 'd', $time_adj );
+                                                    $mm = gmdate( 'm', $time_adj );
+                                                    $aa = gmdate( 'Y', $time_adj );
+                                                    $hh = gmdate( 'H', $time_adj );
+                                                    $mn = gmdate( 'i', $time_adj );
+                                                    $ss = gmdate( 's', $time_adj );
+                                                    $publish_month = "<select id=\"mm\" name=\"mm\">\n";
+                                                    for ( $i = 1; $i < 13; $i = $i +1 ) {
+                                                    $publish_month .= "\t\t\t" . '<option value="' . zeroise($i, 2) . '"';
+                                                    if ( $i == $mm )
+                                                        $publish_month .= ' selected="selected"';
+                                                    $publish_month .= '>' . $wp_locale->get_month( $i ) . "</option>\n";
+                                                    }
+                                                    $publish_month .= '</select>';
+                                                    $publish_day = '<input type="text" id="jj" name="jj" value="' . esc_attr($jj) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                    $publish_year = '<input type="text" id="aa" name="aa" value="' . esc_attr($aa) . '" size="4" maxlength="5" autocomplete="off"  />';
+                                                    $hour = '<input type="text" id="hh" name="hh" value="' . esc_attr($hh) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                    $minute = '<input type="text" id="mn" name="mn" value="' . esc_attr($mn) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                    printf(__('%1$s%2$s, %3$s @ %4$s : %5$s'), $publish_month, $publish_day, $publish_year, $hour, $minute);// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                ?>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div id="major-publishing-actions">
+                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" /></div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <br class="clear" />
+            </div>
+
+        </div>
+
+        <?php
+    }
+
     public function ppseries_publisher_part_output($series_ID)
     {
         $series = get_term($series_ID);
@@ -619,7 +732,7 @@ class PPS_Publisher_Admin
                 <div id="post-body-content" style="position: relative;">
                         <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
                         <?php
-                    
+
                             if (!empty($_REQUEST['orderby'])) {
                                 echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
                             }
@@ -641,7 +754,7 @@ class PPS_Publisher_Admin
                         <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
                             <div id="submitdiv" class="postbox">
                                 <div class="postbox-header">
-                                    <h2 class="hndle ui-sortable-handle"><?php _e('Series Order', 'organize-series'); ?>
+                                    <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Series Order', 'organize-series'); ?>
                                     </h2>
                                 </div>
                                 <form id="im_publish_form" method="get" action="">
@@ -657,7 +770,7 @@ class PPS_Publisher_Admin
                                         </div>
                                         <div id="major-publishing-actions">
                                             <div id="publishing-action"><input type="submit"
-                                                    value="<?php _e('Update Order', 'organize-series'); ?>"
+                                                    value="<?php esc_attr_e('Update Order', 'organize-series'); ?>"
                                                     class="button-primary" id="publish" name="publish"
                                                     onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" />
                                             </div>
