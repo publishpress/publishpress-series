@@ -333,7 +333,7 @@ function pps_publisher_delete_success_message_admin_notice()
 {
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo pps_publisher_admin_notices_helper(
-        esc_html__('Post deleted successfully.', 'organize-series')
+        esc_html__('Post moved to the Trash.', 'organize-series')
     );
 }
 
@@ -442,7 +442,7 @@ function ppseries_publisher_admin_init()
                 $post_ids = is_array($_REQUEST['series_post']) ? array_map('sanitize_text_field', $_REQUEST['series_post']) : (array)sanitize_text_field($_REQUEST['series_post']);
                 if (wp_verify_nonce($nonce, 'bulk-series-parts')) {
                     foreach($post_ids as $post_id){
-                        wp_delete_post($post_id, true);
+                        wp_trash_post($post_id);
                     }
                     add_action('admin_notices', "pps_publisher_delete_success_message_admin_notice");
                     add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_delete');
