@@ -1,20 +1,15 @@
 <?php
   $series = get_series( "orderby=name&hide_empty=0&include=$series_ID" );
-  $posts = get_objects_in_term($series_ID, ppseries_get_series_slug() );
+  $object_posts = get_objects_in_term($series_ID, ppseries_get_series_slug() );
   $post_IDs = array();
-  if ( $posts ) {
-    foreach ( $posts as $post ) {
-      $post_IDs[] = $post;
+  if ( $object_posts ) {
+    foreach ( $object_posts as $post_ ) {
+      $post_IDs[] = $post_;
     }
   } else {
     $post_IDs[] = 0;
   }
-  /*// take the series out of the unpublished list
-  $unpublished_series = $unpublished;
-  $key = array_search( $series_ID, $unpublished_series );
-  if ( FALSE !== $key ) {
-    array_splice( $unpublished_series, $key, 1 );
-  }*/
+
   query_posts(array(
     "post__in" => $post_IDs,
     "posts_per_page" => -1,
@@ -23,8 +18,8 @@
 ?>
 <div class="wrap pp-series-publisher-wrap">
 <?php if ( have_posts() && isset( $series[0] ) ) : ?>
-  <h1><?php _e('Publishing Series:', 'organize-series');?> <?php echo $series[0]->name; ?></h1>
-  <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?></p>
+  <h1><?php esc_html_e('Publishing Series:', 'organize-series');?> <?php echo esc_html($series[0]->name); ?></h1>
+  <p class="description"><?php esc_html_e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?></p>
   <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
 
@@ -42,18 +37,18 @@
             <tbody class="im_article_list">
                 <?php   
                 while ( have_posts() ) : the_post();
-                $post                = get_post(get_the_ID());
-                $classes = 'iedit author-' . ( get_current_user_id() === (int) $post->post_author ? 'self' : 'other' );
-                if ( $post->post_parent ) {
-                    $count    = count( get_post_ancestors( $post->ID ) );
+                $post_item                = get_post(get_the_ID());
+                $classes = 'iedit author-' . ( get_current_user_id() === (int) $post_item->post_author ? 'self' : 'other' );
+                if ( $post_item->post_parent ) {
+                    $count    = count( get_post_ancestors( $post_item->ID ) );
                     $classes .= ' level-' . $count;
                 } else {
                     $classes .= ' level-0';
                 }
                 ?>
-                <tr id="post-<?php echo $post->ID; ?>" class="<?php echo implode( ' ', get_post_class( $classes, $post->ID ) ); ?>" style="cursor: move;padding: 10px;">
+                <tr id="<?php echo esc_attr('post-' . $post_item->ID); ?>" class="<?php echo esc_attr(implode( ' ', get_post_class( esc_html($classes), (int)$post_item->ID ) )); ?>" style="cursor: move;padding: 10px;">
                     <td class="title column-title column-primary">
-                        <a href="<?php echo esc_url(admin_url('post.php?post='.get_the_ID().'&action=edit')); ?>"><?php the_title(); ?></a>
+                        <a href="<?php echo esc_url(admin_url('post.php?post='.(int)get_the_ID().'&action=edit')); ?>"><?php the_title(); ?></a>
                     </td>
                     <td class="title column-authors">
                         <?php the_author(); ?>
@@ -74,13 +69,13 @@
         <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
         <div id="submitdiv" class="postbox">
           <div class="postbox-header">
-            <h2 class="hndle ui-sortable-handle"><?php _e('Publish Series', 'organize-series'); ?></h2>
+            <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Publish Series', 'organize-series'); ?></h2>
           </div>
           <form id="im_publish_form" method="get" action="edit.php">
             <div class="hidden-fields">
               <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
               <input type="hidden" name="action" id="im_publish_action" value="publish" />
-              <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo $series_ID; ?>" />
+              <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
               <input type="hidden" name="posts" id="im_publish_posts" value="" />
             </div>
             <div class="inside">
@@ -98,19 +93,19 @@
                         $hh = gmdate( 'H', $time_adj );
                         $mn = gmdate( 'i', $time_adj );
                         $ss = gmdate( 's', $time_adj );
-                        $month = "<select id=\"mm\" name=\"mm\">\n";
+                        $publish_month = "<select id=\"mm\" name=\"mm\">\n";
                         for ( $i = 1; $i < 13; $i = $i +1 ) {
-                          $month .= "\t\t\t" . '<option value="' . zeroise($i, 2) . '"';
+                          $publish_month .= "\t\t\t" . '<option value="' . zeroise($i, 2) . '"';
                           if ( $i == $mm )
-                            $month .= ' selected="selected"';
-                          $month .= '>' . $wp_locale->get_month( $i ) . "</option>\n";
+                            $publish_month .= ' selected="selected"';
+                          $publish_month .= '>' . $wp_locale->get_month( $i ) . "</option>\n";
                         }
-                        $month .= '</select>';
-                        $day = '<input type="text" id="jj" name="jj" value="' . $jj . '" size="2" maxlength="2" autocomplete="off"  />';
-                        $year = '<input type="text" id="aa" name="aa" value="' . $aa . '" size="4" maxlength="5" autocomplete="off"  />';
-                        $hour = '<input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off"  />';
-                        $minute = '<input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off"  />';
-                        printf(__('%1$s%2$s, %3$s @ %4$s : %5$s'), $month, $day, $year, $hour, $minute);
+                        $publish_month .= '</select>';
+                        $publish_day = '<input type="text" id="jj" name="jj" value="' . esc_attr($jj) . '" size="2" maxlength="2" autocomplete="off"  />';
+                        $publish_year = '<input type="text" id="aa" name="aa" value="' . esc_attr($aa) . '" size="4" maxlength="5" autocomplete="off"  />';
+                        $hour = '<input type="text" id="hh" name="hh" value="' . esc_attr($hh) . '" size="2" maxlength="2" autocomplete="off"  />';
+                        $minute = '<input type="text" id="mn" name="mn" value="' . esc_attr($mn) . '" size="2" maxlength="2" autocomplete="off"  />';
+                        printf(__('%1$s%2$s, %3$s @ %4$s : %5$s'), $publish_month, $publish_day, $publish_year, $hour, $minute);// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                       ?>
                     </div>
                   </div>
@@ -118,7 +113,7 @@
                 </div>
               </div>
               <div id="major-publishing-actions">
-                <div id="publishing-action"><input type="submit" value="<?php _e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.im_article_list tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));alert(im_post_IDS);" /></div>
+                <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.im_article_list tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" /></div>
                 <div class="clear"></div>
               </div>
             </div>
@@ -133,8 +128,8 @@
     <br class="clear" />
   </div>
 <?php elseif ( isset( $series[0] ) ): ?>
-  <h2><?php echo sprintf(__('No pending posts in %1$s', 'organize-series'), $series[0]->name); ?></h2>
+  <h2><?php echo sprintf(esc_html__('No pending posts in %1$s', 'organize-series'), esc_html($series[0]->name)); ?></h2>
 <?php else: ?>
-  <h2><?php echo sprintf(__('Series %1$s does not exist', 'organize-series'), $series_ID); ?></h2>
+  <h2><?php echo sprintf(esc_html__('Series %1$s does not exist', 'organize-series'), (int)$series_ID); ?></h2>
 <?php endif; ?>
 </div>
