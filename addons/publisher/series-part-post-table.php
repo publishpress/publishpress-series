@@ -152,7 +152,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                         '_wpnonce' => wp_create_nonce('bulk-series-parts')
                     ], 
                     admin_url('edit.php')),
-                    esc_html__('Delete', 'organize-series')
+                    esc_html__('Trash', 'organize-series')
                 ),
             ]);
 
@@ -363,7 +363,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     protected function get_bulk_actions()
     {
         $actions = [
-            'pps-publisher-delete-posts' => esc_html__('Delete', 'organize-series')
+            'pps-publisher-delete-posts' => esc_html__('Move to Trash', 'organize-series')
         ];
 
         return $actions;
