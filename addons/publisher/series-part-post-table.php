@@ -131,12 +131,10 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                 esc_url(
                     add_query_arg(
                         [
-                            'page' => 'manage-issues', 
-                            'action' => 'part', 
-                            'part_action' => 'edit', 
-                            'series_ID' => esc_attr($series_id)
+                            'post' => $item->ID, 
+                            'action' => 'edit',
                         ],
-                        admin_url('edit.php')
+                        admin_url('post.php')
                     )
                 ),
                 esc_html__('Edit', 'organize-series')
@@ -197,11 +195,18 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function column_title($item)
     {
-
         return sprintf(
-                '<a href="%1$s"><strong><span class="row-title">%2$s</span></strong></a>', 
-                esc_url(get_permalink($item->ID)), 
-                esc_html($item->post_title), 
+            '<a href="%1$s"><strong><span class="row-title">%2$s</span></strong></a>',
+                esc_url(
+                    add_query_arg(
+                        [
+                            'post' => $item->ID, 
+                            'action' => 'edit',
+                        ],
+                        admin_url('post.php')
+                    )
+                ),
+                esc_html($item->post_title)
             );
     }
 
