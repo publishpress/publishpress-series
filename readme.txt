@@ -130,6 +130,16 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.9.0- 2022-04-21
+* Fixed: Better way to re-order posts in a series #377
+* Fixed: Improved publish Series display #494
+* Fixed: Include a sidebar for Pro #462
+* Fixed: Small warning about plain permalinks #496
+* Fixed: Update "Series Groups" Menu title #495
+* Fixed: Remove publish series menu promo from series menu #498
+* Fixed: Re-numbering of posts within the series #477
+* Fixed: Publish Series screen in Free version #478
+
 v2.8.2- 2022-04-12
 * Fixed: Issue with series menu permission #488
 * Fixed: Remove lines and paddings from Series Metabox #484
