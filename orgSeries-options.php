@@ -264,7 +264,7 @@ function orgseries_option_page() {
       if(apply_filters('ppseries_settings_'.$settings_tab_key.'_tabbed', false)){
         $tabbled_class = 'series-tab-content';
       }else{
-        $tabbled_class = '';
+        $tabbled_class =  !defined('SERIES_PRO_VERSION') ? 'series-tab-content' : '';
       }
       // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
       echo '<a id="'. esc_attr($settings_tab_key) .'-series-tab" class="nav-tab '. esc_attr($tabbled_class) .'" href="#'. $settings_tab_key .'">'.$settings_tab_label.'</a>';
@@ -275,61 +275,73 @@ function orgseries_option_page() {
 
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
 
-		<div id="side-info-column" class="inner-sidebar ppseries-settings-tab-content series_templates_settings-series-sidebar">
+        <div id="side-info-column">
+
+		<div class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
+                <div id="token-legend" class="postbox">
 
-			<div id="token-legend" class="postbox">
+                    <div class="ppseries-settings-tab-content series_templates_settings-series-sidebar">
+                            
+                        <h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
+                        <div class="inside">
+                            <?php $html_list = '<div> <img> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo '<p><code>'. htmlentities ($html_list) .'</code></p>';
+                            ?>
+                        </div>
 
-				<h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
-					<div class="inside">
-						<?php $html_list = '<div> <img> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
-                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo '<p><code>'. htmlentities ($html_list) .'</code></p>';
-						?>
-					</div>
+                    </p>
+                    <h3 class="handle"><span><?php esc_html_e('Overview', 'organize-series'); ?></span></h3>
+                    <div class="inside">
+                        <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
+                        <strong>%series_icon%</strong><br />
+                            <em><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></em><br /><br />
+                        <strong>%series_icon_linked%</strong><br />
+                            <em><?php esc_html_e('Same as %series_icon% except that the series icon will be linked to the series page','organize-series'); ?></em><br /><br />
+                        <strong>%series_list%</strong><br />
+                            <em><?php esc_html_e('This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.', 'organize-series'); ?></em><br /><br />
+                        <strong>%series_title%</strong><br />
+                            <em><?php esc_html_e('This will be replaced with the title of a series', 'organize-series'); ?></em><br /><br />
+                        <strong>%series_title_linked%</strong><br />
+                            <em><?php esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_list%</strong><br />
+                            <em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear.', 'organize-series'); ?></em><br /><br />
+                            <strong>%post_title_list_short%</strong><br />
+                            <em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear and use provided widget post short title.', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_linked%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
+                        <strong>%previous_post%</strong><br />
+                            <em><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
+                        <strong>%next_post%</strong><br />
+                            <em><?php esc_html_e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
+                        <strong>%first_post%</strong><br />
+                            <em><?php esc_html_e('Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the \'Custom First Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
+                        <strong>%postcontent%</strong><br />
+                            <em><?php esc_html_e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', 'organize-series'); ?></em><br /><br />
+                        <strong>%series_part%</strong><br />
+                            <em><?php esc_html_e('Will display what part of a series the post is', 'organize-series'); ?></em><br /><br />
+                        <strong>%total_posts_in_series%</strong><br />
+                            <em><?php esc_html_e('Will display the total number of posts in a series', 'organize-series'); ?></em><br /><br />
+                        <strong>%series_description%</strong><br />
+                            <em><?php esc_html_e('Will display the description for the series', 'organize-series'); ?></em>
+                            <?php do_action('orgseries_token_description'); ?>
+                            <?php do_action('ppseries_licence_key_form'); ?>
+                        </div>
 
-				</p>
-				<h3 class="handle"><span><?php esc_html_e('Overview', 'organize-series'); ?></span></h3>
-				<div class="inside">
-					<p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
-					<strong>%series_icon%</strong><br />
-						<em><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></em><br /><br />
-					<strong>%series_icon_linked%</strong><br />
-						<em><?php esc_html_e('Same as %series_icon% except that the series icon will be linked to the series page','organize-series'); ?></em><br /><br />
-					<strong>%series_list%</strong><br />
-						<em><?php esc_html_e('This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.', 'organize-series'); ?></em><br /><br />
-					<strong>%series_title%</strong><br />
-						<em><?php esc_html_e('This will be replaced with the title of a series', 'organize-series'); ?></em><br /><br />
-					<strong>%series_title_linked%</strong><br />
-						<em><?php esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></em><br /><br />
-					<strong>%post_title_list%</strong><br />
-						<em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear.', 'organize-series'); ?></em><br /><br />
-						<strong>%post_title_list_short%</strong><br />
-						<em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear and use provided widget post short title.', 'organize-series'); ?></em><br /><br />
-					<strong>%post_title%</strong><br />
-						<em><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
-					<strong>%post_title_linked%</strong><br />
-						<em><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
-					<strong>%previous_post%</strong><br />
-						<em><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-					<strong>%next_post%</strong><br />
-						<em><?php esc_html_e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-					<strong>%first_post%</strong><br />
-						<em><?php esc_html_e('Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the \'Custom First Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-					<strong>%postcontent%</strong><br />
-						<em><?php esc_html_e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', 'organize-series'); ?></em><br /><br />
-					<strong>%series_part%</strong><br />
-						<em><?php esc_html_e('Will display what part of a series the post is', 'organize-series'); ?></em><br /><br />
-					<strong>%total_posts_in_series%</strong><br />
-						<em><?php esc_html_e('Will display the total number of posts in a series', 'organize-series'); ?></em><br /><br />
-					<strong>%series_description%</strong><br />
-						<em><?php esc_html_e('Will display the description for the series', 'organize-series'); ?></em>
+                    </div>
 
-					<?php do_action('orgseries_token_description'); ?>
-				</div>
-			</div>
-            <?php do_action('ppseries_licence_key_form'); ?>
-			</div>
+                    <div class="ppseries-settings-tab-content series_automation_settings-series-sidebar series_icon_settings-series-sidebar series_templates_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_metabox_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
+                        <?php do_action('publishpress_series_admin_after_sidebar'); ?>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
 		</div>
 		<div id="post-body" class="has-sidebar">
 			<div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
@@ -536,6 +548,26 @@ function series_automation_core_fieldset() {
 									<td>
                                         <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
                                         <button onclick="gotoTOCUrl(event)" class="button">view page</button>
+
+                                        <?php 
+                                        global $wp_rewrite;
+                                        if ( empty( $wp_rewrite->permalink_structure ) ) {
+                                            ?>
+                                            <div class="publishpress-series-permalink-error">
+                                                <p>
+                                                    <?php 
+                                                    printf(
+                                                        esc_html__( 'You must %1s update your permalink structure %2s to something other than "Plain" for the Series Table of Contents URL to work.', 'organize-series' ),
+                                                        '<a href="' . admin_url('options-permalink.php') . '">',
+                                                        '</a>'
+                                                    ); 
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+
                                     </td>
 								</tr>
                                 <script>
