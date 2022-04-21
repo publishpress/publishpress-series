@@ -65,7 +65,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             'categories' => esc_html__('Categories', 'organize-series'),
             'tags'      => esc_html__('Tags', 'organize-series'),
             'date'      => esc_html__('Date', 'organize-series'),
-            'preview'      => esc_html__('Preview', 'organize-series'),
+            'series_preview' => esc_html__('Preview', 'organize-series'),
         ];
 
         return $columns;
@@ -321,7 +321,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      *
      * @return string
      */
-    protected function column_preview($item)
+    protected function column_series_preview($item)
     {
         return sprintf(
             '<a href="%1$s">%2$s</a>', 
