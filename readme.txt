@@ -130,6 +130,9 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 == Changelog ==
 
+v2.9.0.1- 2022-05-17
+* Fixed: Series not enable in rest api #531
+
 v2.9.0- 2022-04-21
 * Fixed: Better way to re-order posts in a series #377
 * Fixed: Improved publish Series display #494
