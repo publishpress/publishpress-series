@@ -5,7 +5,7 @@ Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.9.3
-Stable tag: 2.9.0
+Stable tag: 2.9.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,9 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 
 == Changelog ==
+
+v2.9.0.1- 2022-05-17
+* Fixed: Series not enable in rest api #531
 
 v2.9.0- 2022-04-21
 * Fixed: Better way to re-order posts in a series #377
