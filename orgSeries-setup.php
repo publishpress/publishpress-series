@@ -290,6 +290,7 @@ class orgSeries {
 		$args = array(
 			'update_count_callback' => '_os_update_post_term_count',
 			'labels' => $labels,
+            'show_in_rest' => true,
 			'rewrite' => array( 'slug' => $permalink_slug, 'with_front' => true ),
 			'show_ui' => true,
 			'capabilities' => $capabilities,
