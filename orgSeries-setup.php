@@ -305,7 +305,7 @@ class orgSeries {
 			$this->settings = array(
 				//main settings
 			'custom_css' => 1,
-			'automatic_series_part' => 1,
+			'automatic_series_part' => 0,
 			'metabox_show_add_new' => 0,
 			'metabox_show_series_part' => 0,
 			'metabox_show_post_title_in_widget' => 0,
