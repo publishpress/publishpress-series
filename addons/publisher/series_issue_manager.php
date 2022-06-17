@@ -109,13 +109,15 @@ if (!function_exists('series_issue_manager_unpublish')) {
         // change all published posts in the series to pending
         $posts = get_objects_in_term($series_ID, 'series');
         foreach ($posts as $post) {
-            wp_update_post(
-                array(
+            if (!empty(get_post_status($post)) && get_post_status($post) !== 'draft') {
+                wp_update_post(
+                    array(
                 'ID' => $post,
                 'post_status' => 'pending'
                 )
-            );
-            publisher_wp_set_post_series($post, true, $post, $series_ID, true);
+                );
+                publisher_wp_set_post_series($post, true, $post, $series_ID, true);
+            }
         }
         }
     }
