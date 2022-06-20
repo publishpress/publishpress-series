@@ -18,6 +18,10 @@
     cursor: move;
 }
 
+#timestampdiv select {
+    max-width: 90px !important;
+}
+
 @media screen and (max-width: 782px){
     
     .pp-series-publisher-wrap .has-right-sidebar #post-body-content,
