@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "079c176bc73943318e729f6800420f55",
+    "content-hash": "7c89801fba632506019d2be02754e788",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -312,6 +312,45 @@
                 "source": "https://github.com/php-fig/container/tree/master"
             },
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "publishpress/publishpress-instance-protection",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/publishpress-instance-protection.git",
+                "reference": "ef1a631a41b723ce2e856f534ff4befbe914e964"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/publishpress-instance-protection/zipball/ef1a631a41b723ce2e856f534ff4befbe914e964",
+                "reference": "ef1a631a41b723ce2e856f534ff4befbe914e964",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "Library for protecting WordPress plugins to run twice.",
+            "homepage": "http://publishpress.com/",
+            "keywords": [
+                "wordpress plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/publishpress/publishpress-instance-protection/issues",
+                "source": "https://github.com/publishpress/publishpress-instance-protection/tree/v1.0.2"
+            },
+            "time": "2022-06-03T17:41:36+00:00"
         },
         {
             "name": "publishpress/wordpress-reviews",

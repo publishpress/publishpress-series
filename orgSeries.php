@@ -54,6 +54,20 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+$includeFilebRelativePath = '/publishpress/publishpress-instance-protection/include.php';
+if (file_exists(__DIR__ . '/vendor' . $includeFilebRelativePath)) {
+    require_once __DIR__ . '/vendor' . $includeFilebRelativePath;
+}
+
+if (class_exists('PublishPressInstanceProtection\\Config')) {
+    $pluginCheckerConfig = new PublishPressInstanceProtection\Config();
+    $pluginCheckerConfig->pluginSlug    = 'orgSeries';
+    $pluginCheckerConfig->pluginFolder  = 'organize-series';
+    $pluginCheckerConfig->pluginName    = 'PublishPress Series';
+
+    $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
+}
+
 require_once (dirname(__FILE__) . '/inc/utility-functions.php');
 require_once (dirname(__FILE__) . '/includes-core/functions.php');
 register_activation_hook( __FILE__, 'pp_series_core_activation' );
@@ -108,11 +122,6 @@ if ($pro_active) {
 }
 
 if (defined('PPSERIES_FILE') || $pro_active) {
-    if(!function_exists('deactivate_plugins')){
-        require_once ABSPATH . 'wp-admin/includes/plugin.php';
-    }
-    //deactivate current plugin if pro is active
-    deactivate_plugins( plugin_basename( __FILE__ ) );
 	return;
 }
 

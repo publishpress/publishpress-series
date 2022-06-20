@@ -332,7 +332,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return sprintf(
             '<a href="%1$s">%2$s</a>', 
             esc_url(home_url('?p='.$item->ID.'&preview=true')), 
-            esc_html__('Preview', 'organize-series'), 
+            esc_html__('Preview', 'organize-series')
         );
     }
 
