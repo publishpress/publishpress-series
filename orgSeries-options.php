@@ -279,9 +279,9 @@ function orgseries_option_page() {
 
 		<div class="inner-sidebar">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
-                <div id="token-legend" class="postbox">
+                <div id="token-legend" class="postbox_">
 
-                    <div class="ppseries-settings-tab-content series_templates_settings-series-sidebar">
+                    <div class="ppseries-settings-tab-content series_templates_settings-series-sidebar postbox">
                             
                         <h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
                         <div class="inside">
@@ -334,6 +334,29 @@ function orgseries_option_page() {
                     </div>
 
                     <div class="ppseries-settings-tab-content series_automation_settings-series-sidebar series_icon_settings-series-sidebar series_templates_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_metabox_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
+                        <?php if (!defined('ADVANCED_GUTENBERG_LOADED')) { ?>
+                            <div class="ppseries-advertisement-right-sidebar">
+                                <div id="postbox-container-1" class="postbox-container">
+                                    <div class="meta-box-sortables">
+                                        <?php
+                                        $banners = new \PublishPress\WordPressBanners\BannersMain;
+                                        $banners->pp_display_banner(
+                                            esc_html__('Recommendations for you', 'organize-series'),
+                                            esc_html__('Create beautiful layouts for your series', 'organize-series'),
+                                            array(
+                                                esc_html__('PublishPress Blocks is 100% free to install and use.', 'organize-series'),
+                                                esc_html__('The Content Display block allows you to create advanced layouts for PublishPress Series', 'organize-series'),
+                                                esc_html__('Choose from Grid, List, Slider, Masonry, and other layouts.', 'organize-series')
+                                            ),
+                                            esc_url(admin_url('plugin-install.php?s=publishpress-advg-install&tab=search&type=term')),
+                                            esc_html__('Click here to install PublishPress Blocks', 'organize-series'),
+                                            'install-blocks.jpg'
+                                        );
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
                         <?php do_action('publishpress_series_admin_after_sidebar'); ?>
                     </div>
                     
