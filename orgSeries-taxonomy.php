@@ -128,13 +128,16 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
 
 	// Find out how many posts in this series are unpublished
 	$unpub_count = 0;
-	foreach ( $series_posts as $sposts ) {
-		$spostid = $sposts['id'];
-		$spost_status = get_post($spostid)->post_status;
-		if ( $spost_status == 'draft' || $spost_status == 'future' || $spost_status == 'pending' ) {
-			$unpub_count += 1;
-		}
-	}
+    
+    if ((int)$series_part === 0) {
+        foreach ($series_posts as $sposts) {
+            $spostid = $sposts['id'];
+            $spost_status = get_post($spostid)->post_status;
+            if ($spost_status == 'draft' || $spost_status == 'future' || $spost_status == 'pending') {
+                $unpub_count += 1;
+            }
+        }
+    }
 
 	// If the given Series Part is either higher than the current # of published posts, <=0, or # of published posts is only one,
 	// then set variable $series_part to the maximum value
