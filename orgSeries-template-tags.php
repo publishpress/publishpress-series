@@ -269,8 +269,10 @@ function wp_postlist_count($ser_id = false, $calc = false) {
  *
  * @return int $series_part - The part the post is in a series IF it is part of a series.
 */
-function wp_series_part( $id = 0, $ser_id = 0, $calc = false ) {
-	global $post;
+function wp_series_part( $id = 0, $ser_id = 0, $calc = false, $post = false ) {
+    if (!$post) {
+        global $post;
+    }
 	if ( $id == 0 ) {
 		if ( isset($post) )
 			$id = $post->ID;

@@ -31,7 +31,7 @@ if (!function_exists('series_issue_manager_part')) {
             $current_sn++;
             $post_ID = (int)$post_ID;
             $post = get_post($post_ID);
-            publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
+            publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false, $current_sn);
             $counter++;
         }
     }
@@ -82,7 +82,7 @@ if (!function_exists('series_issue_manager_publish')) {
                 // scheduled
                 publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false, $current_sn);
             } else {
-                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
+                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false, $current_sn);
             }
             $counter++;
         }
