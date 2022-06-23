@@ -124,7 +124,7 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false);
 	$parts_array = array();
 
-	$total_posts = is_array($series_posts) ? count( $series_posts ) + 1 : 1;
+	$total_posts = is_array($series_posts) ? count($series_posts) + 1 : 1;
 
 	// Find out how many posts in this series are unpublished
 	$unpub_count = 0;
@@ -138,19 +138,21 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
             }
         }
     }
-
-	// If the given Series Part is either higher than the current # of published posts, <=0, or # of published posts is only one,
-	// then set variable $series_part to the maximum value
-	$published_posts = $total_posts - $unpub_count;
-	if ( (isset($total_posts)) && ( ($published_posts < $series_part ) || $series_part <=  0 || $published_posts == 1 ) ) {
-		if ( ($published_posts >= 1) && $is_published ) {
-			$series_part = $published_posts;
-		}
-		if ( !$is_published ) {
-			$series_part = $total_posts < $series_part ? $total_posts : $series_part;
-		}
-	}
-
+    if ((int)$series_part === 0) {
+        // If the given Series Part is either higher than the current # of published posts, <=0, or # of published posts is only one,
+        // then set variable $series_part to the maximum value
+        //$published_posts = $total_posts - $unpub_count;
+        if ((($total_posts < $series_part) || $series_part <=  0 || $total_posts == 1)) {
+            /*if (($total_posts >= 1) && $is_published) {
+                $series_part = $total_posts;
+            }
+            if (!$is_published) {
+                $series_part = $total_posts < $series_part ? $total_posts : $series_part;
+            }*/
+            $series_part = $total_posts;
+        }
+    }
+/*
 	array_push($parts_array, $series_part);
 
 	$ticker = 1;
@@ -243,7 +245,7 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
 			}
 			unset($newpart);
 		}
-	}
+	}*/
 	$series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 	delete_post_meta($postid, $series_part_key);
 	add_post_meta($postid, $series_part_key, $series_part);
