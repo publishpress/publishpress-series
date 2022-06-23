@@ -1,10 +1,10 @@
 jQuery(document).ready( function($) {
   /*im_update_post_order();*/
-  $(".im_article_list").sortable({
+  /*$(".im_article_list").sortable({
     axis: "y",
-  });
+  });*/
   
-  $(".pp-series-publisher-wrap table.series-parts tbody").sortable({
+  $(".pp-series-publisher-wrap.series-order table.series-parts tbody").sortable({
     axis: "y",
   });
   
