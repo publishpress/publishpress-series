@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "079c176bc73943318e729f6800420f55",
+    "content-hash": "3407254b36d6c167245d5169f4d87fb4",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
-            "version": "1.6.20",
+            "version": "v1.6.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/EDD-SL-Plugin-Updater.git",
-                "reference": "e2931cf2c6755ca37a6bddfb9dc6e16efd1603f8"
+                "reference": "0c87ee916d3a4fafa1c940691b101aa48ec8622c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/EDD-SL-Plugin-Updater/zipball/e2931cf2c6755ca37a6bddfb9dc6e16efd1603f8",
-                "reference": "e2931cf2c6755ca37a6bddfb9dc6e16efd1603f8",
+                "url": "https://api.github.com/repos/publishpress/EDD-SL-Plugin-Updater/zipball/0c87ee916d3a4fafa1c940691b101aa48ec8622c",
+                "reference": "0c87ee916d3a4fafa1c940691b101aa48ec8622c",
                 "shasum": ""
             },
             "require": {
@@ -56,22 +56,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/EDD-SL-Plugin-Updater/issues",
-                "source": "https://github.com/publishpress/EDD-SL-Plugin-Updater/tree/1.6.20"
+                "source": "https://github.com/publishpress/EDD-SL-Plugin-Updater/tree/v1.6.21"
             },
-            "time": "2022-04-13T14:02:23+00:00"
+            "time": "2022-06-03T17:30:27+00:00"
         },
         {
             "name": "alledia/wordpress-edd-license-integration",
-            "version": "v2.3.7",
+            "version": "v2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/WordPress-EDD-License-Integration.git",
-                "reference": "6619e05862e921139a615681b6aea8cff6617369"
+                "reference": "dac5525596a2c919a576da9a5c45644fe6c2c2e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/WordPress-EDD-License-Integration/zipball/6619e05862e921139a615681b6aea8cff6617369",
-                "reference": "6619e05862e921139a615681b6aea8cff6617369",
+                "url": "https://api.github.com/repos/publishpress/WordPress-EDD-License-Integration/zipball/dac5525596a2c919a576da9a5c45644fe6c2c2e5",
+                "reference": "dac5525596a2c919a576da9a5c45644fe6c2c2e5",
                 "shasum": ""
             },
             "require": {
@@ -125,9 +125,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/WordPress-EDD-License-Integration/issues",
-                "source": "https://github.com/publishpress/WordPress-EDD-License-Integration/tree/v2.3.7"
+                "source": "https://github.com/publishpress/WordPress-EDD-License-Integration/tree/v2.3.8"
             },
-            "time": "2021-06-22T22:11:14+00:00"
+            "time": "2022-06-03T17:37:40+00:00"
         },
         {
             "name": "composer/installers",
@@ -314,17 +314,97 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
-            "name": "publishpress/wordpress-reviews",
-            "version": "v1.1.18",
+            "name": "publishpress/publishpress-instance-protection",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/publishpress/wordpress-reviews.git",
-                "reference": "0020705b8f6a7177fc393c6c42c82171bf9e2fbd"
+                "url": "https://github.com/publishpress/publishpress-instance-protection.git",
+                "reference": "ef1a631a41b723ce2e856f534ff4befbe914e964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/wordpress-reviews/zipball/0020705b8f6a7177fc393c6c42c82171bf9e2fbd",
-                "reference": "0020705b8f6a7177fc393c6c42c82171bf9e2fbd",
+                "url": "https://api.github.com/repos/publishpress/publishpress-instance-protection/zipball/ef1a631a41b723ce2e856f534ff4befbe914e964",
+                "reference": "ef1a631a41b723ce2e856f534ff4befbe914e964",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "Library for protecting WordPress plugins to run twice.",
+            "homepage": "http://publishpress.com/",
+            "keywords": [
+                "wordpress plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/publishpress/publishpress-instance-protection/issues",
+                "source": "https://github.com/publishpress/publishpress-instance-protection/tree/v1.0.2"
+            },
+            "time": "2022-06-03T17:41:36+00:00"
+        },
+        {
+            "name": "publishpress/wordpress-banners",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/wordpress-banners.git",
+                "reference": "08e20b98320367bdbc59105095c72e7ccbf968f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/wordpress-banners/zipball/08e20b98320367bdbc59105095c72e7ccbf968f1",
+                "reference": "08e20b98320367bdbc59105095c72e7ccbf968f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "BannersMain.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "Display banners in admin pages of PublishPress Plugins.",
+            "homepage": "http://publishpress.com/",
+            "support": {
+                "issues": "https://github.com/publishpress/wordpress-banners/issues",
+                "source": "https://github.com/publishpress/wordpress-banners/tree/v1.3.0"
+            },
+            "time": "2022-06-03T15:45:27+00:00"
+        },
+        {
+            "name": "publishpress/wordpress-reviews",
+            "version": "v1.1.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/wordpress-reviews.git",
+                "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/wordpress-reviews/zipball/028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
+                "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
                 "shasum": ""
             },
             "require": {
@@ -377,30 +457,41 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/wordpress-reviews/issues",
-                "source": "https://github.com/publishpress/wordpress-reviews/tree/v1.1.18"
+                "source": "https://github.com/publishpress/wordpress-reviews/tree/v1.1.19"
             },
-            "time": "2021-12-15T00:03:53+00:00"
+            "time": "2022-06-03T13:38:53+00:00"
         },
         {
             "name": "publishpress/wordpress-version-notices",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/WordPress-Version-Notices.git",
-                "reference": "57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3"
+                "reference": "a46b552ac4cbec26d743307611e5dd8d56f80a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/WordPress-Version-Notices/zipball/57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3",
-                "reference": "57e7cbb3e9b9ac366ddd3fd0a80c2e2eabf75ea3",
+                "url": "https://api.github.com/repos/publishpress/WordPress-Version-Notices/zipball/a46b552ac4cbec26d743307611e5dd8d56f80a57",
+                "reference": "a46b552ac4cbec26d743307611e5dd8d56f80a57",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20",
-                "pimple/pimple": "^3"
+                "pimple/pimple": "~3.2.0",
+                "psr/container": "~1.0.0"
             },
             "require-dev": {
-                "lucatume/wp-browser": "^2.4"
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-rest": "^1.3",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "composer/composer": "2.2.12",
+                "lucatume/wp-browser": "^3",
+                "overtrue/phplint": "^2.1"
             },
             "type": "library",
             "autoload": {
@@ -423,9 +514,9 @@
             "description": "Library for displaying version notices for Pro plugins in WordPress.",
             "support": {
                 "issues": "https://github.com/publishpress/WordPress-Version-Notices/issues",
-                "source": "https://github.com/publishpress/WordPress-Version-Notices/tree/1.1.3"
+                "source": "https://github.com/publishpress/WordPress-Version-Notices/tree/1.1.4"
             },
-            "time": "2021-07-14T16:15:47+00:00"
+            "time": "2022-06-06T15:45:54+00:00"
         },
         {
             "name": "sabre/vobject",
@@ -714,16 +805,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.5.5",
+            "version": "4.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "67cea8e8e7656b74da651ea6f49321853996c0fd"
+                "reference": "3968070538761628546270935f0733a0cc408e1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/67cea8e8e7656b74da651ea6f49321853996c0fd",
-                "reference": "67cea8e8e7656b74da651ea6f49321853996c0fd",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/3968070538761628546270935f0733a0cc408e1f",
+                "reference": "3968070538761628546270935f0733a0cc408e1f",
                 "shasum": ""
             },
             "require": {
@@ -764,22 +855,22 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.5.5"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.5.6"
             },
-            "time": "2022-04-26T16:18:25+00:00"
+            "time": "2022-06-22T20:17:12+00:00"
         },
         {
             "name": "consolidation/config",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/config.git",
-                "reference": "0c15841b2bf60d9af1ce29884673e7d9d50c3b75"
+                "reference": "dae810c162f0e799ea3f35cc2f40b0797b6e4d26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/config/zipball/0c15841b2bf60d9af1ce29884673e7d9d50c3b75",
-                "reference": "0c15841b2bf60d9af1ce29884673e7d9d50c3b75",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/dae810c162f0e799ea3f35cc2f40b0797b6e4d26",
+                "reference": "dae810c162f0e799ea3f35cc2f40b0797b6e4d26",
                 "shasum": ""
             },
             "require": {
@@ -824,9 +915,9 @@
             "description": "Provide configuration services for a commandline tool.",
             "support": {
                 "issues": "https://github.com/consolidation/config/issues",
-                "source": "https://github.com/consolidation/config/tree/2.1.0"
+                "source": "https://github.com/consolidation/config/tree/2.1.1"
             },
-            "time": "2022-02-24T00:32:42+00:00"
+            "time": "2022-06-22T19:59:34+00:00"
         },
         {
             "name": "consolidation/log",
@@ -1375,16 +1466,16 @@
         },
         {
             "name": "nelexa/zip",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ne-Lexa/php-zip.git",
-                "reference": "a18f80db509b1b6e9798e2745dc100759107f50c"
+                "reference": "88a1b6549be813278ff2dd3b6b2ac188827634a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ne-Lexa/php-zip/zipball/a18f80db509b1b6e9798e2745dc100759107f50c",
-                "reference": "a18f80db509b1b6e9798e2745dc100759107f50c",
+                "url": "https://api.github.com/repos/Ne-Lexa/php-zip/zipball/88a1b6549be813278ff2dd3b6b2ac188827634a7",
+                "reference": "88a1b6549be813278ff2dd3b6b2ac188827634a7",
                 "shasum": ""
             },
             "require": {
@@ -1442,9 +1533,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Ne-Lexa/php-zip/issues",
-                "source": "https://github.com/Ne-Lexa/php-zip/tree/4.0.1"
+                "source": "https://github.com/Ne-Lexa/php-zip/tree/4.0.2"
             },
-            "time": "2021-12-12T09:50:45+00:00"
+            "time": "2022-06-17T11:17:46+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -1707,16 +1798,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.6.2",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5e4e71592f69da17871dba6e80dd51bce74a351a"
+                "reference": "1359e176e9307e906dc3d890bcc9603ff6d90619"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5e4e71592f69da17871dba6e80dd51bce74a351a",
-                "reference": "5e4e71592f69da17871dba6e80dd51bce74a351a",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/1359e176e9307e906dc3d890bcc9603ff6d90619",
+                "reference": "1359e176e9307e906dc3d890bcc9603ff6d90619",
                 "shasum": ""
             },
             "require": {
@@ -1759,20 +1850,20 @@
                 "source": "https://github.com/squizlabs/PHP_CodeSniffer",
                 "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
             },
-            "time": "2021-12-12T21:44:58+00:00"
+            "time": "2022-06-18T07:21:10+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.8",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "ffe3aed36c4d60da2cf1b0a1cee6b8f2e5fa881b"
+                "reference": "4d671ab4ddac94ee439ea73649c69d9d200b5000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/ffe3aed36c4d60da2cf1b0a1cee6b8f2e5fa881b",
-                "reference": "ffe3aed36c4d60da2cf1b0a1cee6b8f2e5fa881b",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4d671ab4ddac94ee439ea73649c69d9d200b5000",
+                "reference": "4d671ab4ddac94ee439ea73649c69d9d200b5000",
                 "shasum": ""
             },
             "require": {
@@ -1842,7 +1933,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.8"
+                "source": "https://github.com/symfony/console/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -1858,11 +1949,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-12T16:02:29+00:00"
+            "time": "2022-06-26T13:00:04+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -1909,7 +2000,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -1929,16 +2020,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v5.4.3",
+            "version": "v5.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "dec8a9f58d20df252b9cd89f1c6c1530f747685d"
+                "reference": "8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/dec8a9f58d20df252b9cd89f1c6c1530f747685d",
-                "reference": "dec8a9f58d20df252b9cd89f1c6c1530f747685d",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc",
+                "reference": "8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc",
                 "shasum": ""
             },
             "require": {
@@ -1994,7 +2085,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.3"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.9"
             },
             "funding": [
                 {
@@ -2010,11 +2101,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:53:40+00:00"
+            "time": "2022-05-05T16:45:39+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
@@ -2073,7 +2164,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -2093,16 +2184,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.4.7",
+            "version": "v5.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "3a4442138d80c9f7b600fb297534ac718b61d37f"
+                "reference": "36a017fa4cce1eff1b8e8129ff53513abcef05ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3a4442138d80c9f7b600fb297534ac718b61d37f",
-                "reference": "3a4442138d80c9f7b600fb297534ac718b61d37f",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/36a017fa4cce1eff1b8e8129ff53513abcef05ba",
+                "reference": "36a017fa4cce1eff1b8e8129ff53513abcef05ba",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2228,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.4.7"
+                "source": "https://github.com/symfony/filesystem/tree/v5.4.9"
             },
             "funding": [
                 {
@@ -2153,7 +2244,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-01T12:33:59+00:00"
+            "time": "2022-05-20T13:55:35+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2220,16 +2311,16 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "81b86b50cf841a64252b439e738e97f4a34e2783"
+                "reference": "433d05519ce6990bf3530fba6957499d327395c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/81b86b50cf841a64252b439e738e97f4a34e2783",
-                "reference": "81b86b50cf841a64252b439e738e97f4a34e2783",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/433d05519ce6990bf3530fba6957499d327395c2",
+                "reference": "433d05519ce6990bf3530fba6957499d327395c2",
                 "shasum": ""
             },
             "require": {
@@ -2241,7 +2332,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2281,7 +2372,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -2297,20 +2388,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-23T21:10:46+00:00"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "8590a5f561694770bdcd3f9b5c69dde6945028e8"
+                "reference": "219aa369ceff116e673852dce47c3a41794c14bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/8590a5f561694770bdcd3f9b5c69dde6945028e8",
-                "reference": "8590a5f561694770bdcd3f9b5c69dde6945028e8",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/219aa369ceff116e673852dce47c3a41794c14bd",
+                "reference": "219aa369ceff116e673852dce47c3a41794c14bd",
                 "shasum": ""
             },
             "require": {
@@ -2322,7 +2413,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2365,7 +2456,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -2381,20 +2472,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
+                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
-                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
+                "reference": "9344f9cb97f3b19424af1a21a3b0e75b0a7d8d7e",
                 "shasum": ""
             },
             "require": {
@@ -2409,7 +2500,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2448,7 +2539,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -2464,20 +2555,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-30T18:21:41+00:00"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "cc5db0e22b3cb4111010e48785a97f670b350ca5"
+                "reference": "e440d35fa0286f77fb45b79a03fedbeda9307e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/cc5db0e22b3cb4111010e48785a97f670b350ca5",
-                "reference": "cc5db0e22b3cb4111010e48785a97f670b350ca5",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/e440d35fa0286f77fb45b79a03fedbeda9307e85",
+                "reference": "e440d35fa0286f77fb45b79a03fedbeda9307e85",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2577,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2527,7 +2618,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -2543,20 +2634,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-05T21:20:04+00:00"
+            "time": "2022-05-24T11:49:31+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.25.0",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c"
+                "reference": "cfa0ae98841b9e461207c13ab093d76b0fa7bace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4407588e0d3f1f52efb65fbe92babe41f37fe50c",
-                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/cfa0ae98841b9e461207c13ab093d76b0fa7bace",
+                "reference": "cfa0ae98841b9e461207c13ab093d76b0fa7bace",
                 "shasum": ""
             },
             "require": {
@@ -2565,7 +2656,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.23-dev"
+                    "dev-main": "1.26-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2610,7 +2701,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -2626,7 +2717,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-04T08:16:47+00:00"
+            "time": "2022-05-10T07:21:04+00:00"
         },
         {
             "name": "symfony/process",
@@ -2771,16 +2862,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.8",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "3c061a76bff6d6ea427d85e12ad1bb8ed8cd43e8"
+                "reference": "4432bc7df82a554b3e413a8570ce2fea90e94097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/3c061a76bff6d6ea427d85e12ad1bb8ed8cd43e8",
-                "reference": "3c061a76bff6d6ea427d85e12ad1bb8ed8cd43e8",
+                "url": "https://api.github.com/repos/symfony/string/zipball/4432bc7df82a554b3e413a8570ce2fea90e94097",
+                "reference": "4432bc7df82a554b3e413a8570ce2fea90e94097",
                 "shasum": ""
             },
             "require": {
@@ -2837,7 +2928,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v5.4.8"
+                "source": "https://github.com/symfony/string/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -2853,20 +2944,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-19T10:40:37+00:00"
+            "time": "2022-06-26T15:57:47+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.3",
+            "version": "v5.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e80f87d2c9495966768310fc531b487ce64237a2"
+                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e80f87d2c9495966768310fc531b487ce64237a2",
-                "reference": "e80f87d2c9495966768310fc531b487ce64237a2",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/04e42926429d9e8b39c174387ab990bf7817f7a2",
+                "reference": "04e42926429d9e8b39c174387ab990bf7817f7a2",
                 "shasum": ""
             },
             "require": {
@@ -2912,7 +3003,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.3"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.10"
             },
             "funding": [
                 {
@@ -2928,7 +3019,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-26T16:32:32+00:00"
+            "time": "2022-06-20T11:50:59+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -2989,5 +3080,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

@@ -59,13 +59,13 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     public function get_columns()
     {
         $columns = [
-            'cb'        => '<input type="checkbox"/>', //Render a checkbox instead of text
-            'title'     => esc_html__('Title', 'organize-series'),
-            'author'    => esc_html__('Author', 'organize-series'),
-            'categories' => esc_html__('Categories', 'organize-series'),
-            'tags'      => esc_html__('Tags', 'organize-series'),
-            'date'      => esc_html__('Date', 'organize-series'),
-            'part'      => esc_html__('Current Part', 'organize-series'),
+            'cb'          => '<input type="checkbox"/>', //Render a checkbox instead of text
+            'title'       => esc_html__('Title', 'organize-series'),
+            'author'      => esc_html__('Author', 'organize-series'),
+            'categories'  => esc_html__('Categories', 'organize-series'),
+            'tags'        => esc_html__('Tags', 'organize-series'),
+            'post_status' => esc_html__('Status', 'organize-series'),
+            'part'        => esc_html__('Current Part', 'organize-series'),
         ];
 
         return $columns;
@@ -264,74 +264,13 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
 	}
 
 	/**
-	 * Handles the post date column output.
+	 * Handles the post post_status column output.
      * 
 	 */
-	public function column_date( $post ) {
-		global $mode;
+	public function column_post_status( $post ) {
+        $post_status = get_post_status_object($post->post_status);
 
-		if ( '0000-00-00 00:00:00' === $post->post_date ) {
-			$t_time    = __( 'Unpublished' );
-			$time_diff = 0;
-		} else {
-			$t_time = sprintf(
-				/* translators: 1: Post date, 2: Post time. */
-				__( '%1$s at %2$s' ),
-				/* translators: Post date format. See https://www.php.net/manual/datetime.format.php */
-				get_the_time( __( 'Y/m/d' ), $post ),
-				/* translators: Post time format. See https://www.php.net/manual/datetime.format.php */
-				get_the_time( __( 'g:i a' ), $post )
-			);
-
-			$time      = get_post_timestamp( $post );
-			$time_diff = time() - $time;
-		}
-
-		if ( 'publish' === $post->post_status ) {
-			$status = __( 'Published' );
-		} elseif ( 'future' === $post->post_status ) {
-			if ( $time_diff > 0 ) {
-				$status = '<strong class="error-message">' . __( 'Missed schedule' ) . '</strong>';
-			} else {
-				$status = __( 'Scheduled' );
-			}
-		} else {
-			$status = __( 'Last Modified' );
-		}
-
-		/**
-		 * Filters the status text of the post.
-		 *
-		 * @since 4.8.0
-		 *
-		 * @param string  $status      The status text.
-		 * @param WP_Post $post        Post object.
-		 * @param string  $column_name The column name.
-		 * @param string  $mode        The list display mode ('excerpt' or 'list').
-		 */
-		$status = apply_filters( 'post_date_column_status', $status, $post, 'date', $mode );
-
-        $date_html = '';
-		if ( $status ) {
-            $date_html .= $status . '<br />';
-		}
-
-		/**
-		 * Filters the published time of the post.
-		 *
-		 * @since 2.5.1
-		 * @since 5.5.0 Removed the difference between 'excerpt' and 'list' modes.
-		 *              The published time and date are both displayed now,
-		 *              which is equivalent to the previous 'excerpt' mode.
-		 *
-		 * @param string  $t_time      The published time.
-		 * @param WP_Post $post        Post object.
-		 * @param string  $column_name The column name.
-		 * @param string  $mode        The list display mode ('excerpt' or 'list').
-		 */
-		$date_html .= apply_filters( 'post_date_column_time', $t_time, $post, 'date', $mode );
-
-        return $date_html;
+        return $post_status->label;
 	}
 
     /**

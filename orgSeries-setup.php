@@ -40,6 +40,8 @@ class orgSeries {
 		add_action('parse_query', array( $this, 'seriestoc_parsequery') );
 		add_filter('query_vars', array($this,'orgSeries_add_queryvars'));
 		add_action('template_redirect', array($this,'orgSeries_toc_template')); //setsup the seriestoc url
+        //series TOC shortcode
+        add_shortcode('publishpress_series_toc', array($this, 'publishpress_series_toc_shortcode'));
 
 		add_action('wp_enqueue_scripts', array($this, 'orgSeries_header'));
 		add_action( 'wp_footer', array($this, 'series_dropdown_js'), 1 );
@@ -305,7 +307,7 @@ class orgSeries {
 			$this->settings = array(
 				//main settings
 			'custom_css' => 1,
-			'automatic_series_part' => 1,
+			'automatic_series_part' => 0,
 			'metabox_show_add_new' => 0,
 			'metabox_show_series_part' => 0,
 			'metabox_show_post_title_in_widget' => 0,
@@ -481,6 +483,20 @@ class orgSeries {
 			}
 		}
 	}
+
+    function publishpress_series_toc_shortcode($atts) {
+        ob_start();
+        ?>
+        <div id="series-content">
+            <?php wp_serieslist_display(); ?>
+            <div class="stocpagination"> 
+                <?php series_toc_paginate(); ?> 
+            </div>
+        </div>
+        <?php
+
+        return ob_get_clean();
+    }
 
 	//orgSeries dropdown nav js
 	function series_dropdown_js() {

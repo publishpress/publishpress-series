@@ -21,8 +21,9 @@ jQuery(document).ready(function($) {
 				series_check = -1;
 				series_text = 'No Series';
 			}
-				
-			$('select[name="post_series"] option[value="'+series_check+'"]', editRowData).remove();/* FOR SOME STRANGE REASON IT APPEARS THAT ONLY ATTR AND VAL AREN'T WORKING BUT REMOVE() WILL WORK? WIERD...*/
+			/* FOR SOME STRANGE REASON IT APPEARS THAT ONLY ATTR AND VAL AREN'T WORKING BUT REMOVE() WILL WORK? WIERD...*/
+			$('select[name="post_series"] option[value="'+series_check+'"]', editRowData).remove();
+			$('select[name="post_series"] option[value="0"]', editRowData).remove();
 			$('.post_series_select', editRowData).append('<option value="'+series_check+'" selected="selected">'+series_text+'</option>');
 			
 			if ( series_check == -1 ) series_check = 0;

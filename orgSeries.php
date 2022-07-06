@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 2.9.0.1
+ * Version: 2.9.1
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -54,12 +54,26 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+$includeFilebRelativePath = '/publishpress/publishpress-instance-protection/include.php';
+if (file_exists(__DIR__ . '/vendor' . $includeFilebRelativePath)) {
+    require_once __DIR__ . '/vendor' . $includeFilebRelativePath;
+}
+
+if (class_exists('PublishPressInstanceProtection\\Config')) {
+    $pluginCheckerConfig = new PublishPressInstanceProtection\Config();
+    $pluginCheckerConfig->pluginSlug    = 'orgSeries';
+    $pluginCheckerConfig->pluginFolder  = 'organize-series';
+    $pluginCheckerConfig->pluginName    = 'PublishPress Series';
+
+    $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
+}
+
 require_once (dirname(__FILE__) . '/inc/utility-functions.php');
 require_once (dirname(__FILE__) . '/includes-core/functions.php');
 register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
 if (!defined('ORG_SERIES_VERSION')) {
-    define('ORG_SERIES_VERSION', '2.9.0.1'); //the current version of the plugin
+    define('ORG_SERIES_VERSION', '2.9.1'); //the current version of the plugin
     define( 'SERIES_FILE_PATH', __FILE__ );
     define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
     define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.
@@ -108,11 +122,6 @@ if ($pro_active) {
 }
 
 if (defined('PPSERIES_FILE') || $pro_active) {
-    if(!function_exists('deactivate_plugins')){
-        require_once ABSPATH . 'wp-admin/includes/plugin.php';
-    }
-    //deactivate current plugin if pro is active
-    deactivate_plugins( plugin_basename( __FILE__ ) );
 	return;
 }
 

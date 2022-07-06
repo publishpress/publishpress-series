@@ -4,8 +4,8 @@ Author: publishpress
 Tags: category, series, organize, post, taxonomy
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 5.9.3
-Stable tag: 2.9.0.1
+Tested up to: 6.0
+Stable tag: 2.9.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,22 @@ Yes, you can In the `organize-series` folder you'll see a file called `seriestoc
 
 
 == Changelog ==
+
+v2.9.1- 2022-07-06
+* Feature: Added series Table of Content shortcode [publishpress_series_toc], #559
+* Update: Disable automatic numbering for new installs #515
+* Fixed: %post_date% doesn't work #525
+* Fixed: Exclude trash post from publish series "Unpublish all" #527
+* Fixed: Small cleanup for "Publish Series" box #497
+* Added: New Free vs Pro library #529
+* Fixed: Multiple "No Series" in Quick Edit when no series is available #538
+* Fixed: Issue with "Update Order" when posts are unpublished #528
+* Added: Add a Promo for PublishPress Blocks #541
+* Fixed: Issue with scheduled posts and part #552
+* Update: Show "Post status" instead of "Last Modified" on the publish series screen #553
+* Update: Updated translations #560
+* Update: Translation check #557
+* Fixed: Error in PHP 5.6.39 #535
 
 v2.9.0.1- 2022-05-17
 * Fixed: Series not enable in rest api #531

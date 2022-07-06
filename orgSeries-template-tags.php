@@ -164,7 +164,7 @@ function wp_postlist_display() {
 		if (!empty($serarray)) {
 			foreach ($serarray as $series) {
 				$serID = $series->term_id;
-				$postlist .= token_replace(stripslashes($settings['series_post_list_template']), 'post-list', $serID);
+				$postlist .= token_replace(stripslashes($settings['series_post_list_template']), 'post-list', 0, $serID);
 				if ( $i != $count || $trigger ) {
 					$pos = strpos($postlist, '%postcontent%');
 					if ( $pos == 0 ) $trigger = true;
@@ -269,8 +269,10 @@ function wp_postlist_count($ser_id = false, $calc = false) {
  *
  * @return int $series_part - The part the post is in a series IF it is part of a series.
 */
-function wp_series_part( $id = 0, $ser_id = 0, $calc = false ) {
-	global $post;
+function wp_series_part( $id = 0, $ser_id = 0, $calc = false, $post = false ) {
+    if (!$post) {
+        global $post;
+    }
 	if ( $id == 0 ) {
 		if ( isset($post) )
 			$id = $post->ID;
@@ -362,7 +364,7 @@ function wp_serieslist_display_code( $series, $referral = false, $display = true
 			$serID = $series;
 
 		if (isset($serID)) {
-			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', $serID);
+			$series_display = token_replace(stripslashes($settings['series_table_of_contents_box_template']), 'series-toc', 0, $serID);
             if ($display) {
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 echo $series_display;
@@ -573,7 +575,7 @@ function wp_assemble_series_nav() {
 				$series_id = $ser->term_id;
 				$series_count = $ser->count;
 				if ( $series_count > 1 ) {
-					$nav .= token_replace(stripslashes($settings['series_post_nav_template']), 'other', $series_id);
+					$nav .= token_replace(stripslashes($settings['series_post_nav_template']), 'other', 0, $series_id);
 					if ( $i != $count || $trigger ) {
 						$pos = strpos($nav, '%postcontent%');
 						if ( $pos == 0 ) $trigger = true; //%postcontent% is at the top in the template so we need to erase all %postcontent% to fix.

@@ -31,7 +31,7 @@ if (!function_exists('series_issue_manager_part')) {
             $current_sn++;
             $post_ID = (int)$post_ID;
             $post = get_post($post_ID);
-            publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
+            publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false, $current_sn);
             $counter++;
         }
     }
@@ -62,8 +62,10 @@ if (!function_exists('series_issue_manager_publish')) {
         }
 
         // $post_IDs should have all pending posts' IDs in the series
+	    $post_ids_in_series = get_objects_in_term($series_ID, ppseries_get_series_slug());
         $counter = 0;
-        $current_sn = 0;
+        $current_sn = count($post_ids_in_series) - count(explode(',', $post_IDs));
+
         foreach (explode(',', $post_IDs) as $post_ID) {
             $current_sn++;
             $post_ID = (int)$post_ID;
@@ -80,7 +82,7 @@ if (!function_exists('series_issue_manager_publish')) {
 
             if ($publish_at > strtotime(current_time('mysql'))) {
                 // scheduled
-                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false, $current_sn);
+                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
             } else {
                 publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
             }
@@ -109,13 +111,15 @@ if (!function_exists('series_issue_manager_unpublish')) {
         // change all published posts in the series to pending
         $posts = get_objects_in_term($series_ID, 'series');
         foreach ($posts as $post) {
-            wp_update_post(
-                array(
+            if (!empty(get_post_status($post)) && get_post_status($post) !== 'draft') {
+                wp_update_post(
+                    array(
                 'ID' => $post,
                 'post_status' => 'pending'
                 )
-            );
-            publisher_wp_set_post_series($post, true, $post, $series_ID, true);
+                );
+                publisher_wp_set_post_series($post, true, $post, $series_ID, true);
+            }
         }
         }
     }
@@ -181,7 +185,9 @@ if (!function_exists('publisher_wp_set_post_series')) {
                     $s_pt = $part;
                     delete_post_meta($post_ID, $series_part_key);
                     add_post_meta($post_ID, $series_part_key, $s_pt);
+
                 } else {
+
                     if ($remove_part) {
                         $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
                         delete_post_meta($post_ID, $series_part_key);
@@ -619,8 +625,6 @@ class PPS_Publisher_Admin
             <h1><?php esc_html_e('Publishing Series:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>
             </h1>
-            <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?>
-            </p>
             <div id="poststuff">
                 <div id="post-body" class="metabox-holder columns-2">
 
@@ -719,7 +723,7 @@ class PPS_Publisher_Admin
         $this->series_part_table->prepare_items();
         ?>
 
-        <div class="wrap pp-series-publisher-wrap">
+        <div class="wrap pp-series-publisher-wrap series-order">
 
             <h1><?php esc_html_e('Series Order:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>

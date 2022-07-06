@@ -89,7 +89,7 @@ function pps_os_version_requirement_notice() {
                 $settings = apply_filters('org_series_settings', $settings);
                 //add new series settings only if not fresh installation
                 if ($settings) {
-                    $settings['automatic_series_part'] = 1;
+                    $settings['automatic_series_part'] = 0;
                     update_option('org_series_options', $settings);
                 }
                 update_option('pp_series_2_7_5_upgraded', true);

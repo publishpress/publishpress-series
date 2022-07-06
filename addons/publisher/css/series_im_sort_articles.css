@@ -14,8 +14,12 @@
     max-width: 910px;
 }
 
-.pp-series-publisher-wrap table.series-parts tbody tr {
+.pp-series-publisher-wrap.series-order table.series-parts tbody tr {
     cursor: move;
+}
+
+#timestampdiv select {
+    max-width: 90px !important;
 }
 
 @media screen and (max-width: 782px){
