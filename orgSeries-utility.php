@@ -79,6 +79,7 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	global $post, $orgseries;
 	$p_id = ( $id == 0 ) ? $post->ID : $id;
 	$ser_id = ( $ser_ID == 0 ) ? $id : $ser_ID;
+	$id     = ( (int)$id === 0 ) ? $ser_ID : $id;
 
 	//$p_id = (empty($post->ID) || $post->ID == '') ? $id : $post->ID;
 	$settings = $orgseries->settings;
