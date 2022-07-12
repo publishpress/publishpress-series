@@ -173,6 +173,10 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
+v2.9.2- 2022-07-12
+* Fixed: Problem with series navigation and List #568
+* Fixed: Define plugin addon path from primary plugin file to fix include error #570
+
 v2.9.1- 2022-07-06
 * Feature: Added series Table of Content shortcode [publishpress_series_toc], #559
 * Update: Disable automatic numbering for new installs #515
