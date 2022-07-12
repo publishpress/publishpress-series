@@ -1,13 +1,4 @@
 <?php
-/*
-Plugin Name: PublishPress Series Publisher
-Plugin URI: http://organizeseries.com
-Description: Allows an editor to publish an "issue", which is to say, all pending posts with a given series. Until a series is published, all posts with that series will remain in the pending state.  Credit really needs to go to  <a href="http://xplus3.net">Jonathan Brinley</a> for his original Issue Manage plugin because all I did was modify it for use with series rather than categories.  Also NOTE that this REQUIRES PublishPress Series to be installed.
-Version: 2.2.5.rc.000
-Author: Darren Ethier
-Author URI: http://organizeseries.com
-*/
-
 if (!defined('OS_PUBLISHER_VERSION')) {
     define('OS_PUBLISHER_VERSION', '2.2.5.rc.000');
 }
