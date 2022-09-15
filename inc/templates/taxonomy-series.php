@@ -7,8 +7,11 @@
  * @package PublishPress
  */
 
-get_header();
-
+if (pp_series_locate_template(['header.php'])) {
+    get_header(); 
+} elseif (pp_series_is_block_theme()) {
+    pp_series_format_block_theme_header();
+}
 $description = get_the_archive_description();
 
 // CSS wrapper class for the design
@@ -74,5 +77,9 @@ $series_layout_class .= isset($series_options['series_overview_page_columns']) ?
 if(pp_series_locate_template( array( 'sidebar.php' ) )){
     get_sidebar();
 }
-get_footer();
+if (pp_series_locate_template(['footer.php'])) {
+    get_footer(); 
+} elseif (pp_series_is_block_theme()) {
+    pp_series_format_block_theme_footer();
+}
 ?>
