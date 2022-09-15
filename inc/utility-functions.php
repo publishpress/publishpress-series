@@ -144,4 +144,104 @@ function pps_os_version_requirement_notice() {
     
         }
     }
+
+    /**
+     * Check if current active theme is block theme/support full site editing
+     *
+     * @return bool
+     */
+    function pp_series_is_block_theme() 
+    {
+
+        $is_block_theme = false;
+
+        if (function_exists('wp_is_block_theme') 
+            && function_exists('block_template_part') 
+            && wp_is_block_theme()
+        ) {
+            $is_block_theme = true;
+        }
+
+        return $is_block_theme;
+    }
+
+    /**
+     * Retreive block theme header
+     *
+     * @return string
+     */
+    function pp_series_get_block_theme_header() 
+    {
+
+        $block_theme_header = '';
+
+        if (pp_series_is_block_theme()) {
+            $header_template_part = get_block_template(get_stylesheet() . '//header', 'wp_template_part');
+            if ($header_template_part && isset($header_template_part->content)) {
+                $block_theme_header = do_blocks($header_template_part->content);
+            }
+        }
+
+        return $block_theme_header;
+    }
+
+    /**
+     * Retreive block theme footer
+     *
+     * @return string
+     */
+    function pp_series_get_block_theme_footer() 
+    {
+
+        $block_theme_footer = '';
+
+        if (pp_series_is_block_theme()) {
+            $footer_template_part = get_block_template(get_stylesheet() . '//footer', 'wp_template_part');
+            if ($footer_template_part && isset($footer_template_part->content)) {
+                $block_theme_footer = do_blocks($footer_template_part->content);
+            }
+        }
+
+        return $block_theme_footer;
+    }
+
+    /**
+     * Format block theme header
+     *
+     * @return void
+     */
+    function pp_series_format_block_theme_header() 
+    {
+        $fse_header = pp_series_get_block_theme_header();
+        $fse_footer = pp_series_get_block_theme_footer();//we need to get footer as well before wp_head() call to enable fse css generator
+        ?> 
+        <!doctype html>
+        <html <?php language_attributes(); ?>>
+        <head>
+             <meta charset="<?php bloginfo('charset'); ?>">
+             <?php wp_head(); ?>
+        </head>
+        <body <?php body_class(); ?>>
+        <?php wp_body_open(); ?>
+        <div class="wp-site-blocks">
+        <?php echo $fse_header; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+    }
+
+    /**
+     * Format block theme footer
+     *
+     * @return void
+     */
+    function pp_series_format_block_theme_footer() 
+    {
+        $fse_footer = pp_series_get_block_theme_footer();
+        ?>
+        </div>
+        <?php echo $fse_footer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        wp_footer();
+        ?>
+            </body>
+        </html>
+        <?php
+    }
 ?>
