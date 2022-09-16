@@ -77,7 +77,7 @@ function get_series_order($posts, $postid = 0, $series_id = 0, $skip = TRUE, $on
 /** NOTE: %postcontent% is NOT replaced with this function...it happens in the content filter function **/
 function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	global $post, $orgseries;
-	$p_id = ( $id == 0 ) ? $post->ID : $id;
+	$p_id = ( $id == 0 && !empty($post) ) ? $post->ID : $id;
 	$ser_id = ( $ser_ID == 0 ) ? $id : $ser_ID;
 	$id     = ( (int)$id === 0 ) ? $ser_ID : $id;
 
