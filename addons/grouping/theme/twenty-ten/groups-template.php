@@ -8,7 +8,12 @@
  * This is an example template demonstrating hierarchy in series groups.  Note that this particular template is only demonstrating one level.
  */
 
-get_header(); 
+if (pp_series_locate_template(['header.php'])) {
+    get_header(); 
+} elseif (pp_series_is_block_theme()) {
+    pp_series_format_block_theme_header();
+}
+
 global $wp_query;
 $save_query = $wp_query;
 $content = ''; ?>
@@ -73,5 +78,13 @@ $content = ''; ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+        <?php
+if(pp_series_locate_template( array( 'sidebar.php' ) )){
+    get_sidebar();
+}
+if (pp_series_locate_template(['footer.php'])) {
+    get_footer(); 
+} elseif (pp_series_is_block_theme()) {
+    pp_series_format_block_theme_footer();
+}
+?>
