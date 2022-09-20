@@ -1,12 +1,12 @@
-# Translation of Plugins - Issues and Series for Newspapers, Magazines, Publishers, Writers - Stable (latest release) in Spanish (Spain)
-# This file is distributed under the same license as the Plugins - Issues and Series for Newspapers, Magazines, Publishers, Writers - Stable (latest release) package.
+# Translation of Plugins - PublishPress Series &#8211; Organize WordPress Posts into a Series - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - PublishPress Series &#8211; Organize WordPress Posts into a Series - Stable (latest release) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - Issues and Series for Newspapers, Magazines, Publishers, Writers - Stable (latest release)\n"
+"Project-Id-Version: Plugins - PublishPress Series &#8211; Organize WordPress Posts into a Series - Stable (latest release)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-21 11:56-0500\n"
+"PO-Revision-Date: 2022-07-07 16:23-0500\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Angelo Giammarresi - info@wocmultimedia.com\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr "Haz clic aquí para instalar PublishPress Blocks"
 
 #: orgSeries-options.php:350
 msgid "Choose from Grid, List, Slider, Masonry, and other layouts."
-msgstr "Selecciona entre cuadrícula, lista, pase de diapositivas, muro y otros diseños."
+msgstr "Elija entre cuadrícula, lista, deslizador, muro y otros diseños."
 
 #: orgSeries-options.php:349
 msgid "The Content Display block allows you to create advanced layouts for PublishPress Series"
@@ -107,68 +107,68 @@ msgstr "Mejora la potencia de PublishPress Series con la versión Pro:"
 msgid "Upgrade to PublishPress Series Pro"
 msgstr "Actualizar a PublishPress Series Pro"
 
-#: addons/publisher/series_issue_manager.php:768
+#: addons/publisher/series_issue_manager.php:777
 msgid "Update Order"
 msgstr "Actualizar el orden"
 
-#: addons/publisher/series_issue_manager.php:752
+#: addons/publisher/series_issue_manager.php:761
 msgid "Series Order"
 msgstr "Orden de la serie"
 
-#: addons/publisher/series_issue_manager.php:719
+#: addons/publisher/series_issue_manager.php:728
 msgid "Series Order:"
 msgstr "Orden de la serie:"
 
-#: addons/publisher/series_issue_manager.php:684
+#: addons/publisher/series_issue_manager.php:693
 msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
 msgstr "%2$s %1$s %3$s @ %4$s : %5$s"
 
-#: addons/publisher/series_issue_manager.php:661
+#: addons/publisher/series_issue_manager.php:670
 msgid "Publication Date/Time:"
 msgstr "Fecha y hora de publicación:"
 
-#: addons/publisher/series_issue_manager.php:639
-#: addons/publisher/series_issue_manager.php:744
+#: addons/publisher/series_issue_manager.php:648
+#: addons/publisher/series_issue_manager.php:753
 msgid "Description here."
 msgstr "Describe aquí."
 
-#: addons/publisher/series_issue_manager.php:722
+#: addons/publisher/series_issue_manager.php:731
 msgid "Drag the post names into the order you want them to be in the series, from the first part to the last part."
 msgstr "Arrastra los nombres de las entradas en el orden que quieras que estén en la serie, desde la primera parte hasta la última."
 
-#: addons/publisher/series_issue_manager.php:616
+#: addons/publisher/series_issue_manager.php:625
 msgid "Publishing Series:"
 msgstr "Serie de publicaciones:"
 
-#: addons/publisher/series_issue_manager.php:500
+#: addons/publisher/series_issue_manager.php:509
 msgid "Manage Series Issues"
 msgstr "Gestionar las emisiones de la serie"
 
-#: addons/publisher/series_issue_manager.php:361
+#: addons/publisher/series_issue_manager.php:370
 msgid "Congratulations. Your series was published successfully."
 msgstr "Enhorabuena. Tu serie ha sido publicada correctamente."
 
-#: addons/publisher/series_issue_manager.php:356
+#: addons/publisher/series_issue_manager.php:365
 msgid "Congratulations. Your series was scheduled successfully."
 msgstr "Enhorabuena. Tu serie ha sido programada correctamente."
 
-#: addons/publisher/series_issue_manager.php:333
+#: addons/publisher/series_issue_manager.php:342
 msgid "Post moved to the Trash."
 msgstr "Entrada movida a la papelera."
 
-#: addons/publisher/series_issue_manager.php:324
+#: addons/publisher/series_issue_manager.php:333
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Enhorabuena. El orden de tu serie ha sido actualizado correctamente."
 
-#: addons/publisher/series_issue_manager.php:315
+#: addons/publisher/series_issue_manager.php:324
 msgid "The posts in your series were successfully unpublished."
 msgstr "Las entradas de su serie fueron despublicadas correctamente."
 
-#: addons/publisher/series_issue_manager.php:236
+#: addons/publisher/series_issue_manager.php:245
 msgid "When checked, all posts you assign to this series will remain unpublished until you publish the entire series."
 msgstr "Si está marcada, todas las entradas que asignes a esta serie permanecerán sin publicar hasta que publiques toda la serie."
 
-#: addons/publisher/series_issue_manager.php:232
+#: addons/publisher/series_issue_manager.php:241
 msgid "Create as unpublished:"
 msgstr "Crear como no publicado:"
 
@@ -365,9 +365,9 @@ msgstr "Gestionar las series a publicar"
 msgid "Series Groups"
 msgstr "Grupos de la serie"
 
-#: addons/publisher/series_issue_manager.php:501
-#: addons/publisher/series_issue_manager.php:647
-#: addons/publisher/series_issue_manager.php:692
+#: addons/publisher/series_issue_manager.php:510
+#: addons/publisher/series_issue_manager.php:656
+#: addons/publisher/series_issue_manager.php:701
 msgid "Publish Series"
 msgstr "Publicar la serie"
 
@@ -491,7 +491,7 @@ msgstr "Mostrar la tabla de contenido de la serie como"
 msgid "Show Series Table Of Content"
 msgstr "Mostrar la tabla de contenido de la serie"
 
-#: orgSeries-utility.php:406
+#: orgSeries-utility.php:405
 msgid "Auto/None"
 msgstr "Automático/Ninguna"
 
