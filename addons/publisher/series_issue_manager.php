@@ -498,7 +498,7 @@ class PPS_Publisher_Admin
         $page = add_submenu_page(
             'edit.php',
             __('Manage Series Issues', 'organize-series'),
-            __('Publish Series', 'organize-series'),
+            __('Manage Series', 'organize-series'),
             'publish_posts',
             'manage-issues',
             [$this, 'series_issue_manager_admin']
