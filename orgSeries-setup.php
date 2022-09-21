@@ -287,7 +287,13 @@ class orgSeries {
 			'add_new_item' => __('Add New Series', 'organize-series'),
 			'new_item_name' => __('New Series Name', 'organize-series'),
 			'menu_name' => __('Series', 'organize-series'),
-			'not_found' => __('No series found', 'organize-series')
+			'not_found' => __('No series found', 'organize-series'),
+			'back_to_items' => __('&larr; Go to Series', 'organize-series'),
+			'view_item' => __('View Series', 'organize-series'),
+			'no_terms' => __('No Series', 'organize-series'),
+			'items_list' => __('Series List', 'organize-series'),
+			'item_link' => __('Series Link', 'organize-series'),
+			'item_link_description' => __('A link to a Series', 'organize-series')
 			);
 		$args = array(
 			'update_count_callback' => '_os_update_post_term_count',
