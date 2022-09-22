@@ -101,7 +101,7 @@ function pps_os_version_requirement_notice() {
                //add new series settings only if not fresh installation
                if ($settings) {
                    $settings['metabox_show_post_title_in_widget'] = 0;
-                   $settings['metabox_show_series_part'] = 0;
+                   $settings['metabox_show_series_part'] = 1;
                    $settings['metabox_show_add_new'] = 0;
                    update_option('org_series_options', $settings);
                }
