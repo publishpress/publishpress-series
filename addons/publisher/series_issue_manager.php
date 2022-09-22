@@ -520,9 +520,15 @@ class PPS_Publisher_Admin
     public function screen_option()
     {
         if(isset($_GET['action']) && $_GET['action'] === 'list'){
+            $option = 'per_page';
+            $args   = [
+                'label'   => esc_html__('Number of items per page', 'organize-series'),
+                'default' => 20,
+                'option'  => 'pp_series_publisher_per_page'
+            ];
             include_once 'series-publish-post-table.php';
             $this->series_publish_table = new PPS_Publisher_Post_Publish_Table();
-
+            add_screen_option($option, $args);
         }
         if(isset($_GET['action']) && ($_GET['action'] === 'part' || $_GET['action'] === 'order')){
             include_once 'series-part-post-table.php';
@@ -616,10 +622,26 @@ class PPS_Publisher_Admin
             <h1><?php esc_html_e('Publishing Series:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>
             </h1>
+            <?php
+                if (isset($_REQUEST['s']) && $search = esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s'])))) {
+                    /* translators: %s: search keywords */
+                    printf(' <span class="subtitle">' . esc_html__('Search results for &#8220;%s&#8221;',
+                            'organize-series') . '</span>', esc_html($search));
+                }
+                ?>
             <div id="poststuff">
+
                 <div id="post-body" class="metabox-holder columns-2">
 
                 <div id="post-body-content" style="position: relative;">
+
+                        <hr class="wp-header-end">
+                        <div id="ajax-response"></div>
+                        <form class="search-form wp-clearfix series-publisher-search" method="get">
+                            <?php $this->series_publish_table->search_box(esc_html__('Search', 'organize-series'), 'search'); ?>
+                        </form>
+                        <div class="clear"></div>
+
                         <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
                         <?php
 

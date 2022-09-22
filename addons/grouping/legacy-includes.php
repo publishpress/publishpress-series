@@ -48,7 +48,7 @@ add_action('created_'.ppseries_get_series_slug().'', 'wp_insert_series_group', 1
 add_action('edited_'.ppseries_get_series_slug().'', 'wp_update_series_group', 1, 2);
 add_action('delete_'.ppseries_get_series_slug().'', 'wp_delete_series_group', 1, 2);
 
-//render series group template
+//render Series Category template
 add_filter('template_include','pp_series_group_template');
 
 add_action('pp_series_advanced_tab_top', 'series_grouping_delete_output');
@@ -125,7 +125,7 @@ function upgrade_orgseries_grouping_from_one_five() {
     //if ( !taxonomy_exists('series_group') )
     //orgseries_grouping_taxonomy();
 
-    //let's get all the existing series groups in the old category system
+    //let's get all the existing Series Categories in the old category system
     $args = array(
         'hide_empty' => false,
         'fields' => 'ids',
@@ -214,16 +214,16 @@ function orgseries_grouping_taxonomy() {
         'assign_terms' => 'manage_series'
     );
     $labels = array(
-        'name' => _x('Manage Series Groups', 'taxonomy general name', 'organize-series'),
-        'singular_name' => _x('Series Group', 'taxonomy singular name', 'organize-series'),
-        'search_items' => __('Search Series Groups', 'organize-series'),
-        'popular_items' => __('Popular Series Groups', 'organize-series'),
-        'all_items' => __('All Series Groups', 'organize-series'),
-        'edit_item' => __('Edit Series Group', 'organize-series'),
-        'update_item' => __('Update Series Group', 'organize-series'),
-        'add_new_item' => __('Add New Series Group', 'organize-series'),
-        'new_item_name' => __('New Series Group', 'organize-series'),
-        'menu_name' => __('Series Groups', 'organize-series')
+        'name' => _x('Manage Series Categories', 'taxonomy general name', 'organize-series'),
+        'singular_name' => _x('Series Category', 'taxonomy singular name', 'organize-series'),
+        'search_items' => __('Search Series Categories', 'organize-series'),
+        'popular_items' => __('Popular Series Categories', 'organize-series'),
+        'all_items' => __('All Series Categories', 'organize-series'),
+        'edit_item' => __('Edit Series Category', 'organize-series'),
+        'update_item' => __('Update Series Category', 'organize-series'),
+        'add_new_item' => __('Add New Series Category', 'organize-series'),
+        'new_item_name' => __('New Series Category', 'organize-series'),
+        'menu_name' => __('Series Categories', 'organize-series')
     );
     $args = array(
         'update_count_callback' => 'update_series_group_count',
@@ -273,7 +273,7 @@ function orgseries_grouping_import_existing_series() {
 }
 
 function orgseries_groups_admin_menu() {
-    add_submenu_page( 'edit.php', 'Manage Series Groups', 'Series Groups', 'manage_series', 'edit-tags.php?taxonomy=series_group');
+    add_submenu_page( 'edit.php', 'Manage Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
 }
 
 function orgseries_group_add_queryvars($qvs) {
@@ -329,7 +329,7 @@ function orgseries_manage_grouping_columns() {
 }
 
 function orgseries_grouping_settings_setup() {
-    //add_settings_field('series_grouping_delete_settings','Series Grouping Addon Settings','series_grouping_delete_output', 'orgseries_options_page','series_uninstall_settings');
+    //add_settings_field('series_grouping_delete_settings','Series Categories Addon Settings','series_grouping_delete_output', 'orgseries_options_page','series_uninstall_settings');
     register_setting('orgseries_options', 'org_series_options');
     add_filter('orgseries_options', 'series_grouping_options_validate', 10, 2);
 }
@@ -347,13 +347,13 @@ function series_grouping_delete_output() {
     ?>
         	<tr valign="top">
             	<th scope="row"><label for="kill_grouping_on_delete">
-                    <?php _e('Series Grouping Feature', 'organize-series'); ?>
+                    <?php _e('Series Categories Feature', 'organize-series'); ?>
                 	</label>
             	</th>
             	<td>
                     <label>
                     <input name="<?php echo $org_name; ?>[kill_grouping_on_delete]" id="kill_grouping_on_delete" type="checkbox" value="1" <?php checked('1', $k_on_delete); ?> />
-                    <span class="description"><?php _e('Delete all "Series Grouping" data from the database when deleting the plugin.', 'organize-series'); ?></span>
+                    <span class="description"><?php _e('Delete all "Series Categories" data from the database when deleting the plugin.', 'organize-series'); ?></span>
                 	</label>
                 </td>
         	</tr>
