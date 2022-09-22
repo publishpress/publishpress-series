@@ -315,7 +315,7 @@ class orgSeries {
 			'custom_css' => 1,
 			'automatic_series_part' => 0,
 			'metabox_show_add_new' => 0,
-			'metabox_show_series_part' => 0,
+			'metabox_show_series_part' => 1,
 			'metabox_show_post_title_in_widget' => 0,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
