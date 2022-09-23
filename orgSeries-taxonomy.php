@@ -495,6 +495,18 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
     $automatic_series_part = isset($settings['automatic_series_part']) ? (int)$settings['automatic_series_part'] : 0;
 
+    //set auto series part if part is empty
+    if($automatic_series_part === 0
+        && isset($_REQUEST['action'])
+        && in_array($_REQUEST['action'], ['editpost'])
+        && $_REQUEST['post_series'] > 0
+        && is_array($_REQUEST['series_part'])
+        && count($_REQUEST['series_part']) === 1
+        && empty($_REQUEST['series_part'][$_REQUEST['post_series']])
+    ) {
+        $automatic_series_part = 1;
+    }
+
 	if ( !is_bool($update) ){
 		return; //safety check for users on earlier version of WP (so existing series don't get messed up)
 	}
