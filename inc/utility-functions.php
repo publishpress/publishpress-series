@@ -107,6 +107,17 @@ function pps_os_version_requirement_notice() {
                }
                update_option('pp_series_2_8_0_upgraded', true);
          }
+    
+         if (!get_option('pp_series_2_10_0_upgraded')) {
+              $settings = get_option('org_series_options');
+              $settings = apply_filters('org_series_settings', $settings);
+              //add new series settings only if not fresh installation
+              if ($settings) {
+                  $settings['limit_series_meta_to_single'] = 0;
+                  update_option('org_series_options', $settings);
+              }
+              update_option('pp_series_2_10_0_upgraded', true);
+        }
 
     
         }
