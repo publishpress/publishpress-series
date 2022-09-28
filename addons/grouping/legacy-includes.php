@@ -53,6 +53,8 @@ add_filter('template_include','pp_series_group_template');
 
 add_action('pp_series_advanced_tab_top', 'series_grouping_delete_output');
 
+add_shortcode('publishpress_series_categories', 'publishpress_series_groups');
+
 function pp_series_group_template($template){
     if ( is_tax('series_group') ) {
         $theme_template = locate_template( array( 'taxonomy-series_group.php' ) ); //checks in child theme (if child theme) and then parent theme.
@@ -630,4 +632,19 @@ function os_stringarray_to_intarray($array) {
     array_walk($array, 'to_int');
 
     return $array;
+}
+
+
+
+/**
+ * Shortcode to get the author box
+ *
+ * @param array $attributes
+ *
+ * @return string
+ */
+function publishpress_series_groups($attributes)
+{
+
+    return get_series_group_list([], [], false);
 }
