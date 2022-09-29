@@ -57,7 +57,7 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
-	$columns['icon'] = __('Icon', 'organize-series');
+	$columns['series_order'] = __('Series Order', 'organize-series');
 	$columns['series_id'] = __('ID', 'organize-series');
 	return $columns;
 }
@@ -65,22 +65,13 @@ function manage_series_columns($columns) {
 function manage_series_columns_action($content, $column_name, $id) {
 	global $orgseries;
 	$output = $content;	
-	if ($column_name == 'icon') {
-		
-		if ( $series_icon = series_get_icons($id)) {
-			$series_url = seriesicons_url();
-			$icon = $series_url . $series_icon;
-			$output .= '<img src="' . $icon . '" title="' . $series_icon . '" width="50" alt="' . $icon . '" />';
-		} else {
-			$output .= __('No Series Icon', 'organize-series');
-		}
-		
+	if ($column_name == 'series_order') {
+		$output .= '<a href="' . admin_url('edit.php?page=manage-issues&action=part&series_ID='.$id.'') . '" title="' . __('Series Order', 'organize-series') . '">'. __('Series Order', 'organize-series') .' </a>';
 	}
 
 	if ($column_name === 'series_id') {
 		$output .= $id;
 	}
-	
 	return $output;
 }
 

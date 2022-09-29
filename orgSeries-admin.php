@@ -311,7 +311,18 @@ function write_series_list( $series ) { //copied from write_nested_categories in
 	global $orgseries;
 		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-'. esc_attr($serial['series_ID']) .'"><label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit"><input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
+            $series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
+			echo '<li id="series-'. esc_attr($serial['series_ID']) .'">
+                    <label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit">
+                        <input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> 
+                        <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span>
+                        <a class='selected-series-order' style='text-decoration: none;display:none;' href='" . admin_url("edit.php?page=manage-issues&action=part&series_ID=".$serial['series_ID']."") . "' target='blank'>
+                             ". __('Series Order', 'organize-series') ."
+                             <span class='dashicons dashicons-external'></span>
+                        </a>
+                        
+                    </label>
+                </li>";
 
 		}
 }
@@ -347,7 +358,7 @@ global $post, $postdata, $content, $orgseries;
     </p>
 		<span id="series-ajax-response"></span>
         
-        <?php if (is_array($series_list) && count($series_list) > 3) : ?>
+        <?php if (is_array($series_list) && count($series_list) > 1) : ?>
             <div class="editor-series-search">
                 <label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
                 <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
