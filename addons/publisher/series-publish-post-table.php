@@ -141,7 +141,6 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
 
 		if ( 'top' === $which ) {
 
-            $taxonomies = get_all_taxopress_public_taxonomies();
             $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field($_REQUEST['cat']) : '';
              ?>
             <div class="alignleft actions">
