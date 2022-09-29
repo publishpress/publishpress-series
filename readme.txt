@@ -194,7 +194,7 @@ v2.10.0- 2022-09-29
 * Fixed: Remove new taxonomy metabox #595
 * Fixed: Float left for next post navigation #586
 * Update: Series-Translation updates for Spanish July 21 #578
-* update: Series-Translation updates for French-Spanish-Italian #567
+* Update: Series-Translation updates for French-Spanish-Italian #567
 
 v2.9.2- 2022-07-12
 * Fixed: Problem with series navigation and List #568
