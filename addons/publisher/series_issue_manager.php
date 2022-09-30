@@ -353,12 +353,12 @@ function pps_publisher_published_success_message_admin_notice()
     if ($publish_at > strtotime(current_time('mysql'))) {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was scheduled successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were scheduled successfully.', 'organize-series')
         );
     } else {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was published successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were published successfully.', 'organize-series')
         );
     }
 }

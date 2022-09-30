@@ -37,6 +37,15 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return parent::get_table_classes();
     }
 
+	/**
+	 * Message to be displayed when there are no items
+	 *
+	 * @since 3.1.0
+	 */
+	public function no_items() {
+		_e( 'There are no unpublished posts in this series.', 'organize-series' );
+	}
+
     /**
      * Show single row item
      *
