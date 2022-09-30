@@ -173,7 +173,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.10.0- 2022-09-29
+v2.10.0- 2022-10-03
 * Feature: Add Series and Series Group re-order field with term drag and drop feature #584
 * Feature: Add series order link to series and new post selected series #612
 * Feature: Add series Groups(Categories) overview page shortcode [publishpress_series_categories] #591
@@ -195,6 +195,7 @@ v2.10.0- 2022-09-29
 * Fixed: Float left for next post navigation #586
 * Update: Series-Translation updates for Spanish July 21 #578
 * Update: Series-Translation updates for French-Spanish-Italian #567
+* Update: Remove "Create as unpublished"? #655
 
 v2.9.2- 2022-07-12
 * Fixed: Problem with series navigation and List #568

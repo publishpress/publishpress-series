@@ -227,7 +227,7 @@ if (!function_exists('series_issue_manager_add_series_form')) {
     {
         $published = get_option('im_published_series');
         $unpublished = get_option('im_unpublished_series'); ?>
-<div class="form-field">
+<div class="form-field" style="display:none;">
     <label for="series_publish">
         <p><?php _e('Create as unpublished:', 'organize-series') ?>
             <input style="float:left; width: 20px;" name="series_publish" id="series_publish" type="checkbox"
