@@ -196,6 +196,7 @@ v2.10.0- 2022-10-03
 * Update: Series-Translation updates for Spanish July 21 #578
 * Update: Series-Translation updates for French-Spanish-Italian #567
 * Update: Remove "Create as unpublished"? #655
+* Fixed: Series link in "Posts" table doesn't go anywhere #651
 
 v2.9.2- 2022-07-12
 * Fixed: Problem with series navigation and List #568

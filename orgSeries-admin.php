@@ -428,7 +428,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 		if ( $series = get_the_series($id, false) ) {
 			$seriesid = $series[0]->term_id;
 			$series_name = $series[0]->name;
-			$series_link = get_series_link($series_name);
+			$series_link = admin_url("edit.php?page=manage-issues&action=part&series_ID=".$seriesid."");
 			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
 			$count = $series[0]->count;
 
