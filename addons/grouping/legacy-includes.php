@@ -216,7 +216,7 @@ function orgseries_grouping_taxonomy() {
         'assign_terms' => 'manage_series'
     );
     $labels = array(
-        'name' => _x('Manage Series Categories', 'taxonomy general name', 'organize-series'),
+        'name' => _x('Series Categories', 'taxonomy general name', 'organize-series'),
         'singular_name' => _x('Series Category', 'taxonomy singular name', 'organize-series'),
         'search_items' => __('Search Series Categories', 'organize-series'),
         'popular_items' => __('Popular Series Categories', 'organize-series'),
@@ -275,7 +275,7 @@ function orgseries_grouping_import_existing_series() {
 }
 
 function orgseries_groups_admin_menu() {
-    add_submenu_page( 'edit.php', 'Manage Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
+    add_submenu_page( 'edit.php', 'Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
 }
 
 function orgseries_group_add_queryvars($qvs) {
