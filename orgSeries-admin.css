@@ -10,6 +10,10 @@
 .taxonomy-series .fixed .column-series_order {
     width: 100px;
 }
+.taxonomy-series .fixed .column-description, 
+.taxonomy-series .fixed .column-group {
+    width: 120px;
+}
 .taxonomy-series .fixed .column-slug {
     width: initial;
 }

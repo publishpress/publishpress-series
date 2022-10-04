@@ -227,7 +227,7 @@ if (!function_exists('series_issue_manager_add_series_form')) {
     {
         $published = get_option('im_published_series');
         $unpublished = get_option('im_unpublished_series'); ?>
-<div class="form-field">
+<div class="form-field" style="display:none;">
     <label for="series_publish">
         <p><?php _e('Create as unpublished:', 'organize-series') ?>
             <input style="float:left; width: 20px;" name="series_publish" id="series_publish" type="checkbox"
@@ -353,12 +353,12 @@ function pps_publisher_published_success_message_admin_notice()
     if ($publish_at > strtotime(current_time('mysql'))) {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was scheduled successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were scheduled successfully.', 'organize-series')
         );
     } else {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was published successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were published successfully.', 'organize-series')
         );
     }
 }

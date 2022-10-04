@@ -37,6 +37,15 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return parent::get_table_classes();
     }
 
+	/**
+	 * Message to be displayed when there are no items
+	 *
+	 * @since 3.1.0
+	 */
+	public function no_items() {
+		_e( 'There are no unpublished posts in this series.', 'organize-series' );
+	}
+
     /**
      * Show single row item
      *
@@ -65,6 +74,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             'categories'     => esc_html__('Categories', 'organize-series'),
             'tags'           => esc_html__('Tags', 'organize-series'),
             'post_status'    => esc_html__('Status', 'organize-series'),
+            'series_part'    => esc_html__('Order', 'organize-series'),
             'series_preview' => esc_html__('Preview', 'organize-series'),
         ];
 
@@ -92,6 +102,21 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
                         'field' => 'id',
                         'terms' => array($series_id)
                     )
+                ),
+                'meta_query' => array(
+                    "relation" => "or",
+                    'part_field_sort_value' => array(
+                        'key' => $meta_key,
+                        'type'=> 'NUMERIC'
+                    ), 
+                    'part_field_sort' => array(
+                        'key' => $meta_key,
+                        'compare' => 'NOT EXISTS',
+                        'type'=> 'NUMERIC'
+                    ),
+                ),
+                'orderby' => array( 
+                    'part_field_sort' => 'ASC'
                 ),
             );
 
@@ -141,7 +166,6 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
 
 		if ( 'top' === $which ) {
 
-            $taxonomies = get_all_taxopress_public_taxonomies();
             $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field($_REQUEST['cat']) : '';
              ?>
             <div class="alignleft actions">
@@ -289,6 +313,27 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int)$item->ID);
     
         return $out;
+    }
+
+    /**
+     * The series_part column
+     *
+     * @param $item
+     *
+     * @return string
+     */
+    protected function column_series_part($item)
+    {
+        $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
+        $series_part = get_post_meta($item->ID, SERIES_PART_KEY, true);
+
+        if(empty(trim($series_part))){
+            $series_part_output =  esc_html__('(Currently has no Part number)', 'organize-series');
+        }else{
+            $series_part_output = $series_part;
+        }
+
+        return $series_part_output;
     }
 
     /**

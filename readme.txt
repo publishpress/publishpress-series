@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.0
-Stable tag: 2.9.2
+Stable tag: 2.10.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,31 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.10.0- 2022-10-04
+* Feature: Add Series and Series Group re-order field with term drag and drop feature #584
+* Feature: Add series order link to series and new post selected series #612
+* Feature: Add series Groups(Categories) overview page shortcode [publishpress_series_categories] #591
+* Feature: Add search box to series metabox #239
+* Feature: Add settings to limit series meta display to single page only #588
+* Fixed: Only allow valid numbers in series part input #634
+* Update: Set series part if empty irrespective of Automatic Numbering settings #636
+* Feature: Add filter, search and pagination to "Publish Series" screen #510
+* Update: Enable "Show "Series Part"" by default #617
+* Fixed: Font styles and font sizes inconsistency on 'Series Table of Contents' widget page #604
+* Fixed: Syntax Error on 'Edit Series' page #607
+* Update: Simplify the Publish Series screen #614
+* Update: Change the menu links inside Series #615
+* Fixed: TOC template header and footer deprecated in FSE themes #623
+* Fixed: Groups template header and footer deprecated in FSE themes #416
+* Fixed: Series taxonomy template header and footer deprecated in FSE themes #409
+* Feature: Add "Series Groups" into a Free feature #613
+* Fixed: Remove new taxonomy metabox #595
+* Fixed: Float left for next post navigation #586
+* Update: Series-Translation updates for Spanish July 21 #578
+* Update: Series-Translation updates for French-Spanish-Italian #567
+* Update: Remove "Create as unpublished"? #655
+* Fixed: Series link in "Posts" table doesn't go anywhere #651
 
 v2.9.2- 2022-07-12
 * Fixed: Problem with series navigation and List #568

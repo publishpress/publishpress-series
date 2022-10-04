@@ -189,7 +189,7 @@ function upgrade_orgseries_grouping_from_one_five() {
 function orgseries_grouping_posttype() {
     global $checkpage, $_GET;
     $args = array(
-        'description' => 'Used for associating Series with groups',
+        'description' => 'Used for associating Series with series categoriess',
         'public' => false,
         'public_queryable' => true,
         'taxonomies' => array('category', 'series_group'),
@@ -216,7 +216,7 @@ function orgseries_grouping_taxonomy() {
         'assign_terms' => 'manage_series'
     );
     $labels = array(
-        'name' => _x('Manage Series Categories', 'taxonomy general name', 'organize-series'),
+        'name' => _x('Series Categories', 'taxonomy general name', 'organize-series'),
         'singular_name' => _x('Series Category', 'taxonomy singular name', 'organize-series'),
         'search_items' => __('Search Series Categories', 'organize-series'),
         'popular_items' => __('Popular Series Categories', 'organize-series'),
@@ -275,7 +275,7 @@ function orgseries_grouping_import_existing_series() {
 }
 
 function orgseries_groups_admin_menu() {
-    add_submenu_page( 'edit.php', 'Manage Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
+    add_submenu_page( 'edit.php', 'Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
 }
 
 function orgseries_group_add_queryvars($qvs) {
@@ -412,7 +412,7 @@ function select_series_group_filter($taxonomy) {
     if ( !empty($_GET['ser_grp']) ) $group_id = (int) $_GET['ser_grp'];
     if ( empty($group_id) ) $group_id = -1;
     $dropdown_args = array(
-        'show_option_all' => 'View all Groups',
+        'show_option_all' => 'View all Series Categories',
         'selected' => $group_id,
         'taxonomy' => 'series_group',
         'name' => 'ser_grp',
@@ -447,7 +447,7 @@ function series_grouping_columns_inside($content, $column_name, $id) {
 
 function manage_series_grouping_columns($columns) {
     global $pagenow;
-    $columns['group'] = __('Group(s)', 'organize-series');
+    $columns['group'] = __('Series Categories', 'organize-series');
     return $columns;
 }
 
@@ -468,7 +468,7 @@ function manage_series_grouping_columns_inside($content, $column_name, $id) {
             $category_names = implode(",",$cat_name);
             $column_return .= '<div class="hidden" id="inline_group_'.$id.'"><div class="group_inline_edit" id="sergroup_'.$id.'">'.$category_ids.'</div><div class="group_inline_name">'.$category_names.'</div></div>';
         } else {
-            $column_return .= __('No group', 'organize-series');
+            $column_return .= '&mdash;';
             $column_return .= '<div class="hidden" id="inline_group_"><div class="group_inline_edit">0</div><div class="group_inline_name"></div></div>';
         }
         $column_return .= '</div>';
@@ -488,7 +488,7 @@ function add_orgseries_group_fields($taxonomy) {
         <div id="side-info-column" class="inner-sidebar">
             <div id="side-sortables" class="meta-box-sortables">
                 <div id="categorydiv" class="postbox">
-                    <div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br /></div><h3 class='hndle'><span><?php _e('Groups', 'organize-series'); ?></span></h3>
+                    <div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br /></div><h3 class='hndle'><span><?php _e('Series Categories', 'organize-series'); ?></span></h3>
                     <div class="inside">
                         <?php post_categories_meta_box( $empty, $box ); ?>
                     </div>
@@ -509,7 +509,7 @@ function edit_orgseries_group_fields($series, $taxonomy) {
 
     ?>
     <tr class="form-field term-groups-wrap">
-			<th scope="row"><label for="groups"><h3 class='hndle'><span><?php _e('Groups'); ?></span></h3></label></th>
+			<th scope="row"><label for="groups"><h3 class='hndle'><span><?php _e('Series Categories'); ?></span></h3></label></th>
 			<td>
         <div class="metabox-holder">
             <div id="side-info-column" class="">
@@ -518,7 +518,7 @@ function edit_orgseries_group_fields($series, $taxonomy) {
                         <div class="inside">
                             <div id="taxonomy-category" class="categorydiv">
                                 <ul id="category-tabs" class="category-tabs">
-                                    <li class="tabs"><a href="#category-all" tabindex="3">All Groups</a></li>
+                                    <li class="tabs"><a href="#category-all" tabindex="3"><?php _e('All Series Categories'); ?></a></li>
                                 </ul>
                                 <div id="category-all" class="tabs-panel">
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
@@ -543,7 +543,7 @@ function orgseries_group_inline_edit($column_name, $type, $taxonomy) {
     if ( $taxonomy == ppseries_get_series_slug() && $column_name == 'group' ) { //takes care of WP3.1 changes (prevents duplicate output)
         ?>
         <fieldset class="inline-edit-col-right inline-edit-categories"><div class="inline-edit-col">
-			<span class="title inline-edit-categories-label"><?php _e('Groups', 'organize-series'); ?>
+			<span class="title inline-edit-categories-label"><?php _e('Series Categories', 'organize-series'); ?>
                 <span class="catshow"><?php _e('[more]'); ?></span>
 				<span class="cathide" style="display:none;"><?php _e('[less]'); ?></span>
 			</span>

@@ -172,6 +172,15 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         return !empty($item->$column_name) ? $item->$column_name : '&mdash;';
     }
 
+	/**
+	 * Message to be displayed when there are no items
+	 *
+	 * @since 3.1.0
+	 */
+	public function no_items() {
+		_e( 'There are no posts in this series.', 'organize-series' );
+	}
+
     /**
      * The checkbox column
      *

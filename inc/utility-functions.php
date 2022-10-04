@@ -73,6 +73,7 @@ function pps_os_version_requirement_notice() {
         //activation functions/codes
         function pp_series_upgrade_function()
         {
+            global $wpdb;
     
             if (!get_option('pp_series_2_7_1_upgraded')) {
               if ( function_exists( 'get_role' ) ) {
@@ -118,6 +119,13 @@ function pps_os_version_requirement_notice() {
               }
               update_option('pp_series_2_10_0_upgraded', true);
         }
+    
+        if (!get_option('pp_series_2_10_0_1_upgraded')) {
+            if (!$wpdb->query("SELECT `term_order` FROM `{$wpdb->terms}`")) {
+                $wpdb->query("ALTER TABLE `{$wpdb->terms}` ADD `term_order` INT (11) NOT NULL DEFAULT 0;");
+                update_option('pp_series_2_10_0_1_upgraded', true);
+            }
+       }
 
     
         }
