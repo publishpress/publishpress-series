@@ -173,7 +173,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.10.0- 2022-10-03
+v2.10.0- 2022-10-04
 * Feature: Add Series and Series Group re-order field with term drag and drop feature #584
 * Feature: Add series order link to series and new post selected series #612
 * Feature: Add series Groups(Categories) overview page shortcode [publishpress_series_categories] #591
