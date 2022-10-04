@@ -227,7 +227,7 @@ if (!function_exists('series_issue_manager_add_series_form')) {
     {
         $published = get_option('im_published_series');
         $unpublished = get_option('im_unpublished_series'); ?>
-<div class="form-field">
+<div class="form-field" style="display:none;">
     <label for="series_publish">
         <p><?php _e('Create as unpublished:', 'organize-series') ?>
             <input style="float:left; width: 20px;" name="series_publish" id="series_publish" type="checkbox"
@@ -353,12 +353,12 @@ function pps_publisher_published_success_message_admin_notice()
     if ($publish_at > strtotime(current_time('mysql'))) {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was scheduled successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were scheduled successfully.', 'organize-series')
         );
     } else {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your series was published successfully.', 'organize-series')
+            esc_html__('Congratulations. Your posts were published successfully.', 'organize-series')
         );
     }
 }
@@ -498,7 +498,7 @@ class PPS_Publisher_Admin
         $page = add_submenu_page(
             'edit.php',
             __('Manage Series Issues', 'organize-series'),
-            __('Publish Series', 'organize-series'),
+            __('Manage Series', 'organize-series'),
             'publish_posts',
             'manage-issues',
             [$this, 'series_issue_manager_admin']
@@ -520,9 +520,15 @@ class PPS_Publisher_Admin
     public function screen_option()
     {
         if(isset($_GET['action']) && $_GET['action'] === 'list'){
+            $option = 'per_page';
+            $args   = [
+                'label'   => esc_html__('Number of items per page', 'organize-series'),
+                'default' => 20,
+                'option'  => 'pp_series_publisher_per_page'
+            ];
             include_once 'series-publish-post-table.php';
             $this->series_publish_table = new PPS_Publisher_Post_Publish_Table();
-
+            add_screen_option($option, $args);
         }
         if(isset($_GET['action']) && ($_GET['action'] === 'part' || $_GET['action'] === 'order')){
             include_once 'series-part-post-table.php';
@@ -616,10 +622,26 @@ class PPS_Publisher_Admin
             <h1><?php esc_html_e('Publishing Series:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>
             </h1>
+            <?php
+                if (isset($_REQUEST['s']) && $search = esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s'])))) {
+                    /* translators: %s: search keywords */
+                    printf(' <span class="subtitle">' . esc_html__('Search results for &#8220;%s&#8221;',
+                            'organize-series') . '</span>', esc_html($search));
+                }
+                ?>
             <div id="poststuff">
+
                 <div id="post-body" class="metabox-holder columns-2">
 
                 <div id="post-body-content" style="position: relative;">
+
+                        <hr class="wp-header-end">
+                        <div id="ajax-response"></div>
+                        <form class="search-form wp-clearfix series-publisher-search" method="get">
+                            <?php $this->series_publish_table->search_box(esc_html__('Search', 'organize-series'), 'search'); ?>
+                        </form>
+                        <div class="clear"></div>
+
                         <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
                         <?php
 

@@ -73,6 +73,7 @@ function pps_os_version_requirement_notice() {
         //activation functions/codes
         function pp_series_upgrade_function()
         {
+            global $wpdb;
     
             if (!get_option('pp_series_2_7_1_upgraded')) {
               if ( function_exists( 'get_role' ) ) {
@@ -101,12 +102,30 @@ function pps_os_version_requirement_notice() {
                //add new series settings only if not fresh installation
                if ($settings) {
                    $settings['metabox_show_post_title_in_widget'] = 0;
-                   $settings['metabox_show_series_part'] = 0;
+                   $settings['metabox_show_series_part'] = 1;
                    $settings['metabox_show_add_new'] = 0;
                    update_option('org_series_options', $settings);
                }
                update_option('pp_series_2_8_0_upgraded', true);
          }
+    
+         if (!get_option('pp_series_2_10_0_upgraded')) {
+              $settings = get_option('org_series_options');
+              $settings = apply_filters('org_series_settings', $settings);
+              //add new series settings only if not fresh installation
+              if ($settings) {
+                  $settings['limit_series_meta_to_single'] = 0;
+                  update_option('org_series_options', $settings);
+              }
+              update_option('pp_series_2_10_0_upgraded', true);
+        }
+    
+        if (!get_option('pp_series_2_10_0_1_upgraded')) {
+            if (!$wpdb->query("SELECT `term_order` FROM `{$wpdb->terms}`")) {
+                $wpdb->query("ALTER TABLE `{$wpdb->terms}` ADD `term_order` INT (11) NOT NULL DEFAULT 0;");
+                update_option('pp_series_2_10_0_1_upgraded', true);
+            }
+       }
 
     
         }
@@ -142,6 +161,116 @@ function pps_os_version_requirement_notice() {
 
             return $located;
     
+        }
+    }
+
+
+    if (!function_exists('pp_series_is_block_theme')) {
+        /**
+         * Check if current active theme is block theme/support full site editing
+         *
+         * @return bool
+         */
+        function pp_series_is_block_theme()
+        {
+            $is_block_theme = false;
+
+            if (function_exists('wp_is_block_theme')
+            && function_exists('block_template_part')
+            && wp_is_block_theme()
+        ) {
+                $is_block_theme = true;
+            }
+
+            return $is_block_theme;
+        }
+    }
+
+
+    if (!function_exists('pp_series_get_block_theme_header')) {
+        /**
+         * Retreive block theme header
+         *
+         * @return string
+         */
+        function pp_series_get_block_theme_header()
+        {
+            $block_theme_header = '';
+
+            if (pp_series_is_block_theme()) {
+                $header_template_part = get_block_template(get_stylesheet() . '//header', 'wp_template_part');
+                if ($header_template_part && isset($header_template_part->content)) {
+                    $block_theme_header = do_blocks($header_template_part->content);
+                }
+            }
+
+            return $block_theme_header;
+        }
+    }
+
+
+    if (!function_exists('pp_series_get_block_theme_footer')) {
+        /**
+         * Retreive block theme footer
+         *
+         * @return string
+         */
+        function pp_series_get_block_theme_footer()
+        {
+            $block_theme_footer = '';
+
+            if (pp_series_is_block_theme()) {
+                $footer_template_part = get_block_template(get_stylesheet() . '//footer', 'wp_template_part');
+                if ($footer_template_part && isset($footer_template_part->content)) {
+                    $block_theme_footer = do_blocks($footer_template_part->content);
+                }
+            }
+
+            return $block_theme_footer;
+        }
+    }
+
+
+    if (!function_exists('pp_series_format_block_theme_header')) {
+        /**
+         * Format block theme header
+         *
+         * @return void
+         */
+        function pp_series_format_block_theme_header()
+        {
+            $fse_header = pp_series_get_block_theme_header();
+            $fse_footer = pp_series_get_block_theme_footer();//we need to get footer as well before wp_head() call to enable fse css generator
+        ?> 
+        <!doctype html>
+        <html <?php language_attributes(); ?>>
+        <head>
+             <meta charset="<?php bloginfo('charset'); ?>">
+             <?php wp_head(); ?>
+        </head>
+        <body <?php body_class(); ?>>
+        <?php wp_body_open(); ?>
+        <div class="wp-site-blocks">
+        <?php echo $fse_header; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        }
+    }
+
+
+    if (!function_exists('pp_series_format_block_theme_footer')) {
+        /**
+         * Format block theme footer
+         *
+         * @return void
+         */
+        function pp_series_format_block_theme_footer()
+        {
+            $fse_footer = pp_series_get_block_theme_footer(); ?>
+        </div>
+        <?php echo $fse_footer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            wp_footer(); ?>
+            </body>
+        </html>
+        <?php
         }
     }
 ?>

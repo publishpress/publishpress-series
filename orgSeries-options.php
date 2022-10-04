@@ -156,6 +156,7 @@ function orgseries_validate($input) {
 	$newinput['metabox_show_add_new'] = ( isset($input['metabox_show_add_new']) && $input['metabox_show_add_new'] == 1 ? 1 : 0 );
 	$newinput['metabox_show_series_part'] = ( isset($input['metabox_show_series_part']) && $input['metabox_show_series_part'] == 1 ? 1 : 0 );
 	$newinput['metabox_show_post_title_in_widget'] = ( isset($input['metabox_show_post_title_in_widget']) && $input['metabox_show_post_title_in_widget'] == 1 ? 1 : 0 );
+	$newinput['limit_series_meta_to_single'] = ( isset($input['limit_series_meta_to_single']) && $input['limit_series_meta_to_single'] == 1 ? 1 : 0 );
 
 	$newinput['series_perp_toc'] = trim(preg_replace('/[^0-9]/', '', ($input['series_perp_toc'])));
 
@@ -712,6 +713,11 @@ function series_templates_core_fieldset() {
                                 </p>
 								</td>
 							</tr>
+
+                            <tr valign="top"><th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Limit series meta to single page only', 'organize-series'); ?></label></th>
+                                <td><input name="<?php echo esc_attr($org_name);?>[limit_series_meta_to_single]" value="1" id="limit_series_meta_to_single" type="checkbox" <?php checked('1', isset($org_opt['limit_series_meta_to_single']) ? $org_opt['limit_series_meta_to_single'] : ''); ?> />
+                    	        <span class="description"><?php esc_html_e('Whether to limit series meta display to single page only or include archive page.', 'organize-series'); ?></span></td>
+                            </tr>
 
 							<tr valign="top">
     							<th scope="row" colspan="2">

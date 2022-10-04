@@ -1,6 +1,4 @@
 .seriesbox {
-	display:inline;
-	float: right;
 	background: #222;
 	color: #f2f2f2;
 	text-align: left;
@@ -40,4 +38,13 @@
 
 .series-nav-left {
     margin-right: 20px;
+}
+
+@media (min-width:979px) {
+	body:not([class*="theme-twentytwenty"]) .series-nav-left {
+		float: left;
+	}
+	body:not([class*="theme-twentytwenty"]) .series-nav-right {
+		float: right;
+	}
 }

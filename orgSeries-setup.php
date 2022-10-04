@@ -286,8 +286,14 @@ class orgSeries {
 			'update_item' => __('Update Series', 'organize-series'),
 			'add_new_item' => __('Add New Series', 'organize-series'),
 			'new_item_name' => __('New Series Name', 'organize-series'),
-			'menu_name' => __('Manage Series', 'organize-series'),
-			'not_found' => __('No series found', 'organize-series')
+			'menu_name' => __('Series', 'organize-series'),
+			'not_found' => __('No series found', 'organize-series'),
+			'back_to_items' => __('&larr; Go to Series', 'organize-series'),
+			'view_item' => __('View Series', 'organize-series'),
+			'no_terms' => __('No Series', 'organize-series'),
+			'items_list' => __('Series List', 'organize-series'),
+			'item_link' => __('Series Link', 'organize-series'),
+			'item_link_description' => __('A link to a Series', 'organize-series')
 			);
 		$args = array(
 			'update_count_callback' => '_os_update_post_term_count',
@@ -309,7 +315,7 @@ class orgSeries {
 			'custom_css' => 1,
 			'automatic_series_part' => 0,
 			'metabox_show_add_new' => 0,
-			'metabox_show_series_part' => 0,
+			'metabox_show_series_part' => 1,
 			'metabox_show_post_title_in_widget' => 0,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
@@ -321,6 +327,7 @@ class orgSeries {
 			'series_post_list_limit' => '',
 			'series_post_list_position' => 'default',
 			'series_metabox_position' => 'default',
+			'limit_series_meta_to_single' => 0,
 			'series_navigation_box_position' => 'default',
 			'series_toc_title' => __('All Series','organize-series'),
 		//new template options
@@ -654,6 +661,10 @@ class orgSeries {
         */
         $add_series_content = apply_filters('pp_series_add_series_content', true);
         
+        if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
+            return $content;
+        }
+        
 		if($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
@@ -679,6 +690,11 @@ class orgSeries {
 
 	function add_series_meta_excerpt($content) {
 		if ( is_single() ) return;
+        
+        if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
+            return $content;
+        }
+        
 		if($this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write(true)) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';

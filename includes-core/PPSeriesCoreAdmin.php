@@ -16,6 +16,8 @@ class PPSeriesCoreAdmin {
                                     ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
                                     ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
                                     ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
+                                    ['base' => 'edit-tags', 'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
+                                    ['base' => 'term',      'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
                                     ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ]
                                 ]
                             ];
@@ -37,26 +39,7 @@ class PPSeriesCoreAdmin {
             }
         }
 
-        add_action('publishpress_series_admin_menu_page', [$this, 'publishpress_series_admin_menu_page']);
         add_action('publishpress_series_admin_after_sidebar', [$this, 'publishpress_series_advertising_sidebar_banner']);
-    }
-
-    public function publishpress_series_admin_menu_page(){
-        add_submenu_page(
-            'orgseries_options_page',
-            esc_html__('Series Groups', 'organize-series'),
-            esc_html__('Series Groups', 'organize-series'),
-            'manage_publishpress_series',
-            'pp-series-pro-placeholders-series-group',
-            [$this, 'placeholderPageSeriesGroup'],
-            12
-        );
-    }
-
-    public function placeholderPageSeriesGroup(){
-        wp_register_style('pps-pro-placeholder-css', SERIES_PATH_URL . 'includes-core/pro-placeholder/assets/css/placeholder.css', [], ORG_SERIES_VERSION);
-        wp_enqueue_style( 'pps-pro-placeholder-css' );
-        include_once __DIR__ . '/pro-placeholder/views/series-group-placeholder.php';
     }
     
     public function publishpress_series_advertising_sidebar_banner(){ 

@@ -7,6 +7,24 @@
     margin: 5px 0 15px;
     padding: 5px 5px;
 }
+.taxonomy-series .fixed .column-series_order {
+    width: 100px;
+}
+.taxonomy-series .fixed .column-description, 
+.taxonomy-series .fixed .column-group {
+    width: 120px;
+}
+.taxonomy-series .fixed .column-slug {
+    width: initial;
+}
+.taxonomy-series .fixed .column-posts {
+    text-align: left;
+}
+
+#serieschecklist li label input:checked ~ .selected-series-order {
+    display: inline-block !important;
+    margin-left: 5px;
+}
 
 .ppseries-settings-tab-content .stuffbox > h3, 
 .ppseries-settings-tab-content .postbox > h3, 

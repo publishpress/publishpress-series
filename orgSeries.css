@@ -44,8 +44,6 @@ li.serieslist-li {
 }
 
 .seriesbox {
-	display:inline;
-	float: right;
 	background: #F8F8F8;
 	color: #777;
 	text-align: left;

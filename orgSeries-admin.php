@@ -32,8 +32,31 @@ add_action('admin_enqueue_scripts','orgSeries_admin_assets');
 add_action( 'in_admin_footer', 'orgSeries_admin_footer' );
 
 add_action('wp_ajax_ppseries_pro_migrate_series_by_ajax', 'ppseries_pro_migrate_series_by_ajax');
+add_filter('rest_prepare_taxonomy', 'publishpress_series_remove_gutenberg_series_metabox', 100, 3);
 
 
+/**
+ * Remove series metabox for gutenberg
+ *
+ * @param object $response
+ * @param object $taxonomy
+ * @param array $request
+ * 
+ * @return object $response
+ */
+function publishpress_series_remove_gutenberg_series_metabox($response, $taxonomy, $request) {
+        $context       = ! empty( $request['context'] ) ? $request['context'] : 'edit';
+        $taxonomy_name = isset($taxonomy->name) ? $taxonomy->name : false;
+
+        // Context is edit in the editor
+        if ($taxonomy_name === ppseries_get_series_slug() && $context === 'edit') {
+            $data_response = $response->get_data();
+            $data_response['visibility']['show_ui'] = false;
+            $response->set_data($data_response);
+        }
+
+        return $response;
+}
 
 function ppseries_pro_migrate_series_by_ajax()
 {
@@ -288,7 +311,18 @@ function write_series_list( $series ) { //copied from write_nested_categories in
 	global $orgseries;
 		echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 		foreach ( $series as $serial ) {
-			echo '<li id="series-'. esc_attr($serial['series_ID']) .'"><label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit"><input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span></label></li>";
+            $series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
+			echo '<li id="series-'. esc_attr($serial['series_ID']) .'">
+                    <label for="in-series-'. esc_attr($serial['series_ID']) . '" class="selectit">
+                        <input value="' .  esc_attr($serial['series_ID']) .  '" type="radio" name="post_series" id="in-series-' .  esc_attr($serial['series_ID']) .  '"' . ($serial['checked'] ? ' checked="checked"' : '' ) .  '/> 
+                        <span class="li-series-name">' . esc_html( $serial['ser_name'] ) . "</span>
+                        <a class='selected-series-order' style='text-decoration: none;display:none;' href='" . admin_url("edit.php?page=manage-issues&action=part&series_ID=".$serial['series_ID']."") . "' target='blank'>
+                             ". __('Series Order', 'organize-series') ."
+                             <span class='dashicons dashicons-external'></span>
+                        </a>
+                        
+                    </label>
+                </li>";
 
 		}
 }
@@ -315,7 +349,7 @@ global $post, $postdata, $content, $orgseries;
     $metabox_show_series_part = isset($org_opt['metabox_show_series_part']) ? (int)$org_opt['metabox_show_series_part'] : 0;
     $metabox_show_post_title_in_widget = isset($org_opt['metabox_show_post_title_in_widget']) ? (int)$org_opt['metabox_show_post_title_in_widget'] : 0;
     $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int)$org_opt['metabox_show_add_new'] : 0;
-
+    $series_list = get_series_list(0);
 	?>
     <div class="series-metadiv">
         <div class="tabs-panel">
@@ -323,14 +357,23 @@ global $post, $postdata, $content, $orgseries;
     <span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off"/><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden"/><input type="hidden"/></span><span id="series-ajax-response"></span><span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
     </p>
 		<span id="series-ajax-response"></span>
+        
+        <?php if (is_array($series_list) && count($series_list) > 1) : ?>
+            <div class="editor-series-search">
+                <label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
+                <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
+            </div>
+        <?php endif; ?>
+
 		<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
-				<?php get_series_to_select(); ?>
+				<?php write_series_list($series_list); ?>
 		</ul>
 
         <div class="series-part-wrap" style="<?php echo ($metabox_show_series_part === 0) ? 'display: none;' : ''; ?>">
             <span id="seriespart">
-                <strong> <?php esc_html_e('Series Part:', 'organize-series'); ?>   </strong>
-                <input type="text" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" />
+                <strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
+                <input class="small-text pp-series-part-input" min="1" type="number" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" />
             </span>
             <p id="part-description" class="howto">
                 <?php esc_html_e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?>
@@ -385,7 +428,7 @@ function orgSeries_custom_column_action($column_name, $id) {
 		if ( $series = get_the_series($id, false) ) {
 			$seriesid = $series[0]->term_id;
 			$series_name = $series[0]->name;
-			$series_link = get_series_link($series_name);
+			$series_link = admin_url("edit.php?page=manage-issues&action=part&series_ID=".$seriesid."");
 			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
 			$count = $series[0]->count;
 

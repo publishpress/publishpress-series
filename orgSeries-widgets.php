@@ -70,7 +70,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$number = (int) $instance['number'];
 		?>
 		<p class="ppseries-widget-paragraph">
-			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title:', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 		<p class="ppseries-widget-paragraph">
@@ -265,7 +265,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		$series_array_list = ppseries_get_series_list();
 		?>
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title:', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 
@@ -275,23 +275,23 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<strong><?php esc_html_e('Show Series Table Of Content as', 'organize-series'); ?></strong><br />
-			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>"><?php esc_html_e(' Dropdown: ', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
-			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>"><?php esc_html_e(' List: ', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
+			<label><strong><?php esc_html_e('Show Series Table Of Content as:', 'organize-series'); ?></strong></label><br />
+			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>"><?php esc_html_e('Dropdown:', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-dropdown'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="dropdown" <?php checked('dropdown', $list_type); ?> /></label>
+			<label for="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>"><?php esc_html_e('List:', 'organize-series'); ?><input type="radio" id="<?php echo esc_attr($this->get_field_id('list-type')).'-list'; ?>" name="<?php echo esc_attr($this->get_field_name('list-type')); ?>" value="list" <?php checked('list', $list_type); ?> /></label>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('show-count')); ?>"><strong><?php esc_html_e('Show post count', 'organize-series'); ?></strong>
+			<label for="<?php echo esc_attr($this->get_field_id('show-count')); ?>"><strong><?php esc_html_e('Show post count:', 'organize-series'); ?></strong>
 			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('show-count')); ?>" name="<?php echo esc_attr($this->get_field_name('show-count')); ?>" value="1" <?php checked('1', $show_count); ?> /></label>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('hide-empty')); ?>"><strong><?php esc_html_e('Hide empty series', 'organize-series'); ?></strong>
+			<label for="<?php echo esc_attr($this->get_field_id('hide-empty')); ?>"><strong><?php esc_html_e('Hide empty series:', 'organize-series'); ?></strong>
 			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('hide-empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide-empty')); ?>" value="1" <?php checked('1', $hide_empty); ?> /></label>
 		</p>
 
 		<p>
-		<label for="<?php echo esc_attr($this->get_field_id('os_orderby')).''; ?>"><strong><?php esc_html_e('Order by	', 'organize-series'); ?></strong></label>
+		<label for="<?php echo esc_attr($this->get_field_id('os_orderby')).''; ?>"><strong><?php esc_html_e('Order by:', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_orderby')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_orderby')); ?>">
 				<?php 
 				$order_by_options = [
@@ -311,7 +311,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_order')).''; ?>"><strong><?php esc_html_e('Order	', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_order')).''; ?>"><strong><?php esc_html_e('Order:', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_order')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_order')); ?>">
 				<?php 
 				$order_options = [
@@ -329,7 +329,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_exclude')).''; ?>"><strong><?php esc_html_e('Exclude series', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_exclude')).''; ?>"><strong><?php esc_html_e('Exclude series:', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_exclude')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_exclude')); ?>[]" multiple>
 				<?php 
 				if(is_array($series_array_list) && count($series_array_list) > 0) {
@@ -344,7 +344,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_include')).''; ?>"><strong><?php esc_html_e('Include series', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_include')).''; ?>"><strong><?php esc_html_e('Include series:', 'organize-series'); ?></strong></label>
 			<select class="widefat" id="<?php echo esc_attr($this->get_field_id('os_include')).''; ?>" name="<?php echo esc_attr($this->get_field_name('os_include')); ?>[]" multiple>
 				<?php 
 				if(is_array($series_array_list) && count($series_array_list) > 0) {
@@ -359,24 +359,24 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_number')); ?>"><strong><?php esc_html_e('Number of Series', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_number')); ?>"><strong><?php esc_html_e('Number of Series:', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_number')); ?>" name="<?php echo esc_attr($this->get_field_name('os_number')); ?>" type="number" min="1" value="<?php echo esc_attr($os_number); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_offset')); ?>"><strong><?php esc_html_e('Offset', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_offset')); ?>"><strong><?php esc_html_e('Offset:', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_offset')); ?>" name="<?php echo esc_attr($this->get_field_name('os_offset')); ?>" type="number" min="1" value="<?php echo esc_attr($os_offset); ?>" />
-			<br /> <small><?php esc_html_e('You can select the offset for the number of series (useful for paging).  No offset if left blank', 'organize-series'); ?></small>
+			 <small><?php esc_html_e('You can select the offset for the number of series (useful for paging).  No offset if left blank', 'organize-series'); ?></small>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('os_search')); ?>"><strong><?php esc_html_e('Search', 'organize-series'); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('os_search')); ?>"><strong><?php esc_html_e('Search:', 'organize-series'); ?></strong></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('os_search')); ?>" name="<?php echo esc_attr($this->get_field_name('os_search')); ?>" type="text" value="<?php echo esc_attr($os_search); ?>" />
-			<br /> <small><?php esc_html_e('You can return any series that match this search string (matched against series names) - case insensitive', 'organize-series'); ?></small>
+			<small><?php esc_html_e('You can return any series that match this search string (matched against series names)', 'organize-series'); ?></small>
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('postlistdisplay-toggle')); ?>"><strong><?php esc_html_e('Show other posts in the current series', 'organize-series'); ?></strong>
+			<label for="<?php echo esc_attr($this->get_field_id('postlistdisplay-toggle')); ?>"><strong><?php esc_html_e('Show other posts in the current series:', 'organize-series'); ?></strong>
 			<input type="checkbox" id="<?php echo esc_attr($this->get_field_id('postlistdisplay-toggle')); ?>" name="<?php echo esc_attr($this->get_field_name('postlistdisplay-toggle')); ?>" value="1" <?php checked('1', $postlistdisplay_toggle); ?> /></label>
 		</p>
 
@@ -412,10 +412,10 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id('serieswidget-title')); ?>"><strong><?php esc_html_e('Series widget title:', 'organize-series'); ?></strong><br />
+			<label for="<?php echo esc_attr($this->get_field_id('serieswidget-title')); ?>"><strong><?php esc_html_e('Series widget title:', 'organize-series'); ?></strong></label><br />
 				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('serieswidget-title')); ?>" name="<?php echo esc_attr($this->get_field_name('serieswidget-title')); ?>" type="text" value="<?php echo esc_attr($widget_title); ?>" />
 			<small><?php esc_html_e('This text will display above other posts in this series.', 'organize-series'); ?></small><br />
-			</label><br />
+			<br />
 		</p>
 
 		<?php

@@ -37,6 +37,15 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return parent::get_table_classes();
     }
 
+	/**
+	 * Message to be displayed when there are no items
+	 *
+	 * @since 3.1.0
+	 */
+	public function no_items() {
+		_e( 'There are no unpublished posts in this series.', 'organize-series' );
+	}
+
     /**
      * Show single row item
      *
@@ -65,6 +74,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             'categories'     => esc_html__('Categories', 'organize-series'),
             'tags'           => esc_html__('Tags', 'organize-series'),
             'post_status'    => esc_html__('Status', 'organize-series'),
+            'series_part'    => esc_html__('Order', 'organize-series'),
             'series_preview' => esc_html__('Preview', 'organize-series'),
         ];
 
@@ -78,10 +88,13 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         $series_posts = [];
 
         if ($series_id) {
+            $per_page = $this->get_items_per_page('pp_series_publisher_per_page', 20);
+            $current_page = $this->get_pagenum();
+
             $arg = array(
                 'post_status' => ['future', 'draft', 'pending'],
-                'posts_per_page' => -1,
-                'no_found_rows' => true,
+                'paged' => $current_page,
+                'posts_per_page' => $per_page,
                 'tax_query' => array(
                     'relation' => 'AND',
                     array(
@@ -90,12 +103,143 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
                         'terms' => array($series_id)
                     )
                 ),
+                'meta_query' => array(
+                    "relation" => "or",
+                    'part_field_sort_value' => array(
+                        'key' => $meta_key,
+                        'type'=> 'NUMERIC'
+                    ), 
+                    'part_field_sort' => array(
+                        'key' => $meta_key,
+                        'compare' => 'NOT EXISTS',
+                        'type'=> 'NUMERIC'
+                    ),
+                ),
+                'orderby' => array( 
+                    'part_field_sort' => 'ASC'
+                ),
             );
+
+            /**
+             * Handle category filter
+             */
+            if ((!empty($_REQUEST['cat'])) && $category = sanitize_text_field($_REQUEST['cat'])) {
+                $arg['tax_query'][] = [
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => array($category)
+                ];
+            }
+
+            /**
+             * Handle search
+             */
+            if ((!empty($_REQUEST['s'])) && $search = sanitize_text_field($_REQUEST['s'])) {
+                $arg['s'] = $search;
+            }
+
             $series_query = new WP_Query($arg);
-            $series_posts = $series_query->posts;
+    
+            return ['posts'=> $series_query->posts, 'counts'=> $series_query->found_posts];
         }
 
         return $series_posts;
+    }
+
+    /**
+     * Returns the count of records in the database.
+     *
+     * @return null|string
+     */
+    public static function record_count()
+    {
+        return $this->get_table_data()['counts'];
+    }
+
+
+	/**
+     * Add custom filter to tablenav
+	 *
+	 * @param string $which
+	 */
+	protected function extra_tablenav( $which ) {
+
+		if ( 'top' === $which ) {
+
+            $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field($_REQUEST['cat']) : '';
+             ?>
+            <div class="alignleft actions">
+                <?php 
+                wp_dropdown_categories(
+                    array(
+                        'show_option_all' => __( 'All Categories', 'organize-series' ),
+                        'orderby'         => 'name',
+                        'order'           => 'ASC',
+                        'hide_empty'      => false,
+                        'hide_if_empty'   => true,
+                        'selected'        => $selected_category,
+                        'hierarchical'    => true,
+                        'name'            => 'cat',
+                        'taxonomy'        => 'category',
+                        'value_field'     => 'slug',
+                    )
+                );
+
+                submit_button( __( 'Filter', 'organize-series' ), '', 'filter_action', false, array( 'id' => 'post-query-submit' ) );
+                ?>
+            </div>
+        <?php
+		}
+	}
+
+    /**
+     * Displays the search box.
+     *
+     * @param string $text The 'submit' button label.
+     * @param string $input_id ID attribute value for the search input field.
+     *
+     *
+     */
+    public function search_box($text, $input_id)
+    {
+        if (!isset($_REQUEST['s']) && !$this->has_items()) {
+            return;
+        }
+
+        $input_id = $input_id . '-search-input';
+
+        if (!empty($_REQUEST['orderby'])) {
+            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
+        }
+        if (!empty($_REQUEST['order'])) {
+            echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
+        }
+        if (!empty($_REQUEST['page'])) {
+            echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
+        }
+        if (!empty($_REQUEST['action'])) {
+            echo '<input type="hidden" name="action" value="' . esc_attr(sanitize_text_field($_REQUEST['action'])) . '" />';
+        }
+        if (!empty($_REQUEST['series_ID'])) {
+            echo '<input type="hidden" name="series_ID" value="' . esc_attr(sanitize_text_field($_REQUEST['series_ID'])) . '" />';
+        }
+        if (!empty($_REQUEST['cat'])) {
+            echo '<input type="hidden" name="cat" value="' . esc_attr(sanitize_text_field($_REQUEST['cat'])) . '" />';
+        }
+        
+        if (!empty($_REQUEST['s'])) {
+            echo '<input type="hidden" name="s" value="' . esc_attr(sanitize_text_field($_REQUEST['s'])) . '" />';
+        }
+            
+        echo '<input type="hidden" name="action" value="list" />';
+        ?>
+        <p class="search-box">
+            <label class="screen-reader-text" for="<?php echo esc_attr($input_id); ?>"><?php echo esc_html($text); ?>:</label>
+            <input type="search" id="<?php echo esc_attr($input_id); ?>" name="s"
+                   value="<?php _admin_search_query(); ?>"/>
+            <?php submit_button($text, '', '', false, ['id' => 'taxopress-log-search-submit']); ?>
+        </p>
+        <?php
     }
 
     /**
@@ -169,6 +313,27 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int)$item->ID);
     
         return $out;
+    }
+
+    /**
+     * The series_part column
+     *
+     * @param $item
+     *
+     * @return string
+     */
+    protected function column_series_part($item)
+    {
+        $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
+        $series_part = get_post_meta($item->ID, SERIES_PART_KEY, true);
+
+        if(empty(trim($series_part))){
+            $series_part_output =  esc_html__('(Currently has no Part number)', 'organize-series');
+        }else{
+            $series_part_output = $series_part;
+        }
+
+        return $series_part_output;
     }
 
     /**
@@ -294,42 +459,30 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     public function prepare_items()
     {
+
         /**
          * First, lets decide how many records per page to show
          */
-        $per_page = $this->get_items_per_page(str_replace('-', '_', $this->screen->id . '_per_page'), 999);
-
+        $per_page = $this->get_items_per_page('pp_series_publisher_per_page', 20);
 
         /**
          * Fetch the data
          */
-        $data = $this->get_table_data();
-
-        /**
-         * Pagination.
-         */
+        $results = $this->get_table_data();
+        $data = $results['posts'];
+        $total_items  = $results['counts'];
         $current_page = $this->get_pagenum();
-        $total_items = count($data);
-
-
-        /**
-         * The WP_List_Table class does not handle pagination for us, so we need
-         * to ensure that the data is trimmed to only the current page. We can use
-         * array_slice() to
-         */
-        $data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
 
         /**
          * Now we can add the data to the items property, where it can be used by the rest of the class.
          */
         $this->items = $data;
-
         /**
          * We also have to register our pagination options & calculations.
          */
         $this->set_pagination_args([
             'total_items' => $total_items,                      //calculate the total number of items
-            'per_page' => $per_page,                         //determine how many items to show on a page
+            'per_page'    => $per_page,                         //determine how many items to show on a page
             'total_pages' => ceil($total_items / $per_page)   //calculate the total number of pages
         ]);
     }
