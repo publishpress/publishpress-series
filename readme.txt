@@ -4,7 +4,7 @@ Author: publishpress
 Tags: issue, series, magazine, newspaper, publication
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: 2.10.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
