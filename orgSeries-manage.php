@@ -348,6 +348,11 @@ function pp_series_get_terms_orderby($orderby, $args)
     if (!isset($args['taxonomy'])) {
         return $orderby;
     }
+
+    if (isset($args['ignore_term_order']) && $args['ignore_term_order']  === true) {
+        return $orderby;
+    }
+    
     if (!in_array(ppseries_get_series_slug(), $args['taxonomy']) && !in_array('series_group', $args['taxonomy'])) {
         return $orderby;
     }
