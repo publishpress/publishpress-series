@@ -429,7 +429,8 @@ function orgSeries_custom_column_action($column_name, $id) {
 			$seriesid = $series[0]->term_id;
 			$series_name = $series[0]->name;
 			$series_link = admin_url("edit.php?page=manage-issues&action=part&series_ID=".$seriesid."");
-			$series_part = get_post_meta($id, SERIES_PART_KEY, TRUE);
+            $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $seriesid);
+			$series_part = get_post_meta($id, $part_key, TRUE);
 			$count = $series[0]->count;
 
 			$draft_posts = get_posts( array(
