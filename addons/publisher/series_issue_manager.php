@@ -13,6 +13,9 @@ if (!function_exists('series_issue_manager_part')) {
             $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
             delete_post_meta($post_ID, $part_key);
             add_post_meta($post_ID, $part_key, '');
+            //update for single part
+            delete_post_meta($post_ID, SERIES_PART_KEY);
+            add_post_meta($post_ID, SERIES_PART_KEY, '');
         }
 
         // $post_IDs should have all pending posts' IDs in the series
@@ -142,6 +145,7 @@ if (!function_exists('publisher_wp_set_post_series')) {
             foreach ($old_series as $o_ser) {
                 $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $o_ser);
                 delete_post_meta($post_ID, $part_key);
+                delete_post_meta($post_ID, SERIES_PART_KEY);
             }
         }
 
@@ -174,14 +178,18 @@ if (!function_exists('publisher_wp_set_post_series')) {
                 if ($part) {
                     $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
                     $s_pt = $part;
+                    //update for multi part
                     delete_post_meta($post_ID, $series_part_key);
                     add_post_meta($post_ID, $series_part_key, $s_pt);
-
+                    //update for single part
+                    delete_post_meta($post_ID, SERIES_PART_KEY);
+                    add_post_meta($post_ID, SERIES_PART_KEY, $s_pt);
                 } else {
 
                     if ($remove_part) {
                         $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
                         delete_post_meta($post_ID, $series_part_key);
+                        delete_post_meta($post_ID, SERIES_PART_KEY);
                     } else {
                         set_series_order($ser_id, $post_ID, $s_pt, true);
                     }
