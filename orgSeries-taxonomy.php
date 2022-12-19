@@ -631,10 +631,10 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 			}
 			else {
 				if ( isset($_GET['submit']) ) {
-					$set_spart = sanitize_text_field($_GET['series_part']);
+					$set_spart = array_map('sanitize_text_field', $_GET['series_part']);
 				}
 				else {
-					$set_spart =  sanitize_text_field($_POST['series_part']);
+					$set_spart =  array_map('sanitize_text_field', $_POST['series_part']);
 				}
                 if(!empty($set_spart)){
                     $s_pt = $set_spart[$ser_id];
