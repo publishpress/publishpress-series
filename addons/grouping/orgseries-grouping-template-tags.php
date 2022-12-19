@@ -319,14 +319,27 @@ function get_series_group_list( $group_id = array(), $args = array(), $echo = tr
 	$groups = get_series_groups( $group_id );
 	$group_out = '';
 
+    $limit_series_ids = false;
+    if (isset($args['series_ids']) && !empty($args['series_ids'])) {
+        $limit_series_ids = explode(',', $args['series_ids']);
+        $limit_series_ids = array_map('trim', $limit_series_ids);
+    }
+
 	foreach ( $groups as $group ) {
-		$group_out .= '<h3 id="group-title-'.$group->term_id.'" class="group-title">'.$group->name.'</h3>';
-		$group_out .= '<ul id="group-list-'.$group->term_id.'" class="group-list-ul">';
+        $has_series = false;
+        $group_html = '<h3 id="group-title-'.$group->term_id.'" class="group-title">'.$group->name.'</h3>';
+		$group_html .= '<ul id="group-list-'.$group->term_id.'" class="group-list-ul">';
 		$series_in_group = get_series_in_group($group->term_id, $args );
 		foreach ( $series_in_group as $series ) {
-			$group_out .= '<li id="series-'.$series.'" class="series-list-li"><a href="'.get_series_link($series).'" title="'.get_series_name($series).' permalink">'.get_series_name($series).'</a></li>';
+            if (!$limit_series_ids || ($limit_series_ids && in_array($series, $limit_series_ids))) {
+                $has_series = true;
+                $group_html .= '<li id="series-'.$series.'" class="series-list-li"><a href="'.get_series_link($series).'" title="'.get_series_name($series).' permalink">'.get_series_name($series).'</a></li>';
+            }
 		}
-		$group_out .= '</ul>';
+		$group_html .= '</ul>';
+        if ($has_series) {
+            $group_out .= $group_html;
+        }
 	}
 
 	if ( $echo )
