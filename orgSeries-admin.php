@@ -370,9 +370,15 @@ global $post, $postdata, $content, $orgseries;
 		</ul>
 
         <div class="series-part-wrap" style="<?php echo ($metabox_show_series_part === 0) ? 'display: none;' : ''; ?>">
+            <?php $series_part = get_post_meta($id, SERIES_PART_KEY, true); 
+            if ($metabox_show_series_part === 0) {
+                $series_part = 0;
+            }
+            
+            ?>
             <span id="seriespart">
                 <strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
-                <input class="small-text pp-series-part-input" min="1" type="number" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr(get_post_meta($id, SERIES_PART_KEY, true)); ?>" oninput="this.value = 
+                <input class="small-text pp-series-part-input" min="0" type="number" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" oninput="this.value = 
  !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" />
             </span>
             <p id="part-description" class="howto">
