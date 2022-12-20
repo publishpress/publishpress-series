@@ -353,7 +353,11 @@ function pp_series_get_terms_orderby($orderby, $args)
         return $orderby;
     }
     
-    if (!in_array(ppseries_get_series_slug(), $args['taxonomy']) && !in_array('series_group', $args['taxonomy'])) {
+    if (is_array($args['taxonomy']) && !in_array(ppseries_get_series_slug(), $args['taxonomy']) && !in_array('series_group', $args['taxonomy'])) {
+        return $orderby;
+    }
+    
+    if (!is_array($args['taxonomy']) && !in_array($args['taxonomy'], [ppseries_get_series_slug(), 'series_group'])) {
         return $orderby;
     }
     
