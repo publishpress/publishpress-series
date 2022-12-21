@@ -544,14 +544,6 @@ function series_automation_core_fieldset() {
                                     </td>
                                 </tr>
 
-                                <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
-                                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
-                                        <p class="description">
-                                            <?php esc_html_e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
-                                        </p>
-                                    </td>
-                                </tr>
-
 								<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Order series by:', 'organize-series'); ?></label></th>
 									<td>
 										<label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', isset($org_opt['series_posts_orderby']) ? $org_opt['series_posts_orderby'] : ''); ?> /><?php esc_html_e('Series part', 'organize-series'); ?></label> &nbsp;
@@ -861,6 +853,15 @@ function series_taxonomy_base_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
+
+            <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
+                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
+                    <p class="description">
+                        <?php esc_html_e('This text will be part of the series base URL.', 'organize-series'); ?>
+                    </p>
+                </td>
+            </tr>
+
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php esc_html_e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo esc_attr($org_name); ?>[series_taxonomy_slug]" value="<?php echo isset($org_opt['series_taxonomy_slug']) ? esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])) : ''; ?>"/>
