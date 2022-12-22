@@ -23,7 +23,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 		$order = isset($instance['order']) ? $instance['order'] : 'ASC';
 		$hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : 0;
 
-		$series_args = $args = apply_filters('widget_latestseries_args', array('hide_empty' => $hide_empty, 'orderby' => $orderby, 'number' => $number, 'order' => $order));
+		$series_args = $args = apply_filters('widget_latestseries_args', array('hide_empty' => $hide_empty, 'orderby' => $orderby, 'number' => $number, 'order' => $order, 'ignore_term_order' => true));
 
 		$out = latest_series(false,$args);
 
@@ -156,6 +156,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 
 		$series_widget_args['orderby'] = $os_orderby;
 		$series_widget_args['orderby'] = $os_orderby;
+		$series_widget_args['ignore_term_order'] = true;
 
 		$series_args = $args = apply_filters('widget_seriestoc_args', $series_widget_args);
 
