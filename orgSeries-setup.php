@@ -684,7 +684,9 @@ class orgSeries {
 	}
 
 	function orgseries_trim_excerpt($content) {
-		remove_filter('the_content',array($this,'add_series_meta'), 12);
+        if (!is_single()) {
+            remove_filter('the_content', array($this,'add_series_meta'), 12);
+        }
 		return $content;
 	}
 
