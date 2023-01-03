@@ -315,6 +315,10 @@ function orgseries_option_page() {
                             <em><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
                         <strong>%post_title_linked%</strong><br />
                             <em><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_short%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_short_linked%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
                         <strong>%previous_post%</strong><br />
                             <em><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
                         <strong>%next_post%</strong><br />

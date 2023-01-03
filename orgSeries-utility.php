@@ -108,11 +108,15 @@ function token_replace($replace, $referral = 'other', $id = 0, $ser_ID = 0) {
 	if( stristr($replace, '%post_title_list%') )
 	$replace = str_replace('%post_title_list%', get_series_posts($id, $referral), $replace);
 	if( stristr($replace, '%post_title_list_short%') )
-	$replace = str_replace('%post_title_list_short%', get_series_posts($id, TRUE), $replace);
+	$replace = str_replace('%post_title_list_short%', get_series_posts($id, 'post_title_short'), $replace);
 	if( stristr($replace, '%post_title%') )
 	$replace = str_replace('%post_title%', series_post_title($id, FALSE), $replace);
+	if( stristr($replace, '%post_title_short%') )
+	$replace = str_replace('%post_title_short%', series_post_title($id, false, get_post_meta($id, SPOST_SHORTTITLE_KEY, true)), $replace);
 	if( stristr($replace, '%post_title_linked%') )
 	$replace = str_replace('%post_title_linked%', series_post_title($id), $replace);
+	if( stristr($replace, '%post_title_short_linked%') )
+	$replace = str_replace('%post_title_short_linked%', series_post_title($id, true, get_post_meta($id, SPOST_SHORTTITLE_KEY, true)), $replace);
 	if( stristr($replace, '%series_part%') ){
 		if(empty(trim(wp_series_part($p_id, $ser_id)))){
 			$replace = str_replace('%series_part%', '<font color="red">[part not set]</font>', $replace);
