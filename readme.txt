@@ -173,7 +173,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.10.1- 2023-01-03
+v2.10.1- 2023-01-04
 * Update: Added new token %post_title_short% and %post_title_short_linked%, #523
 * Fixed: %post_title_list_short% not working, #523
 * Fixed: Broken Post list display for series box style, #691
