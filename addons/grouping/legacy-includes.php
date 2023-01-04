@@ -639,12 +639,18 @@ function os_stringarray_to_intarray($array) {
 /**
  * Shortcode to get the author box
  *
- * @param array $attributes
+ * @param array $atts
  *
  * @return string
  */
-function publishpress_series_groups($attributes)
+function publishpress_series_groups($atts)
 {
+	$default_atts = array(
+		'category_ids'  => '',
+		'series_ids'    => ''
+	);
+	
+    $args = shortcode_atts($default_atts, $atts);
 
-    return get_series_group_list([], [], false);
+    return get_series_group_list($args['category_ids'], $args, false);
 }

@@ -315,6 +315,10 @@ function orgseries_option_page() {
                             <em><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
                         <strong>%post_title_linked%</strong><br />
                             <em><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_short%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series', 'organize-series'); ?></em><br /><br />
+                        <strong>%post_title_short_linked%</strong><br />
+                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
                         <strong>%previous_post%</strong><br />
                             <em><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
                         <strong>%next_post%</strong><br />
@@ -541,14 +545,6 @@ function series_automation_core_fieldset() {
                                     </th>
                                     <td>
                                         <input min="1" max="6" name="<?php echo esc_attr($org_name);?>[series_overview_page_columns]" value="<?php echo ( isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
-                                    </td>
-                                </tr>
-
-                                <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Custom Base:', 'organize-series'); ?></label></th>
-                                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
-                                        <p class="description">
-                                            <?php esc_html_e('This text will be part of the URL for all Series Overview pages.', 'organize-series'); ?>
-                                        </p>
                                     </td>
                                 </tr>
 
@@ -861,6 +857,15 @@ function series_taxonomy_base_core_fieldset() {
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
+
+            <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
+                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
+                    <p class="description">
+                        <?php esc_html_e('This text will be part of the series base URL.', 'organize-series'); ?>
+                    </p>
+                </td>
+            </tr>
+
             <tr valign="top"><th scope="row"><label for="series_taxonomy_slug"><?php esc_html_e('Series Taxonomy:', 'organize-series'); ?></label></th>
                 <td>
                     <input type="text" id="series_taxonomy_slug" name="<?php echo esc_attr($org_name); ?>[series_taxonomy_slug]" value="<?php echo isset($org_opt['series_taxonomy_slug']) ? esc_attr(htmlspecialchars($org_opt['series_taxonomy_slug'])) : ''; ?>"/>

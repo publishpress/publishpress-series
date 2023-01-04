@@ -553,18 +553,29 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
         }
       
 		//The "short" title of the post that will be displayed  in the OrgSeries widget.
+        $update_short_title = false;
         if (isset($_POST['serie_post_shorttitle'])) {
+            $update_short_title = true;
             $post_shorttitle = is_array($_POST['serie_post_shorttitle']) ? array_map('sanitize_text_field', $_POST['serie_post_shorttitle']) : sanitize_text_field($_POST['serie_post_shorttitle']);
         }
         if (isset($_GET['serie_post_shorttitle'])) {
+            $update_short_title = true;
             $post_shorttitle = is_array($_GET['serie_post_shorttitle']) ? array_map('sanitize_text_field', $_GET['serie_post_shorttitle']) : sanitize_text_field($_GET['serie_post_shorttitle']);
         }
         
 		$st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : 0;
-		$post_shorttitle = is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id]) ? trim($post_shorttitle[$st_ser_id]) : '';
 
+        if (is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id])) {
+            $post_shorttitle = trim($post_shorttitle[$st_ser_id]);
+        } elseif (is_array($post_shorttitle) && count($post_shorttitle) === 1 && isset($post_shorttitle[0])) {
+            $post_shorttitle = trim($post_shorttitle[0]);
+        } else {
+            $post_shorttitle = '';
+        }
 
-		update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
+        if ($update_short_title) {
+            update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
+        }
 
 		//if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
 		$p_status = $post->post_status;
@@ -631,10 +642,10 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 			}
 			else {
 				if ( isset($_GET['submit']) ) {
-					$set_spart = sanitize_text_field($_GET['series_part']);
+					$set_spart = array_map('sanitize_text_field', $_GET['series_part']);
 				}
 				else {
-					$set_spart =  sanitize_text_field($_POST['series_part']);
+					$set_spart =  array_map('sanitize_text_field', $_POST['series_part']);
 				}
                 if(!empty($set_spart)){
                     $s_pt = $set_spart[$ser_id];

@@ -78,7 +78,12 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 				if ( 'widget' == $referral ) {
 					$current_result .= '<li class="serieslist-current-li">' . series_post_title($seriespost['id'], true, $short_title) . '</li>';
 				} else{
-					$current_result .= token_replace(stripslashes($settings['series_post_list_currentpost_template']), 'other', $seriespost['id'], $ser);
+                    $template_tag = $settings['series_post_list_currentpost_template'];
+                    if ($referral === 'post_title_short') {
+                        $template_tag = str_replace('%post_title%', '%post_title_short%', $template_tag);
+                        $template_tag = str_replace('%post_title_linked%', '%post_title_short_linked%', $template_tag);
+                    }
+					$current_result .= token_replace(stripslashes($template_tag), 'other', $seriespost['id'], $ser);
 				}
 				$result_list[$seriespost['id']] = $current_result;
 				continue;
@@ -90,7 +95,12 @@ function get_series_posts( $ser_ID = array(), $referral = false, $display = fals
 				if ( 'widget' == $referral ){
 					$current_result .= '<li>' . series_post_title($seriespost['id'], true, $short_title ) . '</li>';
 				}else{
-					$current_result .= token_replace(stripslashes($settings['series_post_list_post_template']), 'other', $seriespost['id'], $ser);
+                    $template_tag = $settings['series_post_list_post_template'];
+                    if ($referral === 'post_title_short') {
+                        $template_tag = str_replace('%post_title%', '%post_title_short%', $template_tag);
+                        $template_tag = str_replace('%post_title_linked%', '%post_title_short_linked%', $template_tag);
+                    }
+					$current_result .= token_replace(stripslashes($template_tag), 'other', $seriespost['id'], $ser);
 				}
 			} else{
 				$current_result .= apply_filters('unpublished_post_template', $settings, $seriespost, $ser);
@@ -164,7 +174,9 @@ function wp_postlist_display() {
 		if (!empty($serarray)) {
 			foreach ($serarray as $series) {
 				$serID = $series->term_id;
-				$postlist .= token_replace(stripslashes($settings['series_post_list_template']), 'post-list', 0, $serID);
+                $template = $settings['series_post_list_template'];
+                $template = str_replace('</ul>', '</ul><div class="clear"></div>', $template);
+				$postlist .= token_replace(stripslashes($template . '<div class="clear-me"></div>'), 'post-list', 0, $serID);
 				if ( $i != $count || $trigger ) {
 					$pos = strpos($postlist, '%postcontent%');
 					if ( $pos == 0 ) $trigger = true;

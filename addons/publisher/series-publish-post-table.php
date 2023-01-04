@@ -93,6 +93,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
 
             $arg = array(
                 'post_status' => ['future', 'draft', 'pending'],
+                'post_type' => apply_filters('orgseries_posttype_support', array('post')),
                 'paged' => $current_page,
                 'posts_per_page' => $per_page,
                 'tax_query' => array(
@@ -325,11 +326,12 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     protected function column_series_part($item)
     {
         $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
-        $series_part = get_post_meta($item->ID, SERIES_PART_KEY, true);
+        $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
+        $series_part = get_post_meta($item->ID, $part_key, true);
 
-        if(empty(trim($series_part))){
+        if (empty(trim($series_part))) {
             $series_part_output =  esc_html__('(Currently has no Part number)', 'organize-series');
-        }else{
+        } else {
             $series_part_output = $series_part;
         }
 
