@@ -33,7 +33,7 @@
     "node-sass": "^7.0.0",
     "postcss-loader": "^2.1.6",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^5.53.0",
+    "webpack": "^5.76.0",
     "webpack-combine-loaders": "^2.0.4",
     "webpack-merge": "^4.2.2"
   }
