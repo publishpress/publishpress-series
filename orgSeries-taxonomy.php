@@ -494,15 +494,16 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
     $settings = $orgseries->settings;
 
     $automatic_series_part = isset($settings['automatic_series_part']) ? (int)$settings['automatic_series_part'] : 0;
+    $post_series = is_array($_REQUEST['post_series']) ? $_REQUEST['post_series'][0] : $_REQUEST['post_series'];
 
     //set auto series part if part is empty
     if($automatic_series_part === 0
         && isset($_REQUEST['action'])
         && in_array($_REQUEST['action'], ['editpost'])
-        && $_REQUEST['post_series'] > 0
+        && $post_series > 0
         && is_array($_REQUEST['series_part'])
         && count($_REQUEST['series_part']) === 1
-        && empty($_REQUEST['series_part'][$_REQUEST['post_series']])
+        && empty($_REQUEST['series_part'][$post_series])
     ) {
         $automatic_series_part = 1;
     }
