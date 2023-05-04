@@ -3,7 +3,7 @@
  * Contains all the legacy includes (and hooks) for the plugin.  Eventually this will make its way into the new refactor
  * of the plugin. But while in transition this allows these legacy files to be included as necessary.
  */
-global $pagenow, $wp_version, $checkpage;
+global $pagenow, $checkpage;
 $checkpage= $pagenow;
 global $checkpage;
 define('OS_GROUPING_LEGACY_LOADED', true);
@@ -33,9 +33,6 @@ add_filter('manage_edit-'.ppseries_get_series_slug().'_columns', 'manage_series_
 add_filter('manage_'.ppseries_get_series_slug().'_custom_column', 'manage_series_grouping_columns_inside',10,3);
 add_action(''.ppseries_get_series_slug().'_add_form_fields', 'add_orgseries_group_fields',1);
 add_action(''.ppseries_get_series_slug().'_edit_form', 'edit_orgseries_group_fields',2,2);
-if ($wp_version < '3.1') {
-    add_filter('manage_edit-tags_columns', 'manage_series_grouping_columns');
-}
 
 //add new queryvar and custom joins for the group filter (on manage series page) - TODO DISABLED currently - still working for future version.
 //add_action('parse_query', 'orgseries_group_parsequery');
@@ -304,8 +301,8 @@ function orgseries_group_where($where) {
 }
 
 function orgseries_manage_grouping_filter_setup() {
-    global $_GET, $wp_version;
-    if ( !empty($_GET['ser_grp']) && is_admin() && $wp_version >= 3.1 ) {
+    global $_GET;
+    if ( !empty($_GET['ser_grp']) && is_admin()) {
         add_filter('get_terms_args', 'orgseries_grp_term_filter', 10, 2);
     }
 }
@@ -321,13 +318,11 @@ function orgseries_grp_term_filter($args, $taxonomies) {
 }
 
 function orgseries_manage_grouping_columns() {
-    global $wp_version;
     //hook into manage-series-groups page
     add_filter('manage_edit-series_group_columns', 'series_grouping_columns', 10);
     add_filter('manage_series_group_custom_column', 'series_grouping_columns_inside',1,3);
     add_filter('manage_edit-series_group_sortable_columns', 'series_group_sortable_columns');
-    if ($wp_version >= '3.1')
-        add_action('after-series-table', 'select_series_group_filter');
+    add_action('after-series-table', 'select_series_group_filter');
 }
 
 function orgseries_grouping_settings_setup() {
@@ -430,16 +425,12 @@ function select_series_group_filter($taxonomy) {
 }
 
 function series_grouping_columns_inside($content, $column_name, $id) {
-    global $wp_version;
     $column_return = $content;
     if ($column_name == ppseries_get_series_slug()) {
         $get = get_series_in_group($id);
         if ( $get == '' ) $count = '0';
         else $count = count($get);
-        if ( $wp_version >= '3.1' )
-            $g_link = '<a href="edit-tags.php?taxonomy='.ppseries_get_series_slug().'&ser_grp='.$id.'">'.$count.'</a>';
-        else
-            $g_link = $count;
+        $g_link = '<a href="edit-tags.php?taxonomy='.ppseries_get_series_slug().'&ser_grp='.$id.'">'.$count.'</a>';
         $column_return = '<p style="width: 40px; text-align: center;">'.$g_link.'</p>';
     }
     return $column_return;
