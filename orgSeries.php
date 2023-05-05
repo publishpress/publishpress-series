@@ -91,6 +91,8 @@ require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/pimple-pimple/lib/
 require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/wordpress-version-notices/src/include.php';
 
 add_action('plugins_loaded', function() {
+    require_once __DIR__ . '/includes-core/Autoloader.php';
+
     require_once (dirname(__FILE__) . '/inc/utility-functions.php');
     require_once (dirname(__FILE__) . '/includes-core/functions.php');
     register_activation_hook( __FILE__, 'pp_series_core_activation' );

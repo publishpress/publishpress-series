@@ -24,9 +24,6 @@
       "sabre/vobject": "^3.4",
       "composer/installers": "v1.0.6"
     },
-    "autoload": {
-        "psr-4": {"OrganizeSeries\\": "src/"}
-    },
     "require-dev": {
         "automattic/vipwpcs": "^2.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
