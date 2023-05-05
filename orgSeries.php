@@ -91,7 +91,12 @@ require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/pimple-pimple/lib/
 require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/wordpress-version-notices/src/include.php';
 
 add_action('plugins_loaded', function() {
-    require_once __DIR__ . '/includes-core/Autoloader.php';
+    if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
+        require_once __DIR__ . '/includes-core/Autoloader.php';
+    }
+
+    $autoloader = new PublishPress\OrganizeSeries\Autoloader();
+    $autoloader->register();
 
     require_once (dirname(__FILE__) . '/inc/utility-functions.php');
     require_once (dirname(__FILE__) . '/includes-core/functions.php');

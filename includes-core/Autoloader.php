@@ -1,6 +1,6 @@
 <?php
 
-namespace PublishPress\WordpressVersionNotices;
+namespace PublishPress\OrganizeSeries;
 
 class Autoloader
 {
