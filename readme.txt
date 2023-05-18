@@ -89,14 +89,15 @@ The Pro version of PublishPress Series allows you to add posts to more than one 
 
 The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
 
-Join PublishPress and you'll get access to these Pro plugins:
+Join PublishPress and you'll get access to these nine Pro plugins:
 
 * [PublishPress Authors Pro](https://publishpress.com/authors) allows you to add multiple authors and guest authors to WordPress posts.
 * [PublishPress Blocks Pro](https://publishpress.com/blocks) has everything you need to build professional websites with the WordPress block editor.
 * [PublishPress Capabilities Pro](https://publishpress.com/capabilities) is the plugin to manage your WordPress user roles, permissions, and capabilities.
 * [PublishPress Checklists Pro](https://publishpress.com/checklists) enables you to define tasks that must be completed before content is published.
+* [PublishPress Future Pro](https://publishpress.com/future)  is the plugin for scheduling changes to your posts.
 * [PublishPress Permissions Pro](https://publishpress.com/permissions)  is the plugin for advanced WordPress permissions.
-* [PublishPress Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
+* [PublishPress Planner Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
 * [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
 * [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series 
 
@@ -173,7 +174,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.11.0 - 2023-05-16
+v2.11.0 - 2023-05-18
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Replaced Psr/Container library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Change min PHP version to 7.2.5. If not compatible, the plugin will not execute;
