@@ -8,7 +8,7 @@ use OrganizeSeries\domain\interfaces\AbstractBootstrap;
 use OrganizeSeries\domain\Meta;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
-use Pimple\Container as PimpleContainer;
+use PublishPress\Pimple\Container as PimpleContainer;
 
 /**
  * Root

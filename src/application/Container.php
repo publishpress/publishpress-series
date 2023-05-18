@@ -20,7 +20,7 @@ use OrganizeSeries\domain\model\LicenseKeyRepository;
 use OrganizeSeries\domain\model\SingleNoticeCollection;
 use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 use OrganizeSeries\domain\services\AssetRegistry;
-use Pimple\Container as PimpleContainer;
+use PublishPress\Pimple\Container as PimpleContainer;
 
 class Container
 {

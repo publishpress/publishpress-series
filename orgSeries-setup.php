@@ -16,12 +16,6 @@ class orgSeries {
 
 	//__constructor
 	public function __construct() {
-		global $wp_version;
-
-		// WordPress version check
-		if ( version_compare($wp_version, '3.0', '<'))
-			add_action('admin_notices', array($this, 'update_warning'));
-
 		//install OrgSeries
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
         add_action( 'admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
@@ -99,11 +93,6 @@ class orgSeries {
     public function add_series_content(){
         add_filter('pp_series_add_series_content', '__return_true');
     }
-
-	function update_warning() {
-		$msg = '<div id="wpp-message" class="error fade"><p>'.__('Your WordPress version is too old. Publishpress Series 2.2 requires at least WordPress 3.0 to function correctly. Please update your blog via Tools &gt; Upgrade.', 'organize-series').'</p></div>';
-		echo esc_html(trim($msg));
-	}
 
 	function maybe_fix_upgrade() {
 		$version_chk = get_option('org_series_version');
