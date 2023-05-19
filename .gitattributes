@@ -1,0 +1,16 @@
+.github export-ignore
+assets_wp export-ignore
+tests export-ignore
+.babelrc export-ignore
+.env.testing.dist export-ignore
+.gitignore export-ignore
+.phplint.yml export-ignore
+codeception.dist.yml export-ignore
+composer.json export-ignore
+composer.lock export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+RoboFile.php export-ignore
+webpack.config.js export-ignore
+.gitattributes export-ignore
+.git export-ignore
