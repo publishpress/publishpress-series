@@ -188,7 +188,7 @@ function orgSeries_manage_script() {
 function admin_ajax_series() {
 	$response = array();
 
-	if ( !current_user_can( 'manage_series' ) )
+	if ( !current_user_can( 'manage_publishpress_series' ) )
 		$response['error'] = __('Sorry but you don\'t have permission to add series', 'organize-series');
 
 	if ( ! check_ajax_referer ( 'add-series-nonce', 'addnonce', false ) ) {
@@ -502,7 +502,7 @@ function add_series_to_right_now() {
 	$num = number_format_i18n( $num_series );
 	$text = _n( 'Series', 'Series', $num_series, 'organize-series' );
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
-	if ( current_user_can( 'manage_series' ) ) {
+	if ( current_user_can( 'manage_publishpress_series' ) ) {
 		$series_num = "<a href='". esc_url($manage_link) ."'>$num</a>";
 		$series_text = "<a href='". esc_url($manage_link). "'>$text</a>";
 	}

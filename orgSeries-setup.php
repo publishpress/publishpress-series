@@ -213,7 +213,7 @@ class orgSeries {
 
 		$url = WP_PLUGIN_URL.'/'.SERIES_DIR.'/js/';
 		wp_register_script('inline-edit-series',$url.'inline-series.js', array('jquery'),ORG_SERIES_VERSION, TRUE);
-		$add_series_js = current_user_can( 'manage_series' ) ? 'series.js' : 'series-restricted.js';
+		$add_series_js = current_user_can( 'manage_publishpress_series' ) ? 'series.js' : 'series-restricted.js';
 		wp_register_script( 'ajaxseries', $url.$add_series_js, array('jquery', 'jquery-ui-core', 'jquery-color'), ORG_SERIES_VERSION, TRUE );
 		wp_localize_script( 'ajaxseries', 'seriesL10n', array(
 				'add' => esc_attr(__('Add New', 'organize-series')),
@@ -260,10 +260,10 @@ class orgSeries {
 		$taxonomy_name = ppseries_get_series_slug();
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
-			'manage_terms' => 'manage_series',
-			'edit_terms' => 'manage_series',
-			'delete_terms' => 'manage_series',
-			'assign_terms' => 'manage_series'
+			'manage_terms' => 'manage_publishpress_series',
+			'edit_terms' => 'manage_publishpress_series',
+			'delete_terms' => 'manage_publishpress_series',
+			'assign_terms' => 'manage_publishpress_series'
 			);
 		$labels = array(
 			'name' => _x('Series', 'taxonomy general name', 'organize-series'),
