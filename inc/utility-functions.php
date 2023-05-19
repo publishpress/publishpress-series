@@ -90,6 +90,24 @@ if (!function_exists('pp_series_upgrade_function')) {
         }
    }
 
+   if (!get_option('pp_series_2_11_1_upgraded')) {
+        $table_name = $wpdb->prefix . "orgseriesicons";
+        if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+            //create table for series icons
+            $sql = "CREATE TABLE $table_name (
+                term_id INT NOT NULL,
+                icon VARCHAR(100) NOT NULL,
+                PRIMARY KEY  (term_id)
+            )";
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            dbDelta( $sql );
+            add_option( 'series_icon_path', '' );
+            add_option( 'series_icon_url', '' );
+            add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
+       }
+       update_option('pp_series_2_11_1_upgraded', true);
+    }
+
 
     }
 }
