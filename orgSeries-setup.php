@@ -127,20 +127,6 @@ class orgSeries {
 			add_option("org_series_version", $this->version);
 		}/**/
 
-	//create table for series icons
-	$table_name = $wpdb->prefix . "orgseriesicons";
-	$sql = "CREATE TABLE $table_name (
-		term_id INT NOT NULL,
-		icon VARCHAR(100) NOT NULL,
-		PRIMARY KEY  (term_id)
-		);";
-	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-	dbDelta( $sql );
-
-	add_option( 'series_icon_path', '' );
-	add_option( 'series_icon_url', '' );
-	add_option( 'series_icon_filetypes', 'jpg gif jpeg png' );
-
 	}
 
     function pp_series_upgrade_version_upgrade() {
