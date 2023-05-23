@@ -19,3 +19,5 @@
 - vendor/sabre/vobject/README.md
 - vendor/sabre/vobject/tests
 - vendor/symfony/polyfill-ctype/README.md
+- vendor/composer/installers/.gitignore
+- vendor/publishpress/vendor-locator-series-pro/composer.json
