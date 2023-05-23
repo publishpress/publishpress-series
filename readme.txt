@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.2
-Stable tag: 2.11.0
+Stable tag: 2.11.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,24 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.11.2- 2023-05-23
+* Update: Fix issue with v2.10.1 and re-release update with below changes:
+* Update: Added new token %post_title_short% and %post_title_short_linked%, #523
+* Fixed: %post_title_list_short% not working, #523
+* Fixed: Broken Post list display for series box style, #691
+* Fixed: Classic Widget "Series Table of Content" sorting not working, #715
+* Fixed: Taxonomy change not working, #701
+* Fixed: Invalid form control with name=’series_part[0]’ is focusable when series part is disabled, #694
+* Fixed: PHP Warning error in server log, #693
+* Update: Add 'category_ids' and 'series_ids' parameters to [series_post_categories], #709
+* Fixed: Sorting series is not working for [series_toc] shortcode, #696
+* Fixed: Series Order not working for multiple series, #706
+* Fixed: Manual series part not working when Automatic Numbering is enabled, #702
+* Update: Series-v2.10.0-ES-IT_TranslationUpdate-5_October2022, #665
+
+v2.11.1- 2023-05-18
+* Update: Rollback 2.11.0
 
 v2.11.0 - 2023-05-18
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
