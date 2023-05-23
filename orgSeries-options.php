@@ -60,10 +60,10 @@ function ppseries_register_temporary_taxonomy(){
     //let register taxonomy if not exist for migration purpose
 		$object_type = apply_filters('orgseries_posttype_support', array('post'));
 		$capabilities = array(
-			'manage_terms' => 'manage_series',
-			'edit_terms' => 'manage_series',
-			'delete_terms' => 'manage_series',
-			'assign_terms' => 'manage_series'
+			'manage_terms' => 'manage_publishpress_series',
+			'edit_terms' => 'manage_publishpress_series',
+			'delete_terms' => 'manage_publishpress_series',
+			'assign_terms' => 'manage_publishpress_series'
 			);
 		$labels = array(
 			'name' => _x('Series', 'taxonomy general name', 'organize-series'),

@@ -207,10 +207,10 @@ function orgseries_grouping_taxonomy() {
     $permalink_slug = 'series_group';
     $object_type = array('series_grouping');
     $capabilities = array(
-        'manage_terms' => 'manage_series',
-        'edit_terms' => 'manage_series',
-        'delete_terms' => 'manage_series',
-        'assign_terms' => 'manage_series'
+        'manage_terms' => 'manage_publishpress_series',
+        'edit_terms' => 'manage_publishpress_series',
+        'delete_terms' => 'manage_publishpress_series',
+        'assign_terms' => 'manage_publishpress_series'
     );
     $labels = array(
         'name' => _x('Series Categories', 'taxonomy general name', 'organize-series'),
@@ -272,7 +272,7 @@ function orgseries_grouping_import_existing_series() {
 }
 
 function orgseries_groups_admin_menu() {
-    add_submenu_page( 'edit.php', 'Series Categories', 'Series Categories', 'manage_series', 'edit-tags.php?taxonomy=series_group');
+    add_submenu_page( 'edit.php', 'Series Categories', 'Series Categories', 'manage_publishpress_series', 'edit-tags.php?taxonomy=series_group');
 }
 
 function orgseries_group_add_queryvars($qvs) {
