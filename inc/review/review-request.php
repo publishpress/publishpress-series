@@ -35,7 +35,7 @@ class SeriesReview
     }
 }
 
-add_action('plugins_loaded', 'pp_series_initiate_review');
+add_action('publishpress_series_loaded', 'pp_series_initiate_review');
 function pp_series_initiate_review(){
     $review = new SeriesReview;
     $review->init();

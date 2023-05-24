@@ -24,7 +24,7 @@ class orgSeries {
 		add_filter('cme_plugin_capabilities', array($this, 'pp_series_cme_plugin_capabilities'));
 
 		//all other actions and filters...
-		add_action('plugins_loaded', array($this, 'add_settings'), 10);
+		add_action('publishpress_series_loaded', array($this, 'add_settings'), 10);
 		add_action('init', array($this, 'register_textdomain'), 0);
 		add_action('init', array($this, 'register_taxonomy'),0);
 		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));

@@ -825,4 +825,4 @@ function init_pps_publisher()
         new PPS_Publisher_Admin();
     }
 }
-add_action('plugins_loaded', 'init_pps_publisher');
+add_action('publishpress_series_loaded', 'init_pps_publisher');

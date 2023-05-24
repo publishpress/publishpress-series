@@ -64,7 +64,7 @@ class Router {
         $this->request = $request;
         $this->controller_route_collection = $controller_route_collection;
         $this->has_hooks_route_collection = $has_hooks_route_collection;
-        add_action('plugins_loaded', array($this, 'route'), 20);
+        add_action('publishpress_series_loaded', array($this, 'route'), 20);
     }
 
 
