@@ -825,4 +825,5 @@ function init_pps_publisher()
         new PPS_Publisher_Admin();
     }
 }
-add_action('plugins_loaded', 'init_pps_publisher');
+add_action('publishpress_series_after_init', 'init_pps_publisher');
+add_action('publishpress_series_pro_before_init', 'init_pps_publisher');
