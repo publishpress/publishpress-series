@@ -165,5 +165,5 @@ add_action('plugins_loaded', function() {
 
     pp_series_free_version_init();
 
-    do_action('publishpress_series_loaded');
+    do_action('publishpress_series_after_init');
 }, -10);
