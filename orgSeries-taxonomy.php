@@ -64,6 +64,7 @@ function &get_series($args = '') {
 		return $series;
 	}
 
+	$cache = [];
 	$cache[ $key ] = $series;
 	wp_cache_set( 'get_series', $cache, ppseries_get_series_slug() );
 
@@ -119,6 +120,11 @@ function wp_get_post_series( $post_id = 0, $args = array() ) {
 //function to set the order that the post is in a series.
 function set_series_order($series_id, $postid = 0, $series_part = 0, $is_published = false) {
 	if ( !isset($series_id) ) return false; // if post doesn't belong to a series yet.
+
+	//we're no longer support automatic series part
+	if ((int)$series_part === 0) {
+		return false;
+	}
 	$post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
 	$series_posts = array();
  	$series_posts = get_series_order($post_ids_in_series, $postid, $series_id, true, false);
@@ -497,20 +503,8 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 
     $settings = $orgseries->settings;
 
-    $automatic_series_part = isset($settings['automatic_series_part']) ? (int)$settings['automatic_series_part'] : 0;
+    $automatic_series_part = 0;
     $post_series = is_array($_REQUEST['post_series']) ? $_REQUEST['post_series'][0] : $_REQUEST['post_series'];
-
-    //set auto series part if part is empty
-    if($automatic_series_part === 0
-        && isset($_REQUEST['action'])
-        && in_array($_REQUEST['action'], ['editpost'])
-        && $post_series > 0
-        && is_array($_REQUEST['series_part'])
-        && count($_REQUEST['series_part']) === 1
-        && empty($_REQUEST['series_part'][$post_series])
-    ) {
-        $automatic_series_part = 1;
-    }
 
 	if ( !is_bool($update) ){
 		return; //safety check for users on earlier version of WP (so existing series don't get messed up)
@@ -637,12 +631,9 @@ function wp_set_post_series( $post, $update, $post_ID = 0, $series_id = array(),
 			$is_published = TRUE;
 		}
 		foreach ( $p_ser_edit as $ser_id ) {
-			if ( empty($series_part[$ser_id]) && $automatic_series_part > 0 ) {
-				$s_pt = wp_series_part($post_ID, $ser_id);
-				if ( !$series_part ) $series_part = 0;
-			}
+
 			//If post is not published its part stays as set by user
-			elseif ( !$is_published || $automatic_series_part === 0 ) {
+			if ( !$is_published || $automatic_series_part === 0 ) {
 				$s_pt = $series_part[$ser_id];
 			}
 			else {
@@ -885,8 +876,8 @@ add_action('future_to_publish','wp_set_post_series_transition',10,1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('delete_post','delete_series_post_relationship', 1);
-add_action('trash_post', 'reset_series_order_on_trash', 1);
-add_action('untrash_post', 'reset_series_order_on_trash', 1);
+//add_action('trash_post', 'reset_series_order_on_trash', 1);
+//add_action('untrash_post', 'reset_series_order_on_trash', 1);
 
 //prep for term splitting that happens in WP4.2+ (this is more for taking care of Publishpress Series Multiples users
 add_action( 'split_shared_term', 'org_series_maybe_update_post_parts', 10, 4 );

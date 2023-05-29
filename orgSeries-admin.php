@@ -34,7 +34,6 @@ add_action( 'in_admin_footer', 'orgSeries_admin_footer' );
 add_action('wp_ajax_ppseries_pro_migrate_series_by_ajax', 'ppseries_pro_migrate_series_by_ajax');
 add_filter('rest_prepare_taxonomy', 'publishpress_series_remove_gutenberg_series_metabox', 100, 3);
 
-
 /**
  * Remove series metabox for gutenberg
  *
@@ -344,6 +343,7 @@ function series_edit_meta_box() {
 global $post, $postdata, $content, $orgseries;
 	$id = isset($post) ? $post->ID : $postdata->ID;
 	$ser_id = wp_get_post_series( $id );
+	$seriesid =  isset($ser_id[0]) ? $ser_id[0] : 0;
 	$org_opt = $orgseries->settings;
 
     $metabox_show_series_part = isset($org_opt['metabox_show_series_part']) ? (int)$org_opt['metabox_show_series_part'] : 0;
@@ -370,7 +370,9 @@ global $post, $postdata, $content, $orgseries;
 		</ul>
 
         <div class="series-part-wrap" style="<?php echo ($metabox_show_series_part === 0) ? 'display: none;' : ''; ?>">
-            <?php $series_part = get_post_meta($id, SERIES_PART_KEY, true); 
+            <?php 
+			$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $seriesid);
+			$series_part = get_post_meta($id, $part_key, true); 
             if ($metabox_show_series_part === 0) {
                 $series_part = 0;
             }
@@ -378,7 +380,7 @@ global $post, $postdata, $content, $orgseries;
             ?>
             <span id="seriespart">
                 <strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
-                <input class="small-text pp-series-part-input" min="0" type="number" name="series_part[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" oninput="this.value = 
+                <input class="small-text pp-series-part-input" min="0" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" oninput="this.value = 
  !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" />
             </span>
             <p id="part-description" class="howto">

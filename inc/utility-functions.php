@@ -48,17 +48,6 @@ if (!function_exists('pp_series_upgrade_function')) {
           update_option('pp_series_2_7_1_upgraded', true);
        }
 
-       if (!get_option('pp_series_2_7_5_upgraded')) {
-            $settings = get_option('org_series_options');
-            $settings = apply_filters('org_series_settings', $settings);
-            //add new series settings only if not fresh installation
-            if ($settings) {
-                $settings['automatic_series_part'] = 0;
-                update_option('org_series_options', $settings);
-            }
-            update_option('pp_series_2_7_5_upgraded', true);
-      }
-
       if (!get_option('pp_series_2_8_0_upgraded')) {
            $settings = get_option('org_series_options');
            $settings = apply_filters('org_series_settings', $settings);
@@ -252,5 +241,18 @@ if (!function_exists('pp_series_format_block_theme_footer')) {
         </body>
     </html>
     <?php
+    }
+}
+
+
+if (!function_exists('publishpress_multi_series_supported')) {
+    /**
+     * Check if multiple series part is supported
+     *
+     * @return bool
+     */
+    function publishpress_multi_series_supported()
+    {
+        return !empty(get_option('publishpress_multi_series_supported'));
     }
 }
