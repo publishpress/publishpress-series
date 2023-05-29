@@ -75,6 +75,14 @@ class orgSeries {
         add_action('fl_theme_builder_after_render_footer', array($this, 'add_series_content'));
         add_action('fl_theme_builder_after_render_header', array($this, 'add_series_content'));
 
+		add_filter('orgseries_part_key', array(&$this, 'part_key'), 10, 2);
+
+	}
+
+	function part_key($part_key, $series_id) {
+		$key = $part_key.'_'.$series_id;
+
+		return $key;
 	}
 
     /**
@@ -166,30 +174,6 @@ class orgSeries {
 			update_option('org_series_options', $settings);
 		}
 
-		//upgrading for versions before 2.3. We're updating the series_part meta key to the new format for all posts that are a part of a series.
-		if ( $version < '2.3' ) {
-			$query = "SELECT p.ID, pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part' AND tt.taxonomy = '".ppseries_get_series_slug()."'";
-			$posts = $wpdb->get_results($query);
-
-			//let's cycle through the posts and update the meta_keys to the new format.
-			if ( empty($posts) ) return; //get out there's no posts to update.
-			foreach ($posts as $post) {
-				$meta_key = SERIES_PART_KEY;
-				$meta_value = $post->meta_value;
-				add_post_meta($post->ID, $meta_key, $meta_value);
-			}
-
-			//let's take this opportunity to do some database cleanup.  We need to delete any post that has the SERIES_PART_KEY meta_key including those that are actually not part of a series (from some legacy bugs).
-			$query = "SELECT p.ID FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = 'series_part'";
-			$posts = $wpdb->get_results($query);
-
-			//now let's delete the meta_key/value combo from those posts
-			if ( empty($posts) ) return; //no posts, let's get out and save the environment (sic).
-			foreach ($posts as $post) {
-				$meta_key = 'series_part';
-				delete_post_meta($post->ID, $meta_key);
-			}
-		}
 		return;
 	}
 
@@ -289,7 +273,6 @@ class orgSeries {
 			$this->settings = array(
 				//main settings
 			'custom_css' => 1,
-			'automatic_series_part' => 0,
 			'metabox_show_add_new' => 0,
 			'metabox_show_series_part' => 1,
 			'metabox_show_post_title_in_widget' => 0,
@@ -537,8 +520,12 @@ class orgSeries {
 			if ( ! is_series() || ( is_series() && is_feed() ) || ! empty( $wp_query->request ) || ( is_admin() && $wp_query->query_vars[ SERIES_QUERYVAR ] == 0 ) || $wp_query->is_search ) {
 				return $where;
 			}
-			$part_key = SERIES_PART_KEY;
-			$os_where = " AND orgmeta.meta_key = '$part_key' ";
+
+			$series = get_query_var(SERIES_QUERYVAR);
+			$ser_id = is_numeric($series) ? (int) $series : get_series_ID($series);
+			$part_key = SERIES_PART_KEY.'_'.$ser_id;
+			$os_where = $wpdb->prepare(" AND orgmeta.meta_key = %s ", $part_key);
+			
 			$where .= apply_filters( 'orgseries_sort_series_page_where', $os_where );
 		}
 		return $where;

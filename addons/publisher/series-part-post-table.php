@@ -74,7 +74,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     public function get_table_data(){
 
         $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
-        $meta_key = SERIES_PART_KEY;
+        $meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
         $series_posts = [];
 
         if ($series_id) {

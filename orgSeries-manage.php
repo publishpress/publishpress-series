@@ -130,6 +130,8 @@ function wp_delete_series($series_ID, $taxonomy_id) {
 	global $wpdb;
 	seriesicons_delete($series_ID);
 	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
+    $series_part = SERIES_PART_KEY.'_'.$series_ID;
+    $wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $series_part) );
 }
 
 function wp_insert_series($series_id, $taxonomy_id) {
