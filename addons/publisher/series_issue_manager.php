@@ -121,50 +121,11 @@ if (!function_exists('publisher_wp_set_post_series')) {
     function publisher_wp_set_post_series($post, $update, $post_ID = 0, $series_id = array(), $remove_part = false, $part = false)
     {
         $post_ID = (int) $post_ID;
-        $old_series = wp_get_post_series($post_ID);
-        $old_series = is_array($old_series) ? $old_series : array();
         $post_series = is_array($series_id) ? $series_id : array($series_id);
         $post_series = os_strarr_to_intarr($post_series);
 
-        if (empty($post_series) || (count($post_series) >= count($old_series))) {
-            $match = false;
-        } else {
-            $match = array_diff($old_series, $post_series);
-        }
 
-        if (empty($post_series) || (count($post_series) == 1 && $post_series[0] == 0)) {
-            $post_series = array();
-        }
-
-        $p_ser_edit = $post_series;
-
-        if (empty($post_series)) {
-            foreach ($old_series as $o_ser) {
-                $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $o_ser);
-                delete_post_meta($post_ID, $part_key);
-            }
-        }
-
-        foreach ($old_series as $os_id) {
-            if (!in_array($os_id, $post_series)) {
-                wp_delete_post_series_relationship($post_ID, $os_id);
-            }
-        }
-
-        if (!empty($match) && $match) {
-            foreach ($match as $part_reset_id) {
-                wp_reset_series_order_meta_cache($post_ID, $part_reset_id);
-            }
-        }
-
-        $success = wp_set_object_terms($post_ID, $post_series, ppseries_get_series_slug());
-
-        if (empty($p_ser_edit)) {
-            return; //let's get out we've done everything we need to do.
-        }
-
-        if ($success) {
-            foreach ($p_ser_edit as $ser_id) {
+            foreach ($post_series as $ser_id) {
                 if ($remove_part) {
                     $s_pt = '';
                 } else {
@@ -188,9 +149,6 @@ if (!function_exists('publisher_wp_set_post_series')) {
             }
 
             return;
-        } else {
-            return false;
-        }
     }
 }
 
