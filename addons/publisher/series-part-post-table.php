@@ -280,7 +280,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
 	public function column_post_status( $post ) {
         $post_status = get_post_status_object($post->post_status);
 
-        return $post_status->label;
+        return is_object($post_status) ? $post_status->label : $post->post_status;
 	}
 
     /**
