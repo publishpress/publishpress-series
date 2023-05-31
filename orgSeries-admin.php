@@ -383,9 +383,6 @@ global $post, $postdata, $content, $orgseries;
                 <input class="small-text pp-series-part-input" min="0" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" oninput="this.value = 
  !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" />
             </span>
-            <p id="part-description" class="howto">
-                <?php esc_html_e('If you leave this blank, this post will automatically be added to the end of the series.', 'organize-series'); ?>
-            </p>
         </div>
 
         <div class="series-metabox-post-title-in-widget" style="<?php echo ($metabox_show_post_title_in_widget === 0) ? 'display: none;' : ''; ?>">
