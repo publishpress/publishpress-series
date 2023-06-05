@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.2
-Stable tag: 2.11.2
+Stable tag: 2.11.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,16 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.11.4- 2023-06-05
+* Update: Remove auto series part feature
+* Fixed: Series Order is broken with Multiple Series, #774
+* Fixed: Editing Series order not updating, #746
+* Fixed: Navigation is broken by draft posts, #783
+* Update: Remove unpublished series parts in frontend, #782
+* Fixed: Text in missing for Multiple Series, #773
+* Fixed: Add a link to Manage Series if no series are available, #728
+* Fixed: Remove the banner for Blocks, #770
 
 v2.11.2- 2023-05-23
 * Update: Fix issue with v2.10.1 and re-release update with below changes:
