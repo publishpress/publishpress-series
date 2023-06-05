@@ -515,7 +515,7 @@ class orgSeries {
 	}
 
 	function sort_series_page_where($where) {
-		global $wp_query;
+		global $wp_query, $wpdb;
 		if ( $wp_query instanceof WP_Query ) {
 			if ( ! is_series() || ( is_series() && is_feed() ) || ! empty( $wp_query->request ) || ( is_admin() && $wp_query->query_vars[ SERIES_QUERYVAR ] == 0 ) || $wp_query->is_search ) {
 				return $where;

@@ -275,7 +275,7 @@ function get_series_list( $default = 0 ) {
 			$checked_series[] = $default;
 		}
 
-		$series = get_series( "hide_empty=0&fields=ids" );
+		$series = get_series( "hide_empty=0&fields=ids&orderby=term_order" );
 
 		$result = array ();
 
@@ -291,7 +291,7 @@ function get_series_list( $default = 0 ) {
         usort( $result, '_usort_series_by_name' );
         $result = apply_filters(
             'get_series_list',
-            $result,
+            $unsorted_result,
             $unsorted_result
         );
 
