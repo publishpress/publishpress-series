@@ -9,13 +9,12 @@ if (!class_exists('WP_List_Table')) {
  */
 class PPS_Publisher_Post_Publish_Table extends WP_List_Table
 {
-
     /**
      * PPS_Publisher_Post_Publish_Table constructor.
      *
      * @param array $args
      */
-    function __construct($args = [])
+    public function __construct($args = [])
     {
 
         //Set parent defaults
@@ -37,14 +36,15 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return parent::get_table_classes();
     }
 
-	/**
-	 * Message to be displayed when there are no items
-	 *
-	 * @since 3.1.0
-	 */
-	public function no_items() {
-		_e( 'There are no unpublished posts in this series.', 'organize-series' );
-	}
+    /**
+     * Message to be displayed when there are no items
+     *
+     * @since 3.1.0
+     */
+    public function no_items()
+    {
+        _e('There are no unpublished posts in this series.', 'organize-series');
+    }
 
     /**
      * Show single row item
@@ -81,9 +81,10 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         return $columns;
     }
 
-    public function get_table_data(){
+    public function get_table_data()
+    {
 
-        $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
+        $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
         $meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
         $series_posts = [];
 
@@ -109,14 +110,14 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
                     'part_field_sort_value' => array(
                         'key' => $meta_key,
                         'type'=> 'NUMERIC'
-                    ), 
+                    ),
                     'part_field_sort' => array(
                         'key' => $meta_key,
                         'compare' => 'NOT EXISTS',
                         'type'=> 'NUMERIC'
                     ),
                 ),
-                'orderby' => array( 
+                'orderby' => array(
                     'part_field_sort' => 'ASC'
                 ),
             );
@@ -140,7 +141,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             }
 
             $series_query = new WP_Query($arg);
-    
+
             return ['posts'=> $series_query->posts, 'counts'=> $series_query->found_posts];
         }
 
@@ -158,40 +159,41 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     }
 
 
-	/**
+    /**
      * Add custom filter to tablenav
-	 *
-	 * @param string $which
-	 */
-	protected function extra_tablenav( $which ) {
+     *
+     * @param string $which
+     */
+    protected function extra_tablenav($which)
+    {
 
-		if ( 'top' === $which ) {
+        if ('top' === $which) {
 
             $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field($_REQUEST['cat']) : '';
-             ?>
+            ?>
             <div class="alignleft actions">
-                <?php 
-                wp_dropdown_categories(
-                    array(
-                        'show_option_all' => __( 'All Categories', 'organize-series' ),
-                        'orderby'         => 'name',
-                        'order'           => 'ASC',
-                        'hide_empty'      => false,
-                        'hide_if_empty'   => true,
-                        'selected'        => $selected_category,
-                        'hierarchical'    => true,
-                        'name'            => 'cat',
-                        'taxonomy'        => 'category',
-                        'value_field'     => 'slug',
-                    )
-                );
+                <?php
+               wp_dropdown_categories(
+                   array(
+                       'show_option_all' => __('All Categories', 'organize-series'),
+                       'orderby'         => 'name',
+                       'order'           => 'ASC',
+                       'hide_empty'      => false,
+                       'hide_if_empty'   => true,
+                       'selected'        => $selected_category,
+                       'hierarchical'    => true,
+                       'name'            => 'cat',
+                       'taxonomy'        => 'category',
+                       'value_field'     => 'slug',
+                   )
+               );
 
-                submit_button( __( 'Filter', 'organize-series' ), '', 'filter_action', false, array( 'id' => 'post-query-submit' ) );
-                ?>
+            submit_button(__('Filter', 'organize-series'), '', 'filter_action', false, array( 'id' => 'post-query-submit' ));
+            ?>
             </div>
         <?php
-		}
-	}
+        }
+    }
 
     /**
      * Displays the search box.
@@ -227,11 +229,11 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         if (!empty($_REQUEST['cat'])) {
             echo '<input type="hidden" name="cat" value="' . esc_attr(sanitize_text_field($_REQUEST['cat'])) . '" />';
         }
-        
+
         if (!empty($_REQUEST['s'])) {
             echo '<input type="hidden" name="s" value="' . esc_attr(sanitize_text_field($_REQUEST['s'])) . '" />';
         }
-            
+
         echo '<input type="hidden" name="action" value="list" />';
         ?>
         <p class="search-box">
@@ -254,37 +256,39 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     protected function handle_row_actions($item, $column_name, $primary)
     {
-        $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
+        $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
 
         $actions['edit'] = sprintf(
             '<a href="%s">%s</a>',
-                esc_url(
-                    add_query_arg(
-                        [
-                            'post' => $item->ID, 
-                            'action' => 'edit',
-                        ],
-                        admin_url('post.php')
-                    )
+            esc_url(
+                add_query_arg(
+                    [
+                        'post' => $item->ID,
+                        'action' => 'edit',
+                    ],
+                    admin_url('post.php')
+                )
+            ),
+            esc_html__('Edit', 'organize-series')
+        );
+
+        $actions = array_merge($actions, [
+            'delete' => sprintf(
+                '<a href="%s" class="delete-post">%s</a>',
+                add_query_arg(
+                    [
+                    'page' => 'manage-issues',
+                    'action' => 'list',
+                    'part_action' => 'pps-publisher-delete-posts',
+                    'series_ID' => esc_attr($series_id),
+                    'series_post' => esc_attr($item->ID),
+                    '_wpnonce' => wp_create_nonce('bulk-series-parts')
+                    ],
+                    admin_url('edit.php')
                 ),
-                esc_html__('Edit', 'organize-series')
-            );
-            
-            $actions = array_merge($actions, [
-                'delete' => sprintf(
-                    '<a href="%s" class="delete-post">%s</a>',
-                    add_query_arg([
-                        'page' => 'manage-issues',
-                        'action' => 'list', 
-                        'part_action' => 'pps-publisher-delete-posts', 
-                        'series_ID' => esc_attr($series_id),
-                        'series_post' => esc_attr($item->ID),
-                        '_wpnonce' => wp_create_nonce('bulk-series-parts')
-                    ], 
-                    admin_url('edit.php')),
-                    esc_html__('Trash', 'organize-series')
-                ),
-            ]);
+                esc_html__('Trash', 'organize-series')
+            ),
+        ]);
 
         return $column_name === $primary ? $this->row_actions($actions, false) : '';
     }
@@ -312,7 +316,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     protected function column_cb($item)
     {
         $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int)$item->ID);
-    
+
         return $out;
     }
 
@@ -325,7 +329,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     protected function column_series_part($item)
     {
-        $series_id = isset($_GET['series_ID'])? (int)$_GET['series_ID'] : false;
+        $series_ID = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
         $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
         $series_part = get_post_meta($item->ID, $part_key, true);
 
@@ -350,40 +354,40 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
 
         return sprintf(
             '<a href="%1$s"><strong><span class="row-title">%2$s</span></strong></a>',
-                esc_url(
-                    add_query_arg(
-                        [
-                            'post' => $item->ID, 
-                            'action' => 'edit',
-                        ],
-                        admin_url('post.php')
-                    )
-                ),
-                esc_html($item->post_title)
-            );
+            esc_url(
+                add_query_arg(
+                    [
+                        'post' => $item->ID,
+                        'action' => 'edit',
+                    ],
+                    admin_url('post.php')
+                )
+            ),
+            esc_html($item->post_title)
+        );
     }
 
-	/**
-	 * Handles the post author column output.
-	 *
-	 */
-	protected function column_author($item) 
+    /**
+     * Handles the post author column output.
+     *
+     */
+    protected function column_author($item)
     {
         return get_the_author_meta('display_name', $item->post_author);
-	}
+    }
 
-	/**
-	 * Handles the post category column output.
-	 *
-	 */
-	protected function column_categories($item) 
+    /**
+     * Handles the post category column output.
+     *
+     */
+    protected function column_categories($item)
     {
         $terms = get_the_terms($item->ID, 'category');
         $term_html = '';
 
-        if ( is_array( $terms ) ) {
+        if (is_array($terms)) {
             $term_links = [];
-            foreach ( $terms as $t ) {
+            foreach ($terms as $t) {
                 $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
@@ -392,20 +396,20 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         }
 
         return $term_html;
-	}
+    }
 
-	/**
-	 * Handles the post tags column output.
-	 *
-	 */
-	protected function column_tags($item) 
+    /**
+     * Handles the post tags column output.
+     *
+     */
+    protected function column_tags($item)
     {
         $terms = get_the_terms($item->ID, 'post_tag');
         $term_html = '';
 
-        if ( is_array( $terms ) ) {
+        if (is_array($terms)) {
             $term_links = [];
-            foreach ( $terms as $t ) {
+            foreach ($terms as $t) {
                 $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
@@ -414,17 +418,18 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         }
 
         return $term_html;
-	}
+    }
 
-	/**
-	 * Handles the post post_status column output.
-     * 
-	 */
-	public function column_post_status( $post ) {
+    /**
+     * Handles the post post_status column output.
+     *
+     */
+    public function column_post_status($post)
+    {
         $post_status = get_post_status_object($post->post_status);
 
         return $post_status->label;
-	}
+    }
 
     /**
      * The preview column
@@ -436,8 +441,8 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     protected function column_series_preview($item)
     {
         return sprintf(
-            '<a href="%1$s">%2$s</a>', 
-            esc_url(home_url('?p='.$item->ID.'&preview=true')), 
+            '<a href="%1$s">%2$s</a>',
+            esc_url(home_url('?p='.$item->ID.'&preview=true')),
             esc_html__('Preview', 'organize-series')
         );
     }
@@ -489,16 +494,17 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         ]);
     }
 
-	/**
-	 * Display the list table.
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function display() {
+    /**
+     * Display the list table.
+     *
+     * @access public
+     * @return void
+     */
+    public function display()
+    {
 
-		$this->views();
+        $this->views();
 
-		parent::display();
-	}
+        parent::display();
+    }
 }

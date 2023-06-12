@@ -86,11 +86,6 @@ ul#serieschecklist {
     border-bottom: solid 1px #dcdcde;
     padding-bottom: 10px;
 }
-.series-part-wrap {
-    border-bottom: solid 1px #dcdcde;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
 ul#serieschecklist li span.li-series-name {
     padding-left: 0;
 }
