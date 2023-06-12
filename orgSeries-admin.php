@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file contains all the code that hooks orgSeries into the various pages of the WordPress administration.   Some hooks will reference other files (series management, and series options).
  *
@@ -69,7 +70,6 @@ function ppseries_pro_migrate_series_by_ajax()
 	$response['content'] = sprintf(__('%1$s series migrated to new taxonomy', 'organize-series'), $count);
 
 	wp_send_json($response);
-
 }
 
 function orgseries_load_custom_column_actions()
@@ -132,7 +132,6 @@ function orgSeries_admin_script()
 	if (is_ppseries_admin_pages()) {
 		wp_enqueue_style('pps-admin-common');
 	}
-
 }
 function orgSeries_admin_assets()
 {
@@ -150,42 +149,42 @@ function orgSeries_admin_footer()
 {
 
 	if (is_ppseries_admin_pages()) {
-		?>
-			<div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
-				<footer>
-					<div class="pp-rating">
-						<a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							printf(
-								__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'),
-								'<strong>PublishPress Series</strong>',
-								'<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
-							);
-							?>
-						</a>
-					</div>
+?>
+		<div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
+			<footer>
+				<div class="pp-rating">
+					<a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						printf(
+							__('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'),
+							'<strong>PublishPress Series</strong>',
+							'<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+						);
+						?>
+					</a>
+				</div>
 
-					<hr>
-					<nav>
-						<ul>
-							<li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series'); ?>"><?php esc_html_e('About', 'organize-series'); ?></a></li>
-							<li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series'); ?>"><?php esc_html_e('Documentation', 'organize-series'); ?></a></li>
-							<li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series'); ?>"><?php esc_html_e('Contact', 'organize-series'); ?></a></li>
-							<li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
-							<li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
-						</ul>
-					</nav>
+				<hr>
+				<nav>
+					<ul>
+						<li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series'); ?>"><?php esc_html_e('About', 'organize-series'); ?></a></li>
+						<li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series'); ?>"><?php esc_html_e('Documentation', 'organize-series'); ?></a></li>
+						<li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series'); ?>"><?php esc_html_e('Contact', 'organize-series'); ?></a></li>
+						<li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
+						<li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
+					</ul>
+				</nav>
 
-					<div class="pp-pressshack-logo">
-						<a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
-							<img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>"/>
-						</a>
-					</div>
-				</footer>
-			</div>
-			<div class="clear"></div>
-		<?php
+				<div class="pp-pressshack-logo">
+					<a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
+						<img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" />
+					</a>
+				</div>
+			</footer>
+		</div>
+		<div class="clear"></div>
+	<?php
 	}
 }
 function orgSeries_manage_script()
@@ -339,7 +338,6 @@ function write_series_list($series)
                         
                     </label>
                 </li>";
-
 	}
 }
 
@@ -369,50 +367,50 @@ function series_edit_meta_box()
 	$metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int) $org_opt['metabox_show_add_new'] : 0;
 	$series_list = get_series_list(0);
 	?>
-		<div class="series-metadiv">
-			<div class="tabs-panel">
-				<p id="jaxseries">
-					<span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off"/><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>"/><input type="hidden"/><input type="hidden"/></span>
-					<span id="series-ajax-response"></span>
-					<span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
-				</p>
+	<div class="series-metadiv">
+		<div class="tabs-panel">
+			<p id="jaxseries">
+				<span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden" /><input type="hidden" /></span>
 				<span id="series-ajax-response"></span>
+				<span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
+			</p>
+			<span id="series-ajax-response"></span>
 
-				<?php if (is_array($series_list) && count($series_list) > 1): ?>
-					<div class="editor-series-search">
-						<label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
-						<input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
-					</div>
-				<?php endif; ?>
-
-				<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
-					<?php write_series_list($series_list); ?>
-				</ul>
-
-				<div class="series-part-wrap" style="display: none">
-					<?php
-					$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $seriesid);
-					$series_part = get_post_meta($id, $part_key, true);
-					?>
-					<span id="seriespart">
-						<strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
-						<input class="small-text pp-series-part-input" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>"/>
-					</span>
+			<?php if (is_array($series_list) && count($series_list) > 1) : ?>
+				<div class="editor-series-search">
+					<label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
+					<input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
 				</div>
+			<?php endif; ?>
 
-				<div class="series-metabox-post-title-in-widget" style="<?php echo ($metabox_show_post_title_in_widget === 0) ? 'display: none;' : ''; ?>">
-					<strong>
-						<?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
-					<p id="part-description" class="howto">
-						<?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
-					</p>
-					<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>"/>
-				</div>
+			<ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
+				<?php write_series_list($series_list); ?>
+			</ul>
 
-				<input type="hidden" name="is_series_save" value="1"/>
+			<div class="series-part-wrap" style="display: none">
+				<?php
+				$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $seriesid);
+				$series_part = get_post_meta($id, $part_key, true);
+				?>
+				<span id="seriespart">
+					<strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
+					<input class="small-text pp-series-part-input" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" />
+				</span>
 			</div>
+
+			<div class="series-metabox-post-title-in-widget" style="<?php echo ($metabox_show_post_title_in_widget === 0) ? 'display: none;' : ''; ?>">
+				<strong>
+					<?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
+				<p id="part-description" class="howto">
+					<?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
+				</p>
+				<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>" />
+			</div>
+
+			<input type="hidden" name="is_series_save" value="1" />
 		</div>
-	<?php
+	</div>
+<?php
 }
 
 function orgseries_add_meta_box()
@@ -477,7 +475,6 @@ function orgSeries_custom_column_action($column_name, $id)
 			if ($series && in_array($post_status, array('publish', 'private'))) {
 				if (empty(trim($series_part))) {
 					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (Currently has no Part number)', 'organize-series'), $series_link, $series_name, $series_name);
-
 				} else {
 					$column_content .= sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
 				}
@@ -514,11 +511,11 @@ function add_series_management_link()
 {
 	global $orgseries;
 	$link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
-	?>
-		<li>
-			<a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Manage All Series', 'organize-series'); ?></a>
-		</li>
-	<?php
+?>
+	<li>
+		<a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Manage All Series', 'organize-series'); ?></a>
+	</li>
+<?php
 }
 
 function add_series_to_right_now()
@@ -541,4 +538,3 @@ function add_series_to_right_now()
 	echo '<td></td><td></td></tr>';
 }
 ?>
-

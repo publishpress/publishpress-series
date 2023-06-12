@@ -150,7 +150,6 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
 			if (!empty($confirm_no_part)) {
 				$series_part = $confirm_no_part;
 			}
-
 		} else {
 			//not published posts part shouldn't be updated
 			return false;
@@ -194,7 +193,6 @@ function wp_reset_series_order_meta_cache($post_id = 0, $series_id = 0, $reset =
 		delete_post_meta($spost['id'], $series_part_key);
 		add_post_meta($spost['id'], $series_part_key, $newpart);
 		$addvalue++;
-
 	}
 
 	return true;
@@ -647,52 +645,51 @@ function inline_edit_series($column_name, $type)
 	global $orgseries;
 	$posttypes = apply_filters('orgseries_posttype_support', array('post'));
 	if (in_array($type, $posttypes) && $column_name == ppseries_get_series_slug()) {
-		?>
+?>
 		<fieldset class="inline-edit-col-right">
 			<div class="inline-edit-col">
 				<div class="inline_edit_series_">
 					<span><?php _e('Series:', 'organize-series'); ?></span>
 					<?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
 					<span style="display:none;"><?php _e('Part:', 'organize-series'); ?></span>
-					<input style="display:none;" size="3" type="text" name="series_part" class="series_part"/>
-					<input type="hidden" name="series_post_id" class="series_post_id"/>
-					<input type="hidden" name="is_series_save" value="1"/>
+					<input style="display:none;" size="3" type="text" name="series_part" class="series_part" />
+					<input type="hidden" name="series_post_id" class="series_post_id" />
+					<input type="hidden" name="is_series_save" value="1" />
 
 
 				</div>
 			</div>
 		</fieldset>
-		<?php
+	<?php
 	}
 }
 
 function bulk_edit_series($column_name, $type)
 {
 	if ($type == 'post') {
-		?>
-			<input type="hidden" name="bulk_edit_series" value="bulk"/>
-			<?php
+	?>
+		<input type="hidden" name="bulk_edit_series" value="bulk" />
+	<?php
 	}
 
 
 	if ($type == 'post' && $column_name == ppseries_get_series_slug()) {
-		?>
-				<fieldset class="inline-edit-col-right">
-					<div class="inline-edit-col">
-						<div class="inline_edit_series_">
-							<span><?php _e('Series:', 'organize-series'); ?></span>
-							<?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&context=quick-edit'); ?>
-							<input type="hidden" name="series_part" class="series_part"/>
-							<input type="hidden" name="series_post_id" class="series_post_id"/>
-							<input type="hidden" name="is_series_save" value="1"/>
+	?>
+		<fieldset class="inline-edit-col-right">
+			<div class="inline-edit-col">
+				<div class="inline_edit_series_">
+					<span><?php _e('Series:', 'organize-series'); ?></span>
+					<?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&context=quick-edit'); ?>
+					<input type="hidden" name="series_part" class="series_part" />
+					<input type="hidden" name="series_post_id" class="series_post_id" />
+					<input type="hidden" name="is_series_save" value="1" />
 
 
-						</div>
-					</div>
-				</fieldset>
-			<?php
+				</div>
+			</div>
+		</fieldset>
+<?php
 	}
-
 }
 
 function inline_edit_series_js()
