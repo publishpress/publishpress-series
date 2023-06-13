@@ -67,7 +67,6 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             'categories' => esc_html__('Categories', 'organize-series'),
             'tags' => esc_html__('Tags', 'organize-series'),
             'post_status' => esc_html__('Status', 'organize-series'),
-            'part' => esc_html__('Current Part', 'organize-series'),
         ];
 
         return $columns;
@@ -288,28 +287,6 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         $post_status = get_post_status_object($post->post_status);
 
         return is_object($post_status) ? $post_status->label : $post->post_status;
-    }
-
-    /**
-     * The part column
-     *
-     * @param $item
-     *
-     * @return string
-     */
-    protected function column_part($item)
-    {
-        $series_id = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : false;
-        $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
-        $series_part = get_post_meta($item->ID, $part_key, true);
-
-        if (empty(trim($series_part))) {
-            $series_part_output = esc_html__('(Currently has no Part number)', 'organize-series');
-        } else {
-            $series_part_output = $series_part;
-        }
-
-        return $series_part_output;
     }
 
     /**

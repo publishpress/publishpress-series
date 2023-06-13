@@ -799,10 +799,10 @@ class PPS_Publisher_Admin
 
     <div class="wrap pp-series-publisher-wrap series-order-pending">
 
-        <h1><?php esc_html_e('Pending series posts:', 'organize-series'); ?>
+        <h1><?php esc_html_e('Unpublished posts in series:', 'organize-series'); ?>
             <?php echo esc_html($series->name); ?>
         </h1>
-        <p class="description"><?php _e('Publish pending series post. Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?>
+        <p class="description"><?php _e('These posts are in this Series but have not been published. They do not have a part number yet.', 'organize-series'); ?>
         </p>
         <div id="poststuff">
             <div id="post-body" class="metabox-holder columns-2">
@@ -833,7 +833,7 @@ class PPS_Publisher_Admin
                     <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
                         <div id="submitdiv" class="postbox">
                             <div class="postbox-header">
-                                <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Publish Series', 'organize-series'); ?>
+                                <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unpublished Posts', 'organize-series'); ?>
                                 </h2>
                             </div>
                             <form id="im_publish_form" method="get" action="">
@@ -847,7 +847,7 @@ class PPS_Publisher_Admin
                                 <div class="inside">
                                     <div id="minor-publishing"></div>
                                     <div id="major-publishing-actions">
-                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_pending_posts').val(im_post_IDs.join(','));" />
+                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Unpublished Posts', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_pending_posts').val(im_post_IDs.join(','));" />
                                         </div>
                                         <div class="clear"></div>
                                     </div>
