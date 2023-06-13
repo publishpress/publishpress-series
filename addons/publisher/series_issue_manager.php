@@ -696,7 +696,7 @@ class PPS_Publisher_Admin
                                             </div>
                                         </div>
                                         <div id="major-publishing-actions">
-                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" /></div>
+                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" /></div>
                                             <div class="clear"></div>
                                         </div>
                                 </form>
@@ -772,7 +772,7 @@ class PPS_Publisher_Admin
                                     <div class="inside">
                                         <div id="minor-publishing"></div>
                                         <div id="major-publishing-actions">
-                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Update Order', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_part_posts').val(im_post_IDs.join(','));" />
+                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Update Order', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_part_posts').val(im_post_IDs.join(','));" />
                                             </div>
                                             <div class="clear"></div>
                                         </div>
@@ -847,7 +847,7 @@ class PPS_Publisher_Admin
                                 <div class="inside">
                                     <div id="minor-publishing"></div>
                                     <div id="major-publishing-actions">
-                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="publish" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_pending_posts').val(im_post_IDs.join(','));" />
+                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_pending_posts').val(im_post_IDs.join(','));" />
                                         </div>
                                         <div class="clear"></div>
                                     </div>
