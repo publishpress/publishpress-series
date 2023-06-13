@@ -459,16 +459,16 @@ function orgSeries_custom_column_action($column_name, $id)
 
 			if ($series && in_array($post_status, array('publish', 'private'))) {
 				if (empty(trim($series_part))) {
-					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (Currently has no Part number)', 'organize-series'), $series_link, $series_name, $series_name);
+					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (No part number)', 'organize-series'), $series_link, $series_name, $series_name);
 				} else {
-					$column_content .= sprintf(__('Part %1$s of %2$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name);
+					$column_content .= sprintf(__('<a href="%3$s" title="%4$s">%5$s</a> (Part %1$s of %2$s)', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name);
 				}
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
 			} else {
 				if (empty(trim($series_part))) {
-					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (Currently has no Part number)', 'organize-series'), $series_link, $series_name, $series_name);
+					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (No part number)', 'organize-series'), $series_link, $series_name, $series_name);
 				} else {
-					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (currently set as Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
+					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (Part %4$s)', 'organize-series'), $series_link, $series_name, $series_name, $series_part);
 				}
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
 			}
