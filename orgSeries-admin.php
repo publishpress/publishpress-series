@@ -455,28 +455,13 @@ function orgSeries_custom_column_action($column_name, $id)
 			$series_part = get_post_meta($id, $part_key, TRUE);
 			$count = $series[0]->count;
 
-			$draft_posts = get_posts(
-				array(
-					'post_type' => $post_types,
-					'post_status' => array('draft', 'future', 'pending'),
-					'taxonomy' => ppseries_get_series_slug(),
-					'term' => $series_name
-				)
-			);
-			$count_draft_posts = is_array($draft_posts) ? count($draft_posts) : 0;
-			$drafts_included = '';
-			if ($count_draft_posts != 0) {
-				$all_serie_posts = $count_draft_posts + $count;
-				$drafts_included = "($all_serie_posts)";
-			}
-
 			$post_status = get_post_status($id);
 
 			if ($series && in_array($post_status, array('publish', 'private'))) {
 				if (empty(trim($series_part))) {
 					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> - (Currently has no Part number)', 'organize-series'), $series_link, $series_name, $series_name);
 				} else {
-					$column_content .= sprintf(__('Part %1$s of %2$s%6$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name, $drafts_included);
+					$column_content .= sprintf(__('Part %1$s of %2$s in the series <br/><a href="%3$s" title="%4$s">%5$s</a>', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name);
 				}
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
 			} else {
