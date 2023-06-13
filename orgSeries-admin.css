@@ -7,6 +7,18 @@
     margin: 5px 0 15px;
     padding: 5px 5px;
 }
+
+#newseriesdiv .inside,
+#seriesdiv .inside {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+#series-multiples-add {
+    display: flex;
+}
+
 .taxonomy-series .fixed .column-series_order {
     width: 100px;
 }
@@ -83,7 +95,6 @@
 ul#serieschecklist {
     max-height: 12em;
     overflow: auto;
-    border-bottom: solid 1px #dcdcde;
     padding-bottom: 10px;
 }
 ul#serieschecklist li span.li-series-name {
@@ -143,7 +154,6 @@ ul#serieschecklist li {
 }
 
 #newseries {
-    width: 120px;
     margin-right: 5px;
 }
 
