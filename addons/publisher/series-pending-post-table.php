@@ -67,6 +67,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             'categories' => esc_html__('Categories', 'organize-series'),
             'tags' => esc_html__('Tags', 'organize-series'),
             'post_status' => esc_html__('Status', 'organize-series'),
+            'part'        => esc_html__('Current Part', 'organize-series'),
         ];
 
         return $columns;
@@ -287,6 +288,19 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         $post_status = get_post_status_object($post->post_status);
 
         return is_object($post_status) ? $post_status->label : $post->post_status;
+    }
+
+    /**
+     * The part column
+     *
+     * @param $item
+     *
+     * @return string
+     */
+    protected function column_part($item)
+    {
+
+        return esc_html__('No Part Number', 'organize-series');
     }
 
     /**
