@@ -12,6 +12,12 @@ add_action('admin_menu', 'orgseries_create_options');
 add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 
 
+// series changes upgrade and notices
+add_action('admin_init', 'publishpress_series_process_upgrade');
+add_action('admin_notices', 'publishpress_series_upgrade_require_changes');
+add_action('after_plugin_row', 'publishpress_series_upgrade_require_row_notice', 10, 2);
+
+
 /**
  * Add Settings link to plugins.
  */
@@ -150,11 +156,9 @@ function orgseries_validate($input) {
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes(($input['series_css_tougle'])), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
-	$newinput['automatic_series_part'] = ( isset($input['automatic_series_part']) && $input['automatic_series_part'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_custom_base']));
 	$newinput['metabox_show_add_new'] = ( isset($input['metabox_show_add_new']) && $input['metabox_show_add_new'] == 1 ? 1 : 0 );
-	$newinput['metabox_show_series_part'] = ( isset($input['metabox_show_series_part']) && $input['metabox_show_series_part'] == 1 ? 1 : 0 );
 	$newinput['metabox_show_post_title_in_widget'] = ( isset($input['metabox_show_post_title_in_widget']) && $input['metabox_show_post_title_in_widget'] == 1 ? 1 : 0 );
 	$newinput['limit_series_meta_to_single'] = ( isset($input['limit_series_meta_to_single']) && $input['limit_series_meta_to_single'] == 1 ? 1 : 0 );
 
@@ -340,29 +344,6 @@ function orgseries_option_page() {
                     </div>
 
                     <div class="ppseries-settings-tab-content series_automation_settings-series-sidebar series_icon_settings-series-sidebar series_templates_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_metabox_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
-                        <?php if (!defined('ADVANCED_GUTENBERG_LOADED')) { ?>
-                            <div class="ppseries-advertisement-right-sidebar">
-                                <div id="postbox-container-1" class="postbox-container">
-                                    <div class="meta-box-sortables">
-                                        <?php
-                                        $banners = new \PublishPress\WordPressBanners\BannersMain;
-                                        $banners->pp_display_banner(
-                                            esc_html__('Recommendations for you', 'organize-series'),
-                                            esc_html__('Create beautiful layouts for your series', 'organize-series'),
-                                            array(
-                                                esc_html__('PublishPress Blocks is 100% free to install and use.', 'organize-series'),
-                                                esc_html__('The Content Display block allows you to create advanced layouts for PublishPress Series', 'organize-series'),
-                                                esc_html__('Choose from Grid, List, Slider, Masonry, and other layouts.', 'organize-series')
-                                            ),
-                                            esc_url(admin_url('plugin-install.php?s=publishpress-advg-install&tab=search&type=term')),
-                                            esc_html__('Click here to install PublishPress Blocks', 'organize-series'),
-                                            'install-blocks.jpg'
-                                        );
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
                         <?php do_action('publishpress_series_admin_after_sidebar'); ?>
                     </div>
                     
@@ -906,10 +887,6 @@ function series_metabox_core_fieldset() {
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_add_new]" value="1" id="metabox_show_add_new" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_add_new']) ? $org_opt['metabox_show_add_new'] : ''); ?> /></td>
             </tr>
 
-            <tr valign="top"><th scope="row"><label for="metabox_show_series_part"><?php esc_html_e('Show "Series Part"', 'organize-series'); ?></label></th>
-                <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_series_part]" value="1" id="metabox_show_series_part" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_series_part']) ? $org_opt['metabox_show_series_part'] : ''); ?> /></td>
-            </tr>
-
             <tr valign="top"><th scope="row"><label for="metabox_show_post_title_in_widget"><?php esc_html_e('Show "Post title in widget"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_post_title_in_widget]" value="1" id="metabox_show_post_title_in_widget" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_post_title_in_widget']) ? $org_opt['metabox_show_post_title_in_widget'] : ''); ?> /></td>
             </tr>
@@ -927,19 +904,6 @@ function series_uninstall_core_fieldset() {
     	<tbody>
 
             <?php do_action('pp_series_advanced_tab_top'); ?>
-
-        	<tr valign="top">
-            	<th scope="row"><label for="automatic_series_part">
-                	    <?php esc_html_e('Automatic Numbering', 'organize-series'); ?>
-                	</label>
-            	</th>
-            	<td>
-                    <label>
-                        <input name="<?php echo esc_attr($org_name); ?>[automatic_series_part]" id="automatic_series_part" type="checkbox" value="1" <?php checked('1', isset($org_opt['automatic_series_part']) ? $org_opt['automatic_series_part'] : ''); ?> />
-                    	<span class="description"><?php esc_html_e('Enable automatic renumbering of posts in a series.', 'organize-series'); ?></span>
-                	</label>
-                </td>
-        	</tr>
 
             <?php do_action('pp_series_advanced_tab_middle'); ?>
 
@@ -966,5 +930,99 @@ function series_uninstall_core_fieldset() {
 
     </tbody>
 	</table>	<?php
+}
+
+function publishpress_series_upgrade_require_changes() {
+	if (isset($_REQUEST['series_action']) && $_REQUEST['series_action'] === 'multiple-series-support') {
+		//we don't want to show the warning after the migration request
+		return;
+	}
+
+	if (current_user_can('manage_publishpress_series') && ! publishpress_multi_series_supported()) {
+		$test_series = get_series(['number' => 1]);
+		//The upgrade notification only matter to site with series.
+		if (!empty($test_series) && !is_wp_error($test_series)) {
+			?>
+			<div class="notice notice-error">
+				<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
+				<p>
+				<?php esc_html_e('Upgrade required to continue using PublishPress series. We made changes to how series are stored to fully support multiple series and series part related issues.', 'organize-series'); ?>
+				<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
+				&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+			</div>
+			<?php
+		} else {
+			update_option('publishpress_multi_series_supported', true);
+		}
+	}
+}
+
+function publishpress_series_upgrade_require_row_notice($pluginFile, $pluginData) {
+
+	if (current_user_can('manage_publishpress_series') && ! publishpress_multi_series_supported() && in_array($pluginData['Name'], ['PublishPress Series', 'PublishPress Series Pro'])) {
+		$test_series = get_series(['number' => 1]);
+		//The upgrade notification only matter to site with series.
+		if (!empty($test_series) && !is_wp_error($test_series)) {
+			?>
+			<tr class="ppa-plugin-warning">
+				<td colspan="4" class="colspanchange">
+					<div class="multiple-instances-warning">
+					<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
+					<p>
+					<?php esc_html_e('We made changes to how series are stored to fully support multiple series, multiple post types integration and series part related issues.', 'organize-series'); ?>
+					<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
+					&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+				</div>
+				</td>
+			</tr>
+			<?php
+		} else {
+			update_option('publishpress_multi_series_supported', true);
+		}
+	}
+}
+
+function publishpress_series_process_upgrade() {
+	global $wpdb;
+	if (isset($_REQUEST['series_action'])
+		&& isset($_REQUEST['nonce'])
+		&& $_REQUEST['series_action'] === 'multiple-series-support'
+		&& wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'multiple-series-support-upgrade')
+		&& current_user_can('manage_publishpress_series') 
+		&& ! publishpress_multi_series_supported()
+	) {
+
+			//get list of posts that contain the meta key SERIES_PART_KEY
+			$query = "SELECT p.ID, t.term_id, pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.ID = pm.post_id LEFT JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id LEFT JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT JOIN $wpdb->terms AS t ON tt.term_id = t.term_id WHERE pm.meta_key = '".SERIES_PART_KEY."' AND tt.taxonomy = '".ppseries_get_series_slug()."'";
+			$posts = $wpdb->get_results($query);
+			
+			if (!empty($posts)) {
+				foreach ($posts as $post) {
+					$meta_key = SERIES_PART_KEY . '_' . $post->term_id;
+					$meta_value = $post->meta_value;
+					if (empty(get_post_meta($post->ID, $meta_key, true))) {
+						add_post_meta($post->ID, $meta_key, $meta_value);
+					}
+					delete_post_meta($post->ID, SERIES_PART_KEY);
+				}
+			}
+			update_option('publishpress_multi_series_supported', true);
+			update_option('os_multi_import', true);
+			add_filter('removable_query_args', function ($args) {
+				return array_merge($args, [
+					'series_action',
+					'nonce',
+				]);
+			});
+			add_action('admin_notices', function () {
+				?>
+				<div class="notice notice-success is-dismissible">
+					<p>
+						<?php esc_html_e('Series upgrade completed.', 'organize-series'); ?>
+					</p>
+				</div>
+				<?php
+			});
+	}
 }
 ?>

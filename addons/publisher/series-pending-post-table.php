@@ -5,12 +5,12 @@ if (!class_exists('WP_List_Table')) {
 }
 
 /**
- * Class PPS_Publisher_Post_Part_Table
+ * Class PPS_Publisher_Post_Pending_Table
  */
-class PPS_Publisher_Post_Part_Table extends WP_List_Table
+class PPS_Publisher_Post_Pending_Table extends WP_List_Table
 {
     /**
-     * PPS_Publisher_Post_Part_Table constructor.
+     * PPS_Publisher_Post_Pending_Table constructor.
      *
      * @param array $args
      */
@@ -19,9 +19,11 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
 
         //Set parent defaults
         parent::__construct([
-            'singular' => 'series-part',     //singular name of the listed records
-            'plural' => 'series-parts',    //plural name of the listed records
-            'ajax' => true        //does this table support ajax?
+            'singular' => 'series-pending',
+            //singular name of the listed records
+            'plural' => 'series-pendings',
+            //plural name of the listed records
+            'ajax' => true //does this table support ajax?
         ]);
     }
 
@@ -43,7 +45,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     public function single_row($item)
     {
-        $class = ['series-part-tr'];
+        $class = ['series-pending-tr'];
 
         echo sprintf('<tr id="%s" class="%s">', 'post-' . esc_attr($item->ID), esc_attr(implode(' ', $class)));
         $this->single_row_columns($item);
@@ -58,11 +60,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     public function get_columns()
     {
         $columns = [
-            'cb'          => '<input type="checkbox"/>', //Render a checkbox instead of text
-            'title'       => esc_html__('Title', 'organize-series'),
-            'author'      => esc_html__('Author', 'organize-series'),
-            'categories'  => esc_html__('Categories', 'organize-series'),
-            'tags'        => esc_html__('Tags', 'organize-series'),
+            'cb' => '<input type="checkbox"/>',
+            //Render a checkbox instead of text
+            'title' => esc_html__('Title', 'organize-series'),
+            'author' => esc_html__('Author', 'organize-series'),
+            'categories' => esc_html__('Categories', 'organize-series'),
+            'tags' => esc_html__('Tags', 'organize-series'),
             'post_status' => esc_html__('Status', 'organize-series'),
             'part'        => esc_html__('Current Part', 'organize-series'),
         ];
@@ -73,13 +76,13 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     public function get_table_data()
     {
 
-        $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
+        $series_id = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : false;
         $meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
         $series_posts = [];
 
         if ($series_id) {
             $arg = array(
-                'post_status' => ['publish'],
+                'post_status' => array('draft', 'future', 'pending'),
                 'post_type' => apply_filters('orgseries_posttype_support', array('post')),
                 'posts_per_page' => -1,
                 'no_found_rows' => true,
@@ -95,12 +98,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                     "relation" => "or",
                     'part_field_sort_value' => array(
                         'key' => $meta_key,
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                     'part_field_sort' => array(
                         'key' => $meta_key,
                         'compare' => 'NOT EXISTS',
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                 ),
                 'orderby' => array(
@@ -125,7 +128,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function handle_row_actions($item, $column_name, $primary)
     {
-        $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
+        $series_id = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : false;
 
         $actions['edit'] = sprintf(
             '<a href="%s">%s</a>',
@@ -146,12 +149,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                 '<a href="%s" class="delete-post">%s</a>',
                 add_query_arg(
                     [
-                    'page' => 'manage-issues',
-                    'action' => 'part',
-                    'part_action' => 'pps-publisher-delete-posts',
-                    'series_ID' => esc_attr($series_id),
-                    'series_post' => esc_attr($item->ID),
-                    '_wpnonce' => wp_create_nonce('bulk-series-parts')
+                        'page' => 'manage-issues',
+                        'action' => 'part',
+                        'part_action' => 'pps-publisher-delete-posts',
+                        'series_ID' => esc_attr($series_id),
+                        'series_post' => esc_attr($item->ID),
+                        '_wpnonce' => wp_create_nonce('bulk-series-pendings')
                     ],
                     admin_url('edit.php')
                 ),
@@ -182,7 +185,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     public function no_items()
     {
-        _e('There are no published posts in this series.', 'organize-series');
+        _e('There are no pending posts in this series.', 'organize-series');
     }
 
     /**
@@ -194,7 +197,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function column_cb($item)
     {
-        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int)$item->ID);
+        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int) $item->ID);
 
         return $out;
     }
@@ -244,7 +247,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -266,7 +269,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -296,17 +299,8 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function column_part($item)
     {
-        $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
-        $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
-        $series_part = get_post_meta($item->ID, $part_key, true);
 
-        if (empty(trim($series_part))) {
-            $series_part_output =  esc_html__('(Currently has no Part number)', 'organize-series');
-        } else {
-            $series_part_output = $series_part;
-        }
-
-        return $series_part_output;
+        return esc_html__('No Part Number', 'organize-series');
     }
 
     /**
@@ -362,9 +356,11 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
          * We also have to register our pagination options & calculations.
          */
         $this->set_pagination_args([
-            'total_items' => $total_items,                      //calculate the total number of items
-            'per_page' => $per_page,                         //determine how many items to show on a page
-            'total_pages' => ceil($total_items / $per_page)   //calculate the total number of pages
+            'total_items' => $total_items,
+            //calculate the total number of items
+            'per_page' => $per_page,
+            //determine how many items to show on a page
+            'total_pages' => ceil($total_items / $per_page) //calculate the total number of pages
         ]);
     }
 

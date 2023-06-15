@@ -4,7 +4,11 @@ jQuery(document).ready( function($) {
     axis: "y",
   });*/
   
-  $(".pp-series-publisher-wrap.series-order table.series-parts tbody").sortable({
+  $(".pp-series-publisher-wrap.series-order table tbody").sortable({
+    axis: "y",
+  });
+  
+  $(".pp-series-publisher-wrap.series-order-pending table tbody").sortable({
     axis: "y",
   });
   

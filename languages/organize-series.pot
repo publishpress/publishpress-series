@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Publishpress Series Core Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-03 14:37+0000\n"
+"POT-Creation-Date: 2023-06-05 10:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Darren Ethier <darren@roughsmootheng.in>\n"
 "Language-Team: Darren Ethier <darren@organizeseries.com>\n"
@@ -27,205 +27,169 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
 #: src/domain/exceptions/InvalidEntityException.php:29
-#: dist/organize-series/src/domain/exceptions/InvalidEntityException.php:29
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
 msgstr ""
 
-#: orgSeries-options.php:139 orgSeries-admin.php:69
-#: dist/organize-series/orgSeries-options.php:139
-#: dist/organize-series/orgSeries-admin.php:69
+#: orgSeries-options.php:145 orgSeries-admin.php:68
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr ""
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
-#: dist/organize-series/src/domain/exceptions/InvalidInterfaceException.php:26
 #, php-format
 msgid "%s does not exist or is not reachable."
 msgstr ""
 
-#: orgSeries-setup.php:291 dist/organize-series/orgSeries-setup.php:291
+#: orgSeries-setup.php:251
 msgid "&larr; Go to Series"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:333
 #: addons/publisher/series-part-post-table.php:300
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:333
-#: dist/organize-series/addons/publisher/series-part-post-table.php:300
 msgid "(Currently has no Part number)"
 msgstr ""
 
-#: orgSeries-admin.php:459 orgSeries-admin.php:467
-#: dist/organize-series/orgSeries-admin.php:459
-#: dist/organize-series/orgSeries-admin.php:467
+#: orgSeries-admin.php:458 orgSeries-admin.php:466
 #, php-format
 msgid ""
 "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (Currently has no Part number)"
 msgstr ""
 
-#: orgSeries-admin.php:469 dist/organize-series/orgSeries-admin.php:469
+#: orgSeries-admin.php:468
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> - (currently set as Part %4$s)"
 msgstr ""
 
 #: orgSeries-template-tags.php:216 orgSeries-template-tags.php:226
-#: dist/organize-series/orgSeries-template-tags.php:204
-#: dist/organize-series/orgSeries-template-tags.php:214
 #, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr ""
 
-#: orgSeries-setup.php:296 dist/organize-series/orgSeries-setup.php:296
+#: orgSeries-setup.php:256
 msgid "A link to a Series"
 msgstr ""
 
-#: orgSeries-admin.php:392 dist/organize-series/orgSeries-admin.php:392
+#: orgSeries-admin.php:391
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr ""
 
-#: orgSeries-admin.php:161 dist/organize-series/orgSeries-admin.php:161
+#: orgSeries-admin.php:160
 msgid "About"
 msgstr ""
 
-#: orgSeries-admin.php:161 dist/organize-series/orgSeries-admin.php:161
+#: orgSeries-admin.php:160
 msgid "About PublishPress Series"
 msgstr ""
 
 #: src/views/admin/templates/license_key_form.template.php:33
 #: src/domain/services/admin/LicenseKeyFormManager.php:123
-#: dist/organize-series/src/views/admin/templates/license_key_form.template.php:33
-#: dist/organize-series/src/domain/services/admin/LicenseKeyFormManager.php:123
 msgid "Activate License"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:64
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:64
 msgid "Add a post to multiple series"
 msgstr ""
 
-#: orgSeries-admin.php:357 orgSeries-setup.php:230
-#: dist/organize-series/orgSeries-admin.php:357
-#: dist/organize-series/orgSeries-setup.php:230
+#: orgSeries-admin.php:357 orgSeries-setup.php:190
 msgid "Add New"
 msgstr ""
 
-#: orgSeries-options.php:76 orgSeries-setup.php:287
-#: dist/organize-series/orgSeries-options.php:76
-#: dist/organize-series/orgSeries-setup.php:287
+#: orgSeries-options.php:82 orgSeries-setup.php:247
 msgid "Add New Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:226
-#: dist/organize-series/addons/grouping/legacy-includes.php:226
+#: addons/grouping/legacy-includes.php:223
 msgid "Add New Series Category"
 msgstr ""
 
+#: addons/publisher/series_im_admin_main.php:38
+msgid "Add new Series."
+msgstr ""
+
 #: addons/publisher/series_im_admin_main.php:10
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:10
 msgid "Admin View"
 msgstr ""
 
-#: orgSeries-options.php:242 dist/organize-series/orgSeries-options.php:242
+#: orgSeries-options.php:247
 msgid "Advanced"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:176
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:176
 msgid "All Categories"
 msgstr ""
 
-#: orgSeries-options.php:73 orgSeries-setup.php:284 orgSeries-setup.php:332
-#: dist/organize-series/orgSeries-options.php:73
-#: dist/organize-series/orgSeries-setup.php:284
-#: dist/organize-series/orgSeries-setup.php:332
+#: orgSeries-options.php:79 orgSeries-setup.php:244 orgSeries-setup.php:291
 msgid "All Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:223
-#: dist/organize-series/addons/grouping/legacy-includes.php:223
+#: addons/grouping/legacy-includes.php:220
 msgid "All Series Categories"
 msgstr ""
 
 #: orgSeries-template-tags.php:212
-#: dist/organize-series/orgSeries-template-tags.php:200
 msgid "All the Series I've Written"
 msgstr ""
 
-#: orgSeries-options.php:288 dist/organize-series/orgSeries-options.php:288
+#: orgSeries-options.php:293
 msgid "Allowed Html"
 msgstr ""
 
-#: orgSeries-admin.php:66 dist/organize-series/orgSeries-admin.php:66
+#: orgSeries-admin.php:65
 msgid "An error occured"
 msgstr ""
 
 #: src/domain/model/LicenseKeyRepository.php:131
-#: dist/organize-series/src/domain/model/LicenseKeyRepository.php:131
 msgid "An error occurred, please try again."
 msgstr ""
 
-#: orgSeries-options.php:625 dist/organize-series/orgSeries-options.php:621
+#: orgSeries-options.php:607
 msgid "As in Template"
 msgstr ""
 
-#: orgSeries-widgets.php:100 dist/organize-series/orgSeries-widgets.php:100
+#: orgSeries-widgets.php:100
 msgid "ASC: "
 msgstr ""
 
-#: orgSeries-widgets.php:320 orgSeries-options.php:560
-#: dist/organize-series/orgSeries-widgets.php:320
-#: dist/organize-series/orgSeries-options.php:556
+#: orgSeries-widgets.php:320 orgSeries-options.php:542
 msgid "Ascending"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:73
 #: addons/publisher/series-part-post-table.php:64
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:73
-#: dist/organize-series/addons/publisher/series-part-post-table.php:64
 msgid "Author"
 msgstr ""
 
-#: orgSeries-utility.php:410 dist/organize-series/orgSeries-utility.php:406
+#: orgSeries-utility.php:410
 msgid "Auto/None"
 msgstr ""
 
-#: orgSeries-options.php:933 dist/organize-series/orgSeries-options.php:929
-msgid "Automatic Numbering"
-msgstr ""
-
-#: orgSeries-options.php:627 dist/organize-series/orgSeries-options.php:623
+#: orgSeries-options.php:609
 msgid "Bottom"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:74
 #: addons/publisher/series-part-post-table.php:65
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:74
-#: dist/organize-series/addons/publisher/series-part-post-table.php:65
 msgid "Categories"
 msgstr ""
 
-#: orgSeries-options.php:355 dist/organize-series/orgSeries-options.php:351
-msgid "Choose from Grid, List, Slider, Masonry, and other layouts."
-msgstr ""
-
-#: orgSeries-options.php:473 dist/organize-series/orgSeries-options.php:469
+#: orgSeries-options.php:455
 msgid "Choose the design for pages that are included in a series."
 msgstr ""
 
-#: orgSeries-options.php:566 dist/organize-series/orgSeries-options.php:562
+#: orgSeries-options.php:548
 msgid "Choose the design for the page where all your Series are displayed."
 msgstr ""
 
-#: orgSeries-options.php:510 dist/organize-series/orgSeries-options.php:506
+#: orgSeries-options.php:492
 msgid ""
 "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr ""
 
 #. phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-#: orgSeries-options.php:534 dist/organize-series/orgSeries-options.php:530
+#: orgSeries-options.php:516
 #, php-format
 msgid ""
 "Choosing a layout different to \"Default\" will override the taxonomy "
@@ -233,241 +197,204 @@ msgid ""
 "details on how to customize these designs</a>."
 msgstr ""
 
-#: orgSeries-options.php:358 dist/organize-series/orgSeries-options.php:354
-msgid "Click here to install PublishPress Blocks"
-msgstr ""
-
-#: orgSeries-options.php:401 dist/organize-series/orgSeries-options.php:397
+#: orgSeries-options.php:383
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
 msgstr ""
 
-#: orgSeries-options.php:544 dist/organize-series/orgSeries-options.php:540
+#: orgSeries-options.php:526
 msgid "Columns:"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:369
-#: dist/organize-series/addons/publisher/series_issue_manager.php:369
+#: addons/publisher/series_issue_manager.php:318
 msgid "Congratulations. Your posts were published successfully."
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:364
-#: dist/organize-series/addons/publisher/series_issue_manager.php:364
+#: addons/publisher/series_issue_manager.php:313
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:332
-#: dist/organize-series/addons/publisher/series_issue_manager.php:332
+#: addons/publisher/series_issue_manager.php:281
 msgid "Congratulations. Your series order was updated successfully."
 msgstr ""
 
-#: orgSeries-admin.php:163 dist/organize-series/orgSeries-admin.php:163
+#: orgSeries-admin.php:162
 msgid "Contact"
 msgstr ""
 
-#: orgSeries-admin.php:163 dist/organize-series/orgSeries-admin.php:163
+#: orgSeries-admin.php:162
 msgid "Contact the PublishPress team"
 msgstr ""
 
-#: orgSeries-widgets.php:300 dist/organize-series/orgSeries-widgets.php:300
+#: orgSeries-widgets.php:300
 msgid "count"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:240
-#: dist/organize-series/addons/publisher/series_issue_manager.php:240
+#: addons/publisher/series_issue_manager.php:189
 msgid "Create as unpublished:"
 msgstr ""
 
-#: orgSeries-options.php:351 dist/organize-series/orgSeries-options.php:347
-msgid "Create beautiful layouts for your series"
-msgstr ""
-
 #: addons/publisher/series-part-post-table.php:68
-#: dist/organize-series/addons/publisher/series-part-post-table.php:68
 msgid "Current Part"
 msgstr ""
 
-#: orgSeries-widgets.php:397 dist/organize-series/orgSeries-widgets.php:397
+#: orgSeries-widgets.php:397
 msgid "Current series"
 msgstr ""
 
-#: orgSeries-manage.php:241 dist/organize-series/orgSeries-manage.php:241
+#: orgSeries-manage.php:247
 msgid "Current series icon:"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:62
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:62
 msgid "Custom post type support"
 msgstr ""
 
 #: src/views/admin/templates/license_key_form.template.php:31
 #: src/domain/services/admin/LicenseKeyFormManager.php:122
-#: dist/organize-series/src/views/admin/templates/license_key_form.template.php:31
-#: dist/organize-series/src/domain/services/admin/LicenseKeyFormManager.php:122
 msgid "Deactivate License"
 msgstr ""
 
-#: orgSeries-options.php:463 dist/organize-series/orgSeries-options.php:459
+#: orgSeries-options.php:445
 msgid "Default"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:358
-#: dist/organize-series/addons/grouping/legacy-includes.php:358
+#: addons/grouping/legacy-includes.php:353
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr ""
 
-#: orgSeries-options.php:954 dist/organize-series/orgSeries-options.php:950
+#: orgSeries-options.php:923
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
 msgstr ""
 
-#: orgSeries-manage.php:257 dist/organize-series/orgSeries-manage.php:257
+#: orgSeries-manage.php:263
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
 
-#: orgSeries-widgets.php:101 dist/organize-series/orgSeries-widgets.php:101
+#: orgSeries-widgets.php:101
 msgid "DESC: "
 msgstr ""
 
-#: orgSeries-widgets.php:319 orgSeries-options.php:561
-#: dist/organize-series/orgSeries-widgets.php:319
-#: dist/organize-series/orgSeries-options.php:557
+#: orgSeries-widgets.php:319 orgSeries-options.php:543
 msgid "Descending"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:95
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:95
 msgid "Detailed documentation is also available on the plugin website."
 msgstr ""
 
-#: orgSeries-options.php:509 dist/organize-series/orgSeries-options.php:505
+#: orgSeries-options.php:491
 msgid "Display on Series Overview screens"
 msgstr ""
 
-#: orgSeries-options.php:565 dist/organize-series/orgSeries-options.php:561
+#: orgSeries-options.php:547
 msgid "Display on Series Table of Contents screens"
 msgstr ""
 
-#: orgSeries-options.php:472 dist/organize-series/orgSeries-options.php:468
+#: orgSeries-options.php:454
 msgid "Display on single posts in a series"
 msgstr ""
 
-#: orgSeries-widgets.php:99 dist/organize-series/orgSeries-widgets.php:99
+#: orgSeries-widgets.php:99
 msgid "Display Order: "
 msgstr ""
 
-#: orgSeries-options.php:490 dist/organize-series/orgSeries-options.php:486
+#: orgSeries-options.php:472
 msgid "Display Series Meta?"
 msgstr ""
 
-#: orgSeries-options.php:486 dist/organize-series/orgSeries-options.php:482
+#: orgSeries-options.php:468
 msgid "Display Series Navigation?"
 msgstr ""
 
-#: orgSeries-options.php:478 dist/organize-series/orgSeries-options.php:474
+#: orgSeries-options.php:460
 msgid "Display Series Post List?"
 msgstr ""
 
-#: orgSeries-admin.php:162 dist/organize-series/orgSeries-admin.php:162
+#: orgSeries-admin.php:161
 msgid "Documentation"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:752
-#: dist/organize-series/addons/publisher/series_issue_manager.php:752
+#: addons/publisher/series_issue_manager.php:701
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr ""
 
-#: orgSeries-widgets.php:280 dist/organize-series/orgSeries-widgets.php:280
+#: orgSeries-widgets.php:280
 msgid "Dropdown:"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:270
 #: addons/publisher/series-part-post-table.php:141
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:270
-#: dist/organize-series/addons/publisher/series-part-post-table.php:141
 msgid "Edit"
 msgstr ""
 
-#: orgSeries-options.php:74 orgSeries-setup.php:285
-#: dist/organize-series/orgSeries-options.php:74
-#: dist/organize-series/orgSeries-setup.php:285
+#: orgSeries-options.php:80 orgSeries-setup.php:245
 msgid "Edit Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:224
-#: dist/organize-series/addons/grouping/legacy-includes.php:224
+#: addons/grouping/legacy-includes.php:221
 msgid "Edit Series Category"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:18
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:18
 #, php-format
 msgid "Edit the status of %1$s"
 msgstr ""
 
-#: orgSeries-options.php:939 dist/organize-series/orgSeries-options.php:935
-msgid "Enable automatic renumbering of posts in a series."
-msgstr ""
-
 #: includes-core/PPSeriesCoreAdmin.php:59
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:59
 msgid "Enhance the power of PublishPress Series with the Pro version:"
 msgstr ""
 
 #: src/views/admin/templates/license_key_form.template.php:19
-#: dist/organize-series/src/views/admin/templates/license_key_form.template.php:19
 msgid "Enter your license key: "
 msgstr ""
 
-#: orgSeries-widgets.php:333 dist/organize-series/orgSeries-widgets.php:333
+#: orgSeries-widgets.php:333
 msgid "Exclude series:"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:66
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:66
 msgid "Extra tokens for templates"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:68
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:68
 msgid "Fast, professional support"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:189
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:189
 msgid "Filter"
 msgstr ""
 
-#: orgSeries-options.php:757 dist/organize-series/orgSeries-options.php:753
+#: orgSeries-options.php:739
 msgid "First Post"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:11
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:11
 msgid "Front View"
 msgstr ""
 
-#: orgSeries-options.php:464 dist/organize-series/orgSeries-options.php:460
+#: orgSeries-options.php:446
 msgid "Grid"
 msgstr ""
 
-#: orgSeries-widgets.php:290 dist/organize-series/orgSeries-widgets.php:290
+#: orgSeries-widgets.php:290
 msgid "Hide empty series:"
 msgstr ""
 
-#: orgSeries-widgets.php:82 dist/organize-series/orgSeries-widgets.php:82
+#: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
 msgstr ""
 
-#: orgSeries-admin.php:209 dist/organize-series/orgSeries-admin.php:209
+#: orgSeries-admin.php:208
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try something "
 "else"
@@ -481,372 +408,319 @@ msgstr ""
 msgid "https://publishpress.com/publishpress-series/"
 msgstr ""
 
-#: orgSeries-manage.php:174 dist/organize-series/orgSeries-manage.php:174
+#: orgSeries-manage.php:180
 msgid "ID"
 msgstr ""
 
-#: orgSeries-admin.php:385 dist/organize-series/orgSeries-admin.php:385
-msgid ""
-"If you leave this blank, this post will automatically be added to the end of "
-"the series."
-msgstr ""
-
-#: orgSeries-admin.php:153 dist/organize-series/orgSeries-admin.php:153
+#: orgSeries-admin.php:152
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:84
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:84
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 
-#: orgSeries-widgets.php:348 dist/organize-series/orgSeries-widgets.php:348
+#: orgSeries-widgets.php:348
 msgid "Include series:"
 msgstr ""
 
-#: orgSeries-manage.php:281 dist/organize-series/orgSeries-manage.php:281
+#: orgSeries-manage.php:287
 msgid "Invalid form data"
 msgstr ""
 
-#: orgSeries-manage.php:291 dist/organize-series/orgSeries-manage.php:291
+#: orgSeries-manage.php:297
 msgid "Invalid nonce, reload and try again"
 msgstr ""
 
-#: orgSeries-manage.php:300 dist/organize-series/orgSeries-manage.php:300
+#: orgSeries-manage.php:306
 msgid "Invalid taxonomy"
 msgstr ""
 
-#: orgSeries-options.php:313 dist/organize-series/orgSeries-options.php:313
+#: orgSeries-options.php:318
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear and use provided widget post short title."
 msgstr ""
 
-#: orgSeries-options.php:311 dist/organize-series/orgSeries-options.php:311
+#: orgSeries-options.php:316
 msgid ""
 "Is the location token for where the contents of the post list post templates "
 "will appear."
 msgstr ""
 
-#: orgSeries-widgets.php:13 orgSeries-options.php:765
-#: dist/organize-series/orgSeries-widgets.php:13
-#: dist/organize-series/orgSeries-options.php:761
+#: orgSeries-options.php:955 orgSeries-options.php:978
+msgid "Kindly make your full site backup before running this upgrade."
+msgstr ""
+
+#: orgSeries-widgets.php:13 orgSeries-options.php:747
 msgid "Latest Series"
 msgstr ""
 
-#: orgSeries-options.php:776 dist/organize-series/orgSeries-options.php:772
+#: orgSeries-options.php:758
 msgid "Latest Series (inner tags):"
 msgstr ""
 
-#: orgSeries-options.php:781 dist/organize-series/orgSeries-options.php:777
+#: orgSeries-options.php:763
 msgid "Latest Series (tags after):"
 msgstr ""
 
-#: orgSeries-options.php:771 dist/organize-series/orgSeries-options.php:767
+#: orgSeries-options.php:753
 msgid "Latest Series (tags before):"
 msgstr ""
 
-#: orgSeries-options.php:516 dist/organize-series/orgSeries-options.php:512
+#: orgSeries-options.php:498
 msgid "Layout:"
 msgstr ""
 
-#: orgSeries-setup.php:338 orgSeries-setup.php:339
-#: dist/organize-series/orgSeries-setup.php:338
-#: dist/organize-series/orgSeries-setup.php:339
+#: orgSeries-setup.php:297 orgSeries-setup.php:298
 msgctxt "leave the %tokens% as is when translating"
 msgid ""
 "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr ""
 
 #: src/views/admin/templates/license_key_form.template.php:16
-#: dist/organize-series/src/views/admin/templates/license_key_form.template.php:16
 #, php-format
 msgid "License Key for %1$s"
 msgstr ""
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:241
-#: dist/organize-series/src/domain/services/admin/LicenseKeyFormManager.php:241
 msgid "License Key successfully activated."
 msgstr ""
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:242
-#: dist/organize-series/src/domain/services/admin/LicenseKeyFormManager.php:242
 msgid "License Key successfully deactivated."
 msgstr ""
 
-#: orgSeries-options.php:713 dist/organize-series/orgSeries-options.php:709
+#: orgSeries-options.php:695
 msgid "Limit series meta to single page only"
 msgstr ""
 
-#: orgSeries-options.php:465 dist/organize-series/orgSeries-options.php:461
+#: orgSeries-options.php:447
 msgid "List"
 msgstr ""
 
-#: orgSeries-widgets.php:281 dist/organize-series/orgSeries-widgets.php:281
+#: orgSeries-widgets.php:281
 msgid "List:"
 msgstr ""
 
-#: orgSeries-admin.php:495 dist/organize-series/orgSeries-admin.php:495
+#: orgSeries-admin.php:494
 msgid "Manage All Series"
 msgstr ""
 
-#: orgSeries-options.php:78 dist/organize-series/orgSeries-options.php:78
-#: addons/publisher/series_issue_manager.php:509
-#: dist/organize-series/addons/publisher/series_issue_manager.php:509
+#: orgSeries-options.php:84 addons/publisher/series_issue_manager.php:458
 msgid "Manage Series"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:508
-#: dist/organize-series/addons/publisher/series_issue_manager.php:508
+#: addons/publisher/series_issue_manager.php:457
 msgid "Manage Series Issues"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:2
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:2
 msgid "Manage Series to Publish"
 msgstr ""
 
-#: orgSeries-options.php:482 dist/organize-series/orgSeries-options.php:478
+#: orgSeries-options.php:464
 msgid "Maximum number of items in Series Post List"
 msgstr ""
 
-#: orgSeries-options.php:241 dist/organize-series/orgSeries-options.php:241
+#: orgSeries-options.php:246
 msgid "Metabox"
 msgstr ""
 
-#: orgSeries-options.php:880 dist/organize-series/orgSeries-options.php:876
+#: orgSeries-options.php:862
 msgid "Migrate"
 msgstr ""
 
-#: orgSeries-options.php:884 dist/organize-series/orgSeries-options.php:880
+#: orgSeries-options.php:866
 msgid "Migrate series to new taxonomy"
 msgstr ""
 
-#: orgSeries-widgets.php:20 dist/organize-series/orgSeries-widgets.php:20
+#: orgSeries-widgets.php:20
 msgid "Most Recent Series"
-msgstr ""
-
-#: inc/utility-functions.php:33
-#: dist/organize-series/inc/utility-functions.php:33
-#, php-format
-msgid ""
-"Most web hosts provide an easy path to update the php version on your "
-"website.  We recommend updating to PHP 7 or greater. Before you update, you "
-"will want to make sure other plugins and your theme are compatible (see "
-"%1$sthis article for more info%2$s)."
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:453
 #: addons/publisher/series-part-post-table.php:316
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:453
-#: dist/organize-series/addons/publisher/series-part-post-table.php:316
 msgid "Move to Trash"
 msgstr ""
 
-#: orgSeries-widgets.php:299 dist/organize-series/orgSeries-widgets.php:299
+#: orgSeries-widgets.php:299
 msgid "name"
 msgstr ""
 
-#: orgSeries-widgets.php:88 dist/organize-series/orgSeries-widgets.php:88
+#: orgSeries-widgets.php:88
 msgid "Name of Series"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:79
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:79
 msgid "Need PublishPress Series Support?"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:227
-#: dist/organize-series/addons/grouping/legacy-includes.php:227
+#: addons/grouping/legacy-includes.php:224
 msgid "New Series Category"
 msgstr ""
 
-#: orgSeries-options.php:77 orgSeries-setup.php:288
-#: dist/organize-series/orgSeries-options.php:77
-#: dist/organize-series/orgSeries-setup.php:288
+#: orgSeries-options.php:83 orgSeries-setup.php:248
 msgid "New Series Name"
 msgstr ""
 
-#: orgSeries-options.php:747 dist/organize-series/orgSeries-options.php:743
+#: orgSeries-options.php:729
 msgid "Next Post"
 msgstr ""
 
-#: orgSeries-options.php:402 dist/organize-series/orgSeries-options.php:398
+#: orgSeries-options.php:384
 msgid "No"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:69
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:69
 msgid "No ads inside the plugin"
 msgstr ""
 
-#: orgSeries-manage.php:247 dist/organize-series/orgSeries-manage.php:247
+#: orgSeries-manage.php:253
 msgid "No icon currently"
 msgstr ""
 
-#: orgSeries-admin.php:475 orgSeries-setup.php:293
-#: dist/organize-series/orgSeries-admin.php:475
-#: dist/organize-series/orgSeries-setup.php:293
+#: orgSeries-admin.php:474 orgSeries-setup.php:253
 msgid "No Series"
 msgstr ""
 
-#: orgSeries-options.php:79 orgSeries-setup.php:290
-#: dist/organize-series/orgSeries-options.php:79
-#: dist/organize-series/orgSeries-setup.php:290
+#: orgSeries-options.php:85 orgSeries-setup.php:250
 msgid "No series found"
 msgstr ""
 
 #: src/domain/exceptions/NonceFailException.php:18
-#: dist/organize-series/src/domain/exceptions/NonceFailException.php:18
 msgid "Nonce fail."
 msgstr ""
 
-#: orgSeries-manage.php:306 dist/organize-series/orgSeries-manage.php:306
+#: orgSeries-manage.php:312
 msgid "Not enough permission"
 msgstr ""
 
-#: orgSeries-admin.php:312 dist/organize-series/orgSeries-admin.php:312
+#: orgSeries-admin.php:311
 msgid "Not part of a series"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:533
-#: dist/organize-series/addons/publisher/series_issue_manager.php:533
+#: addons/publisher/series_issue_manager.php:482
 msgid "Number of items per page"
 msgstr ""
 
-#: orgSeries-widgets.php:87 dist/organize-series/orgSeries-widgets.php:87
+#: orgSeries-widgets.php:87
 msgid "Number of posts in Series"
 msgstr ""
 
-#: orgSeries-widgets.php:95 dist/organize-series/orgSeries-widgets.php:95
+#: orgSeries-widgets.php:95
 msgid "Number of series to display:"
 msgstr ""
 
-#: orgSeries-widgets.php:363 dist/organize-series/orgSeries-widgets.php:363
+#: orgSeries-widgets.php:363
 msgid "Number of Series:"
 msgstr ""
 
-#: orgSeries-widgets.php:368 dist/organize-series/orgSeries-widgets.php:368
+#: orgSeries-widgets.php:368
 msgid "Offset:"
 msgstr ""
 
-#: orgSeries-manage.php:48 orgSeries-manage.php:196 orgSeries-manage.php:228
-#: dist/organize-series/orgSeries-manage.php:48
-#: dist/organize-series/orgSeries-manage.php:196
-#: dist/organize-series/orgSeries-manage.php:228
+#: orgSeries-manage.php:48 orgSeries-manage.php:202 orgSeries-manage.php:234
 #: addons/publisher/series-publish-post-table.php:77
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:77
 msgid "Order"
 msgstr ""
 
-#: orgSeries-options.php:554 dist/organize-series/orgSeries-options.php:550
+#: orgSeries-options.php:536
 msgid "Order by date"
 msgstr ""
 
-#: orgSeries-widgets.php:295 dist/organize-series/orgSeries-widgets.php:295
+#: orgSeries-widgets.php:295
 msgid "Order by:"
 msgstr ""
 
-#: orgSeries-options.php:551 dist/organize-series/orgSeries-options.php:547
+#: orgSeries-options.php:533
 msgid "Order series by:"
 msgstr ""
 
-#: orgSeries-widgets.php:315 dist/organize-series/orgSeries-widgets.php:315
+#: orgSeries-widgets.php:315
 msgid "Order:"
 msgstr ""
 
-#: orgSeries-widgets.php:234 dist/organize-series/orgSeries-widgets.php:234
+#: orgSeries-widgets.php:234
 msgid "Other posts in series:"
 msgstr ""
 
-#: orgSeries-options.php:297 dist/organize-series/orgSeries-options.php:297
+#: orgSeries-options.php:302
 msgid "Overview"
 msgstr ""
 
-#: orgSeries-admin.php:462 dist/organize-series/orgSeries-admin.php:462
+#: orgSeries-admin.php:461
 #, php-format
 msgid ""
 "Part %1$s of %2$s%6$s in the series <br/><a href=\"%3$s\" title=\"%4$s\">"
 "%5$s</a>"
 msgstr ""
 
-#: orgSeries-taxonomy.php:740 dist/organize-series/orgSeries-taxonomy.php:729
+#: orgSeries-taxonomy.php:736
 msgid "Part:"
 msgstr ""
 
-#: orgSeries-options.php:101 dist/organize-series/orgSeries-options.php:101
+#: orgSeries-options.php:107
 msgid "Permission denied"
 msgstr ""
 
-#: orgSeries-options.php:437 dist/organize-series/orgSeries-options.php:433
+#: orgSeries-options.php:419
 msgid ""
 "Please change these settings carefully as they make significant changes to "
 "PublishPress Series."
 msgstr ""
 
-#: orgSeries-options.php:886 dist/organize-series/orgSeries-options.php:882
+#: orgSeries-options.php:868
 msgid ""
 "Please use with caution. Running this process will delete all the terms from "
 "the current taxonomy and migrate them to a new taxonomy."
 msgstr ""
 
-#: orgSeries-options.php:72 orgSeries-setup.php:283
-#: dist/organize-series/orgSeries-options.php:72
-#: dist/organize-series/orgSeries-setup.php:283
+#: orgSeries-options.php:78 orgSeries-setup.php:243
 msgid "Popular Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:222
-#: dist/organize-series/addons/grouping/legacy-includes.php:222
+#: addons/grouping/legacy-includes.php:219
 msgid "Popular Series Categories"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:341
-#: dist/organize-series/addons/publisher/series_issue_manager.php:341
+#: addons/publisher/series_issue_manager.php:290
 msgid "Post moved to the Trash."
 msgstr ""
 
-#: orgSeries-admin.php:390 dist/organize-series/orgSeries-admin.php:390
+#: orgSeries-admin.php:389
 msgid "Post title in widget:"
 msgstr ""
 
-#: orgSeries-setup.php:753 dist/organize-series/orgSeries-setup.php:751
+#: orgSeries-setup.php:716
 msgid "Posts from the series: "
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:78
 #: addons/publisher/series-publish-post-table.php:441
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:78
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:441
 msgid "Preview"
 msgstr ""
 
-#: orgSeries-options.php:752 dist/organize-series/orgSeries-options.php:748
+#: orgSeries-options.php:734
 msgid "Previous Post"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:691
-#: dist/organize-series/addons/publisher/series_issue_manager.php:691
+#: addons/publisher/series_issue_manager.php:640
 msgid "Publication Date/Time:"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:23
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:23
 msgid "Publish or schedule posts"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:677
-#: addons/publisher/series_issue_manager.php:722
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:9
-#: dist/organize-series/addons/publisher/series_issue_manager.php:677
-#: dist/organize-series/addons/publisher/series_issue_manager.php:722
+#: addons/publisher/series_issue_manager.php:626
+#: addons/publisher/series_issue_manager.php:671
 msgid "Publish Series"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:630
-#: dist/organize-series/addons/publisher/series_issue_manager.php:630
+#: addons/publisher/series_issue_manager.php:579
 msgid "Publishing Series:"
 msgstr ""
 
@@ -854,21 +728,8 @@ msgstr ""
 msgid "PublishPress"
 msgstr ""
 
-#: orgSeries-options.php:353 dist/organize-series/orgSeries-options.php:349
-#, php-format
-msgid "PublishPress Blocks is 100% free to install and use."
-msgstr ""
-
 #. Name of the plugin
 msgid "PublishPress Series"
-msgstr ""
-
-#: inc/utility-functions.php:24
-#: dist/organize-series/inc/utility-functions.php:24
-#, php-format
-msgid ""
-"Publishpress Series %1$srequires PHP 5.6%2$s or greater.  Your website does "
-"not meet the requirements so the plugin is not fully activated."
 msgstr ""
 
 #. Description of the plugin
@@ -878,415 +739,370 @@ msgid ""
 "artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
 
-#: orgSeries-admin.php:162 dist/organize-series/orgSeries-admin.php:162
+#: orgSeries-admin.php:161
 msgid "PublishPress Series Documentation"
 msgstr ""
 
-#: orgSeries-options.php:35 dist/organize-series/orgSeries-options.php:35
+#: orgSeries-options.php:41
 msgid "PublishPress Series Options"
 msgstr ""
 
-#: orgSeries-options.php:254 dist/organize-series/orgSeries-options.php:254
+#: orgSeries-options.php:259
 msgid "PublishPress Series Plugin Options"
 msgstr ""
 
-#: orgSeries-options.php:108 dist/organize-series/orgSeries-options.php:108
+#: orgSeries-options.php:114
 msgid "PublishPress Series Plugin Options have been RESET"
 msgstr ""
 
-#: orgSeries-options.php:143 dist/organize-series/orgSeries-options.php:143
+#: orgSeries-options.php:149
 msgid "PublishPress Series Plugin Options have been updated"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:65
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:65
 msgid "Put series together in groups"
 msgstr ""
 
-#: orgSeries-widgets.php:91 dist/organize-series/orgSeries-widgets.php:91
+#: orgSeries-widgets.php:91
 msgid "Random"
 msgstr ""
 
-#: orgSeries-options.php:350 dist/organize-series/orgSeries-options.php:346
-msgid "Recommendations for you"
-msgstr ""
-
 #: includes-core/PPSeriesCoreAdmin.php:67
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:67
 msgid "Remove PublishPress ads and branding"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:86
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:86
 msgid "Request Support"
 msgstr ""
 
-#: orgSeries-options.php:964 dist/organize-series/orgSeries-options.php:960
+#: orgSeries-options.php:933
 msgid "Reset options to default"
 msgstr ""
 
-#: orgSeries-options.php:961 dist/organize-series/orgSeries-options.php:957
+#: orgSeries-options.php:930
 msgid "Reset settings"
 msgstr ""
 
-#: orgSeries-options.php:303 dist/organize-series/orgSeries-options.php:303
+#: orgSeries-options.php:956 orgSeries-options.php:979
+msgid "Run upgrade task"
+msgstr ""
+
+#: orgSeries-options.php:308
 #, php-format
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
 msgstr ""
 
-#: orgSeries-options.php:309 dist/organize-series/orgSeries-options.php:309
+#: orgSeries-options.php:314
 #, php-format
 msgid ""
 "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:649
-#: dist/organize-series/addons/publisher/series_issue_manager.php:649
+#: addons/publisher/series_issue_manager.php:598
 msgid "Search"
 msgstr ""
 
 #. %s: search keywords
-#: addons/publisher/series_issue_manager.php:636
-#: dist/organize-series/addons/publisher/series_issue_manager.php:636
+#: addons/publisher/series_issue_manager.php:585
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
-#: orgSeries-options.php:71 orgSeries-setup.php:282
-#: dist/organize-series/orgSeries-options.php:71
-#: dist/organize-series/orgSeries-setup.php:282
+#: orgSeries-options.php:77 orgSeries-setup.php:242
 msgid "Search Series"
 msgstr ""
 
-#: orgSeries-admin.php:363 dist/organize-series/orgSeries-admin.php:363
+#: orgSeries-admin.php:363
 msgid "Search series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:221
-#: dist/organize-series/addons/grouping/legacy-includes.php:221
+#: addons/grouping/legacy-includes.php:218
 msgid "Search Series Categories"
 msgstr ""
 
-#: orgSeries-widgets.php:374 dist/organize-series/orgSeries-widgets.php:374
+#: orgSeries-widgets.php:374
 msgid "Search:"
 msgstr ""
 
-#: orgSeries-setup.php:231 dist/organize-series/orgSeries-setup.php:231
+#: orgSeries-setup.php:191
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 
-#: orgSeries-widgets.php:178 dist/organize-series/orgSeries-widgets.php:178
+#: orgSeries-widgets.php:178
 msgid "Select Series"
 msgstr ""
 
 #: orgSeries-widgets.php:233 orgSeries-widgets.php:386
-#: orgSeries-taxonomy.php:451 orgSeries-options.php:36 orgSeries-admin.php:407
-#: orgSeries-admin.php:419 orgSeries-admin.php:503 orgSeries-setup.php:289
-#: dist/organize-series/orgSeries-widgets.php:233
-#: dist/organize-series/orgSeries-widgets.php:386
-#: dist/organize-series/orgSeries-taxonomy.php:451
-#: dist/organize-series/orgSeries-options.php:36
-#: dist/organize-series/orgSeries-admin.php:407
-#: dist/organize-series/orgSeries-admin.php:419
-#: dist/organize-series/orgSeries-admin.php:503
-#: dist/organize-series/orgSeries-setup.php:289
+#: orgSeries-taxonomy.php:457 orgSeries-options.php:42 orgSeries-admin.php:406
+#: orgSeries-admin.php:418 orgSeries-admin.php:502 orgSeries-setup.php:249
 #: addons/publisher/series_im_admin_main.php:7
-#: addons/grouping/legacy-includes.php:401
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:7
-#: dist/organize-series/addons/grouping/legacy-includes.php:401
+#: addons/grouping/legacy-includes.php:396
 msgid "Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:228
-#: addons/grouping/legacy-includes.php:450
-#: addons/grouping/legacy-includes.php:491
-#: addons/grouping/legacy-includes.php:546
-#: dist/organize-series/addons/grouping/legacy-includes.php:228
-#: dist/organize-series/addons/grouping/legacy-includes.php:450
-#: dist/organize-series/addons/grouping/legacy-includes.php:491
-#: dist/organize-series/addons/grouping/legacy-includes.php:546
+#: addons/grouping/legacy-includes.php:225
+#: addons/grouping/legacy-includes.php:441
+#: addons/grouping/legacy-includes.php:482
+#: addons/grouping/legacy-includes.php:537
 msgid "Series Categories"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:352
-#: dist/organize-series/addons/grouping/legacy-includes.php:352
+#: addons/grouping/legacy-includes.php:347
 msgid "Series Categories Feature"
 msgstr ""
 
-#: orgSeries-manage.php:262 dist/organize-series/orgSeries-manage.php:262
+#: orgSeries-options.php:952 orgSeries-options.php:975
+msgid "Series data upgrade required!!!"
+msgstr ""
+
+#: orgSeries-manage.php:268
 msgid "Series Icon Upload:"
 msgstr ""
 
-#: orgSeries-widgets.php:302 dist/organize-series/orgSeries-widgets.php:302
+#: orgSeries-widgets.php:302
 msgid "series id"
 msgstr ""
 
-#: orgSeries-setup.php:295 dist/organize-series/orgSeries-setup.php:295
+#: orgSeries-setup.php:255
 msgid "Series Link"
 msgstr ""
 
-#: orgSeries-setup.php:294 dist/organize-series/orgSeries-setup.php:294
+#: orgSeries-setup.php:254
 msgid "Series List"
 msgstr ""
 
-#: orgSeries-options.php:704 dist/organize-series/orgSeries-options.php:700
+#: orgSeries-options.php:686
 msgid "Series Meta (with excerpts):"
 msgstr ""
 
-#: orgSeries-options.php:677 dist/organize-series/orgSeries-options.php:673
+#: orgSeries-options.php:659
 msgid "Series Meta Box"
 msgstr ""
 
-#: orgSeries-options.php:683 dist/organize-series/orgSeries-options.php:679
+#: orgSeries-options.php:665
 msgid "Series Meta:"
 msgstr ""
 
-#: orgSeries-options.php:689 dist/organize-series/orgSeries-options.php:685
+#: orgSeries-options.php:671
 msgid "Series Metabox Location"
 msgstr ""
 
-#: orgSeries-setup.php:344 dist/organize-series/orgSeries-setup.php:344
+#: orgSeries-setup.php:303
 msgid "Series Navigation"
 msgstr ""
 
-#: orgSeries-options.php:721 dist/organize-series/orgSeries-options.php:717
+#: orgSeries-options.php:703
 msgid "Series Navigation Box"
 msgstr ""
 
-#: orgSeries-manage.php:173 orgSeries-manage.php:182 orgSeries-manage.php:182
-#: orgSeries-admin.php:320 dist/organize-series/orgSeries-manage.php:173
-#: dist/organize-series/orgSeries-manage.php:182
-#: dist/organize-series/orgSeries-manage.php:182
-#: dist/organize-series/orgSeries-admin.php:320
-#: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:782
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:8
-#: dist/organize-series/addons/publisher/series_issue_manager.php:782
+#: orgSeries-manage.php:179 orgSeries-manage.php:188 orgSeries-manage.php:188
+#: orgSeries-admin.php:319 addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:731
 msgid "Series Order"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:20
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:20
 msgid "Series order"
 msgstr ""
 
-#: orgSeries-options.php:558 dist/organize-series/orgSeries-options.php:554
+#: orgSeries-options.php:540
 msgid "Series order method"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:749
-#: dist/organize-series/addons/publisher/series_issue_manager.php:749
+#: addons/publisher/series_issue_manager.php:698
 msgid "Series Order:"
 msgstr ""
 
-#: orgSeries-options.php:553 dist/organize-series/orgSeries-options.php:549
+#: orgSeries-options.php:535
 msgid "Series part"
 msgstr ""
 
-#: orgSeries-admin.php:380 dist/organize-series/orgSeries-admin.php:380
+#: orgSeries-admin.php:382
 msgid "Series Part:"
 msgstr ""
 
-#: orgSeries-options.php:602 dist/organize-series/orgSeries-options.php:598
+#: orgSeries-options.php:584
 msgid "Series Per Page:"
 msgstr ""
 
-#: orgSeries-options.php:643 dist/organize-series/orgSeries-options.php:639
+#: orgSeries-options.php:625
 msgid "Series Post List"
 msgstr ""
 
-#: orgSeries-options.php:638 dist/organize-series/orgSeries-options.php:634
+#: orgSeries-options.php:620
 msgid "Series Post List Box"
 msgstr ""
 
-#: orgSeries-options.php:648 dist/organize-series/orgSeries-options.php:644
+#: orgSeries-options.php:630
 msgid "Series Post List box Location"
 msgstr ""
 
-#: orgSeries-options.php:669 dist/organize-series/orgSeries-options.php:665
+#: orgSeries-options.php:651
 msgid "Series Post List Post Title (Current Post)"
 msgstr ""
 
-#: orgSeries-options.php:663 dist/organize-series/orgSeries-options.php:659
+#: orgSeries-options.php:645
 msgid "Series Post List Post Title (Linked Post)"
 msgstr ""
 
-#: orgSeries-options.php:732 dist/organize-series/orgSeries-options.php:728
+#: orgSeries-options.php:714
 msgid "Series Post Navigation Location"
 msgstr ""
 
-#: orgSeries-options.php:727 dist/organize-series/orgSeries-options.php:723
+#: orgSeries-options.php:709
 msgid "Series Post Navigation:"
 msgstr ""
 
-#: orgSeries-options.php:948 dist/organize-series/orgSeries-options.php:944
+#: orgSeries-options.php:917
 msgid "Series Settings"
 msgstr ""
 
-#: orgSeries-widgets.php:89 dist/organize-series/orgSeries-widgets.php:89
+#: orgSeries-widgets.php:89
 msgid "Series Slug"
 msgstr ""
 
-#: orgSeries-widgets.php:112 orgSeries-options.php:789
-#: orgSeries-options.php:795 orgSeries-setup.php:461
-#: dist/organize-series/orgSeries-widgets.php:112
-#: dist/organize-series/orgSeries-options.php:785
-#: dist/organize-series/orgSeries-options.php:791
-#: dist/organize-series/orgSeries-setup.php:461
+#: orgSeries-widgets.php:112 orgSeries-options.php:771
+#: orgSeries-options.php:777 orgSeries-setup.php:420
 msgid "Series Table of Contents"
 msgstr ""
 
-#: orgSeries-options.php:606 dist/organize-series/orgSeries-options.php:602
+#: orgSeries-options.php:588
 msgid "Series Table of Contents Title:"
 msgstr ""
 
-#: orgSeries-options.php:568 dist/organize-series/orgSeries-options.php:564
+#: orgSeries-options.php:550
 msgid "Series Table of Contents URL:"
 msgstr ""
 
-#: orgSeries-options.php:861 dist/organize-series/orgSeries-options.php:857
+#: orgSeries-options.php:843
 msgid "Series Taxonomy Slug:"
 msgstr ""
 
-#: orgSeries-options.php:869 dist/organize-series/orgSeries-options.php:865
+#: orgSeries-options.php:851
 msgid "Series Taxonomy:"
 msgstr ""
 
-#: orgSeries-widgets.php:416 dist/organize-series/orgSeries-widgets.php:416
+#: orgSeries-options.php:1026
+msgid "Series upgrade completed."
+msgstr ""
+
+#: orgSeries-widgets.php:416
 msgid "Series widget title:"
 msgstr ""
 
-#: orgSeries-taxonomy.php:738 orgSeries-taxonomy.php:763
-#: dist/organize-series/orgSeries-taxonomy.php:727
-#: dist/organize-series/orgSeries-taxonomy.php:752
+#: orgSeries-taxonomy.php:734 orgSeries-taxonomy.php:759
 msgid "Series:"
 msgstr ""
 
-#: orgSeries-setup.php:751 dist/organize-series/orgSeries-setup.php:749
+#: orgSeries-setup.php:714
 msgid "Series: "
 msgstr ""
 
-#: orgSeries-manage.php:200 dist/organize-series/orgSeries-manage.php:200
+#: orgSeries-manage.php:206
 msgid ""
 "Set a specific order by entering a number (1 for first, etc.) in this field."
 msgstr ""
 
-#: orgSeries-options.php:24 orgSeries-options.php:45 orgSeries-options.php:46
-#: orgSeries-setup.php:765 dist/organize-series/orgSeries-options.php:24
-#: dist/organize-series/orgSeries-options.php:45
-#: dist/organize-series/orgSeries-options.php:46
-#: dist/organize-series/orgSeries-setup.php:763
+#: orgSeries-options.php:30 orgSeries-options.php:51 orgSeries-options.php:52
+#: orgSeries-setup.php:728
 msgid "Settings"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:63
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:63
 msgid "Shortcodes"
 msgstr ""
 
-#: orgSeries-options.php:905 dist/organize-series/orgSeries-options.php:901
+#: orgSeries-options.php:887
 msgid "Show \"Add New\""
 msgstr ""
 
-#: orgSeries-options.php:913 dist/organize-series/orgSeries-options.php:909
+#: orgSeries-options.php:895
 msgid "Show \"Post title in widget\""
 msgstr ""
 
-#: orgSeries-options.php:909 dist/organize-series/orgSeries-options.php:905
+#: orgSeries-options.php:891
 msgid "Show \"Series Part\""
 msgstr ""
 
-#: orgSeries-widgets.php:380 dist/organize-series/orgSeries-widgets.php:380
+#: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
 msgstr ""
 
-#: orgSeries-widgets.php:285 dist/organize-series/orgSeries-widgets.php:285
+#: orgSeries-widgets.php:285
 msgid "Show post count:"
 msgstr ""
 
-#: orgSeries-widgets.php:274 dist/organize-series/orgSeries-widgets.php:274
+#: orgSeries-widgets.php:274
 msgid "Show Series Table Of Content"
 msgstr ""
 
-#: orgSeries-widgets.php:279 dist/organize-series/orgSeries-widgets.php:279
+#: orgSeries-widgets.php:279
 msgid "Show Series Table Of Content as:"
 msgstr ""
 
-#: orgSeries-widgets.php:301 dist/organize-series/orgSeries-widgets.php:301
+#: orgSeries-widgets.php:301
 msgid "slug"
 msgstr ""
 
-#: orgSeries-admin.php:192 dist/organize-series/orgSeries-admin.php:192
+#: orgSeries-admin.php:191
 msgid "Sorry but you don't have permission to add series"
 msgstr ""
 
 #: inc/templates/taxonomy-series.php:70
-#: dist/organize-series/inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:76
 #: addons/publisher/series-part-post-table.php:67
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:76
-#: dist/organize-series/addons/publisher/series-part-post-table.php:67
 msgid "Status"
 msgstr ""
 
-#: orgSeries-options.php:498 dist/organize-series/orgSeries-options.php:494
+#: orgSeries-options.php:480
 msgid "Style options"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:75
 #: addons/publisher/series-part-post-table.php:66
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:75
-#: dist/organize-series/addons/publisher/series-part-post-table.php:66
 msgid "Tags"
 msgstr ""
 
-#: orgSeries-options.php:240 dist/organize-series/orgSeries-options.php:240
+#: orgSeries-options.php:245
 msgid "Taxonomy"
 msgstr ""
 
-#: orgSeries-options.php:69 orgSeries-setup.php:280
-#: dist/organize-series/orgSeries-options.php:69
-#: dist/organize-series/orgSeries-setup.php:280
+#: orgSeries-options.php:75 orgSeries-setup.php:240
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:219
-#: dist/organize-series/addons/grouping/legacy-includes.php:219
+#: addons/grouping/legacy-includes.php:216
 msgctxt "taxonomy general name"
 msgid "Series Categories"
 msgstr ""
 
-#: orgSeries-options.php:70 orgSeries-setup.php:281
-#: dist/organize-series/orgSeries-options.php:70
-#: dist/organize-series/orgSeries-setup.php:281
+#: orgSeries-options.php:76 orgSeries-setup.php:241
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:220
-#: dist/organize-series/addons/grouping/legacy-includes.php:220
+#: addons/grouping/legacy-includes.php:217
 msgctxt "taxonomy singular name"
 msgid "Series Category"
 msgstr ""
 
-#: orgSeries-manage.php:63 dist/organize-series/orgSeries-manage.php:63
+#: orgSeries-manage.php:63
 msgid "Term Order"
 msgstr ""
 
-#: orgSeries-manage.php:234 dist/organize-series/orgSeries-manage.php:234
+#: orgSeries-manage.php:240
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
-#: dist/organize-series/src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
 msgid ""
 "The \"%1$s\" file is either missing or could not be read due to permissions. "
@@ -1295,24 +1111,16 @@ msgid ""
 msgstr ""
 
 #: src/application/Container.php:160
-#: dist/organize-series/src/application/Container.php:160
 #, php-format
 msgid "The %1$s already has a parameter indexed with the name: %2$s."
 msgstr ""
 
 #: src/application/Root.php:139
-#: dist/organize-series/src/application/Root.php:139
 #, php-format
 msgid "The %1$s method can only be used to register a child of %2$s."
 msgstr ""
 
-#: orgSeries-options.php:354 dist/organize-series/orgSeries-options.php:350
-msgid ""
-"The Content Display block allows you to create advanced layouts for "
-"PublishPress Series"
-msgstr ""
-
-#: orgSeries-options.php:299 dist/organize-series/orgSeries-options.php:299
+#: orgSeries-options.php:304
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -1320,46 +1128,40 @@ msgid ""
 msgstr ""
 
 #: src/domain/model/FileLocation.php:50
-#: dist/organize-series/src/domain/model/FileLocation.php:50
 #, php-format
 msgid "The given file path (%s) is not readable."
 msgstr ""
 
 #: src/domain/model/RouteIdentifier.php:51
-#: dist/organize-series/src/domain/model/RouteIdentifier.php:51
 #, php-format
 msgid "The incoming value for %1$s is expected to be a closure.  It was not."
 msgstr ""
 
-#: orgSeries-widgets.php:79 dist/organize-series/orgSeries-widgets.php:79
+#: orgSeries-widgets.php:79
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a href=\"%s\">"
 "Latest Series</a> area."
 msgstr ""
 
-#: orgSeries-admin.php:203 dist/organize-series/orgSeries-admin.php:203
+#: orgSeries-admin.php:202
 msgid ""
 "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 
 #: src/domain/services/AssetRegistry.php:408
-#: dist/organize-series/src/domain/services/AssetRegistry.php:408
 #, php-format
 msgid ""
 "The namespace for this manifest file has already been registered, choose a "
 "namespace other than %s"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:323
-#: dist/organize-series/addons/publisher/series_issue_manager.php:323
+#: addons/publisher/series_issue_manager.php:272
 msgid "The posts in your series were successfully unpublished."
 msgstr ""
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
-#: dist/organize-series/src/domain/model/ControllerRoute.php:50
-#: dist/organize-series/src/domain/model/HasHooksRoute.php:59
 #, php-format
 msgid ""
 "The provided object fully qualified class name (%1$s) must implement the "
@@ -1367,14 +1169,12 @@ msgid ""
 msgstr ""
 
 #: src/domain/services/AssetRegistry.php:419
-#: dist/organize-series/src/domain/services/AssetRegistry.php:419
 #, php-format
 msgid ""
 "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr ""
 
 #: src/domain/services/AssetRegistry.php:283
-#: dist/organize-series/src/domain/services/AssetRegistry.php:283
 #, php-format
 msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
@@ -1382,7 +1182,6 @@ msgid ""
 msgstr ""
 
 #: src/domain/services/AssetRegistry.php:271
-#: dist/organize-series/src/domain/services/AssetRegistry.php:271
 #, php-format
 msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
@@ -1391,7 +1190,6 @@ msgid ""
 msgstr ""
 
 #: src/domain/services/AssetRegistry.php:228
-#: dist/organize-series/src/domain/services/AssetRegistry.php:228
 #, php-format
 msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
@@ -1399,290 +1197,273 @@ msgid ""
 msgstr ""
 
 #: addons/publisher/series-part-post-table.php:182
-#: dist/organize-series/addons/publisher/series-part-post-table.php:182
 msgid "There are no posts in this series."
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:46
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:46
 msgid "There are no unpublished posts in this series."
 msgstr ""
 
-#: orgSeries-options.php:416 dist/organize-series/orgSeries-options.php:412
+#: orgSeries-options.php:398
 msgid ""
 "These settings allow you to customize the main frontend screens in "
 "PublishPress Series."
 msgstr ""
 
-#: orgSeries-options.php:451 dist/organize-series/orgSeries-options.php:447
+#: orgSeries-options.php:433
 msgid ""
 "These settings allow you to customize the metabox on the post editing screen."
 msgstr ""
 
-#: orgSeries-options.php:423 dist/organize-series/orgSeries-options.php:419
+#: orgSeries-options.php:405
 msgid ""
 "These templates allow you to customize the frontend appearance of "
 "PublishPress Series."
 msgstr ""
 
-#: orgSeries-options.php:708 dist/organize-series/orgSeries-options.php:704
+#: orgSeries-options.php:690
 msgid ""
 "This control how and what series meta information is displayed with posts "
 "that are part of a series when the_excerpt is used. "
 msgstr ""
 
-#: orgSeries-options.php:723 dist/organize-series/orgSeries-options.php:719
+#: orgSeries-options.php:705
 msgid "This display is shown at the bottom of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:640 orgSeries-options.php:679
-#: dist/organize-series/orgSeries-options.php:636
-#: dist/organize-series/orgSeries-options.php:675
+#: orgSeries-options.php:622 orgSeries-options.php:661
 msgid "This display is shown at the top of all posts in a series."
 msgstr ""
 
-#: orgSeries-options.php:767 dist/organize-series/orgSeries-options.php:763
+#: orgSeries-options.php:749
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr ""
 
-#: orgSeries-options.php:791 dist/organize-series/orgSeries-options.php:787
+#: orgSeries-options.php:773
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr ""
 
-#: orgSeries-options.php:798 dist/organize-series/orgSeries-options.php:794
+#: orgSeries-options.php:780
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
 "for this display, go the \"Display\" tab and then \"Series Table of Contents "
 "URL\"."
 msgstr ""
 
-#: orgSeries-options.php:444 dist/organize-series/orgSeries-options.php:440
+#: orgSeries-options.php:426
 msgid ""
 "This feature allows you to create a new taxonomy for this plugin to use if "
 "you don't want to use the default \"Series\" taxonomy."
 msgstr ""
 
-#: orgSeries-options.php:430 dist/organize-series/orgSeries-options.php:426
+#: orgSeries-options.php:412
 msgid ""
 "This section is for the icons that show with your series. Note that you must "
 "use a token for the icon in the \"Templates\" settings."
 msgstr ""
 
-#: orgSeries-options.php:864 dist/organize-series/orgSeries-options.php:860
+#: orgSeries-options.php:846
 msgid "This text will be part of the series base URL."
 msgstr ""
 
-#: orgSeries-widgets.php:418 dist/organize-series/orgSeries-widgets.php:418
+#: orgSeries-widgets.php:418
 msgid "This text will display above other posts in this series."
 msgstr ""
 
-#: orgSeries-options.php:305 dist/organize-series/orgSeries-options.php:305
+#: orgSeries-options.php:310
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
 
-#: orgSeries-options.php:301 dist/organize-series/orgSeries-options.php:301
+#: orgSeries-options.php:306
 msgid "This will be replaced with the series icon for a series."
 msgstr ""
 
-#: orgSeries-options.php:307 dist/organize-series/orgSeries-options.php:307
+#: orgSeries-options.php:312
 msgid "This will be replaced with the title of a series"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:72
 #: addons/publisher/series-part-post-table.php:63
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:72
-#: dist/organize-series/addons/publisher/series-part-post-table.php:63
 msgid "Title"
 msgstr ""
 
 #: orgSeries-widgets.php:73 orgSeries-widgets.php:269
-#: dist/organize-series/orgSeries-widgets.php:73
-#: dist/organize-series/orgSeries-widgets.php:269
 msgid "Title:"
 msgstr ""
 
-#: orgSeries-options.php:873 dist/organize-series/orgSeries-options.php:869
+#: orgSeries-options.php:855
 msgid ""
 "To create a new taxonomy, enter the new name and click the \"Update "
 "Options\" button."
 msgstr ""
 
-#: inc/utility-functions.php:44
-#: dist/organize-series/inc/utility-functions.php:44
-msgid ""
-"To remove this notice you can either deactivate the plugin or upgrade the "
-"php version on your server."
-msgstr ""
-
-#: orgSeries-manage.php:64 dist/organize-series/orgSeries-manage.php:64
+#: orgSeries-manage.php:64
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
 
-#: orgSeries-options.php:626 dist/organize-series/orgSeries-options.php:622
+#: orgSeries-options.php:608
 msgid "Top"
 msgstr ""
 
 #: addons/publisher/series-publish-post-table.php:285
 #: addons/publisher/series-part-post-table.php:156
-#: dist/organize-series/addons/publisher/series-publish-post-table.php:285
-#: dist/organize-series/addons/publisher/series-part-post-table.php:156
 msgid "Trash"
 msgstr ""
 
 #: src/domain/exceptions/EntityNotFoundException.php:30
-#: dist/organize-series/src/domain/exceptions/EntityNotFoundException.php:30
 #, php-format
 msgid "Unable to retrieve an instance of %1$s. Not found."
 msgstr ""
 
-#: orgSeries-options.php:397 dist/organize-series/orgSeries-options.php:393
+#: orgSeries-options.php:379
 msgid "Update Options"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:798
-#: dist/organize-series/addons/publisher/series_issue_manager.php:798
+#: addons/publisher/series_issue_manager.php:747
 msgid "Update Order"
 msgstr ""
 
-#: orgSeries-options.php:75 orgSeries-setup.php:286
-#: dist/organize-series/orgSeries-options.php:75
-#: dist/organize-series/orgSeries-setup.php:286
+#: orgSeries-options.php:81 orgSeries-setup.php:246
 msgid "Update Series"
 msgstr ""
 
-#: addons/grouping/legacy-includes.php:225
-#: dist/organize-series/addons/grouping/legacy-includes.php:225
+#: addons/grouping/legacy-includes.php:222
 msgid "Update Series Category"
 msgstr ""
 
-#: orgSeries-manage.php:310 dist/organize-series/orgSeries-manage.php:310
+#: orgSeries-manage.php:316
 msgid "Updated successfully"
 msgstr ""
 
+#: orgSeries-options.php:954
+msgid ""
+"Upgrade required to continue using PublishPress series. We made changes to "
+"how series are stored to fully support multiple series and series part "
+"related issues."
+msgstr ""
+
 #: includes-core/PPSeriesCoreAdmin.php:72
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:72
 msgid "Upgrade to Pro"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:54
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:54
 msgid "Upgrade to PublishPress Series Pro"
 msgstr ""
 
-#: orgSeries-manage.php:209 orgSeries-manage.php:266
-#: dist/organize-series/orgSeries-manage.php:209
-#: dist/organize-series/orgSeries-manage.php:266
+#: orgSeries-manage.php:215 orgSeries-manage.php:272
 msgid "Upload an image for the series."
 msgstr ""
 
-#: orgSeries-options.php:501 dist/organize-series/orgSeries-options.php:497
+#: orgSeries-options.php:483
 msgid "Use box style"
 msgstr ""
 
-#: orgSeries-options.php:502 dist/organize-series/orgSeries-options.php:498
+#: orgSeries-options.php:484
 msgid "Use dark style"
 msgstr ""
 
-#: orgSeries-options.php:500 dist/organize-series/orgSeries-options.php:496
+#: orgSeries-options.php:482
 msgid "Use default style"
 msgstr ""
 
-#: orgSeries-options.php:503 dist/organize-series/orgSeries-options.php:499
+#: orgSeries-options.php:485
 msgid "Use light style"
 msgstr ""
 
-#: orgSeries-options.php:494 dist/organize-series/orgSeries-options.php:490
+#: orgSeries-options.php:476
 msgid "Use PublishPress Series CSS styles?"
 msgstr ""
 
-#: orgSeries-options.php:329 dist/organize-series/orgSeries-options.php:325
+#: orgSeries-options.php:334
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr ""
 
-#: orgSeries-widgets.php:12 dist/organize-series/orgSeries-widgets.php:12
+#: orgSeries-widgets.php:12
 msgid "Use this to control the output of the latest series widget"
 msgstr ""
 
-#: orgSeries-widgets.php:111 dist/organize-series/orgSeries-widgets.php:111
+#: orgSeries-widgets.php:111
 msgid "Use this to display the Series Table of contents"
 msgstr ""
 
-#: orgSeries-admin.php:488 dist/organize-series/orgSeries-admin.php:488
+#: orgSeries-admin.php:487
 msgid "View all series"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:97
-#: dist/organize-series/includes-core/PPSeriesCoreAdmin.php:97
 msgid "View Knowledge Base"
 msgstr ""
 
-#: orgSeries-setup.php:292 dist/organize-series/orgSeries-setup.php:292
+#: orgSeries-setup.php:252
 msgid "View Series"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:26
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:26
 msgid "View series in admin"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:29
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:29
 msgid "View series in frontend"
 msgstr ""
 
-#: addons/publisher/series_issue_manager.php:244
-#: dist/organize-series/addons/publisher/series_issue_manager.php:244
+#: orgSeries-options.php:977
+msgid ""
+"We made changes to how series are stored to fully support multiple series, "
+"multiple post types integration and series part related issues."
+msgstr ""
+
+#: addons/publisher/series_issue_manager.php:193
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr ""
 
-#: orgSeries-widgets.php:90 dist/organize-series/orgSeries-widgets.php:90
+#: orgSeries-widgets.php:90
 msgid "When Series was Created"
 msgstr ""
 
-#: orgSeries-options.php:715 dist/organize-series/orgSeries-options.php:711
+#: orgSeries-options.php:697
 msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
 msgstr ""
 
-#: orgSeries-options.php:837 dist/organize-series/orgSeries-options.php:833
+#: orgSeries-options.php:819
 msgid "Width for icon if displayed via the latest series template (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:831 dist/organize-series/orgSeries-options.php:827
+#: orgSeries-options.php:813
 msgid "Width for icon on a post page (in pixels)."
 msgstr ""
 
-#: orgSeries-options.php:825 dist/organize-series/orgSeries-options.php:821
+#: orgSeries-options.php:807
 msgid "Width for icon on series table of contents page (in pixels)"
 msgstr ""
 
-#: orgSeries-options.php:327 dist/organize-series/orgSeries-options.php:323
+#: orgSeries-options.php:332
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
 "text will be whatever is included in the 'Custom First Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
 
-#: orgSeries-options.php:325 dist/organize-series/orgSeries-options.php:321
+#: orgSeries-options.php:330
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
 
-#: orgSeries-options.php:323 dist/organize-series/orgSeries-options.php:319
+#: orgSeries-options.php:328
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -1690,69 +1471,61 @@ msgid ""
 "title of the post"
 msgstr ""
 
-#: orgSeries-options.php:315 dist/organize-series/orgSeries-options.php:315
+#: orgSeries-options.php:320
 msgid "Will be replaced with the post title of a post in the series"
 msgstr ""
 
-#: orgSeries-options.php:317 dist/organize-series/orgSeries-options.php:317
+#: orgSeries-options.php:322
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
 
-#: orgSeries-options.php:319
+#: orgSeries-options.php:324
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr ""
 
-#: orgSeries-options.php:321
+#: orgSeries-options.php:326
 msgid ""
 "Will be replaced with the post title short of a post in the series linked to "
 "the page view of that post."
 msgstr ""
 
-#: orgSeries-options.php:335 dist/organize-series/orgSeries-options.php:331
+#: orgSeries-options.php:340
 msgid "Will display the description for the series"
 msgstr ""
 
-#: orgSeries-options.php:333 dist/organize-series/orgSeries-options.php:329
+#: orgSeries-options.php:338
 msgid "Will display the total number of posts in a series"
 msgstr ""
 
-#: orgSeries-options.php:331 dist/organize-series/orgSeries-options.php:327
+#: orgSeries-options.php:336
 msgid "Will display what part of a series the post is"
 msgstr ""
 
-#: orgSeries-options.php:403 dist/organize-series/orgSeries-options.php:399
+#: orgSeries-options.php:385
 msgid "Yes"
 msgstr ""
 
-#: orgSeries-widgets.php:376 dist/organize-series/orgSeries-widgets.php:376
+#: orgSeries-widgets.php:376
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr ""
 
-#: orgSeries-widgets.php:370 dist/organize-series/orgSeries-widgets.php:370
+#: orgSeries-widgets.php:370
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:38
-#: dist/organize-series/addons/publisher/series_im_admin_main.php:38
 msgid "You have no series available to publish."
 msgstr ""
 
-#: orgSeries-options.php:581 dist/organize-series/orgSeries-options.php:577
+#: orgSeries-options.php:563
 #, php-format
 msgid ""
 "You must %1s update your permalink structure %2s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
-msgstr ""
-
-#: orgSeries-setup.php:104 dist/organize-series/orgSeries-setup.php:104
-msgid ""
-"Your WordPress version is too old. Publishpress Series 2.2 requires at least "
-"WordPress 3.0 to function correctly. Please update your blog via Tools &gt; "
-"Upgrade."
 msgstr ""

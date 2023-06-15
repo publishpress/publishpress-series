@@ -47,7 +47,7 @@ function get_series_order($posts, $postid = 0, $series_id = 0, $skip = TRUE, $on
 	}
 	$posttypes = apply_filters('orgseries_posttype_support', array('post') );
 	$args = array(
-		'post_status' => 'any',
+		'post_status' => 'publish',
 		'include' => $postids,
 		'post_type' => $posttypes );
 	$posts = get_posts($args);

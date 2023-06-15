@@ -130,10 +130,12 @@ function wp_delete_series($series_ID, $taxonomy_id) {
 	global $wpdb;
 	seriesicons_delete($series_ID);
 	wp_reset_series_order_meta_cache('',$series_ID,TRUE);
+    $series_part = SERIES_PART_KEY.'_'.$series_ID;
+    $wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $series_part) );
 }
 
 function wp_insert_series($series_id, $taxonomy_id) {
-	global $_POST;
+	global $_POST, $wpdb;
 	$series_icon_loc = '';
 
 	extract($_POST, EXTR_SKIP);
@@ -145,10 +147,12 @@ function wp_insert_series($series_id, $taxonomy_id) {
 	}
 
 	$series_icon = seriesicons_write($series_id, $series_icon);
+
+    $wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
 }
 
 function wp_update_series($series_id, $taxonomy_id) {
-	global $_POST;
+	global $_POST, $wpdb;
 	extract($_POST, EXTR_SKIP);
 	if ( empty($series_icon_loc) ) $series_icon_loc = '';
 	if ( empty($delete_image) ) $delete_image = false;
@@ -166,6 +170,8 @@ function wp_update_series($series_id, $taxonomy_id) {
 	} else {
 		$series_icon = seriesicons_write(absint($series_id), sanitize_text_field($series_icon));
 	}
+
+    $wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
 }
 
 function manage_series_columns($columns) {
@@ -192,10 +198,10 @@ function add_series_form_fields($taxonomy) {
 	global $orgseries;
 	?>
     <div class="form-field form-required">
-			<label for="order">
+			<label for="term_order">
 				<?php esc_html_e( 'Order', 'organize-series' ); ?>
 			</label>
-			<input type="number" pattern="[0-9.]+" name="order" id="order" value="0" size="11">
+			<input type="number" pattern="[0-9.]+" name="term_order" id="term_order" value="0" size="11">
 			<p class="description">
 				<?php esc_html_e( 'Set a specific order by entering a number (1 for first, etc.) in this field.', 'organize-series' ); ?>
 			</p>
@@ -224,12 +230,12 @@ function edit_series_form_fields($series, $taxonomy) {
 	?>
     <tr class="form-field">
 		<th scope="row" valign="top">
-			<label for="order">
+			<label for="term_order">
 				<?php esc_html_e( 'Order', 'organize-series' ); ?>
 			</label>
 		</th>
 		<td>
-		<input name="order" id="order" type="text" value="<?php echo $series->term_order; ?>" size="11" />
+		<input name="term_order" id="term_order" type="text" value="<?php echo $series->term_order; ?>" size="11" />
 			<p class="description">
 				<?php esc_html_e( 'Terms are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field.', 'organize-series' ); ?>
 			</p>
