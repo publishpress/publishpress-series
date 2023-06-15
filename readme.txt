@@ -174,7 +174,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.11.4- 2023-06-05
+v2.11.4- 2023-06-15
 * Update: Remove auto series part feature
 * Fixed: Series Order is broken with Multiple Series, #774
 * Fixed: Editing Series order not updating, #746
