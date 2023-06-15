@@ -124,21 +124,21 @@
         },
         {
             "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.9",
+            "version": "3.5.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "71391cfc7817381d3c8942b01909755701fd57ad"
+                "reference": "f2784f4b1ccaf195b373a46a74cf3742e7c9f826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/71391cfc7817381d3c8942b01909755701fd57ad",
-                "reference": "71391cfc7817381d3c8942b01909755701fd57ad",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/f2784f4b1ccaf195b373a46a74cf3742e7c9f826",
+                "reference": "f2784f4b1ccaf195b373a46a74cf3742e7c9f826",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "publishpress/psr-container": "^2.0.1.1"
+                "publishpress/psr-container": "^2.0.1.10"
             },
             "require-dev": {
                 "brianhenryie/strauss": "^0.14.0",
@@ -188,6 +188,11 @@
                     "delete_vendor_files": true
                 }
             },
+            "autoload": {
+                "files": [
+                    "lib/include.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -211,22 +216,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.9"
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.10"
             },
-            "time": "2023-04-27T21:07:44+00:00"
+            "time": "2023-05-30T18:41:10+00:00"
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.9",
+            "version": "2.0.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff"
+                "reference": "4ccd2cb058e7b93e96186791ca25870a02e35c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
-                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/4ccd2cb058e7b93e96186791ca25870a02e35c5d",
+                "reference": "4ccd2cb058e7b93e96186791ca25870a02e35c5d",
                 "shasum": ""
             },
             "require": {
@@ -279,6 +284,11 @@
                     "delete_vendor_files": true
                 }
             },
+            "autoload": {
+                "files": [
+                    "lib/include.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -305,9 +315,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.9"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.10"
             },
-            "time": "2023-04-27T21:09:00+00:00"
+            "time": "2023-05-30T18:17:45+00:00"
         },
         {
             "name": "publishpress/vendor-locator-series",
@@ -457,16 +467,16 @@
         },
         {
             "name": "publishpress/wordpress-version-notices",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-version-notices.git",
-                "reference": "64596e11a0b7f1358e5bf511d4dd87d8ba8730cd"
+                "reference": "b0efcf04ab9d37304e38673bee471116e44cdb0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/64596e11a0b7f1358e5bf511d4dd87d8ba8730cd",
-                "reference": "64596e11a0b7f1358e5bf511d4dd87d8ba8730cd",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/b0efcf04ab9d37304e38673bee471116e44cdb0e",
+                "reference": "b0efcf04ab9d37304e38673bee471116e44cdb0e",
                 "shasum": ""
             },
             "require": {
@@ -497,6 +507,11 @@
                     "action-register-priority": "-190"
                 }
             },
+            "autoload": {
+                "files": [
+                    "src/include.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
@@ -512,9 +527,9 @@
             "description": "Library for displaying version notices for Pro plugins in WordPress.",
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-version-notices/issues",
-                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.1.1"
+                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.1.2"
             },
-            "time": "2023-04-27T22:22:03+00:00"
+            "time": "2023-05-30T19:00:42+00:00"
         },
         {
             "name": "sabre/vobject",

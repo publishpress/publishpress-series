@@ -87,7 +87,7 @@ class orgSeries {
 
     /**
      * Fix series content issue for Beaver Builder header and footer
-     * 
+     *
      * https://github.com/publishpress/publishpress-series/issues/306
      */
     public function remove_series_content(){
@@ -96,7 +96,7 @@ class orgSeries {
 
     /**
      * Fix series content issue for Beaver Builder header and footer
-     * 
+     *
      * https://github.com/publishpress/publishpress-series/issues/306
      */
     public function add_series_content(){
@@ -274,7 +274,6 @@ class orgSeries {
 				//main settings
 			'custom_css' => 1,
 			'metabox_show_add_new' => 0,
-			'metabox_show_series_part' => 1,
 			'metabox_show_post_title_in_widget' => 0,
 			'kill_on_delete' => 0, //determines if all series information (including series-icon tables) will be deleted when the plugin is deleted using the delete link on the plugins page.
 			'auto_tag_toggle' => 1, //sets the auto-tag insertions for the post-list box for posts that are part of series.
@@ -455,8 +454,8 @@ class orgSeries {
         ?>
         <div id="series-content">
             <?php wp_serieslist_display(); ?>
-            <div class="stocpagination"> 
-                <?php series_toc_paginate(); ?> 
+            <div class="stocpagination">
+                <?php series_toc_paginate(); ?>
             </div>
         </div>
         <?php
@@ -525,7 +524,7 @@ class orgSeries {
 			$ser_id = is_numeric($series) ? (int) $series : get_series_ID($series);
 			$part_key = SERIES_PART_KEY.'_'.$ser_id;
 			$os_where = $wpdb->prepare(" AND orgmeta.meta_key = %s ", $part_key);
-			
+
 			$where .= apply_filters( 'orgseries_sort_series_page_where', $os_where );
 		}
 		return $where;
@@ -597,7 +596,7 @@ class orgSeries {
         * Filter whether to add series content
         */
         $add_series_content = apply_filters('pp_series_add_series_content', true);
-        
+
 		if ($add_series_content && $this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
 				$position = isset($this->settings['series_post_list_position']) ? $this->settings['series_post_list_position'] : 'default';
@@ -623,11 +622,11 @@ class orgSeries {
         * Filter whether to add series content
         */
         $add_series_content = apply_filters('pp_series_add_series_content', true);
-        
+
         if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
             return $content;
         }
-        
+
 		if($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
@@ -655,11 +654,11 @@ class orgSeries {
 
 	function add_series_meta_excerpt($content) {
 		if ( is_single() ) return;
-        
+
         if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
             return $content;
         }
-        
+
 		if($this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write(true)) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';

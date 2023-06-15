@@ -159,7 +159,6 @@ function orgseries_validate($input) {
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_custom_base']));
 	$newinput['metabox_show_add_new'] = ( isset($input['metabox_show_add_new']) && $input['metabox_show_add_new'] == 1 ? 1 : 0 );
-	$newinput['metabox_show_series_part'] = ( isset($input['metabox_show_series_part']) && $input['metabox_show_series_part'] == 1 ? 1 : 0 );
 	$newinput['metabox_show_post_title_in_widget'] = ( isset($input['metabox_show_post_title_in_widget']) && $input['metabox_show_post_title_in_widget'] == 1 ? 1 : 0 );
 	$newinput['limit_series_meta_to_single'] = ( isset($input['limit_series_meta_to_single']) && $input['limit_series_meta_to_single'] == 1 ? 1 : 0 );
 
@@ -886,10 +885,6 @@ function series_metabox_core_fieldset() {
 
             <tr valign="top"><th scope="row"><label for="metabox_show_add_new"><?php esc_html_e('Show "Add New"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_add_new]" value="1" id="metabox_show_add_new" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_add_new']) ? $org_opt['metabox_show_add_new'] : ''); ?> /></td>
-            </tr>
-
-            <tr valign="top"><th scope="row"><label for="metabox_show_series_part"><?php esc_html_e('Show "Series Part"', 'organize-series'); ?></label></th>
-                <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_series_part]" value="1" id="metabox_show_series_part" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_series_part']) ? $org_opt['metabox_show_series_part'] : ''); ?> /></td>
             </tr>
 
             <tr valign="top"><th scope="row"><label for="metabox_show_post_title_in_widget"><?php esc_html_e('Show "Post title in widget"', 'organize-series'); ?></label></th>
