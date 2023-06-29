@@ -962,11 +962,10 @@ function publishpress_series_upgrade_require_changes() {
 		if (!empty($test_series) && !is_wp_error($test_series)) {
 			?>
 			<div class="notice notice-error">
-				<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
+				<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Please update your PublishPress Series data', 'organize-series'); ?></h2> 
 				<p>
-				<?php esc_html_e('Upgrade required to continue using PublishPress series. We made changes to how series are stored to fully support multiple series and series part related issues.', 'organize-series'); ?>
-				<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
-				&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+				<?php esc_html_e('We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade.', 'organize-series'); ?>
+				<br /><br />  <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Update Series data', 'organize-series'); ?></a></p>
 			</div>
 			<?php
 		} else {
@@ -985,11 +984,9 @@ function publishpress_series_upgrade_require_row_notice($pluginFile, $pluginData
 			<tr class="ppa-plugin-warning">
 				<td colspan="4" class="colspanchange">
 					<div class="multiple-instances-warning">
-					<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
-					<p>
-					<?php esc_html_e('We made changes to how series are stored to fully support multiple series, multiple post types integration and series part related issues.', 'organize-series'); ?>
-					<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
-					&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+					<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Please update your PublishPress Series data', 'organize-series'); ?></h2> 
+					<p><?php esc_html_e('We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade.', 'organize-series'); ?>
+				<br /><br />  <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Update Series data', 'organize-series'); ?></a></p>
 				</div>
 				</td>
 			</tr>
