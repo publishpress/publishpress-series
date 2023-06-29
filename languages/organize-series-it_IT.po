@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PublishPress Series: Issues for Newspapers, "
 "Magazines, Publishers, Writers - Stable (latest release)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-06-05 10:16+0000\n"
+"PO-Revision-Date: 2023-06-18 13:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Poedit 3.3\n"
 
 #: src/domain/exceptions/InvalidEntityException.php:29
 msgid "%1$s is not a valid entity (expected: %2$s)."
@@ -95,7 +95,7 @@ msgstr "Aggiungi una nuova categoria alla serie"
 
 #: addons/publisher/series_im_admin_main.php:38
 msgid "Add new Series."
-msgstr ""
+msgstr "Aggiungi una nuova serie."
 
 #: addons/publisher/series_im_admin_main.php:10
 msgid "Admin View"
@@ -464,6 +464,8 @@ msgstr ""
 #: orgSeries-options.php:955 orgSeries-options.php:978
 msgid "Kindly make your full site backup before running this upgrade."
 msgstr ""
+"Fai una copia di backup dell'intero sito prima di effettuare questo "
+"aggiornamento."
 
 #: orgSeries-widgets.php:13 orgSeries-options.php:747
 msgid "Latest Series"
@@ -636,7 +638,7 @@ msgstr "Offset"
 #: orgSeries-manage.php:48 orgSeries-manage.php:202 orgSeries-manage.php:234
 #: addons/publisher/series-publish-post-table.php:77
 msgid "Order"
-msgstr ""
+msgstr "Ordine"
 
 #: orgSeries-options.php:536
 msgid "Order by date"
@@ -664,11 +666,11 @@ msgstr "Panoramica"
 
 #: orgSeries-admin.php:461
 msgid ""
-"Part %1$s of %2$s%6$s in the series <br/><a href=\"%3$s\" title=\"%4$s\">"
-"%5$s</a>"
+"Part %1$s of %2$s%6$s in the series <br/><a href=\"%3$s\" "
+"title=\"%4$s\">%5$s</a>"
 msgstr ""
-"Parte %1$s of %2$s%6$s della serie <br/><a href=\"%3$s\" title=\"%4$s\">"
-"%5$s</a>"
+"Parte %1$s of %2$s%6$s della serie <br/><a href=\"%3$s\" "
+"title=\"%4$s\">%5$s</a>"
 
 #: orgSeries-taxonomy.php:736
 msgid "Part:"
@@ -805,7 +807,7 @@ msgstr "Reimposta le impostazioni"
 
 #: orgSeries-options.php:956 orgSeries-options.php:979
 msgid "Run upgrade task"
-msgstr ""
+msgstr "Avvia l'aggiornamento"
 
 #: orgSeries-options.php:308
 msgid ""
@@ -862,7 +864,6 @@ msgstr "Seleziona serie"
 #: orgSeries-admin.php:418 orgSeries-admin.php:502 orgSeries-setup.php:249
 #: addons/publisher/series_im_admin_main.php:7
 #: addons/grouping/legacy-includes.php:396
-#, fuzzy
 msgid "Series"
 msgstr "Serie"
 
@@ -879,7 +880,7 @@ msgstr "Caratteristiche delle categorie della serie"
 
 #: orgSeries-options.php:952 orgSeries-options.php:975
 msgid "Series data upgrade required!!!"
-msgstr ""
+msgstr "È necessario l'aggiornamento dei dati di Series!"
 
 #: orgSeries-manage.php:268
 msgid "Series Icon Upload:"
@@ -921,8 +922,8 @@ msgstr "Navigazione serie"
 msgid "Series Navigation Box"
 msgstr "Box di navigazione della serie"
 
-#: orgSeries-manage.php:179 orgSeries-manage.php:188 orgSeries-manage.php:188
-#: orgSeries-admin.php:319 addons/publisher/series_im_admin_main.php:8
+#: orgSeries-manage.php:179 orgSeries-manage.php:188 orgSeries-admin.php:319
+#: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:731
 msgid "Series Order"
 msgstr "Ordine della serie"
@@ -1004,7 +1005,7 @@ msgstr "URL indice serie:"
 
 #: orgSeries-options.php:843
 msgid "Series Taxonomy Slug:"
-msgstr ""
+msgstr "Slug della tassonomia della serie:"
 
 #: orgSeries-options.php:851
 msgid "Series Taxonomy:"
@@ -1012,7 +1013,7 @@ msgstr "Tassonomia serie:"
 
 #: orgSeries-options.php:1026
 msgid "Series upgrade completed."
-msgstr ""
+msgstr "L'aggiornamento di Series è stato completato."
 
 #: orgSeries-widgets.php:416
 msgid "Series widget title:"
@@ -1130,8 +1131,8 @@ msgid ""
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
 "I termini sono solitamente ordinati in ordine alfabetico, ma è possibile "
-"scegliere un ordine personalizzato inserendo un numero (1 per il primo, ecc.)"
-" in questo campo."
+"scegliere un ordine personalizzato inserendo un numero (1 per il primo, "
+"ecc.) in questo campo."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 msgid ""
@@ -1174,8 +1175,8 @@ msgstr ""
 
 #: orgSeries-widgets.php:79
 msgid ""
-"The layout and content of this widget can be adjusted via the <a href=\"%s\">"
-"Latest Series</a> area."
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
 msgstr ""
 "Il layout e il contenuto di questo widget possono essere regolati tramite "
 "l'area <a href=\"%s\">Serie più recente</a>."
@@ -1331,7 +1332,7 @@ msgstr ""
 
 #: orgSeries-options.php:846
 msgid "This text will be part of the series base URL."
-msgstr ""
+msgstr "Questo testo sarà parte dell'URL di base della serie."
 
 #: orgSeries-widgets.php:418
 msgid "This text will display above other posts in this series."
@@ -1420,6 +1421,10 @@ msgid ""
 "how series are stored to fully support multiple series and series part "
 "related issues."
 msgstr ""
+"Fai l'aggiornamentoper poter continuare ad utilizzare PublishPress Series. "
+"Abbiamo fatto dei cambiamenti nella modalità in cui le serie vengono "
+"memorizzate per poter supportare le serie multiple e risolvere i problemi "
+"correlati alle parti delle serie."
 
 #: includes-core/PPSeriesCoreAdmin.php:72
 msgid "Upgrade to Pro"
@@ -1494,6 +1499,10 @@ msgid ""
 "We made changes to how series are stored to fully support multiple series, "
 "multiple post types integration and series part related issues."
 msgstr ""
+"Abbiamo fatto dei cambiamenti nella modalità in cui le serie vengono "
+"memorizzate per poter supportare le serie multiple, l'integrazione con i "
+"tipi di contenuto multipli e risolvere i problemi correlati alle parti delle "
+"serie."
 
 #: addons/publisher/series_issue_manager.php:193
 msgid ""
@@ -1578,13 +1587,15 @@ msgstr ""
 
 #: orgSeries-options.php:324
 msgid "Will be replaced with the post title short of a post in the series"
-msgstr ""
+msgstr "Verrà sostituito con il titolo abbreviato di un articolo della serie"
 
 #: orgSeries-options.php:326
 msgid ""
 "Will be replaced with the post title short of a post in the series linked to "
 "the page view of that post."
 msgstr ""
+"Sarà sostituito dal titolo abbreviato di un articolo della serie collegato "
+"alla visualizzazione della pagina di quell'articolo."
 
 #: orgSeries-options.php:340
 msgid "Will display the description for the series"
@@ -1615,8 +1626,8 @@ msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
-"Puoi selezionare l'offset per il numero di serie (utile per l'impaginazione)."
-"  Nessun offset impostato se lasciato vuoto"
+"Puoi selezionare l'offset per il numero di serie (utile per "
+"l'impaginazione).  Nessun offset impostato se lasciato vuoto"
 
 #: addons/publisher/series_im_admin_main.php:38
 msgid "You have no series available to publish."
