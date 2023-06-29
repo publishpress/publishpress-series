@@ -920,6 +920,24 @@ function series_uninstall_core_fieldset() {
                 </td>
         	</tr>
 
+        	<tr valign="top">
+            	<th scope="row"><label for="kill_on_delete">
+                	    <?php esc_html_e('Series Upgrade', 'organize-series'); ?>
+                	</label>
+            	</th>
+
+            	<td>
+					<a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a>
+                    <div>
+						<label>
+							<span class="description">
+								<?php esc_html_e('From version 2.11.4, PublishPress series made changes to how series are stored to fully support multiple series and series part related issues. You can run the upgrade task here if you\'re having series part issue after downloading the latest version.', 'organize-series'); ?>
+							</span>
+						</label>
+                    </div>
+                </td>
+        	</tr>
+
 			<tr valign="top">
             	<th scope="row"><label>
                 	    <?php esc_html_e('Reset settings', 'organize-series'); ?>
@@ -988,8 +1006,7 @@ function publishpress_series_process_upgrade() {
 		&& isset($_REQUEST['nonce'])
 		&& $_REQUEST['series_action'] === 'multiple-series-support'
 		&& wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'multiple-series-support-upgrade')
-		&& current_user_can('manage_publishpress_series') 
-		&& ! publishpress_multi_series_supported()
+		&& current_user_can('manage_publishpress_series')
 	) {
 
 			//get list of posts that contain the meta key SERIES_PART_KEY
