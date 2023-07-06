@@ -393,7 +393,10 @@ function wp_set_post_series_transition($post)
 	remove_action('save_post', 'wp_set_post_series', 10);
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series($post, true, $post_ID, $ser_id, true);
+
+	foreach ($ser_id as $sid) {
+		set_series_order($sid, $post_ID, 0, true);
+	}
 }
 
 function wp_set_post_series_draft_transition($post)
@@ -401,7 +404,9 @@ function wp_set_post_series_draft_transition($post)
 	remove_action('save_post', 'wp_set_post_series');
 	$post_ID = $post->ID;
 	$ser_id = wp_get_post_series($post_ID);
-	wp_set_post_series($post, true, $post_ID, $ser_id, true);
+	foreach ($ser_id as $sid) {
+		set_series_order($sid, $post_ID, 0, true);
+	}
 }
 
 function series_wp_save_post($post_ID, $post, $update)
