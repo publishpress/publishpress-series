@@ -314,6 +314,7 @@ class orgSeries {
 			'series_css_tougle' => 'default',
 			//series meta style options
 			'series_taxonomy_slug' => 'series',
+			'metabox_series_order' => 'default',
 			);
 
 			$this->settings = apply_filters('org_series_settings', $this->settings);
