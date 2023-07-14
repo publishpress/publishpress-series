@@ -76,6 +76,7 @@ class orgSeries {
         add_action('fl_theme_builder_after_render_header', array($this, 'add_series_content'));
 
 		add_filter('orgseries_part_key', array(&$this, 'part_key'), 10, 2);
+		add_filter('orgseries_pending_part_key', array(&$this, 'part_key'), 10, 2);
 
 	}
 
