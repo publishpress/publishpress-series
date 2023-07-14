@@ -44,6 +44,18 @@ if (!function_exists('series_issue_manager_part')) {
     }
 }
 
+if (!function_exists('series_issue_manager_pending_order')) {
+    function series_issue_manager_pending_order($series_ID, $post_IDs)
+    {
+        $current_part = 0;
+        foreach (explode(',', $post_IDs) as $post_ID) {
+            $current_part++;
+            $part_key = apply_filters('orgseries_pending_part_key', '_pending_series_part', $series_ID);
+            update_post_meta($post_ID, $part_key, $current_part);
+        }
+    }
+}
+
 if (!function_exists('series_issue_manager_publish')) {
     function series_issue_manager_publish($series_ID, $post_IDs, $pub_time, &$published, &$unpublished)
     {
@@ -396,6 +408,16 @@ function ppseries_publisher_admin_init()
     } elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'publish') {
         add_action('admin_notices', "pps_publisher_published_success_message_admin_notice");
         add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_publish');
+    } elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'list') {
+        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
+            add_action('admin_notices',  function () {
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo pps_publisher_admin_notices_helper(
+                    esc_html__('Congratulations. Your series order was updated successfully.', 'organize-series')
+                );
+            });
+        }
+        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_order');
     } elseif (isset($_GET['posts']) && isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'order') {
         if (isset($_GET['subaction']) && $_GET['subaction'] === 'published') {
             add_action('admin_notices', "pps_publisher_order_published_success_message_admin_notice");
@@ -500,7 +522,7 @@ class PPS_Publisher_Admin
             $option = 'per_page';
             $args = [
                 'label' => esc_html__('Number of items per page', 'organize-series'),
-                'default' => 20,
+                'default' => 999,
                 'option' => 'pp_series_publisher_per_page'
             ];
             include_once 'series-publish-post-table.php';
@@ -545,12 +567,22 @@ class PPS_Publisher_Admin
                 case "order":
                     $post_IDs = isset($_GET['posts']) ? sanitize_text_field($_GET['posts']) : null;
                     if ($post_IDs) {
-                        series_issue_manager_part($series_ID, $post_IDs);
+                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
+                            series_issue_manager_pending_order($series_ID, $post_IDs);
+                        } else {
+                            series_issue_manager_part($series_ID, $post_IDs);
+                        }
                     }
                     $this->ppseries_publisher_part_output($series_ID);
                     $this->ppseries_publisher_pending_output($series_ID);
                     break;
                 case "list":
+                    $post_IDs = isset($_GET['posts']) ? sanitize_text_field($_GET['posts']) : null;
+                    if ($post_IDs) {
+                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
+                            series_issue_manager_pending_order($series_ID, $post_IDs);
+                        }
+                    }
                     $this->ppseries_publisher_publish_output($series_ID);
                     break;
                 case "publish":
@@ -561,7 +593,11 @@ class PPS_Publisher_Admin
                     $pub_time['hh'] = isset($_GET['hh']) ? sanitize_text_field($_GET['hh']) : null;
                     $pub_time['mn'] = isset($_GET['mn']) ? sanitize_text_field($_GET['mn']) : null;
                     if ($post_IDs) {
-                        series_issue_manager_publish($series_ID, $post_IDs, $pub_time, $published, $unpublished);
+                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
+                            series_issue_manager_pending_order($series_ID, $post_IDs);
+                        } else {
+                            series_issue_manager_publish($series_ID, $post_IDs, $pub_time, $published, $unpublished);
+                        }
                     }
                     include_once 'series_im_admin_main.php';
                     break;
@@ -598,7 +634,7 @@ class PPS_Publisher_Admin
         $this->series_publish_table->prepare_items();
         ?>
 
-        <div class="wrap pp-series-publisher-wrap">
+        <div class="wrap pp-series-publisher-wrap series-publish">
 
             <h1><?php esc_html_e('Publishing Series:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>
@@ -648,7 +684,9 @@ class PPS_Publisher_Admin
 
                     <div id="postbox-container-1" class="postbox-container">
                         <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
-                            <div id="submitdiv" class="postbox">
+
+
+                        <div id="submitdiv" class="postbox">
                                 <div class="postbox-header">
                                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Publish Series', 'organize-series'); ?>
                                     </h2>
@@ -658,7 +696,7 @@ class PPS_Publisher_Admin
                                         <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                         <input type="hidden" name="action" id="im_publish_action" value="publish" />
                                         <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
-                                        <input type="hidden" name="posts" id="im_publish_posts" value="" />
+                                        <input type="hidden" name="posts" class="im_publish_posts" value="" />
                                     </div>
                                     <div class="inside">
                                         <div id="minor-publishing">
@@ -667,42 +705,65 @@ class PPS_Publisher_Admin
                                                     <p><?php _e('Publication Date/Time:', 'organize-series'); ?></p>
                                                     <div id='timestampdiv'>
                                                         <?php
-                                    global $wp_locale;
-        $time_adj = time() + (get_option('gmt_offset') * 3600);
-        $jj = gmdate('d', $time_adj);
-        $mm = gmdate('m', $time_adj);
-        $aa = gmdate('Y', $time_adj);
-        $hh = gmdate('H', $time_adj);
-        $mn = gmdate('i', $time_adj);
-        $ss = gmdate('s', $time_adj);
-        $publish_month = "<select id=\"mm\" name=\"mm\">\n";
-        for ($i = 1; $i < 13; $i = $i + 1) {
-            $publish_month .= "\t\t\t" . '<option value="' . zeroise($i, 2) . '"';
-            if ($i == $mm) {
-                $publish_month .= ' selected="selected"';
-            }
-            $publish_month .= '>' . $wp_locale->get_month($i) . "</option>\n";
-        }
-        $publish_month .= '</select>';
-        $publish_day = '<input type="text" id="jj" name="jj" value="' . esc_attr($jj) . '" size="2" maxlength="2" autocomplete="off"  />';
-        $publish_year = '<input type="text" id="aa" name="aa" value="' . esc_attr($aa) . '" size="4" maxlength="5" autocomplete="off"  />';
-        $hour = '<input type="text" id="hh" name="hh" value="' . esc_attr($hh) . '" size="2" maxlength="2" autocomplete="off"  />';
-        $minute = '<input type="text" id="mn" name="mn" value="' . esc_attr($mn) . '" size="2" maxlength="2" autocomplete="off"  />';
-        printf(__('%1$s%2$s, %3$s @ %4$s : %5$s'), $publish_month, $publish_day, $publish_year, $hour, $minute); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        ?>
+                                                        global $wp_locale;
+                                                        $time_adj = time() + (get_option('gmt_offset') * 3600);
+                                                        $jj = gmdate('d', $time_adj);
+                                                        $mm = gmdate('m', $time_adj);
+                                                        $aa = gmdate('Y', $time_adj);
+                                                        $hh = gmdate('H', $time_adj);
+                                                        $mn = gmdate('i', $time_adj);
+                                                        $ss = gmdate('s', $time_adj);
+                                                        $publish_month = "<select id=\"mm\" name=\"mm\">\n";
+                                                        for ($i = 1; $i < 13; $i = $i + 1) {
+                                                            $publish_month .= "\t\t\t" . '<option value="' . zeroise($i, 2) . '"';
+                                                            if ($i == $mm) {
+                                                                $publish_month .= ' selected="selected"';
+                                                            }
+                                                            $publish_month .= '>' . $wp_locale->get_month($i) . "</option>\n";
+                                                        }
+                                                        $publish_month .= '</select>';
+                                                        $publish_day = '<input type="text" id="jj" name="jj" value="' . esc_attr($jj) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                        $publish_year = '<input type="text" id="aa" name="aa" value="' . esc_attr($aa) . '" size="4" maxlength="5" autocomplete="off"  />';
+                                                        $hour = '<input type="text" id="hh" name="hh" value="' . esc_attr($hh) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                        $minute = '<input type="text" id="mn" name="mn" value="' . esc_attr($mn) . '" size="2" maxlength="2" autocomplete="off"  />';
+                                                        printf(__('%1$s%2$s, %3$s @ %4$s : %5$s'), $publish_month, $publish_day, $publish_year, $hour, $minute); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                        ?>
                                                     </div>
                                                 </div>
                                                 <div class="clear"></div>
                                             </div>
                                         </div>
                                         <div id="major-publishing-actions">
-                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_posts').val(im_post_IDs.join(','));" /></div>
+                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_posts').val(im_post_IDs.join(','));" /></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                            <div id="submitdiv" class="postbox">
+                                <div class="postbox-header">
+                                    <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Series Order', 'organize-series'); ?>
+                                    </h2>
+                                </div>
+                                <form id="im_publish_form" method="get" action="">
+                                    <div class="hidden-fields">
+                                        <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
+                                        <input type="hidden" name="action" id="im_publish_action" value="list" />
+                                        <input type="hidden" name="subaction" id="im_publish_subaction" value="pending_order" />
+                                        <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
+                                        <input type="hidden" name="posts" class="im_publish_posts" value="" />
+                                    </div>
+                                    <div class="inside">
+                                        <div id="minor-publishing"></div>
+                                        <div id="major-publishing-actions">
+                                            <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Update Order', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_posts').val(im_post_IDs.join(','));" /></div>
                                             <div class="clear"></div>
                                         </div>
                                 </form>
                             </div>
 
-                        </div>
                     </div>
 
                 </div>
@@ -842,12 +903,36 @@ class PPS_Publisher_Admin
                                     <input type="hidden" name="action" id="im_publish_action" value="order" />
                                     <input type="hidden" name="subaction" id="im_publish_subaction" value="published" />
                                     <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
-                                    <input type="hidden" name="posts" id="im_publish_pending_posts" value="" />
+                                    <input type="hidden" name="posts" class="im_publish_pending_posts" value="" />
                                 </div>
                                 <div class="inside">
                                     <div id="minor-publishing"></div>
                                     <div id="major-publishing-actions">
-                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Unpublished Posts', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('#im_publish_pending_posts').val(im_post_IDs.join(','));" />
+                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Unpublished Posts', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_pending_posts').val(im_post_IDs.join(','));" />
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="submitdiv" class="postbox">
+                            <div class="postbox-header">
+                                <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Pending Series Order', 'organize-series'); ?>
+                                </h2>
+                            </div>
+                            <form id="im_publish_form" method="get" action="">
+                                <div class="hidden-fields">
+                                    <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
+                                    <input type="hidden" name="action" id="im_publish_action" value="order" />
+                                    <input type="hidden" name="subaction" id="im_publish_subaction" value="pending_order" />
+                                    <input type="hidden" name="series_ID" id="im_publish_series_ID" value="<?php echo esc_attr($series_ID); ?>" />
+                                    <input type="hidden" name="posts" class="im_publish_pending_posts" value="" />
+                                </div>
+                                <div class="inside">
+                                    <div id="minor-publishing"></div>
+                                    <div id="major-publishing-actions">
+                                        <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Update Order', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap.series-order-pending table tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_pending_posts').val(im_post_IDs.join(','));" />
                                         </div>
                                         <div class="clear"></div>
                                     </div>
