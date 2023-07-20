@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h2><?php _e('Manage Series to Publish', 'organize-series'); ?></h2>
+  <h2><?php _e('Manage Series', 'organize-series'); ?></h2>
 
   <table class="widefat im_category_list wp-list-table fixed">
     <thead>
@@ -31,7 +31,7 @@
   </table>
 
   <?php if(count($series) === 0) { ?>
-    <div class="ppseries-warning"><?php esc_html_e('You have no series available to publish.', 'organize-series'); ?> <a href="<?php echo esc_url(admin_url('/edit-tags.php?taxonomy='. ppseries_get_series_slug() .'')); ?>"><?php esc_html_e('Add new Series.', 'organize-series'); ?></a></div>
+    <div class="ppseries-warning"><?php esc_html_e('You have no series available.', 'organize-series'); ?> <a href="<?php echo esc_url(admin_url('/edit-tags.php?taxonomy='. ppseries_get_series_slug() .'')); ?>"><?php esc_html_e('Add new Series.', 'organize-series'); ?></a></div>
   <?php }
   ?>
 </div>

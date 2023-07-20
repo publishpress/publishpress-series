@@ -269,7 +269,15 @@ function admin_inline_series_ajax()
  */
 function get_series_list($default = 0)
 {
-	global $post, $postdata, $checked_series;
+	global $post, $postdata, $checked_series, $orgseries;
+
+	if (is_object($orgseries) && isset($orgseries->settings)) {
+		$org_opt = $orgseries->settings;
+	} else {
+		$org_opt = [];
+	}
+
+	$metabox_series_order = is_array($org_opt) && isset($org_opt['metabox_series_order']) ? $org_opt['metabox_series_order'] : 'default';
 	if (isset($post) && is_object($post)) {
 		$post_ID = $post->ID;
 	} else if (isset($postdata) && is_object($postdata)) {
@@ -303,10 +311,19 @@ function get_series_list($default = 0)
 		}
 
 		$unsorted_result = $result;
-		usort($result, '_usort_series_by_name');
+		if ($metabox_series_order === 'a-z') {
+			uasort($result, function($a, $b) {
+				return strcasecmp($a['ser_name'], $b['ser_name']);
+			});
+		} elseif ($metabox_series_order === 'z-a') {
+			uasort($result, function($a, $b) {
+				return strcasecmp($b['ser_name'], $a['ser_name']);
+			});
+		}
+
 		$result = apply_filters(
 			'get_series_list',
-			$unsorted_result,
+			$result,
 			$unsorted_result
 		);
 
@@ -325,9 +342,11 @@ function write_series_list($series)
 { //copied from write_nested_categories in template.php
 	global $orgseries;
 	echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
+	$series_html = '';
+	$checked_series_html = '';
 	foreach ($series as $serial) {
 		$series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
-		echo '<li id="series-' . esc_attr($serial['series_ID']) . '">
+		$serial_html = '<li id="series-' . esc_attr($serial['series_ID']) . '">
                     <label for="in-series-' . esc_attr($serial['series_ID']) . '" class="selectit">
                         <input value="' . esc_attr($serial['series_ID']) . '" type="radio" name="post_series" id="in-series-' . esc_attr($serial['series_ID']) . '"' . ($serial['checked'] ? ' checked="checked"' : '') . '/> 
                         <span class="li-series-name">' . esc_html($serial['ser_name']) . "</span>
@@ -338,7 +357,13 @@ function write_series_list($series)
                         
                     </label>
                 </li>";
+		if ($serial['checked']) {
+			$checked_series_html .= $serial_html;
+		} else {
+			$series_html .= $serial_html;
+		}
 	}
+	echo $checked_series_html . $series_html;
 }
 
 /**

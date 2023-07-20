@@ -155,6 +155,7 @@ function orgseries_validate($input) {
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
 	$newinput['series_css_tougle'] = ( isset($input['series_css_tougle']) ? trim(stripslashes(($input['series_css_tougle'])), 1) : 'default' );
+	$newinput['metabox_series_order'] = ( isset($input['metabox_series_order']) ? trim(stripslashes(($input['metabox_series_order'])), 1) : 'default' );
 	$newinput['kill_on_delete'] = ( isset($input['kill_on_delete']) && $input['kill_on_delete'] == 1 ? 1 : 0 );
 	$newinput['series_toc_url'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_toc_url']));
 	$newinput['series_custom_base'] = preg_replace('/(^\/)|(\/$)/', '', ($input['series_custom_base']));
@@ -879,6 +880,12 @@ function series_metabox_core_fieldset() {
 	global $orgseries;
 	$org_opt = $orgseries->settings;
 	$org_name = 'org_series_options';
+	$metabox_series_order = is_array($org_opt) && isset($org_opt['metabox_series_order']) ? $org_opt['metabox_series_order'] : 'default';
+	$metabox_series_order_options = [
+		'default' => __('Default Series Order', 'organize-series'),
+		'a-z' 	  => __('Alphabetical A-Z', 'organize-series'),
+		'z-a'    => __('Alphabetical Z-A', 'organize-series'),
+	];
 	?>
 	<table class="form-table ppseries-settings-table">
     	<tbody>
@@ -890,6 +897,25 @@ function series_metabox_core_fieldset() {
             <tr valign="top"><th scope="row"><label for="metabox_show_post_title_in_widget"><?php esc_html_e('Show "Post title in widget"', 'organize-series'); ?></label></th>
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_post_title_in_widget]" value="1" id="metabox_show_post_title_in_widget" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_post_title_in_widget']) ? $org_opt['metabox_show_post_title_in_widget'] : ''); ?> /></td>
             </tr>
+
+			<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Metabox Series Order', 'organize-series'); ?></label></th>
+				<td>
+					<?php foreach ($metabox_series_order_options as $key => $label) : ?>
+						<div  style="margin-bottom: 10px;">
+							<label>
+								<input name="<?php echo esc_attr($org_name); ?>[metabox_series_order]" 
+									class="" 
+									id="metabox_series_order-<?php echo esc_attr($key); ?>" 
+									type="radio" 
+									value="<?php echo esc_attr($key); ?>" 
+									<?php checked($key, $metabox_series_order); ?> 
+								/>
+								<?php echo esc_html($label); ?> 
+							</label>
+						</div>
+					<?php endforeach; ?>
+				</td>
+			</tr>
 
         </tbody>
 	</table>	<?php
@@ -920,6 +946,24 @@ function series_uninstall_core_fieldset() {
                 </td>
         	</tr>
 
+        	<tr valign="top">
+            	<th scope="row"><label for="kill_on_delete">
+                	    <?php esc_html_e('Series Upgrade', 'organize-series'); ?>
+                	</label>
+            	</th>
+
+            	<td>
+					<a class="button" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run Upgrade Task', 'organize-series'); ?></a>
+                    <div>
+						<label>
+							<span class="description">
+								<?php esc_html_e('In version 2.11.4, PublishPress Series made changes to how series are stored. You can run the upgrade task here if you\'re having issues with series parts.', 'organize-series'); ?>
+							</span>
+						</label>
+                    </div>
+                </td>
+        	</tr>
+
 			<tr valign="top">
             	<th scope="row"><label>
                 	    <?php esc_html_e('Reset settings', 'organize-series'); ?>
@@ -944,11 +988,10 @@ function publishpress_series_upgrade_require_changes() {
 		if (!empty($test_series) && !is_wp_error($test_series)) {
 			?>
 			<div class="notice notice-error">
-				<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
+				<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Please update your PublishPress Series data', 'organize-series'); ?></h2> 
 				<p>
-				<?php esc_html_e('Upgrade required to continue using PublishPress series. We made changes to how series are stored to fully support multiple series and series part related issues.', 'organize-series'); ?>
-				<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
-				&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+				<?php esc_html_e('We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade.', 'organize-series'); ?>
+				<br /><br />  <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Update Series data', 'organize-series'); ?></a></p>
 			</div>
 			<?php
 		} else {
@@ -967,11 +1010,9 @@ function publishpress_series_upgrade_require_row_notice($pluginFile, $pluginData
 			<tr class="ppa-plugin-warning">
 				<td colspan="4" class="colspanchange">
 					<div class="multiple-instances-warning">
-					<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Series data upgrade required!!!', 'organize-series'); ?></h2> 
-					<p>
-					<?php esc_html_e('We made changes to how series are stored to fully support multiple series, multiple post types integration and series part related issues.', 'organize-series'); ?>
-					<br /> <?php esc_html_e('Kindly make your full site backup before running this upgrade.', 'organize-series'); ?> 
-					&nbsp; <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a></p>
+					<h2 style="margin-top: 15px; margin-bottom: 0px;"><?php esc_html_e('Please update your PublishPress Series data', 'organize-series'); ?></h2> 
+					<p><?php esc_html_e('We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade.', 'organize-series'); ?>
+				<br /><br />  <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Update Series data', 'organize-series'); ?></a></p>
 				</div>
 				</td>
 			</tr>
@@ -988,8 +1029,7 @@ function publishpress_series_process_upgrade() {
 		&& isset($_REQUEST['nonce'])
 		&& $_REQUEST['series_action'] === 'multiple-series-support'
 		&& wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'multiple-series-support-upgrade')
-		&& current_user_can('manage_publishpress_series') 
-		&& ! publishpress_multi_series_supported()
+		&& current_user_can('manage_publishpress_series')
 	) {
 
 			//get list of posts that contain the meta key SERIES_PART_KEY

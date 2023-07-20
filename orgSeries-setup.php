@@ -76,6 +76,7 @@ class orgSeries {
         add_action('fl_theme_builder_after_render_header', array($this, 'add_series_content'));
 
 		add_filter('orgseries_part_key', array(&$this, 'part_key'), 10, 2);
+		add_filter('orgseries_pending_part_key', array(&$this, 'part_key'), 10, 2);
 
 	}
 
@@ -314,6 +315,7 @@ class orgSeries {
 			'series_css_tougle' => 'default',
 			//series meta style options
 			'series_taxonomy_slug' => 'series',
+			'metabox_series_order' => 'default',
 			);
 
 			$this->settings = apply_filters('org_series_settings', $this->settings);

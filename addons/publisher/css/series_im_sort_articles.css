@@ -10,11 +10,13 @@
     max-width: 910px;
 }
 
+.pp-series-publisher-wrap.series-publish table tbody tr,
 .pp-series-publisher-wrap.series-order table tbody tr,
 .pp-series-publisher-wrap.series-order-pending table tbody tr {
     cursor: move;
 }
 
+.pp-series-publisher-wrap.series-publish .postbox-container #submitdiv,
 .pp-series-publisher-wrap.series-order .postbox-container #submitdiv,
 .pp-series-publisher-wrap.series-order-pending .postbox-container #submitdiv {
     margin-top: 45px;

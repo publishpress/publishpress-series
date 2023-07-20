@@ -27,6 +27,10 @@ function pp_series_edit_tags() {
 }
 
 function pp_series_term_enqueue_scripts() {
+
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('jquery-ui-sortable');
+    
     wp_enqueue_script('pp-series-term-order-quick-edit', SERIES_PATH_URL . 'js/term-quick-edit.js', array( 'jquery' ), ORG_SERIES_VERSION, true);
     wp_enqueue_script('pp-series-term-order-reorder', SERIES_PATH_URL . 'js/term-reorder.js', array( 'jquery-ui-sortable' ), ORG_SERIES_VERSION, true);
 
