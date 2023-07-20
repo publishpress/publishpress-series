@@ -185,7 +185,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
      */
     public function no_items()
     {
-        _e('There are no pending posts in this series.', 'organize-series');
+        _e('There are no unpublished posts in this series.', 'organize-series');
     }
 
     /**

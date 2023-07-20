@@ -344,7 +344,7 @@ function series_grouping_delete_output() {
     ?>
         	<tr valign="top">
             	<th scope="row"><label for="kill_grouping_on_delete">
-                    <?php _e('Series Categories Feature', 'organize-series'); ?>
+                    <?php _e('Series Categories', 'organize-series'); ?>
                 	</label>
             	</th>
             	<td>
