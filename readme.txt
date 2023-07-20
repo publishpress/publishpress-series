@@ -174,7 +174,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.11.5- 2023-07-17
+v2.11.5- 2023-07-20
 * Update: Allow users to re-order drafts series, #815
 * Update: Add series metabox order settings, #814
 * Update: Add series upgrade action button to settings, #810
