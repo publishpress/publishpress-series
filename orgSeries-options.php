@@ -953,11 +953,11 @@ function series_uninstall_core_fieldset() {
             	</th>
 
             	<td>
-					<a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run upgrade task', 'organize-series'); ?></a>
+					<a class="button" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=multiple-series-support&nonce='. wp_create_nonce('multiple-series-support-upgrade'))); ?>"><?php esc_html_e('Run Upgrade Task', 'organize-series'); ?></a>
                     <div>
 						<label>
 							<span class="description">
-								<?php esc_html_e('From version 2.11.4, PublishPress series made changes to how series are stored to fully support multiple series and series part related issues. You can run the upgrade task here if you\'re having series part issue after downloading the latest version.', 'organize-series'); ?>
+								<?php esc_html_e('In version 2.11.4, PublishPress Series made changes to how series are stored. You can run the upgrade task here if you\'re having issues with series parts.', 'organize-series'); ?>
 							</span>
 						</label>
                     </div>

@@ -509,6 +509,10 @@ class PPS_Publisher_Admin
 
     public function series_issue_manager_scripts()
     {
+
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery-ui-sortable');
+
         wp_enqueue_script("series_im_sort_articles", plugin_dir_url(__FILE__) . "/js/series_im_sort_articles.js", array('jquery-ui-sortable'), ORG_SERIES_VERSION, true);
         wp_enqueue_style('series_im_sort_articles', plugin_dir_url(__FILE__) . '/css/series_im_sort_articles.css', array(), ORG_SERIES_VERSION, 'all');
     }
@@ -863,7 +867,7 @@ class PPS_Publisher_Admin
         <h1><?php esc_html_e('Unpublished posts in series:', 'organize-series'); ?>
             <?php echo esc_html($series->name); ?>
         </h1>
-        <p class="description"><?php _e('These posts are in this Series but have not been published. They do not have a part number yet.', 'organize-series'); ?>
+        <p class="description"><?php _e('When these posts are published, they will be added after the last current post in the series.', 'organize-series'); ?>
         </p>
         <div id="poststuff">
             <div id="post-body" class="metabox-holder columns-2">
@@ -918,7 +922,7 @@ class PPS_Publisher_Admin
 
                         <div id="submitdiv" class="postbox">
                             <div class="postbox-header">
-                                <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Pending Series Order', 'organize-series'); ?>
+                                <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unpublished Series Order', 'organize-series'); ?>
                                 </h2>
                             </div>
                             <form id="im_publish_form" method="get" action="">
