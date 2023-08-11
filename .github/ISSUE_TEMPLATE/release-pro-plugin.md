@@ -1,39 +1,38 @@
 ---
-name: Release the Pro version (team only)
-about: Describes default checklist for releasing the Pro plugin;
-title: Release Pro v[VERSION]
+name: Release the Pro Version (Team Only)
+about: Default checklist for the plugin's release process.
+title: Release PublishPress Series Pro v[VERSION]
 labels: release
 assignees: ''
 ---
 
-To release the Pro plugin please make sure to check all the checkboxes below.
+To release the Pro plugin, ensure you complete all the tasks below.
 
 ### Pre-release Checklist
-
-- [ ] Create the release branch as `release-<version>` based on the development branch.
-- [ ] Make sure to directly merge or use Pull Requests to merge hotfixes or features branches into the release branch.
-- [ ] Run `composer update --no-dev --dry-run` and check if there is any relevant update on any requirement. This won't change the code, just show a simulation of running the update command. Evaluate the need of releasing with this library updated, or if we can add that for a next release.
-- [ ] If any update should be included on this release (from previous step) make sure to run the update command only for the specific dependeny: `composer update the/lib:version-constraint`. Make sure to check compatibility with the plugin and what version we should be using. Check if you need to lock the current version for any dependency using exact version numbers instead of relative version constraints. Make sure to add any change of dependencies to the changelog.
-- [ ] Check Github's Dependabot warnings or pull requests, looking for any relevant report. Remove any false-positive first. Fix and commit the fix for the issues you find.
-- [ ] Build JS files to production running `composer build:js` and commit (if your plugin uses any compiled JS file).
-- [ ] Run WP VIP scan to make sure no warnings or errors > 5 exists: `composer phpcs`.
-- [ ] Update the changelog - make sure all the changes are there with a user-friendly description and that the release date is correct.
-- [ ] Update the version number to the next stable version in the main plugin file and `readme.txt`. Commit the changes to the release branch.
-- [ ] Commit the changes to the release branch.
-- [ ] Build the zip package, running `composer build`. It should create a package in the `./dist` dir.
-- [ ] Send the new package to the team for testing.
+- [ ] Create a release branch named `release-<version>` from the development branch.
+- [ ] Review and merge all relevant Pull Requests into the release branch.
+- [ ] Start a dev-workspace session.
+- [ ] Verify the correct version of the free plugin is referenced in the `lib/composer.json` file. Prefer stable versions.
+- [ ] Execute `composer update` to update the root and lib vendors.
+- [ ] Review the updated packages and mention any production library updates in the changelog.
+- [ ] Check if all dependencies are synced from Free into the Pro plugin with `composer check:deps`. If required, merge dependencies using `composer fix:deps` and run `composer update` again.
+- [ ] Check if the free plugin uses Composer's autoload and copy the autoload definition from the free plugin to the pro plugin refactoring the relative paths, on `/lib/composer.json`. Execute `composer dumpautoload` to update the autoload files. Commit the changes.
+- [ ] Inspect GitHub's Dependabot warnings or Pull Requests for relevant issues. Resolve any false positives first, then fix and commit the remaining issues.
+- [ ] If necessary, build JS files for production using `composer build:js` and commit the changes.
+- [ ] Run a WP VIP scan with `composer check:phpcs` to ensure no warnings or errors greater than 5 exist.
+- [ ] Update the `.pot` file executing `composer gen:pot` and include a note in the changelog.
+- [ ] Especially for minor and patch releases, maintain backward compatibility for changes like renamed or moved classes, namespaces, functions, etc. Include deprecation comments and mention this in the changelog. Major releases may remove deprecated code, but always note this in the changelog.
+- [ ] Revise the changelog to include all changes with user-friendly descriptions and ensure the release date is accurate.
+  -- [ ] Update the version number in the main plugin file and `readme.txt`, adhering to specifications from our [tech documentation](https://rambleventures.slab.com/posts/version-numbers-58nmrk4b), and commit to the release branch.
+- [ ] Confirm there are no uncommitted changes.
+- [ ] Build the zip package with `composer build`, creating a new package in the `./dist` directory.
+- [ ] Distribute the new package to the team for testing.
 
 ### Release Checklist
+- [ ] Create and merge a Pull Request for the release branch into the `main` branch.
+- [ ] Merge the `main` branch into the `development` branch.
+- [ ] Establish the GitHub release on the `main` branch with the correct tag.
 
-- [ ] Create a Pull Request and merge the release branch it into the `master` branch.
-- [ ] Merge the `master` branch into the `development` branch.
-- [ ] Create the Github release (make sure it is based on the `master` branch and correct tag).
-- [ ] Follow the action's result on the [repository actions page](https://github.com/publishpress/publishpress-series-pro/actions).
-- [ ] Go to [PublishPress site admin panel](https://publishpress.com/wp-admin) > Downloads, locate "Series Pro", and edit:
-  - [ ] File URL on Download Files, uploading the new package to the media library.
-  - [ ] On Licensing, update the version number.
-  - [ ] On Licensing, update the changelog.
-
-### Post-release Checklist
-
-- [ ] Make the final test updating the plugin in a staging site.
+#### PublishPress.com Deployment
+- [ ] Update the EDD registry on the Downloads menu, uploading the new package.
+- [ ] Perform a final test by updating the plugin on a staging site.
