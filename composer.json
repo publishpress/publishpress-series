@@ -36,10 +36,10 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
   },
   "scripts": {
-    "build": "/project/dev-workspace/docker/scripts/ppbuild build",
-    "build:dir": "/project/dev-workspace/docker/scripts/ppbuild build-dir",
-    "build:clean": "/project/dev-workspace/docker/scripts/ppbuild clean",
-    "get-version": "/project/dev-workspace/docker/scripts/ppbuild version"
+    "build": "ppbuild build",
+    "build:dir": "ppbuild build-dir",
+    "build:clean": "ppbuild clean",
+    "get-version": "ppbuild version"
   },
   "extra": {
     "plugin-name": "publishpress-series",
