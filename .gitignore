@@ -1,23 +1,6 @@
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-.idea
-
-*.sublime-project
-*.sublime-workspace
-
-# Ignores the "dev" composer file
-/vendor
-/packages
-/downloads_cache
-
-
 .svn
 .git
+.DS_Store
 wpcom-helper.php
 
 /local.sh
@@ -25,7 +8,21 @@ node_modules
 
 /.properties.ini
 
+/packages
+/vendor
+/lib/**/.git
+/builder
+.idea
 /dist
-.env.testing
 builder.yml
-phpcs.xml
+builder.yml.dist
+.editorconfig
+
+!tests/_support/.gitkeep
+tests/_support/*
+.php_cs.cache
+.sass-cache/*
+/codeception.yml
+
+.vscode/*
+*.code-workspace
