@@ -57,3 +57,6 @@ phpunit.xml.dist export-ignore
 psalm.xml export-ignore
 webpack.config.js export-ignore
 wp-cli.local.yml export-ignore
+webpack.common.js export-ignore
+webpack.dev.js export-ignore
+webpack.prod.js export-ignore
