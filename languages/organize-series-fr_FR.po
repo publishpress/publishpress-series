@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PublishPress Series: Issues for Newspapers, "
 "Magazines, Publishers, Writers - Stable (latest release)\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-07-20 06:20+0000\n"
+"PO-Revision-Date: 2023-07-21 13:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: French (France)\n"
 "Language: fr_FR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Poedit 3.3\n"
 
 #: src/domain/exceptions/InvalidEntityException.php:29
 msgid "%1$s is not a valid entity (expected: %2$s)."
@@ -38,17 +38,17 @@ msgstr "(Il n’y a aucun numéro de pièce actuellement)"
 #: orgSeries-admin.php:493
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr ""
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Aucun numéro de partie)"
 
 #: orgSeries-admin.php:487
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr ""
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Aucun numéro de partie)"
 
 #: orgSeries-admin.php:489
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
-msgstr ""
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Partie %1$s de %2$s)"
 
 #: orgSeries-template-tags.php:220 orgSeries-template-tags.php:229
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
@@ -125,11 +125,11 @@ msgstr "HTML autorisé"
 
 #: orgSeries-options.php:886
 msgid "Alphabetical A-Z"
-msgstr ""
+msgstr "Alphabétique a-z"
 
 #: orgSeries-options.php:887
 msgid "Alphabetical Z-A"
-msgstr ""
+msgstr "Alphabétique z-a"
 
 #: orgSeries-admin.php:67
 msgid "An error occured"
@@ -193,8 +193,9 @@ msgid ""
 "details on how to customize these designs</a>."
 msgstr ""
 "Si vous choisissez une disposition différente de « Par défaut », le modèle "
-"de taxonomie de votre thème sera remplacé.<a href=\"%s\" target=\"_blank\">"
-"Cliquez ici pour savoir comment personnaliser ces designs</a>."
+"de taxonomie de votre thème sera remplacé.<a href=\"%s\" "
+"target=\"_blank\">Cliquez ici pour savoir comment personnaliser ces designs</"
+"a>."
 
 #: orgSeries-options.php:383
 msgid ""
@@ -267,7 +268,7 @@ msgstr "Par défaut"
 
 #: orgSeries-options.php:885
 msgid "Default Series Order"
-msgstr ""
+msgstr "Tri de la série par défaut"
 
 #: addons/grouping/legacy-includes.php:353
 msgid ""
@@ -445,9 +446,13 @@ msgstr ""
 
 #: orgSeries-options.php:960
 msgid ""
-"In version 2.11.4, PublishPress Series made changes to how series are stored."
-" You can run the upgrade task here if you're having issues with series parts."
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
 msgstr ""
+"Dans la version 2.11.4, PublishPress Series a modifié la façon dont les "
+"séries sont stockées. Vous pouvez lancer la tâche de mise à jour ici si vous "
+"avez des problèmes avec les parties de séries."
 
 #: orgSeries-widgets.php:348
 msgid "Include series:"
@@ -557,7 +562,7 @@ msgstr "Boîte méta"
 
 #: orgSeries-options.php:901
 msgid "Metabox Series Order"
-msgstr ""
+msgstr "Boîte méta de tri de la série"
 
 #: orgSeries-options.php:862
 msgid "Migrate"
@@ -615,7 +620,7 @@ msgstr "Aucune icône actuellement"
 
 #: addons/publisher/series-pending-post-table.php:303
 msgid "No Part Number"
-msgstr ""
+msgstr "Aucun numéro de partie"
 
 #: orgSeries-admin.php:499 orgSeries-setup.php:254
 msgid "No Series"
@@ -703,7 +708,7 @@ msgstr ""
 
 #: orgSeries-options.php:991 orgSeries-options.php:1013
 msgid "Please update your PublishPress Series data"
-msgstr ""
+msgstr "Veuillez mettre à jour vos données PublishPress Series"
 
 #: orgSeries-options.php:868
 msgid ""
@@ -759,7 +764,7 @@ msgstr "Publier la série"
 
 #: addons/publisher/series_issue_manager.php:915
 msgid "Publish Unpublished Posts"
-msgstr ""
+msgstr "Publier les publications non publiées"
 
 #: addons/publisher/series_issue_manager.php:643
 msgid "Publishing Series:"
@@ -829,8 +834,6 @@ msgid "Reset settings"
 msgstr "Réinitialiser les réglages"
 
 #: orgSeries-options.php:956
-#, fuzzy
-#| msgid "Run upgrade task"
 msgid "Run Upgrade Task"
 msgstr "Exécuter la tâche de mise à niveau"
 
@@ -940,8 +943,8 @@ msgstr "Navigation dans la série"
 msgid "Series Navigation Box"
 msgstr "Boîte de navigation de la série"
 
-#: orgSeries-manage.php:183 orgSeries-manage.php:192 orgSeries-manage.php:192
-#: orgSeries-admin.php:354 addons/publisher/series_im_admin_main.php:8
+#: orgSeries-manage.php:183 orgSeries-manage.php:192 orgSeries-admin.php:354
+#: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826
 msgid "Series Order"
@@ -1033,7 +1036,7 @@ msgstr "Taxonomie des séries :"
 
 #: orgSeries-options.php:951
 msgid "Series Upgrade"
-msgstr ""
+msgstr "Mise à niveau de la série"
 
 #: orgSeries-options.php:1061
 msgid "Series upgrade completed."
@@ -1197,8 +1200,8 @@ msgstr ""
 
 #: orgSeries-widgets.php:79
 msgid ""
-"The layout and content of this widget can be adjusted via the <a href=\"%s\">"
-"Latest Series</a> area."
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
 msgstr ""
 "La mise en page et le contenu de ce widget peuvent être réglés via la zone "
 "<a href=\"%s\">Dernière série</a>."
@@ -1267,7 +1270,7 @@ msgstr ""
 
 #: addons/publisher/series-part-post-table.php:185
 msgid "There are no published posts in this series."
-msgstr ""
+msgstr "Il n’y a pas de publication publiée dans cette série."
 
 #: addons/publisher/series-publish-post-table.php:46
 #: addons/publisher/series-pending-post-table.php:188
@@ -1421,15 +1424,15 @@ msgstr "Impossible de récupérer une instance de %1$s. Non trouvée."
 
 #: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
-msgstr ""
+msgstr "Publications non publiées"
 
 #: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
-msgstr ""
+msgstr "Publications non publiées dans la série :"
 
 #: addons/publisher/series_issue_manager.php:925
 msgid "Unpublished Series Order"
-msgstr ""
+msgstr "Tri de la série non publiée"
 
 #: orgSeries-options.php:379
 msgid "Update Options"
@@ -1451,7 +1454,7 @@ msgstr "Mettre à jour la catégorie de la série"
 
 #: orgSeries-options.php:994 orgSeries-options.php:1015
 msgid "Update Series data"
-msgstr ""
+msgstr "Mettre à jour les données de la série"
 
 #: orgSeries-manage.php:320
 msgid "Updated successfully"
@@ -1527,6 +1530,11 @@ msgid ""
 "update. This improves support for the Multiple Series feature, and resolves "
 "some issues with the order of posts. Please click this button to upgrade."
 msgstr ""
+"Nous avons modifié la façon dont les séries sont stockées, ce qui nécessite "
+"une petite mise à jour. Cette mise à jour améliore la prise en charge de la "
+"fonctionnalité des séries multiples et résout certains problèmes liés au tri "
+"des publications. Veuillez cliquer sur ce bouton pour effectuer la mise à "
+"jour."
 
 #: addons/publisher/series_issue_manager.php:212
 msgid ""
@@ -1545,6 +1553,8 @@ msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
 msgstr ""
+"Lorsque ces publications seront publiées, elles seront ajoutées à la suite "
+"de la dernière publication actuelle de la série."
 
 #: orgSeries-options.php:697
 msgid ""
@@ -1663,7 +1673,7 @@ msgstr ""
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "You have no series available."
-msgstr ""
+msgstr "Vous n’avez aucune série disponible."
 
 #: orgSeries-options.php:563
 msgid ""
