@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 2.11.5
+ * Version: 2.12.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -66,9 +66,13 @@ if ($invalid_php_version || $invalid_wp_version) {
     return;
 }
 
-$includeFileRelativePath = '/publishpress/publishpress-instance-protection/include.php';
-if (file_exists(__DIR__ . '/vendor' . $includeFileRelativePath)) {
-    require_once __DIR__ . '/vendor' . $includeFileRelativePath;
+if (! defined('PP_SERIES_LIB_VENDOR_PATH')) {
+    define('PP_SERIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
+}
+
+$instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
+if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
+    require_once $instanceProtectionIncPath;
 }
 
 if (class_exists('PublishPressInstanceProtection\\Config')) {
@@ -80,15 +84,13 @@ if (class_exists('PublishPressInstanceProtection\\Config')) {
     $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
 }
 
-//composer autoload
-$autoloadPath = __DIR__ . '/vendor/autoload.php';
-if (file_exists($autoloadPath)) {
-    require_once $autoloadPath;
+$autoloadFilePath = PP_SERIES_LIB_VENDOR_PATH . '/autoload.php';
+if (! class_exists('ComposerAutoloaderInitPublishPressSeries')
+    && is_file($autoloadFilePath)
+    && is_readable($autoloadFilePath)
+) {
+    require_once $autoloadFilePath;
 }
-
-require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/psr-container/lib/include.php';
-require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/pimple-pimple/lib/include.php';
-require_once PUBLISHPRESS_SERIES_VENDOR_PATH . '/publishpress/wordpress-version-notices/src/include.php';
 
 add_action('plugins_loaded', function() {
     if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
@@ -103,7 +105,7 @@ add_action('plugins_loaded', function() {
     register_activation_hook( __FILE__, 'pp_series_core_activation' );
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '2.11.5'); //the current version of the plugin
+        define('ORG_SERIES_VERSION', '2.12.0'); //the current version of the plugin
         define( 'SERIES_FILE_PATH', __FILE__ );
         define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
         define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.

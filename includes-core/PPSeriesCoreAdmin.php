@@ -5,7 +5,6 @@ class PPSeriesCoreAdmin {
     function __construct() {
         if (current_user_can('manage_publishpress_series')) {
             if (is_admin()) {
-                require_once SERIES_PATH . '/vendor/publishpress/wordpress-version-notices/includes.php';
                 add_filter(
                     \PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER,
                     function ($settings) {
