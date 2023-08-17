@@ -174,7 +174,7 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.12.0- [UNRELEASED]
+v2.12.0- 2023-08-17
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Replaced Psr/Container library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Change min PHP version to 7.2.5. If not compatible, the plugin will not execute;
