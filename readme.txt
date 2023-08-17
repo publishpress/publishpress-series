@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.3
-Stable tag: 2.11.5
+Stable tag: 2.12.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,14 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.12.0- 2023-08-17
+* Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
+* Changed: Replaced Psr/Container library with a prefixed version of the library to avoid conflicts with other plugins;
+* Changed: Change min PHP version to 7.2.5. If not compatible, the plugin will not execute;
+* Changed: Change min WP version to 5.5. If not compatible, the plugin will not execute;
+* Changed: Updated internal libraries to latest versions;
+* Changed: Refactor some occurrences of "plugins_loaded" replacing it by a new action: "plublishpress_<name>_loaded" which runs after the requirements and libraries are loaded, but before the plugin is initialized;
 
 v2.11.5- 2023-07-20
 * Update: Allow users to re-order drafts series, #815

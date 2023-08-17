@@ -1,0 +1,99 @@
+/* Banner on the right inviting to install Permissions */
+
+.pp-columns-wrapper.pp-enable-sidebar {
+	display: table;
+	width: 100%;
+}
+
+.pp-columns-wrapper.pp-enable-sidebar .pp-column-left {
+	width: 75%;
+}
+
+.pp-columns-wrapper.pp-enable-sidebar .pp-column-right {
+	width: calc( 25% - 20px );
+	margin-left: 20px;
+}
+
+.pp-columns-wrapper.pp-enable-sidebar .pp-column-left,
+.pp-columns-wrapper.pp-enable-sidebar .pp-column-right {
+	float: left;
+}
+
+.nav-tab-wrapper.pp-recommendations-heading {
+	padding-bottom: 16px;
+	opacity: 0.8;
+	margin-bottom: 25px;
+}
+
+.pp-sidebar-box {
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+	border: 1px solid #dcdcdc;
+	font-size: 1.1em;
+	margin-bottom: 20px;
+}
+
+.pp-sidebar-box h3 {
+	line-height: 1.2em;
+	margin: 0;
+	padding: 0;
+}
+
+.pp-sidebar-box ul {
+	list-style: disc;
+	margin: 20px 15px 20px;
+	padding: 0;
+}
+
+.pp-sidebar-box img {
+	max-width: 100%;
+}
+
+.pp-sidebar-box .button {
+	text-align: center;
+	display: block;
+	white-space: normal;
+	line-height: 20px !important;
+	padding: 4px 10px !important;
+}
+
+.pp-sidebar-box .button.pp-button-yellow {
+    background-color: #FFB300;
+    border-color: #C58C07;
+    color: #754D26;
+
+    text-shadow: none;
+}
+
+.pp-sidebar-box .button.pp-button-yellow:hover,
+.pp-sidebar-box .button.pp-button-yellow:active,
+.pp-sidebar-box .button.pp-button-yellow:focus {
+    background-color: #F3AC04;
+    border-color: #C58C07;
+    color: #333;
+    outline: none;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pp-sidebar-box .pp-box-banner-image {
+	background: #655997;
+	text-align: center;
+}
+
+@media (max-width: 1199px) {
+
+	.pp-columns-wrapper.pp-enable-sidebar .pp-column-left,
+	.pp-columns-wrapper.pp-enable-sidebar .pp-column-right {
+		float: none;
+		width: 100%;
+	}
+
+	.pp-columns-wrapper.pp-enable-sidebar .pp-column-right {
+		margin-left: 0;
+		margin-bottom: 20px;
+	}
+}
