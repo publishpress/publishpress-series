@@ -29,7 +29,7 @@ class PPSeriesCoreAdmin {
                     function ($settings) {
                         $settings['publishpress-series'] = [
                             'parent' => 'orgseries_options_page',
-                            'label'  => 'Upgrade to Pro',
+                            'label'  => __('Upgrade to Pro', 'organize-series'),
                             'link'   => 'https://publishpress.com/links/series-banner',
                         ];
 
