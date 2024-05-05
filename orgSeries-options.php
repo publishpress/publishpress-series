@@ -550,7 +550,7 @@ function series_automation_core_fieldset() {
 								<tr valign="top"><th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
 									<td>
                                         <span id="toc-home-url"><?php bloginfo('url') ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
-                                        <button onclick="gotoTOCUrl(event)" class="button">view page</button>
+                                        <button onclick="gotoTOCUrl(event)" class="button"><?php esc_html_e('view page', 'organize-series'); ?></button>
 
                                         <?php 
                                         global $wp_rewrite;
