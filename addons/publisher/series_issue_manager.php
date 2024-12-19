@@ -682,7 +682,7 @@ class PPS_Publisher_Admin
         ?>
                         </form>
                         <div class="form-wrap edit-term-notes">
-                            <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
+                            <p><?php esc_html_e('Description here.', 'simple-tags') ?></p>
                         </div>
                     </div>
 
@@ -815,7 +815,7 @@ class PPS_Publisher_Admin
         ?>
                         </form>
                         <div class="form-wrap edit-term-notes">
-                            <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
+                            <p><?php esc_html_e('Description here.', 'simple-tags') ?></p>
                         </div>
                     </div>
 
@@ -890,7 +890,7 @@ class PPS_Publisher_Admin
             ?>
                     </form>
                     <div class="form-wrap edit-term-notes">
-                        <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
+                        <p><?php esc_html_e('Description here.', 'simple-tags') ?></p>
                     </div>
                 </div>
 
