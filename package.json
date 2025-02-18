@@ -17,7 +17,7 @@
   "dependencies": {
     "@wordpress/dom-ready": "^1.2.0",
     "ansi-regex": "^2.1.1",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "qs": "^6.9.7"
   },
   "devDependencies": {
