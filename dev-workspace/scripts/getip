@@ -36,10 +36,11 @@ function is_online(): bool {
  */
 function get_docker_host_ip()
 {
-    if (! is_online()) {
+    if (!is_online()) {
         return '127.0.0.1';
     }
 
+    $output = '';
     if (php_uname('s') === 'Linux') {
         $output = shell_exec("ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print \$2}' | cut -f1 -d'/'");
     } elseif (php_uname('s') === 'Darwin') {
@@ -49,7 +50,14 @@ function get_docker_host_ip()
         exit(1);
     }
 
-    return trim($output);
+    // Get the first IP address from the output
+    $ips = array_filter(array_map('trim', explode("\n", $output)));
+    if (empty($ips)) {
+        echo "Error: No valid IP addresses found\n";
+        exit(1);
+    }
+
+    return $ips[0];
 }
 
 // Check if the user requests help
