@@ -329,8 +329,14 @@ function ajax_pp_series_reordering_terms() {
 }
 
 function pp_series_terms_clauses($clauses, $taxonomies, $args) {
+    global $wpdb;
 
     if (!in_array(ppseries_get_series_slug(), $taxonomies) && !in_array('series_group', $taxonomies)) {
+        return $clauses;
+    }
+
+    
+    if (!$wpdb->get_var("SHOW COLUMNS FROM `{$wpdb->terms}` LIKE 'term_order'")) {
         return $clauses;
     }
     
@@ -355,6 +361,8 @@ function pp_series_terms_clauses($clauses, $taxonomies, $args) {
 
 function pp_series_get_terms_orderby($orderby, $args)
 {
+    global $wpdb;
+
     if (!isset($args['taxonomy'])) {
         return $orderby;
     }
@@ -372,7 +380,9 @@ function pp_series_get_terms_orderby($orderby, $args)
     }
     
     if (isset($args['orderby']) && $args['orderby'] == "term_order" && $orderby != "term_order") {
-        return "t.term_order";
+        if ($wpdb->get_var("SHOW COLUMNS FROM `{$wpdb->terms}` LIKE 'term_order'")) {
+            return "t.term_order";
+        }
     }
     
     return $orderby;
