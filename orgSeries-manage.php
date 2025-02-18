@@ -214,7 +214,7 @@ function add_series_form_fields($taxonomy) {
 		<div style="float:left;" id="selected-icon"></div>
 		<div style="clear:left;"></div>
 		<label for="series_icon">
-			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="Select Image" />
+			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
 			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 			<p><?php _e('Upload an image for the series.', 'organize-series') ?></p>
 		</label>
@@ -272,7 +272,7 @@ function edit_series_form_fields($series, $taxonomy) {
 				<th scope="row"><?php _e('Series Icon Upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
-					<input id="upload_image_button" type="button" value="Select Image" />
+					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
 					<p><?php _e('Upload an image for the series.', 'organize-series'); ?></p>
 					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>

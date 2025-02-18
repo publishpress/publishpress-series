@@ -272,7 +272,7 @@ function orgseries_grouping_import_existing_series() {
 }
 
 function orgseries_groups_admin_menu() {
-    add_submenu_page( 'edit.php', 'Series Categories', 'Series Categories', 'manage_publishpress_series', 'edit-tags.php?taxonomy=series_group');
+    add_submenu_page( 'edit.php', __('Series Categories', 'organize-series'), __('Series Categories', 'organize-series'), 'manage_publishpress_series', 'edit-tags.php?taxonomy=series_group');
 }
 
 function orgseries_group_add_queryvars($qvs) {
