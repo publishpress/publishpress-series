@@ -74,8 +74,8 @@ if (!function_exists('pp_series_upgrade_function')) {
         }
 
         if (!get_option('pp_series_2_10_0_1_upgraded')) {
-            if (!$wpdb->query("SELECT `term_order` FROM `{$wpdb->terms}`")) {
-                $wpdb->query("ALTER TABLE `{$wpdb->terms}` ADD `term_order` INT (11) NOT NULL DEFAULT 0;");
+            if (!$wpdb->get_var("SHOW COLUMNS FROM `{$wpdb->terms}` LIKE 'term_order'")) {
+                $wpdb->query("ALTER TABLE `{$wpdb->terms}` ADD `term_order` INT(11) NOT NULL DEFAULT 0;");
                 update_option('pp_series_2_10_0_1_upgraded', true);
             }
         }

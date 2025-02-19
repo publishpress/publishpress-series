@@ -214,7 +214,7 @@ function add_series_form_fields($taxonomy) {
 		<div style="float:left;" id="selected-icon"></div>
 		<div style="clear:left;"></div>
 		<label for="series_icon">
-			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="Select Image" />
+			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
 			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 			<p><?php _e('Upload an image for the series.', 'organize-series') ?></p>
 		</label>
@@ -272,7 +272,7 @@ function edit_series_form_fields($series, $taxonomy) {
 				<th scope="row"><?php _e('Series Icon Upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
-					<input id="upload_image_button" type="button" value="Select Image" />
+					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
 					<p><?php _e('Upload an image for the series.', 'organize-series'); ?></p>
 					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>
@@ -329,8 +329,14 @@ function ajax_pp_series_reordering_terms() {
 }
 
 function pp_series_terms_clauses($clauses, $taxonomies, $args) {
+    global $wpdb;
 
     if (!in_array(ppseries_get_series_slug(), $taxonomies) && !in_array('series_group', $taxonomies)) {
+        return $clauses;
+    }
+
+    
+    if (!$wpdb->get_var("SHOW COLUMNS FROM `{$wpdb->terms}` LIKE 'term_order'")) {
         return $clauses;
     }
     
@@ -355,6 +361,8 @@ function pp_series_terms_clauses($clauses, $taxonomies, $args) {
 
 function pp_series_get_terms_orderby($orderby, $args)
 {
+    global $wpdb;
+
     if (!isset($args['taxonomy'])) {
         return $orderby;
     }
@@ -372,7 +380,9 @@ function pp_series_get_terms_orderby($orderby, $args)
     }
     
     if (isset($args['orderby']) && $args['orderby'] == "term_order" && $orderby != "term_order") {
-        return "t.term_order";
+        if ($wpdb->get_var("SHOW COLUMNS FROM `{$wpdb->terms}` LIKE 'term_order'")) {
+            return "t.term_order";
+        }
     }
     
     return $orderby;

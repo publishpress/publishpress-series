@@ -4,12 +4,12 @@ Author: publishpress
 Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
-Tested up to: 6.3
-Stable tag: 2.12.0
+Tested up to: 6.7
+Stable tag: 2.13.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-PublishPress Series is a publishing plugin that allows you to organize posts into issues or series. This is ideal for magazines, newspapers, writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
+PublishPress Series is the publishing plugin that allows you to organize posts into issues or series. This is ideal for magazines, newspapers, writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 
 == Description ==
 
@@ -89,17 +89,18 @@ The Pro version of PublishPress Series allows you to add posts to more than one 
 
 The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
 
-Join PublishPress and you'll get access to these nine Pro plugins:
+Join PublishPress and you'll get access to these ten Pro plugins:
 
 * [PublishPress Authors Pro](https://publishpress.com/authors) allows you to add multiple authors and guest authors to WordPress posts.
 * [PublishPress Blocks Pro](https://publishpress.com/blocks) has everything you need to build professional websites with the WordPress block editor.
 * [PublishPress Capabilities Pro](https://publishpress.com/capabilities) is the plugin to manage your WordPress user roles, permissions, and capabilities.
 * [PublishPress Checklists Pro](https://publishpress.com/checklists) enables you to define tasks that must be completed before content is published.
-* [PublishPress Future Pro](https://publishpress.com/future)  is the plugin for scheduling changes to your posts.
-* [PublishPress Permissions Pro](https://publishpress.com/permissions)  is the plugin for advanced WordPress permissions.
+* [PublishPress Future Pro](https://publishpress.com/future) is the plugin for scheduling changes to your posts.
+* [PublishPress Permissions Pro](https://publishpress.com/permissions) is the plugin for advanced WordPress permissions.
 * [PublishPress Planner Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
 * [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
-* [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series 
+* [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series.
+* [PublishPress Statuses Pro](https://publishpress.com/series) enables you to create additional publishing steps for your posts.
 
 Together, these plugins are a suite of powerful publishing tools for WordPress. If you need to create a professional workflow in WordPress, with moderation, revisions, permissions and more... then you should try PublishPress.
 
@@ -173,6 +174,13 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.13.0- 2025-02-19
+* Fixed: WordPress database error on install, #831
+* Fixed: Undefined variable $current_post_id, #877
+* Fixed: PHP Warning Undefined array key "post_series", #865
+* Fixed: Deprecated message on EDD Vendor, #878
+* Update: Update WordPress Reviews library to 1.1.20, 860
 
 v2.12.0- 2023-08-17
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;

@@ -9,7 +9,7 @@ class PPSeriesCoreAdmin {
                     \PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER,
                     function ($settings) {
                             $settings['publishpress-series'] = [
-                                'message'  => 'You\'re using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s',
+                                'message'  => esc_html__("You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s", 'organize-series'),
                                 'link'     => 'https://publishpress.com/links/series-banner',
                                 'screens'  => [
                                     ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
@@ -29,7 +29,7 @@ class PPSeriesCoreAdmin {
                     function ($settings) {
                         $settings['publishpress-series'] = [
                             'parent' => 'orgseries_options_page',
-                            'label'  => 'Upgrade to Pro',
+                            'label'  => __('Upgrade to Pro', 'organize-series'),
                             'link'   => 'https://publishpress.com/links/series-banner',
                         ];
 
