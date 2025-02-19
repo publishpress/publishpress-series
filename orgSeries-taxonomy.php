@@ -420,7 +420,7 @@ function wp_set_post_series($post, $update, $post_ID = 0, $series_id = array(), 
 	$post_shorttitle = array();
 	global $orgseries;
 
-	if (!isset($_REQUEST['series_part'])) {
+	if (!isset($_REQUEST['series_part']) || !isset($_REQUEST['post_series'])) {
 		return;
 	}
 
