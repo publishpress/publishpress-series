@@ -109,9 +109,11 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
 			$result_list[$seriespost['id']] = $current_result;
 		}
 
+		if (!isset($current_post_id)) {
+			$current_post_id = $post->ID;;
+		}		
+
 		if ('post-list' === $referral && $limit > 0 && count($result_list) > $limit) {
-
-
 			$current_post_data = $result_list[$current_post_id];
 			$result_limit = array_chunk($result_list, $limit, true);
 			$result_limit = $result_limit[0];
