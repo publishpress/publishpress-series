@@ -47,31 +47,7 @@ class PPSeriesCoreAdmin {
         <div class="ppseries-advertisement-right-sidebar">
             <div id="postbox-container-1" class="postbox-container">
             <div class="meta-box-sortables">
-                <div class="advertisement-box-content postbox">
-                    <div class="postbox-header">
-                        <h3 class="advertisement-box-header hndle is-non-sortable">
-                            <span><?php echo esc_html__('Upgrade to PublishPress Series Pro', 'organize-series'); ?></span>
-                        </h3>
-                    </div>
-        
-                    <div class="inside">
-                        <p><?php echo esc_html__('Enhance the power of PublishPress Series with the Pro version:', 'organize-series'); ?>
-                        </p>
-                        <ul>
-                            <li><?php echo esc_html__('Custom post type support', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Shortcodes', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Add a post to multiple series', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Put series together in groups', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Extra tokens for templates', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Remove PublishPress ads and branding', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('Fast, professional support', 'organize-series'); ?></li>
-                            <li><?php echo esc_html__('No ads inside the plugin', 'organize-series'); ?></li>
-                        </ul>
-                        <div class="upgrade-btn">
-                            <a href="https://publishpress.com/links/series-banner" target="__blank"><?php echo esc_html__('Upgrade to Pro', 'organize-series'); ?></a>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="advertisement-box-content postbox">
                     <div class="postbox-header">
                         <h3 class="advertisement-box-header hndle is-non-sortable">

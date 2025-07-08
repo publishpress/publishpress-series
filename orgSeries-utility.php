@@ -425,4 +425,8 @@ function ppseries_get_series_slug() {
 
 	return $series_slug;
 }
+
+function pp_series_is_pro_active(){
+	return defined('SERIES_PRO_VERSION');
+}
 ?>
