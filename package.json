@@ -15,7 +15,7 @@
     "extends @wordpress/browserslist-config"
   ],
   "dependencies": {
-    "@wordpress/dom-ready": "^1.2.0",
+    "@wordpress/dom-ready": "^4.19.0",
     "ansi-regex": "^2.1.1",
     "axios": "^1.7.4",
     "qs": "^6.9.7"
