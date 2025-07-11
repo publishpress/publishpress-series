@@ -521,14 +521,20 @@ function orgSeries_custom_column_action($column_name, $id)
 	}
 }
 
-function orgSeries_custom_manage_posts_filter()
-{
-	global $orgseries;
-	$series_name = '';
-	if (isset($_GET[SERIES_QUERYVAR]))
-		$series_name = sanitize_text_field($_GET[SERIES_QUERYVAR]);
+function orgSeries_custom_manage_posts_filter() {
+    global $orgseries, $typenow;
 
-	wp_dropdown_series('show_option_all=' . esc_attr__('View all series', 'organize-series') . '&hide_empty=0&show_count=0&selected=' . $series_name);
+    // Only register the series dropdown on the default "post" post type list screen.
+    if ( 'post' !== $typenow ) {
+        return;
+    }
+
+    $series_name = '';
+    if ( isset( $_GET[ SERIES_QUERYVAR ] ) ) {
+        $series_name = sanitize_text_field( $_GET[ SERIES_QUERYVAR ] );
+    }
+
+    wp_dropdown_series( 'show_option_all=' . esc_attr__( 'View all series', 'organize-series' ) . '&hide_empty=0&show_count=0&selected=' . $series_name );
 }
 
 function add_series_management_link()
