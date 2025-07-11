@@ -441,10 +441,27 @@ function series_edit_meta_box()
 function orgseries_add_meta_box()
 {
 	global $orgseries;
-	$posttypes = apply_filters('orgseries_posttype_support', array('post'));
-	foreach ($posttypes as $posttype) {
-		add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', $posttype, 'side');
-		remove_meta_box('tagsdiv-series', $posttype, 'side'); //removes series meta box added by WordPress Taxonomy api.
+
+	// Only register the metabox if at least one series term exists.
+	$taxonomy_slug   = function_exists( 'ppseries_get_series_slug' ) ? ppseries_get_series_slug() : 'series';
+	$existing_series = get_terms(
+		array(
+			'taxonomy'   => $taxonomy_slug,
+			'hide_empty' => false,
+			'number'     => 1,
+			'fields'     => 'ids',
+		)
+	);
+
+	if ( empty( $existing_series ) || is_wp_error( $existing_series ) ) {
+		return; // Don't register the metabox if there are no series terms.
+	}
+
+	$posttypes = apply_filters( 'orgseries_posttype_support', array( 'post' ) );
+
+	foreach ( $posttypes as $posttype ) {
+		add_meta_box( 'seriesdiv', __( 'Series', 'organize-series' ), 'series_edit_meta_box', $posttype, 'side' );
+		remove_meta_box( 'tagsdiv-' . $taxonomy_slug, $posttype, 'side' ); // Removes taxonomy meta box added by WordPress.
 	}
 }
 
