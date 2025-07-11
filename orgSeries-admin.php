@@ -344,7 +344,7 @@ function write_series_list($series)
 	echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 	$series_html = '';
 	$checked_series_html = '';
-	foreach ($series as $serial) {
+	foreach ((array)$series as $serial) {
 		$series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
 		$serial_html = '<li id="series-' . esc_attr($serial['series_ID']) . '">
                     <label for="in-series-' . esc_attr($serial['series_ID']) . '" class="selectit">
