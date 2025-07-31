@@ -2,8 +2,8 @@
 
 /*****************************************************************
  * This file is generated on composer update command by
- * a custom script. 
- * 
+ * a custom script.
+ *
  * Do not edit it manually!
  ****************************************************************/
 
@@ -16,35 +16,35 @@ if (! function_exists('add_action')) {
     return;
 }
 
-if (! function_exists(__NAMESPACE__ . '\register3Dot0Dot1')) {
+if (! function_exists(__NAMESPACE__ . '\register3Dot0Dot2')) {
     if (! defined('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_INCLUDED')) {
         define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_INCLUDED', __DIR__);
     }
-        
+
     if (! class_exists('PublishPress\WordpressEddLicense\Versions')) {
         require_once __DIR__ . '/Versions.php';
 
         add_action('plugins_loaded', [Versions::class, 'initializeLatestVersion'], -150, 0);
     }
 
-    add_action('plugins_loaded', __NAMESPACE__ . '\register3Dot0Dot1', -190, 0);
+    add_action('plugins_loaded', __NAMESPACE__ . '\register3Dot0Dot2', -190, 0);
 
-    function register3Dot0Dot1()
+    function register3Dot0Dot2()
     {
         if (! class_exists('PublishPress\WordPressEDDLicense\License')) {
             $versions = Versions::getInstance();
-            $versions->register('3.0.1', __NAMESPACE__ . '\initialize3Dot0Dot1');
+            $versions->register('3.0.2', __NAMESPACE__ . '\initialize3Dot0Dot2');
         }
     }
 
-    function initialize3Dot0Dot1()
+    function initialize3Dot0Dot2()
     {
         require_once __DIR__ . '/autoload.php';
-        
+
         if (! defined('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION')) {
-            define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION', '3.0.1');
+            define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION', '3.0.2');
         }
-        
-        do_action('publishpress_wordpress_edd_license_3Dot0Dot1_initialized');
+
+        do_action('publishpress_wordpress_edd_license_3Dot0Dot2_initialized');
     }
 }

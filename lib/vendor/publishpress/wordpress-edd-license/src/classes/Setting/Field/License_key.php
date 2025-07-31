@@ -33,30 +33,7 @@ if (!defined('ABSPATH')) {
 
 class License_key extends Base
 {
-    /**
-     * @var string
-     */
-    protected $options_group_name;
 
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var string
-     */
-    protected $id;
-
-    /**
-     * @var string
-     */
-    protected $class;
-
-    /**
-     * @var string
-     */
-    protected $value;
 
     /**
      * @var string

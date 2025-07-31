@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76a7e559c6feb010ce434799638d7f79",
+    "content-hash": "50df3f30e8fba4e8d0589e7828cf0f44",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -339,16 +339,16 @@
         },
         {
             "name": "publishpress/wordpress-edd-license",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-edd-license.git",
-                "reference": "ea53f02c0537bf4054bf3fcb183f93a08c0b2ed3"
+                "reference": "423716f5122ac6fd535522f87015b61c4f6ce582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/ea53f02c0537bf4054bf3fcb183f93a08c0b2ed3",
-                "reference": "ea53f02c0537bf4054bf3fcb183f93a08c0b2ed3",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/423716f5122ac6fd535522f87015b61c4f6ce582",
+                "reference": "423716f5122ac6fd535522f87015b61c4f6ce582",
                 "shasum": ""
             },
             "require": {
@@ -358,15 +358,6 @@
                 "publishpress/pimple-pimple": "~3.2"
             },
             "require-dev": {
-                "codeception/domain-assert": "^1.0",
-                "codeception/module-asserts": "^1.2",
-                "codeception/module-cli": "^1.0",
-                "codeception/module-db": "^1.0",
-                "codeception/module-filesystem": "^1.0",
-                "codeception/module-phpbrowser": "^1.0",
-                "codeception/module-webdriver": "^1.0",
-                "codeception/util-universalframework": "^1.0",
-                "lucatume/wp-browser": "^2.4",
                 "publishpress/version-loader-generator": "^1.0"
             },
             "type": "library",
@@ -413,9 +404,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.1"
+                "issues": "https://github.com/publishpress/library-wordpress-edd-license/issues",
+                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.2"
             },
-            "time": "2023-05-30T19:13:23+00:00"
+            "time": "2025-07-29T15:18:46+00:00"
         },
         {
             "name": "publishpress/wordpress-reviews",
@@ -486,16 +478,16 @@
         },
         {
             "name": "publishpress/wordpress-version-notices",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-version-notices.git",
-                "reference": "7b32b0183e37b512a84231b730476834bd8755d0"
+                "reference": "caf37ca4705f89b882c1e53d9e592939568df944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/7b32b0183e37b512a84231b730476834bd8755d0",
-                "reference": "7b32b0183e37b512a84231b730476834bd8755d0",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/caf37ca4705f89b882c1e53d9e592939568df944",
+                "reference": "caf37ca4705f89b882c1e53d9e592939568df944",
                 "shasum": ""
             },
             "require": {
@@ -546,9 +538,9 @@
             "description": "Library for displaying version notices for Pro plugins in WordPress.",
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-version-notices/issues",
-                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.1.4"
+                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.1.5"
             },
-            "time": "2025-06-23T21:33:42+00:00"
+            "time": "2025-07-23T03:00:53+00:00"
         }
     ],
     "packages-dev": [],
