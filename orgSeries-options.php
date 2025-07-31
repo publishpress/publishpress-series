@@ -1336,7 +1336,7 @@ function series_cpt_settings_display() {
 									<input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
 									<?php if ($post_type !== 'post') : ?>
 									<div class="ppseries-pro-lock">
-										<span class="dashicons dashicons-lock"></span>
+										<span class="ppseries-pro-badge">PRO</span>
 										<span class="tooltip-text">
 											<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
 											<i></i>
@@ -1383,14 +1383,14 @@ function series_addon_settings_display() {
 				<td>
 					<label>
 					<input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" />
+						<span class="description"><?php echo $series_addon_option['description']; ?></span>
 					<div class="ppseries-pro-lock">
-						<span class="dashicons dashicons-lock"></span>
+						<span class="ppseries-pro-badge">PRO</span>
 						<span class="tooltip-text">
 							<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
 							<i></i>
 						</span>
 					</div>
-						<span class="description"><?php echo $series_addon_option['description']; ?></span>
 					</label>
 				</td>
 			</tr>
