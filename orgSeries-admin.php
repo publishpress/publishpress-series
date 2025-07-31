@@ -344,7 +344,7 @@ function write_series_list($series)
 	echo '<li id="series-0"><label for ="in-series-0" class="selectit"><input value="0" type="radio" name="post_series" id="in-series-0" checked="checked" /> <span class="li-series-name">' . esc_html__('Not part of a series', 'organize-series') . '</span></label></li>';
 	$series_html = '';
 	$checked_series_html = '';
-	foreach ($series as $serial) {
+	foreach ((array)$series as $serial) {
 		$series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
 		$serial_html = '<li id="series-' . esc_attr($serial['series_ID']) . '">
                     <label for="in-series-' . esc_attr($serial['series_ID']) . '" class="selectit">
@@ -441,10 +441,27 @@ function series_edit_meta_box()
 function orgseries_add_meta_box()
 {
 	global $orgseries;
-	$posttypes = apply_filters('orgseries_posttype_support', array('post'));
-	foreach ($posttypes as $posttype) {
-		add_meta_box('seriesdiv', __('Series', 'organize-series'), 'series_edit_meta_box', $posttype, 'side');
-		remove_meta_box('tagsdiv-series', $posttype, 'side'); //removes series meta box added by WordPress Taxonomy api.
+
+	// Only register the metabox if at least one series term exists.
+	$taxonomy_slug   = function_exists( 'ppseries_get_series_slug' ) ? ppseries_get_series_slug() : 'series';
+	$existing_series = get_terms(
+		array(
+			'taxonomy'   => $taxonomy_slug,
+			'hide_empty' => false,
+			'number'     => 1,
+			'fields'     => 'ids',
+		)
+	);
+
+	if ( empty( $existing_series ) || is_wp_error( $existing_series ) ) {
+		return; // Don't register the metabox if there are no series terms.
+	}
+
+	$posttypes = apply_filters( 'orgseries_posttype_support', array( 'post' ) );
+
+	foreach ( $posttypes as $posttype ) {
+		add_meta_box( 'seriesdiv', __( 'Series', 'organize-series' ), 'series_edit_meta_box', $posttype, 'side' );
+		remove_meta_box( 'tagsdiv-' . $taxonomy_slug, $posttype, 'side' ); // Removes taxonomy meta box added by WordPress.
 	}
 }
 
@@ -504,14 +521,20 @@ function orgSeries_custom_column_action($column_name, $id)
 	}
 }
 
-function orgSeries_custom_manage_posts_filter()
-{
-	global $orgseries;
-	$series_name = '';
-	if (isset($_GET[SERIES_QUERYVAR]))
-		$series_name = sanitize_text_field($_GET[SERIES_QUERYVAR]);
+function orgSeries_custom_manage_posts_filter() {
+    global $orgseries, $typenow;
 
-	wp_dropdown_series('show_option_all=' . esc_attr__('View all series', 'organize-series') . '&hide_empty=0&show_count=0&selected=' . $series_name);
+    // Only register the series dropdown on the default "post" post type list screen.
+    if ( 'post' !== $typenow ) {
+        return;
+    }
+
+    $series_name = '';
+    if ( isset( $_GET[ SERIES_QUERYVAR ] ) ) {
+        $series_name = sanitize_text_field( $_GET[ SERIES_QUERYVAR ] );
+    }
+
+    wp_dropdown_series( 'show_option_all=' . esc_attr__( 'View all series', 'organize-series' ) . '&hide_empty=0&show_count=0&selected=' . $series_name );
 }
 
 function add_series_management_link()

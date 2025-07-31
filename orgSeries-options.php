@@ -17,6 +17,9 @@ add_action('admin_init', 'publishpress_series_process_upgrade');
 add_action('admin_notices', 'publishpress_series_upgrade_require_changes');
 add_action('after_plugin_row', 'publishpress_series_upgrade_require_row_notice', 10, 2);
 
+// enqueue tooltips assets
+add_action('admin_enqueue_scripts', 'ppseries_enqueue_tooltips_assets');
+
 
 /**
  * Add Settings link to plugins.
@@ -209,6 +212,30 @@ function orgseries_validate($input) {
 	return $return_input;
 }
 
+// enqueue tooltips assets
+function ppseries_enqueue_tooltips_assets() {
+
+    if (isset($_GET['page']) && $_GET['page'] === 'orgseries_options_page') {
+
+        wp_enqueue_style(
+            'pp-tooltips-library', 
+            plugin_dir_url(__FILE__) . 'assets/css/tooltip.min.css',
+            array(),
+            ORG_SERIES_VERSION
+        );
+        
+
+        wp_enqueue_script(
+            'pp-tooltips-library',
+            plugin_dir_url(__FILE__) . 'assets/js/tooltip.min.js',
+            array(),
+            ORG_SERIES_VERSION,
+            true
+        );
+    }
+}
+
+
 function orgseries_options_scripts() {
 	wp_enqueue_script( 'orgseries_options' );
 }
@@ -220,6 +247,15 @@ function orgseries_options_init() {
 
 	add_settings_section('series_automation_settings', 'Automation Settings', 'orgseries_main_section', 'orgseries_options_page');
 	add_settings_field('series_automation_core_fieldset','<br />Series Automation Core Options', 'series_automation_core_fieldset', 'orgseries_options_page', 'series_automation_settings');
+
+	if ( ! pp_series_is_pro_active() ) {
+		
+		add_settings_section('series_cpt_settings', __('Post Types', 'publishpress-series-pro'), 'ppseries_cpt_section', 'orgseries_options_page');
+		add_settings_field('orgseries_cpt_settings', __('Custom Post Type Support', 'publishpress-series-pro'), 'series_cpt_settings_display', 'orgseries_options_page', 'series_cpt_settings');
+		add_settings_section('series_addon_settings', __('Pro Features', 'publishpress-series-pro'), 'ppseries_addon_section', 'orgseries_options_page');
+		add_settings_field('orgseries_addon_settings', __('Pro Features', 'publishpress-series-pro'), 'series_addon_settings_display', 'orgseries_options_page', 'series_addon_settings');
+	}
+	
 
 	add_settings_section('series_templates_settings', '<br /><br />Template Tag Options', 'orgseries_templates_section', 'orgseries_options_page');
 	add_settings_field('series_templates_core_fieldset', 'Series Templates Core Options', 'series_templates_core_fieldset', 'orgseries_options_page', 'series_templates_settings');
@@ -242,9 +278,24 @@ function orgseries_options_init() {
 
 
 function ppseries_filter_admin_settings_tabs($settings_tabs){
+	if (!pp_series_is_pro_active()){
+		$settings_tabs['series_addon_settings'] = esc_html__('Pro Features', 'organize-series');
+	}
     $settings_tabs['series_taxonomy_base_settings'] = esc_html__('Taxonomy', 'organize-series');
     $settings_tabs['series_metabox_settings'] = esc_html__('Metabox', 'organize-series');
     $settings_tabs['series_uninstall_settings'] = esc_html__('Advanced', 'organize-series');
+    
+    if (!pp_series_is_pro_active()) {
+        $new_settings_tabs = [];
+        foreach($settings_tabs as $settings_tab_key => $settings_tab_label){
+            $new_settings_tabs[$settings_tab_key] = $settings_tab_label;
+            if($settings_tab_key === 'series_automation_settings'){
+                $new_settings_tabs['series_cpt_settings'] = __('Post Types', 'organize-series');
+            }
+        }
+        return $new_settings_tabs;
+    }
+    
     return $settings_tabs;
 }
 
@@ -302,44 +353,210 @@ function orgseries_option_page() {
                     <h3 class="handle"><span><?php esc_html_e('Overview', 'organize-series'); ?></span></h3>
                     <div class="inside">
                         <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
-                        <strong>%series_icon%</strong><br />
-                            <em><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></em><br /><br />
-                        <strong>%series_icon_linked%</strong><br />
-                            <em><?php esc_html_e('Same as %series_icon% except that the series icon will be linked to the series page','organize-series'); ?></em><br /><br />
-                        <strong>%series_list%</strong><br />
-                            <em><?php esc_html_e('This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.', 'organize-series'); ?></em><br /><br />
-                        <strong>%series_title%</strong><br />
-                            <em><?php esc_html_e('This will be replaced with the title of a series', 'organize-series'); ?></em><br /><br />
-                        <strong>%series_title_linked%</strong><br />
-                            <em><?php esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></em><br /><br />
-                        <strong>%post_title_list%</strong><br />
-                            <em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear.', 'organize-series'); ?></em><br /><br />
-                            <strong>%post_title_list_short%</strong><br />
-                            <em><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear and use provided widget post short title.', 'organize-series'); ?></em><br /><br />
-                        <strong>%post_title%</strong><br />
-                            <em><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></em><br /><br />
-                        <strong>%post_title_linked%</strong><br />
-                            <em><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
-                        <strong>%post_title_short%</strong><br />
-                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series', 'organize-series'); ?></em><br /><br />
-                        <strong>%post_title_short_linked%</strong><br />
-                            <em><?php esc_html_e('Will be replaced with the post title short of a post in the series linked to the page view of that post.', 'organize-series'); ?></em><br /><br />
-                        <strong>%previous_post%</strong><br />
-                            <em><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-                        <strong>%next_post%</strong><br />
-                            <em><?php esc_html_e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-                        <strong>%first_post%</strong><br />
-                            <em><?php esc_html_e('Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the \'Custom First Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></em><br /><br />
-                        <strong>%postcontent%</strong><br />
-                            <em><?php esc_html_e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', 'organize-series'); ?></em><br /><br />
-                        <strong>%series_part%</strong><br />
-                            <em><?php esc_html_e('Will display what part of a series the post is', 'organize-series'); ?></em><br /><br />
-                        <strong>%total_posts_in_series%</strong><br />
-                            <em><?php esc_html_e('Will display the total number of posts in a series', 'organize-series'); ?></em><br /><br />
-                        <strong>%series_description%</strong><br />
-                            <em><?php esc_html_e('Will display the description for the series', 'organize-series'); ?></em>
-                            <?php do_action('orgseries_token_description'); ?>
-                            <?php do_action('ppseries_licence_key_form'); ?>
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+						<strong>%series_icon%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_icon_linked%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Same as %series_icon% except that the series icon will be linked to the series page','organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_list%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_title%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('This will be replaced with the title of a series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_title_linked%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title_list%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title_list_short%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Is the location token for where the contents of the post list post templates will appear and use provided widget post short title.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced with the post title of a post in the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title_linked%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced with the post title of a post in the series linked to the page view of that post.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title_short%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced with the post title short of a post in the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_title_short_linked%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced with the post title short of a post in the series linked to the page view of that post.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%previous_post%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the \'Custom Previous Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%next_post%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the \'Custom Next Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%first_post%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the \'Custom First Post Navigation Text\' field. If that field is empty then the text will be the title of the post', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%postcontent%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display.', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_part%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will display what part of a series the post is', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%total_posts_in_series%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will display the total number of posts in a series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_description%</strong>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will display the description for the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+
+						<!-- PRO Features -->
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_slug%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will output the slug of the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%series_id%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will output the ID of the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_author%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will output the author of the post', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_thumbnail%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('If the post has a feature-image then that image will be displayed', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%post_date%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('The date that a post was published', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%unpublished_post_title%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will be replaced with the unpublished post title of a post in the series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+                        
+                        <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
+                            <strong>%total_posts_in_series_with_unpub%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <span class="tooltip-text">
+                                <span><?php esc_html_e('Will display the total number of published and unpublished posts in a series', 'organize-series'); ?></span>
+                                <i></i>
+                            </span>
+                        </span><br /><br />
+
+                        <?php do_action('orgseries_token_description'); ?>
+                        <?php do_action('ppseries_licence_key_form'); ?>
                         </div>
 
                     </div>
@@ -1064,5 +1281,125 @@ function publishpress_series_process_upgrade() {
 				<?php
 			});
 	}
+}
+
+/**
+ * Display the Pro Features section header
+ */
+function ppseries_addon_section() {
+	?>
+	<p class="description"><?php _e('These settings allow you enable or disable features in PublishPress Series Pro.', 'organize-series'); ?></p>
+	<?php
+}
+
+/**
+ * Display the Post Types section header
+ */
+function ppseries_cpt_section() {
+	?>
+	<p class="description"><?php _e('Enable PublishPress Series for custom post types.', 'organize-series'); ?></p>
+	<?php
+}
+
+/**
+ * Display the Custom Post Type Support settings with Pro badge
+ */
+function series_cpt_settings_display() {
+	global $orgseries;
+	$post_types = get_post_types(array( 'show_ui' => true ));
+	$excluded_post_type = ['series_group', 'wp_block', 'attachment'];
+	?>
+	<div class="ppseries-pro-feature">
+		<table class="form-table ppseries-settings-table">
+			<tbody>
+				<tr valign="top">
+					<td>
+						<table><tbody>
+							<?php
+							foreach ( $post_types as $post_type ) {
+								if (in_array($post_type, $excluded_post_type)){
+									continue;
+								}
+								
+								// Get post type label
+								$post_type_object = get_post_type_object($post_type);
+								$post_type_label = $post_type_object ? $post_type_object->labels->singular_name : $post_type;
+								?>
+								<tr valign="top">
+								<th scope="row">
+									<label for="<?php echo $post_type; ?>">
+										<?php echo $post_type_label; ?>
+									</label>
+								</th>
+								<td>
+									<label>
+									<input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
+									<?php if ($post_type !== 'post') : ?>
+									<div class="ppseries-pro-lock">
+										<span class="dashicons dashicons-lock"></span>
+										<span class="tooltip-text">
+											<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+											<i></i>
+										</span>
+									</div>
+									<?php endif; ?>
+								</td>
+								</tr>
+								<?php
+							}
+							?>
+						</tbody></table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<?php
+}
+
+/**
+ * Display the Pro Features settings with Pro overlay
+ */
+function series_addon_settings_display() {
+	$series_addons = [
+		'cpt' => ['name' => __('Custom Post Type Support', 'organize-series'), 'description' => __('Allow custom post types to be used with PublishPress Series.', 'organize-series')],
+		'shortcodes' => ['name' => __('Shortcodes', 'organize-series'), 'description' => __('Provides shortcodes to display series information.', 'organize-series')],
+		'extra-tokens' => ['name' => __('Extra Tokens', 'organize-series'), 'description' => __('Provides extra tokens to customize the output of series information.', 'organize-series')],
+		'multiples' => ['name' => __('Multiple Series', 'organize-series'), 'description' => __('Allows authors to add posts to more than one series.', 'organize-series')]
+	];
+	?>
+	<div class="ppseries-pro-feature">
+		<table class="form-table ppseries-settings-table">
+			<tbody>
+			<?php
+			foreach ( $series_addons as $series_addon => $series_addon_option ) {
+				?>
+				<tr valign="top">
+				<th scope="row">
+					<label for="ppseries-enable-<?php echo $series_addon; ?>">
+						<?php echo $series_addon_option['name']; ?>
+					</label>
+				</th>
+				<td>
+					<label>
+					<input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" />
+					<div class="ppseries-pro-lock">
+						<span class="dashicons dashicons-lock"></span>
+						<span class="tooltip-text">
+							<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+							<i></i>
+						</span>
+					</div>
+						<span class="description"><?php echo $series_addon_option['description']; ?></span>
+					</label>
+				</td>
+			</tr>
+				<?php
+			}
+			?>
+			</tbody>
+		</table>
+	</div>
+	<?php
 }
 ?>
