@@ -1,11 +1,11 @@
 === Issues and Series for Newspapers, Magazines, Publishers, Writers  ===
-Contributors: publishpress, kevinB, stevejburge, andergmartins, olatechpro
+Contributors: publishpress, kevinB, stevejburge, andergmartins, olatechpro, rizaardiyanto
 Author: publishpress
 Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.7
-Stable tag: 2.13.0
+Stable tag: 2.14.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,6 +174,13 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.14.0- 2025-07-14
+* Added: New Promo for Pro version #901
+* Fixed: Function _load_textdomain_just_in_time #900
+* Fixed: Warning when SiteOrigin active #866
+* Fixed: Hide the metabox if there are no Series #902
+* Fixed: Hide Filter on CPT #875
 
 v2.13.0- 2025-02-19
 * Fixed: WordPress database error on install, #831

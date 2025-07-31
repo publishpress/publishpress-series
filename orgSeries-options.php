@@ -355,7 +355,7 @@ function orgseries_option_page() {
                         <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_icon%</strong>
+						<strong>%series_icon%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></span>
                                 <i></i>
@@ -1320,14 +1320,29 @@ function series_cpt_settings_display() {
 								if (in_array($post_type, $excluded_post_type)){
 									continue;
 								}
+								
+								// Get post type label
+								$post_type_object = get_post_type_object($post_type);
+								$post_type_label = $post_type_object ? $post_type_object->labels->singular_name : $post_type;
 								?>
 								<tr valign="top">
-								<th scope="row"><label for="<?php echo $post_type; ?>"><?php echo $post_type; ?></label>
+								<th scope="row">
+									<label for="<?php echo $post_type; ?>">
+										<?php echo $post_type_label; ?>
+									</label>
 								</th>
 								<td>
 									<label>
-									<input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : ''; ?> disabled="disabled" />
-									</label>
+									<input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
+									<?php if ($post_type !== 'post') : ?>
+									<div class="ppseries-pro-lock">
+										<span class="dashicons dashicons-lock"></span>
+										<span class="tooltip-text">
+											<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+											<i></i>
+										</span>
+									</div>
+									<?php endif; ?>
 								</td>
 								</tr>
 								<?php
@@ -1338,18 +1353,6 @@ function series_cpt_settings_display() {
 				</tr>
 			</tbody>
 		</table>
-		
-		<!-- Pro overlay -->
-		<div class="ppseries-pro-overlay">
-			<div class="ppseries-pro-message-box">
-				<p class="ppseries-pro-message">
-					<?php _e('You can enable PublishPress Series for custom post types. This feature is available in PublishPress Series Pro.', 'organize-series'); ?>
-				</p>
-				<a href="https://publishpress.com/links/series-banner" target="_blank" class="ppseries-pro-button">
-					<?php _e('Upgrade to Pro', 'organize-series'); ?>
-				</a>
-			</div>
-		</div>
 	</div>
 	<?php
 }
@@ -1380,6 +1383,13 @@ function series_addon_settings_display() {
 				<td>
 					<label>
 					<input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" />
+					<div class="ppseries-pro-lock">
+						<span class="dashicons dashicons-lock"></span>
+						<span class="tooltip-text">
+							<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+							<i></i>
+						</span>
+					</div>
 						<span class="description"><?php echo $series_addon_option['description']; ?></span>
 					</label>
 				</td>
@@ -1389,18 +1399,6 @@ function series_addon_settings_display() {
 			?>
 			</tbody>
 		</table>
-		
-		<!-- Pro overlay -->
-		<div class="ppseries-pro-overlay">
-			<div class="ppseries-pro-message-box">
-				<p class="ppseries-pro-message">
-					<?php _e('Enable or disable features in PublishPress Series Pro. This feature is available in PublishPress Series Pro.', 'organize-series'); ?>
-				</p>
-				<a href="https://publishpress.com/links/series-banner" target="_blank" class="ppseries-pro-button">
-					<?php _e('Upgrade to Pro', 'organize-series'); ?>
-				</a>
-			</div>
-		</div>
 	</div>
 	<?php
 }
