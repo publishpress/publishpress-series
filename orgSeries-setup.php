@@ -16,6 +16,8 @@ class orgSeries {
 
 	//__constructor
 	public function __construct() {
+		$this->register_textdomain();
+
 		//install OrgSeries
 		add_action('activate_'.PPSERIES_BASE_NAME.'', array($this, 'org_series_install'));
         add_action( 'admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
@@ -26,7 +28,6 @@ class orgSeries {
 		//all other actions and filters...
 		add_action('publishpress_series_after_init', array($this, 'add_settings'), 10);
 		add_action('publishpress_series_pro_before_init', array($this, 'add_settings'), 10);
-		add_action('init', array($this, 'register_textdomain'), 10);
 		add_action('init', array($this, 'register_taxonomy'),0);
 		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));
 		add_action('init', array($this, 'maybe_fix_upgrade'));
