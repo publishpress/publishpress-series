@@ -656,7 +656,7 @@ class orgSeries {
 	}
 
 	function add_series_meta_excerpt($content) {
-		if ( is_single() ) return;
+		if ( is_single() ) return $content;
 
         if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
             return $content;
