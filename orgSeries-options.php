@@ -1306,7 +1306,7 @@ function ppseries_cpt_section() {
  */
 function series_cpt_settings_display() {
 	global $orgseries;
-	$post_types = get_post_types(array( 'show_ui' => true ));
+	$post_types = get_post_types(array( 'show_ui' => true, 'public' => true ));
 	$excluded_post_type = ['series_group', 'wp_block', 'attachment'];
 	?>
 	<div class="ppseries-pro-feature">
