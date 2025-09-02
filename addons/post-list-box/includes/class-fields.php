@@ -122,7 +122,7 @@ class PPS_Post_List_Box_Fields {
             'thumbnail_width' => 80,
             'thumbnail_height' => 80,
             'show_post_author' => 0,
-            'show_post_date' => 1,
+            'show_post_date' => 0,
             'item_padding' => 15,
             'item_border_width' => 1,
             'item_border_color' => '#e5e5e5',

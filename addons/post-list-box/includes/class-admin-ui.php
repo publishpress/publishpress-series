@@ -404,6 +404,15 @@ class PPS_Post_List_Box_Admin_UI {
                             >
                             <span class="<?php esc_attr_e($args['icon']); ?>"></span>
                             <span class="item"><?php esc_html_e($args['label']); ?></span>
+                            <?php if ($key === 'layout') : ?>
+                                <span class="ppseries-pro-lock" >
+                                    <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
+                                    <span class="tooltip-text">
+                                        <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+                                        <i></i>
+                                    </span>
+                                </span>
+                            <?php endif; ?>
                         </a>
                     </li>
                     <?php
@@ -481,6 +490,11 @@ class PPS_Post_List_Box_Admin_UI {
         }
 
         $tab_style = ($args['tab'] === PPS_Post_List_Box_Fields::default_tab()) ? '' : 'display:none;';
+        // Lock all fields under the "Layout" tab and specific Item fields for PRO
+        $pro_locked = (
+            ($args['tab'] === 'layout' && $args['type'] !== 'category_separator')
+            || in_array($key, ['show_post_excerpt', 'show_post_author', 'show_post_date'], true)
+        );
         ob_start();
         $generate_tab_title = false;
         if (in_array($args['type'], ['textarea', 'export_action', 'import_action', 'template_action', 'line_break', 'code_editor', 'category_separator'])) {
@@ -521,6 +535,11 @@ class PPS_Post_List_Box_Admin_UI {
             <?php endif; ?>
             <td class="input" colspan="<?php echo esc_attr($colspan); ?>">
                 <?php
+                // If PRO-locked, start wrapper
+                if ($pro_locked) : ?>
+                    <div class="ppseries-pro-lock">
+                <?php endif; ?>
+                <?php
                 if ('number' === $args['type']) :
                     ?>
                     <input name="<?php echo esc_attr($key); ?>"
@@ -530,7 +549,7 @@ class PPS_Post_List_Box_Admin_UI {
                         min="<?php echo esc_attr($args['min']); ?>"
                         max="<?php echo esc_attr($args['max']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                          />
                         <?php
                 elseif ('checkbox' === $args['type']) :
@@ -539,7 +558,7 @@ class PPS_Post_List_Box_Admin_UI {
                         id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="1"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                         <?php checked($args['value'], 1); ?> />
                 <?php
                 elseif ('select' === $args['type']) :
@@ -547,8 +566,8 @@ class PPS_Post_List_Box_Admin_UI {
                     <select name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
-                        />
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
+                        >
                         <?php foreach ($args['options'] as $key => $label) : ?>
                             <option value="<?php echo esc_attr($key); ?>"
                                 <?php selected($key, $args['value']); ?>>
@@ -563,7 +582,8 @@ class PPS_Post_List_Box_Admin_UI {
                         class="pps-editor-color-picker"
                         id="<?php echo esc_attr($key); ?>"
                         type="text"
-                        value="<?php echo esc_attr($args['value']); ?>" />
+                        value="<?php echo esc_attr($args['value']); ?>"
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?> />
                 <?php
                 elseif ('textarea' === $args['type']) :
                     ?>
@@ -572,7 +592,7 @@ class PPS_Post_List_Box_Admin_UI {
                         type="<?php echo esc_attr($args['type']); ?>"
                         rows="<?php echo esc_attr($args['rows']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                         ><?php echo esc_html($args['value']); ?></textarea>
                 <?php
                 elseif ('code_editor' === $args['type']) :
@@ -589,7 +609,7 @@ class PPS_Post_List_Box_Admin_UI {
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         data-editor_mode="<?php echo esc_attr($args['editor_mode']); ?>"
                         class="pps-post-list-code-editor"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>><?php echo esc_html($args['value']); ?></textarea>
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>><?php echo esc_html($args['value']); ?></textarea>
                     <div class="code-mirror-after"><div><?php echo htmlentities('</style>'); ?></div></div>
                     <?php
                 elseif ('category_separator' === $args['type']) :
@@ -605,8 +625,16 @@ class PPS_Post_List_Box_Admin_UI {
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
-                        <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
+                        <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                          />
+                <?php endif; ?>
+                <?php if ($pro_locked) : ?>
+                        <span class="ppseries-pro-badge">PRO</span>
+                        <span class="tooltip-text">
+                            <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+                            <i></i>
+                        </span>
+                    </div>
                 <?php endif; ?>
                 <?php if (isset($args['description']) && !empty($args['description'])) : ?>
                         <?php if($args['type'] !== 'checkbox') : ?>
