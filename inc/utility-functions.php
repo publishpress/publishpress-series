@@ -23,6 +23,11 @@ if (!function_exists('pp_series_free_version_init')) {
             require_once(SERIES_PATH . '/includes-core/PPSeriesCoreAdmin.php');
             new \PublishPress\Series\PPSeriesCoreAdmin();
         }
+
+        // Load post-list-box addon
+        if (file_exists(SERIES_PATH . 'addons/post-list-box/init.php')) {
+            require_once SERIES_PATH . 'addons/post-list-box/init.php';
+        }
     }
 }
 
