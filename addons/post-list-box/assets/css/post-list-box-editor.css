@@ -163,10 +163,10 @@
 }
 
 .pps-post-list-boxes-editor-table button.wp-color-result {
-    min-height: 30px;
-    margin: 0 6px 6px 0;
-    padding: 0 0 0 30px;
-    font-size: 11px;
+    min-height: 30px !important;
+    margin: 0 6px 6px 0 !important;
+    padding: 0 0 0 30px !important;
+    font-size: 11px !important;
 }
 
 .pps-post-list-boxes-editor-table .field-description {
