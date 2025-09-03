@@ -88,7 +88,29 @@
       return event.keyCode !== 13;
     });
 
-
+    // -------------------------------------------------------------
+    //   Post List Box selection enhancement
+    // -------------------------------------------------------------
+    function toggleTemplateField() {
+      var selectedValue = $('#series_post_list_box_selection').val();
+      var legacyTemplateSettings = $('#series_post_list_template, #series_post_list_post_linked_post, #series_post_list_unpublished_post, #series_post_list_currentpost');
+      
+      if (selectedValue && selectedValue !== '') {
+        legacyTemplateSettings.fadeOut(300);
+      } else {
+        legacyTemplateSettings.fadeIn(300);
+      }
+    }
+    
+    // Initial state for Post List Box selection
+    if ($('#series_post_list_box_selection').length) {
+      toggleTemplateField();
+      
+      // On change
+      $('#series_post_list_box_selection').on('change', function() {
+        toggleTemplateField();
+      });
+    }
 
     // -------------------------------------------------------------
     //   Series migration
