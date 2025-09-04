@@ -253,14 +253,18 @@ class PostListBoxRenderer
                     }
                 ?>
                     <div class="<?php echo esc_attr($post_item_class); ?>">
-                        <?php if (!empty($settings['show_post_thumbnail']) && has_post_thumbnail($post->ID)) : ?>
+                        <?php if (!empty($settings['show_post_thumbnail'])) : ?>
                             <div class="pps-post-thumbnail">
-                                <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
-                                    <?php 
-                                    
-                                    echo get_the_post_thumbnail($post->ID, 'large');
-                                    ?>
-                                </a>
+                                <?php if (has_post_thumbnail($post->ID)) : ?>
+                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                                        <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
+                                    </a>
+                                <?php else : ?>
+                                    <?php $placeholder_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg'; ?>
+                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                                        <img src="<?php echo esc_url($placeholder_url); ?>" alt="<?php echo esc_attr(get_the_title($post->ID)); ?>" />
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         <?php endif; ?>
 

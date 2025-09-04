@@ -840,14 +840,6 @@ function series_templates_core_fieldset() {
 									<p class="description"><?php esc_html_e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
-
-							<?php
-
-							// Only show Post List Box Selection if the post-list-box addon is enabled
-							
-							$enabled_pro_addons = isset($org_opt['enabled_pro_addons']) ? (array) $org_opt['enabled_pro_addons'] : [];
-							if (in_array('post-list-box', $enabled_pro_addons)):
-							?>
 							<tr valign="top" id="series_post_list_box_selection_row"><th scope="row"><label for="series_post_list_box_selection"><?php esc_html_e('Post List Box Selection', 'organize-series'); ?></label></th>
 								<td>
 									<?php
@@ -878,7 +870,6 @@ function series_templates_core_fieldset() {
 									</p>
 								</td>
 							</tr>
-							<?php endif; ?>
 
 							<tr valign="top" id="series_post_list_template"><th scope="row"><label for="series_post_list_template"><?php esc_html_e('Series Post List Template', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_list_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))) : ''; ?></textarea>
