@@ -325,7 +325,7 @@ class PPS_Post_List_Box_Preview {
                 echo '</a>';
             } else {
                 $thumbnail_styles = self::get_thumbnail_styles($settings);
-                // Use bundled placeholder asset for admin preview fallback
+
                 $placeholder_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
                 echo '<img src="' . esc_url($placeholder_url) . '" alt="' . esc_attr(isset($post->post_title) ? $post->post_title : '') . '" class="pps-post-thumbnail-img" style="' . trim(str_replace(['style="', '"'], '', $thumbnail_styles)) . '" />';
             }

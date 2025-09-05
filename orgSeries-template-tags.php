@@ -175,8 +175,13 @@ function wp_postlist_display()
         return false;
     }
 
-    // Check if a custom post list box is selected
-    if (!empty($settings['series_post_list_box_selection'])) {
+    $post_list_box_id = isset($settings['series_post_list_box_selection']) ? $settings['series_post_list_box_selection'] : '';
+    
+    if (empty($post_list_box_id)) {
+        $post_list_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+    }
+    
+    if (!empty($post_list_box_id)) {
         $post_list_box_id = $settings['series_post_list_box_selection'];
         $post_list_box    = get_post($post_list_box_id);
 

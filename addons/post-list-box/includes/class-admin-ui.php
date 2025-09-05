@@ -72,11 +72,18 @@ class PPS_Post_List_Box_Admin_UI {
         } elseif ($column === 'default_post_list_box') {
             // Retrieve selected default Post List Box ID from settings
             $options = get_option('org_series_options');
-            $selected_id = is_array($options) && isset($options['series_post_list_box_selection'])
-                ? (int) $options['series_post_list_box_selection']
-                : 0;
+            $has_selection = is_array($options) && array_key_exists('series_post_list_box_selection', $options);
+            $selected_id = $has_selection ? (int) $options['series_post_list_box_selection'] : 0;
 
-            if ($selected_id === (int) $postId) :
+            
+            if (!$has_selection) {
+                $default_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+                if ($default_id) {
+                    $selected_id = $default_id;
+                }
+            }
+
+            if ($selected_id > 0 && $selected_id === (int) $postId) :
             ?>
                 <span style="color: green; margin-left:30px;" class="dashicons dashicons-yes-alt"></span>
             <?php

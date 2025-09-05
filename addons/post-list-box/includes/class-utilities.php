@@ -124,6 +124,17 @@ class PPS_Post_List_Box_Utilities {
     }
 
     /**
+     * Get the default Post List Box ID
+     *
+     * @return int|null The ID of the default "Default List Box" or null if not found
+     */
+    public static function get_default_post_list_box_id()
+    {
+        $default_box = get_page_by_path('default-list-box', OBJECT, self::POST_TYPE_BOXES);
+        return $default_box ? (int) $default_box->ID : null;
+    }
+
+    /**
      * Build a safe, trimmed excerpt from a post or preview object.
      *
      * - Clamps length to 10–500 words

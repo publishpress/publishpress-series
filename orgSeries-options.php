@@ -173,6 +173,10 @@ function orgseries_validate($input) {
 	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(($input['orgseries_api'])) : '';
 
 	//template options
+
+	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
+	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
+
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
@@ -851,11 +855,14 @@ function series_templates_core_fieldset() {
 										'orderby' => 'title',
 										'order' => 'ASC'
 									]);
+									
+									// Get the default "Default List Box" post ID
+									$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 									?>
 									<select name="<?php echo esc_attr($org_name); ?>[series_post_list_box_selection]" id="series_post_list_box_selection" class="ppseries-full-width">
 										<option value=""><?php esc_html_e('Use Template Below (Default)', 'organize-series'); ?></option>
 										<?php foreach ($post_list_boxes as $box): ?>
-											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_post_list_box_selection']) ? $org_opt['series_post_list_box_selection'] : '', $box->ID); ?>>
+											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_post_list_box_selection']) ? $org_opt['series_post_list_box_selection'] : $default_box_id, $box->ID); ?>>
 												<?php echo esc_html($box->post_title); ?>
 											</option>
 										<?php endforeach; ?>
