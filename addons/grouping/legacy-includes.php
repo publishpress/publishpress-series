@@ -536,7 +536,7 @@ function orgseries_group_inline_edit($column_name, $type, $taxonomy) {
         <fieldset class="inline-edit-col-right inline-edit-categories"><div class="inline-edit-col">
 			<span class="title inline-edit-categories-label"><?php _e('Series Categories', 'organize-series'); ?>
                 <span class="catshow"><?php _e('[more]', 'organize-series'); ?></span>
-				<span class="cathide" style="display:none;"><?php _e('[less]'); ?></span>
+				<span class="cathide" style="display:none;"><?php _e('[less]', 'organize-series'); ?></span>
 			</span>
                 <div class="inline_edit_group_">
                     <input type="hidden" name="post_category[]" value="0" />
