@@ -479,7 +479,7 @@ function add_orgseries_group_fields($taxonomy) {
         <div id="side-info-column" class="inner-sidebar">
             <div id="side-sortables" class="meta-box-sortables">
                 <div id="categorydiv" class="postbox">
-                    <div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br /></div><h3 class='hndle'><span><?php _e('Series Categories', 'organize-series'); ?></span></h3>
+                    <div class="handlediv" title="<?php _e('Click to toggle', 'organize-series'); ?>"><br /></div><h3 class='hndle'><span><?php _e('Series Categories', 'organize-series'); ?></span></h3>
                     <div class="inside">
                         <?php post_categories_meta_box( $empty, $box ); ?>
                     </div>
@@ -500,7 +500,7 @@ function edit_orgseries_group_fields($series, $taxonomy) {
 
     ?>
     <tr class="form-field term-groups-wrap">
-			<th scope="row"><label for="groups"><h3 class='hndle'><span><?php _e('Series Categories'); ?></span></h3></label></th>
+			<th scope="row"><label for="groups"><h3 class='hndle'><span><?php _e('Series Categories', 'organize-series'); ?></span></h3></label></th>
 			<td>
         <div class="metabox-holder">
             <div id="side-info-column" class="">
@@ -509,7 +509,7 @@ function edit_orgseries_group_fields($series, $taxonomy) {
                         <div class="inside">
                             <div id="taxonomy-category" class="categorydiv">
                                 <ul id="category-tabs" class="category-tabs">
-                                    <li class="tabs"><a href="#category-all" tabindex="3"><?php _e('All Series Categories'); ?></a></li>
+                                    <li class="tabs"><a href="#category-all" tabindex="3"><?php _e('All Series Categories', 'organize-series'); ?></a></li>
                                 </ul>
                                 <div id="category-all" class="tabs-panel">
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
@@ -535,8 +535,8 @@ function orgseries_group_inline_edit($column_name, $type, $taxonomy) {
         ?>
         <fieldset class="inline-edit-col-right inline-edit-categories"><div class="inline-edit-col">
 			<span class="title inline-edit-categories-label"><?php _e('Series Categories', 'organize-series'); ?>
-                <span class="catshow"><?php _e('[more]'); ?></span>
-				<span class="cathide" style="display:none;"><?php _e('[less]'); ?></span>
+                <span class="catshow"><?php _e('[more]', 'organize-series'); ?></span>
+				<span class="cathide" style="display:none;"><?php _e('[less]', 'organize-series'); ?></span>
 			</span>
                 <div class="inline_edit_group_">
                     <input type="hidden" name="post_category[]" value="0" />
