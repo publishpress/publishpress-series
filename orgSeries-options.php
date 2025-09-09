@@ -679,7 +679,7 @@ function series_automation_core_fieldset() {
           				<table class="form-table ppseries-settings-table">
             				<tbody>
 
-								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Series Post List?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Post List Box?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo esc_attr($org_name);?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', isset($org_opt['auto_tag_toggle']) ? $org_opt['auto_tag_toggle'] : ''); ?> /></td>
 								</tr>
 
@@ -841,7 +841,7 @@ function series_templates_core_fieldset() {
         							<h1>
             							<?php esc_html_e('Series Post List Box', 'organize-series'); ?>
         							</h1>
-									<p class="description"><?php esc_html_e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
+									<p class="description"><?php esc_html_e('This display is shown all the posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
 							<tr valign="top" id="series_post_list_box_selection_row"><th scope="row"><label for="series_post_list_box_selection"><?php esc_html_e('Post List Box Selection', 'organize-series'); ?></label></th>
@@ -860,21 +860,14 @@ function series_templates_core_fieldset() {
 									$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 									?>
 									<select name="<?php echo esc_attr($org_name); ?>[series_post_list_box_selection]" id="series_post_list_box_selection" class="ppseries-full-width">
-										<option value=""><?php esc_html_e('Use Template Below (Default)', 'organize-series'); ?></option>
+										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
 										<?php foreach ($post_list_boxes as $box): ?>
 											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_post_list_box_selection']) ? $org_opt['series_post_list_box_selection'] : $default_box_id, $box->ID); ?>>
 												<?php echo esc_html($box->post_title); ?>
 											</option>
 										<?php endforeach; ?>
 									</select>
-									<p class="description">
-										<?php esc_html_e('Select a custom Post List Box to override the template below. Leave empty to use the template.', 'organize-series'); ?>
-										<?php if (!empty($post_list_boxes)): ?>
-											<br><a href="<?php echo esc_url(admin_url('edit.php?post_type=pps_post_list_box')); ?>" target="_blank"><?php esc_html_e('Manage Post List Boxes', 'organize-series'); ?></a>
-										<?php else: ?>
-											<br><a href="<?php echo esc_url(admin_url('post-new.php?post_type=pps_post_list_box')); ?>" target="_blank"><?php esc_html_e('Create your first Post List Box', 'organize-series'); ?></a>
-										<?php endif; ?>
-									</p>
+									
 								</td>
 							</tr>
 
@@ -884,7 +877,7 @@ function series_templates_core_fieldset() {
 								</td>
 							</tr>
 
-							<tr valign="top" id="series_post_list_position"><th scope="row"><label for="series_post_list_position"><?php esc_html_e('Series Post List box Location', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_list_position"><th scope="row"><label for="series_post_list_position"><?php esc_html_e('Post List Box Location', 'organize-series'); ?></label></th>
 									<td>
 										<select name="<?php echo esc_attr($org_name);?>[series_post_list_position]" id="series_post_list_position">
 										<?php
