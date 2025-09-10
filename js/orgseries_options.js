@@ -14,18 +14,6 @@ jQuery(document).ready(function($) {
         document.series_options.submit();
     });
 
-    $('#auto_tag_toggle').click(function(e) {
-      var is_checked = $('input#auto_tag_toggle').is(':checked');
-
-      if (is_checked) {
-        $(".series_post_list_limit_row").show();
-      }
-  
-      if (!is_checked) {
-        $(".series_post_list_limit_row").hide();
-      }
-    });
-
     $('#custom_css').click(function(e) {
       var is_checked = $('input#custom_css').is(':checked');
   

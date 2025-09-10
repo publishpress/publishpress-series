@@ -464,6 +464,15 @@ class PostListBoxFields
                 'default' => 'top',
                 'description' => __('Choose where to display the post list box in relation to the content', 'organize-series'),
             ],
+            'maximum_items' => [
+                'label' => __('Maximum number of items', 'publishpress-series-pro'),
+                'type' => 'number',
+                'tab' => 'layout',
+                'min' => 0,
+                'sanitize' => 'absint',
+                'default' => '',
+                'description' => __('Limit the number of posts shown in the series list. Leave empty for no limit.', 'organize-series'),
+            ],
         ];
     }
 

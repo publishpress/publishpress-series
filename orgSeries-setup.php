@@ -284,7 +284,6 @@ class orgSeries {
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
 			'series_perp_toc' => 3,
-			'series_post_list_limit' => '',
 			'series_metabox_position' => 'default',
 			'limit_series_meta_to_single' => 0,
 			'series_navigation_box_position' => 'default',

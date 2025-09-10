@@ -51,7 +51,7 @@ class PostListBoxRenderer
         $atts = shortcode_atts([
             'layout' => '',
             'series' => '',
-            'posts_per_page' => -1,
+            'posts_per_page' => $maximum_items,
             'class' => '',
         ], $atts, 'pps_post_list_box');
 
@@ -129,6 +129,7 @@ class PostListBoxRenderer
         $orderby = isset($settings['orderby']) ? $settings['orderby'] : 'series_order';
         $order = isset($settings['order']) ? $settings['order'] : 'ASC';
 
+        $maximum_items = isset($settings['maximum_items']) && $settings['maximum_items'] !== '' ? (int) $settings['maximum_items'] : -1;
         
         if ($orderby === 'series_order') {
 
@@ -142,7 +143,7 @@ class PostListBoxRenderer
                         'terms' => $series_id,
                     ],
                 ],
-                'posts_per_page' => -1,
+                'posts_per_page' => $maximum_items,
                 'orderby' => 'date', 
                 'order' => 'DESC'
             ];
@@ -187,7 +188,7 @@ class PostListBoxRenderer
             ],
             'orderby' => $orderby,
             'order' => $order,
-            'posts_per_page' => -1,
+            'posts_per_page' => $maximum_items,
         ];
 
         return get_posts($args);
