@@ -877,21 +877,6 @@ function series_templates_core_fieldset() {
 								</td>
 							</tr>
 
-							<tr valign="top" id="series_post_list_position"><th scope="row"><label for="series_post_list_position"><?php esc_html_e('Post List Box Location', 'organize-series'); ?></label></th>
-									<td>
-										<select name="<?php echo esc_attr($org_name);?>[series_post_list_position]" id="series_post_list_position">
-										<?php
-										foreach($post_box_locations as $key => $label){
-											$selected = ( isset($org_opt['series_post_list_position']) && $org_opt['series_post_list_position'] === $key ) ? 'selected="selected"' : '';
-                                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
-
-										}
-										?>
-										</select>
-									</td>
-							</tr>	
-
 							<tr valign="top" id="series_post_list_post_linked_post"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title (Linked Post)', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
