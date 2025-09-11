@@ -324,11 +324,9 @@ class PPS_Post_List_Box_Preview {
                 echo get_the_post_thumbnail($post->ID, 'thumbnail', ['style' => trim(str_replace(['style="', '"'], '', $thumbnail_styles))]);
                 echo '</a>';
             } else {
-                $thumbnail_width = isset($settings['thumbnail_width']) ? intval($settings['thumbnail_width']) : 150;
-                $thumbnail_height = isset($settings['thumbnail_height']) ? intval($settings['thumbnail_height']) : 150;
                 $thumbnail_styles = self::get_thumbnail_styles($settings);
-                $placeholder_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' . $thumbnail_width . '" height="' . $thumbnail_height . '" viewBox="0 0 ' . $thumbnail_width . ' ' . $thumbnail_height . '"><rect width="' . $thumbnail_width . '" height="' . $thumbnail_height . '" fill="#e0e0e0"/><text x="' . ($thumbnail_width / 2) . '" y="' . ($thumbnail_height / 2) . '" font-family="Arial,sans-serif" font-size="12" fill="#666" text-anchor="middle" dominant-baseline="middle">Image</text></svg>';
-                $placeholder_url = 'data:image/svg+xml;charset=utf-8,' . rawurlencode($placeholder_svg);
+
+                $placeholder_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
                 echo '<img src="' . esc_url($placeholder_url) . '" alt="' . esc_attr(isset($post->post_title) ? $post->post_title : '') . '" class="pps-post-thumbnail-img" style="' . trim(str_replace(['style="', '"'], '', $thumbnail_styles)) . '" />';
             }
             echo '</div>';

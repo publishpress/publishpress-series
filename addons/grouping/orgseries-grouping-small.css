@@ -13,3 +13,7 @@
 	margin: 3px;
 	padding: 3px;
 }
+
+.inner-sidebar #side-sortables {
+	min-height: auto !important;
+}

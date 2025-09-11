@@ -284,8 +284,6 @@ class orgSeries {
 			'series_toc_url' => 'series-toc',
 			'series_custom_base' => 'series',
 			'series_perp_toc' => 3,
-			'series_post_list_limit' => '',
-			'series_post_list_position' => 'default',
 			'series_metabox_position' => 'default',
 			'limit_series_meta_to_single' => 0,
 			'series_navigation_box_position' => 'default',
@@ -602,16 +600,26 @@ class orgSeries {
 
 		if ($add_series_content && $this->settings['auto_tag_toggle']) {
 			if ( ( is_single() || is_page() ) && $postlist = wp_postlist_display() ) {
-				$position = isset($this->settings['series_post_list_position']) ? $this->settings['series_post_list_position'] : 'default';
+				// Get position from the selected post list box
+				$position = 'top'; // fallback value
+				
+				$post_list_box_id = isset($this->settings['series_post_list_box_selection']) ? $this->settings['series_post_list_box_selection'] : '';
+				
+				if (empty($post_list_box_id)) {
+					$post_list_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+				}
+				
+				if (!empty($post_list_box_id) && class_exists('PPS_Post_List_Box_Fields')) {
+					$editor_data = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_list_box_id);
+					$position = isset($editor_data['post_list_position']) ? $editor_data['post_list_position'] : 'top';
+				}
+				
 				if($position === 'top'){
 					$postlist = str_replace('%postcontent%', '', $postlist);
 					$content = $postlist.$content;
 				}elseif($position === 'bottom'){
 					$postlist = str_replace('%postcontent%', '', $postlist);
 					$content = $content.$postlist;
-				}else{
-					$addcontent = $content;
-					$content = str_replace('%postcontent%', $addcontent, $postlist);
 				}
 			}
 		}

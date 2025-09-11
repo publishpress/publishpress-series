@@ -27,9 +27,10 @@
  * @param bool|string  $referral  options are 'widget' | false.  Indicates what the referring location for calling this function is.  If 'widget' then widget specific code is applied. Defaults to false.
  * @param bool $display Indicates whether to return the post list (false) or to echo the post list (true).  Defaults to false.
  * @param bool|string $serieswidg_title The title for a list of other posts in the series displayed in widget.
+ * @param int|null $limit Maximum number of posts to display. null for no limit.
  * @return string The post list as a assembled string ready for display (if $display is false)
  */
-function get_series_posts($ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false)
+function get_series_posts($ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false, $limit = null)
 {
 	global $post, $orgseries;
 	if (is_single())
@@ -56,6 +57,9 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
 	$posts_in_series = array();
 	$settings = $orgseries->settings;
 	$result = '';
+	if ($limit === null) {
+		$limit = isset($settings['series_post_list_limit']) ? (int) $settings['series_post_list_limit'] : 0;
+	}
 	$limit = isset($settings['series_post_list_limit']) ? (int) $settings['series_post_list_limit'] : 0;
 	foreach ($ser_ID as $ser) {
 		$series_post = get_objects_in_term($ser, ppseries_get_series_slug());
@@ -175,8 +179,13 @@ function wp_postlist_display()
         return false;
     }
 
-    // Check if a custom post list box is selected
-    if (!empty($settings['series_post_list_box_selection'])) {
+    $post_list_box_id = isset($settings['series_post_list_box_selection']) ? $settings['series_post_list_box_selection'] : '';
+    
+    if (empty($post_list_box_id)) {
+        $post_list_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+    }
+    
+    if (!empty($post_list_box_id)) {
         $post_list_box_id = $settings['series_post_list_box_selection'];
         $post_list_box    = get_post($post_list_box_id);
 
