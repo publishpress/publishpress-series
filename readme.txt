@@ -175,11 +175,14 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Changelog ==
 
-v2.15.0- 2025-09-04
+v2.15.0- 2025-09-12
 * Added: New Post List Box Editor #933
 * Changed: Remove Old translation file #912
 * Changed: Remove "Bulk Actions" from Series Order #660
 * Changed: Update promo banner using new style #915
+* Changed: Clean up "Series" screen whitespace #940
+* Changed: Enable Multiple Series by default #937
+* Changed: Update "Templates" tab #939
 * Fixed: Bulk edit is not available for Series on custom post type #731
 * Fixed: Excerpt not returned on single series post #897
 * Fixed: Missing translationg strings in Series Free #879
