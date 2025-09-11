@@ -60,8 +60,6 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
     public function get_columns()
     {
         $columns = [
-            'cb' => '<input type="checkbox"/>',
-            //Render a checkbox instead of text
             'title' => esc_html__('Title', 'organize-series'),
             'author' => esc_html__('Author', 'organize-series'),
             'categories' => esc_html__('Categories', 'organize-series'),
@@ -310,9 +308,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
      */
     protected function get_bulk_actions()
     {
-        $actions = [
-            'pps-publisher-delete-posts' => esc_html__('Move to Trash', 'organize-series')
-        ];
+        $actions = [];
 
         return $actions;
     }

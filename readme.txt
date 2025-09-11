@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.7
-Stable tag: 2.14.0
+Stable tag: 2.15.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,6 +174,21 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 
 == Changelog ==
+
+v2.15.0- 2025-09-12
+* Added: New Post List Box Editor #933
+* Changed: Remove Old translation file #912
+* Changed: Remove "Bulk Actions" from Series Order #660
+* Changed: Update promo banner using new style #915
+* Changed: Clean up "Series" screen whitespace #940
+* Changed: Enable Multiple Series by default #937
+* Changed: Update "Templates" tab #939
+* Fixed: Bulk edit is not available for Series on custom post type #731
+* Fixed: Excerpt not returned on single series post #897
+* Fixed: Missing translationg strings in Series Free #879
+* Fixed: Only public post type to show #730
+* Fixed: Scheduled posts publish with no part, #821
+* Fixed: Update banner library #914
 
 v2.14.0- 2025-07-14
 * Added: New Promo for Pro version #901

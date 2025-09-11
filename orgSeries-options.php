@@ -173,6 +173,11 @@ function orgseries_validate($input) {
 	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(($input['orgseries_api'])) : '';
 
 	//template options
+
+	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
+	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
+
+	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
 	$newinput['series_post_list_currentpost_template'] = trim(stripslashes(($input['series_post_list_currentpost_template'])));
@@ -355,7 +360,7 @@ function orgseries_option_page() {
                         <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-						<strong>%series_icon%</strong>
+                            <strong>%series_icon%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></span>
                                 <i></i>
@@ -556,7 +561,7 @@ function orgseries_option_page() {
                         </span><br /><br />
 
                         <?php do_action('orgseries_token_description'); ?>
-                        <?php do_action('ppseries_licence_key_form'); ?>
+                            <?php do_action('ppseries_licence_key_form'); ?>
                         </div>
 
                     </div>
@@ -674,12 +679,8 @@ function series_automation_core_fieldset() {
           				<table class="form-table ppseries-settings-table">
             				<tbody>
 
-								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Series Post List?', 'organize-series'); ?></label></th>
+								<tr valign="top"><th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Post List Box?', 'organize-series'); ?></label></th>
 									<td><input name="<?php echo esc_attr($org_name);?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', isset($org_opt['auto_tag_toggle']) ? $org_opt['auto_tag_toggle'] : ''); ?> /></td>
-								</tr>
-
-								<tr valign="top" class="series_post_list_limit_row" style="<?php echo (isset($org_opt['auto_tag_toggle']) && (int)$org_opt['auto_tag_toggle'] === 0) ? 'display:none' : ''; ?>"><th scope="row"><label for="series_post_list_limit"><?php esc_html_e('Maximum number of items in Series Post List', 'organize-series'); ?></label></th>
-									<td><input min="0" name="<?php echo esc_attr($org_name);?>[series_post_list_limit]" value="<?php echo ( isset($org_opt['series_post_list_limit']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_limit'])) : ''); ?>" id="series_post_list_limit" type="number" /></td>
 								</tr>
 
 								<tr valign="top"><th scope="row"><label for="auto_tag_nav_toggle"><?php esc_html_e('Display Series Navigation?', 'organize-series'); ?></label></th>
@@ -836,36 +837,49 @@ function series_templates_core_fieldset() {
         							<h1>
             							<?php esc_html_e('Series Post List Box', 'organize-series'); ?>
         							</h1>
-									<p class="description"><?php esc_html_e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
+									<p class="description"><?php esc_html_e('This display is shown all the posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
-							<tr valign="top"><th scope="row"><label for="series_post_list_template"><?php esc_html_e('Series Post List', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_list_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))) : ''; ?></textarea>
+							<tr valign="top" id="series_post_list_box_selection_row"><th scope="row"><label for="series_post_list_box_selection"><?php esc_html_e('Post List Box Selection', 'organize-series'); ?></label></th>
+								<td>
+									<?php
+									// Get all post list boxes
+									$post_list_boxes = get_posts([
+										'post_type' => 'pps_post_list_box',
+										'post_status' => 'publish',
+										'numberposts' => -1,
+										'orderby' => 'title',
+										'order' => 'ASC'
+									]);
+									
+									// Get the default "Default List Box" post ID
+									$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
+									?>
+									<select name="<?php echo esc_attr($org_name); ?>[series_post_list_box_selection]" id="series_post_list_box_selection" class="ppseries-full-width">
+										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
+										<?php foreach ($post_list_boxes as $box): ?>
+											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_post_list_box_selection']) ? $org_opt['series_post_list_box_selection'] : $default_box_id, $box->ID); ?>>
+												<?php echo esc_html($box->post_title); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+									
 								</td>
 							</tr>
 
-								<tr valign="top"><th scope="row"><label for="series_post_list_position"><?php esc_html_e('Series Post List box Location', 'organize-series'); ?></label></th>
-									<td>
-										<select name="<?php echo esc_attr($org_name);?>[series_post_list_position]" id="series_post_list_position">
-										<?php
-										foreach($post_box_locations as $key => $label){
-											$selected = ( isset($org_opt['series_post_list_position']) && $org_opt['series_post_list_position'] === $key ) ? 'selected="selected"' : '';
-                                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											echo '<option value="'. esc_attr($key) .'" '.$selected.'>'. esc_html($label) .'</option>';
+							<tr valign="top" id="series_post_list_template"><th scope="row"><label for="series_post_list_template"><?php esc_html_e('Series Post List Template', 'organize-series'); ?></label></th>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_list_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))) : ''; ?></textarea>
+									<p class="description"><?php esc_html_e('This template is used when no Post List Box is selected above.', 'organize-series'); ?></p>
+								</td>
+							</tr>
 
-										}
-										?>
-										</select>
-									</td>
-								</tr>
-
-							<tr valign="top"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title (Linked Post)', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_list_post_linked_post"><th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Series Post List Post Title (Linked Post)', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
 							<?php do_action('plist_ptitle_template_unpublished') ?>
 
-							<tr valign="top"><th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Series Post List Post Title (Current Post)', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_list_currentpost"><th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Series Post List Post Title (Current Post)', 'organize-series'); ?></label></th>
 								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo isset($org_opt['series_post_list_currentpost_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])) : ''; ?>" class="ppseries-full-width">
 								</td>
 							</tr>
@@ -1306,7 +1320,7 @@ function ppseries_cpt_section() {
  */
 function series_cpt_settings_display() {
 	global $orgseries;
-	$post_types = get_post_types(array( 'show_ui' => true ));
+	$post_types = get_post_types(array( 'show_ui' => true, 'public' => true ));
 	$excluded_post_type = ['series_group', 'wp_block', 'attachment'];
 	?>
 	<div class="ppseries-pro-feature">
@@ -1336,7 +1350,7 @@ function series_cpt_settings_display() {
 									<input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
 									<?php if ($post_type !== 'post') : ?>
 									<div class="ppseries-pro-lock">
-										<span class="dashicons dashicons-lock"></span>
+										<span class="ppseries-pro-badge">PRO</span>
 										<span class="tooltip-text">
 											<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
 											<i></i>
@@ -1383,14 +1397,14 @@ function series_addon_settings_display() {
 				<td>
 					<label>
 					<input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" />
+						<span class="description"><?php echo $series_addon_option['description']; ?></span>
 					<div class="ppseries-pro-lock">
-						<span class="dashicons dashicons-lock"></span>
+						<span class="ppseries-pro-badge">PRO</span>
 						<span class="tooltip-text">
 							<span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
 							<i></i>
 						</span>
 					</div>
-						<span class="description"><?php echo $series_addon_option['description']; ?></span>
 					</label>
 				</td>
 			</tr>

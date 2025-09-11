@@ -27,9 +27,10 @@
  * @param bool|string  $referral  options are 'widget' | false.  Indicates what the referring location for calling this function is.  If 'widget' then widget specific code is applied. Defaults to false.
  * @param bool $display Indicates whether to return the post list (false) or to echo the post list (true).  Defaults to false.
  * @param bool|string $serieswidg_title The title for a list of other posts in the series displayed in widget.
+ * @param int|null $limit Maximum number of posts to display. null for no limit.
  * @return string The post list as a assembled string ready for display (if $display is false)
  */
-function get_series_posts($ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false)
+function get_series_posts($ser_ID = array(), $referral = false, $display = false, $serieswidg_title = false, $limit = null)
 {
 	global $post, $orgseries;
 	if (is_single())
@@ -56,6 +57,9 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
 	$posts_in_series = array();
 	$settings = $orgseries->settings;
 	$result = '';
+	if ($limit === null) {
+		$limit = isset($settings['series_post_list_limit']) ? (int) $settings['series_post_list_limit'] : 0;
+	}
 	$limit = isset($settings['series_post_list_limit']) ? (int) $settings['series_post_list_limit'] : 0;
 	foreach ($ser_ID as $ser) {
 		$series_post = get_objects_in_term($ser, ppseries_get_series_slug());
@@ -166,35 +170,79 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
  */
 function wp_postlist_display()
 {
-	global $orgseries;
-	$settings = $orgseries->settings;
-	$serarray = get_the_series();
-	$postlist = '';
-	$count = is_array($serarray) ? count($serarray) : 0;
-	$i = 1;
-	$trigger = false;
+    global $orgseries;
+    $settings = $orgseries->settings;
+    $serarray = get_the_series();
+    $postlist = '';
 
-	if (!empty($serarray)) {
-		foreach ($serarray as $series) {
-			$serID = $series->term_id;
-			$template = $settings['series_post_list_template'];
-			$template = str_replace('</ul>', '</ul><div class="clear"></div>', $template);
-			$postlist .= token_replace(stripslashes($template . '<div class="clear-me"></div>'), 'post-list', 0, $serID);
-			if ($i != $count || $trigger) {
-				$pos = strpos($postlist, '%postcontent%');
-				if ($pos == 0)
-					$trigger = true;
-				$postlist = str_replace('%postcontent%', '', $postlist);
-			}
-			$i++;
-		}
+    if (empty($serarray)) {
+        return false;
+    }
 
-		if ($trigger && $settings['auto_tag_toggle'])
-			$postlist = '%postcontent%' . $postlist;
-		return $postlist;
-	}
+    $post_list_box_id = isset($settings['series_post_list_box_selection']) ? $settings['series_post_list_box_selection'] : '';
+    
+    if (empty($post_list_box_id)) {
+        $post_list_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+    }
+    
+    if (!empty($post_list_box_id)) {
+        $post_list_box_id = $settings['series_post_list_box_selection'];
+        $post_list_box    = get_post($post_list_box_id);
 
-	return false;
+        if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PPS_Post_List_Box_Preview')) {
+            foreach ($serarray as $series) {
+                $series_id = $series->term_id;
+                $editor_data = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_list_box_id);
+                $args = [
+                    'post_type' => 'any',
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'series',
+                            'field'    => 'term_id',
+                            'terms'    => $series_id,
+                        ],
+                    ],
+                    'posts_per_page' => -1,
+                ];
+                $posts_in_series = get_posts($args);
+
+                // Ensure the current post is in the list if it belongs to the series.
+                $current_post_id = get_the_ID();
+                $post_ids_in_series = wp_list_pluck($posts_in_series, 'ID');
+                if ($current_post_id && !in_array($current_post_id, $post_ids_in_series) && has_term($series_id, 'series', $current_post_id)) {
+                    $current_post = get_post($current_post_id);
+                    if ($current_post) {
+                        $posts_in_series[] = $current_post;
+                    }
+                }
+                // Use proper shortcode rendering instead of preview for frontend
+                $layout_slug = 'pps_post_list_box_' . $post_list_box_id;
+                $postlist .= do_shortcode('[pps_post_list_box layout="' . $layout_slug . '" series="' . $series->slug . '" posts_per_page="-1"]');
+            }
+
+            // Ensure postcontent token is available for replacement
+            if (strpos($postlist, '%postcontent%') === false) {
+                $postlist .= '%postcontent%';
+            }
+
+            return $postlist;
+        }
+    }
+
+    // Fallback to the default template for all series
+    foreach ($serarray as $series) {
+        $serID = $series->term_id;
+        $template = $settings['series_post_list_template'];
+        $template = str_replace('</ul>', '</ul><div class="clear"></div>', $template);
+        $postlist .= token_replace(stripslashes($template . '<div class="clear-me"></div>'), 'post-list', 0, $serID);
+    }
+
+    // Cleanup postcontent for multiple series
+    $postlist_parts = explode('%postcontent%', $postlist);
+    $postlist = implode('', $postlist_parts);
+    $postlist .= '%postcontent%';
+
+    return $postlist;
 }
 
 /**

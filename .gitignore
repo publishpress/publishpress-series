@@ -26,3 +26,4 @@ tests/_support/*
 
 .vscode/*
 *.code-workspace
+.claude

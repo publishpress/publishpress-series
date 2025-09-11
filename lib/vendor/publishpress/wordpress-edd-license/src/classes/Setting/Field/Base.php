@@ -32,6 +32,41 @@ if (!defined('ABSPATH')) {
 class Base
 {
     /**
+     * The options group name for this field.
+     *
+     * @var string
+     */
+    protected $options_group_name = '';
+
+    /**
+     * The name attribute of the field.
+     *
+     * @var string
+     */
+    protected $name = '';
+
+    /**
+     * The id attribute of the field.
+     *
+     * @var string
+     */
+    protected $id = '';
+
+    /**
+     * Additional CSS classes for the field.
+     *
+     * @var string
+     */
+    protected $class = '';
+
+    /**
+     * The placeholder attribute of the field.
+     *
+     * @var string
+     */
+    protected $placeholder = '';
+
+    /**
      * The value for this field
      *
      * @var string
