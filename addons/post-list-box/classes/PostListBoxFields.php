@@ -453,7 +453,7 @@ class PostListBoxFields
                 'default' => 10,
             ],
             'post_list_position' => [
-                'label' => __('Post List Box Location', 'publishpress-series-pro'),
+                'label' => __('Post List Box Location', 'organize-series'),
                 'type' => 'select',
                 'tab' => 'layout',
                 'options' => [
@@ -465,7 +465,7 @@ class PostListBoxFields
                 'description' => __('Choose where to display the post list box in relation to the content', 'organize-series'),
             ],
             'maximum_items' => [
-                'label' => __('Maximum number of items', 'publishpress-series-pro'),
+                'label' => __('Maximum number of items', 'organize-series'),
                 'type' => 'number',
                 'tab' => 'layout',
                 'min' => 0,
