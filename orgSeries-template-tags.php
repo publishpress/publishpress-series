@@ -174,21 +174,16 @@ function wp_postlist_display()
     $settings = $orgseries->settings;
     $serarray = get_the_series();
     $postlist = '';
-
+ 
     if (empty($serarray)) {
         return false;
     }
-
-    $post_list_box_id = isset($settings['series_post_list_box_selection']) ? $settings['series_post_list_box_selection'] : '';
-    
-    if (empty($post_list_box_id)) {
-        $post_list_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
-    }
-    
-    if (!empty($post_list_box_id)) {
+ 
+    // Check if a custom post list box is selected
+    if (!empty($settings['series_post_list_box_selection'])) {
         $post_list_box_id = $settings['series_post_list_box_selection'];
         $post_list_box    = get_post($post_list_box_id);
-
+ 
         if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PPS_Post_List_Box_Preview')) {
             foreach ($serarray as $series) {
                 $series_id = $series->term_id;
@@ -205,7 +200,7 @@ function wp_postlist_display()
                     'posts_per_page' => -1,
                 ];
                 $posts_in_series = get_posts($args);
-
+ 
                 // Ensure the current post is in the list if it belongs to the series.
                 $current_post_id = get_the_ID();
                 $post_ids_in_series = wp_list_pluck($posts_in_series, 'ID');
@@ -219,16 +214,16 @@ function wp_postlist_display()
                 $layout_slug = 'pps_post_list_box_' . $post_list_box_id;
                 $postlist .= do_shortcode('[pps_post_list_box layout="' . $layout_slug . '" series="' . $series->slug . '" posts_per_page="-1"]');
             }
-
+ 
             // Ensure postcontent token is available for replacement
             if (strpos($postlist, '%postcontent%') === false) {
                 $postlist .= '%postcontent%';
             }
-
+ 
             return $postlist;
         }
     }
-
+ 
     // Fallback to the default template for all series
     foreach ($serarray as $series) {
         $serID = $series->term_id;
@@ -236,12 +231,12 @@ function wp_postlist_display()
         $template = str_replace('</ul>', '</ul><div class="clear"></div>', $template);
         $postlist .= token_replace(stripslashes($template . '<div class="clear-me"></div>'), 'post-list', 0, $serID);
     }
-
+ 
     // Cleanup postcontent for multiple series
     $postlist_parts = explode('%postcontent%', $postlist);
     $postlist = implode('', $postlist_parts);
     $postlist .= '%postcontent%';
-
+ 
     return $postlist;
 }
 
