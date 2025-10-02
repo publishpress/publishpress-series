@@ -51,7 +51,7 @@ class PostListBoxRenderer
         $atts = shortcode_atts([
             'layout' => '',
             'series' => '',
-            'posts_per_page' => $maximum_items,
+            'posts_per_page' => -1,
             'class' => '',
         ], $atts, 'pps_post_list_box');
 
