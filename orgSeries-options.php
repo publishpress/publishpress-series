@@ -177,6 +177,9 @@ function orgseries_validate($input) {
 	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
 
+	$default_meta_box_id = PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_id() ?: '';
+	$newinput['series_meta_box_selection'] = isset($input['series_meta_box_selection']) ? intval($input['series_meta_box_selection']) : $default_meta_box_id;
+
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
@@ -893,13 +896,39 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_meta_template"><?php esc_html_e('Series Meta:', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_meta_box_selection_row"><th scope="row"><label for="series_meta_box_selection"><?php esc_html_e('Series Meta Box Selection', 'organize-series'); ?></label></th>
+								<td>
+									<?php
+									// Get all series meta boxes
+									$series_meta_boxes = get_posts([
+										'post_type' => 'pps_meta_box',
+										'post_status' => 'publish',
+										'numberposts' => -1,
+										'orderby' => 'title',
+										'order' => 'ASC'
+									]);
+									
+									// Get the default "Default Meta Box" post ID
+									$default_meta_box_id = PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_id() ?: '';
+									?>
+									<select name="<?php echo esc_attr($org_name); ?>[series_meta_box_selection]" id="series_meta_box_selection" class="ppseries-full-width">
+										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
+										<?php foreach ($series_meta_boxes as $box): ?>
+											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_meta_box_selection']) ? $org_opt['series_meta_box_selection'] : $default_meta_box_id, $box->ID); ?>>
+												<?php echo esc_html($box->post_title); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+								</td>
+							</tr>
+
+							<tr valign="top" id="series_meta_template_row"><th scope="row"><label for="series_meta_template"><?php esc_html_e('Series Meta:', 'organize-series'); ?></label></th>
 								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_meta_template]" id="series_meta_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_meta_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_template']))) : ''; ?></textarea>
 
 								</td>
 							</tr>
 
-								<tr valign="top"><th scope="row"><label for="series_metabox_position"><?php esc_html_e('Series Metabox Location', 'organize-series'); ?></label></th>
+								<tr valign="top" id="series_metabox_position_row"><th scope="row"><label for="series_metabox_position"><?php esc_html_e('Series Metabox Location', 'organize-series'); ?></label></th>
 									<td>
 										<select name="<?php echo esc_attr($org_name);?>[series_metabox_position]" id="series_metabox_position">
 										<?php
@@ -914,7 +943,7 @@ function series_templates_core_fieldset() {
 									</td>
 								</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_meta_excerpt_template"><?php esc_html_e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_meta_excerpt_template_row"><th scope="row"><label for="series_meta_excerpt_template"><?php esc_html_e('Series Meta (with excerpts):', 'organize-series'); ?></label></th>
 								<td>
 									<textarea name="<?php echo esc_attr($org_name); ?>[series_meta_excerpt_template]" id="series_meta_excerpt_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_meta_excerpt_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_meta_excerpt_template']))) : ''; ?></textarea>
                                     <p class="description">
@@ -923,7 +952,7 @@ function series_templates_core_fieldset() {
 								</td>
 							</tr>
 
-                            <tr valign="top"><th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Limit series meta to single page only', 'organize-series'); ?></label></th>
+                            <tr valign="top" id="limit_series_meta_to_single_row"><th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Limit series meta to single page only', 'organize-series'); ?></label></th>
                                 <td><input name="<?php echo esc_attr($org_name);?>[limit_series_meta_to_single]" value="1" id="limit_series_meta_to_single" type="checkbox" <?php checked('1', isset($org_opt['limit_series_meta_to_single']) ? $org_opt['limit_series_meta_to_single'] : ''); ?> />
                     	        <span class="description"><?php esc_html_e('Whether to limit series meta display to single page only or include archive page.', 'organize-series'); ?></span></td>
                             </tr>
