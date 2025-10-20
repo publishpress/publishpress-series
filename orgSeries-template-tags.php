@@ -372,6 +372,16 @@ function wp_seriesmeta_write($excerpt = FALSE)
 {
 	global $post, $orgseries;
 	$settings = $orgseries->settings;
+
+	$selected_layout_id = 0;
+	if (
+		class_exists('SeriesMetaBoxRenderer')
+		&& class_exists('PPS_Series_Meta_Box_Utilities')
+		&& isset($settings['series_meta_box_selection'])
+	) {
+		$selected_layout_id = (int) $settings['series_meta_box_selection'];
+	}
+	
 	$serarray = get_the_series();
 	$series_meta = '';
 	$count = is_array($serarray) ? count($serarray) : 0;
@@ -380,10 +390,25 @@ function wp_seriesmeta_write($excerpt = FALSE)
 	if (!empty($serarray)) {
 		foreach ($serarray as $series) {
 			$serID = $series->term_id;
-			if ($excerpt) {
-				$series_meta .= token_replace(stripslashes($settings['series_meta_excerpt_template']), 'other', $post->ID, $serID);
+
+			$rendered = '';
+			if ($selected_layout_id > 0 && class_exists('SeriesMetaBoxRenderer')) {
+				$context = [
+					'series_term' => $series,
+					'post'        => $post,
+					'context'     => $excerpt ? 'auto_excerpt' : 'auto',
+				];
+				$rendered = SeriesMetaBoxRenderer::render_layout_for_series($selected_layout_id, $context, (bool) $excerpt);
+			}
+
+			if (! empty($rendered)) {
+				$series_meta .= $rendered;
 			} else {
-				$series_meta .= token_replace(stripslashes($settings['series_meta_template']), 'other', 0, $serID);
+				if ($excerpt) {
+					$series_meta .= token_replace(stripslashes($settings['series_meta_excerpt_template']), 'other', $post->ID, $serID);
+				} else {
+					$series_meta .= token_replace(stripslashes($settings['series_meta_template']), 'other', 0, $serID);
+				}
 			}
 
 			if ($i != $count || $trigger) {
