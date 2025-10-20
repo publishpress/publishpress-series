@@ -67,7 +67,7 @@ class PPS_Post_List_Box_Admin_UI {
         if ($column === 'shortcode') {
             $layout_slug = self::POST_TYPE_BOXES . '_' . $postId;
         ?>
-            <input readonly type="text" value='[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly type="text" class="pps-shortcode-input" value='[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
         <?php
         } elseif ($column === 'default_post_list_box') {
             // Retrieve selected default Post List Box ID from settings
