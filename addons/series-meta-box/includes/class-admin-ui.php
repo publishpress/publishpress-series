@@ -169,7 +169,7 @@ class PPS_Series_Meta_Box_Admin_UI
         if ('series_meta_shortcode' === $column) {
             $layout_slug = 'pps_meta_box_' . $post_id;
             ?>
-            <input readonly type="text" value='[pps_meta_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly class="pps-shortcode-input" type="text" value='[pps_meta_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
             return;
         }

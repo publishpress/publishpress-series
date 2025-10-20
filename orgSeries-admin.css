@@ -486,3 +486,7 @@ input #seriesadd {
         width: auto !important;
     }
 }
+
+input.pps-shortcode-input {
+    width: 90% !important;
+}
