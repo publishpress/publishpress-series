@@ -124,6 +124,13 @@ function pp_series_term_admin_head() {
             visibility: hidden;
         }
 
+        /* Hide Description and Series Categories fields on Add New Series form only */
+        #col-left .form-field.term-description-wrap,
+        #col-left .form-field.term-parent-wrap,
+        div#side-info-column {
+            display: none !important;
+        }
+
     </style>
 
     <?php
@@ -200,25 +207,9 @@ function manage_series_columns_action($content, $column_name, $id) {
 
 function add_series_form_fields($taxonomy) {
 	global $orgseries;
+	// Order and Upload image fields are hidden for new series creation
+	// They will be available when editing an existing series
 	?>
-    <div class="form-field form-required">
-			<label for="term_order">
-				<?php esc_html_e( 'Order', 'organize-series' ); ?>
-			</label>
-			<input type="number" pattern="[0-9.]+" name="term_order" id="term_order" value="0" size="11">
-			<p class="description">
-				<?php esc_html_e( 'Set a specific order by entering a number (1 for first, etc.) in this field.', 'organize-series' ); ?>
-			</p>
-	</div>
-	<div class="form-field">
-		<div style="float:left;" id="selected-icon"></div>
-		<div style="clear:left;"></div>
-		<label for="series_icon">
-			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
-			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
-			<p><?php _e('Upload an image for the series.', 'organize-series') ?></p>
-		</label>
-	</div>
 	<?php
 }
 
