@@ -259,8 +259,9 @@ class PPS_Post_List_Box_Admin_UI {
     {
         $layout_slug = self::POST_TYPE_BOXES . '_' . $post->ID;
     ?>
+        <p><label for="pps-post-list-box-shortcode"><?php esc_html_e('Use this shortcode:', 'organize-series'); ?></label></p>
         <textarea readonly>[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]</textarea>
-        <p class="description"><a href="#"><?php esc_html_e('Shortcode documentation.', 'organize-series'); ?></a></p>
+        <p class="description"><?php esc_html_e('Insert into posts or pages to display this Post List Box manually.', 'organize-series'); ?></p>
     <?php
     }
 
