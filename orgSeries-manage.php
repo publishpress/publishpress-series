@@ -6,7 +6,6 @@
 add_filter('manage_edit-'.ppseries_get_series_slug().'_columns', 'manage_series_columns');
 add_filter('manage_'.ppseries_get_series_slug().'_custom_column', 'manage_series_columns_action',1,3);
 add_action(''.ppseries_get_series_slug().'_edit_form_fields','edit_series_form_fields', 10,2);
-add_action(''.ppseries_get_series_slug().'_add_form_fields', 'add_series_form_fields', 10);
 //hooking into insert_term, update_term and delete_term
 add_action('created_'.ppseries_get_series_slug().'', 'wp_insert_series', 10, 2);
 add_action('edited_'.ppseries_get_series_slug().'', 'wp_update_series', 10, 2);
@@ -124,6 +123,13 @@ function pp_series_term_admin_head() {
             visibility: hidden;
         }
 
+        /* Hide Description and Series Categories fields on Add New Series form only */
+        #col-left .form-field.term-description-wrap,
+        #col-left .form-field.term-parent-wrap,
+        div#side-info-column {
+            display: none !important;
+        }
+
     </style>
 
     <?php
@@ -198,29 +204,6 @@ function manage_series_columns_action($content, $column_name, $id) {
 	return $output;
 }
 
-function add_series_form_fields($taxonomy) {
-	global $orgseries;
-	?>
-    <div class="form-field form-required">
-			<label for="term_order">
-				<?php esc_html_e( 'Order', 'organize-series' ); ?>
-			</label>
-			<input type="number" pattern="[0-9.]+" name="term_order" id="term_order" value="0" size="11">
-			<p class="description">
-				<?php esc_html_e( 'Set a specific order by entering a number (1 for first, etc.) in this field.', 'organize-series' ); ?>
-			</p>
-	</div>
-	<div class="form-field">
-		<div style="float:left;" id="selected-icon"></div>
-		<div style="clear:left;"></div>
-		<label for="series_icon">
-			<input id="series_icon_loc_display" type="text" style="width: 70%;" name="series_icon_loc_display" value="" disabled="disabled" /><input style="float:right; width: 100px;" id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
-			<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
-			<p><?php _e('Upload an image for the series.', 'organize-series') ?></p>
-		</label>
-	</div>
-	<?php
-}
 
 function edit_series_form_fields($series, $taxonomy) {
 	global $orgseries;
