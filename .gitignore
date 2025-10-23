@@ -27,3 +27,6 @@ tests/_support/*
 .vscode/*
 *.code-workspace
 .claude
+
+dev-workspace/.cache
+.env

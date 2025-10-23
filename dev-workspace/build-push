@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# This command requires to be logged in on Docker Hub. Check `docker login --help` for more information.
-
-DOCKER_HOST_IP=$(php ./scripts/getip) docker buildx build --platform linux/amd64,linux/arm64 --push -t publishpress/dev-workspace-terminal:series-free-2 ./docker
