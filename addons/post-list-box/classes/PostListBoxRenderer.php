@@ -261,9 +261,17 @@ class PostListBoxRenderer
                                         <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                                     </a>
                                 <?php else : ?>
-                                    <?php $placeholder_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg'; ?>
+                                    <?php 
+                                        $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
+                                        if ($fallback_image_id > 0) {
+                                            $fallback_image = wp_get_attachment_image_src($fallback_image_id, 'large');
+                                            $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                        } else {
+                                            $fallback_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                        }
+                                    ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
-                                        <img src="<?php echo esc_url($placeholder_url); ?>" alt="<?php echo esc_attr(get_the_title($post->ID)); ?>" />
+                                        <img src="<?php echo esc_url($fallback_url); ?>" alt="<?php echo esc_attr(get_the_title($post->ID)); ?>" />
                                     </a>
                                 <?php endif; ?>
                             </div>

@@ -121,6 +121,7 @@ class PPS_Post_List_Box_Fields {
             'show_post_thumbnail' => 1,
             'thumbnail_width' => 80,
             'thumbnail_height' => 80,
+            'fallback_featured_image' => '',
             'show_post_author' => 0,
             'show_post_date' => 0,
             'item_padding' => 15,
