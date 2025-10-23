@@ -229,6 +229,9 @@ class PPS_Post_List_Box
         // Add code editor
         wp_enqueue_code_editor(['type' => 'text/css']);
 
+        // Enqueue media library for media picker
+        wp_enqueue_media();
+
         wp_enqueue_script(
             'post-list-box-editor-js',
             $this->module_url . '/assets/js/post-list-box-editor.js',

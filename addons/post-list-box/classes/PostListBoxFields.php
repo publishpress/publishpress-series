@@ -339,6 +339,16 @@ class PostListBoxFields
                 'depends_on' => 'show_post_thumbnail',
                 'depends_value' => '1',
             ],
+            'fallback_featured_image' => [
+                'label' => __('Fallback Featured Image', 'organize-series'),
+                'type' => 'media',
+                'tab' => 'item',
+                'sanitize' => 'absint',
+                'default' => '',
+                'description' => __('Image to display when a post does not have a featured image', 'organize-series'),
+                'depends_on' => 'show_post_thumbnail',
+                'depends_value' => '1',
+            ],
         ];
     }
 

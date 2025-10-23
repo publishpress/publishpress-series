@@ -230,4 +230,73 @@ jQuery(document).ready(function ($) {
 
     handleFieldDependencies();
 
+    // Media picker functionality
+    function initMediaPicker() {
+        $(document).on('click', '.pps-media-picker-button', function(e) {
+            e.preventDefault();
+            var fieldId = $(this).data('field-id');
+            var frame = wp.media({
+                title: 'Select Image',
+                button: {
+                    text: 'Use this image'
+                },
+                multiple: false
+            });
+
+            frame.on('select', function() {
+                var attachment = frame.state().get('selection').first().toJSON();
+                $('#' + fieldId).val(attachment.id);
+                
+                // Update preview
+                var preview = $('#' + fieldId).closest('.pps-media-picker-wrapper').find('.pps-media-preview');
+                preview.html('<img src="' + attachment.sizes.thumbnail.url + '" alt="" style="max-width: 150px; height: auto;" />');
+                
+                // Show remove button
+                var removeBtn = $('#' + fieldId).closest('.pps-media-picker-wrapper').find('.pps-media-remove-button');
+                if (removeBtn.length === 0) {
+                    $(this).after('<button type="button" class="button pps-media-remove-button" data-field-id="' + fieldId + '">Remove</button>');
+                } else {
+                    removeBtn.show();
+                }
+                
+                // Trigger change event and update preview with a slight delay to ensure value is set
+                setTimeout(function() {
+                    $('#' + fieldId).trigger('change');
+                    // Also trigger input event for additional listeners
+                    $('#' + fieldId).trigger('input');
+                    // Force preview update
+                    if (typeof debouncedUpdate === 'function') {
+                        debouncedUpdate();
+                    }
+                }, 100);
+            }.bind(this));
+
+            frame.open();
+        });
+
+        $(document).on('click', '.pps-media-remove-button', function(e) {
+            e.preventDefault();
+            var fieldId = $(this).data('field-id');
+            $('#' + fieldId).val('');
+            
+            // Clear preview
+            var preview = $('#' + fieldId).closest('.pps-media-picker-wrapper').find('.pps-media-preview');
+            preview.html('');
+            
+            // Hide remove button
+            $(this).hide();
+            
+            // Trigger change event and update preview
+            setTimeout(function() {
+                $('#' + fieldId).trigger('change');
+                $('#' + fieldId).trigger('input');
+                if (typeof debouncedUpdate === 'function') {
+                    debouncedUpdate();
+                }
+            }, 100);
+        });
+    }
+
+    initMediaPicker();
+
 });

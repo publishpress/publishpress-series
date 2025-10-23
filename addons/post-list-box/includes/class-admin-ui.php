@@ -501,7 +501,7 @@ class PPS_Post_List_Box_Admin_UI {
         // Lock all fields under the "Layout" tab and specific Item fields for PRO
         $pro_locked = (
             ($args['tab'] === 'layout' && $args['type'] !== 'category_separator')
-            || in_array($key, ['show_post_excerpt', 'show_post_author', 'show_post_date'], true)
+            || in_array($key, ['show_post_excerpt', 'show_post_author', 'show_post_date', 'fallback_featured_image'], true)
         );
         ob_start();
         $generate_tab_title = false;
@@ -627,6 +627,31 @@ class PPS_Post_List_Box_Admin_UI {
                         <hr class="category-divider">
                     </div>
                     <?php
+                elseif ('media' === $args['type']) :
+                    ?>
+                    <div class="pps-media-picker-wrapper">
+                        <input name="<?php echo esc_attr($key); ?>"
+                            id="<?php echo esc_attr($key); ?>"
+                            class="pps-media-picker-input"
+                            type="hidden"
+                            value="<?php echo esc_attr($args['value']); ?>" />
+                        <div class="pps-media-preview">
+                            <?php if (!empty($args['value'])) :
+                                $image = wp_get_attachment_image_src($args['value'], 'thumbnail');
+                                if ($image) : ?>
+                                <img src="<?php echo esc_url($image[0]); ?>" alt="" style="max-width: 150px; height: auto;" />
+                            <?php endif; endif; ?>
+                        </div>
+                        <button type="button" class="button pps-media-picker-button" data-field-id="<?php echo esc_attr($key); ?>" <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?>>
+                            <?php esc_html_e('Select Image', 'organize-series'); ?>
+                        </button>
+                        <?php if (!empty($args['value'])) : ?>
+                            <button type="button" class="button pps-media-remove-button" data-field-id="<?php echo esc_attr($key); ?>" <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?>>
+                                <?php esc_html_e('Remove', 'organize-series'); ?>
+                            </button>
+                        <?php endif; ?>
+                    </div>
+                <?php
                 else : ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
