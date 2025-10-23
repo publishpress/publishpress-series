@@ -144,7 +144,7 @@ add_action('plugins_loaded', function() {
             function($links, $file)
             {
                 if ($file == plugin_basename(__FILE__)) {
-                    $links[]= __('<strong>This plugin can be deleted.</strong>', 'press-permit-core');
+                    $links[]= __('<strong>This plugin can be deleted.</strong>', 'organize-series');
                 }
 
                 return $links;
