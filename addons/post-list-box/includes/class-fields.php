@@ -97,9 +97,9 @@ class PPS_Post_List_Box_Fields {
         return [
             'title_show' => 1,
             'title_html_tag' => 'h3',
-            'title_color' => '#333333',
+            'title_color' => '#1a5aff',
             'title_font_size' => 24,
-            'background_color' => '#f9f9f9',
+            'background_color' => '#EEF5FF',
             'border_color' => '#e5e5e5',
             'border_width' => 1,
             'border_radius' => 4,
