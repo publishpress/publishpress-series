@@ -49,12 +49,8 @@ class PPS_Post_List_Box_AJAX {
 
         // If no series_id provided, get a sample series for preview
         if (!$series_id) {
-            $sample_series = get_terms([
-                'taxonomy' => 'series',
-                'number' => 1,
-                'hide_empty' => false,
-            ]);
-            $series_id = !empty($sample_series) && !is_wp_error($sample_series) ? $sample_series[0]->term_id : 0;
+            $sample_series = PPS_Post_List_Box_Utilities::ensure_sample_series_term();
+            $series_id = $sample_series ? $sample_series->term_id : 0;
         }
 
         if (!$series_id) {
