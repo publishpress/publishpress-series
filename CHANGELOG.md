@@ -1,6 +1,16 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+v2.16.0- 2025-10-29
+* Added: Series Post Details editor #969
+* Fixed: Resolve PHP warning on Post List Box editor #944
+* Fixed: Custom template on Post List Box not working #948
+* Fixed: Fix domain in some strings (credit @DAnn2012)
+* Changed: Increase shortcode size on Post List Box #951
+* Changed: Remove description, image, order on series creation #949
+* Changed: Remove shortcode link in Post List Box editor #954
+* Changed: Allow to choose different fallback featured image #953
+
 v2.15.0- 2025-09-12
 * Added: New Post List Box Editor #933
 * Changed: Remove Old translation file #912
