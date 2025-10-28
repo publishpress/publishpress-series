@@ -375,11 +375,11 @@ function wp_seriesmeta_write($excerpt = FALSE)
 
 	$selected_layout_id = 0;
 	if (
-		class_exists('SeriesMetaBoxRenderer')
-		&& class_exists('PPS_Series_Meta_Box_Utilities')
-		&& isset($settings['series_meta_box_selection'])
+		class_exists('SeriesPostDetailsRenderer')
+		&& class_exists('PPS_Series_Post_Details_Utilities')
+		&& isset($settings['series_post_details_selection'])
 	) {
-		$selected_layout_id = (int) $settings['series_meta_box_selection'];
+		$selected_layout_id = (int) $settings['series_post_details_selection'];
 	}
 	
 	$serarray = get_the_series();
@@ -392,13 +392,13 @@ function wp_seriesmeta_write($excerpt = FALSE)
 			$serID = $series->term_id;
 
 			$rendered = '';
-			if ($selected_layout_id > 0 && class_exists('SeriesMetaBoxRenderer')) {
+			if ($selected_layout_id > 0 && class_exists('SeriesPostDetailsRenderer')) {
 				$context = [
 					'series_term' => $series,
 					'post'        => $post,
 					'context'     => $excerpt ? 'auto_excerpt' : 'auto',
 				];
-				$rendered = SeriesMetaBoxRenderer::render_layout_for_series($selected_layout_id, $context, (bool) $excerpt);
+				$rendered = SeriesPostDetailsRenderer::render_layout_for_series($selected_layout_id, $context, (bool) $excerpt);
 			}
 
 			if (! empty($rendered)) {

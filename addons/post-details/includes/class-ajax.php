@@ -1,23 +1,23 @@
 <?php
 /**
- * AJAX handlers for Series Meta Box editor
+ * AJAX handlers for Series Post Details editor
  */
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Series_Meta_Box_Ajax
+class PPS_Series_Post_Details_Ajax
 {
     /**
      * Boot hooks
      */
     public static function init()
     {
-        add_action('wp_ajax_pps_update_series_meta_box_preview', [__CLASS__, 'update_preview']);
-        add_action('wp_ajax_pps_export_series_meta_box', [__CLASS__, 'export_layout']);
-        add_action('wp_ajax_pps_import_series_meta_box', [__CLASS__, 'import_layout']);
-        add_action('wp_ajax_pps_reset_series_meta_box', [__CLASS__, 'reset_layout']);
+        add_action('wp_ajax_pps_update_series_post_details_preview', [__CLASS__, 'update_preview']);
+        add_action('wp_ajax_pps_export_series_post_details', [__CLASS__, 'export_layout']);
+        add_action('wp_ajax_pps_import_series_post_details', [__CLASS__, 'import_layout']);
+        add_action('wp_ajax_pps_reset_series_post_details', [__CLASS__, 'reset_layout']);
     }
 
     /**
@@ -25,7 +25,7 @@ class PPS_Series_Meta_Box_Ajax
      */
     public static function update_preview()
     {
-        check_ajax_referer('series-meta-box-nonce', 'nonce');
+        check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
@@ -40,11 +40,11 @@ class PPS_Series_Meta_Box_Ajax
         }
 
         // Get default settings as base
-        $base_settings = PPS_Series_Meta_Box_Utilities::get_meta_box_settings($post_id);
-        
+        $base_settings = PPS_Series_Post_Details_Utilities::get_post_details_settings($post_id);
+
         // Get all field definitions to know which fields to process
         $post = get_post($post_id);
-        $fields = apply_filters('pps_series_meta_box_fields', PPS_Series_Meta_Box_Fields::get_fields($post), $post);
+        $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
         
         // Merge settings, handling checkboxes properly
         $settings = $base_settings;
@@ -62,16 +62,16 @@ class PPS_Series_Meta_Box_Ajax
             }
         }
 
-        $series_term = PPS_Series_Meta_Box_Utilities::ensure_sample_series_term();
+        $series_term = PPS_Series_Post_Details_Utilities::ensure_sample_series_term();
         if (! $series_term) {
             wp_send_json_error(['message' => __('No series available to preview.', 'organize-series')]);
         }
 
-        $posts = PPS_Series_Meta_Box_Utilities::get_sample_series_posts($series_term->term_id);
+        $posts = PPS_Series_Post_Details_Utilities::get_sample_series_posts($series_term->term_id);
         $current_post = $posts ? $posts[0] : null;
 
         ob_start();
-        echo SeriesMetaBoxRenderer::render_from_settings(
+        echo SeriesPostDetailsRenderer::render_from_settings(
             $settings,
             [
                 'series_term' => $series_term,
@@ -81,7 +81,7 @@ class PPS_Series_Meta_Box_Ajax
                 'context'     => 'preview',
             ]
         );
-        SeriesMetaBoxRenderer::output_dynamic_css();
+        SeriesPostDetailsRenderer::output_dynamic_css();
         $preview = ob_get_clean();
 
         wp_send_json_success(['preview' => $preview]);
@@ -92,14 +92,14 @@ class PPS_Series_Meta_Box_Ajax
      */
     public static function export_layout()
     {
-        check_ajax_referer('series-meta-box-nonce', 'nonce');
+        check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
-        $settings = PPS_Series_Meta_Box_Utilities::get_meta_box_settings($post_id);
+        $settings = PPS_Series_Post_Details_Utilities::get_post_details_settings($post_id);
         $post      = get_post($post_id);
 
         wp_send_json_success([
@@ -113,7 +113,7 @@ class PPS_Series_Meta_Box_Ajax
      */
     public static function import_layout()
     {
-        check_ajax_referer('series-meta-box-nonce', 'nonce');
+        check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
@@ -122,7 +122,7 @@ class PPS_Series_Meta_Box_Ajax
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
-        update_post_meta($post_id, PPS_Series_Meta_Box_Utilities::META_PREFIX . 'layout_meta_value', $settings);
+        update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $settings);
 
         wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
     }
@@ -132,15 +132,15 @@ class PPS_Series_Meta_Box_Ajax
      */
     public static function reset_layout()
     {
-        check_ajax_referer('series-meta-box-nonce', 'nonce');
+        check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
-        $defaults = PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_data($post_id);
-        update_post_meta($post_id, PPS_Series_Meta_Box_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
+        $defaults = PPS_Series_Post_Details_Utilities::get_default_series_post_details_data($post_id);
+        update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
 
         wp_send_json_success(['message' => __('Settings reset to defaults.', 'organize-series')]);
     }

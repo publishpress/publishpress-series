@@ -177,8 +177,8 @@ function orgseries_validate($input) {
 	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
 
-	$default_meta_box_id = PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_id() ?: '';
-	$newinput['series_meta_box_selection'] = isset($input['series_meta_box_selection']) ? intval($input['series_meta_box_selection']) : $default_meta_box_id;
+	$default_post_details_id = PPS_Series_Post_Details_Utilities::get_default_series_post_details_id() ?: '';
+	$newinput['series_post_details_selection'] = isset($input['series_post_details_selection']) ? intval($input['series_post_details_selection']) : $default_post_details_id;
 
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
@@ -201,8 +201,8 @@ function orgseries_validate($input) {
 	$newinput['series_navigation_box_position'] = trim(stripslashes(($input['series_navigation_box_position'])));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? ($input['series_taxonomy_slug']) : 'series' );
 
-    // overview page options
-    $newinput['series_overview_page_layout'] = trim(stripslashes(($input['series_overview_page_layout'])));
+    	// overview page options
+	$newinput['series_overview_page_layout'] = trim(stripslashes(($input['series_overview_page_layout'])));
     $newinput['series_overview_page_columns'] = (int) $input['series_overview_page_columns'];
 
 	//series-icon related settings
@@ -890,31 +890,31 @@ function series_templates_core_fieldset() {
 							<tr valign="top">
     							<th scope="row" colspan="2">
         							<h1>
-            							<?php esc_html_e('Series Meta Box', 'organize-series'); ?>
+            							<?php esc_html_e('Series Post Details', 'organize-series'); ?>
         							</h1>
 									<p class="description"><?php esc_html_e('This display is shown at the top of all posts in a series.', 'organize-series'); ?></p>
     							</th>
 							</tr>
 
-							<tr valign="top" id="series_meta_box_selection_row"><th scope="row"><label for="series_meta_box_selection"><?php esc_html_e('Series Meta Box Selection', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_details_selection_row"><th scope="row"><label for="series_post_details_selection"><?php esc_html_e('Series Post Details Selection', 'organize-series'); ?></label></th>
 								<td>
 									<?php
-									// Get all series meta boxes
-									$series_meta_boxes = get_posts([
-										'post_type' => 'pps_meta_box',
+									// Get all series post details
+									$series_post_details = get_posts([
+										'post_type' => 'pps_post_details',
 										'post_status' => 'publish',
 										'numberposts' => -1,
 										'orderby' => 'title',
 										'order' => 'ASC'
 									]);
 									
-									// Get the default "Default Meta Box" post ID
-									$default_meta_box_id = PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_id() ?: '';
+									// Get the default "Default Post Details" post ID
+									$default_post_details_id = PPS_Series_Post_Details_Utilities::get_default_series_post_details_id() ?: '';
 									?>
-									<select name="<?php echo esc_attr($org_name); ?>[series_meta_box_selection]" id="series_meta_box_selection" class="ppseries-full-width">
+									<select name="<?php echo esc_attr($org_name); ?>[series_post_details_selection]" id="series_post_details_selection" class="ppseries-full-width">
 										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
-										<?php foreach ($series_meta_boxes as $box): ?>
-											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_meta_box_selection']) ? $org_opt['series_meta_box_selection'] : $default_meta_box_id, $box->ID); ?>>
+										<?php foreach ($series_post_details as $box): ?>
+											<option value="<?php echo esc_attr($box->ID); ?>" <?php selected(isset($org_opt['series_post_details_selection']) ? $org_opt['series_post_details_selection'] : $default_post_details_id, $box->ID); ?>>
 												<?php echo esc_html($box->post_title); ?>
 											</option>
 										<?php endforeach; ?>

@@ -1,22 +1,22 @@
 jQuery(document).ready(function ($) {
-    
-    function ppsSeriesMetaBoxEditorInit() {
-        if (typeof ppsSeriesMetaBoxEditor === 'undefined') {
+
+    function ppsSeriesPostDetailsEditorInit() {
+        if (typeof ppsSeriesPostDetailsEditor === 'undefined') {
             return;
         }
 
 
         // Tab switching functionality
-        $('.pps-series-meta-box-editor-tabs a').on('click', function (e) {
+        $('.pps-series-post-details-editor-tabs a').on('click', function (e) {
             e.preventDefault();
 
             var tab = $(this).data('tab');
 
-            $('.pps-series-meta-box-editor-tabs a').removeClass('active');
+            $('.pps-series-post-details-editor-tabs a').removeClass('active');
             $(this).addClass('active');
 
-            $('.pps-series-meta-boxes-editor-table tbody tr').hide();
-            $('.pps-series-meta-boxes-editor-table tbody tr[data-tab="' + tab + '"]').show();
+            $('.pps-series-post-details-editor-table tbody tr').hide();
+            $('.pps-series-post-details-editor-table tbody tr[data-tab="' + tab + '"]').show();
             
 
             checkConditionalFields();
@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
 
         // Conditional field visibility handler
         function checkConditionalFields() {
-            $('.pps-series-meta-boxes-editor-table tbody tr[data-depends-on]').each(function() {
+            $('.pps-series-post-details-editor-table tbody tr[data-depends-on]').each(function() {
                 var $row = $(this);
                 var dependsOn = $row.data('depends-on');
                 var dependsValue = $row.data('depends-value');
@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                 dependsValue = String(dependsValue);
                 
                 // Only show if visible in current tab
-                var currentTab = $('.pps-series-meta-box-editor-tabs a.active').data('tab');
+                var currentTab = $('.pps-series-post-details-editor-tabs a.active').data('tab');
                 var rowTab = $row.data('tab');
                 
                 if (currentValue === dependsValue && rowTab === currentTab) {
@@ -102,29 +102,29 @@ jQuery(document).ready(function ($) {
 
         // Preview functionality
         function updatePreview() {
-            var postId = ppsSeriesMetaBoxEditor.post_id;
+            var postId = ppsSeriesPostDetailsEditor.post_id;
             var formData = $('#post').serialize();
-            
-            $('.pps-series-meta-preview').addClass('loading');
-            
+
+            $('.pps-series-post-details-preview').addClass('loading');
+
             $.ajax({
                 url: ajaxurl,
                 type: 'POST',
                 data: {
-                    action: 'pps_update_series_meta_box_preview',
+                    action: 'pps_update_series_post_details_preview',
                     post_id: postId,
                     settings: formData,
-                    nonce: ppsSeriesMetaBoxEditor.nonce
+                    nonce: ppsSeriesPostDetailsEditor.nonce
                 },
                 success: function (response) {
                     if (response && response.success && response.data && response.data.preview) {
-                        $('#pps-series-meta-preview-content').html(response.data.preview);
+                        $('#pps-series-post-details-preview-content').html(response.data.preview);
                     }
-                    $('.pps-series-meta-preview').removeClass('loading');
+                    $('.pps-series-post-details-preview').removeClass('loading');
                 },
                 error: function (xhr, status, error) {
-                    $('.pps-series-meta-preview').removeClass('loading');
-                    $('#pps-series-meta-preview-content').html('<div class="notice notice-error"><p>Failed to update preview. Please try again.</p></div>');
+                    $('.pps-series-post-details-preview').removeClass('loading');
+                    $('#pps-series-post-details-preview-content').html('<div class="notice notice-error"><p>Failed to update preview. Please try again.</p></div>');
                 }
             });
         }
@@ -138,9 +138,9 @@ jQuery(document).ready(function ($) {
 
         // Delegate to capture dynamically added inputs
         $(document)
-            .on('change input keyup', '.pps-series-meta-box-editor-fields input, .pps-series-meta-box-editor-fields select, .pps-series-meta-box-editor-fields textarea', debouncedUpdate)
-            .on('change input keyup', '.pps-series-meta-boxes-editor-table input, .pps-series-meta-boxes-editor-table select, .pps-series-meta-boxes-editor-table textarea', debouncedUpdate)
-            .on('change input keyup', '.publishpress-series-meta-box-editor :input', debouncedUpdate);
+            .on('change input keyup', '.pps-series-post-details-editor-fields input, .pps-series-post-details-editor-fields select, .pps-series-post-details-editor-fields textarea', debouncedUpdate)
+            .on('change input keyup', '.pps-series-post-details-editor-table input, .pps-series-post-details-editor-table select, .pps-series-post-details-editor-table textarea', debouncedUpdate)
+            .on('change input keyup', '.publishpress-series-post-details-editor :input', debouncedUpdate);
 
        
 
@@ -148,7 +148,7 @@ jQuery(document).ready(function ($) {
         $('form#post').on('submit', function (e) {
             var title = $('#title').val();
             if (!title || title.trim() === '') {
-                alert('Please enter a title for the Series Meta Box.');
+                alert('Please enter a title for the Series Post Details.');
                 e.preventDefault();
                 return false;
             }
@@ -156,17 +156,17 @@ jQuery(document).ready(function ($) {
     }
 
     // Initialize the editor
-    ppsSeriesMetaBoxEditorInit();
-    
+    ppsSeriesPostDetailsEditorInit();
+
     // Trigger an initial preview
     jQuery(function(){
-        if (typeof ppsSeriesMetaBoxEditor !== 'undefined') {
+        if (typeof ppsSeriesPostDetailsEditor !== 'undefined') {
             setTimeout(function(){
-                jQuery(document).trigger('series-meta-box-editor-reinit');
+                jQuery(document).trigger('series-post-details-editor-reinit');
             }, 50);
         }
     });
 
     // Re-initialize when needed
-    $(document).on('series-meta-box-editor-reinit', ppsSeriesMetaBoxEditorInit);
+    $(document).on('series-post-details-editor-reinit', ppsSeriesPostDetailsEditorInit);
 });
