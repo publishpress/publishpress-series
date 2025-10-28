@@ -26,7 +26,8 @@
   },
   "require-dev": {
     "automattic/vipwpcs": "^2.3",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "overtrue/phplint": "^9.6"
   },
   "scripts": {
     "build": "pbuild build",
