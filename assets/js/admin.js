@@ -40,10 +40,10 @@
     }
 
     // -------------------------------------------------------------
-    //   Series Meta Box selection enhancement
+    //   Series Post Details selection enhancement
     // -------------------------------------------------------------
-    function toggleSeriesMetaLegacyFields() {
-      var selectedMeta = $('#series_meta_box_selection').val();
+    function toggleSeriesPostDetailsLegacyFields() {
+      var selectedMeta = $('#series_post_details_selection').val();
       var legacyMetaFields = $('.series-meta-legacy-field');
 
       if (selectedMeta && selectedMeta !== '') {
@@ -53,10 +53,10 @@
       }
     }
 
-    function toggleSeriesMetaBoxTemplateFields() {
-      var selectedValue = $('#series_meta_box_selection').val();
+    function toggleSeriesPostDetailsTemplateFields() {
+      var selectedValue = $('#series_post_details_selection').val();
       if (selectedValue && selectedValue !== '') {
-        // Hide template fields when a Series Meta Box is selected
+        // Hide template fields when a Series Post Details is selected
         $('#series_meta_template_row').hide();
         $('#series_meta_excerpt_template_row').hide();
         $('#limit_series_meta_to_single_row').hide();
@@ -70,13 +70,13 @@
       }
     }
 
-    if ($('#series_meta_box_selection').length) {
-      toggleSeriesMetaLegacyFields();
-      toggleSeriesMetaBoxTemplateFields();
+    if ($('#series_post_details_selection').length) {
+      toggleSeriesPostDetailsLegacyFields();
+      toggleSeriesPostDetailsTemplateFields();
 
-      $('#series_meta_box_selection').on('change', function() {
-        toggleSeriesMetaLegacyFields();
-        toggleSeriesMetaBoxTemplateFields();
+      $('#series_post_details_selection').on('change', function() {
+        toggleSeriesPostDetailsLegacyFields();
+        toggleSeriesPostDetailsTemplateFields();
       });
     }
 

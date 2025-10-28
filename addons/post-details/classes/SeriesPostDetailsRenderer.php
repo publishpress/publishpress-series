@@ -1,6 +1,6 @@
 <?php
 /**
- * Renderer utilities for Series Meta Boxes.
+ * Renderer utilities for Series Post Details.
  */
 
 if (! defined('ABSPATH')) {
@@ -9,7 +9,7 @@ if (! defined('ABSPATH')) {
 
 require_once __DIR__ . '/../includes/class-utilities.php';
 
-class SeriesMetaBoxRenderer
+class SeriesPostDetailsRenderer
 {
     /**
      * Store dynamic CSS snippets keyed by layout ID.
@@ -30,7 +30,7 @@ class SeriesMetaBoxRenderer
      */
     public static function init()
     {
-        add_shortcode('pps_meta_box', [__CLASS__, 'render_shortcode']);
+        add_shortcode('pps_post_details', [__CLASS__, 'render_shortcode']);
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_assets']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
@@ -44,9 +44,9 @@ class SeriesMetaBoxRenderer
             return;
         }
 
-        $base_file = PPS_Series_Meta_Box_Utilities::get_module_path('series-meta-box.php');
-        $style_url = plugins_url('assets/css/series-meta-box-frontend.css', $base_file);
-        $style_file = PPS_Series_Meta_Box_Utilities::get_module_path('assets/css/series-meta-box-frontend.css');
+        $base_file = PPS_Series_Post_Details_Utilities::get_module_path('post-details.php');
+        $style_url = plugins_url('assets/css/series-post-details-frontend.css', $base_file);
+        $style_file = PPS_Series_Post_Details_Utilities::get_module_path('assets/css/series-post-details-frontend.css');
 
         $version = ORG_SERIES_VERSION;
         if ($style_file && file_exists($style_file)) {
@@ -56,13 +56,13 @@ class SeriesMetaBoxRenderer
             }
         }
 
-        wp_enqueue_style('pps-series-meta-box-frontend', $style_url, [], $version);
+        wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], $version);
 
         self::$assets_enqueued = true;
     }
 
     /**
-     * Render the shortcode `[pps_meta_box layout="..."]`.
+     * Render the shortcode `[pps_post_details layout="..."]`.
      *
      * @param array $atts Shortcode attributes.
      *
@@ -74,15 +74,15 @@ class SeriesMetaBoxRenderer
             'layout'  => '',
             'series'  => '',
             'post_id' => 0,
-        ], $atts, 'pps_meta_box');
+        ], $atts, 'pps_post_details');
 
         if (empty($atts['layout'])) {
-            return '<!-- Series Meta Box: layout attribute missing -->';
+            return '<!-- Series Post Details: layout attribute missing -->';
         }
 
         $layout_id = self::normalize_layout_id($atts['layout']);
         if (! $layout_id || 'publish' !== get_post_status($layout_id)) {
-            return '<!-- Series Meta Box: invalid or unpublished layout -->';
+            return '<!-- Series Post Details: invalid or unpublished layout -->';
         }
 
         $post = null;
@@ -94,7 +94,7 @@ class SeriesMetaBoxRenderer
 
         $series_term = self::resolve_series_term($atts['series'], $post);
         if (! $series_term) {
-            return '<!-- Series Meta Box: unable to determine series -->';
+            return '<!-- Series Post Details: unable to determine series -->';
         }
 
         $context = [
@@ -117,7 +117,7 @@ class SeriesMetaBoxRenderer
      */
     public static function render_layout_for_series($layout_id, array $context, $for_excerpt)
     {
-        $settings = PPS_Series_Meta_Box_Utilities::get_meta_box_settings($layout_id);
+        $settings = PPS_Series_Post_Details_Utilities::get_post_details_settings($layout_id);
         if (empty($settings)) {
             return '';
         }
@@ -155,13 +155,13 @@ class SeriesMetaBoxRenderer
             return '';
         }
 
-        $layout_class = 'pps-series-meta-box-' . $layout_id;
+        $layout_class = 'pps-series-post-details-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
 
         $variant = isset($settings['layout_variant']) ? sanitize_html_class($settings['layout_variant']) : 'classic';
         $wrapper_classes = [
-            'pps-series-meta-box',
-            'pps-series-meta-variant-' . $variant,
+            'pps-series-post-details',
+            'pps-series-post-details-variant-' . $variant,
             $layout_class,
         ];
 
@@ -188,7 +188,7 @@ class SeriesMetaBoxRenderer
         }
 
         /**
-         * Filter the rendered Series Meta Box output.
+         * Filter the rendered Series Post Details output.
          *
          * @param string $output    Rendered HTML.
          * @param int    $layout_id Layout post ID.
@@ -196,7 +196,7 @@ class SeriesMetaBoxRenderer
          * @param array  $context   Rendering context.
          * @param bool   $for_excerpt Whether rendering for excerpt.
          */
-        return apply_filters('pps_series_meta_box_render_layout', $output, $layout_id, $settings, $context, $for_excerpt);
+        return apply_filters('pps_series_post_details_render_layout', $output, $layout_id, $settings, $context, $for_excerpt);
     }
 
     /**
@@ -216,7 +216,7 @@ class SeriesMetaBoxRenderer
         $variant     = isset($settings['layout_variant']) ? sanitize_html_class($settings['layout_variant']) : 'classic';
 
         // Use unique class for preview dynamic CSS to avoid conflicts with wrapper
-        $layout_class = 'pps-series-meta-box-preview-inner';
+        $layout_class = 'pps-series-post-details-preview-inner';
         self::capture_dynamic_css($layout_class, $settings);
 
         $template = isset($settings['meta_template']) ? $settings['meta_template'] : '';
@@ -231,7 +231,7 @@ class SeriesMetaBoxRenderer
         }
 
         $wrapper_classes = [
-            'pps-series-meta-box',
+            'pps-series-post-details',
             'pps-series-meta-preview',
             'pps-series-meta-variant-' . $variant,
             $layout_class,
@@ -618,7 +618,7 @@ class SeriesMetaBoxRenderer
             return;
         }
 
-        echo '<style type="text/css" id="pps-series-meta-box-dynamic-css">' . implode("\n", self::$dynamic_css) . '</style>';
+        echo '<style type="text/css" id="pps-series-post-details-dynamic-css">' . implode("\n", self::$dynamic_css) . '</style>';
     }
 
     /**

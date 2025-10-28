@@ -1,13 +1,13 @@
 <?php
 /**
- * Admin UI for Series Meta Boxes
+ * Admin UI for Series Post Details
  */
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Series_Meta_Box_Admin_UI
+class PPS_Series_Post_Details_Admin_UI
 {
     /**
      * Boot hooks
@@ -17,8 +17,8 @@ class PPS_Series_Meta_Box_Admin_UI
         add_action('admin_menu', [__CLASS__, 'register_menu'], 12);
         add_filter('parent_file', [__CLASS__, 'highlight_menu']);
         add_action('add_meta_boxes', [__CLASS__, 'add_meta_boxes']);
-        add_filter('manage_edit-' . PPS_Series_Meta_Box_Utilities::POST_TYPE . '_columns', [__CLASS__, 'register_columns']);
-        add_action('manage_' . PPS_Series_Meta_Box_Utilities::POST_TYPE . '_posts_custom_column', [__CLASS__, 'render_columns'], 10, 2);
+        add_filter('manage_edit-' . PPS_Series_Post_Details_Utilities::POST_TYPE . '_columns', [__CLASS__, 'register_columns']);
+        add_action('manage_' . PPS_Series_Post_Details_Utilities::POST_TYPE . '_posts_custom_column', [__CLASS__, 'render_columns'], 10, 2);
     }
 
     /**
@@ -28,10 +28,10 @@ class PPS_Series_Meta_Box_Admin_UI
     {
         add_submenu_page(
             'orgseries_options_page',
-            __('Series Meta Boxes', 'organize-series'),
-            __('Series Meta Boxes', 'organize-series'),
+            __('Series Post Details', 'organize-series'),
+            __('Series Post Details', 'organize-series'),
             'manage_publishpress_series',
-            'edit.php?post_type=' . PPS_Series_Meta_Box_Utilities::POST_TYPE,
+            'edit.php?post_type=' . PPS_Series_Post_Details_Utilities::POST_TYPE,
             null,
             50
         );
@@ -44,7 +44,7 @@ class PPS_Series_Meta_Box_Admin_UI
     {
         global $current_screen;
 
-        if (! empty($current_screen->post_type) && $current_screen->post_type === PPS_Series_Meta_Box_Utilities::POST_TYPE) {
+        if (! empty($current_screen->post_type) && $current_screen->post_type === PPS_Series_Post_Details_Utilities::POST_TYPE) {
             $parent_file = 'orgseries_options_page';
         }
 
@@ -58,18 +58,18 @@ class PPS_Series_Meta_Box_Admin_UI
     {
         add_meta_box(
             'pps_series_meta_box_preview',
-            __('Series Meta Box Preview', 'organize-series'),
+            __('Series Post Details Preview', 'organize-series'),
             [__CLASS__, 'render_preview_box'],
-            PPS_Series_Meta_Box_Utilities::POST_TYPE,
+            PPS_Series_Post_Details_Utilities::POST_TYPE,
             'normal',
             'high'
         );
 
         add_meta_box(
             'pps_series_meta_box_editor',
-            __('Series Meta Box Editor', 'organize-series'),
+            __('Series Post Details Editor', 'organize-series'),
             [__CLASS__, 'render_editor_box'],
-            PPS_Series_Meta_Box_Utilities::POST_TYPE,
+            PPS_Series_Post_Details_Utilities::POST_TYPE,
             'normal',
             'high'
         );
@@ -78,7 +78,7 @@ class PPS_Series_Meta_Box_Admin_UI
             'pps_series_meta_box_shortcode',
             __('Shortcode', 'organize-series'),
             [__CLASS__, 'render_shortcode_box'],
-            PPS_Series_Meta_Box_Utilities::POST_TYPE,
+            PPS_Series_Post_Details_Utilities::POST_TYPE,
             'side',
             'default'
         );
@@ -89,9 +89,9 @@ class PPS_Series_Meta_Box_Admin_UI
      */
     public static function render_preview_box(WP_Post $post)
     {
-        echo '<div class="pps-series-meta-preview">';
-        echo '<div id="pps-series-meta-preview-content" class="pps-series-meta-preview-content">';
-        PPS_Series_Meta_Box_Preview::render_preview($post);
+        echo '<div class="pps-series-post-details-preview">';
+        echo '<div id="pps-series-post-details-preview-content" class="pps-series-post-details-preview-content">';
+        PPS_Series_Post_Details_Preview::render_preview($post);
         echo '</div>';
         echo '</div>';
     }
@@ -101,16 +101,16 @@ class PPS_Series_Meta_Box_Admin_UI
      */
     public static function render_editor_box(WP_Post $post)
     {
-        $tabs = apply_filters('pps_series_meta_box_editor_tabs', [], $post);
-        $fields = PPS_Series_Meta_Box_Fields::get_fields($post);
-        $settings = PPS_Series_Meta_Box_Utilities::get_meta_box_settings($post->ID, $post->post_status === 'auto-draft');
+        $tabs = apply_filters('pps_series_post_details_editor_tabs', [], $post);
+        $fields = PPS_Series_Post_Details_Fields::get_fields($post);
+        $settings = PPS_Series_Post_Details_Utilities::get_post_details_settings($post->ID, $post->post_status === 'auto-draft');
 
-        echo '<div class="pressshack-admin-wrapper publishpress-series-meta-box-editor">';
+        echo '<div class="pressshack-admin-wrapper publishpress-series-post-details-editor">';
 
         if (! empty($tabs)) {
-            echo '<div class="pps-series-meta-box-editor-tabs"><ul>';
+            echo '<div class="pps-series-post-details-editor-tabs"><ul>';
             foreach ($tabs as $key => $data) {
-                $active = $key === PPS_Series_Meta_Box_Fields::DEFAULT_TAB ? ' active' : '';
+                $active = $key === PPS_Series_Post_Details_Fields::DEFAULT_TAB ? ' active' : '';
                 echo '<li><a href="#" data-tab="' . esc_attr($key) . '"' . $active . '>';
                 if (! empty($data['icon'])) {
                     echo '<span class="dashicons ' . esc_attr($data['icon']) . '"></span> ';
@@ -122,8 +122,8 @@ class PPS_Series_Meta_Box_Admin_UI
             echo '</ul></div>';
         }
 
-        echo '<div class="pps-series-meta-box-editor-fields wrapper-column">';
-        echo '<table class="form-table pps-series-meta-boxes-editor-table fixed" role="presentation"><tbody>';
+        echo '<div class="pps-series-post-details-editor-fields wrapper-column">';
+        echo '<table class="form-table pps-series-post-details-editor-table fixed" role="presentation"><tbody>';
         foreach ($fields as $key => $field) {
             $value = isset($settings[$key]) ? $settings[$key] : '';
             $field['key'] = $key;
@@ -132,10 +132,10 @@ class PPS_Series_Meta_Box_Admin_UI
         }
         echo '</tbody></table>';
 
-        wp_nonce_field(PPS_SERIES_META_BOX_NONCE, PPS_SERIES_META_BOX_NONCE_FIELD);
+        wp_nonce_field(PPS_SERIES_POST_DETAILS_NONCE, PPS_SERIES_POST_DETAILS_NONCE_FIELD);
 
-        echo '</div>'; // .pps-series-meta-box-editor-fields
-        echo '</div>'; // .publishpress-series-meta-box-editor
+        echo '</div>'; // .pps-series-post-details-editor-fields
+        echo '</div>'; // .publishpress-series-post-details-editor
     }
 
     /**
@@ -144,9 +144,9 @@ class PPS_Series_Meta_Box_Admin_UI
     public static function render_shortcode_box(WP_Post $post)
     {
         $layout_slug = 'pps_meta_box_' . $post->ID;
-        echo '<p><label for="pps-series-meta-shortcode">' . esc_html__('Use this shortcode:', 'organize-series') . '</label></p>';
-        echo '<textarea id="pps-series-meta-shortcode" readonly class="widefat" rows="2">[pps_meta_box layout="' . esc_attr($layout_slug) . '"]</textarea>';
-        echo '<p class="description">' . esc_html__('Insert into posts or pages to display this Series Meta Box manually.', 'organize-series') . '</p>';
+        echo '<p><label for="pps-series-post-details-shortcode">' . esc_html__('Use this shortcode:', 'organize-series') . '</label></p>';
+        echo '<textarea id="pps-series-post-details-shortcode" readonly class="widefat" rows="2">[pps_post_details layout="' . esc_attr($layout_slug) . '"]</textarea>';
+        echo '<p class="description">' . esc_html__('Insert into posts or pages to display this Series Post Details manually.', 'organize-series') . '</p>';
     }
 
     /**
@@ -169,14 +169,14 @@ class PPS_Series_Meta_Box_Admin_UI
         if ('series_meta_shortcode' === $column) {
             $layout_slug = 'pps_meta_box_' . $post_id;
             ?>
-            <input readonly class="pps-shortcode-input" type="text" value='[pps_meta_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly class="pps-shortcode-input" type="text" value='[pps_post_details layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
             return;
         }
 
         if ('series_meta_default' === $column) {
             $options = get_option('org_series_options');
-            $selected = isset($options['series_meta_box_selection']) ? (int) $options['series_meta_box_selection'] : 0;
+            $selected = isset($options['series_post_details_selection']) ? (int) $options['series_post_details_selection'] : 0;
             if ($selected === (int) $post_id) {
                 ?>
                 <span style="color: green; margin-left:30px;" class="dashicons dashicons-yes-alt"></span>
@@ -192,7 +192,7 @@ class PPS_Series_Meta_Box_Admin_UI
     {
         $defaults = [
             'type'        => 'text',
-            'tab'         => PPS_Series_Meta_Box_Fields::DEFAULT_TAB,
+            'tab'         => PPS_Series_Post_Details_Fields::DEFAULT_TAB,
             'label'       => '',
             'description' => '',
             'rows'        => 5,
@@ -204,7 +204,7 @@ class PPS_Series_Meta_Box_Admin_UI
 
         $args = array_merge($defaults, $args);
         $tab_attr = ' data-tab="' . esc_attr($args['tab']) . '"';
-        $row_style = $args['tab'] === PPS_Series_Meta_Box_Fields::DEFAULT_TAB ? '' : ' style="display:none;"';
+        $row_style = $args['tab'] === PPS_Series_Post_Details_Fields::DEFAULT_TAB ? '' : ' style="display:none;"';
 
         // Add conditional field attributes
         $conditional_attrs = '';

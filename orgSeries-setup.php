@@ -636,11 +636,11 @@ class orgSeries {
 
 		$layout_settings = null;
 		if (
-			class_exists('PPS_Series_Meta_Box_Utilities')
-			&& isset($this->settings['series_meta_box_selection'])
-			&& (int) $this->settings['series_meta_box_selection'] > 0
+			class_exists('PPS_Series_Post_Details_Utilities')
+			&& isset($this->settings['series_post_details_selection'])
+			&& (int) $this->settings['series_post_details_selection'] > 0
 		) {
-			$layout_settings = PPS_Series_Meta_Box_Utilities::get_selected_layout_settings($this->settings);
+			$layout_settings = PPS_Series_Post_Details_Utilities::get_selected_layout_settings($this->settings);
 		}
 
 		$limit_to_single = isset($this->settings['limit_series_meta_to_single']) ? (int) $this->settings['limit_series_meta_to_single'] : 0;
@@ -689,11 +689,11 @@ class orgSeries {
 
 		$layout_settings = null;
 		if (
-			class_exists('PPS_Series_Meta_Box_Utilities')
-			&& isset($this->settings['series_meta_box_selection'])
-			&& (int) $this->settings['series_meta_box_selection'] > 0
+			class_exists('PPS_Series_Post_Details_Utilities')
+			&& isset($this->settings['series_post_details_selection'])
+			&& (int) $this->settings['series_post_details_selection'] > 0
 		) {
-			$layout_settings = PPS_Series_Meta_Box_Utilities::get_selected_layout_settings($this->settings);
+			$layout_settings = PPS_Series_Post_Details_Utilities::get_selected_layout_settings($this->settings);
 		}
 
 		$limit_to_single = isset($this->settings['limit_series_meta_to_single']) ? (int) $this->settings['limit_series_meta_to_single'] : 0;

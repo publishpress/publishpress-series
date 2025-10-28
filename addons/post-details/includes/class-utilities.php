@@ -1,33 +1,33 @@
 <?php
 /**
- * Utility helpers for Series Meta Box module
+ * Utility helpers for Series Post Details module
  */
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Series_Meta_Box_Utilities
+class PPS_Series_Post_Details_Utilities
 {
     /**
      * Module slug
      */
-    const MODULE_SLUG = 'series-meta-box';
+    const MODULE_SLUG = 'post-details';
 
     /**
      * Option key for default creations
      */
-    const DEFAULTS_OPTION = 'pps_series_meta_box_defaults_created';
+    const DEFAULTS_OPTION = 'pps_series_post_details_defaults_created';
 
     /**
      * Prefix for stored meta
      */
-    const META_PREFIX = 'pps_series_meta_box_';
+    const META_PREFIX = 'pps_series_post_details_';
 
     /**
      * CPT name
      */
-    const POST_TYPE = 'pps_meta_box';
+    const POST_TYPE = 'pps_post_details';
 
     /**
      * Get module path
@@ -49,9 +49,9 @@ class PPS_Series_Meta_Box_Utilities
     /**
      * Retrieve stored meta data and merge with defaults
      */
-    public static function get_meta_box_settings($post_id, $use_default = false)
+    public static function get_post_details_settings($post_id, $use_default = false)
     {
-        $defaults = self::get_default_series_meta_box_data($post_id);
+        $defaults = self::get_default_series_post_details_data($post_id);
         if ($use_default) {
             $data = $defaults;
         } else {
@@ -61,13 +61,13 @@ class PPS_Series_Meta_Box_Utilities
 
         $data['post_id'] = $post_id;
 
-        return apply_filters('pps_series_meta_box_settings', $data, $post_id, $use_default);
+        return apply_filters('pps_series_post_details_settings', $data, $post_id, $use_default);
     }
 
     /**
-     * Default data for new Series Meta Box
+     * Default data for new Series Post Details
      */
-    public static function get_default_series_meta_box_data($post_id = 0)
+    public static function get_default_series_post_details_data($post_id = 0)
     {
         $settings = self::get_legacy_settings();
 
@@ -92,7 +92,7 @@ class PPS_Series_Meta_Box_Utilities
             'border_color'               => '#c7d7f5',
             'text_size'                  => 16,
 
-            // Legacy template fields - empty by default for new meta boxes
+            // Legacy template fields - empty by default for new post details
             // Only populated from legacy settings for backward compatibility when explicitly migrating
             'meta_template'              => '',
             'meta_excerpt_template'      => '',
@@ -108,27 +108,27 @@ class PPS_Series_Meta_Box_Utilities
      */
     public static function get_selected_layout_settings($options)
     {
-        if (! is_array($options) || empty($options['series_meta_box_selection'])) {
+        if (! is_array($options) || empty($options['series_post_details_selection'])) {
             return null;
         }
 
-        $layout_id = (int) $options['series_meta_box_selection'];
+        $layout_id = (int) $options['series_post_details_selection'];
         if ($layout_id <= 0) {
             return null;
         }
 
-        return self::get_meta_box_settings($layout_id);
+        return self::get_post_details_settings($layout_id);
     }
 
     /**
-     * Ensure the plugin options point to a valid default Series Meta Box.
+     * Ensure the plugin options point to a valid default Series Post Details.
      *
      * @param int|null $default_id Optional default layout ID to enforce.
      */
     public static function ensure_default_selection($default_id = null)
     {
         if (null === $default_id) {
-            $default_id = self::get_default_series_meta_box_id();
+            $default_id = self::get_default_series_post_details_id();
         }
 
         if (! $default_id) {
@@ -140,7 +140,7 @@ class PPS_Series_Meta_Box_Utilities
             $options = [];
         }
 
-        $current = isset($options['series_meta_box_selection']) ? (int) $options['series_meta_box_selection'] : 0;
+        $current = isset($options['series_post_details_selection']) ? (int) $options['series_post_details_selection'] : 0;
 
         if ($current === $default_id) {
             return;
@@ -158,7 +158,7 @@ class PPS_Series_Meta_Box_Utilities
             }
         }
 
-        $options['series_meta_box_selection'] = $default_id;
+        $options['series_post_details_selection'] = $default_id;
         update_option('org_series_options', $options, false);
     }
 
@@ -172,16 +172,16 @@ class PPS_Series_Meta_Box_Utilities
     }
 
     /**
-     * Returns default Series Meta Box post ID
+     * Returns default Series Post Details post ID
      */
-    public static function get_default_series_meta_box_id()
+    public static function get_default_series_post_details_id()
     {
         $defaults = get_option(self::DEFAULTS_OPTION);
         if (is_array($defaults) && isset($defaults['default_id']) && $defaults['default_id']) {
             return (int) $defaults['default_id'];
         }
 
-        $post = get_page_by_path('default-series-meta-box', OBJECT, self::POST_TYPE);
+        $post = get_page_by_path('default-series-post-details', OBJECT, self::POST_TYPE);
         return $post ? (int) $post->ID : 0;
     }
 

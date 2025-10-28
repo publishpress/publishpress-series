@@ -1,13 +1,13 @@
 <?php
 /**
- * Field definitions for Series Meta Box editor
+ * Field definitions for Series Post Details editor
  */
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Series_Meta_Box_Fields
+class PPS_Series_Post_Details_Fields
 {
     const DEFAULT_TAB = 'general';
 
@@ -16,8 +16,8 @@ class PPS_Series_Meta_Box_Fields
      */
     public static function init()
     {
-        add_filter('pps_series_meta_box_editor_tabs', [__CLASS__, 'get_tabs'], 10, 2);
-        add_filter('pps_series_meta_box_fields', [__CLASS__, 'filter_fields'], 10, 2);
+        add_filter('pps_series_post_details_editor_tabs', [__CLASS__, 'get_tabs'], 10, 2);
+        add_filter('pps_series_post_details_fields', [__CLASS__, 'filter_fields'], 10, 2);
     }
 
     /**
@@ -63,7 +63,9 @@ class PPS_Series_Meta_Box_Fields
      */
     public static function get_fields($post)
     {
-        $fields = apply_filters('pps_series_meta_box_fields', [], $post);
+        // Start with base fields and apply filters
+        $fields = [];
+        $fields = self::filter_fields($fields, $post);
 
         return $fields;
     }
@@ -73,7 +75,7 @@ class PPS_Series_Meta_Box_Fields
      */
     public static function get_default_settings($post_id = 0)
     {
-        return PPS_Series_Meta_Box_Utilities::get_default_series_meta_box_data($post_id);
+        return PPS_Series_Post_Details_Utilities::get_default_series_post_details_data($post_id);
     }
 
     /**
