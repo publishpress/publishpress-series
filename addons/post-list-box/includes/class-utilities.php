@@ -112,8 +112,7 @@ class PPS_Post_List_Box_Utilities {
         if (!empty($posts)) {
             // Get series from the first post
             $first_post = $posts[0];
-            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-            $series_terms = get_the_terms($first_post->ID, $taxonomy_slug);
+            $series_terms = get_the_terms($first_post->ID, 'series');
             
             if ($series_terms && !is_wp_error($series_terms)) {
                 return $series_terms[0]->name;
@@ -122,31 +121,6 @@ class PPS_Post_List_Box_Utilities {
         
         // Fallback to custom title if series title not found
         return isset($settings['title_text']) ? $settings['title_text'] : __('Series Posts', 'organize-series');
-    }
-
-    /**
-     * Create sample series term for previews when none exist
-     */
-    public static function ensure_sample_series_term()
-    {
-        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        
-        $terms = get_terms([
-            'taxonomy'   => $taxonomy_slug,
-            'number'     => 1,
-            'hide_empty' => false,
-        ]);
-
-        if (! empty($terms) && ! is_wp_error($terms)) {
-            return $terms[0];
-        }
-
-        $result = wp_insert_term(__('Sample Series', 'organize-series'), $taxonomy_slug);
-        if (is_wp_error($result)) {
-            return null;
-        }
-
-        return get_term($result['term_id'], $taxonomy_slug);
     }
 
     /**

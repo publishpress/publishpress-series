@@ -17,12 +17,11 @@ class PPS_Post_List_Box_Preview {
      */
     public static function get_sample_series_posts($series_id)
     {
-        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
         $posts = get_posts([
             'post_type' => 'post',
             'tax_query' => [
                 [
-                    'taxonomy' => $taxonomy_slug,
+                    'taxonomy' => 'series',
                     'field' => 'term_id',
                     'terms' => $series_id,
                 ],

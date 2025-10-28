@@ -282,10 +282,9 @@ class PPS_Post_List_Box_Admin_UI {
             $editor_data = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post->ID);
         }
 
-        // Get all available series for the dropdown, ensure sample series exists
-        $sample_series = PPS_Post_List_Box_Utilities::ensure_sample_series_term();
+        // Get all available series for the dropdown
         $all_series = get_terms([
-            'taxonomy' => get_option('pp_series_taxonomy_slug', 'series'),
+            'taxonomy' => 'series',
             'hide_empty' => false,
             'orderby' => 'name',
             'order' => 'ASC',
@@ -294,9 +293,6 @@ class PPS_Post_List_Box_Admin_UI {
         $preview_series_id = 0;
         if (!empty($all_series) && !is_wp_error($all_series)) {
             $preview_series_id = $all_series[0]->term_id;
-        } elseif ($sample_series) {
-            $preview_series_id = $sample_series->term_id;
-            $all_series = [$sample_series]; // Ensure we have series for the preview
         }
         
         ?>
