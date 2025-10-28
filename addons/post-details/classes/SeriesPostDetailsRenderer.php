@@ -651,14 +651,16 @@ class SeriesPostDetailsRenderer
      */
     public static function resolve_series_term($series_attr, $post)
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
         if (! empty($series_attr)) {
             if (is_numeric($series_attr)) {
-                $term = get_term((int) $series_attr, 'series');
+                $term = get_term((int) $series_attr, $taxonomy_slug);
                 if ($term && ! is_wp_error($term)) {
                     return $term;
                 }
             } else {
-                $term = get_term_by('slug', $series_attr, 'series');
+                $term = get_term_by('slug', $series_attr, $taxonomy_slug);
                 if ($term && ! is_wp_error($term)) {
                     return $term;
                 }
@@ -667,13 +669,13 @@ class SeriesPostDetailsRenderer
         }
 
         if ($post instanceof WP_Post) {
-            $terms = get_the_terms($post->ID, 'series');
+            $terms = get_the_terms($post->ID, $taxonomy_slug);
             if (! empty($terms) && ! is_wp_error($terms)) {
                 return reset($terms);
             }
         }
 
-        if (is_tax('series')) {
+        if (is_tax($taxonomy_slug)) {
             $term = get_queried_object();
             if ($term && isset($term->term_id)) {
                 return $term;
