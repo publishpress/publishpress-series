@@ -634,13 +634,30 @@ class orgSeries {
         */
         $add_series_content = apply_filters('pp_series_add_series_content', true);
 
-        if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
+		$layout_settings = null;
+		if (
+			class_exists('PPS_Series_Post_Details_Utilities')
+			&& isset($this->settings['series_post_details_selection'])
+			&& (int) $this->settings['series_post_details_selection'] > 0
+		) {
+			$layout_settings = PPS_Series_Post_Details_Utilities::get_selected_layout_settings($this->settings);
+		}
+
+		$limit_to_single = isset($this->settings['limit_series_meta_to_single']) ? (int) $this->settings['limit_series_meta_to_single'] : 0;
+		if ($layout_settings && isset($layout_settings['limit_to_single'])) {
+			$limit_to_single = (int) $layout_settings['limit_to_single'];
+		}
+
+        if ($limit_to_single > 0 && !is_single()) {
             return $content;
         }
 
 		if($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write()) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
+				if ($layout_settings && isset($layout_settings['metabox_position'])) {
+					$position = $layout_settings['metabox_position'];
+				}
 				if($position === 'top'){
 					$series_meta = str_replace('%postcontent%', '', $series_meta);
 					$content = $series_meta.$content;
@@ -663,23 +680,44 @@ class orgSeries {
 		return $content;
 	}
 
-	function add_series_meta_excerpt($content) {
-		if ( is_single() ) return $content;
+	//add series meta information to excerpts for posts that belong to a series.
+	public function add_series_meta_excerpt($content) {
+		/**
+		 * Filter whether to add series content to excerpts
+		 */
+		$add_series_content = apply_filters('pp_series_add_series_content', true);
 
-        if (isset($this->settings['limit_series_meta_to_single']) && (int)$this->settings['limit_series_meta_to_single'] > 0 && !is_single()) {
-            return $content;
-        }
+		$layout_settings = null;
+		if (
+			class_exists('PPS_Series_Post_Details_Utilities')
+			&& isset($this->settings['series_post_details_selection'])
+			&& (int) $this->settings['series_post_details_selection'] > 0
+		) {
+			$layout_settings = PPS_Series_Post_Details_Utilities::get_selected_layout_settings($this->settings);
+		}
 
-		if($this->settings['auto_tag_seriesmeta_toggle']) {
+		$limit_to_single = isset($this->settings['limit_series_meta_to_single']) ? (int) $this->settings['limit_series_meta_to_single'] : 0;
+		if ($layout_settings && isset($layout_settings['limit_to_single'])) {
+			$limit_to_single = (int) $layout_settings['limit_to_single'];
+		}
+
+		if ($limit_to_single > 0 && !is_single()) {
+			return $content;
+		}
+
+		if ($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
 			if ($series_meta = wp_seriesmeta_write(true)) {
 				$position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
-				if($position === 'top'){
+				if ($layout_settings && isset($layout_settings['metabox_position'])) {
+					$position = $layout_settings['metabox_position'];
+				}
+				if ($position === 'top') {
 					$series_meta = str_replace('%postcontent%', '', $series_meta);
-					$content = $series_meta.$content;
-				}elseif($position === 'bottom'){
+					$content = $series_meta . $content;
+				} elseif ($position === 'bottom') {
 					$series_meta = str_replace('%postcontent%', '', $series_meta);
-					$content = $content.$series_meta;
-				}else{
+					$content = $content . $series_meta;
+				} else {
 					$addcontent = $content;
 					$content = str_replace('%postcontent%', $addcontent, $series_meta);
 				}

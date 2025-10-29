@@ -49,8 +49,9 @@ class PPS_Post_List_Box_AJAX {
 
         // If no series_id provided, get a sample series for preview
         if (!$series_id) {
+            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
             $sample_series = get_terms([
-                'taxonomy' => 'series',
+                'taxonomy' => $taxonomy_slug,
                 'number' => 1,
                 'hide_empty' => false,
             ]);

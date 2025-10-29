@@ -39,6 +39,47 @@
       $('.ppseries-footer-credit.temporary').remove();
     }
 
+    // -------------------------------------------------------------
+    //   Series Post Details selection enhancement
+    // -------------------------------------------------------------
+    function toggleSeriesPostDetailsLegacyFields() {
+      var selectedMeta = $('#series_post_details_selection').val();
+      var legacyMetaFields = $('.series-meta-legacy-field');
+
+      if (selectedMeta && selectedMeta !== '') {
+        legacyMetaFields.fadeOut(300);
+      } else {
+        legacyMetaFields.fadeIn(300);
+      }
+    }
+
+    function toggleSeriesPostDetailsTemplateFields() {
+      var selectedValue = $('#series_post_details_selection').val();
+      if (selectedValue && selectedValue !== '') {
+        // Hide template fields when a Series Post Details is selected
+        $('#series_meta_template_row').hide();
+        $('#series_meta_excerpt_template_row').hide();
+        $('#limit_series_meta_to_single_row').hide();
+        $('#series_metabox_position_row').hide();
+      } else {
+        // Show template fields when "Custom Template" is selected
+        $('#series_meta_template_row').show();
+        $('#series_meta_excerpt_template_row').show();
+        $('#limit_series_meta_to_single_row').show();
+        $('#series_metabox_position_row').show();
+      }
+    }
+
+    if ($('#series_post_details_selection').length) {
+      toggleSeriesPostDetailsLegacyFields();
+      toggleSeriesPostDetailsTemplateFields();
+
+      $('#series_post_details_selection').on('change', function() {
+        toggleSeriesPostDetailsLegacyFields();
+        toggleSeriesPostDetailsTemplateFields();
+      });
+    }
+
 
     // -------------------------------------------------------------
     //   Settings tab click

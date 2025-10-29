@@ -28,6 +28,11 @@ if (!function_exists('pp_series_free_version_init')) {
         if (file_exists(SERIES_PATH . 'addons/post-list-box/init.php')) {
             require_once SERIES_PATH . 'addons/post-list-box/init.php';
         }
+
+        // Load post-details addon
+        if (file_exists(SERIES_PATH . 'addons/post-details/init.php')) {
+            require_once SERIES_PATH . 'addons/post-details/init.php';
+        }
     }
 }
 
