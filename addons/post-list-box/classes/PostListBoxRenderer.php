@@ -82,20 +82,22 @@ class PostListBoxRenderer
         
         // If series parameter is provided, use it
         if (!empty($atts['series'])) {
-            $series = get_term_by('slug', $atts['series'], 'series');
+            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+            $series = get_term_by('slug', $atts['series'], $taxonomy_slug);
             if ($series) {
                 $series_id = $series->term_id;
             }
         } else {
             // Try to get current series from context
             $queried_object = get_queried_object();
-            if ($queried_object && isset($queried_object->term_id) && $queried_object->taxonomy === 'series') {
+            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+            if ($queried_object && isset($queried_object->term_id) && $queried_object->taxonomy === $taxonomy_slug) {
                 $series_id = $queried_object->term_id;
             } else {
                 // Automatically detect series from the current post
                 global $post;
                 if ($post && is_singular()) {
-                    $series = get_the_terms($post->ID, 'series');
+                    $series = get_the_terms($post->ID, $taxonomy_slug);
                     if ($series && !is_wp_error($series)) {
                         $series_id = $series[0]->term_id;
                     }
@@ -126,6 +128,7 @@ class PostListBoxRenderer
      */
     private static function get_series_posts($series_id, $settings)
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
         $orderby = isset($settings['orderby']) ? $settings['orderby'] : 'series_order';
         $order = isset($settings['order']) ? $settings['order'] : 'ASC';
 
@@ -138,7 +141,7 @@ class PostListBoxRenderer
                 'post_status' => 'publish',
                 'tax_query' => [
                     [
-                        'taxonomy' => 'series',
+                        'taxonomy' => $taxonomy_slug,
                         'field' => 'term_id',
                         'terms' => $series_id,
                     ],
@@ -181,7 +184,7 @@ class PostListBoxRenderer
             'post_status' => 'publish',
             'tax_query' => [
                 [
-                    'taxonomy' => 'series',
+                    'taxonomy' => $taxonomy_slug,
                     'field' => 'term_id',
                     'terms' => $series_id,
                 ],

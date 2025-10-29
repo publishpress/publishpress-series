@@ -112,7 +112,8 @@ class PPS_Post_List_Box_Utilities {
         if (!empty($posts)) {
             // Get series from the first post
             $first_post = $posts[0];
-            $series_terms = get_the_terms($first_post->ID, 'series');
+            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+            $series_terms = get_the_terms($first_post->ID, $taxonomy_slug);
             
             if ($series_terms && !is_wp_error($series_terms)) {
                 return $series_terms[0]->name;

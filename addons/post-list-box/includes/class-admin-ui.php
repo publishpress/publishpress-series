@@ -283,8 +283,9 @@ class PPS_Post_List_Box_Admin_UI {
         }
 
         // Get all available series for the dropdown
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
         $all_series = get_terms([
-            'taxonomy' => 'series',
+            'taxonomy' => $taxonomy_slug,
             'hide_empty' => false,
             'orderby' => 'name',
             'order' => 'ASC',
