@@ -21,6 +21,7 @@
 .php-cs-fixer.cache
 .phpcs.xml
 .phplint-cache
+.phplint.cache
 .phplint.yml
 .rsync-filters-post-build
 .rsync-filters-pro-build
