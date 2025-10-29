@@ -46,17 +46,8 @@ class SeriesPostDetailsRenderer
 
         $base_file = PPS_Series_Post_Details_Utilities::get_module_path('post-details.php');
         $style_url = plugins_url('assets/css/series-post-details-frontend.css', $base_file);
-        $style_file = PPS_Series_Post_Details_Utilities::get_module_path('assets/css/series-post-details-frontend.css');
-
-        $version = ORG_SERIES_VERSION;
-        if ($style_file && file_exists($style_file)) {
-            $filetime = filemtime($style_file);
-            if ($filetime) {
-                $version .= '-' . $filetime;
-            }
-        }
-
-        wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], $version);
+        
+        wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], ORG_SERIES_VERSION);
 
         self::$assets_enqueued = true;
     }
@@ -651,14 +642,16 @@ class SeriesPostDetailsRenderer
      */
     public static function resolve_series_term($series_attr, $post)
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
         if (! empty($series_attr)) {
             if (is_numeric($series_attr)) {
-                $term = get_term((int) $series_attr, 'series');
+                $term = get_term((int) $series_attr, $taxonomy_slug);
                 if ($term && ! is_wp_error($term)) {
                     return $term;
                 }
             } else {
-                $term = get_term_by('slug', $series_attr, 'series');
+                $term = get_term_by('slug', $series_attr, $taxonomy_slug);
                 if ($term && ! is_wp_error($term)) {
                     return $term;
                 }
@@ -667,13 +660,13 @@ class SeriesPostDetailsRenderer
         }
 
         if ($post instanceof WP_Post) {
-            $terms = get_the_terms($post->ID, 'series');
+            $terms = get_the_terms($post->ID, $taxonomy_slug);
             if (! empty($terms) && ! is_wp_error($terms)) {
                 return reset($terms);
             }
         }
 
-        if (is_tax('series')) {
+        if (is_tax($taxonomy_slug)) {
             $term = get_queried_object();
             if ($term && isset($term->term_id)) {
                 return $term;

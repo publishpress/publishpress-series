@@ -87,8 +87,8 @@ class PPS_Series_Post_Details_Utilities
 
             // Styling settings
             'background_color'           => '#eef5ff',
-            'text_color'                 => '#1d2327',
-            'link_color'                 => '#1a5aff',
+            'text_color'                 => '#383838',
+            'link_color'                 => '#2971B1',
             'border_color'               => '#c7d7f5',
             'text_size'                  => 16,
 
@@ -207,8 +207,10 @@ class PPS_Series_Post_Details_Utilities
      */
     public static function ensure_sample_series_term()
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
         $terms = get_terms([
-            'taxonomy'   => 'series',
+            'taxonomy'   => $taxonomy_slug,
             'number'     => 1,
             'hide_empty' => false,
         ]);
@@ -217,12 +219,12 @@ class PPS_Series_Post_Details_Utilities
             return $terms[0];
         }
 
-        $result = wp_insert_term(__('Sample Series', 'organize-series'), 'series');
+        $result = wp_insert_term(__('Sample Series', 'organize-series'), $taxonomy_slug);
         if (is_wp_error($result)) {
             return null;
         }
 
-        return get_term($result['term_id'], 'series');
+        return get_term($result['term_id'], $taxonomy_slug);
     }
 
     /**
@@ -230,11 +232,13 @@ class PPS_Series_Post_Details_Utilities
      */
     public static function get_sample_series_posts($series_id)
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
         $posts = get_posts([
             'post_type'      => 'post',
             'tax_query'      => [
                 [
-                    'taxonomy' => 'series',
+                    'taxonomy' => $taxonomy_slug,
                     'field'    => 'term_id',
                     'terms'    => $series_id,
                 ],

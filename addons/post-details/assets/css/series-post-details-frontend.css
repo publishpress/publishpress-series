@@ -18,6 +18,10 @@
     text-decoration: none;
 }
 
+.pps-series-meta-text a {
+    text-decoration: none;
+}
+
 .pps-series-meta-box a:hover,
 .pps-series-meta-box a:focus {
     text-decoration: underline;

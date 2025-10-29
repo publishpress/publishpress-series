@@ -217,7 +217,7 @@ class PPS_Series_Post_Details_Admin_UI
 
         // Category separators span both columns
         if ($args['type'] === 'category_separator') {
-            echo '<td colspan="2" class="pps-field-separator" style="padding-top: 20px; padding-bottom: 10px;">';
+            echo '<td colspan="2" class="pps-field-separator" style="padding-top: 20px; padding-bottom: 10px; padding-left: 0px;">';
             self::render_field_input($args);
             echo '</td>';
         } else {

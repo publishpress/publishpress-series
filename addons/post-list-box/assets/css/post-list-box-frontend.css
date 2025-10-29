@@ -166,10 +166,8 @@
 
 .pps-post-item.current-post .pps-post-title a {
     color: inherit;
-    font-weight: 700;
 }
 
 .pps-post-item.current-post .pps-post-meta {
     color: inherit;
-    opacity: 0.8;
 }
