@@ -87,8 +87,8 @@ class PPS_Series_Post_Details_Utilities
 
             // Styling settings
             'background_color'           => '#eef5ff',
-            'text_color'                 => '#1d2327',
-            'link_color'                 => '#1a5aff',
+            'text_color'                 => '#383838',
+            'link_color'                 => '#2971B1',
             'border_color'               => '#c7d7f5',
             'text_size'                  => 16,
 

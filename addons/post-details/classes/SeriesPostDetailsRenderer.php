@@ -46,17 +46,8 @@ class SeriesPostDetailsRenderer
 
         $base_file = PPS_Series_Post_Details_Utilities::get_module_path('post-details.php');
         $style_url = plugins_url('assets/css/series-post-details-frontend.css', $base_file);
-        $style_file = PPS_Series_Post_Details_Utilities::get_module_path('assets/css/series-post-details-frontend.css');
-
-        $version = ORG_SERIES_VERSION;
-        if ($style_file && file_exists($style_file)) {
-            $filetime = filemtime($style_file);
-            if ($filetime) {
-                $version .= '-' . $filetime;
-            }
-        }
-
-        wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], $version);
+        
+        wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], ORG_SERIES_VERSION);
 
         self::$assets_enqueued = true;
     }
