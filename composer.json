@@ -34,6 +34,7 @@
     "build:dir": "pbuild build-dir",
     "build:clean": "pbuild clean",
     "info:versions": "pbuild version",
+    "check:lint": "phplint",
     "check:longpath": "longpath .",
     "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
     "pre-update-cmd": "composer update --working-dir=./lib",
