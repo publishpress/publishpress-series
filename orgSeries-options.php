@@ -14,6 +14,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 
 // series changes upgrade and notices
 add_action('admin_init', 'publishpress_series_process_upgrade');
+add_action('admin_init', 'publishpress_series_sync_menu_order');
 add_action('admin_notices', 'publishpress_series_upgrade_require_changes');
 add_action('after_plugin_row', 'publishpress_series_upgrade_require_row_notice', 10, 2);
 
@@ -1226,6 +1227,24 @@ function series_uninstall_core_fieldset() {
 
 			<tr valign="top">
             	<th scope="row"><label>
+                	    <?php esc_html_e('Sync Series Order to Menu Order', 'organize-series'); ?>
+                	</label>
+            	</th>
+
+            	<td>
+					<a class="button" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=sync-menu-order&nonce='. wp_create_nonce('sync-menu-order-action'))); ?>"><?php esc_html_e('Sync to Menu Order', 'organize-series'); ?></a>
+                    <div>
+						<label>
+							<span class="description">
+								<?php esc_html_e('This will sync all series part numbers to WordPress menu_order field. Useful for themes/page builders that can only sort by menu order (Page Attributes: Order). This allows you to use native WordPress ordering instead of custom fields.', 'organize-series'); ?>
+							</span>
+						</label>
+                    </div>
+                </td>
+        	</tr>
+
+			<tr valign="top">
+            	<th scope="row"><label>
                 	    <?php esc_html_e('Reset settings', 'organize-series'); ?>
                 	</label>
             	</th>
@@ -1237,7 +1256,7 @@ function series_uninstall_core_fieldset() {
 }
 
 function publishpress_series_upgrade_require_changes() {
-	if (isset($_REQUEST['series_action']) && $_REQUEST['series_action'] === 'multiple-series-support') {
+	if (isset($_REQUEST['series_action']) && in_array($_REQUEST['series_action'], ['multiple-series-support', 'sync-menu-order'])) {
 		//we don't want to show the warning after the migration request
 		return;
 	}
@@ -1323,6 +1342,91 @@ function publishpress_series_process_upgrade() {
 				</div>
 				<?php
 			});
+	}
+}
+
+function publishpress_series_sync_menu_order() {
+	global $wpdb;
+	if (isset($_REQUEST['series_action'])
+		&& isset($_REQUEST['nonce'])
+		&& $_REQUEST['series_action'] === 'sync-menu-order'
+		&& wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'sync-menu-order-action')
+		&& current_user_can('manage_publishpress_series')
+	) {
+		$updated_count = 0;
+		
+		// Get all series
+		$all_series = get_terms(array(
+			'taxonomy' => ppseries_get_series_slug(),
+			'hide_empty' => false,
+		));
+		
+		if (!empty($all_series) && !is_wp_error($all_series)) {
+			foreach ($all_series as $series) {
+				$series_id = $series->term_id;
+				$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+				
+				// Get all posts in this series with their part numbers
+				$query = $wpdb->prepare(
+					"SELECT p.ID, pm.meta_value as series_part 
+					FROM {$wpdb->posts} p 
+					INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id 
+					INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id 
+					INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id 
+					WHERE pm.meta_key = %s 
+					AND tt.term_id = %d 
+					AND tt.taxonomy = %s 
+					AND p.post_status = 'publish'",
+					$part_key,
+					$series_id,
+					ppseries_get_series_slug()
+				);
+				
+				$posts = $wpdb->get_results($query);
+				
+				if (!empty($posts)) {
+					foreach ($posts as $post) {
+						$series_part = (int) $post->series_part;
+						
+						// Update menu_order to match series part
+						$result = $wpdb->update(
+							$wpdb->posts,
+							array('menu_order' => $series_part),
+							array('ID' => $post->ID),
+							array('%d'),
+							array('%d')
+						);
+						
+						if ($result !== false) {
+							$updated_count++;
+							clean_post_cache($post->ID);
+						}
+					}
+				}
+			}
+		}
+		
+		add_filter('removable_query_args', function ($args) {
+			return array_merge($args, [
+				'series_action',
+				'nonce',
+			]);
+		});
+		
+		add_action('admin_notices', function () use ($updated_count) {
+			?>
+			<div class="notice notice-success is-dismissible">
+				<p>
+					<?php 
+					printf(
+						esc_html__('Series order sync completed. %d posts updated.', 'organize-series'),
+						$updated_count
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		});
 	}
 }
 
