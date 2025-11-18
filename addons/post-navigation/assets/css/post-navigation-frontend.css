@@ -1,0 +1,97 @@
+/* Series Post Navigation Frontend Styles */
+
+.pps-post-navigation {
+    margin: 20px 0;
+}
+
+.pps-navigation-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.pps-nav-series-title {
+    font-weight: 600;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.pps-nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.pps-nav-links a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.pps-nav-separator {
+    color: #999;
+    margin: 0 5px;
+}
+
+/* Raw text links - no button styling */
+.pps-post-navigation .pps-nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: #0073aa;
+    text-decoration: none;
+}
+
+/* Featured image styles */
+.pps-nav-featured-image {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.pps-nav-link-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Arrow styles */
+.pps-nav-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.pps-nav-arrow svg {
+    display: block;
+}
+
+.pps-nav-arrow-custom {
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pps-navigation-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pps-nav-links {
+        flex-wrap: wrap;
+    }
+    
+    .pps-nav-featured-image {
+        max-width: 60px;
+        height: auto;
+    }
+}

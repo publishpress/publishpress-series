@@ -33,6 +33,11 @@ if (!function_exists('pp_series_free_version_init')) {
         if (file_exists(SERIES_PATH . 'addons/post-details/init.php')) {
             require_once SERIES_PATH . 'addons/post-details/init.php';
         }
+
+        // Load post-navigation addon
+        if (file_exists(SERIES_PATH . 'addons/post-navigation/init.php')) {
+            require_once SERIES_PATH . 'addons/post-navigation/init.php';
+        }
     }
 }
 

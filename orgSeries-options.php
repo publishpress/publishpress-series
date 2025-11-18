@@ -181,6 +181,9 @@ function orgseries_validate($input) {
 	$default_post_details_id = PPS_Series_Post_Details_Utilities::get_default_series_post_details_id() ?: '';
 	$newinput['series_post_details_selection'] = isset($input['series_post_details_selection']) ? intval($input['series_post_details_selection']) : $default_post_details_id;
 
+	$default_nav_id = class_exists('PPS_Series_Post_Navigation_Utilities') ? PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_id() : '';
+	$newinput['series_post_navigation_selection'] = isset($input['series_post_navigation_selection']) ? intval($input['series_post_navigation_selection']) : $default_nav_id;
+
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
@@ -967,14 +970,40 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php esc_html_e('Series Post Navigation:', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_nav_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))) : ''; ?></textarea>
+							<tr valign="top" id="series_post_navigation_selection_row"><th scope="row"><label for="series_post_navigation_selection"><?php esc_html_e('Post Navigation Selection', 'organize-series'); ?></label></th>
+								<td>
+									<?php
+									// Get all post navigation layouts
+									$post_navigation_layouts = get_posts([
+										'post_type' => 'pps_post_navigation',
+										'post_status' => 'publish',
+										'numberposts' => -1,
+										'orderby' => 'title',
+										'order' => 'ASC'
+									]);
+
+									// Get the default post navigation ID
+									$default_nav_id = class_exists('PPS_Series_Post_Navigation_Utilities') ? PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_id() : '';
+									?>
+									<select name="<?php echo esc_attr($org_name); ?>[series_post_navigation_selection]" id="series_post_navigation_selection" class="ppseries-full-width">
+										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
+										<?php foreach ($post_navigation_layouts as $nav_layout): ?>
+											<option value="<?php echo esc_attr($nav_layout->ID); ?>" <?php selected(isset($org_opt['series_post_navigation_selection']) ? $org_opt['series_post_navigation_selection'] : $default_nav_id, $nav_layout->ID); ?>>
+												<?php echo esc_html($nav_layout->post_title); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
 								</td>
 							</tr>
 
-								<tr valign="top"><th scope="row"><label for="series_navigation_box_position"><?php esc_html_e('Series Post Navigation Location', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_nav_template_row"><th scope="row"><label for="series_post_nav_template"><?php esc_html_e('Series Post Navigation:', 'organize-series'); ?></label></th>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width series-post-navigation-legacy-field"><?php echo isset($org_opt['series_post_nav_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))) : ''; ?></textarea>
+								</td>
+							</tr>
+
+								<tr valign="top" id="series_navigation_box_position_row"><th scope="row"><label for="series_navigation_box_position"><?php esc_html_e('Series Post Navigation Location', 'organize-series'); ?></label></th>
 									<td>
-										<select name="<?php echo esc_attr($org_name);?>[series_navigation_box_position]" id="series_navigation_box_position">
+										<select name="<?php echo esc_attr($org_name);?>[series_navigation_box_position]" id="series_navigation_box_position" class="series-post-navigation-legacy-field">
 										<?php
 										foreach($post_box_locations as $key => $label){
 											$selected = ( isset($org_opt['series_navigation_box_position']) && $org_opt['series_navigation_box_position'] === $key ) ? 'selected="selected"' : '';
@@ -987,18 +1016,18 @@ function series_templates_core_fieldset() {
 									</td>
 								</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_nextpost_nav_custom_text_row"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_prevpost_nav_custom_text_row"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_firstpost_nav_custom_text"><?php esc_html_e('First Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_firstpost_nav_custom_text_row"><th scope="row"><label for="series_firstpost_nav_custom_text"><?php esc_html_e('First Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
