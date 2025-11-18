@@ -119,36 +119,46 @@ function orgseries_validate($input) {
 			update_option('orgseries_update_message', $update['updated_output']);
 			return $input;
 		}
-	}elseif ( isset($_POST['migrate_series']) && (int)$_POST['migrate_series'] === 1 ) {
+	}
 
+	// Handle term migration if checkbox is checked
+	if ( isset($_POST['migrate_series_terms']) && (int)$_POST['migrate_series_terms'] === 1 ) {
         global $wpdb;
 
         ppseries_register_temporary_taxonomy();
 
-        $input = $orgseries->settings;
+        // Get the OLD taxonomy slug from saved options (before the new input is saved)
+        $old_taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
+        // Get the NEW taxonomy slug from the POST input
+        $new_taxonomy_slug = isset($_POST['org_series_options']['series_taxonomy_slug']) && !empty(trim($_POST['org_series_options']['series_taxonomy_slug'])) 
+            ? sanitize_text_field($_POST['org_series_options']['series_taxonomy_slug']) 
+            : 'series';
 
-
-        $args = array(
-            'hide_empty' => false,
-            'taxonomy' => 'series'
-        );
-        $terms = get_terms($args);
-
-        $count = 0;
-
-        foreach ( $terms as $term ) {
-            $count++;
-            $wpdb->update(
-                $wpdb->prefix . 'term_taxonomy',
-                [ 'taxonomy' => ppseries_get_series_slug() ],
-                [ 'term_taxonomy_id' => $term->term_id ],
-                [ '%s' ],
-                [ '%d' ]
+        // Only migrate if taxonomy slug has actually changed
+        if ($old_taxonomy_slug !== $new_taxonomy_slug) {
+            $args = array(
+                'hide_empty' => false,
+                'taxonomy' => $old_taxonomy_slug
             );
+            $terms = get_terms($args);
+
+            $count = 0;
+
+            foreach ( $terms as $term ) {
+                $count++;
+                $wpdb->update(
+                    $wpdb->prefix . 'term_taxonomy',
+                    [ 'taxonomy' => $new_taxonomy_slug ],
+                    [ 'term_taxonomy_id' => $term->term_id ],
+                    [ '%s' ],
+                    [ '%d' ]
+                );
+            }
+            $update['updated_output'] = '<div class="updated"><p>'. sprintf(esc_html__('%1$s series migrated from "%2$s" to "%3$s" taxonomy. Settings updated.', 'organize-series'), $count, $old_taxonomy_slug, $new_taxonomy_slug) .'</p></div>';
+        } else {
+            $update['updated_output'] = '<div class="updated"><p>' . esc_html__('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
         }
-        $update['updated_output'] = '<div class="updated"><p>'. sprintf(esc_html__('%1$s series migrated to new taxonomy', 'organize-series'), $count) .'</p></div>';
-        update_option('orgseries_update_message', $update['updated_output']);
-        return $input;
 	} else {
 		$update['updated_output'] = '<div class="updated"><p>' . esc_html__('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
 	}
@@ -1146,21 +1156,23 @@ function series_taxonomy_base_core_fieldset() {
                     </p>
                 </td>
             </tr>
-            <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
+            
 			<tr valign="top">
-            	<th scope="row"><label>
-                	    <?php esc_html_e('Migrate', 'organize-series'); ?>
+            	<th scope="row"><label for="migrate_series_terms">
+                	    <?php esc_html_e('Migrate Terms', 'organize-series'); ?>
                 	</label>
             	</th>
             	<td>
-                    <button type="submit" class="button" name="migrate_series" value="1"><?php esc_html_e('Migrate series to new taxonomy', 'organize-series'); ?></button>
-                    <div><br />
-                    <font color="red"><?php esc_html_e('Please use with caution. Running this process will delete all the terms from the current taxonomy and migrate them to a new taxonomy.', 'organize-series'); ?></font>
-                    </div>
-                    <span class="spinner ppseries-spinner"></span>
+                    <label>
+                        <input type="checkbox" name="migrate_series_terms" id="migrate_series_terms" value="1" />
+                        <?php esc_html_e('Automatically migrate existing series terms to the new taxonomy', 'organize-series'); ?>
+                    </label>
+                    <p class="description">
+                        <font color="red"><?php esc_html_e('If checked, all terms from the current taxonomy will be migrated to the new taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy slug will be changed.', 'organize-series'); ?></font>
+                    </p>
                 </td>
         	</tr>
-            <?php } ?>
+           
 
     </tbody>
 	</table>	<?php
