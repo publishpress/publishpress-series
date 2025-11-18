@@ -110,7 +110,7 @@ class PPS_Post_List_Box_Fields {
             'gap_between_items' => 10,
             'highlight_current_post' => 1,
             'current_post_bg_color' => '#fff3cd',
-            'current_post_border_color' => '#ffeaa7',
+            'current_post_border_color' => '#e5e5e5',
             'current_post_text_color' => '#2971B1',
             'show_post_titles' => 1,
             'post_title_color' => '#2971B1',
