@@ -6,6 +6,21 @@
     'use strict';
 
     $(document).ready(function() {
+        var $seriesSelect = $('#pps-series-post-navigation-preview-select');
+        var $previewContent = $('#pps-series-post-navigation-preview-content');
+        var i18n = ppsSeriesPostNavigationEditor.i18n || {};
+        var loadingText = i18n.loading_preview || 'Loading preview...';
+        var errorText = i18n.error_loading_preview || 'Error updating preview.';
+
+        function setPreviewMessage(message) {
+            if (!$previewContent.length) {
+                return;
+            }
+
+            var text = message || '';
+            $previewContent.empty().append($('<p></p>').text(text));
+        }
+
         // Shared helper for conditional row visibility
         function setRowVisibility($row, shouldShow, activeTab) {
             if (shouldShow && $row.data('tab') === activeTab) {
@@ -147,10 +162,22 @@
             updatePreview();
         });
 
+        if ($seriesSelect.length) {
+            $seriesSelect.on('change', function(e) {
+                e.preventDefault();
+                updatePreview();
+            });
+        }
+
         // Update preview via AJAX
         function updatePreview() {
             var postId = ppsSeriesPostNavigationEditor.post_id;
             var formData = $('.pps-series-post-navigation-editor-table').find('input, select, textarea').serialize();
+            var seriesId = $seriesSelect.length ? $seriesSelect.val() : 0;
+
+            if ($previewContent.length && seriesId) {
+                setPreviewMessage(loadingText);
+            }
 
             $.ajax({
                 url: ppsSeriesPostNavigationEditor.ajax_url,
@@ -159,14 +186,19 @@
                     action: 'pps_update_series_post_navigation_preview',
                     post_id: postId,
                     settings: formData,
-                    nonce: ppsSeriesPostNavigationEditor.nonce
+                    nonce: ppsSeriesPostNavigationEditor.nonce,
+                    series_id: seriesId
                 },
                 success: function(response) {
                     if (response.success) {
-                        $('#pps-series-post-navigation-preview-content').html(response.data.preview);
+                        $previewContent.html(response.data.preview);
+                    } else {
+                        var message = response && response.data && response.data.message ? response.data.message : errorText;
+                        setPreviewMessage(message);
                     }
                 },
                 error: function() {
+                    setPreviewMessage(errorText);
                     console.error('Error updating preview');
                 }
             });

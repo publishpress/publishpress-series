@@ -12,14 +12,26 @@ class PPS_Series_Post_Navigation_Preview
     /**
      * Render preview metabox content
      */
-    public static function render_preview(WP_Post $post)
+    public static function render_preview(WP_Post $post, $series_term_id = 0)
     {
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings(
             $post->ID,
             $post->post_status === 'auto-draft'
         );
 
-        $series_term = PPS_Series_Post_Navigation_Utilities::ensure_sample_series_term();
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        $series_term = null;
+
+        if ($series_term_id) {
+            $series_term = get_term($series_term_id, $taxonomy_slug);
+            if ($series_term instanceof WP_Error) {
+                $series_term = null;
+            }
+        }
+
+        if (! $series_term) {
+            $series_term = PPS_Series_Post_Navigation_Utilities::ensure_sample_series_term();
+        }
 
         if (! $series_term) {
             echo '<p>' . esc_html__('Create a series to preview the navigation.', 'publishpress-series') . '</p>';
