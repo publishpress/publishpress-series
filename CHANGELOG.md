@@ -1,6 +1,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+v2.17.0- 2025-11-19
+* Added: Series Post Navigation editor #998
+* Added: Add a View link from the Series Order screen #984
+* Added: Add a checkbox to migrate terms to new taxonomies
+* Fixed: Border color does not match on Post List Box
+* Update: ES-FR-IT Translation #1002
+
 v2.16.0- 2025-10-29
 * Added: Series Post Details editor #969
 * Fixed: Resolve PHP warning on Post List Box editor #944
