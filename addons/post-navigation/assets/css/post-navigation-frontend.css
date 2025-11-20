@@ -5,10 +5,11 @@
 }
 
 .pps-nav-series-title {
-    font-weight: 600;
+    margin: 0;
     margin-right: 10px;
     display: flex;
     align-items: center;
+    font-size: 24px;
 }
 
 .pps-nav-links {
@@ -17,6 +18,18 @@
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+}
+
+/* When there's only one link (Next on first post), position it on the right */
+.pps-nav-links .pps-nav-next:only-child {
+    margin-left: auto;
+}
+
+/* Left group for proper separator positioning with space-between */
+.pps-nav-left-group {
+    display: inline-flex;
+    align-items: center;
+    gap: inherit;
 }
 
 .pps-nav-links a {

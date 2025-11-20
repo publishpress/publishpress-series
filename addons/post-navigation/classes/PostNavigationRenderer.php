@@ -140,7 +140,6 @@ class PostNavigationRenderer
         $layout_class = 'pps-post-navigation-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
 
-
         $layout_class_attr = esc_attr($layout_class);
         $series_id_attr = esc_attr($series_id);
         
@@ -216,7 +215,7 @@ class PostNavigationRenderer
 
         // Series title
         if (!empty($settings['include_series_title'])) {
-            $content_parts[] = '<span class="pps-nav-series-title">' . esc_html($series_term->name) . '</span>';
+            $content_parts[] = '<h3 class="pps-nav-series-title">' . esc_html($series_term->name) . '</h3>';
         }
 
         // Navigation links (prev, next, first)
@@ -328,7 +327,8 @@ class PostNavigationRenderer
 
         if (!empty($nav_links)) {
             $separator = isset($settings['separator_text']) ? $settings['separator_text'] : '|';
-            $content_parts[] = '<span class="pps-nav-links">' . implode(' <span class="pps-nav-separator">' . esc_html($separator) . '</span> ', $nav_links) . '</span>';
+            $links_html = self::build_nav_links_html($nav_links, $separator);
+            $content_parts[] = '<span class="pps-nav-links">' . $links_html . '</span>';
         }
 
         if (empty($content_parts)) {
@@ -374,7 +374,7 @@ class PostNavigationRenderer
 
         // Series title
         if (!empty($settings['include_series_title'])) {
-            $content_parts[] = '<span class="pps-nav-series-title">' . esc_html($series_term->name) . '</span>';
+            $content_parts[] = '<h3 class="pps-nav-series-title">' . esc_html($series_term->name) . '</h3>';
         }
 
         // Navigation links (prev, next, first)
@@ -521,7 +521,8 @@ class PostNavigationRenderer
         }
 
         $separator = isset($settings['separator_text']) ? $settings['separator_text'] : '|';
-        $content_parts[] = '<span class="pps-nav-links">' . implode(' <span class="pps-nav-separator">' . esc_html($separator) . '</span> ', $nav_links) . '</span>';
+        $links_html = self::build_nav_links_html($nav_links, $separator);
+        $content_parts[] = '<span class="pps-nav-links">' . $links_html . '</span>';
 
         return '<div class="pps-navigation-content">' . implode(' ', $content_parts) . '</div>';
     }
@@ -860,6 +861,44 @@ class PostNavigationRenderer
     }
 
     /**
+     * Build navigation links HTML with proper grouping for space-between layout.
+     * Groups all links except the last one together, so the last link (usually Next) 
+     * appears on the right side.
+     *
+     * @param array  $nav_links Array of link HTML strings.
+     * @param string $separator Separator text.
+     *
+     * @return string
+     */
+    private static function build_nav_links_html(array $nav_links, $separator)
+    {
+        if (empty($nav_links)) {
+            return '';
+        }
+
+        $count = count($nav_links);
+        
+        // If only one link, return it as-is
+        if ($count === 1) {
+            return $nav_links[0];
+        }
+
+        // Group all links except the last one
+        $left_group = [];
+        for ($i = 0; $i < $count - 1; $i++) {
+            $left_group[] = $nav_links[$i];
+        }
+        
+        $last_link = $nav_links[$count - 1];
+        
+        // Build left group with separators
+        $left_html = implode(' <span class="pps-nav-separator">' . esc_html($separator) . '</span> ', $left_group);
+        
+        // Wrap left group in a span and add the last link separately
+        return '<span class="pps-nav-left-group">' . $left_html . '</span> <span class="pps-nav-separator">' . esc_html($separator) . '</span> ' . $last_link;
+    }
+
+    /**
      * Get the first post in a series.
      *
      * @param int $series_id Series term ID.
@@ -994,9 +1033,6 @@ class PostNavigationRenderer
 
         $css = [];
 
-        // Get alignment setting
-        $alignment = isset($settings['alignment']) ? $settings['alignment'] : 'center';
-
         // Navigation content styles (now the main wrapper)
         $content_styles = [];
         $nav_links_styles = [];
@@ -1044,20 +1080,7 @@ class PostNavigationRenderer
         $nav_links_styles[] = 'flex-wrap: wrap;';
         $nav_links_styles[] = 'align-items: center;';
         $nav_links_styles[] = 'width: 100%;';
-
-        // Alignment handling for nav links
-        if ($alignment === 'justify') {
-            $nav_links_styles[] = 'justify-content: space-between;';
-            $nav_links_styles[] = 'gap: 0;';
-        } else {
-            $justify = 'center';
-            if ($alignment === 'left') {
-                $justify = 'flex-start';
-            } elseif ($alignment === 'right') {
-                $justify = 'flex-end';
-            }
-            $nav_links_styles[] = 'justify-content: ' . $justify . ';';
-        }
+        $nav_links_styles[] = 'justify-content: space-between;';
 
         // Series title alignment (independent from nav links alignment)
         $series_title_alignment = isset($settings['series_title_alignment']) ? $settings['series_title_alignment'] : 'center';
@@ -1069,11 +1092,10 @@ class PostNavigationRenderer
         }
         $title_styles[] = 'align-self: ' . $title_align_self . ';';
         $title_styles[] = 'text-align: ' . $series_title_alignment . ';';
-
-        // Gap between links (not used for justify mode)
-        if ($alignment !== 'justify') {
-            $gap = isset($settings['gap_between_links']) ? (int) $settings['gap_between_links'] : 10;
-            $nav_links_styles[] = sprintf('gap: %dpx;', $gap);
+        
+        // Series title color
+        if (! empty($settings['series_title_color'])) {
+            $title_styles[] = 'color: ' . esc_attr($settings['series_title_color']) . ';';
         }
 
         if (! empty($content_styles)) {
