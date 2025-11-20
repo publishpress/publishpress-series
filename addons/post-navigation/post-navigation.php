@@ -230,9 +230,7 @@ class PPS_Series_Post_Navigation
         $settings['next_link_type'] = 'post_title';
         $settings['next_show_arrow'] = 1;
         $settings['next_arrow_type'] = 'arrow_right';
-        $settings['first_link_type'] = 'custom';
-        $settings['first_label'] = 'First Series';
-        $settings['first_link_position'] = 'left';
+        $settings['first_link_type'] = 'none';
         $settings['link_color'] = '#2971B1';
         $settings['alignment'] = 'justify';
         $settings['border_width'] = '0';
