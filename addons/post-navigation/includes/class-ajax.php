@@ -62,7 +62,21 @@ class PPS_Series_Post_Navigation_Ajax
             }
         }
 
-        $series_term = PPS_Series_Post_Navigation_Utilities::ensure_sample_series_term();
+        $series_id = isset($_POST['series_id']) ? (int) $_POST['series_id'] : 0;
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+
+        $series_term = null;
+        if ($series_id) {
+            $series_term = get_term($series_id, $taxonomy_slug);
+            if ($series_term instanceof WP_Error) {
+                $series_term = null;
+            }
+        }
+
+        if (! $series_term) {
+            $series_term = PPS_Series_Post_Navigation_Utilities::ensure_sample_series_term();
+        }
+
         if (! $series_term) {
             wp_send_json_error(['message' => __('No series available to preview.', 'publishpress-series')]);
         }

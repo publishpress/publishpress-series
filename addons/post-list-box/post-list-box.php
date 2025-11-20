@@ -67,6 +67,9 @@ class PPS_Post_List_Box
 
         // Create default Post List Boxes if they don't exist
         add_action('init', [$this, 'create_default_post_list_boxes'], 10);
+        
+        // Set default post list box selection in settings
+        add_filter('org_series_settings', [$this, 'set_default_post_list_box_selection']);
     }
 
     /**
@@ -168,6 +171,23 @@ class PPS_Post_List_Box
             // Save the default meta data
             update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $default_data);
         }
+    }
+
+    /**
+     * Set default post list box selection in settings
+     *
+     * @param array $settings Current settings
+     * @return array Modified settings
+     */
+    public function set_default_post_list_box_selection($settings)
+    {
+        // Only set default if not already set
+        if (!isset($settings['series_post_list_box_selection'])) {
+            $default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+            $settings['series_post_list_box_selection'] = $default_box_id ?: '';
+        }
+        
+        return $settings;
     }
 
     /**

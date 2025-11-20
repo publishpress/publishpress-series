@@ -95,9 +95,38 @@ class PPS_Series_Post_Navigation_Admin_UI
      */
     public static function render_preview_box(WP_Post $post)
     {
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        $all_series = get_terms([
+            'taxonomy'   => $taxonomy_slug,
+            'hide_empty' => false,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+        ]);
+
+        $selected_series_id = (! empty($all_series) && ! is_wp_error($all_series))
+            ? (int) $all_series[0]->term_id
+            : 0;
+
         echo '<div class="pps-series-post-navigation-preview">';
+
+        echo '<div class="pps-series-selector-container" style="margin-bottom: 20px;">';
+        if (! empty($all_series) && ! is_wp_error($all_series)) {
+            echo '<div class="pps-series-selector">';
+            echo '<label for="pps-series-post-navigation-preview-select">' . esc_html__('Select Series to Preview:', 'publishpress-series-pro') . '</label>';
+            echo '<select id="pps-series-post-navigation-preview-select" style="margin-left: 10px; min-width: 200px;">';
+            foreach ($all_series as $series) {
+                $selected = selected($selected_series_id, (int) $series->term_id, false);
+                echo '<option value="' . esc_attr($series->term_id) . '"' . $selected . '>' . esc_html($series->name) . '</option>';
+            }
+            echo '</select>';
+            echo '</div>';
+        } else {
+            echo '<p class="description">' . esc_html__('No series found. Create a series to preview the navigation.', 'publishpress-series-pro') . '</p>';
+        }
+        echo '</div>';
+
         echo '<div id="pps-series-post-navigation-preview-content" class="pps-series-post-navigation-preview-content">';
-        PPS_Series_Post_Navigation_Preview::render_preview($post);
+        PPS_Series_Post_Navigation_Preview::render_preview($post, $selected_series_id);
         echo '</div>';
         echo '</div>';
     }

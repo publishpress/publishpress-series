@@ -104,6 +104,13 @@ class PPS_Series_Post_Navigation_Fields
                 'sanitize' => 'sanitize_text_field',
                 'default'  => 'center',
             ],
+            'series_title_color' => [
+                'label'    => __('Series Title Color', 'publishpress-series-pro'),
+                'type'     => 'color',
+                'tab'      => 'general',
+                'sanitize' => 'sanitize_hex_color',
+                'default'  => '#2971B1',
+            ],
             'hide_when_single_post' => [
                 'label'    => __('Hide When Single Post', 'publishpress-series'),
                 'type'     => 'checkbox',
@@ -518,34 +525,6 @@ class PPS_Series_Post_Navigation_Fields
     private static function get_layout_fields()
     {
         return [
-            'layout_separator' => [
-                'type'  => 'category_separator',
-                'label' => __('Layout Options', 'publishpress-series'),
-                'tab'   => 'layout',
-            ],
-            'separator_text' => [
-                'label'    => __('Navigation Separator', 'publishpress-series'),
-                'type'     => 'text',
-                'tab'      => 'layout',
-                'sanitize' => 'sanitize_text_field',
-                'default'  => '|',
-                'description' => __('Text to display between navigation links (e.g., |, •, →)', 'publishpress-series'),
-            ],
-            'alignment' => [
-                'label'    => __('Alignment', 'publishpress-series'),
-                'type'     => 'select',
-                'tab'      => 'layout',
-                'options'  => [
-                    'left'    => __('Left', 'publishpress-series'),
-                    'center'  => __('Center', 'publishpress-series'),
-                    'right'   => __('Right', 'publishpress-series'),
-                    'justify' => __('Space Between', 'publishpress-series'),
-                ],
-                'sanitize' => 'sanitize_text_field',
-                'default'  => 'center',
-                'description' => __('Horizontal alignment of navigation. Justify spreads links across full width.', 'publishpress-series'),
-            ],
-            
             'container_border_separator' => [
                 'type'  => 'category_separator',
                 'label' => __('Container Style', 'publishpress-series'),

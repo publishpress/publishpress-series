@@ -1,4 +1,7 @@
-/* Series Post Navigation Editor Styles - Matching Post Details & Post List Box */
+.pps-nav-links a {
+    font-size: 16px;
+}
+
 
 .publishpress-series-post-navigation-editor {
     display: flex;
@@ -135,60 +138,32 @@
 }
 
 .pps-series-post-navigation-preview-content {
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 4px;
     border: 1px solid #e5e5e5;
 }
 
-.pps-series-post-navigation-preview .pps-post-navigation {
-    margin: 20px 0;
-    font-size: 1em;
-}
-
+/* Preview styles - minimal fallbacks, dynamic CSS takes precedence */
 .pps-series-post-navigation-preview .pps-navigation-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.pps-series-post-navigation-preview .pps-nav-series-title {
-    font-weight: 600;
-    margin-right: 10px;
-}
-
-.pps-series-post-navigation-preview .pps-nav-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.pps-series-post-navigation-preview .pps-nav-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 4px;
-    color: #333333;
-    text-decoration: none;
     font-size: 1em;
-}
-
-.pps-series-post-navigation-preview .pps-nav-separator {
-    color: #999;
-    margin: 0 5px;
+    box-sizing: border-box;
 }
 
 .pps-series-post-navigation-preview .pps-nav-arrow {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.pps-series-post-navigation-preview .pps-nav-arrow svg {
+    display: block;
 }
 
 .pps-series-post-navigation-preview .pps-nav-link-text {
     display: inline-block;
+    vertical-align: middle;
 }
 
 @media only screen and (max-width: 1270px) {

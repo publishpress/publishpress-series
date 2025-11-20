@@ -82,6 +82,10 @@ class PPS_Series_Post_Navigation
                 'post_id' => $post ? $post->ID : 0,
                 'nonce' => wp_create_nonce('series-post-navigation-nonce'),
                 'ajax_url' => admin_url('admin-ajax.php'),
+                'i18n' => [
+                    'loading_preview' => __('Loading preview...', 'publishpress-series-pro'),
+                    'error_loading_preview' => __('Error updating preview.', 'publishpress-series-pro'),
+                ],
             ]
         );
 
@@ -226,9 +230,7 @@ class PPS_Series_Post_Navigation
         $settings['next_link_type'] = 'post_title';
         $settings['next_show_arrow'] = 1;
         $settings['next_arrow_type'] = 'arrow_right';
-        $settings['first_link_type'] = 'custom';
-        $settings['first_label'] = 'First Series';
-        $settings['first_link_position'] = 'left';
+        $settings['first_link_type'] = 'none';
         $settings['link_color'] = '#2971B1';
         $settings['alignment'] = 'justify';
         $settings['border_width'] = '0';
