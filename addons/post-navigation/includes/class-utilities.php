@@ -69,7 +69,6 @@ class PPS_Series_Post_Navigation_Utilities
             'include_series_title' => 0,
             'series_title_alignment' => 'center',
             'series_title_color' => '#2971B1',
-            'separator_text' => '|',
             'hide_when_single_post' => 1,
             'container_background_color' => 'transparent',
             'variant' => 'text-only',

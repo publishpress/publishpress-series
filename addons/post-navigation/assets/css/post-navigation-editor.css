@@ -1,4 +1,7 @@
-/* Series Post Navigation Editor Styles - Matching Post Details & Post List Box */
+.pps-nav-links a {
+    font-size: 16px;
+}
+
 
 .publishpress-series-post-navigation-editor {
     display: flex;

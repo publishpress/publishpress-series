@@ -1,5 +1,10 @@
 /* Series Post Navigation Frontend Styles */
 
+.pps-nav-links a {
+    font-size: 16px;
+}
+
+
 .pps-navigation-content {
     box-sizing: border-box;
 }

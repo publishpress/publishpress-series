@@ -326,8 +326,7 @@ class PostNavigationRenderer
         }
 
         if (!empty($nav_links)) {
-            $separator = isset($settings['separator_text']) ? $settings['separator_text'] : '|';
-            $links_html = self::build_nav_links_html($nav_links, $separator);
+            $links_html = self::build_nav_links_html($nav_links);
             $content_parts[] = '<span class="pps-nav-links">' . $links_html . '</span>';
         }
 
@@ -520,8 +519,7 @@ class PostNavigationRenderer
             return '';
         }
 
-        $separator = isset($settings['separator_text']) ? $settings['separator_text'] : '|';
-        $links_html = self::build_nav_links_html($nav_links, $separator);
+        $links_html = self::build_nav_links_html($nav_links);
         $content_parts[] = '<span class="pps-nav-links">' . $links_html . '</span>';
 
         return '<div class="pps-navigation-content">' . implode(' ', $content_parts) . '</div>';
@@ -866,11 +864,10 @@ class PostNavigationRenderer
      * appears on the right side.
      *
      * @param array  $nav_links Array of link HTML strings.
-     * @param string $separator Separator text.
      *
      * @return string
      */
-    private static function build_nav_links_html(array $nav_links, $separator)
+    private static function build_nav_links_html(array $nav_links)
     {
         if (empty($nav_links)) {
             return '';
@@ -891,11 +888,11 @@ class PostNavigationRenderer
         
         $last_link = $nav_links[$count - 1];
         
-        // Build left group with separators
-        $left_html = implode(' <span class="pps-nav-separator">' . esc_html($separator) . '</span> ', $left_group);
+        // Build left group without separators
+        $left_html = implode(' ', $left_group);
         
         // Wrap left group in a span and add the last link separately
-        return '<span class="pps-nav-left-group">' . $left_html . '</span> <span class="pps-nav-separator">' . esc_html($separator) . '</span> ' . $last_link;
+        return '<span class="pps-nav-left-group">' . $left_html . '</span> ' . $last_link;
     }
 
     /**

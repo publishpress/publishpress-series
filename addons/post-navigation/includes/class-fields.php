@@ -525,19 +525,6 @@ class PPS_Series_Post_Navigation_Fields
     private static function get_layout_fields()
     {
         return [
-            'layout_separator' => [
-                'type'  => 'category_separator',
-                'label' => __('Layout Options', 'publishpress-series'),
-                'tab'   => 'layout',
-            ],
-            'separator_text' => [
-                'label'    => __('Navigation Separator', 'publishpress-series'),
-                'type'     => 'text',
-                'tab'      => 'layout',
-                'sanitize' => 'sanitize_text_field',
-                'default'  => '|',
-                'description' => __('Text to display between navigation links (e.g., |, •, →)', 'publishpress-series'),
-            ],
             'container_border_separator' => [
                 'type'  => 'category_separator',
                 'label' => __('Container Style', 'publishpress-series'),
