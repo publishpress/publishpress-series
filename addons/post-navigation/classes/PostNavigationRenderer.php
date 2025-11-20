@@ -140,22 +140,17 @@ class PostNavigationRenderer
         $layout_class = 'pps-post-navigation-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
 
-        $wrapper_classes = [
-            'pps-post-navigation',
-            $layout_class,
-        ];
 
-        $wrapper_attrs = [
-            'class' => implode(' ', array_filter($wrapper_classes)),
-            'data-series-id' => $series_id,
-        ];
+        $layout_class_attr = esc_attr($layout_class);
+        $series_id_attr = esc_attr($series_id);
+        
+        $content = str_replace(
+            'class="pps-navigation-content"',
+            sprintf('class="pps-navigation-content %s" data-series-id="%s"', $layout_class_attr, $series_id_attr),
+            $content
+        );
 
-        $attributes = '';
-        foreach ($wrapper_attrs as $name => $value) {
-            $attributes .= sprintf(' %s="%s"', esc_attr($name), esc_attr($value));
-        }
-
-        return sprintf('<div%s>%s</div>', $attributes, $content);
+        return $content;
     }
 
     /**
@@ -183,15 +178,15 @@ class PostNavigationRenderer
 
         $content = self::render_preview_from_visual_controls($settings, $context);
 
-        $wrapper_classes = [
-            'pps-post-navigation',
-            'pps-post-navigation-preview',
-            $layout_class,
-        ];
+        $layout_class_attr = esc_attr($layout_class);
+        
+        $content = str_replace(
+            'class="pps-navigation-content"',
+            sprintf('class="pps-navigation-content pps-post-navigation-preview %s"', $layout_class_attr),
+            $content
+        );
 
-        $attributes = sprintf(' class="%s"', esc_attr(implode(' ', $wrapper_classes)));
-
-        return sprintf('<div%s>%s</div>', $attributes, $content);
+        return $content;
     }
 
     /**
@@ -999,56 +994,50 @@ class PostNavigationRenderer
 
         $css = [];
 
-        // Wrapper styles
-        $wrapper_styles = [];
-        
         // Get alignment setting
         $alignment = isset($settings['alignment']) ? $settings['alignment'] : 'center';
+
+        // Navigation content styles (now the main wrapper)
+        $content_styles = [];
+        $nav_links_styles = [];
+        $title_styles = [];
+
+        // Base layout styles
+        $content_styles[] = 'display: flex;';
+        $content_styles[] = 'flex-direction: column;';
+        $content_styles[] = 'align-items: stretch;';
+        $content_styles[] = 'gap: 12px;';
+        $content_styles[] = 'width: 100%;';
 
         // Margin
         $margin = isset($settings['margin']) ? (int) $settings['margin'] : 0;
         if ($margin > 0) {
-            $wrapper_styles[] = sprintf('margin: %dpx;', $margin);
+            $content_styles[] = sprintf('margin: %dpx;', $margin);
         }
 
         // Container background color
         if (! empty($settings['container_background_color']) && $settings['container_background_color'] !== 'transparent') {
-            $wrapper_styles[] = sprintf('background-color: %s;', esc_attr($settings['container_background_color']));
+            $content_styles[] = sprintf('background-color: %s;', esc_attr($settings['container_background_color']));
         }
 
         // Container border
         $container_border_width = isset($settings['container_border_width']) ? (int) $settings['container_border_width'] : 0;
         if ($container_border_width > 0) {
             $container_border_color = ! empty($settings['container_border_color']) ? $settings['container_border_color'] : '#dddddd';
-            $wrapper_styles[] = sprintf('border: %dpx solid %s;', $container_border_width, esc_attr($container_border_color));
+            $content_styles[] = sprintf('border: %dpx solid %s;', $container_border_width, esc_attr($container_border_color));
         }
 
         // Container border radius
         $container_border_radius = isset($settings['container_border_radius']) ? (int) $settings['container_border_radius'] : 0;
         if ($container_border_radius > 0) {
-            $wrapper_styles[] = sprintf('border-radius: %dpx;', $container_border_radius);
+            $content_styles[] = sprintf('border-radius: %dpx;', $container_border_radius);
         }
 
         // Container padding
         $container_padding = isset($settings['container_padding']) ? (int) $settings['container_padding'] : 0;
         if ($container_padding > 0) {
-            $wrapper_styles[] = sprintf('padding: %dpx;', $container_padding);
+            $content_styles[] = sprintf('padding: %dpx;', $container_padding);
         }
-
-        if (! empty($wrapper_styles)) {
-            $css[] = sprintf('.%1$s { %2$s }', esc_attr($layout_class), implode(' ', $wrapper_styles));
-        }
-
-        // Navigation content styles
-        $content_styles = [];
-        $nav_links_styles = [];
-        $title_styles = [];
-
-        $content_styles[] = 'display: flex;';
-        $content_styles[] = 'flex-direction: column;';
-        $content_styles[] = 'align-items: stretch;';
-        $content_styles[] = 'gap: 12px;';
-        $content_styles[] = 'width: 100%;';
 
         $nav_links_styles[] = 'display: flex;';
         $nav_links_styles[] = 'flex-direction: row;';
@@ -1088,7 +1077,7 @@ class PostNavigationRenderer
         }
 
         if (! empty($content_styles)) {
-            $css[] = sprintf('.%1$s .pps-navigation-content { %2$s }', esc_attr($layout_class), implode(' ', $content_styles));
+            $css[] = sprintf('.%1$s { %2$s }', esc_attr($layout_class), implode(' ', $content_styles));
         }
 
         if (! empty($nav_links_styles)) {

@@ -82,7 +82,7 @@ class PPS_Series_Post_Navigation_Utilities
             'container_border_color' => '#dddddd',
             'container_border_width' => 0,
             'container_border_radius' => 0,
-            'container_padding' => 0,
+            'container_padding' => 20,
             'padding' => 8,
             'margin' => 0,
             'gap_between_links' => 10,

@@ -1,15 +1,7 @@
 /* Series Post Navigation Frontend Styles */
 
-.pps-post-navigation {
-    margin: 20px 0;
-}
-
 .pps-navigation-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 .pps-nav-series-title {
@@ -38,7 +30,7 @@
 }
 
 /* Raw text links - no button styling */
-.pps-post-navigation .pps-nav-links a {
+.pps-navigation-content .pps-nav-links a {
     display: flex;
     align-items: center;
     gap: 8px;
