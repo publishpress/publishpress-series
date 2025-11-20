@@ -184,7 +184,7 @@ function orgseries_validate($input) {
 	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(($input['orgseries_api'])) : '';
 
 	//template options
-
+	
 	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
 
@@ -194,7 +194,6 @@ function orgseries_validate($input) {
 	$default_nav_id = class_exists('PPS_Series_Post_Navigation_Utilities') ? PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_id() : '';
 	$newinput['series_post_navigation_selection'] = isset($input['series_post_navigation_selection']) ? intval($input['series_post_navigation_selection']) : $default_nav_id;
 
-	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
 	$newinput['series_post_list_currentpost_template'] = trim(stripslashes(($input['series_post_list_currentpost_template'])));
