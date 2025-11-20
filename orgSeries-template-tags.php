@@ -720,24 +720,71 @@ function wp_assemble_series_nav()
 	$i = 1;
 	$trigger = false;
 	if (!empty($series)) {
-		foreach ($series as $ser) {
-			$series_id = $ser->term_id;
-			$series_count = $ser->count;
-			if ($series_count > 1) {
-				$nav .= token_replace(stripslashes($settings['series_post_nav_template']), 'other', 0, $series_id);
-				if ($i != $count || $trigger) {
-					$pos = strpos($nav, '%postcontent%');
-					if ($pos == 0)
-						$trigger = true; //%postcontent% is at the top in the template so we need to erase all %postcontent% to fix.
-					$nav = str_replace('%postcontent%', '', $nav);
-				}
+		// Check if Post Navigation editor layout is selected
+		$nav_layout_id = isset($settings['series_post_navigation_selection']) ? (int)$settings['series_post_navigation_selection'] : 0;
 
-				$i++;
+		if ($nav_layout_id > 0 && class_exists('PostNavigationRenderer')) {
+			$nav_post = get_post($nav_layout_id);
+			if ($nav_post && $nav_post->post_status === 'publish') {
+				$current_post_id = get_the_ID();
+				$current_post = get_post($current_post_id);
+				foreach ($series as $ser) {
+					$series_id = $ser->term_id;
+					$series_count = $ser->count;
+					if ($series_count > 1) {
+						$context = [
+							'series_term' => $ser,
+							'post'        => $current_post,
+							'context'     => 'auto',
+						];
+						$rendered = PostNavigationRenderer::render_layout_for_series($nav_layout_id, $context);
+						if ($rendered) {
+							$nav .= $rendered;
+						}
+					}
+				}
+				if (!empty($nav)) {
+					if (strpos($nav, '%postcontent%') === false) {
+						$nav = '%postcontent%' . $nav;
+					}
+					return $nav;
+				}
 			}
 		}
-		if ($trigger)
-			$nav = '%postcontent%' . $nav;
-		return $nav;
+
+		// Fallback to template replacement if no editor layout is selected
+		$i = 1;
+		$trigger = false;
+		if (!empty($series)) {
+			if ($nav_layout_id === 0) {
+				// Use custom template
+				$nav_template = isset($settings['series_post_nav_template']) ? $settings['series_post_nav_template'] : '';
+			} else {
+				// Editor layout exists but PostNavigationRenderer class doesn't
+				$nav_template = isset($settings['series_post_nav_template']) ? $settings['series_post_nav_template'] : '';
+			}
+
+			if (!empty($nav_template)) {
+				foreach ($series as $ser) {
+					$series_id = $ser->term_id;
+					$series_count = $ser->count;
+					if ($series_count > 1) {
+						$nav .= token_replace(stripslashes($nav_template), 'other', 0, $series_id);
+						if ($i != $count || $trigger) {
+							$pos = strpos($nav, '%postcontent%');
+							if ($pos == 0)
+								$trigger = true; //%postcontent% is at the top in the template so we need to erase all %postcontent% to fix.
+							$nav = str_replace('%postcontent%', '', $nav);
+						}
+
+						$i++;
+					}
+				}
+				if ($trigger)
+					$nav = '%postcontent%' . $nav;
+				return $nav;
+			}
+		}
 	}
 
 	return FALSE;

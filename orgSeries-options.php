@@ -14,6 +14,7 @@ add_filter('plugin_action_links', 'inject_orgseries_settings_link', 10, 2 );
 
 // series changes upgrade and notices
 add_action('admin_init', 'publishpress_series_process_upgrade');
+add_action('admin_init', 'publishpress_series_sync_menu_order');
 add_action('admin_notices', 'publishpress_series_upgrade_require_changes');
 add_action('after_plugin_row', 'publishpress_series_upgrade_require_row_notice', 10, 2);
 
@@ -118,36 +119,46 @@ function orgseries_validate($input) {
 			update_option('orgseries_update_message', $update['updated_output']);
 			return $input;
 		}
-	}elseif ( isset($_POST['migrate_series']) && (int)$_POST['migrate_series'] === 1 ) {
+	}
 
+	// Handle term migration if checkbox is checked
+	if ( isset($_POST['migrate_series_terms']) && (int)$_POST['migrate_series_terms'] === 1 ) {
         global $wpdb;
 
         ppseries_register_temporary_taxonomy();
 
-        $input = $orgseries->settings;
+        // Get the OLD taxonomy slug from saved options (before the new input is saved)
+        $old_taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        
+        // Get the NEW taxonomy slug from the POST input
+        $new_taxonomy_slug = isset($_POST['org_series_options']['series_taxonomy_slug']) && !empty(trim($_POST['org_series_options']['series_taxonomy_slug'])) 
+            ? sanitize_text_field($_POST['org_series_options']['series_taxonomy_slug']) 
+            : 'series';
 
-
-        $args = array(
-            'hide_empty' => false,
-            'taxonomy' => 'series'
-        );
-        $terms = get_terms($args);
-
-        $count = 0;
-
-        foreach ( $terms as $term ) {
-            $count++;
-            $wpdb->update(
-                $wpdb->prefix . 'term_taxonomy',
-                [ 'taxonomy' => ppseries_get_series_slug() ],
-                [ 'term_taxonomy_id' => $term->term_id ],
-                [ '%s' ],
-                [ '%d' ]
+        // Only migrate if taxonomy slug has actually changed
+        if ($old_taxonomy_slug !== $new_taxonomy_slug) {
+            $args = array(
+                'hide_empty' => false,
+                'taxonomy' => $old_taxonomy_slug
             );
+            $terms = get_terms($args);
+
+            $count = 0;
+
+            foreach ( $terms as $term ) {
+                $count++;
+                $wpdb->update(
+                    $wpdb->prefix . 'term_taxonomy',
+                    [ 'taxonomy' => $new_taxonomy_slug ],
+                    [ 'term_taxonomy_id' => $term->term_id ],
+                    [ '%s' ],
+                    [ '%d' ]
+                );
+            }
+            $update['updated_output'] = '<div class="updated"><p>'. sprintf(esc_html__('%1$s series migrated from "%2$s" to "%3$s" taxonomy. Settings updated.', 'organize-series'), $count, $old_taxonomy_slug, $new_taxonomy_slug) .'</p></div>';
+        } else {
+            $update['updated_output'] = '<div class="updated"><p>' . esc_html__('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
         }
-        $update['updated_output'] = '<div class="updated"><p>'. sprintf(esc_html__('%1$s series migrated to new taxonomy', 'organize-series'), $count) .'</p></div>';
-        update_option('orgseries_update_message', $update['updated_output']);
-        return $input;
 	} else {
 		$update['updated_output'] = '<div class="updated"><p>' . esc_html__('PublishPress Series Plugin Options have been updated','organize-series') . '</p></div>';
 	}
@@ -173,14 +184,16 @@ function orgseries_validate($input) {
 	$newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim(($input['orgseries_api'])) : '';
 
 	//template options
-
+	
 	$default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id() ?: '';
 	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : $default_box_id;
 
 	$default_post_details_id = PPS_Series_Post_Details_Utilities::get_default_series_post_details_id() ?: '';
 	$newinput['series_post_details_selection'] = isset($input['series_post_details_selection']) ? intval($input['series_post_details_selection']) : $default_post_details_id;
 
-	$newinput['series_post_list_box_selection'] = isset($input['series_post_list_box_selection']) ? intval($input['series_post_list_box_selection']) : '';
+	$default_nav_id = class_exists('PPS_Series_Post_Navigation_Utilities') ? PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_id() : '';
+	$newinput['series_post_navigation_selection'] = isset($input['series_post_navigation_selection']) ? intval($input['series_post_navigation_selection']) : $default_nav_id;
+
 	$newinput['series_post_list_template'] = trim(stripslashes(($input['series_post_list_template'])));
 	$newinput['series_post_list_post_template'] = trim(stripslashes(($input['series_post_list_post_template'])));
 	$newinput['series_post_list_currentpost_template'] = trim(stripslashes(($input['series_post_list_currentpost_template'])));
@@ -966,14 +979,40 @@ function series_templates_core_fieldset() {
     							</th>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_post_nav_template"><?php esc_html_e('Series Post Navigation:', 'organize-series'); ?></label></th>
-								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_nav_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))) : ''; ?></textarea>
+							<tr valign="top" id="series_post_navigation_selection_row"><th scope="row"><label for="series_post_navigation_selection"><?php esc_html_e('Post Navigation Selection', 'organize-series'); ?></label></th>
+								<td>
+									<?php
+									// Get all post navigation layouts
+									$post_navigation_layouts = get_posts([
+										'post_type' => 'pps_post_navigation',
+										'post_status' => 'publish',
+										'numberposts' => -1,
+										'orderby' => 'title',
+										'order' => 'ASC'
+									]);
+
+									// Get the default post navigation ID
+									$default_nav_id = class_exists('PPS_Series_Post_Navigation_Utilities') ? PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_id() : '';
+									?>
+									<select name="<?php echo esc_attr($org_name); ?>[series_post_navigation_selection]" id="series_post_navigation_selection" class="ppseries-full-width">
+										<option value=""><?php esc_html_e('Custom Template', 'organize-series'); ?></option>
+										<?php foreach ($post_navigation_layouts as $nav_layout): ?>
+											<option value="<?php echo esc_attr($nav_layout->ID); ?>" <?php selected(isset($org_opt['series_post_navigation_selection']) ? $org_opt['series_post_navigation_selection'] : $default_nav_id, $nav_layout->ID); ?>>
+												<?php echo esc_html($nav_layout->post_title); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
 								</td>
 							</tr>
 
-								<tr valign="top"><th scope="row"><label for="series_navigation_box_position"><?php esc_html_e('Series Post Navigation Location', 'organize-series'); ?></label></th>
+							<tr valign="top" id="series_post_nav_template_row"><th scope="row"><label for="series_post_nav_template"><?php esc_html_e('Series Post Navigation:', 'organize-series'); ?></label></th>
+								<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_nav_template]" id="series_post_nav_template" class="ppseries-textarea ppseries-full-width series-post-navigation-legacy-field"><?php echo isset($org_opt['series_post_nav_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_nav_template']))) : ''; ?></textarea>
+								</td>
+							</tr>
+
+								<tr valign="top" id="series_navigation_box_position_row"><th scope="row"><label for="series_navigation_box_position"><?php esc_html_e('Series Post Navigation Location', 'organize-series'); ?></label></th>
 									<td>
-										<select name="<?php echo esc_attr($org_name);?>[series_navigation_box_position]" id="series_navigation_box_position">
+										<select name="<?php echo esc_attr($org_name);?>[series_navigation_box_position]" id="series_navigation_box_position" class="series-post-navigation-legacy-field">
 										<?php
 										foreach($post_box_locations as $key => $label){
 											$selected = ( isset($org_opt['series_navigation_box_position']) && $org_opt['series_navigation_box_position'] === $key ) ? 'selected="selected"' : '';
@@ -986,18 +1025,18 @@ function series_templates_core_fieldset() {
 									</td>
 								</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_nextpost_nav_custom_text_row"><th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_prevpost_nav_custom_text_row"><th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
-							<tr valign="top"><th scope="row"><label for="series_firstpost_nav_custom_text"><?php esc_html_e('First Post', 'organize-series'); ?></label></th>
-								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width">
+							<tr valign="top" id="series_firstpost_nav_custom_text_row"><th scope="row"><label for="series_firstpost_nav_custom_text"><?php esc_html_e('First Post', 'organize-series'); ?></label></th>
+								<td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width series-post-navigation-legacy-field">
 								</td>
 							</tr>
 
@@ -1116,21 +1155,23 @@ function series_taxonomy_base_core_fieldset() {
                     </p>
                 </td>
             </tr>
-            <?php if( $org_opt['series_taxonomy_slug'] !== 'series'){ ?>
+            
 			<tr valign="top">
-            	<th scope="row"><label>
-                	    <?php esc_html_e('Migrate', 'organize-series'); ?>
+            	<th scope="row"><label for="migrate_series_terms">
+                	    <?php esc_html_e('Migrate Terms', 'organize-series'); ?>
                 	</label>
             	</th>
             	<td>
-                    <button type="submit" class="button" name="migrate_series" value="1"><?php esc_html_e('Migrate series to new taxonomy', 'organize-series'); ?></button>
-                    <div><br />
-                    <font color="red"><?php esc_html_e('Please use with caution. Running this process will delete all the terms from the current taxonomy and migrate them to a new taxonomy.', 'organize-series'); ?></font>
-                    </div>
-                    <span class="spinner ppseries-spinner"></span>
+                    <label>
+                        <input type="checkbox" name="migrate_series_terms" id="migrate_series_terms" value="1" />
+                        <?php esc_html_e('Automatically migrate existing series terms to the new taxonomy', 'organize-series'); ?>
+                    </label>
+                    <p class="description">
+                        <font color="red"><?php esc_html_e('If checked, all terms from the current taxonomy will be migrated to the new taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy slug will be changed.', 'organize-series'); ?></font>
+                    </p>
                 </td>
         	</tr>
-            <?php } ?>
+           
 
     </tbody>
 	</table>	<?php
@@ -1226,6 +1267,24 @@ function series_uninstall_core_fieldset() {
 
 			<tr valign="top">
             	<th scope="row"><label>
+                	    <?php esc_html_e('Sync Series Order to Menu Order', 'organize-series'); ?>
+                	</label>
+            	</th>
+
+            	<td>
+					<a class="button" href="<?php echo esc_url(admin_url('admin.php?page=orgseries_options_page&series_action=sync-menu-order&nonce='. wp_create_nonce('sync-menu-order-action'))); ?>"><?php esc_html_e('Sync to Menu Order', 'organize-series'); ?></a>
+                    <div>
+						<label>
+							<span class="description">
+								<?php esc_html_e('This will sync all series part numbers to WordPress menu_order field. Useful for themes/page builders that can only sort by menu order (Page Attributes: Order). This allows you to use native WordPress ordering instead of custom fields.', 'organize-series'); ?>
+							</span>
+						</label>
+                    </div>
+                </td>
+        	</tr>
+
+			<tr valign="top">
+            	<th scope="row"><label>
                 	    <?php esc_html_e('Reset settings', 'organize-series'); ?>
                 	</label>
             	</th>
@@ -1237,7 +1296,7 @@ function series_uninstall_core_fieldset() {
 }
 
 function publishpress_series_upgrade_require_changes() {
-	if (isset($_REQUEST['series_action']) && $_REQUEST['series_action'] === 'multiple-series-support') {
+	if (isset($_REQUEST['series_action']) && in_array($_REQUEST['series_action'], ['multiple-series-support', 'sync-menu-order'])) {
 		//we don't want to show the warning after the migration request
 		return;
 	}
@@ -1323,6 +1382,91 @@ function publishpress_series_process_upgrade() {
 				</div>
 				<?php
 			});
+	}
+}
+
+function publishpress_series_sync_menu_order() {
+	global $wpdb;
+	if (isset($_REQUEST['series_action'])
+		&& isset($_REQUEST['nonce'])
+		&& $_REQUEST['series_action'] === 'sync-menu-order'
+		&& wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'sync-menu-order-action')
+		&& current_user_can('manage_publishpress_series')
+	) {
+		$updated_count = 0;
+		
+		// Get all series
+		$all_series = get_terms(array(
+			'taxonomy' => ppseries_get_series_slug(),
+			'hide_empty' => false,
+		));
+		
+		if (!empty($all_series) && !is_wp_error($all_series)) {
+			foreach ($all_series as $series) {
+				$series_id = $series->term_id;
+				$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+				
+				// Get all posts in this series with their part numbers
+				$query = $wpdb->prepare(
+					"SELECT p.ID, pm.meta_value as series_part 
+					FROM {$wpdb->posts} p 
+					INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id 
+					INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id 
+					INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id 
+					WHERE pm.meta_key = %s 
+					AND tt.term_id = %d 
+					AND tt.taxonomy = %s 
+					AND p.post_status = 'publish'",
+					$part_key,
+					$series_id,
+					ppseries_get_series_slug()
+				);
+				
+				$posts = $wpdb->get_results($query);
+				
+				if (!empty($posts)) {
+					foreach ($posts as $post) {
+						$series_part = (int) $post->series_part;
+						
+						// Update menu_order to match series part
+						$result = $wpdb->update(
+							$wpdb->posts,
+							array('menu_order' => $series_part),
+							array('ID' => $post->ID),
+							array('%d'),
+							array('%d')
+						);
+						
+						if ($result !== false) {
+							$updated_count++;
+							clean_post_cache($post->ID);
+						}
+					}
+				}
+			}
+		}
+		
+		add_filter('removable_query_args', function ($args) {
+			return array_merge($args, [
+				'series_action',
+				'nonce',
+			]);
+		});
+		
+		add_action('admin_notices', function () use ($updated_count) {
+			?>
+			<div class="notice notice-success is-dismissible">
+				<p>
+					<?php 
+					printf(
+						esc_html__('Series order sync completed. %d posts updated.', 'organize-series'),
+						$updated_count
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		});
 	}
 }
 

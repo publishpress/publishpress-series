@@ -1,0 +1,203 @@
+.pps-nav-links a {
+    font-size: 16px;
+}
+
+
+.publishpress-series-post-navigation-editor {
+    display: flex;
+    background: #fff;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs {
+    min-width: 250px;
+    margin: 0;
+    line-height: 1em;
+    padding: 0 0 10px;
+    position: relative;
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.pps-series-post-navigation-editor-fields {
+    width: 100%;
+    min-width: 320px;
+    padding: 10px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul li a {
+    margin: 0;
+    padding: 10px;
+    display: block;
+    box-shadow: none;
+    text-decoration: none;
+    line-height: 20px !important;
+    border-bottom: 1px solid #eee;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul li a.active {
+    color: #555;
+    position: relative;
+    background-color: #eee;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul li a span {
+    margin-right: 0.618em;
+}
+
+.publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs ul li a span.dashicons {
+    margin-left: 0;
+    font-size: 15px;
+    vertical-align: sub;
+}
+
+.pps-series-post-navigation-editor-table {
+    width: 100%;
+}
+
+.pps-series-post-navigation-editor-table input[type=text],
+.pps-series-post-navigation-editor-table input[type=number],
+.pps-series-post-navigation-editor-table select {
+    width: 95%;
+}
+
+.pps-series-post-navigation-editor-table textarea {
+    width: 100%;
+    resize: none;
+}
+
+.pps-series-post-navigation-editor-table button.wp-color-result {
+    min-height: 30px !important;
+    margin: 0 6px 6px 0 !important;
+    padding: 0 0 0 30px !important;
+    font-size: 11px !important;
+}
+
+.pps-series-post-navigation-editor-table .field-description {
+    color: gray;
+}
+
+.pps-category-separator {
+    margin: 20px 0 15px 0;
+    padding: 0;
+}
+
+.pps-category-separator .category-title {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #23282d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pps-category-separator .category-divider {
+    margin: 0;
+    border: none;
+    border-top: 2px solid #0073aa;
+    height: 0;
+}
+
+/* Category separator row styling */
+.category_separator td {
+    padding: 0 !important;
+}
+
+.pps-field-separator {
+    padding-top: 20px !important;
+    padding-bottom: 10px !important;
+    padding-left: 0 !important;
+}
+
+.pps-color-picker {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pps-series-post-navigation-preview {
+    font-size: 16px;
+    line-height: 1.6;
+    background: #fff;
+}
+
+.pps-series-post-navigation-preview-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+}
+
+/* Preview styles - minimal fallbacks, dynamic CSS takes precedence */
+.pps-series-post-navigation-preview .pps-navigation-content {
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.pps-series-post-navigation-preview .pps-nav-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.pps-series-post-navigation-preview .pps-nav-arrow svg {
+    display: block;
+}
+
+.pps-series-post-navigation-preview .pps-nav-link-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 1270px) {
+    .pps-series-post-navigation-editor-table input[type=text],
+    .pps-series-post-navigation-editor-table input[type=number],
+    .pps-series-post-navigation-editor-table select {
+        width: 95%;
+    }
+
+    .pps-series-post-navigation-editor-fields {
+        min-width: unset;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .pps-series-post-navigation-editor-fields {
+        min-width: unset;
+    }
+
+    .pps-series-post-navigation-editor-table input[type=text],
+    .pps-series-post-navigation-editor-table input[type=number],
+    .pps-series-post-navigation-editor-table select,
+    .pps-series-post-navigation-editor-table textarea {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+
+    .publishpress-series-post-navigation-editor {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .publishpress-series-post-navigation-editor {
+        display: block;
+    }
+}

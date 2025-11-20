@@ -21,7 +21,6 @@
 - .rsync-filters-pre-build
 - .vscode
 - .wordpress-org
-- /assets_wp
 - /dev-workspace
 - /dist
 - /version.txt
@@ -33,7 +32,6 @@
 - README.md
 - RoboFile.php
 - /assets/jsx
-- /assets_wp
 - bin
 - builder
 - builder.yml

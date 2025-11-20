@@ -4,6 +4,7 @@ about: Describes default checklist for releasing the Pro plugin;
 title: Release Pro v[VERSION]
 labels: release
 assignees: ''
+type: task
 ---
 
 To release the Pro plugin please make sure to check all the checkboxes below.
@@ -23,7 +24,7 @@ To release the Pro plugin please make sure to check all the checkboxes below.
 
 **Code Quality**
 - [ ] Build JS files: `composer build:js` (if applicable)
-- [ ] Run PHPCS: `composer phpcs` (ensure no warnings/errors > 5)
+- [ ] Run PHPCS: `composer check:phpcs`
 
 **Localization**
 - [ ] Update `.pot` file
@@ -48,5 +49,5 @@ To release the Pro plugin please make sure to check all the checkboxes below.
 ### Post-release
 
 - [ ] Monitor [GitHub Actions](https://github.com/publishpress/publishpress-future-pro/actions)
-- [ ] Monitor the Slack channel #package-server 
+- [ ] Monitor the Slack channel #package-server
 - [ ] Test update on staging site

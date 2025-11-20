@@ -141,6 +141,17 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             ),
             esc_html__('Edit', 'organize-series')
         );
+        
+        $preview_link = get_preview_post_link($item->ID);
+        if (!$preview_link) {
+            $preview_link = get_permalink($item->ID);
+        }
+
+        $actions['view'] = sprintf(
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            esc_url($preview_link),
+            esc_html__('Preview', 'organize-series')
+        );
 
         $actions = array_merge($actions, [
             'delete' => sprintf(

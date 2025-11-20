@@ -140,6 +140,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
             esc_html__('Edit', 'organize-series')
         );
 
+        $actions['view'] = sprintf(
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            esc_url(get_permalink($item->ID)),
+            esc_html__('View', 'organize-series')
+        );
+
         $actions = array_merge($actions, [
             'delete' => sprintf(
                 '<a href="%s" class="delete-post">%s</a>',

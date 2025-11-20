@@ -135,21 +135,47 @@
     function toggleTemplateField() {
       var selectedValue = $('#series_post_list_box_selection').val();
       var legacyTemplateSettings = $('#series_post_list_template, #series_post_list_post_linked_post, #series_post_list_unpublished_post, #series_post_list_currentpost');
-      
+
       if (selectedValue && selectedValue !== '') {
         legacyTemplateSettings.fadeOut(300);
       } else {
         legacyTemplateSettings.fadeIn(300);
       }
     }
-    
+
     // Initial state for Post List Box selection
     if ($('#series_post_list_box_selection').length) {
       toggleTemplateField();
-      
+
       // On change
       $('#series_post_list_box_selection').on('change', function() {
         toggleTemplateField();
+      });
+    }
+
+    // -------------------------------------------------------------
+    //   Post Navigation selection enhancement
+    // -------------------------------------------------------------
+    function togglePostNavigationCustomFields() {
+      var selectedValue = $('#series_post_navigation_selection').val();
+      var legacyNavRows = $('#series_post_nav_template_row, #series_navigation_box_position_row, #series_nextpost_nav_custom_text_row, #series_prevpost_nav_custom_text_row, #series_firstpost_nav_custom_text_row');
+
+      if (selectedValue && selectedValue !== '') {
+        // A layout is selected - hide the custom template fields
+        legacyNavRows.fadeOut(300);
+      } else {
+        // Custom Template selected - show the fields
+        legacyNavRows.fadeIn(300);
+      }
+    }
+
+    // Initial state for Post Navigation selection
+    if ($('#series_post_navigation_selection').length) {
+      togglePostNavigationCustomFields();
+
+      // On change
+      $('#series_post_navigation_selection').on('change', function() {
+        togglePostNavigationCustomFields();
       });
     }
 

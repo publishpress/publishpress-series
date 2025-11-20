@@ -28,8 +28,8 @@ class PPS_Series_Post_Details_Admin_UI
     {
         add_submenu_page(
             'orgseries_options_page',
-            __('Series Post Details', 'organize-series'),
-            __('Series Post Details', 'organize-series'),
+            __('Post Details', 'organize-series'),
+            __('Post Details', 'organize-series'),
             'manage_publishpress_series',
             'edit.php?post_type=' . PPS_Series_Post_Details_Utilities::POST_TYPE,
             null,

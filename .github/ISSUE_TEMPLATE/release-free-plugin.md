@@ -4,6 +4,7 @@ about: Describes default checklist for the plugin's release process.
 title: Release v[VERSION]
 labels: release
 assignees: ''
+type: task
 ---
 
 To release the Free plugin please make sure to check all the checkboxes below.
@@ -23,7 +24,7 @@ To release the Free plugin please make sure to check all the checkboxes below.
 
 **Code Quality**
 - [ ] Build JS files: `composer build:js` (if applicable)
-- [ ] Run PHPCS: `composer phpcs` (ensure no warnings/errors > 5)
+- [ ] Run PHPCS: `composer check:phpcs`
 
 **Localization**
 - [ ] Update `.pot` file
