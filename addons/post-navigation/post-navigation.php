@@ -164,17 +164,17 @@ class PPS_Series_Post_Navigation
 
         $defaults = [
             [
-                'title' => __('Simple Navigation', 'publishpress-series'),
+                'title' => __('Simple Navigation', 'organize-series'),
                 'slug' => 'simple-navigation',
                 'settings' => $this->get_simple_navigation_settings(),
             ],
             [
-                'title' => __('Button Navigation', 'publishpress-series'),
+                'title' => __('Button Navigation', 'organize-series'),
                 'slug' => 'button-navigation',
                 'settings' => $this->get_button_navigation_settings(),
             ],
             [
-                'title' => __('Image Navigation', 'publishpress-series'),
+                'title' => __('Image Navigation', 'organize-series'),
                 'slug' => 'image-navigation',
                 'settings' => $this->get_image_navigation_settings(),
             ],
