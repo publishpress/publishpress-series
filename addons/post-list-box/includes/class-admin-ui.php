@@ -407,12 +407,12 @@ class PPS_Post_List_Box_Admin_UI {
                     foreach ($fields_tabs as $key => $args) {
                         $active_tab = ($key === PPS_Post_List_Box_Fields::default_tab()) ? ' active' : ''; ?>
                     <li>
-                        <a data-tab="<?php esc_attr_e($key); ?>"
-                            class="<?php esc_attr_e($active_tab); ?>"
+                        <a data-tab="<?php echo esc_attr($key); ?>"
+                            class="<?php echo esc_attr($active_tab); ?>"
                             href="#"
                             >
-                            <span class="<?php esc_attr_e($args['icon']); ?>"></span>
-                            <span class="item"><?php esc_html_e($args['label']); ?></span>
+                            <span class="<?php echo esc_attr($args['icon']); ?>"></span>
+                            <span class="item"><?php echo esc_html($args['label']); ?></span>
                             <?php if ($key === 'layout') : ?>
                                 <span class="ppseries-pro-lock" >
                                     <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
