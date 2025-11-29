@@ -23,19 +23,19 @@ class PPS_Series_Post_Navigation_Post_Type
     public static function register_post_type()
     {
         $labels = [
-            'name'                  => __('Series Post Navigation', 'publishpress-series'),
-            'singular_name'         => __('Series Post Navigation', 'publishpress-series'),
-            'menu_name'             => __('Series Post Navigation', 'publishpress-series'),
-            'name_admin_bar'        => __('Series Post Navigation', 'publishpress-series'),
-            'add_new'               => __('Add New', 'publishpress-series'),
-            'add_new_item'          => __('Add New Series Post Navigation', 'publishpress-series'),
-            'new_item'              => __('New Series Post Navigation', 'publishpress-series'),
-            'edit_item'             => __('Edit Series Post Navigation', 'publishpress-series'),
-            'view_item'             => __('View Series Post Navigation', 'publishpress-series'),
-            'all_items'             => __('All Series Post Navigation', 'publishpress-series'),
-            'search_items'          => __('Search Series Post Navigation', 'publishpress-series'),
-            'not_found'             => __('No Series Post Navigation found.', 'publishpress-series'),
-            'not_found_in_trash'    => __('No Series Post Navigation found in Trash.', 'publishpress-series'),
+            'name'                  => __('Series Post Navigation', 'organize-series'),
+            'singular_name'         => __('Series Post Navigation', 'organize-series'),
+            'menu_name'             => __('Series Post Navigation', 'organize-series'),
+            'name_admin_bar'        => __('Series Post Navigation', 'organize-series'),
+            'add_new'               => __('Add New', 'organize-series'),
+            'add_new_item'          => __('Add New Series Post Navigation', 'organize-series'),
+            'new_item'              => __('New Series Post Navigation', 'organize-series'),
+            'edit_item'             => __('Edit Series Post Navigation', 'organize-series'),
+            'view_item'             => __('View Series Post Navigation', 'organize-series'),
+            'all_items'             => __('All Series Post Navigation', 'organize-series'),
+            'search_items'          => __('Search Series Post Navigation', 'organize-series'),
+            'not_found'             => __('No Series Post Navigation found.', 'organize-series'),
+            'not_found_in_trash'    => __('No Series Post Navigation found in Trash.', 'organize-series'),
         ];
 
         $args = [
