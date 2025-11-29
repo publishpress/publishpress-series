@@ -34,7 +34,7 @@ class PPS_Series_Post_Navigation_Preview
         }
 
         if (! $series_term) {
-            echo '<p>' . esc_html__('Create a series to preview the navigation.', 'publishpress-series') . '</p>';
+            echo '<p>' . esc_html__('Create a series to preview the navigation.', 'organize-series') . '</p>';
             return;
         }
 
@@ -42,7 +42,7 @@ class PPS_Series_Post_Navigation_Preview
         $total_posts = count($sample_posts);
 
         if ($total_posts === 0) {
-            echo '<p>' . esc_html__('Create posts in a series to preview the navigation.', 'publishpress-series') . '</p>';
+            echo '<p>' . esc_html__('Create posts in a series to preview the navigation.', 'organize-series') . '</p>';
             return;
         }
 
@@ -54,7 +54,7 @@ class PPS_Series_Post_Navigation_Preview
         $first_post    = $sample_posts[$total_posts - 1];
 
         if (! $current_post) {
-            echo '<p>' . esc_html__('Create posts in a series to preview the navigation.', 'publishpress-series') . '</p>';
+            echo '<p>' . esc_html__('Create posts in a series to preview the navigation.', 'organize-series') . '</p>';
             return;
         }
 
