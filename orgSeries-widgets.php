@@ -82,7 +82,7 @@ class orgSeries_widget_latestseries extends WP_Widget {
 			<label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Hide series with no posts?', 'organize-series'); ?></strong></label>
 			<input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide_empty')); ?>" />
 			<br />
-			<label for="<?php echo esc_attr($this->get_field_id('orderby')); ?>"><strong><?php esc_html_e( 'Order by:' ); ?></strong></label>
+			<label for="<?php echo esc_attr($this->get_field_id('orderby')); ?>"><strong><?php esc_html_e( 'Order by:', 'organize-series' ); ?></strong></label>
 			<select name="<?php echo esc_attr($this->get_field_name('orderby')); ?>" id="<?php echo esc_attr($this->get_field_id('orderby')); ?>" class="widefat">
 				<option value="count"<?php selected( $instance['orderby'], 'count' ); ?>><?php esc_html_e('Number of posts in Series', 'organize-series'); ?></option>
 				<option value="name"<?php selected( $instance['orderby'], 'name' ); ?>><?php esc_html_e('Name of Series', 'organize-series'); ?></option>
