@@ -28,8 +28,8 @@ class PPS_Series_Post_Navigation_Admin_UI
     {
         add_submenu_page(
             'orgseries_options_page',
-            __('Post Navigation', 'publishpress-series'),
-            __('Post Navigation', 'publishpress-series'),
+            __('Post Navigation', 'organize-series'),
+            __('Post Navigation', 'organize-series'),
             'manage_publishpress_series',
             'edit.php?post_type=' . PPS_Series_Post_Navigation_Utilities::POST_TYPE,
             null,
@@ -64,7 +64,7 @@ class PPS_Series_Post_Navigation_Admin_UI
 
         add_meta_box(
             'pps_series_post_navigation_preview',
-            __('Series Post Navigation Preview', 'publishpress-series'),
+            __('Series Post Navigation Preview', 'organize-series'),
             [__CLASS__, 'render_preview_box'],
             PPS_Series_Post_Navigation_Utilities::POST_TYPE,
             'normal',
@@ -73,7 +73,7 @@ class PPS_Series_Post_Navigation_Admin_UI
 
         add_meta_box(
             'pps_series_post_navigation_editor',
-            __('Series Post Navigation Editor', 'publishpress-series'),
+            __('Series Post Navigation Editor', 'organize-series'),
             [__CLASS__, 'render_editor_box'],
             PPS_Series_Post_Navigation_Utilities::POST_TYPE,
             'normal',
@@ -82,7 +82,7 @@ class PPS_Series_Post_Navigation_Admin_UI
 
         add_meta_box(
             'pps_series_post_navigation_shortcode',
-            __('Shortcode', 'publishpress-series'),
+            __('Shortcode', 'organize-series'),
             [__CLASS__, 'render_shortcode_box'],
             PPS_Series_Post_Navigation_Utilities::POST_TYPE,
             'side',
@@ -179,9 +179,9 @@ class PPS_Series_Post_Navigation_Admin_UI
     public static function render_shortcode_box(WP_Post $post)
     {
         $layout_slug = 'pps_nav_' . $post->ID;
-        echo '<p><label for="pps-series-post-navigation-shortcode">' . esc_html__('Use this shortcode:', 'publishpress-series') . '</label></p>';
+        echo '<p><label for="pps-series-post-navigation-shortcode">' . esc_html__('Use this shortcode:', 'organize-series') . '</label></p>';
         echo '<textarea id="pps-series-post-navigation-shortcode" readonly class="widefat" rows="2">[pps_post_navigation layout="' . esc_attr($layout_slug) . '"]</textarea>';
-        echo '<p class="description">' . esc_html__('Insert into posts or pages to display this Series Post Navigation manually.', 'publishpress-series') . '</p>';
+        echo '<p class="description">' . esc_html__('Insert into posts or pages to display this Series Post Navigation manually.', 'organize-series') . '</p>';
     }
 
     /**
@@ -189,8 +189,8 @@ class PPS_Series_Post_Navigation_Admin_UI
      */
     public static function register_columns($columns)
     {
-        $columns['series_nav_default'] = esc_html__('Default Navigation', 'publishpress-series');
-        $columns['series_nav_shortcode'] = esc_html__('Shortcode', 'publishpress-series');
+        $columns['series_nav_default'] = esc_html__('Default Navigation', 'organize-series');
+        $columns['series_nav_shortcode'] = esc_html__('Shortcode', 'organize-series');
         unset($columns['date']);
 
         return $columns;
@@ -409,7 +409,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                             '<button type="button" class="button pps-media-upload-button" data-field-id="%s"%s>%s</button> ',
                             $key,
                             $pro_locked ? ' disabled="disabled"' : '',
-                            $has_image ? __('Change Image', 'publishpress-series') : __('Select Image', 'publishpress-series')
+                            $has_image ? __('Change Image', 'organize-series') : __('Select Image', 'organize-series')
                         );
                         
                         if ($has_image) {
@@ -417,7 +417,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                                 '<button type="button" class="button pps-media-remove-button" data-field-id="%s"%s>%s</button>',
                                 $key,
                                 $pro_locked ? ' disabled="disabled"' : '',
-                                __('Remove Image', 'publishpress-series')
+                                __('Remove Image', 'organize-series')
                             );
                         }
                         
