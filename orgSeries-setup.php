@@ -216,6 +216,7 @@ class orgSeries {
 		$locations = array(
 				trailingslashit( WP_LANG_DIR . '/' . $domain ),
 				trailingslashit( WP_LANG_DIR . '/loco/plugins/'),
+				trailingslashit( WP_LANG_DIR . '/plugins/'),
 				trailingslashit( WP_LANG_DIR ),
 				trailingslashit( PPSERIES_PATH . 'languages' ),
 			);
