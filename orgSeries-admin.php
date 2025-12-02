@@ -491,7 +491,7 @@ function orgSeries_custom_column_action($column_name, $id)
 		$column_content .= '<input type="hidden" name="is_series_save" value="1" />';
 		if ($series = get_the_series($id, false)) {
 			$seriesid = $series[0]->term_id;
-			$series_name = $series[0]->name;
+			$series_name = esc_html($series[0]->name);
 			$series_link = admin_url("edit.php?page=manage-issues&action=part&series_ID=" . $seriesid . "");
 			$part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $seriesid);
 			$series_part = get_post_meta($id, $part_key, TRUE);
@@ -501,13 +501,13 @@ function orgSeries_custom_column_action($column_name, $id)
 
 			if ($series && in_array($post_status, array('publish', 'private'))) {
 				if (empty(trim($series_part))) {
-					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (No part number)', 'organize-series'), $series_link, $series_name, $series_name);
+					$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (No part number)', 'organize-series'), esc_url($series_link), esc_attr($series_name), $series_name);
 				} else {
-					$column_content .= sprintf(__('<a href="%3$s" title="%4$s">%5$s</a> (Part %1$s of %2$s)', 'organize-series'), $series_part, $count, $series_link, $series_name, $series_name);
+					$column_content .= sprintf(__('<a href="%3$s" title="%4$s">%5$s</a> (Part %1$s of %2$s)', 'organize-series'), esc_html($series_part), esc_html($count), esc_url($series_link), esc_attr($series_name), $series_name);
 				}
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
 			} else {
-				$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a>  (No Part Number)', 'organize-series'), $series_link, $series_name, $series_name);
+				$column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a>  (No Part Number)', 'organize-series'), esc_url($series_link), esc_attr($series_name), $series_name);
 
 				$column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
 			}
