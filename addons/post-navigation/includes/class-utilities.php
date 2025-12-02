@@ -26,7 +26,7 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_module_url($file = '')
     {
-        $base = plugins_url('/', __FILE__) . '../';
+        $base = plugins_url('/', dirname(__FILE__));
         return $file ? $base . $file : $base;
     }
 

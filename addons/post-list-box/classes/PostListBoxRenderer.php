@@ -29,7 +29,7 @@ class PostListBoxRenderer
      */
     public static function enqueue_frontend_styles()
     {
-        $css_url = plugins_url('../assets/css/post-list-box-frontend.css', __FILE__);
+        $css_url = plugins_url('assets/css/post-list-box-frontend.css', dirname(__FILE__));
         
         wp_enqueue_style(
             'pps-post-list-box-frontend',
@@ -268,9 +268,9 @@ class PostListBoxRenderer
                                         $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
                                         if ($fallback_image_id > 0) {
                                             $fallback_image = wp_get_attachment_image_src($fallback_image_id, 'large');
-                                            $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                            $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.svg';
                                         } else {
-                                            $fallback_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                            $fallback_url = plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.svg';
                                         }
                                     ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
