@@ -31,7 +31,6 @@ class SeriesPostDetailsRenderer
     public static function init()
     {
         add_shortcode('pps_post_details', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_assets']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
 
@@ -44,8 +43,7 @@ class SeriesPostDetailsRenderer
             return;
         }
 
-        $base_file = PPS_Series_Post_Details_Utilities::get_module_path('post-details.php');
-        $style_url = plugins_url('assets/css/series-post-details-frontend.css', $base_file);
+        $style_url = SERIES_PATH_URL . 'addons/post-details/assets/css/series-post-details-frontend.css';
         
         wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], ORG_SERIES_VERSION);
 
@@ -145,6 +143,9 @@ class SeriesPostDetailsRenderer
         if ('' === $content) {
             return '';
         }
+
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_assets();
 
         $layout_class = 'pps-series-post-details-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);

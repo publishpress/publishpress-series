@@ -331,9 +331,9 @@ class PPS_Post_List_Box_Preview {
                 $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
                 if ($fallback_image_id > 0) {
                     $fallback_image = wp_get_attachment_image_src($fallback_image_id, 'thumbnail');
-                    $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.svg';
+                    $fallback_url = $fallback_image ? $fallback_image[0] : SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg';
                 } else {
-                    $fallback_url = plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.svg';
+                    $fallback_url = SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg';
                 }
                 
                 echo '<img src="' . esc_url($fallback_url) . '" alt="' . esc_attr(isset($post->post_title) ? $post->post_title : '') . '" class="pps-post-thumbnail-img" style="' . trim(str_replace(['style="', '"'], '', $thumbnail_styles)) . '" />';

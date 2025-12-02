@@ -17,8 +17,8 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_module_path($file = '')
     {
-        $base = __DIR__ . '/../';
-        return $file ? $base . $file : $base;
+        $base = trailingslashit(SERIES_PATH . 'addons/post-navigation');
+        return $file ? $base . ltrim($file, '/') : $base;
     }
 
     /**
@@ -26,8 +26,8 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_module_url($file = '')
     {
-        $base = plugins_url('/', dirname(__FILE__));
-        return $file ? $base . $file : $base;
+        $base = trailingslashit(SERIES_PATH_URL . 'addons/post-navigation');
+        return $file ? $base . ltrim($file, '/') : $base;
     }
 
     /**
