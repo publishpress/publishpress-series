@@ -15,21 +15,31 @@ if (!class_exists('PPS_Post_List_Box_Utilities')) {
 class PostListBoxRenderer
 {
     /**
+     * Flag to avoid duplicate asset loads.
+     *
+     * @var bool
+     */
+    private static $assets_enqueued = false;
+
+    /**
      * Initialize the renderer
      */
     public static function init()
     {
         add_shortcode('pps_post_list_box', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_styles']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
 
     /**
-     * Enqueue frontend styles
+     * Enqueue frontend styles (called only when shortcode is rendered)
      */
     public static function enqueue_frontend_styles()
     {
-        $css_url = plugins_url('../assets/css/post-list-box-frontend.css', __FILE__);
+        if (self::$assets_enqueued) {
+            return;
+        }
+
+        $css_url = SERIES_PATH_URL . 'addons/post-list-box/assets/css/post-list-box-frontend.css';
         
         wp_enqueue_style(
             'pps-post-list-box-frontend',
@@ -37,6 +47,8 @@ class PostListBoxRenderer
             [],
             ORG_SERIES_VERSION
         );
+
+        self::$assets_enqueued = true;
     }
 
     /**
@@ -115,6 +127,9 @@ class PostListBoxRenderer
         if (empty($posts)) {
             return '';
         }
+
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_styles();
 
         return self::render_html($posts, $settings, $atts['class'], $post_id);
     }
@@ -268,9 +283,9 @@ class PostListBoxRenderer
                                         $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
                                         if ($fallback_image_id > 0) {
                                             $fallback_image = wp_get_attachment_image_src($fallback_image_id, 'large');
-                                            $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                            $fallback_url = $fallback_image ? $fallback_image[0] : SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg';
                                         } else {
-                                            $fallback_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
+                                            $fallback_url = SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg';
                                         }
                                     ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
