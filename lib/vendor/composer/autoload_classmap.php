@@ -7,4 +7,16 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'PublishPress\\WordPressEDDLicense\\Autoloader' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Autoloader.php',
+    'PublishPress\\WordPressEDDLicense\\Container' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Container.php',
+    'PublishPress\\WordPressEDDLicense\\Exception\\Generic' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Exception/Generic.php',
+    'PublishPress\\WordPressEDDLicense\\Exception\\InvalidParams' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Exception/InvalidParams.php',
+    'PublishPress\\WordPressEDDLicense\\Exception\\InvalidRequest' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Exception/InvalidRequest.php',
+    'PublishPress\\WordPressEDDLicense\\Language' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Language.php',
+    'PublishPress\\WordPressEDDLicense\\License' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/License.php',
+    'PublishPress\\WordPressEDDLicense\\Services' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Services.php',
+    'PublishPress\\WordPressEDDLicense\\ServicesConfig' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/ServicesConfig.php',
+    'PublishPress\\WordPressEDDLicense\\Setting\\Field\\Base' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/Base.php',
+    'PublishPress\\WordPressEDDLicense\\Setting\\Field\\License_key' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/License_key.php',
+    'PublishPress\\WordPressEDDLicense\\Setting\\Field\\Text' => $vendorDir . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/Text.php',
 );
