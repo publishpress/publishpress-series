@@ -1,6 +1,9 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+v2.17.1- 2025-12-10
+* Fixed: Patch for XSS Vulnerability
+
 v2.17.0- 2025-11-19
 * Added: Series Post Navigation editor #998
 * Added: Add a View link from the Series Order screen #984

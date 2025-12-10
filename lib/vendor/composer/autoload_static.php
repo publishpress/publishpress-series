@@ -32,6 +32,18 @@ class ComposerStaticInitPublishPressSeries
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PublishPress\\WordPressEDDLicense\\Autoloader' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Autoloader.php',
+        'PublishPress\\WordPressEDDLicense\\Container' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Container.php',
+        'PublishPress\\WordPressEDDLicense\\Exception\\Generic' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Exception/Generic.php',
+        'PublishPress\\WordPressEDDLicense\\Exception\\InvalidParams' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Exception/InvalidParams.php',
+        'PublishPress\\WordPressEDDLicense\\Exception\\InvalidRequest' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Exception/InvalidRequest.php',
+        'PublishPress\\WordPressEDDLicense\\Language' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Language.php',
+        'PublishPress\\WordPressEDDLicense\\License' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/License.php',
+        'PublishPress\\WordPressEDDLicense\\Services' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Services.php',
+        'PublishPress\\WordPressEDDLicense\\ServicesConfig' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/ServicesConfig.php',
+        'PublishPress\\WordPressEDDLicense\\Setting\\Field\\Base' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/Base.php',
+        'PublishPress\\WordPressEDDLicense\\Setting\\Field\\License_key' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/License_key.php',
+        'PublishPress\\WordPressEDDLicense\\Setting\\Field\\Text' => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes/Setting/Field/Text.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
