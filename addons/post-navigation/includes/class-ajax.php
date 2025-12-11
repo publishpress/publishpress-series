@@ -29,7 +29,7 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $form_data = isset($_POST['settings']) ? wp_unslash($_POST['settings']) : '';
@@ -78,21 +78,21 @@ class PPS_Series_Post_Navigation_Ajax
         }
 
         if (! $series_term) {
-            wp_send_json_error(['message' => __('No series available to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No series available to preview.', 'organize-series')]);
         }
 
         $posts = PPS_Series_Post_Navigation_Utilities::get_sample_series_posts($series_term->term_id);
         $total_posts = count($posts);
 
         if (0 === $total_posts) {
-            wp_send_json_error(['message' => __('No posts found in series to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No posts found in series to preview.', 'organize-series')]);
         }
 
         $current_index = $total_posts > 1 ? 1 : 0;
         $current_post  = isset($posts[$current_index]) ? $posts[$current_index] : null;
 
         if (! $current_post) {
-            wp_send_json_error(['message' => __('No posts found in series to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No posts found in series to preview.', 'organize-series')]);
         }
 
         $previous_post = ($current_index + 1 < $total_posts) ? $posts[$current_index + 1] : null;
@@ -130,7 +130,7 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings($post_id);
@@ -153,12 +153,12 @@ class PPS_Series_Post_Navigation_Ajax
         $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
 
         if (! $post_id || empty($settings)) {
-            wp_send_json_error(['message' => __('Invalid import data.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
         update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $settings);
 
-        wp_send_json_success(['message' => __('Settings imported successfully.', 'publishpress-series')]);
+        wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
     }
 
     /**
@@ -170,12 +170,12 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $defaults = PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_data($post_id);
         update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
 
-        wp_send_json_success(['message' => __('Settings reset to defaults.', 'publishpress-series')]);
+        wp_send_json_success(['message' => __('Settings reset to defaults.', 'organize-series')]);
     }
 }

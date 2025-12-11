@@ -38,7 +38,7 @@ class PPS_Series_Post_Navigation_Utilities
         
         return [
             'previous_link_type' => 'custom',
-            'previous_label' => __('Previous', 'publishpress-series'),
+            'previous_label' => __('Previous', 'organize-series'),
             'previous_show_featured_image' => 0,
             'previous_image_position' => 'left',
             'previous_image_width' => 80,
@@ -49,7 +49,7 @@ class PPS_Series_Post_Navigation_Utilities
             'previous_arrow_size' => 16,
             'previous_custom_arrow_image' => 0,
             'next_link_type' => 'custom',
-            'next_label' => __('Next', 'publishpress-series'),
+            'next_label' => __('Next', 'organize-series'),
             'next_show_featured_image' => 0,
             'next_image_position' => 'left',
             'next_image_width' => 80,
@@ -60,7 +60,7 @@ class PPS_Series_Post_Navigation_Utilities
             'next_arrow_size' => 16,
             'next_custom_arrow_image' => 0,
             'first_link_type' => 'none',
-            'first_label' => __('Series Home', 'publishpress-series'),
+            'first_label' => __('Series Home', 'organize-series'),
             'first_link_position' => 'right',
             'first_show_featured_image' => 0,
             'first_image_position' => 'left',
@@ -166,9 +166,9 @@ class PPS_Series_Post_Navigation_Utilities
 
         // Create a sample series if none exist
         $result = wp_insert_term(
-            __('Sample Series', 'publishpress-series'),
+            __('Sample Series', 'organize-series'),
             $taxonomy_slug,
-            ['description' => __('Sample series for preview purposes', 'publishpress-series')]
+            ['description' => __('Sample series for preview purposes', 'organize-series')]
         );
 
         if (is_wp_error($result)) {
