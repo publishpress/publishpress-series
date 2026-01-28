@@ -556,6 +556,11 @@ class orgSeries {
 
 	// Add CSS to header if enabled via options and CSS design if overview page is different to default
 	function orgSeries_header() {
+		// Only load series CSS when needed
+		if (!$this->should_load_series_css()) {
+			return;
+		}
+
 		$plugin_path = SERIES_LOC;
 		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
 		if ($this->settings['custom_css']) {
@@ -588,6 +593,32 @@ class orgSeries {
 				ORG_SERIES_VERSION
 			);
 		}
+	}
+
+	/**
+	 * Check if series CSS should be loaded on the current page.
+	 *
+	 * @return bool
+	 */
+	private function should_load_series_css() {
+		// Always load on series archive pages
+		$taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+		if (is_tax($taxonomy_slug)) {
+			return true;
+		}
+
+		// Load on singular posts/pages that belong to a series
+		if (is_singular()) {
+			$post_id = get_queried_object_id();
+			if ($post_id) {
+				$series = wp_get_post_series($post_id);
+				if (!empty($series)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	//add series post-list box to a post in that series (on single.php view)

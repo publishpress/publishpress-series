@@ -31,7 +31,6 @@ class PostNavigationRenderer
     public static function init()
     {
         add_shortcode('pps_post_navigation', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_assets']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
 
@@ -44,8 +43,7 @@ class PostNavigationRenderer
             return;
         }
 
-        $base_file = PPS_Series_Post_Navigation_Utilities::get_module_path('post-navigation.php');
-        $style_url = plugins_url('assets/css/post-navigation-frontend.css', $base_file);
+        $style_url = SERIES_PATH_URL . 'addons/post-navigation/assets/css/post-navigation-frontend.css';
 
         wp_enqueue_style('pps-series-post-navigation-frontend', $style_url, [], ORG_SERIES_VERSION);
         wp_enqueue_style('dashicons');
@@ -136,6 +134,9 @@ class PostNavigationRenderer
         if ('' === $content || null === $content) {
             return '';
         }
+
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_assets();
 
         $layout_class = 'pps-post-navigation-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
