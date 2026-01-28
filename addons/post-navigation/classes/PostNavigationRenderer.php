@@ -209,7 +209,7 @@ class PostNavigationRenderer
 
         // Check if we should hide when single post
         if (!empty($settings['hide_when_single_post']) && $total_posts <= 1) {
-            return '<p style="color: #999; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'publishpress-series') . '</p>';
+            return '<p style="color: #999; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'organize-series') . '</p>';
         }
 
         $content_parts = [];
@@ -255,7 +255,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -271,7 +271,7 @@ class PostNavigationRenderer
                 ? $preview_posts['previous']
                 : null;
 
-            $label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'publishpress-series');
+            $label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'organize-series');
             if ($prev_type === 'post_title' && $prev_post) {
                 $label = get_the_title($prev_post->ID);
             }
@@ -286,7 +286,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -302,7 +302,7 @@ class PostNavigationRenderer
                 ? $preview_posts['next']
                 : null;
 
-            $label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'publishpress-series');
+            $label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'organize-series');
             if ($next_type === 'post_title' && $next_post) {
                 $label = get_the_title($next_post->ID);
             }
@@ -317,7 +317,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -393,7 +393,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
@@ -419,7 +419,7 @@ class PostNavigationRenderer
                 }
                 // Replace link text with configured label
                 if ($prev_type === 'custom') {
-                    $prev_label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'publishpress-series');
+                    $prev_label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'organize-series');
                     $prev_link = self::replace_nav_link_text($prev_link, esc_html($prev_label));
                 } elseif ($prev_type === 'post_title') {
                     if ($prev_post) {
@@ -445,7 +445,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
@@ -473,7 +473,7 @@ class PostNavigationRenderer
                 }
                 // Replace link text with configured label
                 if ($next_type === 'custom') {
-                    $next_label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'publishpress-series');
+                    $next_label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'organize-series');
                     $next_link = self::replace_nav_link_text($next_link, esc_html($next_label));
                 } elseif ($next_type === 'post_title') {
                     if ($next_post) {
@@ -499,7 +499,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
