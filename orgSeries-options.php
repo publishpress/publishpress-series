@@ -293,6 +293,8 @@ function orgseries_options_init() {
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
 
+	// Hook for Pro to add additional settings sections
+	do_action('publishpress_series_register_settings_sections');
 
   add_filter( 'ppseries_admin_settings_tabs', 'ppseries_filter_admin_settings_tabs');
 }

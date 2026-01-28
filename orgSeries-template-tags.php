@@ -237,6 +237,9 @@ function wp_postlist_display()
     $postlist = implode('', $postlist_parts);
     $postlist .= '%postcontent%';
  
+    // Filter for Pro to modify post list output
+    $postlist = apply_filters('publishpress_series_post_list_output', $postlist, $serarray, $settings);
+ 
     return $postlist;
 }
 
@@ -782,10 +785,14 @@ function wp_assemble_series_nav()
 				}
 				if ($trigger)
 					$nav = '%postcontent%' . $nav;
-				return $nav;
-			}
+			
+			// Filter for Pro to modify navigation output
+			$nav = apply_filters('publishpress_series_navigation_output', $nav, $series, $settings);
+			
+			return $nav;
 		}
 	}
+}
 
 	return FALSE;
 }
