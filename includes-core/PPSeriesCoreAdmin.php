@@ -24,17 +24,20 @@ class PPSeriesCoreAdmin {
                             return $settings;
                         }
                 );
-                add_filter(
-                    \PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER,
-                    function ($settings) {
-                        $settings['publishpress-series'] = [
-                            'parent' => 'orgseries_options_page',
-                            'label'  => __('Upgrade to Pro', 'organize-series'),
-                            'link'   => 'https://publishpress.com/links/series-banner',
-                        ];
+                // Only show "Upgrade to Pro" menu link when Pro is not active
+                if (!defined('SERIES_PRO_VERSION')) {
+                    add_filter(
+                        \PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER,
+                        function ($settings) {
+                            $settings['publishpress-series'] = [
+                                'parent' => 'orgseries_options_page',
+                                'label'  => __('Upgrade to Pro', 'organize-series'),
+                                'link'   => 'https://publishpress.com/links/series-banner',
+                            ];
 
-                        return $settings;
-                });
+                            return $settings;
+                    });
+                }
             }
         }
 
