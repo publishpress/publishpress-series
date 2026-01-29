@@ -24,6 +24,11 @@ if (!function_exists('pp_series_free_version_init')) {
             new \PublishPress\Series\PPSeriesCoreAdmin();
         }
 
+        // Skip loading Free addons when Pro is active (Pro has its own versions)
+        if (defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
+            return;
+        }
+
         // Load post-list-box addon
         if (file_exists(SERIES_PATH . 'addons/post-list-box/init.php')) {
             require_once SERIES_PATH . 'addons/post-list-box/init.php';
