@@ -499,11 +499,20 @@ class PPS_Post_List_Box_Admin_UI {
         }
 
         $tab_style = ($args['tab'] === PPS_Post_List_Box_Fields::default_tab()) ? '' : 'display:none;';
-        // Lock all fields under the "Layout" tab and specific Item fields for PRO
-        $pro_locked = (
-            ($args['tab'] === 'layout' && $args['type'] !== 'category_separator')
-            || in_array($key, ['show_post_excerpt', 'show_post_author', 'show_post_date', 'fallback_featured_image'], true)
-        );
+        
+        // Check if field is marked as pro_only in field definition
+        $pro_locked = !empty($args['pro_only']);
+        
+        /**
+         * Filter whether a field should be Pro-locked.
+         * Pro extension returns false to unlock fields.
+         *
+         * @param bool   $pro_locked Whether the field is locked.
+         * @param string $key        The field key.
+         * @param array  $args       The field arguments.
+         */
+        $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
+        
         ob_start();
         $generate_tab_title = false;
         if (in_array($args['type'], ['textarea', 'export_action', 'import_action', 'template_action', 'line_break', 'code_editor', 'category_separator'])) {

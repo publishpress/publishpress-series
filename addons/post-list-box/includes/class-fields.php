@@ -94,7 +94,7 @@ class PPS_Post_List_Box_Fields {
      * @return array
      */
     public static function get_default_post_list_box_data() {
-        return [
+        $defaults = [
             'title_show' => 1,
             'title_html_tag' => 'h3',
             'title_color' => '#2971B1',
@@ -129,6 +129,14 @@ class PPS_Post_List_Box_Fields {
             'item_border_color' => '#e5e5e5',
             'post_list_background_color' => '#ffffff',
         ];
+
+        /**
+         * Filter default post list box data.
+         * Pro can use this to add additional default fields.
+         *
+         * @param array $defaults Default field values.
+         */
+        return apply_filters('pps_post_list_box_default_data', $defaults);
     }
 
     /**

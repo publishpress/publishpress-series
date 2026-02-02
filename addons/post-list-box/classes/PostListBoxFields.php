@@ -262,6 +262,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 0,
+                'pro_only' => true,
             ],
             'excerpt_length' => [
                 'label' => __('Excerpt Length (words)', 'organize-series'),
@@ -273,6 +274,7 @@ class PostListBoxFields
                 'default' => 55,
                 'depends_on' => 'show_post_excerpt',
                 'depends_value' => '1',
+                'pro_only' => true,
             ],
             'excerpt_color' => [
                 'label' => __('Excerpt Color', 'organize-series'),
@@ -282,6 +284,7 @@ class PostListBoxFields
                 'default' => '#666666',
                 'depends_on' => 'show_post_excerpt',
                 'depends_value' => '1',
+                'pro_only' => true,
             ],
             'show_post_author' => [
                 'label' => __('Show Post Author', 'organize-series'),
@@ -289,6 +292,17 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 0,
+                'pro_only' => true,
+            ],
+            'post_author_color' => [
+                'label' => __('Post Author Color', 'organize-series'),
+                'type' => 'color',
+                'tab' => 'item',
+                'sanitize' => 'sanitize_hex_color',
+                'default' => '#666666',
+                'depends_on' => 'show_post_author',
+                'depends_value' => '1',
+                'pro_only' => true,
             ],
             'show_post_date' => [
                 'label' => __('Show Post Date', 'organize-series'),
@@ -296,6 +310,17 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 1,
+                'pro_only' => true,
+            ],
+            'post_date_color' => [
+                'label' => __('Post Date Color', 'organize-series'),
+                'type' => 'color',
+                'tab' => 'item',
+                'sanitize' => 'sanitize_hex_color',
+                'default' => '#666666',
+                'depends_on' => 'show_post_date',
+                'depends_value' => '1',
+                'pro_only' => true,
             ],
         ];
     }
@@ -348,6 +373,7 @@ class PostListBoxFields
                 'description' => __('Image to display when a post does not have a featured image', 'organize-series'),
                 'depends_on' => 'show_post_thumbnail',
                 'depends_value' => '1',
+                'pro_only' => true,
             ],
         ];
     }
@@ -414,6 +440,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'list',
+                'pro_only' => true,
             ],
             'columns' => [
                 'label' => __('Columns', 'organize-series'),
@@ -429,6 +456,7 @@ class PostListBoxFields
                 'default' => '3',
                 'data-depends-on' => 'layout_style',
                 'data-depends-value' => 'grid',
+                'pro_only' => true,
             ],
             'orderby' => [
                 'label' => __('Order By', 'organize-series'),
@@ -441,6 +469,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'series_order',
+                'pro_only' => true,
             ],
             'order' => [
                 'label' => __('Order', 'organize-series'),
@@ -452,6 +481,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'ASC',
+                'pro_only' => true,
             ],
             'gap_between_items' => [
                 'label' => __('Gap Between Items (px)', 'organize-series'),
@@ -461,6 +491,7 @@ class PostListBoxFields
                 'max' => 50,
                 'sanitize' => 'absint',
                 'default' => 10,
+                'pro_only' => true,
             ],
             'post_list_position' => [
                 'label' => __('Post List Box Location', 'organize-series'),
@@ -473,6 +504,7 @@ class PostListBoxFields
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'top',
                 'description' => __('Choose where to display the post list box in relation to the content', 'organize-series'),
+                'pro_only' => true,
             ],
             'maximum_items' => [
                 'label' => __('Maximum number of items', 'organize-series'),
@@ -482,6 +514,7 @@ class PostListBoxFields
                 'sanitize' => 'absint',
                 'default' => '',
                 'description' => __('Limit the number of posts shown in the series list. Leave empty for no limit.', 'organize-series'),
+                'pro_only' => true,
             ],
         ];
     }
