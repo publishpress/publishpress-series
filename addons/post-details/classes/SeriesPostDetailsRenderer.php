@@ -534,40 +534,16 @@ class SeriesPostDetailsRenderer
             return;
         }
 
-        // Outer container styles (border, background, margin)
+        // Outer container styles (Free only)
         $outer_parts = [];
-
-        // Margin (on outer container) - uniform on all sides
-        $margin = isset($settings['margin']) ? (int) $settings['margin'] : 0;
-        if ($margin > 0) {
-            $outer_parts[] = sprintf('margin: %dpx;', $margin);
-        }
 
         // Background color (on outer container)
         if (! empty($settings['background_color'])) {
             $outer_parts[] = 'background-color: ' . esc_attr($settings['background_color']) . ';';
         }
 
-        // Border (on outer container)
-        $border_width = isset($settings['border_width']) ? (int) $settings['border_width'] : 0;
-        if ($border_width > 0) {
-            $border_color = ! empty($settings['border_color']) ? $settings['border_color'] : '#d8dee9';
-            $outer_parts[] = sprintf('border: %dpx solid %s;', $border_width, esc_attr($border_color));
-        }
-
-        // Border radius (on outer container)
-        if (! empty($settings['border_radius'])) {
-            $outer_parts[] = 'border-radius: ' . (int) $settings['border_radius'] . 'px;';
-        }
-
-        // Inner content styles (padding, text color, text size)
+        // Inner content styles (text color, text size)
         $inner_parts = [];
-
-        // Padding (on inner content) - uniform on all sides
-        $padding = isset($settings['padding']) ? (int) $settings['padding'] : 0;
-        if ($padding > 0) {
-            $inner_parts[] = sprintf('padding: %dpx;', $padding);
-        }
 
         // Text color (on inner content)
         if (! empty($settings['text_color'])) {
@@ -594,6 +570,11 @@ class SeriesPostDetailsRenderer
         if (! empty($settings['link_color'])) {
             $link_color = esc_attr($settings['link_color']);
             $css[] = sprintf('.%1$s a, .%1$s a:visited { color: %2$s; }', esc_attr($layout_class), $link_color);
+        }
+
+        $css = apply_filters('pps_series_post_details_css_parts', $css, $layout_class, $settings);
+        if (! is_array($css)) {
+            $css = [];
         }
 
         if (! empty($css)) {

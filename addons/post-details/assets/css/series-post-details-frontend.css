@@ -3,8 +3,20 @@
 .pps-series-meta-box {
     position: relative;
     display: block;
-    /* Note: margin, padding, background, border, border-radius come from dynamic CSS based on settings */
+    /* Note: background comes from dynamic CSS; base spacing/border are static in Free */
     box-sizing: border-box;
+}
+
+.pps-series-post-details,
+.pps-series-meta-box {
+    margin: 0;
+    border: 1px solid #c7d7f5;
+    border-radius: 6px;
+}
+
+.pps-series-post-details .pps-series-meta-content,
+.pps-series-meta-box .pps-series-meta-content {
+    padding: 20px;
 }
 
 .pps-series-meta-box .pps-series-meta-content {

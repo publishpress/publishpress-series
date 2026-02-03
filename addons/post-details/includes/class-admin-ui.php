@@ -247,20 +247,19 @@ class PPS_Series_Post_Details_Admin_UI
         $value = $args['value'];
 
         // Define which fields should be PRO-locked
-        $pro_locked_fields = [
-            'padding',         // Padding
-            'margin',          // Margin
-            'border_width',    // Border Width
-            'border_radius',   // Border Radius
-            'border_color',    // Border Color
-            'metabox_position',
-            'limit_to_single',
-        ];
+        $pro_locked_fields = PPS_Series_Post_Details_Utilities::get_pro_only_keys();
 
         // Check if this field should be PRO-locked
         $pro_locked = (
             $args['type'] !== 'category_separator' &&
             in_array($args['key'], $pro_locked_fields, true)
+        );
+
+        $pro_locked = (bool) apply_filters(
+            'pps_series_post_details_field_pro_locked',
+            $pro_locked,
+            $args['key'],
+            $args
         );
 
         switch ($args['type']) {
