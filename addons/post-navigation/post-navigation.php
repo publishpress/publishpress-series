@@ -180,6 +180,11 @@ class PPS_Series_Post_Navigation
             ],
         ];
 
+        $defaults = apply_filters('pps_series_post_navigation_default_layouts', $defaults);
+        if (! is_array($defaults)) {
+            $defaults = [];
+        }
+
         $created_ids = [];
 
         foreach ($defaults as $data) {

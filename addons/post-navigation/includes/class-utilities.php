@@ -35,8 +35,7 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_default_post_navigation_data($post_id = null)
     {
-        
-        return [
+        $defaults = [
             'previous_link_type' => 'custom',
             'previous_label' => __('Previous', 'organize-series'),
             'previous_show_featured_image' => 0,
@@ -86,6 +85,8 @@ class PPS_Series_Post_Navigation_Utilities
             'margin' => 0,
             'gap_between_links' => 10,
         ];
+
+        return apply_filters('pps_series_post_navigation_default_data', $defaults, $post_id);
     }
 
     /**
@@ -96,17 +97,18 @@ class PPS_Series_Post_Navigation_Utilities
         $defaults = self::get_default_post_navigation_data($post_id);
         
         if ($use_default) {
-            return $defaults;
+            return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }
 
         $meta = get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true);
         
         if (empty($meta)) {
-            return $defaults;
+            return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }
 
         $settings = (array) $meta;
-        return array_merge($defaults, $settings);
+        $settings = array_merge($defaults, $settings);
+        return apply_filters('pps_series_post_navigation_settings', $settings, $post_id, $use_default);
     }
 
     /**

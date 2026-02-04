@@ -545,14 +545,17 @@ class PostNavigationRenderer
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
         
-        // Get featured image HTML
-        $show_image_key = $position . '_show_featured_image';
-        $show_image = !empty($settings[$show_image_key]);
+        // Get featured image HTML (Pro extension can supply)
+        $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
-        
-        if ($show_image && $post instanceof WP_Post) {
-            $image_html = self::get_featured_image_html($post, $position, $settings);
-            $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+        $image_position = 'left';
+        if (is_array($image_data)) {
+            $image_html = ! empty($image_data['html']) ? $image_data['html'] : '';
+            if (! empty($image_data['position'])) {
+                $image_position = $image_data['position'];
+            }
+        } else {
+            $image_html = (string) $image_data;
         }
         
         // Assemble content in correct order
@@ -564,7 +567,7 @@ class PostNavigationRenderer
         }
         
         // Add image on left if needed
-        if ($image_html && isset($image_position) && $image_position === 'left') {
+        if ($image_html && $image_position === 'left') {
             $parts[] = $image_html;
         }
         
@@ -572,7 +575,7 @@ class PostNavigationRenderer
         $parts[] = $text_content;
         
         // Add image on right if needed
-        if ($image_html && isset($image_position) && $image_position === 'right') {
+        if ($image_html && $image_position === 'right') {
             $parts[] = $image_html;
         }
         
@@ -584,38 +587,6 @@ class PostNavigationRenderer
         $link_content = implode('', $parts);
 
         return sprintf('<a%s>%s</a>', $attributes, $link_content);
-    }
-
-    /**
-     * Get featured image HTML for a post.
-     *
-     * @param WP_Post $post Post object.
-     * @param string $position Link position (previous, next, first).
-     * @param array $settings Layout settings.
-     *
-     * @return string
-     */
-    private static function get_featured_image_html($post, $position, array $settings)
-    {
-        if (!has_post_thumbnail($post->ID)) {
-            return '';
-        }
-
-        $width = isset($settings[$position . '_image_width']) ? (int) $settings[$position . '_image_width'] : 80;
-        $height = isset($settings[$position . '_image_height']) ? (int) $settings[$position . '_image_height'] : 80;
-
-        $image_url = get_the_post_thumbnail_url($post->ID, 'full');
-        if (!$image_url) {
-            return '';
-        }
-
-        return sprintf(
-            '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
-            esc_url($image_url),
-            esc_attr(get_the_title($post->ID)),
-            $width,
-            $height
-        );
     }
 
 
@@ -644,21 +615,16 @@ class PostNavigationRenderer
             $arrow_size = 64;
         }
         
-        // If custom image is selected
         if ($arrow_type === 'custom') {
-            $attachment_id = isset($settings[$position . '_custom_arrow_image']) ? (int) $settings[$position . '_custom_arrow_image'] : 0;
-            if ($attachment_id > 0) {
-                $image_url = wp_get_attachment_image_url($attachment_id, 'full');
-                if ($image_url) {
-                    return sprintf(
-                        '<img src="%s" alt="arrow" class="pps-nav-arrow pps-nav-arrow-custom" style="width: %dpx; height: %dpx; display: inline-block; vertical-align: middle;" />',
-                        esc_url($image_url),
-                        $arrow_size,
-                        $arrow_size
-                    );
-                }
-            }
-            return '';
+            $custom_html = apply_filters(
+                'pps_series_post_navigation_custom_arrow_html',
+                '',
+                $position,
+                $settings,
+                $arrow_size,
+                $arrow_type
+            );
+            return is_string($custom_html) ? $custom_html : '';
         }
 
         // SVG icons for predefined arrow types
@@ -712,15 +678,17 @@ class PostNavigationRenderer
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
         
-        // Get featured image HTML
-        $show_image_key = $position . '_show_featured_image';
-        $show_image = !empty($settings[$show_image_key]);
+        // Get featured image HTML (Pro extension can supply)
+        $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
         $image_position = 'left';
-        
-        if ($show_image && $post instanceof WP_Post) {
-            $image_html = self::get_featured_image_html($post, $position, $settings);
-            $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+        if (is_array($image_data)) {
+            $image_html = ! empty($image_data['html']) ? $image_data['html'] : '';
+            if (! empty($image_data['position'])) {
+                $image_position = $image_data['position'];
+            }
+        } else {
+            $image_html = (string) $image_data;
         }
         
         // Add arrows and images if needed
@@ -1147,6 +1115,11 @@ class PostNavigationRenderer
 
         if (! empty($link_styles)) {
             $css[] = sprintf('.%1$s .pps-nav-links a { %2$s }', esc_attr($layout_class), implode(' ', $link_styles));
+        }
+
+        $css = apply_filters('pps_series_post_navigation_css_parts', $css, $layout_class, $settings);
+        if (! is_array($css)) {
+            $css = [$css];
         }
 
         if (! empty($css)) {
