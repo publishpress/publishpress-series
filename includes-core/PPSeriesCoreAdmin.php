@@ -24,8 +24,7 @@ class PPSeriesCoreAdmin {
                             return $settings;
                         }
                 );
-                // Only show "Upgrade to Pro" menu link when Pro is not active
-                if (!defined('SERIES_PRO_VERSION')) {
+                if (!pp_series_is_pro_active()) {
                     add_filter(
                         \PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER,
                         function ($settings) {
