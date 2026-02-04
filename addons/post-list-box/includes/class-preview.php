@@ -344,13 +344,19 @@ class PPS_Post_List_Box_Preview {
         echo '<div class="pps-post-content">';
 
         if (!empty($settings['show_post_titles'])) {
-            $post_title_styles = self::get_post_title_styles($settings);
             $is_current_post = in_array('current-post', $item_classes);
             
+            // Build title styles - current post text color overrides regular post title color
+            $title_styles = [];
             if ($is_current_post && !empty($settings['current_post_text_color'])) {
-                $current_title_color = 'color: ' . esc_attr($settings['current_post_text_color']) . ';';
-                $post_title_styles = !empty($post_title_styles) ? str_replace('style="', 'style="' . $current_title_color, $post_title_styles) : ' style="' . $current_title_color . '"';
+                $title_styles[] = 'color: ' . esc_attr($settings['current_post_text_color']);
+            } elseif (!empty($settings['post_title_color'])) {
+                $title_styles[] = 'color: ' . esc_attr($settings['post_title_color']);
             }
+            if (!empty($settings['post_title_font_size'])) {
+                $title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px';
+            }
+            $post_title_styles = !empty($title_styles) ? ' style="' . implode('; ', $title_styles) . ';"' : '';
             
             echo '<h4 class="pps-post-title"' . $post_title_styles . '>' . esc_html(isset($post->post_title) ? $post->post_title : '') . '</h4>';
         }

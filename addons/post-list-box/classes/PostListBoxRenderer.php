@@ -402,10 +402,21 @@ class PostListBoxRenderer
             $css_parts[] = '.' . $css_class . '{ ' . implode(' ', $container_styles) . ' }';
         }
 
-        // Basic list layout styles (Free version)
-        $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: flex; flex-direction: column; gap: 10px; }';
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-item{ flex-direction: column; align-items: stretch; } }';
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img{ width: 100%; height: 200px; } }';
+        // Layout styles based on layout_style setting
+        $layout_style = !empty($settings['layout_style']) ? $settings['layout_style'] : 'list';
+        $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
+        
+        if ($layout_style === 'grid') {
+            // Grid layout styles
+            $columns = isset($settings['columns']) ? intval($settings['columns']) : 3;
+            $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: grid; grid-template-columns: repeat(' . $columns . ', 1fr); gap: ' . $gap . 'px; }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list{ grid-template-columns: 1fr; } }';
+        } else {
+            // List layout styles (default)
+            $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: flex; flex-direction: column; gap: ' . $gap . 'px; }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-item{ flex-direction: column; align-items: stretch; } }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img{ width: 100%; height: 200px; } }';
+        }
 
         // Title styles
         $title_styles = [];
@@ -470,9 +481,9 @@ class PostListBoxRenderer
                 $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { border-color: ' . esc_attr($settings['current_post_border_color']) . '; }';
             }
             if (!empty($settings['current_post_text_color'])) {
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
             }
         }
 

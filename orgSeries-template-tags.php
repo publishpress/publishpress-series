@@ -184,7 +184,7 @@ function wp_postlist_display()
         $post_list_box_id = $settings['series_post_list_box_selection'];
         $post_list_box    = get_post($post_list_box_id);
  
-        if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PPS_Post_List_Box_Preview')) {
+        if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PostListBoxRenderer')) {
             foreach ($serarray as $series) {
                 $series_id = $series->term_id;
                 $editor_data = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_list_box_id);
