@@ -413,7 +413,7 @@ class PPS_Post_List_Box_Admin_UI {
                             >
                             <span class="<?php echo esc_attr($args['icon']); ?>"></span>
                             <span class="item"><?php echo esc_html($args['label']); ?></span>
-                            <?php if ($key === 'layout') : ?>
+                            <?php if ($key === 'layout' && !pp_series_is_pro_active()) : ?>
                                 <span class="ppseries-pro-lock" >
                                     <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
                                     <span class="tooltip-text">
