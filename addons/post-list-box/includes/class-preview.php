@@ -146,6 +146,26 @@ class PPS_Post_List_Box_Preview {
     }
 
     /**
+     * Post author style (color)
+     * Pro can filter this to add custom styles.
+     */
+    public static function get_post_author_styles($settings)
+    {
+        $styles = apply_filters('pps_post_list_box_preview_author_styles', '', $settings);
+        return $styles;
+    }
+
+    /**
+     * Post date style (color)
+     * Pro can filter this to add custom styles.
+     */
+    public static function get_post_date_styles($settings)
+    {
+        $styles = apply_filters('pps_post_list_box_preview_date_styles', '', $settings);
+        return $styles;
+    }
+
+    /**
      * Generate container styles including gap for preview
      *
      * @param array $settings Layout settings
@@ -374,11 +394,13 @@ class PPS_Post_List_Box_Preview {
             echo '<div class="pps-post-meta">';
             if (!empty($settings['show_post_author'])) {
                 $author_name = (isset($post->post_author) && get_userdata($post->post_author)) ? get_userdata($post->post_author)->display_name : __('Author', 'organize-series');
-                echo '<span class="pps-post-author">' . esc_html($author_name) . '</span>';
+                $author_styles = self::get_post_author_styles($settings);
+                echo '<span class="pps-post-author"' . $author_styles . '>' . esc_html($author_name) . '</span>';
             }
             if (!empty($settings['show_post_date'])) {
                 $post_date = isset($post->post_date) && is_string($post->post_date) ? $post->post_date : date('Y-m-d H:i:s');
-                echo '<span class="pps-post-date">' . esc_html(date('F j, Y', strtotime($post_date))) . '</span>';
+                $date_styles = self::get_post_date_styles($settings);
+                echo '<span class="pps-post-date"' . $date_styles . '>' . esc_html(date('F j, Y', strtotime($post_date))) . '</span>';
             }
             echo '</div>';
         }
