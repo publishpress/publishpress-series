@@ -32,6 +32,57 @@ class PostNavigationRenderer
     {
         add_shortcode('pps_post_navigation', [__CLASS__, 'render_shortcode']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
+        add_filter('pps_series_post_navigation_featured_image', [__CLASS__, 'render_featured_image'], 5, 4);
+    }
+
+    /**
+     * Render featured image for navigation links.
+     *
+     * Hooked at priority 5 so Pro can override at default priority 10.
+     *
+     * @param array|string $image_data Existing image data.
+     * @param string       $position   Link position (previous, next, first).
+     * @param array        $settings   Layout settings.
+     * @param WP_Post|null $post       The post object.
+     *
+     * @return array
+     */
+    public static function render_featured_image($image_data, $position, $settings, $post)
+    {
+        if (! ($post instanceof WP_Post)) {
+            return [];
+        }
+
+        $show_image_key = $position . '_show_featured_image';
+        if (empty($settings[$show_image_key])) {
+            return [];
+        }
+
+        if (! has_post_thumbnail($post->ID)) {
+            return [];
+        }
+
+        $width = isset($settings[$position . '_image_width']) ? (int) $settings[$position . '_image_width'] : 80;
+        $height = isset($settings[$position . '_image_height']) ? (int) $settings[$position . '_image_height'] : 80;
+        $image_url = get_the_post_thumbnail_url($post->ID, 'full');
+        if (! $image_url) {
+            return [];
+        }
+
+        $html = sprintf(
+            '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
+            esc_url($image_url),
+            esc_attr(get_the_title($post->ID)),
+            $width,
+            $height
+        );
+
+        $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+
+        return [
+            'html' => $html,
+            'position' => $image_position,
+        ];
     }
 
     /**

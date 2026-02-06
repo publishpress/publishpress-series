@@ -115,6 +115,34 @@ class PPS_Series_Post_Navigation
         $excluded_types = ['category_separator'];
         $meta = [];
 
+        // Get existing meta to preserve pro-locked field values
+        $existing_meta = get_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', true);
+        if (! is_array($existing_meta)) {
+            $existing_meta = [];
+        }
+
+        // Determine which fields are pro-locked (disabled inputs don't submit in $_POST)
+        $pro_locked_fields = [
+            'previous_custom_arrow_image',
+            'next_custom_arrow_image',
+            'previous_show_featured_image',
+            'next_show_featured_image',
+            'first_show_featured_image',
+            'previous_image_position',
+            'next_image_position',
+            'first_image_position',
+            'previous_image_width',
+            'previous_image_height',
+            'next_image_width',
+            'next_image_height',
+            'first_image_width',
+            'first_image_height',
+            'gap_between_links',
+            'alignment',
+            'separator_text',
+        ];
+        $pro_locked_fields = apply_filters('pps_series_post_navigation_pro_locked_fields', $pro_locked_fields, []);
+
         foreach ($fields as $key => $args) {
             // Skip excluded fields and separator types
             if (in_array($key, $excluded, true)) {
@@ -122,6 +150,22 @@ class PPS_Series_Post_Navigation
             }
             
             if (isset($args['type']) && in_array($args['type'], $excluded_types, true)) {
+                continue;
+            }
+
+            // Check if this field is pro-locked in the free version
+            $field_pro_locked = (
+                $args['type'] !== 'category_separator' &&
+                in_array($key, $pro_locked_fields, true)
+            );
+            $field_pro_locked = apply_filters('pps_series_post_navigation_field_pro_locked', $field_pro_locked, $key, $args, $pro_locked_fields);
+
+            // Pro-locked fields are disabled in the UI and won't be in $_POST
+            // Preserve their existing values from the database
+            if ($field_pro_locked) {
+                if (isset($existing_meta[$key])) {
+                    $meta[$key] = $existing_meta[$key];
+                }
                 continue;
             }
 
