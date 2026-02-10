@@ -1,15 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.18.0] - 29 Jan, 2026
-
-* Added: Extension hooks for Pro integration (publishpress_series_init, publishpress_series_taxonomy_registered, etc.)
-* Added: Filter for post list output (publishpress_series_post_list_output)
-* Added: Filter for navigation output (publishpress_series_navigation_output)
-* Added: Filter for taxonomy args and post types (publishpress_series_taxonomy_args, publishpress_series_post_types)
-* Added: Support for being loaded as Composer library by Pro plugin
-* Changed: Skip loading Free addons when Pro is active to avoid conflicts
-
 [2.17.1] - 10 Dec, 2025
 
 * Fixed: Patch for XSS Vulnerability
