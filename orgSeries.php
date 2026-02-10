@@ -135,7 +135,7 @@ add_action('plugins_loaded', function() {
     }
 
     // Skip Pro detection if loaded as library (we ARE the Pro)
-    $pro_active = false;
+    $pro_active = $loaded_as_library;
     if (!$loaded_as_library) {
         foreach ((array)get_option('active_plugins') as $plugin_file) {
             if (false !== strpos($plugin_file, 'publishpress-series-pro.php')) {
@@ -153,25 +153,26 @@ add_action('plugins_loaded', function() {
             }
         }
 
-        if ($pro_active) {
-            add_filter(
-                'plugin_row_meta',
-                function($links, $file)
-                {
-                    if ($file == plugin_basename(__FILE__)) {
-                        $links[]= __('<strong>This plugin can be deleted.</strong>', 'organize-series');
-                    }
+    }
 
-                    return $links;
-                },
-                10, 2
-            );
-        }
+    if ($pro_active) {
+        add_filter(
+            'plugin_row_meta',
+            function($links, $file)
+            {
+                if ($file == plugin_basename(__FILE__)) {
+                    $links[]= __('<strong>This plugin can be deleted.</strong>', 'organize-series');
+                }
 
-        // If Pro is active as separate plugin, don't initialize Free
-        if ($pro_active) {
-            return;
-        }
+                return $links;
+            },
+            10, 2
+        );
+    }
+
+    // If Pro is active as separate plugin, don't initialize Free
+    if ($pro_active && !$loaded_as_library) {
+        return;
     }
 
     // Don't re-initialize if already done
