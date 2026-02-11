@@ -158,7 +158,10 @@ function wp_insert_series($series_id, $taxonomy_id) {
 
 	$series_icon = seriesicons_write($series_id, $series_icon);
 
-    $wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
+	$term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
+	if (null !== $term_order) {
+		$wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
+	}
 }
 
 function wp_update_series($series_id, $taxonomy_id) {
@@ -181,7 +184,10 @@ function wp_update_series($series_id, $taxonomy_id) {
 		$series_icon = seriesicons_write(absint($series_id), sanitize_text_field($series_icon));
 	}
 
-    $wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
+	$term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
+	if (null !== $term_order) {
+		$wpdb->update( $wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id) );
+	}
 }
 
 function manage_series_columns($columns) {
