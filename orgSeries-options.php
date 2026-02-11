@@ -164,7 +164,7 @@ function orgseries_validate($input) {
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
-	$newinput['series_post_list_limit'] = trim(stripslashes(($input['series_post_list_limit'])));
+	$newinput['series_post_list_limit'] = isset($input['series_post_list_limit']) ? trim(stripslashes((string) $input['series_post_list_limit'])) : '';
 	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
@@ -209,7 +209,7 @@ function orgseries_validate($input) {
 	$newinput['latest_series_before_template'] = trim(stripslashes(($input['latest_series_before_template'])));
 	$newinput['latest_series_inner_template'] = trim(stripslashes(($input['latest_series_inner_template'])));
 	$newinput['latest_series_after_template'] = trim(stripslashes(($input['latest_series_after_template'])));
-	$newinput['series_post_list_position'] = trim(stripslashes(($input['series_post_list_position'])));
+	$newinput['series_post_list_position'] = isset($input['series_post_list_position']) ? trim(stripslashes((string) $input['series_post_list_position'])) : '';
 	$newinput['series_metabox_position'] = trim(stripslashes(($input['series_metabox_position'])));
 	$newinput['series_navigation_box_position'] = trim(stripslashes(($input['series_navigation_box_position'])));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? ($input['series_taxonomy_slug']) : 'series' );
