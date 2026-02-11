@@ -558,19 +558,19 @@ function wp_set_post_series($post, $update, $post_ID = 0, $series_id = array(), 
 		foreach ($p_ser_edit as $ser_id) {
 
 			//If post is not published its part stays as set by user
-			if (!$is_published || $automatic_series_part === 0) {
-				$s_pt = $series_part[$ser_id];
-			} else {
+				if (!$is_published || $automatic_series_part === 0) {
+					$s_pt = isset($series_part[$ser_id]) ? $series_part[$ser_id] : '';
+				} else {
 				if (isset($_GET['submit'])) {
 					$set_spart = array_map('sanitize_text_field', $_GET['series_part']);
 				} else {
 					$set_spart = array_map('sanitize_text_field', $_POST['series_part']);
 				}
-				if (!empty($set_spart)) {
-					$s_pt = $set_spart[$ser_id];
-				} else {
-					$s_pt = '';
-				}
+					if (!empty($set_spart)) {
+						$s_pt = isset($set_spart[$ser_id]) ? $set_spart[$ser_id] : '';
+					} else {
+						$s_pt = '';
+					}
 			}
 
 			set_series_order($ser_id, $post_ID, $s_pt, $is_published);
