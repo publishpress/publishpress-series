@@ -149,6 +149,16 @@ class PPS_Series_Post_Details
             $meta[$key] = $value;
         }
 
+        // Preserve Pro-only settings stored in meta when not provided.
+        $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
+        if (is_array($existing_meta)) {
+            foreach (PPS_Series_Post_Details_Utilities::get_pro_only_keys() as $key) {
+                if (! array_key_exists($key, $meta) && array_key_exists($key, $existing_meta)) {
+                    $meta[$key] = $existing_meta[$key];
+                }
+            }
+        }
+
         update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $meta);
     }
 
@@ -178,6 +188,11 @@ class PPS_Series_Post_Details
                 'settings' => $this->get_post_details_3_settings(),
             ],
         ];
+
+        $defaults = apply_filters('pps_series_post_details_default_layouts', $defaults);
+        if (! is_array($defaults)) {
+            $defaults = [];
+        }
 
         $created_ids = [];
 

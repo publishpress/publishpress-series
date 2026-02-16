@@ -79,6 +79,8 @@ class orgSeries {
 		add_filter('orgseries_part_key', array(&$this, 'part_key'), 10, 2);
 		add_filter('orgseries_pending_part_key', array(&$this, 'part_key'), 10, 2);
 
+		// Hook for Pro to initialize after core is ready
+		do_action('publishpress_series_init', $this);
 	}
 
 	function part_key($part_key, $series_id) {
@@ -216,6 +218,7 @@ class orgSeries {
 		$locations = array(
 				trailingslashit( WP_LANG_DIR . '/' . $domain ),
 				trailingslashit( WP_LANG_DIR . '/loco/plugins/'),
+				trailingslashit( WP_LANG_DIR . '/plugins/'),
 				trailingslashit( WP_LANG_DIR ),
 				trailingslashit( PPSERIES_PATH . 'languages' ),
 			);
@@ -266,7 +269,17 @@ class orgSeries {
 			'capabilities' => $capabilities,
 			'query_var' => isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series',
 			);
+		
+		// Filter for Pro to modify taxonomy args
+		$args = apply_filters('publishpress_series_taxonomy_args', $args);
+		
+		// Filter for Pro to modify supported post types
+		$object_type = apply_filters('publishpress_series_post_types', $object_type);
+		
 		register_taxonomy( $taxonomy_name, $object_type, $args );
+		
+		// Hook for Pro after taxonomy is registered
+		do_action('publishpress_series_taxonomy_registered', $taxonomy_name, $object_type, $args);
 	}
 
 	function add_settings($reset = false) {
@@ -332,6 +345,9 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
+
+		// Hook for Pro to modify settings after they are loaded
+		do_action('publishpress_series_settings_loaded', $this->settings);
 
 		return false;
 	}
@@ -556,6 +572,11 @@ class orgSeries {
 
 	// Add CSS to header if enabled via options and CSS design if overview page is different to default
 	function orgSeries_header() {
+		// Only load series CSS when needed
+		if (!$this->should_load_series_css()) {
+			return;
+		}
+
 		$plugin_path = SERIES_LOC;
 		$css_style_type = isset($this->settings['series_css_tougle']) ? $this->settings['series_css_tougle'] : 'default';
 		if ($this->settings['custom_css']) {
@@ -588,6 +609,32 @@ class orgSeries {
 				ORG_SERIES_VERSION
 			);
 		}
+	}
+
+	/**
+	 * Check if series CSS should be loaded on the current page.
+	 *
+	 * @return bool
+	 */
+	private function should_load_series_css() {
+		// Always load on series archive pages
+		$taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+		if (is_tax($taxonomy_slug)) {
+			return true;
+		}
+
+		// Load on singular posts/pages that belong to a series
+		if (is_singular()) {
+			$post_id = get_queried_object_id();
+			if ($post_id) {
+				$series = wp_get_post_series($post_id);
+				if (!empty($series)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	//add series post-list box to a post in that series (on single.php view)

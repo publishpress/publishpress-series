@@ -15,21 +15,31 @@ if (!class_exists('PPS_Post_List_Box_Utilities')) {
 class PostListBoxRenderer
 {
     /**
+     * Flag to avoid duplicate asset loads.
+     *
+     * @var bool
+     */
+    private static $assets_enqueued = false;
+
+    /**
      * Initialize the renderer
      */
     public static function init()
     {
         add_shortcode('pps_post_list_box', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_styles']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
 
     /**
-     * Enqueue frontend styles
+     * Enqueue frontend styles (called only when shortcode is rendered)
      */
     public static function enqueue_frontend_styles()
     {
-        $css_url = plugins_url('../assets/css/post-list-box-frontend.css', __FILE__);
+        if (self::$assets_enqueued) {
+            return;
+        }
+
+        $css_url = SERIES_PATH_URL . 'addons/post-list-box/assets/css/post-list-box-frontend.css';
         
         wp_enqueue_style(
             'pps-post-list-box-frontend',
@@ -37,6 +47,8 @@ class PostListBoxRenderer
             [],
             ORG_SERIES_VERSION
         );
+
+        self::$assets_enqueued = true;
     }
 
     /**
@@ -116,6 +128,9 @@ class PostListBoxRenderer
             return '';
         }
 
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_styles();
+
         return self::render_html($posts, $settings, $atts['class'], $post_id);
     }
 
@@ -129,10 +144,28 @@ class PostListBoxRenderer
     private static function get_series_posts($series_id, $settings)
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        $orderby = isset($settings['orderby']) ? $settings['orderby'] : 'series_order';
-        $order = isset($settings['order']) ? $settings['order'] : 'ASC';
-
-        $maximum_items = isset($settings['maximum_items']) && $settings['maximum_items'] !== '' ? (int) $settings['maximum_items'] : -1;
+        
+        // Free defaults: series_order, ASC, no limit
+        // Pro can override via filter
+        $query_params = [
+            'orderby' => 'series_order',
+            'order' => 'ASC',
+            'maximum_items' => -1,
+        ];
+        
+        /**
+         * Filter query parameters for post list box.
+         * Pro uses this to apply orderby, order, and maximum_items settings.
+         *
+         * @param array $query_params Default query parameters.
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         */
+        $query_params = apply_filters('pps_post_list_box_query_params', $query_params, $settings, $series_id);
+        
+        $orderby = $query_params['orderby'];
+        $order = $query_params['order'];
+        $maximum_items = $query_params['maximum_items'];
         
         if ($orderby === 'series_order') {
 
@@ -265,13 +298,20 @@ class PostListBoxRenderer
                                     </a>
                                 <?php else : ?>
                                     <?php 
-                                        $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
-                                        if ($fallback_image_id > 0) {
-                                            $fallback_image = wp_get_attachment_image_src($fallback_image_id, 'large');
-                                            $fallback_url = $fallback_image ? $fallback_image[0] : plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
-                                        } else {
-                                            $fallback_url = plugin_dir_url(__FILE__) . '../assets/images/placeholder.svg';
-                                        }
+                                        /**
+                                         * Filter fallback image URL when post has no featured image.
+                                         * Pro can use this to provide custom fallback image.
+                                         *
+                                         * @param string $fallback_url Default placeholder URL.
+                                         * @param array  $settings     Layout settings.
+                                         * @param WP_Post $post        Current post object.
+                                         */
+                                        $fallback_url = apply_filters(
+                                            'pps_post_list_box_fallback_image_url',
+                                            SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg',
+                                            $settings,
+                                            $post
+                                        );
                                     ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
                                         <img src="<?php echo esc_url($fallback_url); ?>" alt="<?php echo esc_attr(get_the_title($post->ID)); ?>" />
@@ -289,31 +329,16 @@ class PostListBoxRenderer
                                 </h4>
                             <?php endif; ?>
 
-                            <?php if (!empty($settings['show_post_excerpt'])) : ?>
-                                <div class="pps-post-excerpt">
-                                    <?php 
-                                    $excerpt_length = isset($settings['excerpt_length']) ? intval($settings['excerpt_length']) : 55;
-                                    $excerpt_text = PPS_Post_List_Box_Utilities::build_safe_excerpt($post, $excerpt_length);
-                                    echo wpautop(esc_html($excerpt_text));
-                                    ?>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($settings['show_post_author']) || !empty($settings['show_post_date'])) : ?>
-                                <div class="pps-post-meta">
-                                    <?php if (!empty($settings['show_post_author'])) : ?>
-                                        <span class="pps-post-author">
-                                            <?php _e('By', 'organize-series'); ?> <?php the_author_meta('display_name', $post->post_author); ?>
-                                        </span>
-                                    <?php endif; ?>
-
-                                    <?php if (!empty($settings['show_post_date'])) : ?>
-                                        <span class="pps-post-date">
-                                            <?php echo get_the_date('', $post->ID); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
+                            <?php
+                            /**
+                             * Action to render additional post content (excerpt, meta, etc.).
+                             * Pro uses this to add excerpt, author, date display.
+                             *
+                             * @param WP_Post $post     Current post object.
+                             * @param array   $settings Layout settings.
+                             */
+                            do_action('pps_post_list_box_after_title', $post, $settings);
+                            ?>
                         </div>
                     </div>
                 <?php endforeach; wp_reset_postdata(); ?>
@@ -377,21 +402,21 @@ class PostListBoxRenderer
             $css_parts[] = '.' . $css_class . '{ ' . implode(' ', $container_styles) . ' }';
         }
 
-        // Layout styles to ensure they override properly
-        $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
-        $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: flex; flex-direction: column; gap: ' . $gap . 'px; }';
-        
+        // Layout styles based on layout_style setting
         $layout_style = !empty($settings['layout_style']) ? $settings['layout_style'] : 'list';
-        if ($layout_style === 'grid') {
-            $columns = isset($settings['columns']) ? intval($settings['columns']) : 3;
-            $css_parts[] = '.' . $css_class . ' .pps-post-list.grid{ display: grid; grid-template-columns: repeat(' . $columns . ', 1fr); gap: ' . $gap . 'px; }';
-        } else {
-            $css_parts[] = '.' . $css_class . ' .pps-post-list.grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: ' . $gap . 'px; }';
-        }
+        $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
         
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.grid{ grid-template-columns: 1fr; } }';
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-item{ flex-direction: column; align-items: stretch; } }';
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img{ width: 100%; height: 200px; } }';
+        if ($layout_style === 'grid') {
+            // Grid layout styles
+            $columns = isset($settings['columns']) ? intval($settings['columns']) : 3;
+            $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: grid; grid-template-columns: repeat(' . $columns . ', 1fr); gap: ' . $gap . 'px; }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list{ grid-template-columns: 1fr; } }';
+        } else {
+            // List layout styles (default)
+            $css_parts[] = '.' . $css_class . ' .pps-post-list{ display: flex; flex-direction: column; gap: ' . $gap . 'px; }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-item{ flex-direction: column; align-items: stretch; } }';
+            $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img{ width: 100%; height: 200px; } }';
+        }
 
         // Title styles
         $title_styles = [];
@@ -420,21 +445,13 @@ class PostListBoxRenderer
             $css_parts[] = '.' . $css_class . ' .pps-post-title a { ' . implode(' ', $post_title_styles) . ' }';
         }
 
-        // Excerpt styles
-        if (!empty($settings['excerpt_color'])) {
-            $css_parts[] = '.' . $css_class . ' .pps-post-excerpt { color: ' . esc_attr($settings['excerpt_color']) . '; }';
-        }
-
-        // Thumbnail dimensions
+        // Thumbnail dimensions (basic list layout)
         $thumbnail_width = isset($settings['thumbnail_width']) ? intval($settings['thumbnail_width']) : 150;
         $thumbnail_height = isset($settings['thumbnail_height']) ? intval($settings['thumbnail_height']) : 150;
         
-        
         $css_parts[] = '.' . $css_class . ' .pps-post-thumbnail img { width: ' . $thumbnail_width . 'px; height: ' . $thumbnail_height . 'px; object-fit: cover; object-position: center; }';
-        $css_parts[] = '.' . $css_class . ' .pps-post-list.grid .pps-post-thumbnail img { width: 100%; max-width: ' . $thumbnail_width . 'px; height: ' . $thumbnail_height . 'px; }';
         
-        // Responsive thumbnail styles
-        $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.grid .pps-post-thumbnail img { width: 100%; max-width: none; height: ' . $thumbnail_height . 'px; } }';
+        // Responsive thumbnail styles for list layout
         $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img { width: 100%; height: ' . $thumbnail_height . 'px; } }';
 
         // Item styles
@@ -464,9 +481,9 @@ class PostListBoxRenderer
                 $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { border-color: ' . esc_attr($settings['current_post_border_color']) . '; }';
             }
             if (!empty($settings['current_post_text_color'])) {
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . esc_attr($settings['current_post_text_color']) . '; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
             }
         }
 
@@ -476,6 +493,16 @@ class PostListBoxRenderer
             $custom_css = str_replace('.pps-post-list-box', '.' . $css_class, $settings['custom_css']);
             $css_parts[] = wp_strip_all_tags($custom_css);
         }
+
+        /**
+         * Filter CSS parts for post list box.
+         * Pro can use this to add additional CSS rules.
+         *
+         * @param array  $css_parts Array of CSS rules.
+         * @param string $css_class The unique CSS class for this instance.
+         * @param array  $settings  The post list box settings.
+         */
+        $css_parts = apply_filters('pps_post_list_box_css_parts', $css_parts, $css_class, $settings);
 
         if (!empty($css_parts)) {
             self::$dynamic_css[] = implode("\n", $css_parts);

@@ -427,6 +427,6 @@ function ppseries_get_series_slug() {
 }
 
 function pp_series_is_pro_active(){
-	return defined('SERIES_PRO_VERSION');
+	return defined('SERIES_PRO_VERSION') || defined('PUBLISHPRESS_SERIES_PRO_LOADED');
 }
 ?>

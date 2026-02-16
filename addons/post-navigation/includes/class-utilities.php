@@ -17,8 +17,8 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_module_path($file = '')
     {
-        $base = __DIR__ . '/../';
-        return $file ? $base . $file : $base;
+        $base = trailingslashit(SERIES_PATH . 'addons/post-navigation');
+        return $file ? $base . ltrim($file, '/') : $base;
     }
 
     /**
@@ -26,8 +26,8 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_module_url($file = '')
     {
-        $base = plugins_url('/', __FILE__) . '../';
-        return $file ? $base . $file : $base;
+        $base = trailingslashit(SERIES_PATH_URL . 'addons/post-navigation');
+        return $file ? $base . ltrim($file, '/') : $base;
     }
 
     /**
@@ -35,10 +35,9 @@ class PPS_Series_Post_Navigation_Utilities
      */
     public static function get_default_post_navigation_data($post_id = null)
     {
-        
-        return [
+        $defaults = [
             'previous_link_type' => 'custom',
-            'previous_label' => __('Previous', 'publishpress-series'),
+            'previous_label' => __('Previous', 'organize-series'),
             'previous_show_featured_image' => 0,
             'previous_image_position' => 'left',
             'previous_image_width' => 80,
@@ -49,7 +48,7 @@ class PPS_Series_Post_Navigation_Utilities
             'previous_arrow_size' => 16,
             'previous_custom_arrow_image' => 0,
             'next_link_type' => 'custom',
-            'next_label' => __('Next', 'publishpress-series'),
+            'next_label' => __('Next', 'organize-series'),
             'next_show_featured_image' => 0,
             'next_image_position' => 'left',
             'next_image_width' => 80,
@@ -60,7 +59,7 @@ class PPS_Series_Post_Navigation_Utilities
             'next_arrow_size' => 16,
             'next_custom_arrow_image' => 0,
             'first_link_type' => 'none',
-            'first_label' => __('Series Home', 'publishpress-series'),
+            'first_label' => __('Series Home', 'organize-series'),
             'first_link_position' => 'right',
             'first_show_featured_image' => 0,
             'first_image_position' => 'left',
@@ -86,6 +85,8 @@ class PPS_Series_Post_Navigation_Utilities
             'margin' => 0,
             'gap_between_links' => 10,
         ];
+
+        return apply_filters('pps_series_post_navigation_default_data', $defaults, $post_id);
     }
 
     /**
@@ -96,17 +97,18 @@ class PPS_Series_Post_Navigation_Utilities
         $defaults = self::get_default_post_navigation_data($post_id);
         
         if ($use_default) {
-            return $defaults;
+            return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }
 
         $meta = get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true);
         
         if (empty($meta)) {
-            return $defaults;
+            return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }
 
         $settings = (array) $meta;
-        return array_merge($defaults, $settings);
+        $settings = array_merge($defaults, $settings);
+        return apply_filters('pps_series_post_navigation_settings', $settings, $post_id, $use_default);
     }
 
     /**
@@ -166,9 +168,9 @@ class PPS_Series_Post_Navigation_Utilities
 
         // Create a sample series if none exist
         $result = wp_insert_term(
-            __('Sample Series', 'publishpress-series'),
+            __('Sample Series', 'organize-series'),
             $taxonomy_slug,
-            ['description' => __('Sample series for preview purposes', 'publishpress-series')]
+            ['description' => __('Sample series for preview purposes', 'organize-series')]
         );
 
         if (is_wp_error($result)) {

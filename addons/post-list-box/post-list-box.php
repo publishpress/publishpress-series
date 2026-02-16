@@ -117,7 +117,7 @@ class PPS_Post_List_Box
                     'item_padding' => '0',
                     'item_border_width' => '0',
                     'layout_style' => 'list',
-                    'post_list_background_color' => '#f9f9f9',
+                    'post_list_background_color' => '#EEF5FF',
                     'show_post_excerpt' => 0,
                     'highlight_current_post' => 0,
                     'gap_between_items' => '5',
@@ -207,9 +207,30 @@ class PPS_Post_List_Box
 
         $fields = apply_filters('pps_post_list_box_fields', PPS_Post_List_Box_Fields::get_fields($post), $post);
         $excluded_input = ['template_action', 'import_action'];
+        $existing_meta = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
+        $existing_meta = is_array($existing_meta) ? $existing_meta : [];
         $meta_data = [];
         
         foreach ($fields as $key => $args) {
+            $pro_locked = !empty($args['pro_only']);
+            $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
+            if ($pro_locked) {
+                if (isset($_POST[$key])) {
+                    if (isset($args['sanitize']) && is_array($args['sanitize']) && $_POST[$key] !== '') {
+                        $value = $_POST[$key]; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                        foreach ($args['sanitize'] as $sanitize) {
+                            $value = is_array($value) ? map_deep($value, $sanitize) : $sanitize($value);
+                        }
+                        $meta_data[$key] = $value;
+                    } else {
+                        $sanitize = isset($args['sanitize']) ? $args['sanitize'] : 'sanitize_text_field';
+                        $meta_data[$key] = (isset($_POST[$key]) && $_POST[$key] !== '') ? $sanitize($_POST[$key]) : '';
+                    }
+                } elseif (array_key_exists($key, $existing_meta)) {
+                    $meta_data[$key] = $existing_meta[$key];
+                }
+                continue;
+            }
             if (!isset($_POST[$key]) || in_array($key, $excluded_input)) {
                 continue;
             }

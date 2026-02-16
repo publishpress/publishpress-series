@@ -29,7 +29,7 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $form_data = isset($_POST['settings']) ? wp_unslash($_POST['settings']) : '';
@@ -46,11 +46,45 @@ class PPS_Series_Post_Navigation_Ajax
         $post = get_post($post_id);
         $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);
         
+        // Determine which fields are pro-locked (disabled inputs don't serialize)
+        $pro_locked_fields = [
+            'previous_custom_arrow_image',
+            'next_custom_arrow_image',
+            'previous_show_featured_image',
+            'next_show_featured_image',
+            'first_show_featured_image',
+            'previous_image_position',
+            'next_image_position',
+            'first_image_position',
+            'previous_image_width',
+            'previous_image_height',
+            'next_image_width',
+            'next_image_height',
+            'first_image_width',
+            'first_image_height',
+            'gap_between_links',
+            'alignment',
+            'separator_text',
+        ];
+        $pro_locked_fields = apply_filters('pps_series_post_navigation_pro_locked_fields', $pro_locked_fields, []);
+
         // Merge settings, handling checkboxes properly
         $settings = $base_settings;
         foreach ($fields as $key => $args) {
             // Skip category separators
             if (isset($args['type']) && $args['type'] === 'category_separator') {
+                continue;
+            }
+
+            // Check if this field is pro-locked
+            $field_pro_locked = (
+                $args['type'] !== 'category_separator' &&
+                in_array($key, $pro_locked_fields, true)
+            );
+            $field_pro_locked = apply_filters('pps_series_post_navigation_field_pro_locked', $field_pro_locked, $key, $args, $pro_locked_fields);
+
+            // Pro-locked fields are disabled and won't be serialized — keep existing values
+            if ($field_pro_locked) {
                 continue;
             }
             
@@ -78,21 +112,21 @@ class PPS_Series_Post_Navigation_Ajax
         }
 
         if (! $series_term) {
-            wp_send_json_error(['message' => __('No series available to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No series available to preview.', 'organize-series')]);
         }
 
         $posts = PPS_Series_Post_Navigation_Utilities::get_sample_series_posts($series_term->term_id);
         $total_posts = count($posts);
 
         if (0 === $total_posts) {
-            wp_send_json_error(['message' => __('No posts found in series to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No posts found in series to preview.', 'organize-series')]);
         }
 
         $current_index = $total_posts > 1 ? 1 : 0;
         $current_post  = isset($posts[$current_index]) ? $posts[$current_index] : null;
 
         if (! $current_post) {
-            wp_send_json_error(['message' => __('No posts found in series to preview.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('No posts found in series to preview.', 'organize-series')]);
         }
 
         $previous_post = ($current_index + 1 < $total_posts) ? $posts[$current_index + 1] : null;
@@ -130,7 +164,7 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings($post_id);
@@ -153,12 +187,12 @@ class PPS_Series_Post_Navigation_Ajax
         $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
 
         if (! $post_id || empty($settings)) {
-            wp_send_json_error(['message' => __('Invalid import data.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
         update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $settings);
 
-        wp_send_json_success(['message' => __('Settings imported successfully.', 'publishpress-series')]);
+        wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
     }
 
     /**
@@ -170,12 +204,12 @@ class PPS_Series_Post_Navigation_Ajax
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         if (! $post_id) {
-            wp_send_json_error(['message' => __('Invalid post ID.', 'publishpress-series')]);
+            wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $defaults = PPS_Series_Post_Navigation_Utilities::get_default_post_navigation_data($post_id);
         update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
 
-        wp_send_json_success(['message' => __('Settings reset to defaults.', 'publishpress-series')]);
+        wp_send_json_success(['message' => __('Settings reset to defaults.', 'organize-series')]);
     }
 }

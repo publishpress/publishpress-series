@@ -178,16 +178,16 @@ class PPS_Series_Post_Details_Fields
             ],
             'background_separator' => [
                 'type'  => 'category_separator',
-                'label' => __('Background', 'publishpress-series-pro'),
+                'label' => __('Background', 'organize-series'),
                 'tab'   => 'styling',
             ],
             'background_color' => [
-                'label'    => __('Background Color', 'publishpress-series-pro'),
+                'label'    => __('Background Color', 'organize-series'),
                 'type'     => 'color',
                 'tab'      => 'styling',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#eef5ff',
-                'description' => __('Background color for the meta box container', 'publishpress-series-pro'),
+                'description' => __('Background color for the meta box container', 'organize-series'),
             ],
             'spacing_separator' => [
                 'type'  => 'category_separator',

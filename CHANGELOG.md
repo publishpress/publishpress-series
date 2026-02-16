@@ -1,17 +1,25 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-v2.17.1- 2025-12-10
+[3.0.0] - 12 Feb, 2026
+
+* Changed: Restructured Pro plugin to include Free as Composer dependency
+* Changed: Pro now extends Free functionality via hooks instead of code duplication
+
+[2.17.1] - 10 Dec, 2025
+
 * Fixed: Patch for XSS Vulnerability
 
-v2.17.0- 2025-11-19
+[2.17.0] - 19 Nov, 2025
+
 * Added: Series Post Navigation editor #998
 * Added: Add a View link from the Series Order screen #984
 * Added: Add a checkbox to migrate terms to new taxonomies
 * Fixed: Border color does not match on Post List Box
 * Update: ES-FR-IT Translation #1002
 
-v2.16.0- 2025-10-29
+[2.16.0] - 29 Oct, 2025
+
 * Added: Series Post Details editor #969
 * Fixed: Resolve PHP warning on Post List Box editor #944
 * Fixed: Custom template on Post List Box not working #948
@@ -21,7 +29,8 @@ v2.16.0- 2025-10-29
 * Changed: Remove shortcode link in Post List Box editor #954
 * Changed: Allow to choose different fallback featured image #953
 
-v2.15.0- 2025-09-12
+[2.15.0] - 12 Sep, 2025
+
 * Added: New Post List Box Editor #933
 * Changed: Remove Old translation file #912
 * Changed: Remove "Bulk Actions" from Series Order #660
@@ -36,21 +45,24 @@ v2.15.0- 2025-09-12
 * Fixed: Scheduled posts publish with no part, #821
 * Fixed: Update banner library #914
 
-v2.14.0- 2025-07-14
+[2.14.0] - 14 Jul, 2025
+
 * Added: New Promo for Pro version #901
 * Fixed: Function _load_textdomain_just_in_time #900
 * Fixed: Warning when SiteOrigin active #866
 * Fixed: Hide the metabox if there are no Series #902
 * Fixed: Hide Filter on CPT #875
 
-v2.13.0- 2025-02-19
+[2.13.0] - 19 Feb, 2025
+
 * Fixed: WordPress database error on install, #831
 * Fixed: Undefined variable $current_post_id, #877
 * Fixed: PHP Warning Undefined array key "post_series", #865
 * Fixed: Deprecated message on EDD Vendor, #878
 * Update: Update WordPress Reviews library to 1.1.20, 860
 
-v2.12.0- 2023-08-17
+[2.12.0] - 17 Aug, 2023
+
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Replaced Psr/Container library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Change min PHP version to 7.2.5. If not compatible, the plugin will not execute;
@@ -58,7 +70,8 @@ v2.12.0- 2023-08-17
 * Changed: Updated internal libraries to latest versions;
 * Changed: Refactor some occurrences of "plugins_loaded" replacing it by a new action: "plublishpress_<name>_loaded" which runs after the requirements and libraries are loaded, but before the plugin is initialized;
 
-v2.11.5- 2023-07-20
+[2.11.5] - 20 Jul, 2023
+
 * Update: Allow users to re-order drafts series, #815
 * Update: Add series metabox order settings, #814
 * Update: Add series upgrade action button to settings, #810
@@ -68,7 +81,8 @@ v2.11.5- 2023-07-20
 * Update: ES-IT Translation updates June 2023, #809
 * Update: Series PRO ES-FR-IT Translation Updates July 2023, #825
 
-v2.11.4- 2023-06-15
+[2.11.4] - 15 Jun, 2023
+
 * Update: Remove auto series part feature
 * Fixed: Series Order is broken with Multiple Series, #774
 * Fixed: Editing Series order not updating, #746
@@ -78,8 +92,10 @@ v2.11.4- 2023-06-15
 * Fixed: Add a link to Manage Series if no series are available, #728
 * Fixed: Remove the banner for Blocks, #770
 
-v2.11.2- 2023-05-23
-* Update: Fix issue with v2.10.1 and re-release update with below changes:
+[2.11.2] - 23 May, 2023
+
+* Update: Fix issue with [2.10.1]  and re-release update with below changes:
+
 * Update: Added new token %post_title_short% and %post_title_short_linked%, #523
 * Fixed: %post_title_list_short% not working, #523
 * Fixed: Broken Post list display for series box style, #691
@@ -91,19 +107,23 @@ v2.11.2- 2023-05-23
 * Fixed: Sorting series is not working for [series_toc] shortcode, #696
 * Fixed: Series Order not working for multiple series, #706
 * Fixed: Manual series part not working when Automatic Numbering is enabled, #702
-* Update: Series-v2.10.0-ES-IT_TranslationUpdate-5_October2022, #665
+* Update: Series-[2.10.0] -ES-IT_TranslationUpdate-5_October2022, #665
 
-v2.11.1- 2023-05-18
+
+[2.11.1] - 18 May, 2023
+
 * Update: Rollback 2.11.0
 
-v2.11.0 - 2023-05-18
+[2.11.0]  - 18 May, 2023
+
 * Changed: Replaced Pimple library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Replaced Psr/Container library with a prefixed version of the library to avoid conflicts with other plugins;
 * Changed: Change min PHP version to 7.2.5. If not compatible, the plugin will not execute;
 * Changed: Change min WP version to 5.5. If not compatible, the plugin will not execute;
 * Changed: Updated internal libraries to latest versions;
 
-v2.10.1- 2023-01-04
+[2.10.1] - 04 Jan, 2023
+
 * Update: Added new token %post_title_short% and %post_title_short_linked%, #523
 * Fixed: %post_title_list_short% not working, #523
 * Fixed: Broken Post list display for series box style, #691
@@ -115,9 +135,11 @@ v2.10.1- 2023-01-04
 * Fixed: Sorting series is not working for [series_toc] shortcode, #696
 * Fixed: Series Order not working for multiple series, #706
 * Fixed: Manual series part not working when Automatic Numbering is enabled, #702
-* Update: Series-v2.10.0-ES-IT_TranslationUpdate-5_October2022, #665
+* Update: Series-[2.10.0] -ES-IT_TranslationUpdate-5_October2022, #665
 
-v2.10.0- 2022-10-04
+
+[2.10.0] - 04 Oct, 2022
+
 * Feature: Add Series and Series Group re-order field with term drag and drop feature #584
 * Feature: Add series order link to series and new post selected series #612
 * Feature: Add series Groups(Categories) overview page shortcode [publishpress_series_categories] #591
@@ -142,11 +164,13 @@ v2.10.0- 2022-10-04
 * Update: Remove "Create as unpublished"? #655
 * Fixed: Series link in "Posts" table doesn't go anywhere #651
 
-v2.9.2- 2022-07-12
+[2.9.2] - 12 Jul, 2022
+
 * Fixed: Problem with series navigation and List #568
 * Fixed: Define plugin addon path from primary plugin file to fix include error #570
 
-v2.9.1- 2022-07-06
+[2.9.1] - 06 Jul, 2022
+
 * Feature: Added series Table of Content shortcode [publishpress_series_toc], #559
 * Update: Disable automatic numbering for new installs #515
 * Fixed: %post_date% doesn't work #525
@@ -162,10 +186,12 @@ v2.9.1- 2022-07-06
 * Update: Translation check #557
 * Fixed: Error in PHP 5.6.39 #535
 
-v2.9.0.1- 2022-05-17
+[2.9.0] .1- 17 May, 2022
+
 * Fixed: Series not enable in rest api #531
 
-v2.9.0- 2022-04-21
+[2.9.0] - 21 Apr, 2022
+
 * Fixed: Better way to re-order posts in a series #377
 * Fixed: Improved publish Series display #494
 * Fixed: Include a sidebar for Pro #462
@@ -175,18 +201,21 @@ v2.9.0- 2022-04-21
 * Fixed: Re-numbering of posts within the series #477
 * Fixed: Publish Series screen in Free version #478
 
-v2.8.2- 2022-04-12
+[2.8.2] - 12 Apr, 2022
+
 * Fixed: Issue with series menu permission #488
 * Fixed: Remove lines and paddings from Series Metabox #484
 
-v2.8.1- 2022-04-11
+[2.8.1] - 11 Apr, 2022
+
 * Fixed: Custom Post Type Archive not working anymore #474
 * Fixed: Issue with Post Title in Widget #473
 * Fixed: Small changes to "Display" settings #466
 * Fixed: "Series" should be "Settings" #470
 * Fixed: Two issues with Series Table of Contents #465
 
-v2.8.0- 2022-03-15
+[2.8.0] - 15 Mar, 2022
+
 * Fixed: New theme with better design #272
 * Fixed: Improved design for "Publish Series" screen #436
 * Fixed: Improved design for Series overview page #309
@@ -212,16 +241,19 @@ v2.8.0- 2022-03-15
 * Fixed: Consistent design for Settings #434
 * Fixed: Move series "Add New" metabox to html #433
 
-v2.7.5- 2022-02-07
+[2.7.5] - 07 Feb, 2022
+
 * Fixed: Stop automatic re-numbering of posts within the series #376
 * Fixed: WPDebug shows a bunch of errors in the Settings #381
 * Fixed: Notice: Undefined index: series_custom_base #380
 * Fixed: Problem with Series Post List box and %series_part% #382
 
-v2.7.4- 2022-01-20
+[2.7.4] - 20 Jan, 2022
+
 * Fixed: Series option update message
 
-v2.7.3- 2022-01-20
+[2.7.3] - 20 Jan, 2022
+
 * Fixed: HTML tags being stripped when saving #362
 * Fixed: PHP Warning: Undefined array key #354
 * Fixed: Design for boxes is missing #352
@@ -232,7 +264,8 @@ v2.7.3- 2022-01-20
 
 
 
-v2.7.2- 2022-01-05
+[2.7.2] - 05 Jan, 2022
+
 * Fixed: Make text easier to read #348
 * Fixed: Overview page layout description #346
 * Fixed: Don't override taxonomy template when layout is default #349
@@ -240,7 +273,8 @@ v2.7.2- 2022-01-05
 * Fixed: Santize all form entries
 * Fixed: Add and validate all form nonce
 
-v2.7.1- 2021-12-09
+[2.7.1] - 09 Dec, 2021
+
 * Fixed: PHP notices from the widget #303
 * Fixed: Visual bug with the "Series Taxonomy" choice #312
 * Fixed: Deprecated notices #307
@@ -253,7 +287,8 @@ v2.7.1- 2021-12-09
 * Fixed: Improved design for Series overview page #309
 * Added: Bulk edit for series #338
 
-v2.7.0- 2021-11-17
+[2.7.0] - 17 Nov, 2021
+
 * Fixed: Clarify what HTML is allowed in templates #273
 * Fixed: Update the Reviews box class #274
 * Fixed: Add message to draft series without part number #261
@@ -267,7 +302,8 @@ v2.7.0- 2021-11-17
 * Fixed: Issue with Seriously Simple Podcasting plugin #87
 * Fixed: PHP Notice: Trying to access array offse #298
 
-v2.6.3- 2021-09-29
+[2.6.3] - 29 Sep, 2021
+
 * Fixed: Fix "invalid_taxonomy" WP_Error #88
 * Fixed: Append to series on action Scheduled to Published #83
 * Fixed: Fix "Only variable references should be returned by reference" #89
@@ -282,14 +318,16 @@ v2.6.3- 2021-09-29
 * Added: Include Italian translation #253
 * Fixed: Series Grouping using categories #216
 
-v2.6.2- 2021-09-07
+[2.6.2] - 07 Sep, 2021
+
 * Fixed: Yoast SEO issue #206
 * Fixed: Move "Reset options" to uninstall tab #208
 * Fixed: Improve settings option labels #205
 * Fixed: 2.6.1 is causing a JavaScript error in core #213
 * Fixed: Can't add icon/image to a series #187
 
-v2.6.1- 2021-09-02
+[2.6.1] - 02 Sep, 2021
+
 * Fixed: More room on settings pages #183
 * Fixed: Clean up for icons screen #181
 * Fixed: Series page shows "No tags found." #182
@@ -300,7 +338,8 @@ v2.6.1- 2021-09-02
 * Fixed: Changes to 'General' Settings #199
 * Fixed: Formatting issues with Latest Series Widget #198
 
-v2.6.0- 2021-08-26
+[2.6.0] - 26 Aug, 2021
+
 * Updated: New name and remove previous sidebar branding #98
 * Fixed: Clean up sidebar box in post editingg screen #99
 * Fixed: Fix "Use of undefined constant SERIES_QUERYVAR" error #86

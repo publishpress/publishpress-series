@@ -31,7 +31,6 @@ class SeriesPostDetailsRenderer
     public static function init()
     {
         add_shortcode('pps_post_details', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_assets']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
     }
 
@@ -44,8 +43,7 @@ class SeriesPostDetailsRenderer
             return;
         }
 
-        $base_file = PPS_Series_Post_Details_Utilities::get_module_path('post-details.php');
-        $style_url = plugins_url('assets/css/series-post-details-frontend.css', $base_file);
+        $style_url = SERIES_PATH_URL . 'addons/post-details/assets/css/series-post-details-frontend.css';
         
         wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], ORG_SERIES_VERSION);
 
@@ -145,6 +143,9 @@ class SeriesPostDetailsRenderer
         if ('' === $content) {
             return '';
         }
+
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_assets();
 
         $layout_class = 'pps-series-post-details-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
@@ -533,40 +534,16 @@ class SeriesPostDetailsRenderer
             return;
         }
 
-        // Outer container styles (border, background, margin)
+        // Outer container styles (Free only)
         $outer_parts = [];
-
-        // Margin (on outer container) - uniform on all sides
-        $margin = isset($settings['margin']) ? (int) $settings['margin'] : 0;
-        if ($margin > 0) {
-            $outer_parts[] = sprintf('margin: %dpx;', $margin);
-        }
 
         // Background color (on outer container)
         if (! empty($settings['background_color'])) {
             $outer_parts[] = 'background-color: ' . esc_attr($settings['background_color']) . ';';
         }
 
-        // Border (on outer container)
-        $border_width = isset($settings['border_width']) ? (int) $settings['border_width'] : 0;
-        if ($border_width > 0) {
-            $border_color = ! empty($settings['border_color']) ? $settings['border_color'] : '#d8dee9';
-            $outer_parts[] = sprintf('border: %dpx solid %s;', $border_width, esc_attr($border_color));
-        }
-
-        // Border radius (on outer container)
-        if (! empty($settings['border_radius'])) {
-            $outer_parts[] = 'border-radius: ' . (int) $settings['border_radius'] . 'px;';
-        }
-
-        // Inner content styles (padding, text color, text size)
+        // Inner content styles (text color, text size)
         $inner_parts = [];
-
-        // Padding (on inner content) - uniform on all sides
-        $padding = isset($settings['padding']) ? (int) $settings['padding'] : 0;
-        if ($padding > 0) {
-            $inner_parts[] = sprintf('padding: %dpx;', $padding);
-        }
 
         // Text color (on inner content)
         if (! empty($settings['text_color'])) {
@@ -593,6 +570,11 @@ class SeriesPostDetailsRenderer
         if (! empty($settings['link_color'])) {
             $link_color = esc_attr($settings['link_color']);
             $css[] = sprintf('.%1$s a, .%1$s a:visited { color: %2$s; }', esc_attr($layout_class), $link_color);
+        }
+
+        $css = apply_filters('pps_series_post_details_css_parts', $css, $layout_class, $settings);
+        if (! is_array($css)) {
+            $css = [];
         }
 
         if (! empty($css)) {

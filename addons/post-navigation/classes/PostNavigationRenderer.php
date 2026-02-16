@@ -31,8 +31,58 @@ class PostNavigationRenderer
     public static function init()
     {
         add_shortcode('pps_post_navigation', [__CLASS__, 'render_shortcode']);
-        add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_frontend_assets']);
         add_action('wp_footer', [__CLASS__, 'output_dynamic_css']);
+        add_filter('pps_series_post_navigation_featured_image', [__CLASS__, 'render_featured_image'], 5, 4);
+    }
+
+    /**
+     * Render featured image for navigation links.
+     *
+     * Hooked at priority 5 so Pro can override at default priority 10.
+     *
+     * @param array|string $image_data Existing image data.
+     * @param string       $position   Link position (previous, next, first).
+     * @param array        $settings   Layout settings.
+     * @param WP_Post|null $post       The post object.
+     *
+     * @return array
+     */
+    public static function render_featured_image($image_data, $position, $settings, $post)
+    {
+        if (! ($post instanceof WP_Post)) {
+            return [];
+        }
+
+        $show_image_key = $position . '_show_featured_image';
+        if (empty($settings[$show_image_key])) {
+            return [];
+        }
+
+        if (! has_post_thumbnail($post->ID)) {
+            return [];
+        }
+
+        $width = isset($settings[$position . '_image_width']) ? (int) $settings[$position . '_image_width'] : 80;
+        $height = isset($settings[$position . '_image_height']) ? (int) $settings[$position . '_image_height'] : 80;
+        $image_url = get_the_post_thumbnail_url($post->ID, 'full');
+        if (! $image_url) {
+            return [];
+        }
+
+        $html = sprintf(
+            '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
+            esc_url($image_url),
+            esc_attr(get_the_title($post->ID)),
+            $width,
+            $height
+        );
+
+        $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+
+        return [
+            'html' => $html,
+            'position' => $image_position,
+        ];
     }
 
     /**
@@ -44,8 +94,7 @@ class PostNavigationRenderer
             return;
         }
 
-        $base_file = PPS_Series_Post_Navigation_Utilities::get_module_path('post-navigation.php');
-        $style_url = plugins_url('assets/css/post-navigation-frontend.css', $base_file);
+        $style_url = SERIES_PATH_URL . 'addons/post-navigation/assets/css/post-navigation-frontend.css';
 
         wp_enqueue_style('pps-series-post-navigation-frontend', $style_url, [], ORG_SERIES_VERSION);
         wp_enqueue_style('dashicons');
@@ -137,6 +186,9 @@ class PostNavigationRenderer
             return '';
         }
 
+        // Enqueue styles only when content is actually rendered
+        self::enqueue_frontend_assets();
+
         $layout_class = 'pps-post-navigation-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
 
@@ -208,7 +260,7 @@ class PostNavigationRenderer
 
         // Check if we should hide when single post
         if (!empty($settings['hide_when_single_post']) && $total_posts <= 1) {
-            return '<p style="color: #999; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'publishpress-series') . '</p>';
+            return '<p style="color: #999; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'organize-series') . '</p>';
         }
 
         $content_parts = [];
@@ -254,7 +306,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -270,7 +322,7 @@ class PostNavigationRenderer
                 ? $preview_posts['previous']
                 : null;
 
-            $label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'publishpress-series');
+            $label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'organize-series');
             if ($prev_type === 'post_title' && $prev_post) {
                 $label = get_the_title($prev_post->ID);
             }
@@ -285,7 +337,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -301,7 +353,7 @@ class PostNavigationRenderer
                 ? $preview_posts['next']
                 : null;
 
-            $label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'publishpress-series');
+            $label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'organize-series');
             if ($next_type === 'post_title' && $next_post) {
                 $label = get_the_title($next_post->ID);
             }
@@ -316,7 +368,7 @@ class PostNavigationRenderer
                 ? $preview_posts['first']
                 : null;
 
-            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+            $label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
             if ($first_type === 'post_title' && $first_post) {
                 $label = get_the_title($first_post->ID);
             }
@@ -392,7 +444,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
@@ -418,7 +470,7 @@ class PostNavigationRenderer
                 }
                 // Replace link text with configured label
                 if ($prev_type === 'custom') {
-                    $prev_label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'publishpress-series');
+                    $prev_label = isset($settings['previous_label']) ? $settings['previous_label'] : __('Previous', 'organize-series');
                     $prev_link = self::replace_nav_link_text($prev_link, esc_html($prev_label));
                 } elseif ($prev_type === 'post_title') {
                     if ($prev_post) {
@@ -444,7 +496,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
@@ -472,7 +524,7 @@ class PostNavigationRenderer
                 }
                 // Replace link text with configured label
                 if ($next_type === 'custom') {
-                    $next_label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'publishpress-series');
+                    $next_label = isset($settings['next_label']) ? $settings['next_label'] : __('Next', 'organize-series');
                     $next_link = self::replace_nav_link_text($next_link, esc_html($next_label));
                 } elseif ($next_type === 'post_title') {
                     if ($next_post) {
@@ -498,7 +550,7 @@ class PostNavigationRenderer
                     $first_post = self::extract_post_from_nav_link($first_link);
                 }
                 if ($first_type === 'custom') {
-                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'publishpress-series');
+                    $first_label = isset($settings['first_label']) ? $settings['first_label'] : __('Series Home', 'organize-series');
                     $first_link = self::replace_nav_link_text($first_link, esc_html($first_label));
                 } elseif ($first_type === 'post_title') {
                     if ($first_post) {
@@ -544,14 +596,17 @@ class PostNavigationRenderer
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
         
-        // Get featured image HTML
-        $show_image_key = $position . '_show_featured_image';
-        $show_image = !empty($settings[$show_image_key]);
+        // Get featured image HTML (Pro extension can supply)
+        $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
-        
-        if ($show_image && $post instanceof WP_Post) {
-            $image_html = self::get_featured_image_html($post, $position, $settings);
-            $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+        $image_position = 'left';
+        if (is_array($image_data)) {
+            $image_html = ! empty($image_data['html']) ? $image_data['html'] : '';
+            if (! empty($image_data['position'])) {
+                $image_position = $image_data['position'];
+            }
+        } else {
+            $image_html = (string) $image_data;
         }
         
         // Assemble content in correct order
@@ -563,7 +618,7 @@ class PostNavigationRenderer
         }
         
         // Add image on left if needed
-        if ($image_html && isset($image_position) && $image_position === 'left') {
+        if ($image_html && $image_position === 'left') {
             $parts[] = $image_html;
         }
         
@@ -571,7 +626,7 @@ class PostNavigationRenderer
         $parts[] = $text_content;
         
         // Add image on right if needed
-        if ($image_html && isset($image_position) && $image_position === 'right') {
+        if ($image_html && $image_position === 'right') {
             $parts[] = $image_html;
         }
         
@@ -583,38 +638,6 @@ class PostNavigationRenderer
         $link_content = implode('', $parts);
 
         return sprintf('<a%s>%s</a>', $attributes, $link_content);
-    }
-
-    /**
-     * Get featured image HTML for a post.
-     *
-     * @param WP_Post $post Post object.
-     * @param string $position Link position (previous, next, first).
-     * @param array $settings Layout settings.
-     *
-     * @return string
-     */
-    private static function get_featured_image_html($post, $position, array $settings)
-    {
-        if (!has_post_thumbnail($post->ID)) {
-            return '';
-        }
-
-        $width = isset($settings[$position . '_image_width']) ? (int) $settings[$position . '_image_width'] : 80;
-        $height = isset($settings[$position . '_image_height']) ? (int) $settings[$position . '_image_height'] : 80;
-
-        $image_url = get_the_post_thumbnail_url($post->ID, 'full');
-        if (!$image_url) {
-            return '';
-        }
-
-        return sprintf(
-            '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
-            esc_url($image_url),
-            esc_attr(get_the_title($post->ID)),
-            $width,
-            $height
-        );
     }
 
 
@@ -643,21 +666,16 @@ class PostNavigationRenderer
             $arrow_size = 64;
         }
         
-        // If custom image is selected
         if ($arrow_type === 'custom') {
-            $attachment_id = isset($settings[$position . '_custom_arrow_image']) ? (int) $settings[$position . '_custom_arrow_image'] : 0;
-            if ($attachment_id > 0) {
-                $image_url = wp_get_attachment_image_url($attachment_id, 'full');
-                if ($image_url) {
-                    return sprintf(
-                        '<img src="%s" alt="arrow" class="pps-nav-arrow pps-nav-arrow-custom" style="width: %dpx; height: %dpx; display: inline-block; vertical-align: middle;" />',
-                        esc_url($image_url),
-                        $arrow_size,
-                        $arrow_size
-                    );
-                }
-            }
-            return '';
+            $custom_html = apply_filters(
+                'pps_series_post_navigation_custom_arrow_html',
+                '',
+                $position,
+                $settings,
+                $arrow_size,
+                $arrow_type
+            );
+            return is_string($custom_html) ? $custom_html : '';
         }
 
         // SVG icons for predefined arrow types
@@ -711,15 +729,17 @@ class PostNavigationRenderer
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
         
-        // Get featured image HTML
-        $show_image_key = $position . '_show_featured_image';
-        $show_image = !empty($settings[$show_image_key]);
+        // Get featured image HTML (Pro extension can supply)
+        $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
         $image_position = 'left';
-        
-        if ($show_image && $post instanceof WP_Post) {
-            $image_html = self::get_featured_image_html($post, $position, $settings);
-            $image_position = isset($settings[$position . '_image_position']) ? $settings[$position . '_image_position'] : 'left';
+        if (is_array($image_data)) {
+            $image_html = ! empty($image_data['html']) ? $image_data['html'] : '';
+            if (! empty($image_data['position'])) {
+                $image_position = $image_data['position'];
+            }
+        } else {
+            $image_html = (string) $image_data;
         }
         
         // Add arrows and images if needed
@@ -1146,6 +1166,11 @@ class PostNavigationRenderer
 
         if (! empty($link_styles)) {
             $css[] = sprintf('.%1$s .pps-nav-links a { %2$s }', esc_attr($layout_class), implode(' ', $link_styles));
+        }
+
+        $css = apply_filters('pps_series_post_navigation_css_parts', $css, $layout_class, $settings);
+        if (! is_array($css)) {
+            $css = [$css];
         }
 
         if (! empty($css)) {

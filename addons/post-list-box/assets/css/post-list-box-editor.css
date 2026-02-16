@@ -409,7 +409,6 @@
     margin-bottom: 15px;
     color: #333;
     font-size: 16px;
-    font-weight: 600;
 }
 
 .pps-post-list-title {
@@ -457,11 +456,13 @@
     min-width: 0;
 }
 
-.pps-post-title {
+.pps-post-title,
+h4.pps-post-title {
     margin: 0 0 8px 0;
     padding: 0;
     font-size: 18px;
     color: inherit;
+    font-weight: normal;
     line-height: 1.4;
 }
 
@@ -576,7 +577,6 @@
 
 .pps-post-list-item.current-post .pps-post-title a {
     color: inherit;
-    font-weight: 700;
 }
 
 .pps-post-list-item.current-post .pps-post-meta {
