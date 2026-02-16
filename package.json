@@ -18,7 +18,7 @@
     "@wordpress/dom-ready": "^4.34.0",
     "ansi-regex": "^2.1.1",
     "axios": "^1.12.0",
-    "qs": "^6.14.1"
+    "qs": "^6.14.2"
   },
   "devDependencies": {
     "@wordpress/browserslist-config": "^2.6.0",
