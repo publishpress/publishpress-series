@@ -1,6 +1,11 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.0.0] - 12 Feb, 2026
+
+* Changed: Restructured Pro plugin to include Free as Composer dependency
+* Changed: Pro now extends Free functionality via hooks instead of code duplication
+
 [2.17.1] - 10 Dec, 2025
 
 * Fixed: Patch for XSS Vulnerability

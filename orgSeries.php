@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 2.17.1
+ * Version: 3.0.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -66,33 +66,43 @@ if ($invalid_php_version || $invalid_wp_version) {
     return;
 }
 
+// Check if being loaded as library by Pro
+$pp_series_loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+
+// Only define vendor path if not already defined (Pro may have defined it)
 if (! defined('PP_SERIES_LIB_VENDOR_PATH')) {
     define('PP_SERIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
 
-$instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
-if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
-    require_once $instanceProtectionIncPath;
-}
+// Skip instance protection if loaded as library (Pro handles it)
+if (!$pp_series_loaded_as_library) {
+    $instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
+    if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
+        require_once $instanceProtectionIncPath;
+    }
 
-if (class_exists('PublishPressInstanceProtection\\Config')) {
-    $pluginCheckerConfig = new PublishPressInstanceProtection\Config();
-    $pluginCheckerConfig->pluginSlug    = 'orgSeries';
-    $pluginCheckerConfig->pluginFolder  = 'organize-series';
-    $pluginCheckerConfig->pluginName    = 'PublishPress Series';
+    if (class_exists('PublishPressInstanceProtection\\Config')) {
+        $pluginCheckerConfig = new PublishPressInstanceProtection\Config();
+        $pluginCheckerConfig->pluginSlug    = 'orgSeries';
+        $pluginCheckerConfig->pluginFolder  = 'organize-series';
+        $pluginCheckerConfig->pluginName    = 'PublishPress Series';
 
-    $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
-}
+        $pluginChecker = new PublishPressInstanceProtection\InstanceChecker($pluginCheckerConfig);
+    }
 
-$autoloadFilePath = PP_SERIES_LIB_VENDOR_PATH . '/autoload.php';
-if (! class_exists('ComposerAutoloaderInitPublishPressSeries')
-    && is_file($autoloadFilePath)
-    && is_readable($autoloadFilePath)
-) {
-    require_once $autoloadFilePath;
+    $autoloadFilePath = PP_SERIES_LIB_VENDOR_PATH . '/autoload.php';
+    if (! class_exists('ComposerAutoloaderInitPublishPressSeries')
+        && is_file($autoloadFilePath)
+        && is_readable($autoloadFilePath)
+    ) {
+        require_once $autoloadFilePath;
+    }
 }
 
 add_action('plugins_loaded', function() {
+    // Check if being loaded as library by Pro
+    $loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+    
     if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
         require_once __DIR__ . '/includes-core/Autoloader.php';
     }
@@ -102,10 +112,14 @@ add_action('plugins_loaded', function() {
 
     require_once (dirname(__FILE__) . '/inc/utility-functions.php');
     require_once (dirname(__FILE__) . '/includes-core/functions.php');
-    register_activation_hook( __FILE__, 'pp_series_core_activation' );
+    
+    // Only register activation hook when not loaded as library
+    if (!$loaded_as_library) {
+        register_activation_hook( __FILE__, 'pp_series_core_activation' );
+    }
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '2.17.1'); //the current version of the plugin
+        define('ORG_SERIES_VERSION', '3.0.0'); //the current version of the plugin
         define( 'SERIES_FILE_PATH', __FILE__ );
         define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
         define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.
@@ -120,22 +134,25 @@ add_action('plugins_loaded', function() {
         define('SERIES_DIR' , orgSeries_dir()); //the name of the directory that orgSeries files are located.
     }
 
-    $pro_active = false;
-
-    foreach ((array)get_option('active_plugins') as $plugin_file) {
-        if (false !== strpos($plugin_file, 'publishpress-series-pro.php')) {
-            $pro_active = true;
-            break;
-        }
-    }
-
-    if (!$pro_active && is_multisite()) {
-        foreach (array_keys((array)get_site_option('active_sitewide_plugins')) as $plugin_file) {
+    // Skip Pro detection if loaded as library (we ARE the Pro)
+    $pro_active = $loaded_as_library;
+    if (!$loaded_as_library) {
+        foreach ((array)get_option('active_plugins') as $plugin_file) {
             if (false !== strpos($plugin_file, 'publishpress-series-pro.php')) {
                 $pro_active = true;
                 break;
             }
         }
+
+        if (!$pro_active && is_multisite()) {
+            foreach (array_keys((array)get_site_option('active_sitewide_plugins')) as $plugin_file) {
+                if (false !== strpos($plugin_file, 'publishpress-series-pro.php')) {
+                    $pro_active = true;
+                    break;
+                }
+            }
+        }
+
     }
 
     if ($pro_active) {
@@ -153,7 +170,13 @@ add_action('plugins_loaded', function() {
         );
     }
 
-    if (defined('PPSERIES_FILE') || $pro_active) {
+    // If Pro is active as separate plugin, don't initialize Free
+    if ($pro_active && !$loaded_as_library) {
+        return;
+    }
+
+    // Don't re-initialize if already done
+    if (defined('PPSERIES_FILE')) {
         return;
     }
 

@@ -122,6 +122,16 @@ class PPS_Series_Post_Details_Ajax
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
+        // Preserve existing Pro-only settings if not provided in import.
+        $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
+        if (is_array($existing_meta)) {
+            foreach (PPS_Series_Post_Details_Utilities::get_pro_only_keys() as $key) {
+                if (! array_key_exists($key, $settings) && array_key_exists($key, $existing_meta)) {
+                    $settings[$key] = $existing_meta[$key];
+                }
+            }
+        }
+
         update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $settings);
 
         wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
@@ -140,6 +150,17 @@ class PPS_Series_Post_Details_Ajax
         }
 
         $defaults = PPS_Series_Post_Details_Utilities::get_default_series_post_details_data($post_id);
+
+        // Preserve existing Pro-only settings on reset.
+        $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
+        if (is_array($existing_meta)) {
+            foreach (PPS_Series_Post_Details_Utilities::get_pro_only_keys() as $key) {
+                if (array_key_exists($key, $existing_meta)) {
+                    $defaults[$key] = $existing_meta[$key];
+                }
+            }
+        }
+
         update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
 
         wp_send_json_success(['message' => __('Settings reset to defaults.', 'organize-series')]);

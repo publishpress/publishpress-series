@@ -184,7 +184,7 @@ function wp_postlist_display()
         $post_list_box_id = $settings['series_post_list_box_selection'];
         $post_list_box    = get_post($post_list_box_id);
  
-        if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PPS_Post_List_Box_Preview')) {
+        if ($post_list_box && $post_list_box->post_status === 'publish' && class_exists('PPS_Post_List_Box_Fields') && class_exists('PostListBoxRenderer')) {
             foreach ($serarray as $series) {
                 $series_id = $series->term_id;
                 $editor_data = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_list_box_id);
@@ -236,6 +236,9 @@ function wp_postlist_display()
     $postlist_parts = explode('%postcontent%', $postlist);
     $postlist = implode('', $postlist_parts);
     $postlist .= '%postcontent%';
+ 
+    // Filter for Pro to modify post list output
+    $postlist = apply_filters('publishpress_series_post_list_output', $postlist, $serarray, $settings);
  
     return $postlist;
 }
@@ -782,10 +785,14 @@ function wp_assemble_series_nav()
 				}
 				if ($trigger)
 					$nav = '%postcontent%' . $nav;
-				return $nav;
-			}
+			
+			// Filter for Pro to modify navigation output
+			$nav = apply_filters('publishpress_series_navigation_output', $nav, $series, $settings);
+			
+			return $nav;
 		}
 	}
+}
 
 	return FALSE;
 }

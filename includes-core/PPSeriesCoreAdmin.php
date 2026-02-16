@@ -5,36 +5,40 @@ class PPSeriesCoreAdmin {
     function __construct() {
         if (current_user_can('manage_publishpress_series')) {
             if (is_admin()) {
-                add_filter(
-                    \PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER,
-                    function ($settings) {
+                if (!pp_series_is_pro_active()) {
+                    add_filter(
+                        \PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER,
+                        function ($settings) {
+                                $settings['publishpress-series'] = [
+                                    'message'  => esc_html__("You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s", 'organize-series'),
+                                    'link'     => 'https://publishpress.com/links/series-banner',
+                                    'screens'  => [
+                                        ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
+                                        ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
+                                        ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
+                                        ['base' => 'edit-tags', 'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
+                                        ['base' => 'term',      'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
+                                        ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ]
+                                    ]
+                                ];
+
+                                return $settings;
+                            }
+                    );
+                }
+                if (!pp_series_is_pro_active()) {
+                    add_filter(
+                        \PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER,
+                        function ($settings) {
                             $settings['publishpress-series'] = [
-                                'message'  => esc_html__("You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s", 'organize-series'),
-                                'link'     => 'https://publishpress.com/links/series-banner',
-                                'screens'  => [
-                                    ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],
-                                    ['base' => 'edit-tags', 'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
-                                    ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
-                                    ['base' => 'edit-tags', 'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
-                                    ['base' => 'term',      'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
-                                    ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ]
-                                ]
+                                'parent' => 'orgseries_options_page',
+                                'label'  => __('Upgrade to Pro', 'organize-series'),
+                                'link'   => 'https://publishpress.com/links/series-banner',
                             ];
 
                             return $settings;
-                        }
-                );
-                add_filter(
-                    \PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER,
-                    function ($settings) {
-                        $settings['publishpress-series'] = [
-                            'parent' => 'orgseries_options_page',
-                            'label'  => __('Upgrade to Pro', 'organize-series'),
-                            'link'   => 'https://publishpress.com/links/series-banner',
-                        ];
-
-                        return $settings;
-                });
+                    });
+                }
             }
         }
 

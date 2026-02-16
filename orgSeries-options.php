@@ -164,7 +164,7 @@ function orgseries_validate($input) {
 	}
 	//toggles and paging info
 	$newinput['auto_tag_toggle'] = isset($input['auto_tag_toggle']) && $input['auto_tag_toggle'] == 1 ? 1 : 0;
-	$newinput['series_post_list_limit'] = trim(stripslashes(($input['series_post_list_limit'])));
+	$newinput['series_post_list_limit'] = isset($input['series_post_list_limit']) ? trim(stripslashes((string) $input['series_post_list_limit'])) : '';
 	$newinput['auto_tag_nav_toggle'] = ( isset($input['auto_tag_nav_toggle']) && $input['auto_tag_nav_toggle'] == 1 ? 1 : 0 );
 	$newinput['auto_tag_seriesmeta_toggle'] = ( isset($input['auto_tag_seriesmeta_toggle']) && $input['auto_tag_seriesmeta_toggle'] == 1 ? 1 : 0 );
 	$newinput['custom_css'] = ( isset($input['custom_css']) && $input['custom_css'] == 1 ? 1 : 0 );
@@ -209,7 +209,7 @@ function orgseries_validate($input) {
 	$newinput['latest_series_before_template'] = trim(stripslashes(($input['latest_series_before_template'])));
 	$newinput['latest_series_inner_template'] = trim(stripslashes(($input['latest_series_inner_template'])));
 	$newinput['latest_series_after_template'] = trim(stripslashes(($input['latest_series_after_template'])));
-	$newinput['series_post_list_position'] = trim(stripslashes(($input['series_post_list_position'])));
+	$newinput['series_post_list_position'] = isset($input['series_post_list_position']) ? trim(stripslashes((string) $input['series_post_list_position'])) : '';
 	$newinput['series_metabox_position'] = trim(stripslashes(($input['series_metabox_position'])));
 	$newinput['series_navigation_box_position'] = trim(stripslashes(($input['series_navigation_box_position'])));
 	$newinput['series_taxonomy_slug'] = ( isset($input['series_taxonomy_slug']) && !empty(trim($input['series_taxonomy_slug'])) ? ($input['series_taxonomy_slug']) : 'series' );
@@ -293,6 +293,8 @@ function orgseries_options_init() {
 	add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 	add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
 
+	// Hook for Pro to add additional settings sections
+	do_action('publishpress_series_register_settings_sections');
 
   add_filter( 'ppseries_admin_settings_tabs', 'ppseries_filter_admin_settings_tabs');
 }
@@ -521,7 +523,7 @@ function orgseries_option_page() {
 						<!-- PRO Features -->
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_slug%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%series_slug%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the slug of the series', 'organize-series'); ?></span>
                                 <i></i>
@@ -529,7 +531,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_id%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%series_id%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the ID of the series', 'organize-series'); ?></span>
                                 <i></i>
@@ -537,7 +539,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_author%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%post_author%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the author of the post', 'organize-series'); ?></span>
                                 <i></i>
@@ -545,7 +547,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_thumbnail%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%post_thumbnail%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('If the post has a feature-image then that image will be displayed', 'organize-series'); ?></span>
                                 <i></i>
@@ -553,7 +555,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_date%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%post_date%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('The date that a post was published', 'organize-series'); ?></span>
                                 <i></i>
@@ -561,7 +563,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%unpublished_post_title%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%unpublished_post_title%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will be replaced with the unpublished post title of a post in the series', 'organize-series'); ?></span>
                                 <i></i>
@@ -569,7 +571,7 @@ function orgseries_option_page() {
                         </span><br /><br />
                         
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%total_posts_in_series_with_unpub%</strong> <span class="ppseries-pro-badge">PRO</span>
+                            <strong>%total_posts_in_series_with_unpub%</strong> <?	if (!pp_series_is_pro_active()) { ?> <span class="ppseries-pro-badge">PRO</span> <? } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will display the total number of published and unpublished posts in a series', 'organize-series'); ?></span>
                                 <i></i>

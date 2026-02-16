@@ -46,11 +46,45 @@ class PPS_Series_Post_Navigation_Ajax
         $post = get_post($post_id);
         $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);
         
+        // Determine which fields are pro-locked (disabled inputs don't serialize)
+        $pro_locked_fields = [
+            'previous_custom_arrow_image',
+            'next_custom_arrow_image',
+            'previous_show_featured_image',
+            'next_show_featured_image',
+            'first_show_featured_image',
+            'previous_image_position',
+            'next_image_position',
+            'first_image_position',
+            'previous_image_width',
+            'previous_image_height',
+            'next_image_width',
+            'next_image_height',
+            'first_image_width',
+            'first_image_height',
+            'gap_between_links',
+            'alignment',
+            'separator_text',
+        ];
+        $pro_locked_fields = apply_filters('pps_series_post_navigation_pro_locked_fields', $pro_locked_fields, []);
+
         // Merge settings, handling checkboxes properly
         $settings = $base_settings;
         foreach ($fields as $key => $args) {
             // Skip category separators
             if (isset($args['type']) && $args['type'] === 'category_separator') {
+                continue;
+            }
+
+            // Check if this field is pro-locked
+            $field_pro_locked = (
+                $args['type'] !== 'category_separator' &&
+                in_array($key, $pro_locked_fields, true)
+            );
+            $field_pro_locked = apply_filters('pps_series_post_navigation_field_pro_locked', $field_pro_locked, $key, $args, $pro_locked_fields);
+
+            // Pro-locked fields are disabled and won't be serialized — keep existing values
+            if ($field_pro_locked) {
                 continue;
             }
             

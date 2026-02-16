@@ -39,12 +39,38 @@ class PPS_Post_List_Box_AJAX {
         $settings = [];
         if (!empty($form_data)) {
             parse_str($form_data, $settings);
+        }
+
+        // Base settings from saved meta to preserve locked/pro-only values
+        $saved_settings = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
+        if (!is_array($saved_settings)) {
+            $saved_settings = [];
+        }
+
+        if (empty($settings)) {
+            $settings = $saved_settings;
         } else {
-            // Use saved settings when form_data is empty
-            $settings = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
-            if (!is_array($settings)) {
-                $settings = [];
+            // Merge: start with saved settings, then apply editable fields from form
+            $merged_settings = $saved_settings;
+            $fields = PPS_Post_List_Box_Fields::get_fields(get_post($post_id));
+            foreach ($fields as $key => $args) {
+                $pro_locked = !empty($args['pro_only']);
+                $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
+                if ($pro_locked) {
+                    if (array_key_exists($key, $settings)) {
+                        $merged_settings[$key] = $settings[$key];
+                    }
+                    continue;
+                }
+                if (array_key_exists($key, $settings)) {
+                    $merged_settings[$key] = $settings[$key];
+                    continue;
+                }
+                if (!empty($args['type']) && $args['type'] === 'checkbox') {
+                    $merged_settings[$key] = 0;
+                }
             }
+            $settings = $merged_settings;
         }
 
         // If no series_id provided, get a sample series for preview

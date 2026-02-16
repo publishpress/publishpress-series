@@ -302,10 +302,12 @@ class PPS_Series_Post_Navigation_Admin_UI
             'separator_text',
         ];
 
+        $pro_locked_fields = apply_filters('pps_series_post_navigation_pro_locked_fields', $pro_locked_fields, $args);
         $pro_locked = (
             $args['type'] !== 'category_separator' &&
             in_array($args['key'], $pro_locked_fields, true)
         );
+        $pro_locked = apply_filters('pps_series_post_navigation_field_pro_locked', $pro_locked, $args['key'], $args, $pro_locked_fields);
 
         switch ($args['type']) {
             case 'category_separator':

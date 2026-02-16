@@ -413,7 +413,7 @@ class PPS_Post_List_Box_Admin_UI {
                             >
                             <span class="<?php echo esc_attr($args['icon']); ?>"></span>
                             <span class="item"><?php echo esc_html($args['label']); ?></span>
-                            <?php if ($key === 'layout') : ?>
+                            <?php if ($key === 'layout' && !pp_series_is_pro_active()) : ?>
                                 <span class="ppseries-pro-lock" >
                                     <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
                                     <span class="tooltip-text">
@@ -499,11 +499,20 @@ class PPS_Post_List_Box_Admin_UI {
         }
 
         $tab_style = ($args['tab'] === PPS_Post_List_Box_Fields::default_tab()) ? '' : 'display:none;';
-        // Lock all fields under the "Layout" tab and specific Item fields for PRO
-        $pro_locked = (
-            ($args['tab'] === 'layout' && $args['type'] !== 'category_separator')
-            || in_array($key, ['show_post_excerpt', 'show_post_author', 'show_post_date', 'fallback_featured_image'], true)
-        );
+        
+        // Check if field is marked as pro_only in field definition
+        $pro_locked = !empty($args['pro_only']);
+        
+        /**
+         * Filter whether a field should be Pro-locked.
+         * Pro extension returns false to unlock fields.
+         *
+         * @param bool   $pro_locked Whether the field is locked.
+         * @param string $key        The field key.
+         * @param array  $args       The field arguments.
+         */
+        $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
+        
         ob_start();
         $generate_tab_title = false;
         if (in_array($args['type'], ['textarea', 'export_action', 'import_action', 'template_action', 'line_break', 'code_editor', 'category_separator'])) {
@@ -560,6 +569,9 @@ class PPS_Post_List_Box_Admin_UI {
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                          />
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                         <?php
                 elseif ('checkbox' === $args['type']) :
                     ?>
@@ -569,6 +581,9 @@ class PPS_Post_List_Box_Admin_UI {
                         value="1"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                         <?php checked($args['value'], 1); ?> />
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                 <?php
                 elseif ('select' === $args['type']) :
                     ?>
@@ -584,6 +599,9 @@ class PPS_Post_List_Box_Admin_UI {
                             </option>
                         <?php endforeach; ?>
                     </select>
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                 <?php
                 elseif ('color' === $args['type']) :
                     ?>
@@ -593,6 +611,9 @@ class PPS_Post_List_Box_Admin_UI {
                         type="text"
                         value="<?php echo esc_attr($args['value']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?> />
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                 <?php
                 elseif ('textarea' === $args['type']) :
                     ?>
@@ -603,6 +624,9 @@ class PPS_Post_List_Box_Admin_UI {
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                         ><?php echo esc_html($args['value']); ?></textarea>
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                 <?php
                 elseif ('code_editor' === $args['type']) :
                     ?>
@@ -619,6 +643,9 @@ class PPS_Post_List_Box_Admin_UI {
                         data-editor_mode="<?php echo esc_attr($args['editor_mode']); ?>"
                         class="pps-post-list-code-editor"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>><?php echo esc_html($args['value']); ?></textarea>
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                     <div class="code-mirror-after"><div><?php echo htmlentities('</style>'); ?></div></div>
                     <?php
                 elseif ('category_separator' === $args['type']) :
@@ -661,6 +688,9 @@ class PPS_Post_List_Box_Admin_UI {
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                          />
+                    <?php if ($pro_locked) : ?>
+                        <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
+                    <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($pro_locked) : ?>
                         <span class="ppseries-pro-badge">PRO</span>

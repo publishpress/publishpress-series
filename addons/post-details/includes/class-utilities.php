@@ -47,16 +47,62 @@ class PPS_Series_Post_Details_Utilities
     }
 
     /**
+     * Get list of Pro-only setting keys.
+     *
+     * @return array
+     */
+    public static function get_pro_only_keys()
+    {
+        return [
+            'padding',
+            'margin',
+            'border_width',
+            'border_radius',
+            'border_color',
+            'metabox_position',
+            'limit_to_single',
+        ];
+    }
+
+    /**
+     * Static defaults for Pro-only styling in Free.
+     *
+     * @return array
+     */
+    public static function get_pro_only_static_defaults()
+    {
+        return [
+            'padding' => 20,
+            'margin' => 0,
+            'border_width' => 1,
+            'border_radius' => 6,
+            'border_color' => '#c7d7f5',
+        ];
+    }
+
+    /**
      * Retrieve stored meta data and merge with defaults
      */
     public static function get_post_details_settings($post_id, $use_default = false)
     {
         $defaults = self::get_default_series_post_details_data($post_id);
+        // Enforce static defaults for Pro-only styling in Free.
+        foreach (self::get_pro_only_static_defaults() as $key => $value) {
+            $defaults[$key] = $value;
+        }
+
         if ($use_default) {
             $data = $defaults;
         } else {
             $meta = get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true);
-            $data = is_array($meta) ? array_merge($defaults, $meta) : $defaults;
+            if (is_array($meta)) {
+                foreach (self::get_pro_only_keys() as $key) {
+                    unset($meta[$key]);
+                }
+                $data = array_merge($defaults, $meta);
+            } else {
+                $data = $defaults;
+            }
         }
 
         $data['post_id'] = $post_id;

@@ -79,6 +79,8 @@ class orgSeries {
 		add_filter('orgseries_part_key', array(&$this, 'part_key'), 10, 2);
 		add_filter('orgseries_pending_part_key', array(&$this, 'part_key'), 10, 2);
 
+		// Hook for Pro to initialize after core is ready
+		do_action('publishpress_series_init', $this);
 	}
 
 	function part_key($part_key, $series_id) {
@@ -267,7 +269,17 @@ class orgSeries {
 			'capabilities' => $capabilities,
 			'query_var' => isset($this->settings['series_custom_base']) ? $this->settings['series_custom_base'] : 'series',
 			);
+		
+		// Filter for Pro to modify taxonomy args
+		$args = apply_filters('publishpress_series_taxonomy_args', $args);
+		
+		// Filter for Pro to modify supported post types
+		$object_type = apply_filters('publishpress_series_post_types', $object_type);
+		
 		register_taxonomy( $taxonomy_name, $object_type, $args );
+		
+		// Hook for Pro after taxonomy is registered
+		do_action('publishpress_series_taxonomy_registered', $taxonomy_name, $object_type, $args);
 	}
 
 	function add_settings($reset = false) {
@@ -333,6 +345,9 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
+
+		// Hook for Pro to modify settings after they are loaded
+		do_action('publishpress_series_settings_loaded', $this->settings);
 
 		return false;
 	}

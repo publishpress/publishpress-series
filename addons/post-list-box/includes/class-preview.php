@@ -146,6 +146,26 @@ class PPS_Post_List_Box_Preview {
     }
 
     /**
+     * Post author style (color)
+     * Pro can filter this to add custom styles.
+     */
+    public static function get_post_author_styles($settings)
+    {
+        $styles = apply_filters('pps_post_list_box_preview_author_styles', '', $settings);
+        return $styles;
+    }
+
+    /**
+     * Post date style (color)
+     * Pro can filter this to add custom styles.
+     */
+    public static function get_post_date_styles($settings)
+    {
+        $styles = apply_filters('pps_post_list_box_preview_date_styles', '', $settings);
+        return $styles;
+    }
+
+    /**
      * Generate container styles including gap for preview
      *
      * @param array $settings Layout settings
@@ -344,13 +364,19 @@ class PPS_Post_List_Box_Preview {
         echo '<div class="pps-post-content">';
 
         if (!empty($settings['show_post_titles'])) {
-            $post_title_styles = self::get_post_title_styles($settings);
             $is_current_post = in_array('current-post', $item_classes);
             
+            // Build title styles - current post text color overrides regular post title color
+            $title_styles = [];
             if ($is_current_post && !empty($settings['current_post_text_color'])) {
-                $current_title_color = 'color: ' . esc_attr($settings['current_post_text_color']) . ';';
-                $post_title_styles = !empty($post_title_styles) ? str_replace('style="', 'style="' . $current_title_color, $post_title_styles) : ' style="' . $current_title_color . '"';
+                $title_styles[] = 'color: ' . esc_attr($settings['current_post_text_color']);
+            } elseif (!empty($settings['post_title_color'])) {
+                $title_styles[] = 'color: ' . esc_attr($settings['post_title_color']);
             }
+            if (!empty($settings['post_title_font_size'])) {
+                $title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px';
+            }
+            $post_title_styles = !empty($title_styles) ? ' style="' . implode('; ', $title_styles) . ';"' : '';
             
             echo '<h4 class="pps-post-title"' . $post_title_styles . '>' . esc_html(isset($post->post_title) ? $post->post_title : '') . '</h4>';
         }
@@ -368,11 +394,13 @@ class PPS_Post_List_Box_Preview {
             echo '<div class="pps-post-meta">';
             if (!empty($settings['show_post_author'])) {
                 $author_name = (isset($post->post_author) && get_userdata($post->post_author)) ? get_userdata($post->post_author)->display_name : __('Author', 'organize-series');
-                echo '<span class="pps-post-author">' . esc_html($author_name) . '</span>';
+                $author_styles = self::get_post_author_styles($settings);
+                echo '<span class="pps-post-author"' . $author_styles . '>' . esc_html($author_name) . '</span>';
             }
             if (!empty($settings['show_post_date'])) {
                 $post_date = isset($post->post_date) && is_string($post->post_date) ? $post->post_date : date('Y-m-d H:i:s');
-                echo '<span class="pps-post-date">' . esc_html(date('F j, Y', strtotime($post_date))) . '</span>';
+                $date_styles = self::get_post_date_styles($settings);
+                echo '<span class="pps-post-date"' . $date_styles . '>' . esc_html(date('F j, Y', strtotime($post_date))) . '</span>';
             }
             echo '</div>';
         }
