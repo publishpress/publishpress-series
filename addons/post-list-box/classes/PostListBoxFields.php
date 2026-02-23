@@ -116,6 +116,16 @@ class PostListBoxFields
                 'depends_on' => 'title_show',
                 'depends_value' => '1',
             ],
+            'title_link_to_series' => [
+                'label' => __('Link Box Title to Series', 'organize-series'),
+                'type' => 'checkbox',
+                'tab' => 'box',
+                'sanitize' => 'absint',
+                'default' => 0,
+                'description' => __('Link the box title to the current series archive when using the series title', 'organize-series'),
+                'depends_on' => 'title_show',
+                'depends_value' => '1',
+            ],
             'title_text' => [
                 'label' => __('Custom Box Title Text', 'organize-series'),
                 'type' => 'text',

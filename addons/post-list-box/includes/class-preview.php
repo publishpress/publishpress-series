@@ -281,7 +281,19 @@ class PPS_Post_List_Box_Preview {
             if (!empty($title_text)) {
                 $title_html_tag = isset($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
                 $title_styles = self::get_title_styles($settings);
-                echo '<' . esc_attr($title_html_tag) . ' class="pps-post-list-title"' . $title_styles . '>' . esc_html($title_text) . '</' . esc_attr($title_html_tag) . '>';
+                $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
+                $series_link = '';
+                if ($link_title_to_series) {
+                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts_to_render);
+                }
+
+                echo '<' . esc_attr($title_html_tag) . ' class="pps-post-list-title"' . $title_styles . '>';
+                if (!empty($series_link)) {
+                    echo '<a href="' . esc_url($series_link) . '">' . esc_html($title_text) . '</a>';
+                } else {
+                    echo esc_html($title_text);
+                }
+                echo '</' . esc_attr($title_html_tag) . '>';
             }
         }
 

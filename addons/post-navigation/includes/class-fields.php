@@ -92,6 +92,16 @@ class PPS_Series_Post_Navigation_Fields
                 'sanitize' => 'absint',
                 'default'  => 0,
             ],
+            'link_series_title' => [
+                'label'    => __('Link Series Title', 'organize-series'),
+                'type'     => 'checkbox',
+                'tab'      => 'general',
+                'sanitize' => 'absint',
+                'default'  => 0,
+                'description' => __('Link the series title to the series archive page', 'organize-series'),
+                'depends_on' => 'include_series_title',
+                'depends_value' => '1',
+            ],
             'series_title_alignment' => [
                 'label'    => __('Series Title Alignment', 'organize-series'),
                 'type'     => 'select',

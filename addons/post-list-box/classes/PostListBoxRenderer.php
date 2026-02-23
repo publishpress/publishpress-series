@@ -262,11 +262,23 @@ class PostListBoxRenderer
         <div class="<?php echo esc_attr($wrapper_class); ?>">
             <?php if (!empty($settings['title_show'])) : 
                 $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts);
+                $title_tag = !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+                $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
+                $series_link = '';
+                if ($link_title_to_series) {
+                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts);
+                }
                 if (!empty($title_text)) :
             ?>
-                <<?php echo esc_html($settings['title_html_tag'] ?: 'h3'); ?> class="pps-post-list-title">
-                    <?php echo esc_html($title_text); ?>
-                </<?php echo esc_html($settings['title_html_tag'] ?: 'h3'); ?>>
+                <<?php echo esc_html($title_tag); ?> class="pps-post-list-title">
+                    <?php if (!empty($series_link)) : ?>
+                        <a href="<?php echo esc_url($series_link); ?>">
+                            <?php echo esc_html($title_text); ?>
+                        </a>
+                    <?php else : ?>
+                        <?php echo esc_html($title_text); ?>
+                    <?php endif; ?>
+                </<?php echo esc_html($title_tag); ?>>
             <?php endif; endif; ?>
 
             <div class="pps-post-list <?php echo esc_attr($layout_style); ?>">
@@ -429,6 +441,7 @@ class PostListBoxRenderer
 
         if (!empty($title_styles)) {
             $css_parts[] = '.' . $css_class . ' .pps-post-list-title { ' . implode(' ', $title_styles) . ' }';
+            $css_parts[] = '.' . $css_class . ' .pps-post-list-title a { ' . implode(' ', $title_styles) . ' }';
         }
 
         // Post title styles

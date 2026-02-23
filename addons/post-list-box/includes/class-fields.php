@@ -96,6 +96,7 @@ class PPS_Post_List_Box_Fields {
     public static function get_default_post_list_box_data() {
         $defaults = [
             'title_show' => 1,
+            'title_link_to_series' => 0,
             'title_html_tag' => 'h3',
             'title_color' => '#2971B1',
             'title_font_size' => 24,
