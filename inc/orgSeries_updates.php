@@ -136,7 +136,7 @@ class PluginUpdateChecker {
 
 	function orgseries_api() {
 		$this->set_domain();
-		add_settings_field('orgseries_api_settings', 'Publishpress Series User API', array($this,'orgseries_api_output'), 'orgseries_options_page', 'series_automation_settings');
+		add_settings_field('orgseries_api_settings', 'Publishpress Series User API', array($this,'orgseries_api_output'), 'orgseries_options_page', 'series_uninstall_settings');
 		register_setting('orgseries_options', 'org_series_options');
 		add_filter('orgseries_options', array($this,'orgseries_api_validate'), 10, 2);
 	}

@@ -490,3 +490,32 @@ input #seriesadd {
 input.pps-shortcode-input {
     width: 90% !important;
 }
+
+
+
+/* Legacy tab postbox cards */
+.ppseries-legacy-cards-wrap {
+    margin-top: 10px;
+}
+.ppseries-legacy-card.postbox {
+    margin-bottom: 16px;
+}
+.ppseries-legacy-card-header.hndle {
+    cursor: default;
+    background: #f0f0f1;
+    border-bottom: 1px solid #c3c4c7;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+.ppseries-legacy-card-content.inside .form-table {
+    margin-top: 0;
+}
+
+/* Edit link for feature tabs */
+.ppseries-edit-link {
+    text-decoration: none;
+    font-weight: 500;
+}

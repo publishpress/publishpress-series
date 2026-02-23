@@ -130,6 +130,8 @@ class PPS_Post_List_Box
             $this->create_default_post_list_box($box_data);
         }
 
+        $this->sync_default_post_list_box_selection();
+
         // Mark that defaults have been created
         update_option('pps_post_list_box_defaults_created', true);
     }
@@ -184,10 +186,37 @@ class PPS_Post_List_Box
         // Only set default if not already set
         if (!isset($settings['series_post_list_box_selection'])) {
             $default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
-            $settings['series_post_list_box_selection'] = $default_box_id ?: '';
+            if (!empty($default_box_id)) {
+                $settings['series_post_list_box_selection'] = $default_box_id;
+            }
         }
         
         return $settings;
+    }
+
+    /**
+     * Sync default Post List Box selection into plugin settings when missing.
+     *
+     * This avoids changing users who explicitly selected "Custom Template" (empty value).
+     *
+     * @return void
+     */
+    private function sync_default_post_list_box_selection()
+    {
+        $default_box_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+        if (empty($default_box_id)) {
+            return;
+        }
+
+        $settings = get_option('org_series_options', []);
+        if (!is_array($settings)) {
+            $settings = [];
+        }
+
+        if (!array_key_exists('series_post_list_box_selection', $settings)) {
+            $settings['series_post_list_box_selection'] = $default_box_id;
+            update_option('org_series_options', $settings);
+        }
     }
 
     /**

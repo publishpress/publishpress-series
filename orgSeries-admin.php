@@ -142,6 +142,21 @@ function orgSeries_admin_assets()
 	if (is_ppseries_admin_pages()) {
 		wp_enqueue_style('pps-admin-common');
 		wp_enqueue_script('pps-admin-js');
+
+		$org_opt = get_option( 'org_series_options', [] );
+		$default_post_list_box_selection = 0;
+		if ( class_exists( 'PPS_Post_List_Box_Utilities' ) ) {
+			$default_post_list_box_selection = (int) PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
+		}
+		wp_localize_script( 'pps-admin-js', 'ppseriesSettings', [
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'ppseries_settings_nonce' ),
+			'saved'   => [
+				'series_post_list_box_selection'  => isset( $org_opt['series_post_list_box_selection'] ) ? (int) $org_opt['series_post_list_box_selection'] : $default_post_list_box_selection,
+				'series_post_details_selection'   => isset( $org_opt['series_post_details_selection'] ) ? (int) $org_opt['series_post_details_selection'] : 0,
+				'series_post_navigation_selection' => isset( $org_opt['series_post_navigation_selection'] ) ? (int) $org_opt['series_post_navigation_selection'] : 0,
+			],
+		] );
 	}
 }
 
