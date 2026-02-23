@@ -305,9 +305,9 @@ function is_ppseries_admin_pages(){
 function ppseries_admin_settings_tabs(){
 
     $settings_tabs = [
-        'series_automation_settings' 	=> __('Display', 'organize-series'),
-		'series_icon_settings' 			=> __('Icons', 'organize-series'),
-		'series_templates_settings' 	=> __('Templates', 'organize-series'),
+        'series_post_list_box_settings' => __('Post List Boxes', 'organize-series'),
+        'series_post_details_settings'  => __('Post Details', 'organize-series'),
+        'series_navigation_settings'    => __('Post Navigation', 'organize-series'),
     ];
 
    return apply_filters('ppseries_admin_settings_tabs', $settings_tabs);
