@@ -56,8 +56,7 @@ function series_taxonomy_base_core_fieldset() {
                         <font color="red"><?php esc_html_e('If checked, all terms from the current taxonomy will be migrated to the new taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy slug will be changed.', 'organize-series'); ?></font>
                     </p>
                 </td>
-        	</tr>
-           
+	        	</tr>
 
     </tbody>
 	</table>	<?php

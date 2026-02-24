@@ -114,6 +114,7 @@ function orgseries_options_init() {
 	require_once dirname(__FILE__) . '/inc/settings/tab-post-details.php';
 	require_once dirname(__FILE__) . '/inc/settings/tab-post-navigation.php';
 	require_once dirname(__FILE__) . '/inc/settings/tab-taxonomy.php';
+	require_once dirname(__FILE__) . '/inc/settings/tab-series-category.php';
 	require_once dirname(__FILE__) . '/inc/settings/tab-metabox.php';
 	require_once dirname(__FILE__) . '/inc/settings/tab-legacy.php';
 
@@ -138,6 +139,7 @@ function ppseries_filter_admin_settings_tabs($settings_tabs){
     }
 
     $settings_tabs['series_taxonomy_base_settings'] = esc_html__('Taxonomy', 'organize-series');
+    $settings_tabs['series_group_settings'] = esc_html__('Series Category', 'organize-series');
     $settings_tabs['series_metabox_settings'] = esc_html__('Metabox', 'organize-series');
     $settings_tabs['series_legacy_settings'] = esc_html__('Legacy', 'organize-series');
 
