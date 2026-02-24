@@ -215,6 +215,35 @@ function orgseries_validate( $input ) {
 	$raw_slug = isset( $input['series_taxonomy_slug'] ) ? trim( $input['series_taxonomy_slug'] ) : '';
 	$newinput['series_taxonomy_slug'] = ! empty( $raw_slug ) ? $raw_slug : 'series';
 	$newinput['series_custom_base']   = ppseries_sanitize_slug( $input, 'series_custom_base' );
+	$newinput['series_group_custom_base'] = ppseries_sanitize_slug( $input, 'series_group_custom_base' );
+	if ( empty( $newinput['series_group_custom_base'] ) ) {
+		$newinput['series_group_custom_base'] = 'series-category';
+	}
+
+	$render_mode = ppseries_sanitize_text( $input, 'series_group_archive_render_mode', $existing );
+	$newinput['series_group_archive_render_mode'] = in_array( $render_mode, [ 'theme', 'plugin' ], true )
+		? $render_mode
+		: 'plugin';
+
+	$existing_group_base = isset( $existing['series_group_custom_base'] ) && ! empty( $existing['series_group_custom_base'] )
+		? sanitize_title( $existing['series_group_custom_base'] )
+		: 'series_group';
+
+	$newinput['series_group_previous_base'] = isset( $existing['series_group_previous_base'] )
+		? sanitize_title( $existing['series_group_previous_base'] )
+		: 'series_group';
+
+	if ( $existing_group_base !== $newinput['series_group_custom_base'] ) {
+		$newinput['series_group_previous_base'] = $existing_group_base;
+	}
+
+	$newinput['series_group_plugin_show_image'] = ppseries_sanitize_checkbox( $input, 'series_group_plugin_show_image' );
+	$newinput['series_group_plugin_show_description'] = ppseries_sanitize_checkbox( $input, 'series_group_plugin_show_description' );
+	$newinput['series_group_plugin_show_series_items'] = ppseries_sanitize_checkbox( $input, 'series_group_plugin_show_series_items' );
+	$newinput['series_group_plugin_columns'] = ppseries_sanitize_int( $input, 'series_group_plugin_columns' );
+	if ( $newinput['series_group_plugin_columns'] < 1 || $newinput['series_group_plugin_columns'] > 4 ) {
+		$newinput['series_group_plugin_columns'] = 3;
+	}
 
 	/* Metabox settings */
 	$newinput['metabox_show_add_new']              = ppseries_sanitize_checkbox( $input, 'metabox_show_add_new' );

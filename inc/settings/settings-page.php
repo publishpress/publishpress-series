@@ -269,7 +269,7 @@ function orgseries_option_page() {
 
                     </div>
 
-                    <div class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
+                    <div class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_group_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
                         <?php do_action('publishpress_series_admin_after_sidebar'); ?>
                     </div>
                     

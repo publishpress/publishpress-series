@@ -327,6 +327,14 @@ class orgSeries {
 			'series_css_tougle' => 'default',
 			//series meta style options
 			'series_taxonomy_slug' => 'series',
+			//series categories (grouping) archive options
+			'series_group_custom_base' => 'series-category',
+			'series_group_archive_render_mode' => 'plugin',
+			'series_group_previous_base' => 'series_group',
+			'series_group_plugin_show_image' => 1,
+			'series_group_plugin_show_description' => 1,
+			'series_group_plugin_show_series_items' => 0,
+			'series_group_plugin_columns' => 3,
 			'metabox_series_order' => 'default',
 			);
 
@@ -345,6 +353,35 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_custom_base'])) {
+			$this->settings['series_group_custom_base'] = 'series-category';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_archive_render_mode'])) {
+			$this->settings['series_group_archive_render_mode'] = 'plugin';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_previous_base'])) {
+			$this->settings['series_group_previous_base'] = 'series_group';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_image'])) {
+			$this->settings['series_group_plugin_show_image'] = 1;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_description'])) {
+			$this->settings['series_group_plugin_show_description'] = 1;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_series_items'])) {
+			$this->settings['series_group_plugin_show_series_items'] = 0;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_columns'])) {
+			$this->settings['series_group_plugin_columns'] = 3;
+		}
+
 
 		// Hook for Pro to modify settings after they are loaded
 		do_action('publishpress_series_settings_loaded', $this->settings);

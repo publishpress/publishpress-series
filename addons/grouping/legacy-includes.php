@@ -12,6 +12,12 @@ define('OS_GROUPING_LEGACY_LOADED', true);
 add_action('init', 'orgseries_grouping_posttype');
 add_action('init', 'orgseries_grouping_import_existing_series');
 add_action('init', 'orgseries_grouping_taxonomy');
+add_action('init', 'pp_series_group_add_legacy_rewrite');
+add_action('pre_get_posts', 'pp_series_group_theme_archive_query');
+add_filter('the_title', 'pp_series_group_theme_archive_title', 10, 2);
+add_filter('post_type_link', 'pp_series_group_theme_archive_permalink', 10, 2);
+add_filter('get_the_excerpt', 'pp_series_group_theme_archive_excerpt', 10, 2);
+add_filter('the_posts', 'pp_series_group_theme_archive_prune_invalid_posts', 10, 2);
 //add_action('admin_init', 'orgseries_upgrade_check');
 add_action('init', 'orgseries_manage_grouping_columns');
 
@@ -47,16 +53,72 @@ add_action('delete_'.ppseries_get_series_slug().'', 'wp_delete_series_group', 1,
 
 //render Series Category template
 add_filter('template_include','pp_series_group_template');
+add_action('template_redirect', 'pp_series_group_redirect_legacy_base');
 
 add_action('pp_series_advanced_tab_top', 'series_grouping_delete_output');
 
 add_shortcode('publishpress_series_categories', 'publishpress_series_groups');
 
+function pp_series_group_get_current_base() {
+    global $orgseries;
+
+    if (!empty($orgseries) && is_array($orgseries->settings) && !empty($orgseries->settings['series_group_custom_base'])) {
+        return sanitize_title($orgseries->settings['series_group_custom_base']);
+    }
+
+    $settings = get_option('org_series_options', []);
+    if (is_array($settings) && !empty($settings['series_group_custom_base'])) {
+        return sanitize_title($settings['series_group_custom_base']);
+    }
+
+    return 'series-category';
+}
+
+function pp_series_group_get_previous_base() {
+    global $orgseries;
+
+    if (!empty($orgseries) && is_array($orgseries->settings) && array_key_exists('series_group_previous_base', $orgseries->settings)) {
+        return sanitize_title($orgseries->settings['series_group_previous_base']);
+    }
+
+    $settings = get_option('org_series_options', []);
+    if (is_array($settings) && array_key_exists('series_group_previous_base', $settings)) {
+        return sanitize_title($settings['series_group_previous_base']);
+    }
+
+    return 'series_group';
+}
+
+function pp_series_group_get_render_mode() {
+    global $orgseries;
+
+    if (!empty($orgseries) && is_array($orgseries->settings) && !empty($orgseries->settings['series_group_archive_render_mode'])) {
+        return $orgseries->settings['series_group_archive_render_mode'];
+    }
+
+    $settings = get_option('org_series_options', []);
+    if (is_array($settings) && !empty($settings['series_group_archive_render_mode'])) {
+        return $settings['series_group_archive_render_mode'];
+    }
+
+    return 'theme';
+}
+
 function pp_series_group_template($template){
     if ( is_tax('series_group') ) {
+        if (pp_series_group_get_render_mode() !== 'plugin') {
+            return $template;
+        }
+
         $theme_template = locate_template( array( 'taxonomy-series_group.php' ) ); //checks in child theme (if child theme) and then parent theme.
         if ( !$theme_template ) {
             $template = plugin_dir_path(__FILE__) . 'theme/primary/taxonomy-series_group.php';
+            wp_enqueue_style(
+                'pp-series-group-archive',
+                plugins_url('theme/primary/taxonomy-series_group.css', __FILE__),
+                [],
+                ORG_SERIES_VERSION
+            );
         }
 
         global $orgseries;
@@ -204,7 +266,7 @@ function orgseries_grouping_posttype() {
 }
 
 function orgseries_grouping_taxonomy() {
-    $permalink_slug = 'series_group';
+    $permalink_slug = pp_series_group_get_current_base();
     $object_type = array('series_grouping');
     $capabilities = array(
         'manage_terms' => 'manage_publishpress_series',
@@ -235,6 +297,218 @@ function orgseries_grouping_taxonomy() {
         'hierarchical' => true
     );
     register_taxonomy( 'series_group', $object_type, $args );
+}
+
+function pp_series_group_add_legacy_rewrite() {
+    $current_base  = pp_series_group_get_current_base();
+    $previous_base = pp_series_group_get_previous_base();
+
+    if (empty($previous_base) || $previous_base === $current_base) {
+        return;
+    }
+
+    add_rewrite_rule(
+        '^' . preg_quote($previous_base, '/') . '/(.+?)/?$',
+        'index.php?series_group=$matches[1]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^' . preg_quote($previous_base, '/') . '/(.+?)/page/?([0-9]{1,})/?$',
+        'index.php?series_group=$matches[1]&paged=$matches[2]',
+        'top'
+    );
+}
+
+function pp_series_group_redirect_legacy_base() {
+    if (is_admin() || !is_tax('series_group')) {
+        return;
+    }
+
+    $current_base  = pp_series_group_get_current_base();
+    $previous_base = pp_series_group_get_previous_base();
+    if (empty($previous_base) || $previous_base === $current_base) {
+        return;
+    }
+
+    global $wp;
+    $request_path = isset($wp->request) ? trim($wp->request, '/') : '';
+    if ($request_path === '') {
+        return;
+    }
+
+    if (strpos($request_path, $previous_base . '/') !== 0 && $request_path !== $previous_base) {
+        return;
+    }
+
+    $term = get_queried_object();
+    if (empty($term) || !isset($term->term_id)) {
+        return;
+    }
+
+    $destination = get_term_link((int) $term->term_id, 'series_group');
+    if (is_wp_error($destination) || empty($destination)) {
+        return;
+    }
+
+    $paged = (int) get_query_var('paged');
+    if ($paged > 1) {
+        $destination = trailingslashit($destination) . user_trailingslashit('page/' . $paged, 'paged');
+    }
+
+    if (untrailingslashit($destination) === home_url('/' . $request_path)) {
+        return;
+    }
+
+    wp_safe_redirect($destination, 301);
+    exit;
+}
+
+function pp_series_group_theme_archive_query($query) {
+    if (!($query instanceof WP_Query)) {
+        return;
+    }
+
+    if (is_admin()) {
+        return;
+    }
+
+    if (pp_series_group_get_render_mode() !== 'theme') {
+        return;
+    }
+
+    $query_taxonomy  = (string) $query->get('taxonomy');
+    $query_series_group = $query->get('series_group');
+    $has_series_group_query_var = !empty($query_series_group)
+        || (isset($query->query_vars['series_group']) && !empty($query->query_vars['series_group']))
+        || (isset($query->query['series_group']) && !empty($query->query['series_group']));
+    $is_series_group_archive_query = ('series_group' === $query_taxonomy) || $has_series_group_query_var || $query->is_tax('series_group');
+
+    if (!$is_series_group_archive_query) {
+        return;
+    }
+
+    $query->set('post_type', 'series_grouping');
+    $query->set('post_status', ['publish', 'private', 'draft']);
+    $query->set('ignore_sticky_posts', true);
+}
+
+function pp_series_group_theme_archive_get_series_id_from_grouping_post($post) {
+    if (empty($post) || !isset($post->post_name)) {
+        return 0;
+    }
+
+    if (strpos((string) $post->post_name, 'series_grouping_') !== 0) {
+        return 0;
+    }
+
+    return (int) str_replace('series_grouping_', '', (string) $post->post_name);
+}
+
+function pp_series_group_theme_archive_title($title, $post_id) {
+    if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
+        return $title;
+    }
+
+    $post = get_post($post_id);
+    if (!$post || $post->post_type !== 'series_grouping') {
+        return $title;
+    }
+
+    $series_id = pp_series_group_theme_archive_get_series_id_from_grouping_post($post);
+    if ($series_id < 1) {
+        return $title;
+    }
+
+    $series_term = get_term($series_id, ppseries_get_series_slug());
+    if (!$series_term || is_wp_error($series_term)) {
+        return $title;
+    }
+
+    return $series_term->name;
+}
+
+function pp_series_group_theme_archive_permalink($post_link, $post) {
+    if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
+        return $post_link;
+    }
+
+    if (!$post || !isset($post->post_type) || $post->post_type !== 'series_grouping') {
+        return $post_link;
+    }
+
+    $series_id = pp_series_group_theme_archive_get_series_id_from_grouping_post($post);
+    if ($series_id < 1) {
+        return $post_link;
+    }
+
+    $series_link = get_term_link($series_id, ppseries_get_series_slug());
+    if (is_wp_error($series_link) || empty($series_link)) {
+        return $post_link;
+    }
+
+    return $series_link;
+}
+
+function pp_series_group_theme_archive_excerpt($excerpt, $post) {
+    if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
+        return $excerpt;
+    }
+
+    if (!$post || !isset($post->post_type) || $post->post_type !== 'series_grouping') {
+        return $excerpt;
+    }
+
+    $series_id = pp_series_group_theme_archive_get_series_id_from_grouping_post($post);
+    if ($series_id < 1) {
+        return $excerpt;
+    }
+
+    $series_description = term_description($series_id, ppseries_get_series_slug());
+    if (empty(trim(wp_strip_all_tags($series_description)))) {
+        return $excerpt;
+    }
+
+    return wp_strip_all_tags($series_description);
+}
+
+function pp_series_group_theme_archive_prune_invalid_posts($posts, $query) {
+    if (!($query instanceof WP_Query) || is_admin() || pp_series_group_get_render_mode() !== 'theme' || empty($posts)) {
+        return $posts;
+    }
+
+    $is_series_group_query = $query->is_tax('series_group')
+        || ('series_group' === (string) $query->get('taxonomy'))
+        || !empty($query->get('series_group'));
+    if (!$is_series_group_query || $query->get('post_type') !== 'series_grouping') {
+        return $posts;
+    }
+
+    $filtered = [];
+    foreach ((array) $posts as $post) {
+        if (!$post || !isset($post->post_type) || $post->post_type !== 'series_grouping') {
+            continue;
+        }
+
+        $series_id = pp_series_group_theme_archive_get_series_id_from_grouping_post($post);
+        if ($series_id < 1) {
+            continue;
+        }
+
+        $series_term = get_term($series_id, ppseries_get_series_slug());
+        if (!$series_term || is_wp_error($series_term)) {
+            continue;
+        }
+
+        $filtered[] = $post;
+    }
+
+    if (count($filtered) !== count($posts)) {
+        $query->post_count = count($filtered);
+        $query->found_posts = count($filtered);
+        $query->max_num_pages = 1;
+    }
+
+    return $filtered;
 }
 
 function update_series_group_count($terms, $taxonomy) {
