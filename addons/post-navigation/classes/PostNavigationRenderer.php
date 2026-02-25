@@ -811,7 +811,14 @@ class PostNavigationRenderer
      */
     private static function replace_nav_link_text($link_html, $replacement)
     {
-        return preg_replace('/(<a\b[^>]*>)(.*?)(<\/a>)/is', '$1' . $replacement . '$3', $link_html, 1);
+        return preg_replace_callback(
+            '/(<a\b[^>]*>)(.*?)(<\/a>)/is',
+            function ($matches) use ($replacement) {
+                return $matches[1] . $replacement . $matches[3];
+            },
+            $link_html,
+            1
+        );
     }
 
     /**
