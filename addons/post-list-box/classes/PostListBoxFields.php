@@ -523,7 +523,7 @@ class PostListBoxFields
                 'min' => 0,
                 'sanitize' => 'absint',
                 'default' => '',
-                'description' => __('Limit the number of posts shown in the series list. Leave empty for no limit.', 'organize-series'),
+                'description' => __('Limit the number of posts shown in the series list. Leave empty for no limit. The admin preview is limited to 4 posts.', 'organize-series'),
                 'pro_only' => true,
             ],
         ];

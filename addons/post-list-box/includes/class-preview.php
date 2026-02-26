@@ -15,10 +15,30 @@ class PPS_Post_List_Box_Preview {
      * @param int $series_id
      * @return array
      */
-    public static function get_sample_series_posts($series_id)
+    public static function get_sample_series_posts($series_id, $settings = [])
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        $posts = get_posts([
+        $query_params = [
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'maximum_items' => 4,
+        ];
+
+        /**
+         * Filter query parameters for post list box admin preview.
+         *
+         * @param array $query_params Preview query parameters.
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         */
+        $query_params = apply_filters('pps_post_list_box_preview_query_params', $query_params, $settings, $series_id);
+
+        $orderby = isset($query_params['orderby']) ? $query_params['orderby'] : 'date';
+        $order = isset($query_params['order']) ? strtoupper($query_params['order']) : 'DESC';
+        $order = $order === 'ASC' ? 'ASC' : 'DESC';
+        $maximum_items = isset($query_params['maximum_items']) ? (int) $query_params['maximum_items'] : 4;
+
+        $query_args = [
             'post_type' => 'post',
             'tax_query' => [
                 [
@@ -27,17 +47,39 @@ class PPS_Post_List_Box_Preview {
                     'terms' => $series_id,
                 ],
             ],
-            'posts_per_page' => 4,
-            'orderby' => 'date',
-            'order' => 'DESC'
-        ]);
+            'posts_per_page' => $maximum_items,
+            'orderby' => $orderby,
+            'order' => $order,
+        ];
 
-        // If no posts found, create sample posts
-        if (empty($posts)) {
-            return self::get_sample_posts();
+        /**
+         * Filter WP_Query args for post list box admin preview.
+         *
+         * @param array $query_args   Preview query args for get_posts().
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         * @param array $query_params Normalized preview query params.
+         */
+        $query_args = apply_filters('pps_post_list_box_preview_query_args', $query_args, $settings, $series_id, $query_params);
+
+        $posts = get_posts($query_args);
+
+        /**
+         * Filter retrieved posts for post list box admin preview.
+         *
+         * @param array $posts        Posts retrieved for preview.
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         * @param array $query_params Normalized preview query params.
+         */
+        $posts = apply_filters('pps_post_list_box_preview_posts', $posts, $settings, $series_id, $query_params);
+
+        if (!empty($posts)) {
+            return $posts;
         }
 
-        return $posts;
+        // If no posts found, create sample posts
+        return self::get_sample_posts();
     }
 
     /**
