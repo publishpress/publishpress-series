@@ -332,7 +332,7 @@ class PPS_Post_List_Box_Admin_UI {
                             }
                             
                             // Create sample posts for preview
-                            $sample_posts = PPS_Post_List_Box_Preview::get_sample_series_posts($preview_series_id);
+                            $sample_posts = PPS_Post_List_Box_Preview::get_sample_series_posts($preview_series_id, $editor_data);
                             if (!empty($sample_posts)) {
                                 echo PPS_Post_List_Box_Preview::render_preview_content($editor_data, $sample_posts);
                             } else {

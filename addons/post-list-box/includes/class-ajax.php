@@ -89,7 +89,7 @@ class PPS_Post_List_Box_AJAX {
         }
 
         // Get sample posts
-        $sample_posts = PPS_Post_List_Box_Preview::get_sample_series_posts($series_id);
+        $sample_posts = PPS_Post_List_Box_Preview::get_sample_series_posts($series_id, $settings);
 
         if (empty($sample_posts)) {
             wp_send_json_error(['message' => 'No posts found']);
