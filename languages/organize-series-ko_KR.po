@@ -3,86 +3,78 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Series 3.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/publishpress-"
-"series\n"
-"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/publishpress-series\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: none\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
+"PO-Revision-Date: 2026-02-27 13:57+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ko-KR\n"
 
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
 #: orgSeries.php
+#. Plugin Name of the plugin
 msgid "PublishPress Series"
-msgstr ""
+msgstr "퍼블리시프레스 시리즈"
 
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
-#: orgSeries.php
 msgid "https://publishpress.com/publishpress-series/"
-msgstr ""
+msgstr "https://publishpress.com/publishpress-series/"
 
+#: orgSeries.php
 #. Description of the plugin
-#: orgSeries.php
-msgid "PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic."
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
+"퍼블리시프레스 시리즈는 콘텐츠를 시리즈로 그룹화할 수 있게 해줍니다. 이는 잡지, 신문, 단편 소설 작가, 교사, 만화 작가 또는 같은 "
+"주제에 대해 여러 포스트를 작성하는 사람들에게 이상적입니다."
 
+#: orgSeries.php
 #. Author of the plugin
-#: orgSeries.php
 msgid "PublishPress"
-msgstr ""
+msgstr "퍼블리시프레스"
 
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
-#: orgSeries.php
 msgid "https://publishpress.com/"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:278
-msgctxt "taxonomy general name"
-msgid "Series Categories"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:279
-msgctxt "taxonomy singular name"
-msgid "Series Category"
-msgstr ""
+msgstr "https://publishpress.com/"
 
 #: addons/grouping/legacy-includes.php:280
 msgid "Search Series Categories"
-msgstr ""
+msgstr "시리즈 카테고리 검색"
 
 #: addons/grouping/legacy-includes.php:281
 msgid "Popular Series Categories"
-msgstr ""
+msgstr "인기 시리즈 카테고리"
 
 #: addons/grouping/legacy-includes.php:282
 #: addons/grouping/legacy-includes.php:786
 msgid "All Series Categories"
-msgstr ""
+msgstr "모든 시리즈 카테고리"
 
 #: addons/grouping/legacy-includes.php:283
 msgid "Edit Series Category"
-msgstr ""
+msgstr "시리즈 카테고리 편집"
 
 #: addons/grouping/legacy-includes.php:284
 msgid "Update Series Category"
-msgstr ""
+msgstr "시리즈 카테고리 업데이트"
 
 #: addons/grouping/legacy-includes.php:285
 msgid "Add New Series Category"
-msgstr ""
+msgstr "새 시리즈 카테고리 추가"
 
 #: addons/grouping/legacy-includes.php:286
 msgid "New Series Category"
-msgstr ""
+msgstr "새 시리즈 카테고리"
 
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
@@ -92,11 +84,13 @@ msgstr ""
 #: addons/grouping/legacy-includes.php:777
 #: addons/grouping/legacy-includes.php:811
 msgid "Series Categories"
-msgstr ""
+msgstr "시리즈 카테고리"
 
 #: addons/grouping/legacy-includes.php:627
-msgid "Delete all \"Series Categories\" data from the database when deleting the plugin."
-msgstr ""
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "플러그인을 삭제할 때 데이터베이스에서 모든 \"시리즈 카테고리\" 데이터를 삭제합니다."
 
 #: addons/grouping/legacy-includes.php:670
 #: addons/publisher/series_im_admin_main.php:7
@@ -110,89 +104,88 @@ msgstr ""
 #: orgSeries-widgets.php:386
 msgid "Series"
 msgid_plural "Series"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "시리즈"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
-msgstr ""
+msgstr "토글하려면 클릭"
 
 #: addons/grouping/legacy-includes.php:812
 msgid "[more]"
-msgstr ""
+msgstr "[더보기]"
 
 #: addons/grouping/legacy-includes.php:813
 msgid "[less]"
-msgstr ""
+msgstr "[덜 보기]"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
 msgid "Series in this category"
-msgstr ""
+msgstr "이 카테고리의 시리즈"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:117
 msgid "Sorry, no series were found in this category."
-msgstr ""
+msgstr "죄송합니다. 이 카테고리에서 시리즈를 찾을 수 없습니다."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
 #: addons/post-details/includes/class-fields.php:105
 #: addons/post-details/includes/class-utilities.php:123
 msgid "This entry is"
-msgstr ""
+msgstr "이 항목은"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
 #: addons/post-details/includes/class-fields.php:113
 #: addons/post-details/includes/class-utilities.php:124
 msgid "in the series"
-msgstr ""
+msgstr "시리즈에"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
 #, php-format
 msgid "part %1$s of %2$s"
-msgstr ""
+msgstr "%1$s의 %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
 #: addons/post-details/includes/class-utilities.php:268
 #: addons/post-navigation/includes/class-utilities.php:172
 msgid "Sample Series"
-msgstr ""
+msgstr "샘플 시리즈"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
 msgid "Sample Post Title"
-msgstr ""
+msgstr "샘플 게시물 제목"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-msgstr ""
+msgstr "로렘 입숨 돌로르 시트 아메트, 컨셉터 엑스디피스킹 엘리트."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
 msgid "Previous post link"
-msgstr ""
+msgstr "이전 게시물 링크"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
 msgid "Next post link"
-msgstr ""
+msgstr "다음 게시물 링크"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
 msgid "Sample series description."
-msgstr ""
+msgstr "샘플 시리즈 설명."
 
 #: addons/post-details/includes/class-admin-ui.php:31
 #: addons/post-details/includes/class-admin-ui.php:32
 #: inc/settings/tab-post-details.php:11
 #: orgSeries-utility.php:309
 msgid "Post Details"
-msgstr ""
+msgstr "게시물 세부정보"
 
 #: addons/post-details/includes/class-admin-ui.php:61
 msgid "Series Post Details Preview"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 미리보기"
 
 #: addons/post-details/includes/class-admin-ui.php:70
 msgid "Series Post Details Editor"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 편집기"
 
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
@@ -201,21 +194,21 @@ msgstr ""
 #: addons/post-navigation/includes/class-admin-ui.php:85
 #: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
-msgstr ""
+msgstr "단축 코드"
 
 #: addons/post-details/includes/class-admin-ui.php:147
 #: addons/post-list-box/includes/class-admin-ui.php:262
 #: addons/post-navigation/includes/class-admin-ui.php:182
 msgid "Use this shortcode:"
-msgstr ""
+msgstr "이 단축 코드를 사용하세요:"
 
 #: addons/post-details/includes/class-admin-ui.php:149
 msgid "Insert into posts or pages to display this Series Post Details manually."
-msgstr ""
+msgstr "게시물이나 페이지에 삽입하여 이 시리즈 게시물 세부정보를 수동으로 표시합니다."
 
 #: addons/post-details/includes/class-admin-ui.php:157
 msgid "Default Meta Box"
-msgstr ""
+msgstr "기본 메타 박스"
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
@@ -225,7 +218,7 @@ msgstr ""
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
 msgid "This feature is available in PublishPress Series Pro"
-msgstr ""
+msgstr "이 기능은 PublishPress Series Pro에서 사용할 수 있습니다"
 
 #: addons/post-details/includes/class-ajax.php:32
 #: addons/post-details/includes/class-ajax.php:99
@@ -234,73 +227,73 @@ msgstr ""
 #: addons/post-navigation/includes/class-ajax.php:167
 #: addons/post-navigation/includes/class-ajax.php:207
 msgid "Invalid post ID."
-msgstr ""
+msgstr "잘못된 게시물 ID입니다."
 
 #: addons/post-details/includes/class-ajax.php:67
 #: addons/post-navigation/includes/class-ajax.php:115
 msgid "No series available to preview."
-msgstr ""
+msgstr "미리보기할 수 있는 시리즈가 없습니다."
 
 #: addons/post-details/includes/class-ajax.php:122
 #: addons/post-navigation/includes/class-ajax.php:190
 msgid "Invalid import data."
-msgstr ""
+msgstr "잘못된 가져오기 데이터입니다."
 
 #: addons/post-details/includes/class-ajax.php:137
 #: addons/post-navigation/includes/class-ajax.php:195
 msgid "Settings imported successfully."
-msgstr ""
+msgstr "설정이 성공적으로 가져와졌습니다."
 
 #: addons/post-details/includes/class-ajax.php:166
 #: addons/post-navigation/includes/class-ajax.php:213
 msgid "Settings reset to defaults."
-msgstr ""
+msgstr "설정이 기본값으로 재설정되었습니다."
 
 #: addons/post-details/includes/class-fields.php:30
 #: addons/post-navigation/includes/class-fields.php:30
 #: addons/post-navigation/includes/class-fields.php:85
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 #: addons/post-details/includes/class-fields.php:34
 msgid "Styling"
-msgstr ""
+msgstr "스타일링"
 
 #: addons/post-details/includes/class-fields.php:89
 msgid "Content"
-msgstr ""
+msgstr "내용"
 
 #: addons/post-details/includes/class-fields.php:93
 msgid "Show Part Number"
-msgstr ""
+msgstr "부품 번호 표시"
 
 #: addons/post-details/includes/class-fields.php:98
 msgid "Display \"part X of Y\" in the series text"
-msgstr ""
+msgstr "시리즈 텍스트에서 \"부품 X 중 Y\" 표시"
 
 #: addons/post-details/includes/class-fields.php:101
 msgid "Text Before"
-msgstr ""
+msgstr "앞 텍스트"
 
 #: addons/post-details/includes/class-fields.php:106
 msgid "Text shown at the beginning"
-msgstr ""
+msgstr "시작 부분에 표시되는 텍스트"
 
 #: addons/post-details/includes/class-fields.php:109
 msgid "Text After"
-msgstr ""
+msgstr "뒤 텍스트"
 
 #: addons/post-details/includes/class-fields.php:114
 msgid "Text shown before the series name"
-msgstr ""
+msgstr "시리즈 이름 앞에 표시되는 텍스트"
 
 #: addons/post-details/includes/class-fields.php:118
 msgid "Display"
-msgstr ""
+msgstr "표시"
 
 #: addons/post-details/includes/class-fields.php:122
 msgid "Meta Box Position"
-msgstr ""
+msgstr "메타 박스 위치"
 
 #: addons/post-details/includes/class-fields.php:126
 #: addons/post-list-box/classes/PostListBoxFields.php:511
@@ -308,7 +301,7 @@ msgstr ""
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
 msgid "Top"
-msgstr ""
+msgstr "상단"
 
 #: addons/post-details/includes/class-fields.php:127
 #: addons/post-list-box/classes/PostListBoxFields.php:512
@@ -316,407 +309,409 @@ msgstr ""
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
 msgid "Bottom"
-msgstr ""
+msgstr "하단"
 
 #: addons/post-details/includes/class-fields.php:131
 msgid "Choose where to display the meta box in relation to the content"
-msgstr ""
+msgstr "내용과 관련하여 메타 박스를 표시할 위치를 선택하십시오"
 
 #: addons/post-details/includes/class-fields.php:134
 msgid "Limit to Single Posts"
-msgstr ""
+msgstr "단일 게시물로 제한"
 
 #: addons/post-details/includes/class-fields.php:139
 msgid "Enable to display meta box only on single post view, not on archives."
-msgstr ""
+msgstr "아카이브가 아닌 단일 게시물 보기에서만 메타 박스를 표시하도록 활성화합니다."
 
 #: addons/post-details/includes/class-fields.php:152
 msgid "Typography"
-msgstr ""
+msgstr "타이포그래피"
 
 #: addons/post-details/includes/class-fields.php:156
 msgid "Text Size (px)"
-msgstr ""
+msgstr "텍스트 크기 (px)"
 
 #: addons/post-details/includes/class-fields.php:163
 msgid "Font size for text in the meta box"
-msgstr ""
+msgstr "메타 박스의 텍스트에 대한 글꼴 크기"
 
 #: addons/post-details/includes/class-fields.php:166
 #: addons/post-navigation/includes/class-fields.php:453
 msgid "Text Color"
-msgstr ""
+msgstr "텍스트 색상"
 
 #: addons/post-details/includes/class-fields.php:173
 msgid "Link Color"
-msgstr ""
+msgstr "링크 색상"
 
 #: addons/post-details/includes/class-fields.php:181
 msgid "Background"
-msgstr ""
+msgstr "배경"
 
 #: addons/post-details/includes/class-fields.php:185
 #: addons/post-list-box/classes/PostListBoxFields.php:191
 #: addons/post-navigation/includes/class-fields.php:460
 msgid "Background Color"
-msgstr ""
+msgstr "배경 색상"
 
 #: addons/post-details/includes/class-fields.php:190
 msgid "Background color for the meta box container"
-msgstr ""
+msgstr "메타 박스 컨테이너의 배경 색상"
 
 #: addons/post-details/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:498
 msgid "Spacing"
-msgstr ""
+msgstr "여백"
 
 #: addons/post-details/includes/class-fields.php:198
 #: addons/post-list-box/classes/PostListBoxFields.php:223
 #: addons/post-navigation/includes/class-fields.php:502
 msgid "Padding (px)"
-msgstr ""
+msgstr "패딩 (px)"
 
 #: addons/post-details/includes/class-fields.php:205
 msgid "Padding applied to all sides of the content area"
-msgstr ""
+msgstr "콘텐츠 영역의 모든 면에 적용된 패딩"
 
 #: addons/post-details/includes/class-fields.php:208
 #: addons/post-navigation/includes/class-fields.php:511
 msgid "Margin (px)"
-msgstr ""
+msgstr "여백 (px)"
 
 #: addons/post-details/includes/class-fields.php:215
 msgid "Margin applied to all sides of the meta box"
-msgstr ""
+msgstr "메타 박스의 모든 면에 적용된 여백"
 
 #: addons/post-details/includes/class-fields.php:219
 #: addons/post-navigation/includes/class-fields.php:468
 msgid "Border"
-msgstr ""
+msgstr "테두리"
 
 #: addons/post-details/includes/class-fields.php:223
 #: addons/post-list-box/classes/PostListBoxFields.php:205
 #: addons/post-navigation/includes/class-fields.php:479
 msgid "Border Width (px)"
-msgstr ""
+msgstr "테두리 너비 (px)"
 
 #: addons/post-details/includes/class-fields.php:232
 #: addons/post-list-box/classes/PostListBoxFields.php:214
 #: addons/post-navigation/includes/class-fields.php:488
 msgid "Border Radius (px)"
-msgstr ""
+msgstr "테두리 반경 (px)"
 
 #: addons/post-details/includes/class-fields.php:241
 #: addons/post-list-box/classes/PostListBoxFields.php:198
 #: addons/post-navigation/includes/class-fields.php:472
 msgid "Border Color"
-msgstr ""
+msgstr "테두리 색상"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-details/includes/class-post-type.php:29
 msgid "Series Post Details"
-msgstr ""
+msgstr "시리즈 게시물 세부정보"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
 #: orgSeries-setup.php:194
 msgid "Add New"
-msgstr ""
+msgstr "새로 추가"
 
 #: addons/post-details/includes/class-post-type.php:31
 msgid "Add New Series Post Details"
-msgstr ""
+msgstr "새 시리즈 게시물 세부정보 추가"
 
 #: addons/post-details/includes/class-post-type.php:32
 msgid "New Series Post Details"
-msgstr ""
+msgstr "새 시리즈 게시물 세부정보"
 
 #: addons/post-details/includes/class-post-type.php:33
 msgid "Edit Series Post Details"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 편집"
 
 #: addons/post-details/includes/class-post-type.php:34
 msgid "View Series Post Details"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 보기"
 
 #: addons/post-details/includes/class-post-type.php:35
 msgid "All Series Post Details"
-msgstr ""
+msgstr "모든 시리즈 게시물 세부정보"
 
 #: addons/post-details/includes/class-post-type.php:36
 msgid "Search Series Post Details"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 검색"
 
 #: addons/post-details/includes/class-post-type.php:37
 msgid "No Series Post Details found."
-msgstr ""
+msgstr "찾을 수 있는 시리즈 게시물 세부정보가 없습니다."
 
 #: addons/post-details/includes/class-post-type.php:38
 msgid "No Series Post Details found in Trash."
-msgstr ""
+msgstr "휴지통에서 찾을 수 있는 시리즈 게시물 세부정보가 없습니다."
 
 #: addons/post-details/includes/class-preview.php:25
 msgid "Create a series to preview the post details."
-msgstr ""
+msgstr "게시물 세부정보 미리보기를 위해 시리즈를 생성하세요."
 
 #: addons/post-details/includes/class-utilities.php:303
 #, php-format
 msgid "Sample Series Post %d"
-msgstr ""
+msgstr "샘플 시리즈 게시물 %d"
 
 #: addons/post-details/includes/class-utilities.php:304
-msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum."
-msgstr ""
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr "로렘 입숨 돌로르 시트 아메트, 컨세크테투어 아디피스킹 엘리트. 비바무스 라키니아 오디오 비타에 베스티불룸 베스티불룸."
 
 #: addons/post-details/includes/class-utilities.php:305
 msgid "Sample excerpt preview content for the series meta box."
-msgstr ""
+msgstr "시리즈 메타 박스를 위한 샘플 발췌 미리보기 콘텐츠."
 
 #: addons/post-details/post-details.php:176
 msgid "Series Post Details #1"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 #1"
 
 #: addons/post-details/post-details.php:181
 msgid "Series Post Details #2"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 #2"
 
 #: addons/post-details/post-details.php:186
 msgid "Series Post Details #3"
-msgstr ""
+msgstr "시리즈 게시물 세부정보 #3"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:34
 msgid "Box Title"
-msgstr ""
+msgstr "박스 제목"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:42
 msgid "Box Style"
-msgstr ""
+msgstr "박스 스타일"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:50
 msgid "Content Display"
-msgstr ""
+msgstr "콘텐츠 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:58
 msgid "Featured Image Settings"
-msgstr ""
+msgstr "대표 이미지 설정"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:66
 msgid "Post Style"
-msgstr ""
+msgstr "게시물 스타일"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:74
 msgid "Layout Display"
-msgstr ""
+msgstr "레이아웃 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:82
 msgid "Highlights Current Post"
-msgstr ""
+msgstr "현재 게시물 강조 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:99
 msgid "Show Box Title"
-msgstr ""
+msgstr "박스 제목 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:106
 msgid "Box Title Type"
-msgstr ""
+msgstr "상자 제목 유형"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:110
 msgid "Use Series Title"
-msgstr ""
+msgstr "시리즈 제목 사용"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Custom Title"
-msgstr ""
+msgstr "사용자 정의 제목"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:115
 msgid "Choose whether to display the series title or a custom title"
-msgstr ""
+msgstr "시리즈 제목 또는 사용자 정의 제목을 표시할지 선택하십시오"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:120
 msgid "Link Box Title to Series"
-msgstr ""
+msgstr "상자 제목을 시리즈에 링크하기"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:125
 msgid "Link the box title to the current series archive when using the series title"
-msgstr ""
+msgstr "시리즈 제목을 사용할 때 현재 시리즈 아카이브에 상자 제목을 링크합니다"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:130
 msgid "Custom Box Title Text"
-msgstr ""
+msgstr "사용자 정의 상자 제목 텍스트"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:134
 #: addons/post-list-box/includes/class-utilities.php:162
 msgid "Series Posts"
-msgstr ""
+msgstr "시리즈 게시물"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:135
 msgid "Enter custom title for the post list"
-msgstr ""
+msgstr "게시물 목록에 대한 사용자 정의 제목을 입력하십시오"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Only used when \"Custom Title\" is selected above"
-msgstr ""
+msgstr "위의 \"사용자 정의 제목\"이 선택된 경우에만 사용됩니다"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:141
 msgid "Box Title HTML Tag"
-msgstr ""
+msgstr "상자 제목 HTML 태그"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:160
 msgid "Box Title Color"
-msgstr ""
+msgstr "상자 제목 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:169
 msgid "Box Title Font Size (px)"
-msgstr ""
+msgstr "상자 제목 글꼴 크기 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:243
 msgid "Show Post Titles"
-msgstr ""
+msgstr "게시물 제목 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
 msgid "Post Title Color"
-msgstr ""
+msgstr "게시물 제목 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:259
 msgid "Post Title Font Size (px)"
-msgstr ""
+msgstr "게시물 제목 글꼴 크기 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:270
 msgid "Show Post Excerpt"
-msgstr ""
+msgstr "게시물 요약 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:278
 msgid "Excerpt Length (words)"
-msgstr ""
+msgstr "요약 길이 (단어)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:290
 msgid "Excerpt Color"
-msgstr ""
+msgstr "요약 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:300
 msgid "Show Post Author"
-msgstr ""
+msgstr "게시물 저자 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:308
 msgid "Post Author Color"
-msgstr ""
+msgstr "게시물 저자 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:318
 msgid "Show Post Date"
-msgstr ""
+msgstr "게시물 날짜 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:326
 msgid "Post Date Color"
-msgstr ""
+msgstr "게시물 날짜 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:347
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
-msgstr ""
+msgstr "대표 이미지 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:354
 msgid "Featured Image Width (px)"
-msgstr ""
+msgstr "대표 이미지 너비 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:361
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
-msgstr ""
+msgstr "픽셀 단위의 대표 이미지 너비"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:366
 msgid "Featured Image Height (px)"
-msgstr ""
+msgstr "대표 이미지 높이 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:373
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
-msgstr ""
+msgstr "픽셀 단위의 대표 이미지 높이"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Fallback Featured Image"
-msgstr ""
+msgstr "대체 대표 이미지"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:383
 msgid "Image to display when a post does not have a featured image"
-msgstr ""
+msgstr "게시물에 대표 이미지가 없을 때 표시할 이미지"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:400
 msgid "Post Padding (px)"
-msgstr ""
+msgstr "게시물 패딩 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:409
 msgid "Post Border Width (px)"
-msgstr ""
+msgstr "게시물 테두리 너비 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:418
 msgid "Post Border Color"
-msgstr ""
+msgstr "게시물 테두리 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:425
 msgid "Post Background Color"
-msgstr ""
+msgstr "게시물 배경 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:430
 msgid "Background color for the post list container"
-msgstr ""
+msgstr "게시물 목록 컨테이너의 배경 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:444
 msgid "Layout Style"
-msgstr ""
+msgstr "레이아웃 스타일"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:448
 #: inc/settings/tab-legacy.php:29
 msgid "List"
-msgstr ""
+msgstr "목록"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:449
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
-msgstr ""
+msgstr "그리드"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:456
 msgid "Columns"
-msgstr ""
+msgstr "열"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:460
 msgid "2 Columns"
-msgstr ""
+msgstr "2열"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:461
 msgid "3 Columns"
-msgstr ""
+msgstr "3 열"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:462
 msgid "4 Columns"
-msgstr ""
+msgstr "4 열"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:463
 msgid "6 Columns"
-msgstr ""
+msgstr "6 열"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:472
 msgid "Order By"
-msgstr ""
+msgstr "정렬 기준"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:476
 msgid "Date"
-msgstr ""
+msgstr "날짜"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:477
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:478
 #: addons/publisher/series_im_admin_main.php:8
@@ -726,69 +721,71 @@ msgstr ""
 #: orgSeries-manage.php:195
 #: orgSeries-manage.php:204
 msgid "Series Order"
-msgstr ""
+msgstr "시리즈 순서"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:485
 #: orgSeries-manage.php:51
 #: orgSeries-manage.php:227
 msgid "Order"
-msgstr ""
+msgstr "주문"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:489
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
-msgstr ""
+msgstr "오름차순"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:490
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
-msgstr ""
+msgstr "내림차순"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Gap Between Items (px)"
-msgstr ""
+msgstr "항목 간의 간격 (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:507
 msgid "Post List Box Location"
-msgstr ""
+msgstr "게시물 목록 상자 위치"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:516
 msgid "Choose where to display the post list box in relation to the content"
-msgstr ""
+msgstr "내용에 대한 게시물 목록 상자의 표시 위치를 선택하세요"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:520
 msgid "Maximum number of items"
-msgstr ""
+msgstr "최대 항목 수"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:526
-msgid "Limit the number of posts shown in the series list. Leave empty for no limit. The admin preview is limited to 4 posts."
-msgstr ""
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr "시리즈 목록에 표시되는 게시물 수를 제한합니다. 제한을 두지 않으려면 비워두세요. 관리자 미리보기는 4개의 게시물로 제한됩니다."
 
 #: addons/post-list-box/classes/PostListBoxFields.php:541
 msgid "Highlight Current Post"
-msgstr ""
+msgstr "현재 게시물 강조 표시"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:546
 msgid "Highlight the current post when viewing a specific series post"
-msgstr ""
+msgstr "특정 시리즈 게시물을 볼 때 현재 게시물을 강조 표시합니다"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:549
 msgid "Current Post Background Color"
-msgstr ""
+msgstr "현재 게시물 배경 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:556
 msgid "Current Post Border Color"
-msgstr ""
+msgstr "현재 게시물 테두리 색상"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:563
 msgid "Current Post Text Color"
-msgstr ""
+msgstr "현재 게시물 텍스트 색상"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
-msgstr ""
+msgstr "기본 포스트 목록 상자"
 
 #: addons/post-list-box/includes/class-admin-ui.php:102
 #: addons/post-list-box/includes/class-admin-ui.php:103
@@ -796,222 +793,210 @@ msgstr ""
 #: addons/post-list-box/includes/class-post-type.php:24
 #: orgSeries-utility.php:308
 msgid "Post List Boxes"
-msgstr ""
+msgstr "포스트 목록 상자"
 
 #: addons/post-list-box/includes/class-admin-ui.php:119
 #: addons/post-list-box/includes/class-admin-ui.php:120
 msgid "Post List Box updated."
-msgstr ""
+msgstr "포스트 목록 상자가 업데이트되었습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:121
 msgid "Post List Box added."
-msgstr ""
+msgstr "포스트 목록 상자가 추가되었습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:122
 msgid "Post List Box saved."
-msgstr ""
+msgstr "포스트 목록 상자가 저장되었습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:123
 msgid "Post List Box submitted."
-msgstr ""
+msgstr "포스트 목록 상자가 제출되었습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:145
 #: addons/post-list-box/includes/class-post-type.php:23
 #: inc/settings/tab-post-list-box.php:11
 msgid "Post List Box"
-msgstr ""
+msgstr "포스트 목록 상자"
 
 #: addons/post-list-box/includes/class-admin-ui.php:197
 msgid "Post List Box Preview"
-msgstr ""
+msgstr "포스트 목록 상자 미리보기"
 
 #: addons/post-list-box/includes/class-admin-ui.php:214
 msgid "Post List Box Editor"
-msgstr ""
+msgstr "포스트 목록 상자 편집기"
 
 #: addons/post-list-box/includes/class-admin-ui.php:264
 msgid "Insert into posts or pages to display this Post List Box manually."
-msgstr ""
+msgstr "이 포스트 목록 상자를 수동으로 표시하려면 포스트나 페이지에 삽입하십시오."
 
 #: addons/post-list-box/includes/class-admin-ui.php:306
 msgid "Select Series to Preview:"
-msgstr ""
+msgstr "미리보기를 위한 시리즈 선택:"
 
 #: addons/post-list-box/includes/class-admin-ui.php:324
 msgid "No series found. Create a series to see the preview."
-msgstr ""
+msgstr "시리즈가 발견되지 않았습니다. 미리보기를 보려면 시리즈를 생성하십시오."
 
 #: addons/post-list-box/includes/class-admin-ui.php:339
 msgid "No posts found in selected series."
-msgstr ""
+msgstr "선택한 시리즈에서 포스트가 발견되지 않았습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:357
 msgid "Loading preview..."
-msgstr ""
+msgstr "미리보기 로딩 중..."
 
 #: addons/post-list-box/includes/class-admin-ui.php:372
 #: addons/post-list-box/includes/class-admin-ui.php:376
 msgid "Error loading preview."
-msgstr ""
+msgstr "미리보기 로딩 중 오류가 발생했습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:674
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
-msgstr ""
+msgstr "이미지 선택"
 
 #: addons/post-list-box/includes/class-admin-ui.php:678
 msgid "Remove"
-msgstr ""
+msgstr "제거"
 
 #: addons/post-list-box/includes/class-fields.php:25
 msgid "Box Container"
-msgstr ""
+msgstr "상자 컨테이너"
 
 #: addons/post-list-box/includes/class-fields.php:29
 msgid "Post"
-msgstr ""
+msgstr "포스트"
 
 #: addons/post-list-box/includes/class-fields.php:33
 #: addons/post-navigation/includes/class-fields.php:38
 msgid "Layout"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:27
-#, php-format
-msgctxt "Post List Box post type name"
-msgid "%2$s"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:28
-#, php-format
-msgctxt "singular post list box post type name"
-msgid "%1$s"
-msgstr ""
+msgstr "레이아웃"
 
 #: addons/post-list-box/includes/class-post-type.php:33
 #, php-format
 msgid "New %1s"
-msgstr ""
+msgstr "새로운 %1s"
 
 #: addons/post-list-box/includes/class-post-type.php:34
 #, php-format
 msgid "Add New %1$s"
-msgstr ""
+msgstr "새로운 %1$s 추가"
 
 #: addons/post-list-box/includes/class-post-type.php:35
 #, php-format
 msgid "Edit %1$s"
-msgstr ""
+msgstr "%1$s 편집"
 
 #: addons/post-list-box/includes/class-post-type.php:36
 #, php-format
 msgid "New %1$s"
-msgstr ""
+msgstr "새로운 %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:37
-#, php-format
+#, fuzzy, php-format
 msgid "%2$s"
-msgstr ""
+msgstr "%2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:38
 #, php-format
 msgid "View %1$s"
-msgstr ""
+msgstr "%1$s 보기"
 
 #: addons/post-list-box/includes/class-post-type.php:39
 #, php-format
 msgid "Search %2$s"
-msgstr ""
+msgstr "%2$s 검색"
 
 #: addons/post-list-box/includes/class-post-type.php:40
 #, php-format
 msgid "No %2$s found"
-msgstr ""
+msgstr "찾을 수 없는 %2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:41
 #, php-format
 msgid "No %2$s found in Trash"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:43
-#, php-format
-msgctxt "custom layout post type menu name"
-msgid "%2$s"
-msgstr ""
+msgstr "휴지통에서 찾을 수 없는 %2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:44
 #, php-format
 msgid "%1$s Image"
-msgstr ""
+msgstr "%1$s 이미지"
 
 #: addons/post-list-box/includes/class-post-type.php:45
 #, php-format
 msgid "Set %1$s Image"
-msgstr ""
+msgstr "%1$s 이미지 설정"
 
 #: addons/post-list-box/includes/class-post-type.php:46
 #, php-format
 msgid "Remove %1$s Image"
-msgstr ""
+msgstr "%1$s 이미지 제거"
 
 #: addons/post-list-box/includes/class-post-type.php:47
 #, php-format
 msgid "Use as %1$s Image"
-msgstr ""
+msgstr "%1$s 이미지로 사용"
 
 #: addons/post-list-box/includes/class-post-type.php:48
 #, php-format
 msgid "Filter %2$s list"
-msgstr ""
+msgstr "%2$s 목록 필터"
 
 #: addons/post-list-box/includes/class-post-type.php:49
 #, php-format
 msgid "%2$s list navigation"
-msgstr ""
+msgstr "%2$s 목록 탐색"
 
 #: addons/post-list-box/includes/class-post-type.php:50
 #, php-format
 msgid "%2$s list"
-msgstr ""
+msgstr "%2$s 목록"
 
 #: addons/post-list-box/includes/class-preview.php:98
 #, php-format
 msgid "Sample Post %d"
-msgstr ""
+msgstr "샘플 게시물 %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
 #, php-format
-msgid "This is sample content for post %d in the series. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
 msgstr ""
+"이것은 시리즈의 게시물 %d에 대한 샘플 콘텐츠입니다. Lorem ipsum dolor sit amet, consectetur "
+"adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua."
 
 #: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
-msgstr ""
+msgstr "이것은 시리즈의 게시물 %d에 대한 샘플 발췌입니다."
 
 #: addons/post-list-box/includes/class-preview.php:450
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
 msgid "Author"
-msgstr ""
+msgstr "작성자"
 
 #: addons/post-list-box/post-list-box.php:91
 msgid "Default List Box"
-msgstr ""
+msgstr "기본 목록 상자"
 
 #: addons/post-list-box/post-list-box.php:95
 msgid "Grid Style Box"
-msgstr ""
+msgstr "그리드 스타일 상자"
 
 #: addons/post-list-box/post-list-box.php:109
 msgid "Simple List Box"
-msgstr ""
+msgstr "간단 목록 상자"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:263
 msgid "Navigation hidden (series has only one post)"
-msgstr ""
+msgstr "내비게이션 숨김 (시리즈에 게시물이 하나만 있습니다)"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:317
 #: addons/post-navigation/classes/PostNavigationRenderer.php:348
@@ -1021,7 +1006,7 @@ msgstr ""
 #: addons/post-navigation/classes/PostNavigationRenderer.php:569
 #: addons/post-navigation/includes/class-utilities.php:62
 msgid "Series Home"
-msgstr ""
+msgstr "시리즈 홈"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
@@ -1029,7 +1014,7 @@ msgstr ""
 #: addons/post-navigation/includes/class-fields.php:165
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
@@ -1037,62 +1022,62 @@ msgstr ""
 #: addons/post-navigation/includes/class-fields.php:280
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 #: addons/post-navigation/includes/class-admin-ui.php:31
 #: addons/post-navigation/includes/class-admin-ui.php:32
 #: orgSeries-utility.php:310
 msgid "Post Navigation"
-msgstr ""
+msgstr "게시물 내비게이션"
 
 #: addons/post-navigation/includes/class-admin-ui.php:67
 msgid "Series Post Navigation Preview"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션 미리보기"
 
 #: addons/post-navigation/includes/class-admin-ui.php:76
 msgid "Series Post Navigation Editor"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션 편집기"
 
 #: addons/post-navigation/includes/class-admin-ui.php:184
 msgid "Insert into posts or pages to display this Series Post Navigation manually."
-msgstr ""
+msgstr "이 시리즈 게시물 내비게이션을 수동으로 표시하려면 게시물 또는 페이지에 삽입하십시오."
 
 #: addons/post-navigation/includes/class-admin-ui.php:192
 msgid "Default Navigation"
-msgstr ""
+msgstr "기본 내비게이션"
 
 #: addons/post-navigation/includes/class-admin-ui.php:414
 msgid "Change Image"
-msgstr ""
+msgstr "이미지 변경"
 
 #: addons/post-navigation/includes/class-admin-ui.php:422
 msgid "Remove Image"
-msgstr ""
+msgstr "이미지 제거"
 
 #: addons/post-navigation/includes/class-ajax.php:122
 #: addons/post-navigation/includes/class-ajax.php:129
 msgid "No posts found in series to preview."
-msgstr ""
+msgstr "미리보기를 위한 시리즈에서 게시물이 발견되지 않았습니다."
 
 #: addons/post-navigation/includes/class-fields.php:34
 msgid "Item"
-msgstr ""
+msgstr "항목"
 
 #: addons/post-navigation/includes/class-fields.php:89
 msgid "Include Series Title"
-msgstr ""
+msgstr "시리즈 제목 포함"
 
 #: addons/post-navigation/includes/class-fields.php:96
 msgid "Link Series Title"
-msgstr ""
+msgstr "시리즈 제목 링크"
 
 #: addons/post-navigation/includes/class-fields.php:101
 msgid "Link the series title to the series archive page"
-msgstr ""
+msgstr "시리즈 제목을 시리즈 아카이브 페이지에 링크합니다"
 
 #: addons/post-navigation/includes/class-fields.php:106
 msgid "Series Title Alignment"
-msgstr ""
+msgstr "시리즈 제목 정렬"
 
 #: addons/post-navigation/includes/class-fields.php:110
 #: addons/post-navigation/includes/class-fields.php:181
@@ -1100,11 +1085,11 @@ msgstr ""
 #: addons/post-navigation/includes/class-fields.php:296
 #: addons/post-navigation/includes/class-fields.php:424
 msgid "Left"
-msgstr ""
+msgstr "왼쪽"
 
 #: addons/post-navigation/includes/class-fields.php:111
 msgid "Center"
-msgstr ""
+msgstr "가운데"
 
 #: addons/post-navigation/includes/class-fields.php:112
 #: addons/post-navigation/includes/class-fields.php:182
@@ -1112,918 +1097,976 @@ msgstr ""
 #: addons/post-navigation/includes/class-fields.php:297
 #: addons/post-navigation/includes/class-fields.php:425
 msgid "Right"
-msgstr ""
+msgstr "오른쪽"
 
 #: addons/post-navigation/includes/class-fields.php:125
 msgid "Hide When Single Post"
-msgstr ""
+msgstr "단일 포스트일 때 숨기기"
 
 #: addons/post-navigation/includes/class-fields.php:130
 msgid "Do not display navigation if series has only one post"
-msgstr ""
+msgstr "시리즈에 포스트가 하나만 있을 경우 내비게이션을 표시하지 않음"
 
 #: addons/post-navigation/includes/class-fields.php:148
 msgid "Previous Navigation Type"
-msgstr ""
+msgstr "이전 내비게이션 유형"
 
 #: addons/post-navigation/includes/class-fields.php:152
 #: addons/post-navigation/includes/class-fields.php:267
 #: addons/post-navigation/includes/class-fields.php:382
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 #: addons/post-navigation/includes/class-fields.php:153
 msgid "Previous Post Title"
-msgstr ""
+msgstr "이전 포스트 제목"
 
 #: addons/post-navigation/includes/class-fields.php:154
 #: addons/post-navigation/includes/class-fields.php:269
 #: addons/post-navigation/includes/class-fields.php:384
 msgid "Custom Label"
-msgstr ""
+msgstr "사용자 정의 레이블"
 
 #: addons/post-navigation/includes/class-fields.php:158
 msgid "Choose how to display the previous navigation"
-msgstr ""
+msgstr "이전 내비게이션 표시 방법 선택"
 
 #: addons/post-navigation/includes/class-fields.php:161
 msgid "Previous Label"
-msgstr ""
+msgstr "이전 레이블"
 
 #: addons/post-navigation/includes/class-fields.php:166
 msgid "Custom text for previous post link"
-msgstr ""
+msgstr "이전 포스트 링크를 위한 사용자 정의 텍스트"
 
 #: addons/post-navigation/includes/class-fields.php:174
 msgid "Display featured image for previous post"
-msgstr ""
+msgstr "이전 포스트의 대표 이미지를 표시"
 
 #: addons/post-navigation/includes/class-fields.php:177
 #: addons/post-navigation/includes/class-fields.php:292
 #: addons/post-navigation/includes/class-fields.php:420
 msgid "Image Position"
-msgstr ""
+msgstr "이미지 위치"
 
 #: addons/post-navigation/includes/class-fields.php:186
 msgid "Position of the featured image relative to the navigation"
-msgstr ""
+msgstr "내비게이션에 대한 대표 이미지의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:189
 #: addons/post-navigation/includes/class-fields.php:304
 #: addons/post-navigation/includes/class-fields.php:432
 msgid "Image Width (px)"
-msgstr ""
+msgstr "이미지 너비 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:197
 #: addons/post-navigation/includes/class-fields.php:312
 #: addons/post-navigation/includes/class-fields.php:440
 msgid "Image Height (px)"
-msgstr ""
+msgstr "이미지 높이 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:205
 #: addons/post-navigation/includes/class-fields.php:320
 msgid "Show Arrow"
-msgstr ""
+msgstr "화살표 표시"
 
 #: addons/post-navigation/includes/class-fields.php:210
 msgid "Display an arrow icon with the previous navigation"
-msgstr ""
+msgstr "이전 내비게이션과 함께 화살표 아이콘 표시"
 
 #: addons/post-navigation/includes/class-fields.php:213
 #: addons/post-navigation/includes/class-fields.php:328
 msgid "Arrow Type"
-msgstr ""
+msgstr "화살표 유형"
 
 #: addons/post-navigation/includes/class-fields.php:217
 msgid "Chevron Left (‹)"
-msgstr ""
+msgstr "왼쪽 Chevron (‹)"
 
 #: addons/post-navigation/includes/class-fields.php:218
 msgid "Arrow Left (←)"
-msgstr ""
+msgstr "왼쪽 화살표 (←)"
 
 #: addons/post-navigation/includes/class-fields.php:219
 msgid "Double Chevron Left («)"
-msgstr ""
+msgstr "왼쪽 더블 Chevron («)"
 
 #: addons/post-navigation/includes/class-fields.php:220
 msgid "Triangle Left (◄)"
-msgstr ""
+msgstr "왼쪽 삼각형 (◄)"
 
 #: addons/post-navigation/includes/class-fields.php:221
 #: addons/post-navigation/includes/class-fields.php:336
 msgid "Custom Image"
-msgstr ""
+msgstr "사용자 정의 이미지"
 
 #: addons/post-navigation/includes/class-fields.php:225
 #: addons/post-navigation/includes/class-fields.php:340
 msgid "Choose the arrow icon style"
-msgstr ""
+msgstr "화살표 아이콘 스타일 선택"
 
 #: addons/post-navigation/includes/class-fields.php:228
 #: addons/post-navigation/includes/class-fields.php:343
 msgid "Arrow Position"
-msgstr ""
+msgstr "화살표 위치"
 
 #: addons/post-navigation/includes/class-fields.php:237
 msgid "Position of the arrow relative to the navigation"
-msgstr ""
+msgstr "내비게이션에 대한 화살표의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:240
 #: addons/post-navigation/includes/class-fields.php:355
 msgid "Arrow Size (px)"
-msgstr ""
+msgstr "화살표 크기 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:247
 #: addons/post-navigation/includes/class-fields.php:362
 msgid "Size of the arrow icon in pixels (applies to both width and height)"
-msgstr ""
+msgstr "화살표 아이콘의 크기(픽셀) (너비와 높이에 모두 적용됨)"
 
 #: addons/post-navigation/includes/class-fields.php:250
 #: addons/post-navigation/includes/class-fields.php:365
 msgid "Custom Arrow Image"
-msgstr ""
+msgstr "사용자 정의 화살표 이미지"
 
 #: addons/post-navigation/includes/class-fields.php:255
 #: addons/post-navigation/includes/class-fields.php:370
 msgid "Select custom arrow image from media library"
-msgstr ""
+msgstr "미디어 라이브러리에서 사용자 정의 화살표 이미지 선택"
 
 #: addons/post-navigation/includes/class-fields.php:263
 msgid "Next Navigation Type"
-msgstr ""
+msgstr "다음 내비게이션 유형"
 
 #: addons/post-navigation/includes/class-fields.php:268
 msgid "Next Post Title"
-msgstr ""
+msgstr "다음 게시물 제목"
 
 #: addons/post-navigation/includes/class-fields.php:273
 msgid "Choose how to display the next post link"
-msgstr ""
+msgstr "다음 게시물 링크를 표시하는 방법 선택"
 
 #: addons/post-navigation/includes/class-fields.php:276
 msgid "Next Label"
-msgstr ""
+msgstr "다음 레이블"
 
 #: addons/post-navigation/includes/class-fields.php:281
 msgid "Custom text for next post link"
-msgstr ""
+msgstr "다음 게시물 링크를 위한 사용자 정의 텍스트"
 
 #: addons/post-navigation/includes/class-fields.php:289
 msgid "Display featured image for next post"
-msgstr ""
+msgstr "다음 게시물의 대표 이미지 표시"
 
 #: addons/post-navigation/includes/class-fields.php:301
 msgid "Position of the featured image relative to navigation"
-msgstr ""
+msgstr "내비게이션에 대한 대표 이미지의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:325
 msgid "Display an arrow icon with the next navigation"
-msgstr ""
+msgstr "다음 내비게이션과 함께 화살표 아이콘 표시"
 
 #: addons/post-navigation/includes/class-fields.php:332
 msgid "Chevron Right (›)"
-msgstr ""
+msgstr "오른쪽 화살표 (›)"
 
 #: addons/post-navigation/includes/class-fields.php:333
 msgid "Arrow Right (→)"
-msgstr ""
+msgstr "오른쪽 화살표 (→)"
 
 #: addons/post-navigation/includes/class-fields.php:334
 msgid "Double Chevron Right (»)"
-msgstr ""
+msgstr "두 배 오른쪽 화살표 (»)"
 
 #: addons/post-navigation/includes/class-fields.php:335
 msgid "Triangle Right (►)"
-msgstr ""
+msgstr "오른쪽 삼각형 (►)"
 
 #: addons/post-navigation/includes/class-fields.php:347
 msgid "Left of Text"
-msgstr ""
+msgstr "텍스트 왼쪽"
 
 #: addons/post-navigation/includes/class-fields.php:348
 msgid "Right of Text"
-msgstr ""
+msgstr "텍스트 오른쪽"
 
 #: addons/post-navigation/includes/class-fields.php:352
 msgid "Position of the arrow relative to the link text"
-msgstr ""
+msgstr "링크 텍스트에 대한 화살표의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:374
 msgid "First"
-msgstr ""
+msgstr "첫 번째"
 
 #: addons/post-navigation/includes/class-fields.php:378
 msgid "First Navigation Type"
-msgstr ""
+msgstr "첫 번째 탐색 유형"
 
 #: addons/post-navigation/includes/class-fields.php:383
 msgid "First Post Title"
-msgstr ""
+msgstr "첫 번째 게시물 제목"
 
 #: addons/post-navigation/includes/class-fields.php:388
 msgid "Choose how to display the first navigation"
-msgstr ""
+msgstr "첫 번째 탐색을 표시하는 방법 선택"
 
 #: addons/post-navigation/includes/class-fields.php:391
 msgid "First Label"
-msgstr ""
+msgstr "첫 번째 레이블"
 
 #: addons/post-navigation/includes/class-fields.php:395
 msgid "Go to First"
-msgstr ""
+msgstr "첫 번째로 이동"
 
 #: addons/post-navigation/includes/class-fields.php:396
 msgid "Custom text for first navigation"
-msgstr ""
+msgstr "첫 번째 탐색을 위한 사용자 지정 텍스트"
 
 #: addons/post-navigation/includes/class-fields.php:399
 msgid "First Navigation Position"
-msgstr ""
+msgstr "첫 번째 탐색 위치"
 
 #: addons/post-navigation/includes/class-fields.php:403
 msgid "Left (First → Previous → Next)"
-msgstr ""
+msgstr "왼쪽 (첫 번째 → 이전 → 다음)"
 
 #: addons/post-navigation/includes/class-fields.php:404
 msgid "Center (Previous → First → Next)"
-msgstr ""
+msgstr "가운데 (이전 → 첫 번째 → 다음)"
 
 #: addons/post-navigation/includes/class-fields.php:405
 msgid "Right (Previous → Next → First)"
-msgstr ""
+msgstr "오른쪽 (이전 → 다음 → 첫 번째)"
 
 #: addons/post-navigation/includes/class-fields.php:409
 msgid "Position of the first/series home link in navigation"
-msgstr ""
+msgstr "탐색에서 첫 번째/시리즈 홈 링크의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:417
 msgid "Display featured image for first post"
-msgstr ""
+msgstr "첫 번째 게시물의 대표 이미지 표시"
 
 #: addons/post-navigation/includes/class-fields.php:429
 msgid "Position of the featured image relative to the link text"
-msgstr ""
+msgstr "링크 텍스트에 대한 특징 이미지의 위치"
 
 #: addons/post-navigation/includes/class-fields.php:449
 msgid "Color"
-msgstr ""
+msgstr "색상"
 
 #: addons/post-navigation/includes/class-fields.php:520
 msgid "Gap Between Links (px)"
-msgstr ""
+msgstr "링크 간격 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:527
 msgid "Space between navigation links"
-msgstr ""
+msgstr "내비게이션 링크 간의 공간"
 
 #: addons/post-navigation/includes/class-fields.php:540
 msgid "Container Style"
-msgstr ""
+msgstr "컨테이너 스타일"
 
 #: addons/post-navigation/includes/class-fields.php:544
 msgid "Container Background Color"
-msgstr ""
+msgstr "컨테이너 배경 색상"
 
 #: addons/post-navigation/includes/class-fields.php:549
 msgid "Background color for the navigation container"
-msgstr ""
+msgstr "내비게이션 컨테이너의 배경 색상"
 
 #: addons/post-navigation/includes/class-fields.php:552
 msgid "Container Border Color"
-msgstr ""
+msgstr "컨테이너 테두리 색상"
 
 #: addons/post-navigation/includes/class-fields.php:559
 msgid "Container Border Width (px)"
-msgstr ""
+msgstr "컨테이너 테두리 너비 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:568
 msgid "Container Border Radius (px)"
-msgstr ""
+msgstr "컨테이너 테두리 반경 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:577
 msgid "Container Padding (px)"
-msgstr ""
+msgstr "컨테이너 패딩 (px)"
 
 #: addons/post-navigation/includes/class-fields.php:584
 msgid "Inner spacing for the container"
-msgstr ""
+msgstr "컨테이너의 내부 여백"
 
 #: addons/post-navigation/includes/class-post-type.php:26
 #: addons/post-navigation/includes/class-post-type.php:27
 #: addons/post-navigation/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:29
 msgid "Series Post Navigation"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션"
 
 #: addons/post-navigation/includes/class-post-type.php:31
 msgid "Add New Series Post Navigation"
-msgstr ""
+msgstr "새로운 시리즈 게시물 내비게이션 추가"
 
 #: addons/post-navigation/includes/class-post-type.php:32
 msgid "New Series Post Navigation"
-msgstr ""
+msgstr "새로운 시리즈 게시물 내비게이션"
 
 #: addons/post-navigation/includes/class-post-type.php:33
 msgid "Edit Series Post Navigation"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션 편집"
 
 #: addons/post-navigation/includes/class-post-type.php:34
 msgid "View Series Post Navigation"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션 보기"
 
 #: addons/post-navigation/includes/class-post-type.php:35
 msgid "All Series Post Navigation"
-msgstr ""
+msgstr "모든 시리즈 게시물 내비게이션"
 
 #: addons/post-navigation/includes/class-post-type.php:36
 msgid "Search Series Post Navigation"
-msgstr ""
+msgstr "시리즈 게시물 내비게이션 검색"
 
 #: addons/post-navigation/includes/class-post-type.php:37
 msgid "No Series Post Navigation found."
-msgstr ""
+msgstr "시리즈 게시물 내비게이션을 찾을 수 없습니다."
 
 #: addons/post-navigation/includes/class-post-type.php:38
 msgid "No Series Post Navigation found in Trash."
-msgstr ""
+msgstr "휴지통에 시리즈 게시물 탐색이 없습니다."
 
 #: addons/post-navigation/includes/class-preview.php:37
 msgid "Create a series to preview the navigation."
-msgstr ""
+msgstr "탐색을 미리 보기 위해 시리즈를 만드세요."
 
 #: addons/post-navigation/includes/class-preview.php:45
 #: addons/post-navigation/includes/class-preview.php:57
 msgid "Create posts in a series to preview the navigation."
-msgstr ""
+msgstr "탐색을 미리 보기 위해 시리즈에 게시물을 만드세요."
 
 #: addons/post-navigation/includes/class-utilities.php:174
 msgid "Sample series for preview purposes"
-msgstr ""
+msgstr "미리 보기 용 샘플 시리즈"
 
 #: addons/post-navigation/post-navigation.php:211
 msgid "Simple Navigation"
-msgstr ""
+msgstr "간단한 탐색"
 
 #: addons/post-navigation/post-navigation.php:216
 msgid "Button Navigation"
-msgstr ""
+msgstr "버튼 탐색"
 
 #: addons/post-navigation/post-navigation.php:221
 msgid "Image Navigation"
-msgstr ""
+msgstr "이미지 탐색"
 
 #: addons/publisher/series-part-post-table.php:63
 #: addons/publisher/series-pending-post-table.php:65
 #: addons/publisher/series-publish-post-table.php:73
 msgid "Categories"
-msgstr ""
+msgstr "카테고리"
 
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
 msgid "Tags"
-msgstr ""
+msgstr "태그"
 
 #: addons/publisher/series-part-post-table.php:65
 #: addons/publisher/series-pending-post-table.php:67
 #: addons/publisher/series-publish-post-table.php:75
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 #: addons/publisher/series-part-post-table.php:66
 #: addons/publisher/series-pending-post-table.php:68
 msgid "Current Part"
-msgstr ""
+msgstr "현재 부분"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
 #: addons/publisher/series-publish-post-table.php:270
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 #: addons/publisher/series-part-post-table.php:146
 msgid "View"
-msgstr ""
+msgstr "보기"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
 #: addons/publisher/series-publish-post-table.php:287
 msgid "Trash"
-msgstr ""
+msgstr "휴지통"
 
 #: addons/publisher/series-part-post-table.php:190
 msgid "There are no published posts in this series."
-msgstr ""
+msgstr "이 시리즈에는 게시된 게시물이 없습니다."
 
 #: addons/publisher/series-part-post-table.php:309
 msgid "(Currently has no Part number)"
-msgstr ""
+msgstr "(현재 부분 번호가 없습니다)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
 #: addons/publisher/series-publish-post-table.php:422
 msgid "Preview"
-msgstr ""
+msgstr "미리 보기"
 
 #: addons/publisher/series-pending-post-table.php:197
 #: addons/publisher/series-publish-post-table.php:46
 msgid "There are no unpublished posts in this series."
-msgstr ""
+msgstr "이 시리즈에는 게시되지 않은 게시물이 없습니다."
 
 #: addons/publisher/series-pending-post-table.php:312
 msgid "No Part Number"
-msgstr ""
+msgstr "부분 번호 없음"
 
 #: addons/publisher/series-publish-post-table.php:176
 msgid "All Categories"
-msgstr ""
+msgstr "모든 카테고리"
 
 #: addons/publisher/series-publish-post-table.php:189
 msgid "Filter"
-msgstr ""
+msgstr "필터"
 
 #: addons/publisher/series_im_admin_main.php:2
 #: addons/publisher/series_issue_manager.php:500
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
-msgstr ""
+msgstr "시리즈 관리"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
 #: addons/publisher/series_issue_manager.php:741
 msgid "Publish Series"
-msgstr ""
+msgstr "시리즈 게시"
 
 #: addons/publisher/series_im_admin_main.php:10
 msgid "Front View"
-msgstr ""
+msgstr "앞면 보기"
 
 #: addons/publisher/series_im_admin_main.php:17
 #, php-format
 msgid "Edit the status of %1$s"
-msgstr ""
+msgstr "%1$s의 상태 편집"
 
 #: addons/publisher/series_im_admin_main.php:19
 msgid "Series order"
-msgstr ""
+msgstr "시리즈 순서"
 
 #: addons/publisher/series_im_admin_main.php:22
 msgid "Publish or schedule posts"
-msgstr ""
+msgstr "게시물 게시 또는 예약"
 
 #: addons/publisher/series_im_admin_main.php:25
 msgid "View series in frontend"
-msgstr ""
+msgstr "프론트엔드에서 시리즈 보기"
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "You have no series available."
-msgstr ""
+msgstr "사용 가능한 시리즈가 없습니다."
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "Add new Series."
-msgstr ""
+msgstr "새 시리즈 추가."
 
 #: addons/publisher/series_issue_manager.php:209
 msgid "Create as unpublished:"
-msgstr ""
+msgstr "미게시로 생성:"
 
 #: addons/publisher/series_issue_manager.php:212
-msgid "When checked, all posts you assign to this series will remain unpublished until you publish the entire series."
-msgstr ""
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr "체크하면 이 시리즈에 할당된 모든 게시물이 전체 시리즈를 게시할 때까지 미게시 상태로 유지됩니다."
 
 #: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
-msgstr ""
+msgstr "시리즈의 게시물이 성공적으로 미게시되었습니다."
 
 #: addons/publisher/series_issue_manager.php:299
 #: addons/publisher/series_issue_manager.php:416
 msgid "Congratulations. Your series order was updated successfully."
-msgstr ""
+msgstr "축하합니다. 시리즈 순서가 성공적으로 업데이트되었습니다."
 
 #: addons/publisher/series_issue_manager.php:307
 #: addons/publisher/series_issue_manager.php:344
 msgid "Congratulations. Your posts were published successfully."
-msgstr ""
+msgstr "축하합니다. 게시물이 성공적으로 게시되었습니다."
 
 #: addons/publisher/series_issue_manager.php:316
 msgid "Post moved to the Trash."
-msgstr ""
+msgstr "게시물이 휴지통으로 이동했습니다."
 
 #: addons/publisher/series_issue_manager.php:339
 msgid "Congratulations. Your posts were scheduled successfully."
-msgstr ""
+msgstr "축하합니다. 게시물이 성공적으로 예약되었습니다."
 
 #: addons/publisher/series_issue_manager.php:499
 msgid "Manage Series Issues"
-msgstr ""
+msgstr "시리즈 문제 관리"
 
 #: addons/publisher/series_issue_manager.php:528
 msgid "Number of items per page"
-msgstr ""
+msgstr "페이지당 항목 수"
 
 #: addons/publisher/series_issue_manager.php:643
 msgid "Publishing Series:"
-msgstr ""
+msgstr "시리즈 게시:"
 
-#. translators: %s: search keywords
 #: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
-msgstr ""
+msgstr "“%s”에 대한 검색 결과"
 
 #: addons/publisher/series_issue_manager.php:664
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 #: addons/publisher/series_issue_manager.php:709
 msgid "Publication Date/Time:"
-msgstr ""
+msgstr "발행 일자/시간:"
 
 #: addons/publisher/series_issue_manager.php:765
 #: addons/publisher/series_issue_manager.php:840
 #: addons/publisher/series_issue_manager.php:939
 msgid "Update Order"
-msgstr ""
+msgstr "업데이트 순서"
 
 #: addons/publisher/series_issue_manager.php:792
 msgid "Series Order:"
-msgstr ""
+msgstr "시리즈 순서:"
 
 #: addons/publisher/series_issue_manager.php:795
-msgid "Drag the post names into the order you want them to be in the series, from the first part to the last part."
-msgstr ""
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr "게시물 이름을 첫 번째 부분에서 마지막 부분으로 시리즈에서 원하는 순서로 드래그하세요."
 
 #: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
-msgstr ""
+msgstr "시리즈의 미발행 게시물:"
 
 #: addons/publisher/series_issue_manager.php:870
-msgid "When these posts are published, they will be added after the last current post in the series."
-msgstr ""
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr "이 게시물이 발행되면 시리즈의 마지막 현재 게시물 뒤에 추가됩니다."
 
 #: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
-msgstr ""
+msgstr "미발행 게시물"
 
 #: addons/publisher/series_issue_manager.php:915
 msgid "Publish Unpublished Posts"
-msgstr ""
+msgstr "미발행 게시물 발행"
 
 #: addons/publisher/series_issue_manager.php:925
 msgid "Unpublished Series Order"
-msgstr ""
+msgstr "미발행 시리즈 순서"
 
 #: inc/settings/settings-page.php:18
 msgid "PublishPress Series Plugin Options"
-msgstr ""
+msgstr "PublishPress 시리즈 플러그인 옵션"
 
 #: inc/settings/settings-page.php:52
 msgid "Allowed Html"
-msgstr ""
+msgstr "허용된 Html"
 
 #: inc/settings/settings-page.php:61
 msgid "Overview"
-msgstr ""
+msgstr "개요"
 
 #: inc/settings/settings-page.php:63
-msgid "The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs."
-msgstr ""
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr "다음은 사용자 정의 템플릿 필드에서 사용할 수 있는 토큰의 전설입니다. 플러그인이 실행될 때 적절한 값으로 대체됩니다."
 
 #: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
-msgstr ""
+msgstr "이것은 시리즈의 시리즈 아이콘으로 대체됩니다."
 
 #: inc/settings/settings-page.php:76
 #, php-format
-msgid "Same as %series_icon% except that the series icon will be linked to the series page"
-msgstr ""
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr "%series_icon%과 동일하지만 시리즈 아이콘이 시리즈 페이지에 링크됩니다."
 
 #: inc/settings/settings-page.php:84
-msgid "This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set."
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
 msgstr ""
+"이 토큰은 orgSeries 위젯에서만 사용됩니다 - 시리즈 제목 목록이 삽입될 위치를 참조하며 각 시리즈 제목의 템플릿도 설정해야 "
+"합니다."
 
 #: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
-msgstr ""
+msgstr "이것은 시리즈의 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:100
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
-msgstr ""
+msgstr "%series_title%과 동일하지만 시리즈 페이지에도 링크됩니다."
 
 #: inc/settings/settings-page.php:108
-msgid "Is the location token for where the contents of the post list post templates will appear."
-msgstr ""
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr "게시물 목록 게시 템플릿의 내용이 표시될 위치 토큰입니다."
 
 #: inc/settings/settings-page.php:116
-msgid "Is the location token for where the contents of the post list post templates will appear and use provided widget post short title."
-msgstr ""
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr "게시물 목록 게시 템플릿의 내용이 표시될 위치 토큰이며 제공된 위젯 게시물 짧은 제목을 사용합니다."
 
 #: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
-msgstr ""
+msgstr "시리즈 내 게시물의 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:132
-msgid "Will be replaced with the post title of a post in the series linked to the page view of that post."
-msgstr ""
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr "해당 게시물의 페이지 뷰에 연결된 시리즈 내 게시물의 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
-msgstr ""
+msgstr "시리즈 내 게시물의 짧은 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:148
-msgid "Will be replaced with the post title short of a post in the series linked to the page view of that post."
-msgstr ""
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr "해당 게시물의 페이지 뷰에 연결된 시리즈 내 게시물의 짧은 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:156
-msgid "Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the 'Custom Previous Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
 msgstr ""
+"시리즈 내 이전 게시물에 대한 탐색 링크로 대체됩니다. 텍스트는 '사용자 지정 이전 게시물 탐색 텍스트' 필드에 포함된 내용입니다. "
+"해당 필드가 비어 있으면 텍스트는 게시물의 제목이 됩니다."
 
 #: inc/settings/settings-page.php:164
-msgid "Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the 'Custom Next Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
 msgstr ""
+"시리즈 내 다음 게시물에 대한 탐색 링크로 대체됩니다. 텍스트는 '사용자 지정 다음 게시물 탐색 텍스트' 필드에 포함된 내용입니다. "
+"해당 필드가 비어 있으면 텍스트는 게시물의 제목이 됩니다."
 
 #: inc/settings/settings-page.php:172
-msgid "Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the 'Custom First Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
 msgstr ""
+"시리즈 내 첫 번째 게시물에 대한 탐색 링크로 대체됩니다. 텍스트는 '사용자 지정 첫 게시물 탐색 텍스트' 필드에 포함된 내용입니다. "
+"해당 필드가 비어 있으면 텍스트는 게시물의 제목이 됩니다."
 
 #: inc/settings/settings-page.php:179
-msgid "Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display."
-msgstr ""
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr "이 태그는 나머지 템플릿 코드의 앞이나 뒤에 사용합니다. 게시물의 내용이 표시될 위치를 나타냅니다."
 
 #: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
-msgstr ""
+msgstr "게시물이 시리즈의 어떤 부분인지 표시됩니다."
 
 #: inc/settings/settings-page.php:195
 msgid "Will display the total number of posts in a series"
-msgstr ""
+msgstr "시리즈의 총 게시물 수가 표시됩니다."
 
 #: inc/settings/settings-page.php:203
 msgid "Will display the description for the series"
-msgstr ""
+msgstr "시리즈에 대한 설명이 표시됩니다."
 
 #: inc/settings/settings-page.php:213
 msgid "Will output the slug of the series"
-msgstr ""
+msgstr "시리즈의 슬러그가 출력됩니다."
 
 #: inc/settings/settings-page.php:221
 msgid "Will output the ID of the series"
-msgstr ""
+msgstr "시리즈의 ID가 출력됩니다."
 
 #: inc/settings/settings-page.php:229
 msgid "Will output the author of the post"
-msgstr ""
+msgstr "게시물의 저자가 출력됩니다."
 
 #: inc/settings/settings-page.php:237
 msgid "If the post has a feature-image then that image will be displayed"
-msgstr ""
+msgstr "게시물에 피처 이미지가 있으면 해당 이미지가 표시됩니다."
 
 #: inc/settings/settings-page.php:245
 msgid "The date that a post was published"
-msgstr ""
+msgstr "게시물이 게시된 날짜입니다."
 
 #: inc/settings/settings-page.php:253
 msgid "Will be replaced with the unpublished post title of a post in the series"
-msgstr ""
+msgstr "시리즈 내 게시되지 않은 게시물의 제목으로 대체됩니다."
 
 #: inc/settings/settings-page.php:261
 msgid "Will display the total number of published and unpublished posts in a series"
-msgstr ""
+msgstr "시리즈 내 게시된 게시물과 게시되지 않은 게시물의 총 수가 표시됩니다."
 
 #: inc/settings/settings-page.php:304
 msgid "Update Options"
-msgstr ""
+msgstr "옵션 업데이트"
 
 #: inc/settings/settings-page.php:308
-msgid "Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return."
-msgstr ""
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr "예를 클릭하면 옵션이 기본값으로 초기화되며 모든 사용자 지정이 손실됩니다. 또는 취소를 클릭하여 돌아갈 수 있습니다."
 
 #: inc/settings/settings-page.php:309
 msgid "No"
-msgstr ""
+msgstr "아니요"
 
 #: inc/settings/settings-page.php:310
 msgid "Yes"
-msgstr ""
+msgstr "예"
 
 #: inc/settings/settings-upgrade.php:22
 #: inc/settings/settings-upgrade.php:44
 msgid "Please update your PublishPress Series data"
-msgstr ""
+msgstr "PublishPress 시리즈 데이터를 업데이트하세요"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
-msgid "We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade."
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
 msgstr ""
+"시리즈 저장 방식에 변경이 있어 작은 업데이트가 필요합니다. 이는 다중 시리즈 기능에 대한 지원을 개선하고 게시물 순서와 관련된 일부 "
+"문제를 해결합니다. 이 버튼을 클릭하여 업그레이드하세요."
 
 #: inc/settings/settings-upgrade.php:25
 #: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
-msgstr ""
+msgstr "시리즈 데이터 업데이트"
 
 #: inc/settings/settings-upgrade.php:92
 msgid "Series upgrade completed."
-msgstr ""
+msgstr "시리즈 업그레이드가 완료되었습니다."
 
 #: inc/settings/settings-upgrade.php:174
 #, php-format
 msgid "Series order sync completed. %d posts updated."
-msgstr ""
-
-#: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
-msgctxt "taxonomy general name"
-msgid "Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr ""
+msgstr "시리즈 순서 동기화가 완료되었습니다. %d 개의 게시물이 업데이트되었습니다."
 
 #: inc/settings/settings-validation.php:60
 #: orgSeries-setup.php:247
 msgid "Search Series"
-msgstr ""
+msgstr "시리즈 검색"
 
 #: inc/settings/settings-validation.php:61
 #: orgSeries-setup.php:248
 msgid "Popular Series"
-msgstr ""
+msgstr "인기 시리즈"
 
 #: inc/settings/settings-validation.php:62
 #: orgSeries-setup.php:249
 #: orgSeries-setup.php:303
 msgid "All Series"
-msgstr ""
+msgstr "모든 시리즈"
 
 #: inc/settings/settings-validation.php:63
 #: orgSeries-setup.php:250
 msgid "Edit Series"
-msgstr ""
+msgstr "시리즈 편집"
 
 #: inc/settings/settings-validation.php:64
 #: orgSeries-setup.php:251
 msgid "Update Series"
-msgstr ""
+msgstr "시리즈 업데이트"
 
 #: inc/settings/settings-validation.php:65
 #: orgSeries-setup.php:252
 msgid "Add New Series"
-msgstr ""
+msgstr "새 시리즈 추가"
 
 #: inc/settings/settings-validation.php:66
 #: orgSeries-setup.php:253
 msgid "New Series Name"
-msgstr ""
+msgstr "새 시리즈 이름"
 
 #: inc/settings/settings-validation.php:68
 #: orgSeries-setup.php:255
 msgid "No series found"
-msgstr ""
+msgstr "찾은 시리즈가 없습니다"
 
 #: inc/settings/settings-validation.php:121
 #, php-format
 msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
-msgstr ""
+msgstr "%1$s 시리즈가 \"%2$s\"에서 \"%3$s\" 분류로 마이그레이션되었습니다. 설정이 업데이트되었습니다."
 
 #: inc/settings/settings-validation.php:135
 msgid "PublishPress Series Plugin Options have been updated"
-msgstr ""
+msgstr "PublishPress 시리즈 플러그인 설정이 업데이트되었습니다"
 
 #: inc/settings/settings-validation.php:151
 msgid "Permission denied"
-msgstr ""
+msgstr "권한이 거부되었습니다"
 
 #: inc/settings/settings-validation.php:157
 msgid "PublishPress Series Plugin Options have been RESET"
-msgstr ""
+msgstr "PublishPress 시리즈 플러그인 옵션이 초기화되었습니다"
 
 #: inc/settings/tab-advanced.php:16
-msgid "Please change these settings carefully as they make significant changes to PublishPress Series."
-msgstr ""
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr "이 설정은 PublishPress 시리즈에 중대한 변경을 가져오므로 신중하게 변경하십시오."
 
 #: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
-msgstr ""
+msgstr "시리즈 설정"
 
 #: inc/settings/tab-advanced.php:40
-msgid "Delete all PublishPress Series data from the database when deleting this plugin."
-msgstr ""
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "이 플러그인을 삭제할 때 데이터베이스에서 모든 PublishPress 시리즈 데이터를 삭제합니다."
 
 #: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
-msgstr ""
+msgstr "시리즈 업그레이드"
 
 #: inc/settings/tab-advanced.php:52
 msgid "Run Upgrade Task"
-msgstr ""
+msgstr "업그레이드 작업 실행"
 
 #: inc/settings/tab-advanced.php:56
-msgid "In version 2.11.4, PublishPress Series made changes to how series are stored. You can run the upgrade task here if you're having issues with series parts."
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
 msgstr ""
+"버전 2.11.4에서 PublishPress 시리즈는 시리즈 저장 방식을 변경했습니다. 시리즈 부분에 문제가 있는 경우 여기에서 "
+"업그레이드 작업을 실행할 수 있습니다."
 
 #: inc/settings/tab-advanced.php:65
 msgid "Sync Series Order to Menu Order"
-msgstr ""
+msgstr "메뉴 순서에 시리즈 순서 동기화"
 
 #: inc/settings/tab-advanced.php:70
 msgid "Sync to Menu Order"
-msgstr ""
+msgstr "메뉴 순서에 동기화"
 
 #: inc/settings/tab-advanced.php:74
-msgid "This will sync all series part numbers to WordPress menu_order field. Useful for themes/page builders that can only sort by menu order (Page Attributes: Order). This allows you to use native WordPress ordering instead of custom fields."
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
 msgstr ""
+"이 작업은 모든 시리즈 부분 번호를 WordPress menu_order 필드에 동기화합니다. 메뉴 순서(페이지 속성: 순서)로만 "
+"정렬할 수 있는 테마/페이지 빌더에 유용합니다. 이를 통해 사용자 정의 필드 대신 기본 WordPress 정렬을 사용할 수 있습니다."
 
 #: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
-msgstr ""
+msgstr "설정 초기화"
 
 #: inc/settings/tab-advanced.php:86
 msgid "Reset options to default"
-msgstr ""
+msgstr "옵션을 기본값으로 초기화"
 
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:144
 msgid "Legacy"
-msgstr ""
+msgstr "레거시"
 
 #: inc/settings/tab-legacy.php:13
 msgid "Legacy Settings"
-msgstr ""
+msgstr "레거시 설정"
 
 #: inc/settings/tab-legacy.php:27
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 #: inc/settings/tab-legacy.php:36
 msgid "CSS Styles"
-msgstr ""
+msgstr "CSS 스타일"
 
 #: inc/settings/tab-legacy.php:41
 msgid "Use PublishPress Series CSS styles?"
-msgstr ""
+msgstr "PublishPress 시리즈 CSS 스타일을 사용하시겠습니까?"
 
 #: inc/settings/tab-legacy.php:45
 msgid "Style options"
-msgstr ""
+msgstr "스타일 옵션"
 
 #: inc/settings/tab-legacy.php:47
 msgid "Use default style"
-msgstr ""
+msgstr "기본 스타일 사용"
 
 #: inc/settings/tab-legacy.php:48
 msgid "Use box style"
-msgstr ""
+msgstr "박스 스타일 사용"
 
 #: inc/settings/tab-legacy.php:49
 msgid "Use dark style"
-msgstr ""
+msgstr "어두운 스타일 사용"
 
 #: inc/settings/tab-legacy.php:50
 msgid "Use light style"
-msgstr ""
+msgstr "밝은 스타일 사용"
 
 #: inc/settings/tab-legacy.php:60
 msgid "Series Overview"
-msgstr ""
+msgstr "시리즈 개요"
 
 #: inc/settings/tab-legacy.php:62
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
-msgstr ""
+msgstr "단일 시리즈가 표시되는 분류 페이지의 디자인을 선택하십시오."
 
 #: inc/settings/tab-legacy.php:66
 msgid "Layout:"
-msgstr ""
+msgstr "레이아웃:"
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
-msgid "Choosing a layout different to \"Default\" will override the taxonomy template from your theme. <a href=\"%s\" target=\"_blank\">Click here for details on how to customize these designs</a>."
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
 msgstr ""
+"\"기본값\"과 다른 레이아웃을 선택하면 테마의 분류 템플릿이 무시됩니다. <a href=\"%s\" "
+"target=\"_blank\">이 디자인을 사용자 정의하는 방법에 대한 자세한 내용은 여기를 클릭하십시오.</a>."
 
 #: inc/settings/tab-legacy.php:91
 #: inc/settings/tab-series-category.php:66
 msgid "Columns:"
-msgstr ""
+msgstr "열:"
 
 #: inc/settings/tab-legacy.php:97
 msgid "Order series by:"
-msgstr ""
+msgstr "시리즈 정렬 기준:"
 
 #: inc/settings/tab-legacy.php:99
 msgid "Series part"
-msgstr ""
+msgstr "시리즈 부분"
 
 #: inc/settings/tab-legacy.php:100
 msgid "Order by date"
-msgstr ""
+msgstr "날짜별 정렬"
 
 #: inc/settings/tab-legacy.php:104
 msgid "Series order method"
-msgstr ""
+msgstr "시리즈 정렬 방법"
 
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
@@ -2031,906 +2074,1015 @@ msgstr ""
 #: orgSeries-setup.php:473
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
-msgstr ""
+msgstr "시리즈 목차"
 
 #: inc/settings/tab-legacy.php:122
 msgid "Series Table of Contents URL:"
-msgstr ""
+msgstr "시리즈 목차 URL:"
 
 #: inc/settings/tab-legacy.php:125
 msgid "view page"
-msgstr ""
+msgstr "페이지 보기"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
-msgid "You must %1s update your permalink structure %2s to something other than \"Plain\" for the Series Table of Contents URL to work."
-msgstr ""
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr "시리즈 목차 URL이 작동하려면 %1s 퍼머링크 구조를 %2s \"일반\"이 아닌 다른 것으로 업데이트해야 합니다."
 
 #: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
-msgstr ""
+msgstr "페이지당 시리즈 수:"
 
 #: inc/settings/tab-legacy.php:158
 msgid "Series Table of Contents Title:"
-msgstr ""
+msgstr "시리즈 목차 제목:"
 
 #: inc/settings/tab-legacy.php:168
 msgid "Series Icons"
-msgstr ""
+msgstr "시리즈 아이콘"
 
 #: inc/settings/tab-legacy.php:173
 msgid "Width for icon on series table of contents page (in pixels)"
-msgstr ""
+msgstr "시리즈 목차 페이지의 아이콘 너비(픽셀 단위)"
 
 #: inc/settings/tab-legacy.php:177
 msgid "Width for icon on a post page (in pixels)."
-msgstr ""
+msgstr "게시물 페이지의 아이콘 너비(픽셀 단위)."
 
 #: inc/settings/tab-legacy.php:181
 msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
+msgstr "아이콘의 너비(최신 시리즈 템플릿을 통해 표시되는 경우, 픽셀 단위)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
 msgid "Latest Series"
-msgstr ""
+msgstr "최신 시리즈"
 
 #: inc/settings/tab-legacy.php:193
 msgid "This display is used by the \"Latest Series\" widget."
-msgstr ""
+msgstr "이 디스플레이는 \"최신 시리즈\" 위젯에서 사용됩니다."
 
 #: inc/settings/tab-legacy.php:197
 msgid "Latest Series (tags before):"
-msgstr ""
+msgstr "최신 시리즈 (이전 태그):"
 
 #: inc/settings/tab-legacy.php:201
 msgid "Latest Series (inner tags):"
-msgstr ""
+msgstr "최신 시리즈 (내부 태그):"
 
 #: inc/settings/tab-legacy.php:205
 msgid "Latest Series (tags after):"
-msgstr ""
+msgstr "최신 시리즈 (후속 태그):"
 
 #: inc/settings/tab-legacy.php:217
-msgid "This display is used by the \"Series Table of Contents\" widget, shortcode, and URL."
-msgstr ""
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr "이 디스플레이는 \"시리즈 목차\" 위젯, 숏코드 및 URL에서 사용됩니다."
 
 #: inc/settings/tab-legacy.php:224
-msgid "This display is used by the \"Series Table of Contents\". To find the URL for this display, go the \"Display\" tab and then \"Series Table of Contents URL\"."
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
 msgstr ""
+"이 디스플레이는 \"시리즈 목차\"에서 사용됩니다. 이 디스플레이의 URL을 찾으려면 \"디스플레이\" 탭으로 가서 \"시리즈 목차 "
+"URL\"을 선택하세요."
 
 #: inc/settings/tab-metabox.php:16
-msgid "These settings allow you to customize the metabox on the post editing screen."
-msgstr ""
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "이 설정을 통해 게시물 편집 화면에서 메타박스를 사용자 정의할 수 있습니다."
 
 #: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
-msgstr ""
+msgstr "기본 시리즈 순서"
 
 #: inc/settings/tab-metabox.php:27
 msgid "Alphabetical A-Z"
-msgstr ""
+msgstr "알파벳순 A-Z"
 
 #: inc/settings/tab-metabox.php:28
 msgid "Alphabetical Z-A"
-msgstr ""
+msgstr "알파벳순 Z-A"
 
 #: inc/settings/tab-metabox.php:34
 msgid "Show \"Add New\""
-msgstr ""
+msgstr "\"새로 추가\" 표시"
 
 #: inc/settings/tab-metabox.php:38
 msgid "Show \"Post title in widget\""
-msgstr ""
+msgstr "\"위젯에 게시물 제목 표시\""
 
 #: inc/settings/tab-metabox.php:42
 msgid "Metabox Series Order"
-msgstr ""
+msgstr "메타박스 시리즈 순서"
 
 #: inc/settings/tab-post-details.php:12
 msgid "Post Details Settings"
-msgstr ""
+msgstr "게시물 세부정보 설정"
 
 #: inc/settings/tab-post-details.php:16
 msgid "Configure the Series Post Details display shown on posts in a series."
-msgstr ""
+msgstr "시리즈의 게시물에 표시되는 시리즈 게시물 세부정보 디스플레이를 구성합니다."
 
 #: inc/settings/tab-post-details.php:26
 #: inc/settings/tab-post-list-box.php:26
 #: inc/settings/tab-post-navigation.php:26
 msgid "As in Template"
-msgstr ""
+msgstr "템플릿과 같이"
 
 #: inc/settings/tab-post-details.php:36
 msgid "Display Series Post Details?"
-msgstr ""
+msgstr "시리즈 게시물 세부정보를 표시하시겠습니까?"
 
 #: inc/settings/tab-post-details.php:41
 msgid "Post Details Selection"
-msgstr ""
+msgstr "게시물 세부정보 선택"
 
 #: inc/settings/tab-post-details.php:43
 #: inc/settings/tab-post-navigation.php:43
 msgid "Edit this layout"
-msgstr ""
+msgstr "이 레이아웃 편집"
 
 #: inc/settings/tab-post-details.php:44
 #: inc/settings/tab-post-list-box.php:44
 #: inc/settings/tab-post-navigation.php:44
 msgid "Loading…"
-msgstr ""
+msgstr "로딩 중…"
 
 #: inc/settings/tab-post-details.php:51
 msgid "Post Details Position"
-msgstr ""
+msgstr "게시물 세부정보 위치"
 
 #: inc/settings/tab-post-details.php:66
 msgid "Series Meta Template"
-msgstr ""
+msgstr "시리즈 메타 템플릿"
 
 #: inc/settings/tab-post-details.php:71
 msgid "Series Meta (with excerpts)"
-msgstr ""
+msgstr "시리즈 메타(요약 포함)"
 
 #: inc/settings/tab-post-details.php:76
 msgid "Limit to single page only"
-msgstr ""
+msgstr "단일 페이지로 제한"
 
 #: inc/settings/tab-post-details.php:79
-msgid "Whether to limit series meta display to single page only or include archive page."
-msgstr ""
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr "시리즈 메타 표시를 단일 페이지로 제한할지 또는 아카이브 페이지를 포함할지를 결정합니다."
 
 #: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
-msgstr ""
+msgstr "게시물 목록 상자 설정"
 
 #: inc/settings/tab-post-list-box.php:16
 msgid "Configure the Post List Box that displays all posts in a series."
-msgstr ""
+msgstr "모든 게시물을 표시하는 게시물 목록 상자를 구성합니다."
 
 #: inc/settings/tab-post-list-box.php:36
 msgid "Display Post List Boxes?"
-msgstr ""
+msgstr "게시물 목록 상자를 표시하시겠습니까?"
 
 #: inc/settings/tab-post-list-box.php:41
 msgid "Post List Boxes Selection"
-msgstr ""
+msgstr "게시물 목록 상자 선택"
 
 #: inc/settings/tab-post-list-box.php:43
 msgid "Edit this box"
-msgstr ""
+msgstr "이 상자 편집"
 
 #: inc/settings/tab-post-list-box.php:51
 msgid "Post List Box Position"
-msgstr ""
+msgstr "게시물 목록 상자 위치"
 
 #: inc/settings/tab-post-list-box.php:66
 msgid "Series Post List Template"
-msgstr ""
+msgstr "시리즈 게시물 목록 템플릿"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"
-msgstr ""
+msgstr "게시물 제목(링크된 게시물)"
 
 #: inc/settings/tab-post-list-box.php:75
 msgid "Post Title (Current Post)"
-msgstr ""
+msgstr "게시물 제목(현재 게시물)"
 
 #: inc/settings/tab-post-navigation.php:11
 msgid "Navigation"
-msgstr ""
+msgstr "탐색"
 
 #: inc/settings/tab-post-navigation.php:12
 msgid "Navigation Settings"
-msgstr ""
+msgstr "탐색 설정"
 
 #: inc/settings/tab-post-navigation.php:16
 msgid "Configure the Series Navigation display shown on posts in a series."
-msgstr ""
+msgstr "시리즈의 게시물에 표시되는 시리즈 탐색을 구성합니다."
 
 #: inc/settings/tab-post-navigation.php:36
 msgid "Display Series Navigation?"
-msgstr ""
+msgstr "시리즈 탐색을 표시하시겠습니까?"
 
 #: inc/settings/tab-post-navigation.php:41
 msgid "Navigation Selection"
-msgstr ""
+msgstr "탐색 선택"
 
 #: inc/settings/tab-post-navigation.php:51
 msgid "Navigation Position"
-msgstr ""
+msgstr "탐색 위치"
 
 #: inc/settings/tab-post-navigation.php:66
 msgid "Navigation Template"
-msgstr ""
+msgstr "탐색 템플릿"
 
 #: inc/settings/tab-post-navigation.php:71
 msgid "Next Post Text"
-msgstr ""
+msgstr "다음 게시물 텍스트"
 
 #: inc/settings/tab-post-navigation.php:76
 msgid "Previous Post Text"
-msgstr ""
+msgstr "이전 게시물 텍스트"
 
 #: inc/settings/tab-post-navigation.php:81
 msgid "First Post Text"
-msgstr ""
+msgstr "첫 번째 게시물 텍스트"
 
 #: inc/settings/tab-post-types.php:18
 msgid "Enable PublishPress Series for custom post types."
-msgstr ""
+msgstr "사용자 정의 게시물 유형에 대해 PublishPress 시리즈를 활성화합니다."
 
 #: inc/settings/tab-pro-features.php:18
-msgid "These settings allow you enable or disable features in PublishPress Series Pro."
-msgstr ""
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr "이 설정을 통해 PublishPress Series Pro에서 기능을 활성화하거나 비활성화할 수 있습니다."
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Custom Post Type Support"
-msgstr ""
+msgstr "사용자 정의 게시물 유형 지원"
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
-msgstr ""
+msgstr "사용자 정의 게시물 유형이 PublishPress 시리즈와 함께 사용되도록 허용합니다."
 
 #: inc/settings/tab-pro-features.php:28
 msgid "Shortcodes"
-msgstr ""
+msgstr "단축코드"
 
 #: inc/settings/tab-pro-features.php:28
 msgid "Provides shortcodes to display series information."
-msgstr ""
+msgstr "시리즈 정보를 표시하는 단축코드를 제공합니다."
 
 #: inc/settings/tab-pro-features.php:29
 msgid "Extra Tokens"
-msgstr ""
+msgstr "추가 토큰"
 
 #: inc/settings/tab-pro-features.php:29
 msgid "Provides extra tokens to customize the output of series information."
-msgstr ""
+msgstr "시리즈 정보의 출력을 사용자 정의하기 위한 추가 토큰을 제공합니다."
 
 #: inc/settings/tab-pro-features.php:30
 msgid "Multiple Series"
-msgstr ""
+msgstr "다중 시리즈"
 
 #: inc/settings/tab-pro-features.php:30
 msgid "Allows authors to add posts to more than one series."
-msgstr ""
+msgstr "저자가 하나 이상의 시리즈에 게시물을 추가할 수 있도록 허용합니다."
 
 #: inc/settings/tab-series-category.php:8
 #: inc/settings/tab-series-category.php:9
 #: orgSeries-options.php:142
 msgid "Series Category"
-msgstr ""
+msgstr "시리즈 카테고리"
 
 #: inc/settings/tab-series-category.php:13
 msgid "Settings for Series Categories archive URL and display behavior."
-msgstr ""
+msgstr "시리즈 카테고리 아카이브 URL 및 표시 동작에 대한 설정입니다."
 
 #: inc/settings/tab-series-category.php:26
 msgid "Series Categories URL Base:"
-msgstr ""
+msgstr "시리즈 카테고리 URL 기본:"
 
 #: inc/settings/tab-series-category.php:30
-msgid "This text will be used in Series Categories archive URLs. If you change it, old URLs will be redirected to the new base."
-msgstr ""
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr "이 텍스트는 시리즈 카테고리 아카이브 URL에 사용됩니다. 변경할 경우, 이전 URL은 새 기본값으로 리디렉션됩니다."
 
 #: inc/settings/tab-series-category.php:36
 msgid "Series Categories Archive Template:"
-msgstr ""
+msgstr "시리즈 카테고리 아카이브 템플릿:"
 
 #: inc/settings/tab-series-category.php:39
 msgid "Use template from Theme"
-msgstr ""
+msgstr "테마의 템플릿 사용"
 
 #: inc/settings/tab-series-category.php:40
 msgid "Use template from Plugin"
-msgstr ""
+msgstr "플러그인의 템플릿 사용"
 
 #: inc/settings/tab-series-category.php:43
-msgid "Theme template uses your active theme template hierarchy. Plugin template uses PublishPress Series fallback design when your theme does not provide taxonomy-series_group.php."
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
 msgstr ""
+"테마 템플릿은 활성 테마 템플릿 계층을 사용합니다. 플러그인 템플릿은 테마에서 taxonomy-series_group.php를 제공하지 "
+"않는 경우 PublishPress Series 대체 디자인을 사용합니다."
 
 #: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
-msgstr ""
+msgstr "플러그인 템플릿 표시 옵션:"
 
 #: inc/settings/tab-series-category.php:53
 msgid "Show Series Icon"
-msgstr ""
+msgstr "시리즈 아이콘 표시"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
-msgstr ""
+msgstr "시리즈 설명 표시"
 
 #: inc/settings/tab-series-category.php:63
 msgid "Show Posts in each Series as list items"
-msgstr ""
+msgstr "각 시리즈의 게시물을 목록 항목으로 표시"
 
 #: inc/settings/tab-taxonomy.php:16
-msgid "This feature allows you to create a new taxonomy for this plugin to use if you don't want to use the default \"Series\" taxonomy."
-msgstr ""
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr "이 기능을 사용하면 기본 \"시리즈\" 분류를 사용하지 않으려면 이 플러그인에서 사용할 새 분류를 생성할 수 있습니다."
 
 #: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
-msgstr ""
+msgstr "시리즈 분류 슬러그:"
 
 #: inc/settings/tab-taxonomy.php:31
 msgid "This text will be part of the series base URL."
-msgstr ""
+msgstr "이 텍스트는 시리즈 기본 URL의 일부가 됩니다."
 
 #: inc/settings/tab-taxonomy.php:36
 msgid "Series Taxonomy:"
-msgstr ""
+msgstr "시리즈 분류:"
 
 #: inc/settings/tab-taxonomy.php:40
-msgid "To create a new taxonomy, enter the new name and click the \"Update Options\" button."
-msgstr ""
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr "새 분류를 생성하려면 새 이름을 입력하고 \"옵션 업데이트\" 버튼을 클릭하세요."
 
 #: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
-msgstr ""
+msgstr "용어 마이그레이트"
 
 #: inc/settings/tab-taxonomy.php:53
 msgid "Automatically migrate existing series terms to the new taxonomy"
-msgstr ""
+msgstr "기존 시리즈 용어를 새 분류로 자동 마이그레이트"
 
 #: inc/settings/tab-taxonomy.php:56
-msgid "If checked, all terms from the current taxonomy will be migrated to the new taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy slug will be changed."
-msgstr ""
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr "체크하면 현재 분류의 모든 용어가 분류 슬러그를 변경할 때 새 분류로 마이그레이트됩니다. 체크하지 않으면 분류 슬러그만 변경됩니다."
 
 #: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
-msgstr ""
+msgstr "죄송합니다. 결과를 찾을 수 없습니다."
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
-msgid "You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s"
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
 msgstr ""
+"PublishPress Series Free를 사용하고 있습니다. Pro 버전은 더 많은 기능과 지원을 제공합니다. %sPro로 "
+"업그레이드%s"
 
 #: includes-core/PPSeriesCoreAdmin.php:35
 msgid "Upgrade to Pro"
-msgstr ""
+msgstr "Pro로 업그레이드"
 
 #: includes-core/PPSeriesCoreAdmin.php:58
 msgid "Need PublishPress Series Support?"
-msgstr ""
+msgstr "PublishPress Series 지원이 필요하신가요?"
 
 #: includes-core/PPSeriesCoreAdmin.php:63
 msgid "If you need help or have a new feature request, let us know."
-msgstr ""
+msgstr "도움이 필요하시거나 새로운 기능 요청이 있으시면 알려주세요."
 
 #: includes-core/PPSeriesCoreAdmin.php:65
 msgid "Request Support"
-msgstr ""
+msgstr "지원 요청"
 
 #: includes-core/PPSeriesCoreAdmin.php:74
 msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
+msgstr "자세한 문서는 플러그인 웹사이트에서도 확인하실 수 있습니다."
 
 #: includes-core/PPSeriesCoreAdmin.php:76
 msgid "View Knowledge Base"
-msgstr ""
+msgstr "지식 베이스 보기"
 
 #: orgSeries-admin.php:67
 msgid "An error occured"
-msgstr ""
+msgstr "오류가 발생했습니다"
 
 #: orgSeries-admin.php:70
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
-msgstr ""
+msgstr "%1$s 시리즈가 새로운 분류법으로 마이그레이션되었습니다"
 
 #: orgSeries-admin.php:175
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr ""
+msgstr "%s가 마음에 드신다면, %s 평가를 남겨주세요. 감사합니다!"
 
 #: orgSeries-admin.php:186
 msgid "About PublishPress Series"
-msgstr ""
+msgstr "PublishPress 시리즈 소개"
 
 #: orgSeries-admin.php:186
 msgid "About"
-msgstr ""
+msgstr "소개"
 
 #: orgSeries-admin.php:187
 msgid "PublishPress Series Documentation"
-msgstr ""
+msgstr "PublishPress 시리즈 문서"
 
 #: orgSeries-admin.php:187
 msgid "Documentation"
-msgstr ""
+msgstr "문서"
 
 #: orgSeries-admin.php:188
 msgid "Contact the PublishPress team"
-msgstr ""
+msgstr "PublishPress 팀에 연락하기"
 
 #: orgSeries-admin.php:188
 msgid "Contact"
-msgstr ""
+msgstr "연락처"
 
 #: orgSeries-admin.php:219
 msgid "Sorry but you don't have permission to add series"
-msgstr ""
+msgstr "죄송하지만 시리즈를 추가할 권한이 없습니다"
 
 #: orgSeries-admin.php:230
 msgid "The name you picked isn't sanitizing correctly. Try something different."
-msgstr ""
+msgstr "선택한 이름이 올바르게 정리되지 않고 있습니다. 다른 것을 시도해 보세요."
 
 #: orgSeries-admin.php:236
-msgid "Hmm... it looks like there is already a series with that name. Try something else"
-msgstr ""
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "음... 이미 해당 이름의 시리즈가 있는 것 같습니다. 다른 것을 시도해 보세요."
 
 #: orgSeries-admin.php:359
 msgid "Not part of a series"
-msgstr ""
+msgstr "시리즈의 일부가 아님"
 
 #: orgSeries-admin.php:421
 msgid "Search series"
-msgstr ""
+msgstr "시리즈 검색"
 
 #: orgSeries-admin.php:436
 msgid "Series Part:"
-msgstr ""
+msgstr "시리즈 부분:"
 
 #: orgSeries-admin.php:443
 msgid "Post title in widget:"
-msgstr ""
+msgstr "위젯의 게시물 제목:"
 
 #: orgSeries-admin.php:445
-msgid "A short title of this post that will be used in the Series widget. Leave blank to use the full title."
-msgstr ""
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr "이 게시물의 짧은 제목으로, 시리즈 위젯에서 사용됩니다. 전체 제목을 사용하려면 비워 두십시오."
 
 #: orgSeries-admin.php:519
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr ""
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (부품 번호 없음)"
 
 #: orgSeries-admin.php:521
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
-msgstr ""
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (부품 %1$s / %2$s)"
 
 #: orgSeries-admin.php:525
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr ""
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (부품 번호 없음)"
 
 #: orgSeries-admin.php:531
 #: orgSeries-setup.php:258
 msgid "No Series"
-msgstr ""
+msgstr "시리즈 없음"
 
 #: orgSeries-admin.php:552
 msgid "View all series"
-msgstr ""
+msgstr "모든 시리즈 보기"
 
 #: orgSeries-admin.php:561
 msgid "Manage All Series"
-msgstr ""
+msgstr "모든 시리즈 관리"
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
-msgstr ""
+msgstr "용어 순서"
 
 #: orgSeries-manage.php:67
-msgid "To reposition an item, drag and drop the row by \"clicking and holding\" it anywhere and moving it to its new position."
-msgstr ""
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr "항목을 재배치하려면, 행을 \"클릭하고 유지\"한 상태로 아무 곳에서나 드래그하여 새 위치로 이동하십시오."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: orgSeries-manage.php:233
-msgid "Terms are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field."
-msgstr ""
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr "용어는 일반적으로 알파벳순으로 정렬되지만, 이 필드에 숫자(1은 첫 번째 등)를 입력하여 원하는 순서를 선택할 수 있습니다."
 
 #: orgSeries-manage.php:240
 msgid "Current series icon:"
-msgstr ""
+msgstr "현재 시리즈 아이콘:"
 
 #: orgSeries-manage.php:246
 msgid "No icon currently"
-msgstr ""
+msgstr "현재 아이콘 없음"
 
 #: orgSeries-manage.php:256
-msgid "Delete image? (note: there will not be an image associated with this series if you select this)"
-msgstr ""
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr "이미지를 삭제하시겠습니까? (참고: 이 옵션을 선택하면 이 시리즈와 관련된 이미지가 없습니다)"
 
 #: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
-msgstr ""
+msgstr "시리즈 아이콘 업로드:"
 
 #: orgSeries-manage.php:265
 msgid "Upload an image for the series."
-msgstr ""
+msgstr "시리즈를 위한 이미지를 업로드하십시오."
 
 #: orgSeries-manage.php:280
 msgid "Invalid form data"
-msgstr ""
+msgstr "잘못된 폼 데이터"
 
 #: orgSeries-manage.php:290
 msgid "Invalid nonce, reload and try again"
-msgstr ""
+msgstr "유효하지 않은 nonce, 페이지를 새로 고치고 다시 시도하십시오"
 
 #: orgSeries-manage.php:299
 msgid "Invalid taxonomy"
-msgstr ""
+msgstr "잘못된 분류"
 
 #: orgSeries-manage.php:305
 msgid "Not enough permission"
-msgstr ""
+msgstr "권한이 충분하지 않습니다"
 
 #: orgSeries-manage.php:309
 msgid "Updated successfully"
-msgstr ""
+msgstr "성공적으로 업데이트되었습니다"
 
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
 #: orgSeries-setup.php:860
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
-msgstr ""
+msgstr "PublishPress 시리즈 옵션"
 
 #: orgSeries-options.php:138
 msgid "Post Types"
-msgstr ""
+msgstr "게시물 유형"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"
-msgstr ""
+msgstr "분류"
 
 #: orgSeries-options.php:143
 msgid "Metabox"
-msgstr ""
+msgstr "메타박스"
 
 #: orgSeries-options.php:147
 msgid "Pro Features"
-msgstr ""
+msgstr "프로 기능"
 
 #: orgSeries-options.php:150
 msgid "Advanced"
-msgstr ""
+msgstr "고급"
 
 #: orgSeries-setup.php:195
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr ""
+msgstr "“시리즈의 일부가 아님”을 선택하여 게시물에서 시리즈 데이터를 제거하세요"
 
 #: orgSeries-setup.php:256
 msgid "&larr; Go to Series"
-msgstr ""
+msgstr "&larr; 시리즈로 이동"
 
 #: orgSeries-setup.php:257
 msgid "View Series"
-msgstr ""
+msgstr "시리즈 보기"
 
 #: orgSeries-setup.php:259
 msgid "Series List"
-msgstr ""
+msgstr "시리즈 목록"
 
 #: orgSeries-setup.php:260
 msgid "Series Link"
-msgstr ""
+msgstr "시리즈 링크"
 
 #: orgSeries-setup.php:261
 msgid "A link to a Series"
+msgstr "시리즈에 대한 링크"
+
+#: orgSeries-setup.php:315
+msgid "Series Navigation"
+msgstr "시리즈 탐색"
+
+#: orgSeries-setup.php:846
+msgid "Series: "
+msgstr "시리즈: "
+
+#: orgSeries-setup.php:848
+msgid "Posts from the series: "
+msgstr "시리즈의 게시물: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "시리즈:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "부분:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "내가 작성한 모든 시리즈"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">시리즈</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "자동/없음"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "최신 시리즈 위젯의 출력을 제어하는 데 사용합니다"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "가장 최근 시리즈"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "제목:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr "이 위젯의 레이아웃 및 콘텐츠는 <a href=\"%s\">최신 시리즈</a> 영역을 통해 조정할 수 있습니다."
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "게시물이 없는 시리즈 숨기기?"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "정렬 기준:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "시리즈의 게시물 수"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "시리즈 이름"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "시리즈 슬러그"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "시리즈가 생성된 날짜"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "무작위"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "표시할 시리즈 수:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "표시 순서: "
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "오름차순: "
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "내림차순: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "이것을 사용하여 시리즈 목차를 표시합니다"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "시리즈 선택"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "시리즈의 다른 게시물:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "시리즈 목차 표시"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "시리즈 목차 표시:"
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "드롭다운:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "목록:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "게시물 수 표시:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "빈 시리즈 숨기기:"
+
+#: orgSeries-widgets.php:299
+msgid "name"
+msgstr "이름"
+
+#: orgSeries-widgets.php:300
+msgid "count"
+msgstr "수"
+
+#: orgSeries-widgets.php:301
+msgid "slug"
+msgstr "슬러그"
+
+#: orgSeries-widgets.php:302
+msgid "series id"
+msgstr "시리즈 ID"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "정렬:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "시리즈 제외:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "시리즈 포함:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "시리즈 수:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "오프셋:"
+
+#: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr "시리즈 수에 대한 오프셋을 선택할 수 있습니다(페이지 매김에 유용). 비워두면 오프셋 없음"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "검색:"
+
+#: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr "이 검색 문자열과 일치하는 모든 시리즈를 반환할 수 있습니다(시리즈 이름과 일치)"
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "현재 시리즈의 다른 게시물 표시:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "현재 시리즈"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "시리즈 위젯 제목:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "이 텍스트는 이 시리즈의 다른 게시물 위에 표시됩니다."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>이 플러그인은 삭제할 수 있습니다.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s는 이미 이름: %2$s로 인덱싱된 매개변수를 가지고 있습니다."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "%1$s 메서드는 %2$s의 자식을 등록하는 데만 사용할 수 있습니다."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "%1$s의 인스턴스를 검색할 수 없습니다. 찾을 수 없습니다."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s는 유효한 엔티티가 아닙니다 (예상: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
 msgstr ""
+"\"%1$s\" 파일이 누락되었거나 권한 때문에 읽을 수 없습니다. 다음 경로가 정확한지 확인하고 파일 권한이 올바른지 "
+"확인하십시오:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s가 존재하지 않거나 접근할 수 없습니다."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Nonce 실패."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr "제공된 객체의 완전한 클래스 이름 (%1$s)은 %2$s 인터페이스를 구현해야 합니다."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "주어진 파일 경로 (%s)는 읽을 수 없습니다."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "오류가 발생했습니다. 다시 시도해 주세요."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "%1$s에 대한 입력 값은 클로저여야 합니다. 그렇지 않았습니다."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "라이센스 비활성화"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "라이센스 활성화"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "라이센스 키가 성공적으로 활성화되었습니다."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "라이센스 키가 성공적으로 비활성화되었습니다."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"%1$s의 값은 이미 설정되어 있으며 배열이 아닙니다. %2$s 메서드는 이 데이터 요소가 배열일 때만 값을 푸시하는 데 사용할 수 "
+"있습니다."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"%1$s의 값은 %2$s 속성에 이미 존재합니다. 덮어쓰기는 허용되지 않습니다. 이 데이터의 값이 배열이므로 %3$s 메서드를 사용하여 "
+"값을 배열에 푸시할 수 있습니다."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr "%1$s에 대한 값이 이미 %2$s 속성에 존재합니다. 덮어쓰기는 허용되지 않습니다. 다른 키에 값을 연결하는 것을 고려하세요."
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr "이 매니페스트 파일의 네임스페이스는 이미 등록되었습니다. %s 이외의 네임스페이스를 선택하세요."
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "%1$s에 제공된 값은 유효한 URL이 아닙니다. 제공된 URL은: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "%1$s의 라이센스 키"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "라이센스 키를 입력하세요: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "시리즈 카테고리"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:245
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "시리즈"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "시리즈 카테고리"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:246
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "시리즈"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
 
 #: orgSeries-setup.php:309
 #: orgSeries-setup.php:310
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr ""
-
-#: orgSeries-setup.php:315
-msgid "Series Navigation"
-msgstr ""
-
-#: orgSeries-setup.php:846
-msgid "Series: "
-msgstr ""
-
-#: orgSeries-setup.php:848
-msgid "Posts from the series: "
-msgstr ""
-
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
-msgid "Series:"
-msgstr ""
-
-#: orgSeries-taxonomy.php:666
-msgid "Part:"
-msgstr ""
-
-#: orgSeries-template-tags.php:264
-msgid "All the Series I've Written"
-msgstr ""
-
-#: orgSeries-template-tags.php:268
-#: orgSeries-template-tags.php:277
-#, php-format
-msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr ""
-
-#: orgSeries-utility.php:410
-msgid "Auto/None"
-msgstr ""
-
-#: orgSeries-widgets.php:12
-msgid "Use this to control the output of the latest series widget"
-msgstr ""
-
-#: orgSeries-widgets.php:20
-msgid "Most Recent Series"
-msgstr ""
-
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
-msgid "Title:"
-msgstr ""
-
-#: orgSeries-widgets.php:79
-#, php-format
-msgid "The layout and content of this widget can be adjusted via the <a href=\"%s\">Latest Series</a> area."
-msgstr ""
-
-#: orgSeries-widgets.php:82
-msgid "Hide series with no posts?"
-msgstr ""
-
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
-msgid "Order by:"
-msgstr ""
-
-#: orgSeries-widgets.php:87
-msgid "Number of posts in Series"
-msgstr ""
-
-#: orgSeries-widgets.php:88
-msgid "Name of Series"
-msgstr ""
-
-#: orgSeries-widgets.php:89
-msgid "Series Slug"
-msgstr ""
-
-#: orgSeries-widgets.php:90
-msgid "When Series was Created"
-msgstr ""
-
-#: orgSeries-widgets.php:91
-msgid "Random"
-msgstr ""
-
-#: orgSeries-widgets.php:95
-msgid "Number of series to display:"
-msgstr ""
-
-#: orgSeries-widgets.php:99
-msgid "Display Order: "
-msgstr ""
-
-#: orgSeries-widgets.php:100
-msgid "ASC: "
-msgstr ""
-
-#: orgSeries-widgets.php:101
-msgid "DESC: "
-msgstr ""
-
-#: orgSeries-widgets.php:111
-msgid "Use this to display the Series Table of contents"
-msgstr ""
-
-#: orgSeries-widgets.php:178
-msgid "Select Series"
-msgstr ""
-
-#: orgSeries-widgets.php:234
-msgid "Other posts in series:"
-msgstr ""
-
-#: orgSeries-widgets.php:274
-msgid "Show Series Table Of Content"
-msgstr ""
-
-#: orgSeries-widgets.php:279
-msgid "Show Series Table Of Content as:"
-msgstr ""
-
-#: orgSeries-widgets.php:280
-msgid "Dropdown:"
-msgstr ""
-
-#: orgSeries-widgets.php:281
-msgid "List:"
-msgstr ""
-
-#: orgSeries-widgets.php:285
-msgid "Show post count:"
-msgstr ""
-
-#: orgSeries-widgets.php:290
-msgid "Hide empty series:"
-msgstr ""
-
-#: orgSeries-widgets.php:299
-msgid "name"
-msgstr ""
-
-#: orgSeries-widgets.php:300
-msgid "count"
-msgstr ""
-
-#: orgSeries-widgets.php:301
-msgid "slug"
-msgstr ""
-
-#: orgSeries-widgets.php:302
-msgid "series id"
-msgstr ""
-
-#: orgSeries-widgets.php:315
-msgid "Order:"
-msgstr ""
-
-#: orgSeries-widgets.php:333
-msgid "Exclude series:"
-msgstr ""
-
-#: orgSeries-widgets.php:348
-msgid "Include series:"
-msgstr ""
-
-#: orgSeries-widgets.php:363
-msgid "Number of Series:"
-msgstr ""
-
-#: orgSeries-widgets.php:368
-msgid "Offset:"
-msgstr ""
-
-#: orgSeries-widgets.php:370
-msgid "You can select the offset for the number of series (useful for paging).  No offset if left blank"
-msgstr ""
-
-#: orgSeries-widgets.php:374
-msgid "Search:"
-msgstr ""
-
-#: orgSeries-widgets.php:376
-msgid "You can return any series that match this search string (matched against series names)"
-msgstr ""
-
-#: orgSeries-widgets.php:380
-msgid "Show other posts in the current series:"
-msgstr ""
-
-#: orgSeries-widgets.php:397
-msgid "Current series"
-msgstr ""
-
-#: orgSeries-widgets.php:416
-msgid "Series widget title:"
-msgstr ""
-
-#: orgSeries-widgets.php:418
-msgid "This text will display above other posts in this series."
-msgstr ""
-
-#: orgSeries.php:164
-msgid "<strong>This plugin can be deleted.</strong>"
-msgstr ""
-
-#: src/application/Container.php:160
-#, php-format
-msgid "The %1$s already has a parameter indexed with the name: %2$s."
-msgstr ""
-
-#: src/application/Root.php:139
-#, php-format
-msgid "The %1$s method can only be used to register a child of %2$s."
-msgstr ""
-
-#: src/domain/exceptions/EntityNotFoundException.php:30
-#, php-format
-msgid "Unable to retrieve an instance of %1$s. Not found."
-msgstr ""
-
-#: src/domain/exceptions/InvalidEntityException.php:29
-#, php-format
-msgid "%1$s is not a valid entity (expected: %2$s)."
-msgstr ""
-
-#: src/domain/exceptions/InvalidFilePathException.php:27
-#, php-format
-msgid "The \"%1$s\" file is either missing or could not be read due to permissions. Please ensure that the following path is correct and verify that the file permissions are correct:%2$s %3$s"
-msgstr ""
-
-#: src/domain/exceptions/InvalidInterfaceException.php:26
-#, php-format
-msgid "%s does not exist or is not reachable."
-msgstr ""
-
-#: src/domain/exceptions/NonceFailException.php:18
-msgid "Nonce fail."
-msgstr ""
-
-#: src/domain/model/ControllerRoute.php:50
-#: src/domain/model/HasHooksRoute.php:59
-#, php-format
-msgid "The provided object fully qualified class name (%1$s) must implement the %2$s interface."
-msgstr ""
-
-#: src/domain/model/FileLocation.php:50
-#, php-format
-msgid "The given file path (%s) is not readable."
-msgstr ""
-
-#: src/domain/model/LicenseKeyRepository.php:131
-msgid "An error occurred, please try again."
-msgstr ""
-
-#: src/domain/model/RouteIdentifier.php:51
-#, php-format
-msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:122
-#: src/views/admin/templates/license_key_form.template.php:31
-msgid "Deactivate License"
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:123
-#: src/views/admin/templates/license_key_form.template.php:33
-msgid "Activate License"
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:241
-msgid "License Key successfully activated."
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:242
-msgid "License Key successfully deactivated."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:228
-#, php-format
-msgid "The value for %1$s is already set and it is not an array. The %2$s method can only be used to push values to this data element when it is an array."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:271
-#, php-format
-msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed. Since the value of this data is an array, you may want to use the %3$s method to push your value to the array."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:283
-#, php-format
-msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed.  Consider attaching your value to a different key"
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:408
-#, php-format
-msgid "The namespace for this manifest file has already been registered, choose a namespace other than %s"
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:419
-#, php-format
-msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
-msgstr ""
-
-#: src/views/admin/templates/license_key_form.template.php:16
-#, php-format
-msgid "License Key for %1$s"
-msgstr ""
-
-#: src/views/admin/templates/license_key_form.template.php:19
-msgid "Enter your license key: "
-msgstr ""
+msgstr "이 항목은 시리즈의 %series_part% 중 %total_posts_in_series%입니다. "
