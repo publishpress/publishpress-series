@@ -6,13 +6,15 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: none\n"
+"Language-Team: Filipino "
+"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
+"series/fil/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
-"PO-Revision-Date: 2026-02-27 13:38+0000\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
+"PO-Revision-Date: 2026-03-04 03:11+0000\n"
+"X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
 "Language: fil\n"
@@ -305,7 +307,7 @@ msgid "Meta Box Position"
 msgstr "Posisyon ng Meta Box"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:511
+#: addons/post-list-box/classes/PostListBoxFields.php:535
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -313,7 +315,7 @@ msgid "Top"
 msgstr "Itaas"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:512
+#: addons/post-list-box/classes/PostListBoxFields.php:536
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -467,9 +469,9 @@ msgid "Create a series to preview the post details."
 msgstr "Lumikha ng isang series upang i-preview ang mga detalye ng post."
 
 #: addons/post-details/includes/class-utilities.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Sample Series Post %d"
-msgstr "Sample Series Post %d"
+msgstr "Halimbawa ng Series Post %d"
 
 #: addons/post-details/includes/class-utilities.php:304
 msgid ""
@@ -587,148 +589,172 @@ msgid "Show Post Titles"
 msgstr "Ipakita ang mga Pamagat ng Post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Numero ng Order ng Series"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Ipakita ang numero ng order ng series sa tabi ng bawat pamagat ng post."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Posisyon ng Numero ng Order ng Series"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Bago ang pamagat"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "Pagkatapos ng pamagat"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Pumili kung saan lilitaw ang numero ng order kaugnay ng pamagat."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Post Title Color"
 msgstr "Kulay ng Pamagat ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:259
+#: addons/post-list-box/classes/PostListBoxFields.php:283
 msgid "Post Title Font Size (px)"
 msgstr "Sukat ng Font ng Pamagat ng Post (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:270
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Show Post Excerpt"
 msgstr "Ipakita ang Buod ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:278
+#: addons/post-list-box/classes/PostListBoxFields.php:302
 msgid "Excerpt Length (words)"
 msgstr "Haba ng Buod (mga salita)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:290
+#: addons/post-list-box/classes/PostListBoxFields.php:314
 msgid "Excerpt Color"
 msgstr "Kulay ng Buod"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:300
+#: addons/post-list-box/classes/PostListBoxFields.php:324
 msgid "Show Post Author"
 msgstr "Ipakita ang May-akda ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:308
+#: addons/post-list-box/classes/PostListBoxFields.php:332
 msgid "Post Author Color"
 msgstr "Kulay ng May-akda ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:318
+#: addons/post-list-box/classes/PostListBoxFields.php:342
 msgid "Show Post Date"
 msgstr "Ipakita ang Petsa ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:326
+#: addons/post-list-box/classes/PostListBoxFields.php:350
 msgid "Post Date Color"
 msgstr "Kulay ng Petsa ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:347
+#: addons/post-list-box/classes/PostListBoxFields.php:371
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "Ipakita ang Itinatampok na Larawan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Featured Image Width (px)"
 msgstr "Lapad ng Itinatampok na Larawan (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:361
+#: addons/post-list-box/classes/PostListBoxFields.php:385
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "Lapad ng itinatampok na larawan sa mga pixel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:366
+#: addons/post-list-box/classes/PostListBoxFields.php:390
 msgid "Featured Image Height (px)"
 msgstr "Taas ng Itinatampok na Larawan (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:373
+#: addons/post-list-box/classes/PostListBoxFields.php:397
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "Taas ng itinatampok na larawan sa mga pixel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:402
 msgid "Fallback Featured Image"
 msgstr "Fallback na Itinatampok na Larawan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:383
+#: addons/post-list-box/classes/PostListBoxFields.php:407
 msgid "Image to display when a post does not have a featured image"
 msgstr "Larawan na ipapakita kapag ang post ay walang itinatampok na larawan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:400
+#: addons/post-list-box/classes/PostListBoxFields.php:424
 msgid "Post Padding (px)"
 msgstr "Padding ng Post (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:409
+#: addons/post-list-box/classes/PostListBoxFields.php:433
 msgid "Post Border Width (px)"
 msgstr "Lapad ng Hangganan ng Post (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:418
+#: addons/post-list-box/classes/PostListBoxFields.php:442
 msgid "Post Border Color"
 msgstr "Kulay ng Hangganan ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:425
+#: addons/post-list-box/classes/PostListBoxFields.php:449
 msgid "Post Background Color"
 msgstr "Kulay ng Background ng Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:430
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Background color for the post list container"
 msgstr "Kulay ng background para sa lalagyan ng listahan ng post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:444
+#: addons/post-list-box/classes/PostListBoxFields.php:468
 msgid "Layout Style"
 msgstr "Estilo ng Layout"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:448
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Listahan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:473
 #: inc/settings/tab-legacy.php:28, fuzzy
 msgid "Grid"
 msgstr "Grid"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:456
+#: addons/post-list-box/classes/PostListBoxFields.php:480
 msgid "Columns"
 msgstr "Mga Kolum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:460
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "2 Columns"
 msgstr "2 Kolum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:461
+#: addons/post-list-box/classes/PostListBoxFields.php:485
 msgid "3 Columns"
 msgstr "3 Haligi"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:462
+#: addons/post-list-box/classes/PostListBoxFields.php:486
 msgid "4 Columns"
 msgstr "4 Haligi"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "6 Columns"
 msgstr "6 Haligi"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472, fuzzy
+#: addons/post-list-box/classes/PostListBoxFields.php:496, fuzzy
 msgid "Order By"
 msgstr "Order By"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:476
+#: addons/post-list-box/classes/PostListBoxFields.php:500
 msgid "Date"
 msgstr "Petsa"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:477
+#: addons/post-list-box/classes/PostListBoxFields.php:501
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Pamagat"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:478
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826
@@ -738,41 +764,41 @@ msgstr "Pamagat"
 msgid "Series Order"
 msgstr "Sunod ng Serye"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:509
 #: orgSeries-manage.php:51
 #: orgSeries-manage.php:227, fuzzy
 msgid "Order"
 msgstr "Order"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:489
+#: addons/post-list-box/classes/PostListBoxFields.php:513
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "Tumataas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:490
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
 msgstr "Bumababa"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:497
+#: addons/post-list-box/classes/PostListBoxFields.php:521
 msgid "Gap Between Items (px)"
 msgstr "Agwat sa Pagitan ng mga Item (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:507
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 msgid "Post List Box Location"
 msgstr "Lokasyon ng Listahan ng Post Box"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:540
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Pumili kung saan ipapakita ang listahan ng post box kaugnay sa nilalaman"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:520
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "Maximum number of items"
 msgstr "Maximum na bilang ng mga item"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:550
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -781,25 +807,25 @@ msgstr ""
 "Iwanang walang laman para sa walang limit. Ang preview ng admin ay limitado "
 "sa 4 na post."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:541
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 msgid "Highlight Current Post"
 msgstr "I-highlight ang Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:546
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Highlight the current post when viewing a specific series post"
 msgstr ""
 "I-highlight ang kasalukuyang post kapag tinitingnan ang isang tiyak na post "
 "ng serye"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:549
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 msgid "Current Post Background Color"
 msgstr "Kulay ng Background ng Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:556
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid "Current Post Border Color"
 msgstr "Kulay ng Hangganan ng Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:563
+#: addons/post-list-box/classes/PostListBoxFields.php:587
 msgid "Current Post Text Color"
 msgstr "Kulay ng Teksto ng Kasalukuyang Post"
 
@@ -977,9 +1003,9 @@ msgid "%2$s list"
 msgstr "Listahan ng %2$s"
 
 #: addons/post-list-box/includes/class-preview.php:98
-#, fuzzy, php-format
+#, php-format
 msgid "Sample Post %d"
-msgstr "Sample Post %d"
+msgstr "Halimbawa ng Post %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
 #, php-format
@@ -997,7 +1023,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Ito ay isang sample na sipi para sa post %d sa serye."
 
-#: addons/post-list-box/includes/class-preview.php:450
+#: addons/post-list-box/includes/class-preview.php:492
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
