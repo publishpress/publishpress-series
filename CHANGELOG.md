@@ -1,6 +1,24 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.1.0] - 05 Mar, 2026
+
+* Added: Add a "No Series" option in bulk edit #1016
+* Added: Add a default Series categories template and add a fallback to theme template #1020
+* Added: Add new field to link the title in Post List Box and Post Navigation #1022
+* Added: Allow user to change slug for Series Categories #1034
+* Added: Add new field Series order number in Post List box #1037
+* Added: Use new PublishPress translation library for translation system #1043
+* Fixed: Updated the relative URL in Post List Box #1023
+* Fixed: Added missing text domain #1024 (thanks @DAnn2012)
+* Fixed: Fixed text domain in Post Navigation #1025 (thanks @DAnn2012)
+* Fixed: Add path for localization files #1026 (thanks @DAnn2012)
+* Fixed: Fixed functions in Post List Box Admin UI #1027 (thanks @DAnn2012)
+* Fixed: Navigation cannot be clicked in Post Navigation #1047
+* Changed: Update PublishPress Review library #1040
+* Changed: Update PublishPress EDD Updated library #1039
+* Changed: Refactor the settings page #1021
+
 [3.0.0] - 12 Feb, 2026
 
 * Changed: Restructured Pro plugin to include Free as Composer dependency
