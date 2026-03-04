@@ -5,7 +5,9 @@ namespace Alledia;
 use stdClass;
 
 // Exit if accessed directly
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 // Exit if already loaded
 if (class_exists('Alledia\\EDD_SL_Plugin_Updater')) {
@@ -16,11 +18,11 @@ if (class_exists('Alledia\\EDD_SL_Plugin_Updater')) {
  * Allows plugins to use their own update API.
  *
  * @author Easy Digital Downloads
- * @version 1.6.24
+ * @version 1.6.25
  */
 class EDD_SL_Plugin_Updater
 {
-    const VERSION = '1.6.24';
+    const VERSION = '1.6.25';
 
     private $api_url     = '';
     private $api_data    = array();
@@ -157,7 +159,7 @@ class EDD_SL_Plugin_Updater
             return;
         }
 
-        if (! current_user_can('update_plugins')) {
+        if (! current_user_can('activate_plugins')) {
             return;
         }
 
@@ -499,7 +501,7 @@ class EDD_SL_Plugin_Updater
             return;
         }
 
-        if (! current_user_can('update_plugins')) {
+        if (! current_user_can('activate_plugins')) {
             wp_die(__('You do not have permission to install plugin updates', 'easy-digital-downloads'), __('Error', 'easy-digital-downloads'), array('response' => 403));
         }
 

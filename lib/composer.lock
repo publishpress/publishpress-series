@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50df3f30e8fba4e8d0589e7828cf0f44",
+    "content-hash": "8a6b3ecdf2b6f61435005fdf65fadfec",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
-            "version": "1.6.24",
+            "version": "1.6.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/edd-sl-plugin-updater.git",
-                "reference": "d3f92cd47a858da15feede854eb4b984fcf28856"
+                "reference": "05efd00f46b7f82eac4b769f691001e09b0796a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/edd-sl-plugin-updater/zipball/d3f92cd47a858da15feede854eb4b984fcf28856",
-                "reference": "d3f92cd47a858da15feede854eb4b984fcf28856",
+                "url": "https://api.github.com/repos/publishpress/edd-sl-plugin-updater/zipball/05efd00f46b7f82eac4b769f691001e09b0796a0",
+                "reference": "05efd00f46b7f82eac4b769f691001e09b0796a0",
                 "shasum": ""
             },
             "require": {
@@ -56,9 +56,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/edd-sl-plugin-updater/issues",
-                "source": "https://github.com/publishpress/edd-sl-plugin-updater/tree/1.6.24"
+                "source": "https://github.com/publishpress/edd-sl-plugin-updater/tree/1.6.25"
             },
-            "time": "2026-01-09T19:19:53+00:00"
+            "time": "2026-03-03T20:32:15+00:00"
         },
         {
             "name": "publishpress/instance-protection",
@@ -342,16 +342,16 @@
         },
         {
             "name": "publishpress/wordpress-edd-license",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-edd-license.git",
-                "reference": "98d22c29bd2d3db701e45b05581fb2d3c6c016f4"
+                "reference": "10aa8e209cf7a7e568883ee4c20465aca1f95e67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/98d22c29bd2d3db701e45b05581fb2d3c6c016f4",
-                "reference": "98d22c29bd2d3db701e45b05581fb2d3c6c016f4",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/10aa8e209cf7a7e568883ee4c20465aca1f95e67",
+                "reference": "10aa8e209cf7a7e568883ee4c20465aca1f95e67",
                 "shasum": ""
             },
             "require": {
@@ -408,9 +408,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-edd-license/issues",
-                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.4"
+                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.5"
             },
-            "time": "2026-02-04T14:46:59+00:00"
+            "time": "2026-03-03T21:50:59+00:00"
         },
         {
             "name": "publishpress/wordpress-reviews",
