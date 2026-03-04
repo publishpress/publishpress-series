@@ -29,6 +29,7 @@ class orgSeries {
 		add_action('publishpress_series_after_init', array($this, 'add_settings'), 10);
 		add_action('publishpress_series_pro_before_init', array($this, 'add_settings'), 10);
 		add_action('init', array($this, 'register_taxonomy'),0);
+		add_action('init', array($this, 'pp_series_maybe_initialize_rewrite_rules'), 100);
 		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));
 		add_action('init', array($this, 'maybe_fix_upgrade'));
 		add_filter('rewrite_rules_array', array($this,'seriestoc_rewrite_rules'));
@@ -117,6 +118,19 @@ class orgSeries {
 		if ( $version_chk != $this->version )
 			update_option( 'orgseries_version', $this->version );
 		return;
+	}
+
+	function pp_series_maybe_initialize_rewrite_rules() {
+		$needs_initialization = ! get_option('org_series_is_initialized');
+		$needs_flush = (bool) get_option('pp_series_flush_rewrite_rules');
+
+		if (! $needs_initialization && ! $needs_flush) {
+			return;
+		}
+
+		flush_rewrite_rules(false);
+		update_option('org_series_is_initialized', 1);
+		delete_option('pp_series_flush_rewrite_rules');
 	}
 
 	function org_series_install() {
