@@ -231,6 +231,36 @@ class PostListBoxRenderer
     }
 
     /**
+     * Get normalized order number position.
+     *
+     * @param array $settings Layout settings.
+     * @return string
+     */
+    private static function get_series_order_number_position($settings)
+    {
+        $position = isset($settings['series_order_number_position']) ? sanitize_text_field($settings['series_order_number_position']) : 'before_title';
+        return in_array($position, ['before_title', 'after_title'], true) ? $position : 'before_title';
+    }
+
+    /**
+     * Build title number token.
+     *
+     * @param array $settings Layout settings.
+     * @param int   $index    Zero-based post index.
+     * @return string
+     */
+    private static function get_series_order_number_html($settings, $index)
+    {
+        if (empty($settings['show_series_order_number'])) {
+            return '';
+        }
+
+        $number = (int) $index + 1;
+
+        return '<span class="pps-post-order-number">(' . esc_html((string) $number) . ')</span>';
+    }
+
+    /**
      * Render the HTML
      *
      * @param array $posts Posts to display
@@ -334,10 +364,20 @@ class PostListBoxRenderer
 
                         <div class="pps-post-content">
                             <?php if (!empty($settings['show_post_titles'])) : ?>
+                                <?php
+                                $order_number_html = self::get_series_order_number_html($settings, $index);
+                                $order_number_position = self::get_series_order_number_position($settings);
+                                ?>
                                 <h4 class="pps-post-title">
+                                    <?php if ($order_number_html && $order_number_position === 'before_title') : ?>
+                                        <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php endif; ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
                                         <?php echo esc_html(get_the_title($post->ID)); ?>
                                     </a>
+                                    <?php if ($order_number_html && $order_number_position === 'after_title') : ?>
+                                        <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php endif; ?>
                                 </h4>
                             <?php endif; ?>
 

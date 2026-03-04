@@ -104,6 +104,13 @@
     color: #007cba;
 }
 
+.pps-post-order-number {
+    display: inline-block;
+    margin: 0 0.35em;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+
 /* Excerpt Styles */
 .pps-post-excerpt {
     margin: 8px 0;

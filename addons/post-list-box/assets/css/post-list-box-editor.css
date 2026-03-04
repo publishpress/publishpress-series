@@ -359,6 +359,13 @@
     justify-content: space-between;
 }
 
+.publishpress-post-list-box-editor .pps-post-order-number {
+    display: inline-block;
+    margin: 0 0.35em;
+    font-size: 0.9em;
+    line-height: inherit;
+}
+
 .pps-order-response-message {
     text-align: left;
     margin-top: 10px;
