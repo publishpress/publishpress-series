@@ -285,6 +285,36 @@ class PPS_Post_List_Box_Preview {
     }
 
     /**
+     * Get normalized order number position.
+     *
+     * @param array $settings Layout settings.
+     * @return string
+     */
+    private static function get_series_order_number_position($settings)
+    {
+        $position = isset($settings['series_order_number_position']) ? sanitize_text_field($settings['series_order_number_position']) : 'before_title';
+        return in_array($position, ['before_title', 'after_title'], true) ? $position : 'before_title';
+    }
+
+    /**
+     * Build title number token.
+     *
+     * @param array $settings Layout settings.
+     * @param int   $index    Zero-based post index.
+     * @return string
+     */
+    private static function get_series_order_number_html($settings, $index)
+    {
+        if (empty($settings['show_series_order_number'])) {
+            return '';
+        }
+
+        $number = (int) $index + 1;
+
+        return '<span class="pps-post-order-number">(' . esc_html((string) $number) . ')</span>';
+    }
+
+    /**
      * Render preview content based on settings
      *
      * @param array $settings
@@ -431,8 +461,20 @@ class PPS_Post_List_Box_Preview {
                 $title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px';
             }
             $post_title_styles = !empty($title_styles) ? ' style="' . implode('; ', $title_styles) . ';"' : '';
-            
-            echo '<h4 class="pps-post-title"' . $post_title_styles . '>' . esc_html(isset($post->post_title) ? $post->post_title : '') . '</h4>';
+
+            $order_number_html = self::get_series_order_number_html($settings, $index);
+            $order_number_position = self::get_series_order_number_position($settings);
+            $post_title_text = esc_html(isset($post->post_title) ? $post->post_title : '');
+
+            echo '<h4 class="pps-post-title"' . $post_title_styles . '>';
+            if ($order_number_html && $order_number_position === 'before_title') {
+                echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            echo $post_title_text;
+            if ($order_number_html && $order_number_position === 'after_title') {
+                echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            echo '</h4>';
         }
 
         // Excerpt
