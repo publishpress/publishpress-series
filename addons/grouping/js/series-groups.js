@@ -31,13 +31,7 @@ jQuery(document).ready(function($) {
 			
 		}
 		
-		$('span.catshow').click(function() {
-			$(this).hide().next().show().parent().next().addClass("cat-hover");
-		});
 		
-		$('span.cathide').click(function() {
-			$(this).hide().prev().show().parent().next().removeClass("cat-hover");
-		});
 		$(editRowData).attr('class', 'inline_edit_group_old');
 	});
 	
