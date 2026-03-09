@@ -96,6 +96,7 @@ class PPS_Post_List_Box_Fields {
     public static function get_default_post_list_box_data() {
         $defaults = [
             'title_show' => 1,
+            'title_link_to_series' => 0,
             'title_html_tag' => 'h3',
             'title_color' => '#2971B1',
             'title_font_size' => 24,
@@ -113,6 +114,8 @@ class PPS_Post_List_Box_Fields {
             'current_post_border_color' => '#e5e5e5',
             'current_post_text_color' => '#2971B1',
             'show_post_titles' => 1,
+            'show_series_order_number' => 0,
+            'series_order_number_position' => 'before_title',
             'post_title_color' => '#2971B1',
             'post_title_font_size' => 16,
             'show_post_excerpt' => 0,

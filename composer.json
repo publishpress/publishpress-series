@@ -27,7 +27,8 @@
   "require-dev": {
     "automattic/vipwpcs": "^2.3",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-    "overtrue/phplint": "^9.6"
+    "overtrue/phplint": "^9.6",
+    "publishpress/translations": "dev-development"
   },
   "scripts": {
     "build": "build zip",
@@ -38,7 +39,27 @@
     "check:longpath": "longpath .",
     "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
     "pre-update-cmd": "composer update --working-dir=./lib",
-    "pre-install-cmd": "composer install --working-dir=./lib"
+    "pre-install-cmd": "composer install --working-dir=./lib",
+    "make-pot": [
+      "wp i18n make-pot . languages/organize-series.pot --domain=organize-series --exclude=vendor,node_modules,dist,tests,lib/vendor"
+    ],
+    "make-mo": [
+      "wp i18n make-mo languages/"
+    ],
+    "update-po": [
+      "wp i18n update-po languages/organize-series.pot languages/"
+    ],
+    "translate": [
+      "@make-pot",
+      "@update-po",
+      "vendor/bin/publishpress-translate translate",
+      "@make-mo"
+    ],
+    "translate:dry-run": "vendor/bin/publishpress-translate --dry-run",
+    "translate:download": "vendor/bin/publishpress-translate --download",
+    "translate:upload": "vendor/bin/publishpress-translate --upload",
+    "translate:force": "vendor/bin/publishpress-translate --force",
+    "translate:force-custom": "vendor/bin/publishpress-translate --force --languages"
   },
   "extra": {
     "plugin-name": "publishpress-series",

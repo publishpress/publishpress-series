@@ -267,7 +267,15 @@ class PostNavigationRenderer
 
         // Series title
         if (!empty($settings['include_series_title'])) {
-            $content_parts[] = '<h3 class="pps-nav-series-title">' . esc_html($series_term->name) . '</h3>';
+            $title_markup = esc_html($series_term->name);
+            if (!empty($settings['link_series_title'])) {
+                $series_link = get_term_link($series_term);
+                if (!is_wp_error($series_link)) {
+                    $title_markup = sprintf('<a href="%1$s">%2$s</a>', esc_url($series_link), esc_html($series_term->name));
+                }
+            }
+
+            $content_parts[] = '<h3 class="pps-nav-series-title">' . $title_markup . '</h3>';
         }
 
         // Navigation links (prev, next, first)
@@ -425,7 +433,15 @@ class PostNavigationRenderer
 
         // Series title
         if (!empty($settings['include_series_title'])) {
-            $content_parts[] = '<h3 class="pps-nav-series-title">' . esc_html($series_term->name) . '</h3>';
+            $title_markup = esc_html($series_term->name);
+            if (!empty($settings['link_series_title'])) {
+                $series_link = get_term_link($series_term);
+                if (!is_wp_error($series_link)) {
+                    $title_markup = sprintf('<a href="%1$s">%2$s</a>', esc_url($series_link), esc_html($series_term->name));
+                }
+            }
+
+            $content_parts[] = '<h3 class="pps-nav-series-title">' . $title_markup . '</h3>';
         }
 
         // Navigation links (prev, next, first)
@@ -795,7 +811,14 @@ class PostNavigationRenderer
      */
     private static function replace_nav_link_text($link_html, $replacement)
     {
-        return preg_replace('/(<a\b[^>]*>)(.*?)(<\/a>)/is', '$1' . $replacement . '$3', $link_html, 1);
+        return preg_replace_callback(
+            '/(<a\b[^>]*>)(.*?)(<\/a>)/is',
+            function ($matches) use ($replacement) {
+                return $matches[1] . $replacement . $matches[3];
+            },
+            $link_html,
+            1
+        );
     }
 
     /**

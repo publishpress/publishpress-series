@@ -29,6 +29,7 @@ class orgSeries {
 		add_action('publishpress_series_after_init', array($this, 'add_settings'), 10);
 		add_action('publishpress_series_pro_before_init', array($this, 'add_settings'), 10);
 		add_action('init', array($this, 'register_taxonomy'),0);
+		add_action('init', array($this, 'pp_series_maybe_initialize_rewrite_rules'), 100);
 		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));
 		add_action('init', array($this, 'maybe_fix_upgrade'));
 		add_filter('rewrite_rules_array', array($this,'seriestoc_rewrite_rules'));
@@ -117,6 +118,19 @@ class orgSeries {
 		if ( $version_chk != $this->version )
 			update_option( 'orgseries_version', $this->version );
 		return;
+	}
+
+	function pp_series_maybe_initialize_rewrite_rules() {
+		$needs_initialization = ! get_option('org_series_is_initialized');
+		$needs_flush = (bool) get_option('pp_series_flush_rewrite_rules');
+
+		if (! $needs_initialization && ! $needs_flush) {
+			return;
+		}
+
+		flush_rewrite_rules(false);
+		update_option('org_series_is_initialized', 1);
+		delete_option('pp_series_flush_rewrite_rules');
 	}
 
 	function org_series_install() {
@@ -327,6 +341,14 @@ class orgSeries {
 			'series_css_tougle' => 'default',
 			//series meta style options
 			'series_taxonomy_slug' => 'series',
+			//series categories (grouping) archive options
+			'series_group_custom_base' => 'series-category',
+			'series_group_archive_render_mode' => 'plugin',
+			'series_group_previous_base' => 'series_group',
+			'series_group_plugin_show_image' => 1,
+			'series_group_plugin_show_description' => 1,
+			'series_group_plugin_show_series_items' => 0,
+			'series_group_plugin_columns' => 3,
 			'metabox_series_order' => 'default',
 			);
 
@@ -345,6 +367,35 @@ class orgSeries {
         if(is_array($this->settings) && !isset($this->settings['series_taxonomy_slug'])){// this need to move to upgrade function
             $this->settings['series_taxonomy_slug'] = 'series';
         }
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_custom_base'])) {
+			$this->settings['series_group_custom_base'] = 'series-category';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_archive_render_mode'])) {
+			$this->settings['series_group_archive_render_mode'] = 'plugin';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_previous_base'])) {
+			$this->settings['series_group_previous_base'] = 'series_group';
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_image'])) {
+			$this->settings['series_group_plugin_show_image'] = 1;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_description'])) {
+			$this->settings['series_group_plugin_show_description'] = 1;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_show_series_items'])) {
+			$this->settings['series_group_plugin_show_series_items'] = 0;
+		}
+
+		if (is_array($this->settings) && !isset($this->settings['series_group_plugin_columns'])) {
+			$this->settings['series_group_plugin_columns'] = 3;
+		}
+
 
 		// Hook for Pro to modify settings after they are loaded
 		do_action('publishpress_series_settings_loaded', $this->settings);

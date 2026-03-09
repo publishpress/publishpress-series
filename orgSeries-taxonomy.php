@@ -270,6 +270,7 @@ function wp_dropdown_series($args)
 	$defaults = array(
 		'show_option_all' => '',
 		'show_option_none' => '',
+		'show_option_not_in_series' => '',
 		'orderby' => 'id',
 		'order' => 'ASC',
 		'show_last_update' => 0,
@@ -344,6 +345,12 @@ function wp_dropdown_series($args)
 				$r['selected'] = '-1';
 			$selected = ('-1' === strval($r['selected'])) ? " selected='selected'" : '';
 			$output .= "\t<option value='-1'$selected>$show_option_none</option>\n";
+		}
+
+		if ($show_option_not_in_series) {
+			$show_option_not_in_series = apply_filters('list_series', $show_option_not_in_series);
+			$selected = ('0' === strval($r['selected'])) ? " selected='selected'" : '';
+			$output .= "\t<option value='0'$selected>$show_option_not_in_series</option>\n";
 		}
 
 		if ($hierarchical)
@@ -684,7 +691,7 @@ function bulk_edit_series($column_name, $type)
 			<div class="inline-edit-col">
 				<div class="inline_edit_series_">
 					<span><?php _e('Series:', 'organize-series'); ?></span>
-					<?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&context=quick-edit'); ?>
+					<?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&show_option_not_in_series=Not part of a series&selected=-1&context=quick-edit'); ?>
 					<input type="hidden" name="series_part" class="series_part" />
 					<input type="hidden" name="series_post_id" class="series_post_id" />
 					<input type="hidden" name="is_series_save" value="1" />

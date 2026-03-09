@@ -1,0 +1,3210 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series 3.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/publishpress-series\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Finnish "
+"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
+"series/fi/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
+"PO-Revision-Date: 2026-03-09 13:55+0000\n"
+"X-Generator: Weblate 5.14.3\n"
+"X-Domain: organize-series\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: fi\n"
+
+#: orgSeries.php
+#. Plugin Name of the plugin
+msgid "PublishPress Series"
+msgstr "PublishPress-sarja"
+
+#: orgSeries.php
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-sarja/"
+
+#: orgSeries.php
+#. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress-sarja mahdollistaa sisällön ryhmittelyn sarjoiksi. Tämä on "
+"ihanteellinen aikakauslehtille, sanomalehdille, novellikirjoittajille, "
+"opettajille, sarjakuvataiteilijoille tai kaikille, jotka kirjoittavat "
+"useita julkaisuja samasta aiheesta."
+
+#: orgSeries.php, fuzzy
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "Etsi sarjakategorioita"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "Suositut sarjakategoriat"
+
+#: addons/grouping/legacy-includes.php:282
+#: addons/grouping/legacy-includes.php:786
+msgid "All Series Categories"
+msgstr "Kaikki sarjakategoriat"
+
+#: addons/grouping/legacy-includes.php:283
+msgid "Edit Series Category"
+msgstr "Muokkaa sarjakategoriaa"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "Päivitä sarjakategoria"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "Lisää uusi sarjakategoria"
+
+#: addons/grouping/legacy-includes.php:286
+msgid "New Series Category"
+msgstr "Uusi sarjakategoria"
+
+#: addons/grouping/legacy-includes.php:287
+#: addons/grouping/legacy-includes.php:549
+#: addons/grouping/legacy-includes.php:621
+#: addons/grouping/legacy-includes.php:715
+#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:777
+#: addons/grouping/legacy-includes.php:811
+msgid "Series Categories"
+msgstr "Sarjakategoriat"
+
+#: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr ""
+"Poista kaikki \"Sarjakategoriat\" tiedot tietokannasta liitettäessä "
+"liitännäinen."
+
+#: addons/grouping/legacy-includes.php:670
+#: addons/publisher/series_im_admin_main.php:7
+#: orgSeries-admin.php:478
+#: orgSeries-admin.php:491
+#: orgSeries-admin.php:571
+#: orgSeries-options.php:55
+#: orgSeries-setup.php:268
+#: orgSeries-taxonomy.php:381
+#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:386
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Sarja"
+msgstr[1] "Sarjat"
+
+#: addons/grouping/legacy-includes.php:756
+msgid "Click to toggle"
+msgstr "Napsauta vaihtaaksesi"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "Sarjat tässä kategoriassa"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "Anteeksi, tässä kategoriassa ei löytynyt sarjoja."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:123
+msgid "This entry is"
+msgstr "Tämä merkintä on"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:124
+msgid "in the series"
+msgstr "sarjassa"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "osa %1$s %2$s"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
+#: addons/post-details/includes/class-utilities.php:268
+#: addons/post-navigation/includes/class-utilities.php:172
+msgid "Sample Series"
+msgstr "Esimerkkisarja"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+msgid "Sample Post Title"
+msgstr "Esimerkkipostin otsikko"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+msgid "Previous post link"
+msgstr "Edellisen postin linkki"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+msgid "Next post link"
+msgstr "Seuraavan postin linkki"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Sample series description."
+msgstr "Esimerkkisarjan kuvaus."
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309
+msgid "Post Details"
+msgstr "Postin tiedot"
+
+#: addons/post-details/includes/class-admin-ui.php:61
+msgid "Series Post Details Preview"
+msgstr "Sarjan postin tietojen esikatselu"
+
+#: addons/post-details/includes/class-admin-ui.php:70
+msgid "Series Post Details Editor"
+msgstr "Sarjan postin tietojen muokkaaja"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:158
+#: addons/post-list-box/includes/class-admin-ui.php:55
+#: addons/post-list-box/includes/class-admin-ui.php:231
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:193, fuzzy
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-admin-ui.php:262
+#: addons/post-navigation/includes/class-admin-ui.php:182
+msgid "Use this shortcode:"
+msgstr "Käytä tätä shortcodea:"
+
+#: addons/post-details/includes/class-admin-ui.php:149
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"Lisää postiin tai sivulle näyttämään tämän sarjan postin tiedot "
+"manuaalisesti."
+
+#: addons/post-details/includes/class-admin-ui.php:157
+msgid "Default Meta Box"
+msgstr "Oletusmeta-ruutu"
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:420
+#: addons/post-list-box/includes/class-admin-ui.php:698
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "Tämä ominaisuus on käytettävissä PublishPress Series Pro:ssa"
+
+#: addons/post-details/includes/class-ajax.php:32
+#: addons/post-details/includes/class-ajax.php:99
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:32
+#: addons/post-navigation/includes/class-ajax.php:167
+#: addons/post-navigation/includes/class-ajax.php:207
+msgid "Invalid post ID."
+msgstr "Virheellinen postin ID."
+
+#: addons/post-details/includes/class-ajax.php:67
+#: addons/post-navigation/includes/class-ajax.php:115
+msgid "No series available to preview."
+msgstr "Ei sarjaa saatavilla esikatselua varten."
+
+#: addons/post-details/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:190
+msgid "Invalid import data."
+msgstr "Virheelliset tuontitiedot."
+
+#: addons/post-details/includes/class-ajax.php:137
+#: addons/post-navigation/includes/class-ajax.php:195
+msgid "Settings imported successfully."
+msgstr "Asetukset tuotiin onnistuneesti."
+
+#: addons/post-details/includes/class-ajax.php:166
+#: addons/post-navigation/includes/class-ajax.php:213
+msgid "Settings reset to defaults."
+msgstr "Asetukset palautettiin oletusarvoihin."
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "Yleinen"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "Tyylit"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "Sisältö"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "Näytä osanumero"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "Näytä \"osa X Y:stä\" sarjan tekstissä"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "Teksti ennen"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "Teksti, joka näytetään alussa"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "Teksti jälkeen"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "Teksti, joka näytetään sarjan nimen edessä"
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "Näyttö"
+
+#: addons/post-details/includes/class-fields.php:122
+msgid "Meta Box Position"
+msgstr "Meta-laatikon sijainti"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:535
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "Ylhäällä"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:536
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "Alhaalla"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "Valitse, mihin kohtaan sisältöä meta-laatikko sijoitetaan"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "Rajoita yksittäisiin viesteihin"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr ""
+"Ota käyttöön meta-laatikon näyttäminen vain yksittäisissä viesteissä, ei "
+"arkistoissa."
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "Typografia"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "Tekstin koko (px)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "Fonttikoko meta-ikkunan tekstille"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:453
+msgid "Text Color"
+msgstr "Tekstin väri"
+
+#: addons/post-details/includes/class-fields.php:173
+msgid "Link Color"
+msgstr "Linkin väri"
+
+#: addons/post-details/includes/class-fields.php:181
+msgid "Background"
+msgstr "Tausta"
+
+#: addons/post-details/includes/class-fields.php:185
+#: addons/post-list-box/classes/PostListBoxFields.php:191
+#: addons/post-navigation/includes/class-fields.php:460
+msgid "Background Color"
+msgstr "Taustaväri"
+
+#: addons/post-details/includes/class-fields.php:190
+msgid "Background color for the meta box container"
+msgstr "Taustaväri meta-ikkunan säiliölle"
+
+#: addons/post-details/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:498
+msgid "Spacing"
+msgstr "Väli"
+
+#: addons/post-details/includes/class-fields.php:198
+#: addons/post-list-box/classes/PostListBoxFields.php:223
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Padding (px)"
+msgstr "Sisennys (px)"
+
+#: addons/post-details/includes/class-fields.php:205
+msgid "Padding applied to all sides of the content area"
+msgstr "Sisennys, joka on sovellettu kaikille sisällön alueen sivuille"
+
+#: addons/post-details/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:511
+msgid "Margin (px)"
+msgstr "Marginaali (px)"
+
+#: addons/post-details/includes/class-fields.php:215
+msgid "Margin applied to all sides of the meta box"
+msgstr "Marginaali, joka on sovellettu kaikille meta-ikkunan sivuille"
+
+#: addons/post-details/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:468
+msgid "Border"
+msgstr "Reuna"
+
+#: addons/post-details/includes/class-fields.php:223
+#: addons/post-list-box/classes/PostListBoxFields.php:205
+#: addons/post-navigation/includes/class-fields.php:479
+msgid "Border Width (px)"
+msgstr "Reunan leveys (px)"
+
+#: addons/post-details/includes/class-fields.php:232
+#: addons/post-list-box/classes/PostListBoxFields.php:214
+#: addons/post-navigation/includes/class-fields.php:488
+msgid "Border Radius (px)"
+msgstr "Reunan sävy (px)"
+
+#: addons/post-details/includes/class-fields.php:241
+#: addons/post-list-box/classes/PostListBoxFields.php:198
+#: addons/post-navigation/includes/class-fields.php:472
+msgid "Border Color"
+msgstr "Reunan väri"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "Sarjan julkaisun yksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "Lisää uusi"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "Lisää uuden sarjan julkaisu yksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "Uudet sarjan julkaisu yksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "Muokkaa sarjan julkaisu yksityiskohtia"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "Näytä sarjan kirjoitusyksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "Kaikki sarjan kirjoitusyksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "Hae sarjan kirjoitusyksityiskohdat"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "Sarjan kirjoitusyksityiskohtia ei löytynyt."
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "Sarjan kirjoitusyksityiskohtia ei löytynyt roskakorista."
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "Luo sarja esitelläksesi kirjoitusyksityiskohdat."
+
+#: addons/post-details/includes/class-utilities.php:303
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "Esimerkkisarjan kirjoitus %d"
+
+#: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "Esimerkkilainauksen esikatselusisältö sarjan metaruutua varten."
+
+#: addons/post-details/post-details.php:176
+msgid "Series Post Details #1"
+msgstr "Sarjan kirjoitusyksityiskohdat #1"
+
+#: addons/post-details/post-details.php:181
+msgid "Series Post Details #2"
+msgstr "Sarjan kirjoitusyksityiskohdat #2"
+
+#: addons/post-details/post-details.php:186
+msgid "Series Post Details #3"
+msgstr "Sarjan kirjoitusyksityiskohdat #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "Ruudun otsikko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "Ruudun tyyli"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "Sisällön näyttö"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "Esittelykuvan asetukset"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "Kirjoitustyyli"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "Asettelu"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "Korosta nykyistä kirjoitusta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "Näytä ruudun otsikko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:106
+msgid "Box Title Type"
+msgstr "Laatikon otsikkotyyppi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:110
+msgid "Use Series Title"
+msgstr "Käytä sarjan otsikkoa"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Custom Title"
+msgstr "Mukautettu otsikko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:115
+msgid "Choose whether to display the series title or a custom title"
+msgstr "Valitse, näytetäänkö sarjan otsikko vai mukautettu otsikko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:120
+msgid "Link Box Title to Series"
+msgstr "Linkitä laatikon otsikko sarjaan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:125
+msgid "Link the box title to the current series archive when using the series title"
+msgstr ""
+"Linkitä laatikon otsikko nykyiseen sarja-arkistoon käytettäessä sarjan "
+"otsikkoa"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:130
+msgid "Custom Box Title Text"
+msgstr "Mukautettu laatikon otsikkoteksti"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/includes/class-utilities.php:162
+msgid "Series Posts"
+msgstr "Sarjan viestit"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+msgid "Enter custom title for the post list"
+msgstr "Syötä mukautettu otsikko viestiluetteloa varten"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "Käytetään vain kun \"Mukautettu otsikko\" on valittu yllä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:141
+msgid "Box Title HTML Tag"
+msgstr "Laatikon otsikon HTML-tagi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:160
+msgid "Box Title Color"
+msgstr "Laatikon otsikon väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:169
+msgid "Box Title Font Size (px)"
+msgstr "Laatikon otsikon fonttikoko (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:243
+msgid "Show Post Titles"
+msgstr "Näytä viestien otsikot"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Sarjan tilausnumero"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Näytä sarjan tilausnumero kunkin postin otsikon vieressä."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Sarjan tilausnumeron sijainti"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Otsikon ennen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "Otsikon jälkeen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Valitse, missä tilausnumero näkyy suhteessa otsikkoon."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Post Title Color"
+msgstr "Viestin otsikon väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:283
+msgid "Post Title Font Size (px)"
+msgstr "Viestin otsikon fonttikoko (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Show Post Excerpt"
+msgstr "Näytä viestin tiivistelmä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:302
+msgid "Excerpt Length (words)"
+msgstr "Tiivistelmän pituus (sanoja)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:314
+msgid "Excerpt Color"
+msgstr "Tiivistelmän väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Author"
+msgstr "Näytä viestin kirjoittaja"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Post Author Color"
+msgstr "Postin kirjoittajan väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:342
+msgid "Show Post Date"
+msgstr "Näytä postin päivämäärä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:350
+msgid "Post Date Color"
+msgstr "Postin päivämäärän väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:371
+#: addons/post-navigation/includes/class-fields.php:169
+#: addons/post-navigation/includes/class-fields.php:284
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Show Featured Image"
+msgstr "Näytä esittelykuva"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:378
+msgid "Featured Image Width (px)"
+msgstr "Esittelykuvan leveys (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:385
+#: addons/post-navigation/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:309
+#: addons/post-navigation/includes/class-fields.php:437
+msgid "Width of the featured image in pixels"
+msgstr "Esittelykuvan leveys pikseleinä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:390
+msgid "Featured Image Height (px)"
+msgstr "Esittelykuvan korkeus (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+#: addons/post-navigation/includes/class-fields.php:202
+#: addons/post-navigation/includes/class-fields.php:317
+#: addons/post-navigation/includes/class-fields.php:445
+msgid "Height of the featured image in pixels"
+msgstr "Esittelykuvan korkeus pikseleinä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:402
+msgid "Fallback Featured Image"
+msgstr "Varaesittelykuva"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:407
+msgid "Image to display when a post does not have a featured image"
+msgstr "Kuva, joka näytetään, kun postilla ei ole esittelykuvaa"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:424
+msgid "Post Padding (px)"
+msgstr "Postin pehmuste (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:433
+msgid "Post Border Width (px)"
+msgstr "Postin reunan leveys (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:442
+msgid "Post Border Color"
+msgstr "Postin reunan väri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:449
+msgid "Post Background Color"
+msgstr "Postin taustaväri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:454
+msgid "Background color for the post list container"
+msgstr "Taustaväri postilistan säilölle"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:468
+msgid "Layout Style"
+msgstr "Asettelutyyli"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "Lista"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:473
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "Ruudukko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:480
+msgid "Columns"
+msgstr "Sarakkeet"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "2 Columns"
+msgstr "2 saraketta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:485
+msgid "3 Columns"
+msgstr "3 Saraketta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:486
+msgid "4 Columns"
+msgstr "4 Saraketta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
+msgid "6 Columns"
+msgstr "6 Saraketta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:496
+msgid "Order By"
+msgstr "Järjestä mukaan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:500
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:501
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "Otsikko"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "Sarjan järjestys"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:509
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "Järjestys"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:513
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "Nouseva"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "Laskeva"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:521
+msgid "Gap Between Items (px)"
+msgstr "Väli kohteiden välillä (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:531
+msgid "Post List Box Location"
+msgstr "Postilistan laatikon sijainti"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:540
+msgid "Choose where to display the post list box in relation to the content"
+msgstr "Valitse, mihin kohtaan sisältöä postilista näytetään"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+msgid "Maximum number of items"
+msgstr "Kohteiden enimmäismäärä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:550
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"Rajoita sarjalistalla näytettävien viestien määrää. Jätä tyhjäksi, jos "
+"rajoitusta ei ole. Ylläpitäjän esikatselu rajoittuu 4 viestiin."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+msgid "Highlight Current Post"
+msgstr "Korosta nykyinen viesti"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:570
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "Korosta nykyistä viestiä katsottaessa tiettyä sarjaviestiä"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:573
+msgid "Current Post Background Color"
+msgstr "Nykyisen viestin taustaväri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid "Current Post Border Color"
+msgstr "Nykyisen viestin reunaväri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:587
+msgid "Current Post Text Color"
+msgstr "Nykyisen viestin tekstiväri"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54
+msgid "Default Post List Box"
+msgstr "Oletusarvoinen viestilaatikko"
+
+#: addons/post-list-box/includes/class-admin-ui.php:102
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+#: orgSeries-utility.php:308
+msgid "Post List Boxes"
+msgstr "Viestilaatikot"
+
+#: addons/post-list-box/includes/class-admin-ui.php:119
+#: addons/post-list-box/includes/class-admin-ui.php:120
+msgid "Post List Box updated."
+msgstr "Viestilaatikko päivitetty."
+
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box added."
+msgstr "Viestilaatikko lisätty."
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box saved."
+msgstr "Viestilaatikko tallennettu."
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box submitted."
+msgstr "Viestilaatikko lähetetty."
+
+#: addons/post-list-box/includes/class-admin-ui.php:145
+#: addons/post-list-box/includes/class-post-type.php:23
+#: inc/settings/tab-post-list-box.php:11
+msgid "Post List Box"
+msgstr "Viestilaatikko"
+
+#: addons/post-list-box/includes/class-admin-ui.php:197
+msgid "Post List Box Preview"
+msgstr "Viestilaatikon esikatselu"
+
+#: addons/post-list-box/includes/class-admin-ui.php:214
+msgid "Post List Box Editor"
+msgstr "Viestilaatikon muokkaaja"
+
+#: addons/post-list-box/includes/class-admin-ui.php:264
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr ""
+"Lisää viesteihin tai sivuille näyttääksesi tämän viestilaatikon "
+"manuaalisesti."
+
+#: addons/post-list-box/includes/class-admin-ui.php:306
+msgid "Select Series to Preview:"
+msgstr "Valitse sarja esikatselua varten:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:324
+msgid "No series found. Create a series to see the preview."
+msgstr "Sarjaa ei löytynyt. Luo sarja nähdäksesi esikatselun."
+
+#: addons/post-list-box/includes/class-admin-ui.php:339
+msgid "No posts found in selected series."
+msgstr "Valitussa sarjassa ei löytynyt viestejä."
+
+#: addons/post-list-box/includes/class-admin-ui.php:357
+msgid "Loading preview..."
+msgstr "Esikatselua ladataan..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:372
+#: addons/post-list-box/includes/class-admin-ui.php:376
+msgid "Error loading preview."
+msgstr "Virhe esikatselun latauksessa."
+
+#: addons/post-list-box/includes/class-admin-ui.php:674
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "Valitse kuva"
+
+#: addons/post-list-box/includes/class-admin-ui.php:678
+msgid "Remove"
+msgstr "Poista"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "Laatikkokontti"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "Viestit"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38
+msgid "Layout"
+msgstr "Asettelu"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#, php-format
+msgid "New %1s"
+msgstr "Uusi %1s"
+
+#: addons/post-list-box/includes/class-post-type.php:34
+#, php-format
+msgid "Add New %1$s"
+msgstr "Lisää uusi %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#, php-format
+msgid "Edit %1$s"
+msgstr "Muokkaa %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:36
+#, php-format
+msgid "New %1$s"
+msgstr "Uusi %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:37
+#, fuzzy, php-format
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:38
+#, php-format
+msgid "View %1$s"
+msgstr "Näytä %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:39
+#, php-format
+msgid "Search %2$s"
+msgstr "Etsi %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#, php-format
+msgid "No %2$s found"
+msgstr "Ei %2$s löydetty"
+
+#: addons/post-list-box/includes/class-post-type.php:41
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "Ei %2$s löydetty roskakorista"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s-kuva"
+
+#: addons/post-list-box/includes/class-post-type.php:45
+#, php-format
+msgid "Set %1$s Image"
+msgstr "Aseta %1$s-kuva"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "Poista %1$s-kuva"
+
+#: addons/post-list-box/includes/class-post-type.php:47
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "Käytä %1$s-kuvana"
+
+#: addons/post-list-box/includes/class-post-type.php:48
+#, php-format
+msgid "Filter %2$s list"
+msgstr "Suodata %2$s-listaa"
+
+#: addons/post-list-box/includes/class-post-type.php:49
+#, php-format
+msgid "%2$s list navigation"
+msgstr "%2$s-listan navigointi"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#, php-format
+msgid "%2$s list"
+msgstr "%2$s-lista"
+
+#: addons/post-list-box/includes/class-preview.php:98
+#, php-format
+msgid "Sample Post %d"
+msgstr "Esimerkkipostaus %d"
+
+#: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"Tämä on esimerkkisisältö postaukselle %d sarjassa. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "Tämä on esimerkkikatsaus postaukselle %d sarjassa."
+
+#: addons/post-list-box/includes/class-preview.php:492
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "Käyttäjä"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "Oletusluettelo"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "Ruudukko-tyylinen laatikko"
+
+#: addons/post-list-box/post-list-box.php:109
+msgid "Simple List Box"
+msgstr "Yksinkertainen luettelo"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "Navigointi piilotettu (sarjassa on vain yksi julkaisu)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "Sarjan etusivu"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:144
+#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "Edellinen"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:259
+#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "Seuraava"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: orgSeries-utility.php:310
+msgid "Post Navigation"
+msgstr "Julkaisun navigointi"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "Sarjan julkaisun navigoinnin esikatselu"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "Sarjan julkaisun navigoinnin muokkaaja"
+
+#: addons/post-navigation/includes/class-admin-ui.php:184
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"Lisää julkaisuisiin tai sivuille näyttääksesi tämän sarjan julkaisun "
+"navigoinnin manuaalisesti."
+
+#: addons/post-navigation/includes/class-admin-ui.php:192
+msgid "Default Navigation"
+msgstr "Oletusnavigointi"
+
+#: addons/post-navigation/includes/class-admin-ui.php:414
+msgid "Change Image"
+msgstr "Vaihda kuva"
+
+#: addons/post-navigation/includes/class-admin-ui.php:422
+msgid "Remove Image"
+msgstr "Poista kuva"
+
+#: addons/post-navigation/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:129
+msgid "No posts found in series to preview."
+msgstr "Sarjasta ei löytynyt julkaisuja esikatseltavaksi."
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "Kohde"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "Sisällytä sarjan otsikko"
+
+#: addons/post-navigation/includes/class-fields.php:96
+msgid "Link Series Title"
+msgstr "Linkitä sarjan otsikko"
+
+#: addons/post-navigation/includes/class-fields.php:101
+msgid "Link the series title to the series archive page"
+msgstr "Linkitä sarjan otsikko sarjan arkistosivulle"
+
+#: addons/post-navigation/includes/class-fields.php:106
+msgid "Series Title Alignment"
+msgstr "Sarjan otsikon tasaus"
+
+#: addons/post-navigation/includes/class-fields.php:110
+#: addons/post-navigation/includes/class-fields.php:181
+#: addons/post-navigation/includes/class-fields.php:232
+#: addons/post-navigation/includes/class-fields.php:296
+#: addons/post-navigation/includes/class-fields.php:424
+msgid "Left"
+msgstr "Vasen"
+
+#: addons/post-navigation/includes/class-fields.php:111
+msgid "Center"
+msgstr "Keskelle"
+
+#: addons/post-navigation/includes/class-fields.php:112
+#: addons/post-navigation/includes/class-fields.php:182
+#: addons/post-navigation/includes/class-fields.php:233
+#: addons/post-navigation/includes/class-fields.php:297
+#: addons/post-navigation/includes/class-fields.php:425
+msgid "Right"
+msgstr "Oikea"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Hide When Single Post"
+msgstr "Piilota, kun on vain yksi julkaisu"
+
+#: addons/post-navigation/includes/class-fields.php:130
+msgid "Do not display navigation if series has only one post"
+msgstr "Älä näytä navigaatiota, jos sarjassa on vain yksi julkaisu"
+
+#: addons/post-navigation/includes/class-fields.php:148
+msgid "Previous Navigation Type"
+msgstr "Edellinen navigaatiotyyppi"
+
+#: addons/post-navigation/includes/class-fields.php:152
+#: addons/post-navigation/includes/class-fields.php:267
+#: addons/post-navigation/includes/class-fields.php:382
+msgid "None"
+msgstr "Ei mitään"
+
+#: addons/post-navigation/includes/class-fields.php:153
+msgid "Previous Post Title"
+msgstr "Edellisen julkaisun otsikko"
+
+#: addons/post-navigation/includes/class-fields.php:154
+#: addons/post-navigation/includes/class-fields.php:269
+#: addons/post-navigation/includes/class-fields.php:384
+msgid "Custom Label"
+msgstr "Mukautettu etiketti"
+
+#: addons/post-navigation/includes/class-fields.php:158
+msgid "Choose how to display the previous navigation"
+msgstr "Valitse, miten edellinen navigaatio näytetään"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Previous Label"
+msgstr "Edellinen etiketti"
+
+#: addons/post-navigation/includes/class-fields.php:166
+msgid "Custom text for previous post link"
+msgstr "Mukautettu teksti edellisen julkaisun linkille"
+
+#: addons/post-navigation/includes/class-fields.php:174
+msgid "Display featured image for previous post"
+msgstr "Näytä esitelty kuva edellisestä julkaisusta"
+
+#: addons/post-navigation/includes/class-fields.php:177
+#: addons/post-navigation/includes/class-fields.php:292
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Image Position"
+msgstr "Kuvan sijainti"
+
+#: addons/post-navigation/includes/class-fields.php:186
+msgid "Position of the featured image relative to the navigation"
+msgstr "Esitellyn kuvan sijainti navigaatioon nähden"
+
+#: addons/post-navigation/includes/class-fields.php:189
+#: addons/post-navigation/includes/class-fields.php:304
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Image Width (px)"
+msgstr "Kuvan leveys (px)"
+
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Image Height (px)"
+msgstr "Kuvan korkeus (px)"
+
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+msgid "Show Arrow"
+msgstr "Näytä nuoli"
+
+#: addons/post-navigation/includes/class-fields.php:210
+msgid "Display an arrow icon with the previous navigation"
+msgstr "Näytä nuolikuva edellisen navigaation yhteydessä"
+
+#: addons/post-navigation/includes/class-fields.php:213
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Arrow Type"
+msgstr "Nuolityyppi"
+
+#: addons/post-navigation/includes/class-fields.php:217
+msgid "Chevron Left (‹)"
+msgstr "Vasemmalle Chevron (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:218
+msgid "Arrow Left (←)"
+msgstr "Vasemmalle Nuoli (←)"
+
+#: addons/post-navigation/includes/class-fields.php:219
+msgid "Double Chevron Left («)"
+msgstr "Kaksinkertainen Vasemmalle Chevron («)"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Triangle Left (◄)"
+msgstr "Vasemmalle Kolmonen (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Custom Image"
+msgstr "Mukautettu kuva"
+
+#: addons/post-navigation/includes/class-fields.php:225
+#: addons/post-navigation/includes/class-fields.php:340
+msgid "Choose the arrow icon style"
+msgstr "Valitse nuoli-ikonin tyyli"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Arrow Position"
+msgstr "Nuolen sijainti"
+
+#: addons/post-navigation/includes/class-fields.php:237
+msgid "Position of the arrow relative to the navigation"
+msgstr "Nuolen sijainti suhteessa navigaatioon"
+
+#: addons/post-navigation/includes/class-fields.php:240
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Arrow Size (px)"
+msgstr "Nuolen koko (px)"
+
+#: addons/post-navigation/includes/class-fields.php:247
+#: addons/post-navigation/includes/class-fields.php:362
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr "Nuoli-ikonin koko pikseleinä (koskee sekä leveyttä että korkeutta)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Custom Arrow Image"
+msgstr "Mukautettu nuolikuva"
+
+#: addons/post-navigation/includes/class-fields.php:255
+#: addons/post-navigation/includes/class-fields.php:370
+msgid "Select custom arrow image from media library"
+msgstr "Valitse mukautettu nuolikuva mediakirjastosta"
+
+#: addons/post-navigation/includes/class-fields.php:263
+msgid "Next Navigation Type"
+msgstr "Seuraava navigaatiotyyppi"
+
+#: addons/post-navigation/includes/class-fields.php:268
+msgid "Next Post Title"
+msgstr "Seuraavan postin otsikko"
+
+#: addons/post-navigation/includes/class-fields.php:273
+msgid "Choose how to display the next post link"
+msgstr "Valitse, kuinka seuraavan postin linkki näytetään"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Next Label"
+msgstr "Seuraava etiketti"
+
+#: addons/post-navigation/includes/class-fields.php:281
+msgid "Custom text for next post link"
+msgstr "Mukautettu teksti seuraavan postin linkille"
+
+#: addons/post-navigation/includes/class-fields.php:289
+msgid "Display featured image for next post"
+msgstr "Näytä esittelykuva seuraavasta postista"
+
+#: addons/post-navigation/includes/class-fields.php:301
+msgid "Position of the featured image relative to navigation"
+msgstr "Esittelykuvan sijainti suhteessa navigaatioon"
+
+#: addons/post-navigation/includes/class-fields.php:325
+msgid "Display an arrow icon with the next navigation"
+msgstr "Näytä nuoli-ikoni seuraavan navigaation kanssa"
+
+#: addons/post-navigation/includes/class-fields.php:332
+msgid "Chevron Right (›)"
+msgstr "Oikea nuoli (›)"
+
+#: addons/post-navigation/includes/class-fields.php:333
+msgid "Arrow Right (→)"
+msgstr "Nuoli oikealle (→)"
+
+#: addons/post-navigation/includes/class-fields.php:334
+msgid "Double Chevron Right (»)"
+msgstr "Kaksinkertainen oikea nuoli (»)"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Triangle Right (►)"
+msgstr "Kolmio oikealle (►)"
+
+#: addons/post-navigation/includes/class-fields.php:347
+msgid "Left of Text"
+msgstr "Vasemmalta tekstistä"
+
+#: addons/post-navigation/includes/class-fields.php:348
+msgid "Right of Text"
+msgstr "Oikealta tekstistä"
+
+#: addons/post-navigation/includes/class-fields.php:352
+msgid "Position of the arrow relative to the link text"
+msgstr "Nuolen sijainti suhteessa linkkitekstiin"
+
+#: addons/post-navigation/includes/class-fields.php:374
+msgid "First"
+msgstr "Ensimmäinen"
+
+#: addons/post-navigation/includes/class-fields.php:378
+msgid "First Navigation Type"
+msgstr "Ensimmäinen navigaatiotyyppi"
+
+#: addons/post-navigation/includes/class-fields.php:383
+msgid "First Post Title"
+msgstr "Ensimmäinen viestin otsikko"
+
+#: addons/post-navigation/includes/class-fields.php:388
+msgid "Choose how to display the first navigation"
+msgstr "Valitse, miten ensimmäinen navigaatio näytetään"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "First Label"
+msgstr "Ensimmäinen etiketti"
+
+#: addons/post-navigation/includes/class-fields.php:395
+msgid "Go to First"
+msgstr "Siirry ensimmäiseen"
+
+#: addons/post-navigation/includes/class-fields.php:396
+msgid "Custom text for first navigation"
+msgstr "Mukautettu teksti ensimmäiselle navigaatiolle"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "First Navigation Position"
+msgstr "Ensimmäisen navigaation sijainti"
+
+#: addons/post-navigation/includes/class-fields.php:403
+msgid "Left (First → Previous → Next)"
+msgstr "Vasemmalla (Ensimmäinen → Edellinen → Seuraava)"
+
+#: addons/post-navigation/includes/class-fields.php:404
+msgid "Center (Previous → First → Next)"
+msgstr "Keskellä (Edellinen → Ensimmäinen → Seuraava)"
+
+#: addons/post-navigation/includes/class-fields.php:405
+msgid "Right (Previous → Next → First)"
+msgstr "Oikealla (Edellinen → Seuraava → Ensimmäinen)"
+
+#: addons/post-navigation/includes/class-fields.php:409
+msgid "Position of the first/series home link in navigation"
+msgstr "Ensimmäisen/sarjan kotilinkin sijainti navigaatiossa"
+
+#: addons/post-navigation/includes/class-fields.php:417
+msgid "Display featured image for first post"
+msgstr "Näytä esittelykuva ensimmäisestä viestistä"
+
+#: addons/post-navigation/includes/class-fields.php:429
+msgid "Position of the featured image relative to the link text"
+msgstr "Ominaisuuksiin liittyvän kuvan sijainti linkkitekstin suhteen"
+
+#: addons/post-navigation/includes/class-fields.php:449
+msgid "Color"
+msgstr "Väri"
+
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Gap Between Links (px)"
+msgstr "Linkkien väli (px)"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Space between navigation links"
+msgstr "Väli navigointilinkkien välillä"
+
+#: addons/post-navigation/includes/class-fields.php:540
+msgid "Container Style"
+msgstr "Säilön tyyli"
+
+#: addons/post-navigation/includes/class-fields.php:544
+msgid "Container Background Color"
+msgstr "Säilön taustaväri"
+
+#: addons/post-navigation/includes/class-fields.php:549
+msgid "Background color for the navigation container"
+msgstr "Taustaväri navigointisäilölle"
+
+#: addons/post-navigation/includes/class-fields.php:552
+msgid "Container Border Color"
+msgstr "Säilön reunan väri"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Container Border Width (px)"
+msgstr "Säilön reunan leveys (px)"
+
+#: addons/post-navigation/includes/class-fields.php:568
+msgid "Container Border Radius (px)"
+msgstr "Säilön reunan kulma (px)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Container Padding (px)"
+msgstr "Säilön pehmustaminen (px)"
+
+#: addons/post-navigation/includes/class-fields.php:584
+msgid "Inner spacing for the container"
+msgstr "Sisäinen väli säilössä"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "Sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "Lisää uusi sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "Uusi sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "Muokkaa sarjan postin navigointia"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "Näytä sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "Kaikki sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "Etsi sarjan postin navigointi"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "Sarjan postin navigointia ei löytynyt."
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "Roskiessa ei ole sarjan viestien navigointia."
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "Luo sarja esikatsellaksesi navigointia."
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "Luo viestejä sarjassa esikatsellaksesi navigointia."
+
+#: addons/post-navigation/includes/class-utilities.php:174
+msgid "Sample series for preview purposes"
+msgstr "Esimerkkisarja esikatselutarkoituksiin"
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "Yksinkertainen navigointi"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "Painikenavigointi"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "Kuvanavigointi"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "Kategoriat"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "Tagit"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "Tila"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "Nykyinen osa"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: addons/publisher/series-part-post-table.php:146
+msgid "View"
+msgstr "Näytä"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "Roskakori"
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "Tässä sarjassa ei ole julkaistuja viestejä."
+
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(Ei tällä hetkellä osan numeroa)"
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "Esikatselu"
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "Tässä sarjassa ei ole julkaisemattomia viestejä."
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "Ei osan numeroa"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "Kaikki kategoriat"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "Suodata"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "Hallinnoi sarjoja"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "Julkaise sarjat"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "Etunäkymä"
+
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "Muokkaa %1$s tilaa"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "Sarjan järjestys"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "Julkaise tai aikatauluta julkaisut"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "Näytä sarjat etupaneelissa"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "Sinulla ei ole käytettävissä olevia sarjoja."
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "Lisää uusi sarja."
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "Luo julkaisemattomana:"
+
+#: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"Kun valittu, kaikki julkaisut, jotka liität tähän sarjaan, pysyvät "
+"julkaisemattomina, kunnes julkaiset koko sarjan."
+
+#: addons/publisher/series_issue_manager.php:290
+msgid "The posts in your series were successfully unpublished."
+msgstr "Sarjasi julkaisut on onnistuneesti julkaistu."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "Onnittelut. Sarjasi järjestystä päivitettiin onnistuneesti."
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "Onnittelut. Julkaisusi julkaistiin onnistuneesti."
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "Julkaisu siirrettiin roskakoriin."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "Onnittelut. Julkaisusi aikataulutettiin onnistuneesti."
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "Hallinnoi sarjaongelmia"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "Kappaleita per sivu"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "Julkaistavat sarjat:"
+
+#: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Hakutulokset &#8220;%s&#8221;"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "Haku"
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "Julkaisupäivämäärä/Aika:"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "Päivitysjärjestys"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "Sarjan järjestys:"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"Vedä viestien nimet haluamaasi järjestykseen sarjassa, ensimmäisestä osasta "
+"viimeiseen osaan."
+
+#: addons/publisher/series_issue_manager.php:867
+msgid "Unpublished posts in series:"
+msgstr "Julkaisemattomat viestit sarjassa:"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr ""
+"Kun nämä viestit julkaistaan, ne lisätään sarjan viimeisen nykyisen viestin "
+"jälkeen."
+
+#: addons/publisher/series_issue_manager.php:901
+msgid "Unpublished Posts"
+msgstr "Julkaisemattomat viestit"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "Julkaise julkaisemattomat viestit"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "Julkaisemattomien sarjojen järjestys"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "PublishPress-sarjalisäosan asetukset"
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "Sallitut Html"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "Yhteenveto"
+
+#: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"Seuraavassa on legendana käytettävissä olevista tunnisteista, joita voidaan "
+"käyttää mukautetuissa mallikentissä. Nämä korvataan asianmukaisilla "
+"arvoilla, kun lisäosa suoritetaan."
+
+#: inc/settings/settings-page.php:68
+msgid "This will be replaced with the series icon for a series."
+msgstr "Tämä korvataan sarjan kuvakkeella sarjalle."
+
+#: inc/settings/settings-page.php:76
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr ""
+"Sama kuin %series_icon%, paitsi että sarjan kuvake linkitetään sarjan "
+"sivulle"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"Tätä tunnistetta käytetään vain orgSeries-widgetissä - se viittaa paikkaan, "
+"johon haluat sarjan nimien luettelon lisättävän, ja vaatii, että jokaisen "
+"sarjan nimen malli on myös asetettu."
+
+#: inc/settings/settings-page.php:92
+msgid "This will be replaced with the title of a series"
+msgstr "Tämä korvataan sarjan nimellä"
+
+#: inc/settings/settings-page.php:100
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr "Sama kuin %series_title%, paitsi että se linkitetään myös sarjan sivulle"
+
+#: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr "On sijaintitunnus, johon postilistan postimallien sisältö ilmestyy."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"On sijaintitunnus, johon postilistan postimallien sisältö ilmestyy ja "
+"käyttää annettua widgetin postin lyhyttä otsikkoa."
+
+#: inc/settings/settings-page.php:124
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "Korvataan sarjan postin otsikolla"
+
+#: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+"Korvataan sarjan postin otsikolla, joka on linkitetty kyseisen postin "
+"sivunäkymään."
+
+#: inc/settings/settings-page.php:140
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "Korvataan sarjan postin lyhyellä otsikolla"
+
+#: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"Korvataan sarjan postin lyhyellä otsikolla, joka on linkitetty kyseisen "
+"postin sivunäkymään."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"Korvataan sarjan edellisen postin navigointilinkillä. Teksti on se, mikä on "
+"mukana 'Mukautetussa edellisen postin navigointiteksti' -kentässä. Jos "
+"kenttä on tyhjää, niin teksti on postin otsikko"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"Korvataan sarjan seuraavan postin navigointilinkillä. Teksti on se, mikä on "
+"mukana 'Mukautetussa seuraavan postin navigointiteksti' -kentässä. Jos "
+"kenttä on tyhjää, niin teksti on postin otsikko"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"Korvataan sarjan ensimmäisen postin navigointilinkillä. Teksti on se, mikä "
+"on mukana 'Mukautetussa ensimmäisen postin navigointiteksti' -kentässä. Jos "
+"kenttä on tyhjää, niin teksti on postin otsikko"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"Käytä tätä tunnusta joko ennen tai jälkeen muun mallikoodin. Se osoittaa, "
+"mihin haluat postin sisällön ilmestyvän."
+
+#: inc/settings/settings-page.php:187
+msgid "Will display what part of a series the post is"
+msgstr "Näyttää, mikä osa sarjaa postilla on"
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "Näyttää sarjan kokonaispostien määrän"
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "Näyttää sarjan kuvauksen"
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "Tulostaa sarjan slugin"
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "Tulostaa sarjan ID:n"
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "Tulostaa postin kirjoittajan"
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "Jos postilla on ominaiskuva, niin se kuva näytetään"
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "Päivämäärä, jolloin postia julkaistiin"
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "Korvataan julkaisemattoman postin otsikolla sarjassa"
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "Näyttää julkaistujen ja julkaisemattomien postausten yhteismäärän sarjassa"
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "Päivitä asetukset"
+
+#: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Klikkaamalla Kyllä palautat asetukset oletusasetuksiin ja menetät kaikki "
+"mukautukset. Tai voit klikata peruuttaa ja palata takaisin."
+
+#: inc/settings/settings-page.php:309
+msgid "No"
+msgstr "Ei"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "Kyllä"
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "Päivitä PublishPress Series -tietosi"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"Olemme tehneet muutoksia siihen, miten sarjat tallennetaan, ja tämä vaatii "
+"pienen päivityksen. Tämä parantaa tukea useille sarjoille ja ratkaisee "
+"joitain ongelmia viestien järjestyksessä. Klikkaa tätä painiketta "
+"päivittääksesi."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
+msgid "Update Series data"
+msgstr "Päivitä sarjatiedot"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "Sarjan päivitys suoritettu."
+
+#: inc/settings/settings-upgrade.php:174
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "Sarjan järjestyksen synkronointi suoritettu. %d viestiä päivitetty."
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:261
+msgid "Search Series"
+msgstr "Hae sarjoja"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:262
+msgid "Popular Series"
+msgstr "Suositut sarjat"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
+msgid "All Series"
+msgstr "Kaikki sarjat"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:264
+msgid "Edit Series"
+msgstr "Muokkaa sarjaa"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:265
+msgid "Update Series"
+msgstr "Päivitä sarja"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:266
+msgid "Add New Series"
+msgstr "Lisää uusi sarja"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:267
+msgid "New Series Name"
+msgstr "Uuden sarjan nimi"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:269
+msgid "No series found"
+msgstr "Sarjaa ei löytynyt"
+
+#: inc/settings/settings-validation.php:121
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s sarjaa siirretty \"%2$s\" -taksonomiasta \"%3$s\" -taksonomiaan. "
+"Asetukset päivitetty."
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "PublishPress Series -lisäosan asetukset on päivitetty"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "Käyttöoikeus evätty"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "PublishPress Sarja -lisäosan asetukset on palautettu"
+
+#: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"Muokkaa näitä asetuksia huolellisesti, sillä ne tekevät merkittäviä "
+"muutoksia PublishPress Sarjaan."
+
+#: inc/settings/tab-advanced.php:34
+msgid "Series Settings"
+msgstr "Sarja-asetukset"
+
+#: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr ""
+"Poista kaikki PublishPress Sarja -tiedot tietokannasta, kun poistat tämän "
+"lisäosan."
+
+#: inc/settings/tab-advanced.php:47
+msgid "Series Upgrade"
+msgstr "Sarjan päivitys"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "Suorita päivitystehtävä"
+
+#: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"Versiossa 2.11.4 PublishPress Sarja muutti tapaa, jolla sarjoja "
+"tallennetaan. Voit suorittaa päivitystehtävän täällä, jos sinulla on "
+"ongelmia sarjan osien kanssa."
+
+#: inc/settings/tab-advanced.php:65
+msgid "Sync Series Order to Menu Order"
+msgstr "Synkronoi sarjan järjestys valikkotilauksen kanssa"
+
+#: inc/settings/tab-advanced.php:70
+msgid "Sync to Menu Order"
+msgstr "Synkronoi valikkotilauksen kanssa"
+
+#: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"Tämä synkronoi kaikki sarjan osan numerot WordPressin menu_order-kenttään. "
+"Hyödyllinen teemoille/sivurakentajille, jotka voivat järjestää vain "
+"valikkotilauksen mukaan (Sivun asetukset: Järjestys). Tämä mahdollistaa "
+"WordPressin natiivin järjestämisen käytön mukautettujen kenttien sijaan."
+
+#: inc/settings/tab-advanced.php:83
+msgid "Reset settings"
+msgstr "Palauta asetukset"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "Palauta asetukset oletusarvoiksi"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144
+msgid "Legacy"
+msgstr "Perintö"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "Perintöasetukset"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "Oletus"
+
+#: inc/settings/tab-legacy.php:36
+msgid "CSS Styles"
+msgstr "CSS-tyylit"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "Käytä PublishPress Sarja -CSS-tyylejä?"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "Tyylivaihtoehdot"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "Käytä oletustyyliä"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "Käytä laatikkotyyliä"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "Käytä tummaa tyyliä"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "Käytä vaaleaa tyyliä"
+
+#: inc/settings/tab-legacy.php:60
+msgid "Series Overview"
+msgstr "Sarjan yleiskatsaus"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Valitse suunnittelu taksonomiasivulle, jolla yksittäinen sarja näytetään."
+
+#: inc/settings/tab-legacy.php:66
+msgid "Layout:"
+msgstr "Asettelu:"
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"Valitsemalla asettelun, joka on erilainen kuin \"Oletus\", ohitat teeman "
+"taksonomiamallin. <a href=\"%s\" target=\"_blank\">Klikkaa tästä saadaksesi "
+"lisätietoja siitä, miten voit mukauttaa näitä suunnitteluja</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
+msgid "Columns:"
+msgstr "Sarakkeet:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "Järjestä sarjat mukaan:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "Sarjan osa"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "Järjestä päivämäärän mukaan"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "Sarjan järjestämismenetelmä"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:487
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "Sarjan sisällysluettelo"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "Sarjan sisällysluettelon URL:"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "näytä sivu"
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"Sinun täytyy %1s päivittää pysyvä linkkisi rakenne %2s johonkin muuhun kuin "
+"\"Yksinkertainen\" saadaksesi sarjan sisällysluettelon URL:n toimimaan."
+
+#: inc/settings/tab-legacy.php:154
+msgid "Series Per Page:"
+msgstr "Sarjat per sivu:"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "Sarjan sisällysluettelon otsikko:"
+
+#: inc/settings/tab-legacy.php:168
+msgid "Series Icons"
+msgstr "Sarjan ikonit"
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "Leveys ikonille sarjan sisällysluettelon sivulla (pikseleinä)"
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "Leveys ikonille postisivulla (pikseleinä)."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr ""
+"Ikonin leveys, jos se näytetään viimeisimmän sarjan mallin kautta "
+"(pikseleinä)."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "Viimeisin Sarja"
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "Tätä näyttöä käyttää \"Viimeisin Sarja\" -widgetti."
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "Viimeisin Sarja (tagit ennen):"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "Viimeisin Sarja (sisäiset tagit):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "Viimeisin Sarja (tagit jälkeen):"
+
+#: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr ""
+"Tätä näyttöä käyttää \"Sarjan Sisällysluettelo\" -widgetti, shortcode ja "
+"URL."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"Tätä näyttöä käyttää \"Sarjan Sisällysluettelo\". Löydät tämän näytön "
+"URL-osoitteen menemällä \"Näyttö\" välilehteen ja sitten \"Sarjan "
+"Sisällysluettelo URL\"."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "Nämä asetukset sallivat sinun mukauttaa metaboxin kirjoitusnäytössä."
+
+#: inc/settings/tab-metabox.php:26
+msgid "Default Series Order"
+msgstr "Oletusarvoinen Sarja Järjestys"
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "Aakkosjärjestys A-Z"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "Aakkosjärjestys Z-A"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "Näytä \"Lisää Uusi\""
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "Näytä \"Postin otsikko widgetissä\""
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "Metabox Sarja Järjestys"
+
+#: inc/settings/tab-post-details.php:12
+msgid "Post Details Settings"
+msgstr "Postin Tiedot Asetukset"
+
+#: inc/settings/tab-post-details.php:16
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr "Määritä Sarjan Postin Tietojen näyttö, joka näkyy sarjan posteissa."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "Kuten Mallissa"
+
+#: inc/settings/tab-post-details.php:36
+msgid "Display Series Post Details?"
+msgstr "Näytä Sarjan Postin Tiedot?"
+
+#: inc/settings/tab-post-details.php:41
+msgid "Post Details Selection"
+msgstr "Postin Tietojen Valinta"
+
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43
+msgid "Edit this layout"
+msgstr "Muokkaa tätä asettelua"
+
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44
+msgid "Loading…"
+msgstr "Ladataan…"
+
+#: inc/settings/tab-post-details.php:51
+msgid "Post Details Position"
+msgstr "Viestin tietojen sijainti"
+
+#: inc/settings/tab-post-details.php:66
+msgid "Series Meta Template"
+msgstr "Sarjan meta-malli"
+
+#: inc/settings/tab-post-details.php:71
+msgid "Series Meta (with excerpts)"
+msgstr "Sarjan meta (otteilla)"
+
+#: inc/settings/tab-post-details.php:76
+msgid "Limit to single page only"
+msgstr "Rajoita vain yhteen sivuun"
+
+#: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr ""
+"Rajoitetaanko sarjan meta-näyttö vain yhdelle sivulle vai sisällytetäänkö "
+"arkistosivu."
+
+#: inc/settings/tab-post-list-box.php:12
+msgid "Post List Box Settings"
+msgstr "Viestilaatikon asetukset"
+
+#: inc/settings/tab-post-list-box.php:16
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr "Määritä viestilaatikko, joka näyttää kaikki sarjan viestit."
+
+#: inc/settings/tab-post-list-box.php:36
+msgid "Display Post List Boxes?"
+msgstr "Näytä viestilaatikot?"
+
+#: inc/settings/tab-post-list-box.php:41
+msgid "Post List Boxes Selection"
+msgstr "Viestilaatikoiden valinta"
+
+#: inc/settings/tab-post-list-box.php:43
+msgid "Edit this box"
+msgstr "Muokkaa tätä laatikkoa"
+
+#: inc/settings/tab-post-list-box.php:51
+msgid "Post List Box Position"
+msgstr "Viestilaatikon sijainti"
+
+#: inc/settings/tab-post-list-box.php:66
+msgid "Series Post List Template"
+msgstr "Sarjan viestilaatikon malli"
+
+#: inc/settings/tab-post-list-box.php:70
+msgid "Post Title (Linked Post)"
+msgstr "Viestin otsikko (linkitetty viesti)"
+
+#: inc/settings/tab-post-list-box.php:75
+msgid "Post Title (Current Post)"
+msgstr "Viestin otsikko (nykyinen viesti)"
+
+#: inc/settings/tab-post-navigation.php:11
+msgid "Navigation"
+msgstr "Navigointi"
+
+#: inc/settings/tab-post-navigation.php:12
+msgid "Navigation Settings"
+msgstr "Navigointi asetukset"
+
+#: inc/settings/tab-post-navigation.php:16
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "Määritä sarjan navigointinäyttö, joka näkyy sarjan viesteissä."
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "Näytä sarjan navigointi?"
+
+#: inc/settings/tab-post-navigation.php:41
+msgid "Navigation Selection"
+msgstr "Navigointivalinta"
+
+#: inc/settings/tab-post-navigation.php:51
+msgid "Navigation Position"
+msgstr "Navigointiasema"
+
+#: inc/settings/tab-post-navigation.php:66
+msgid "Navigation Template"
+msgstr "Navigointimalli"
+
+#: inc/settings/tab-post-navigation.php:71
+msgid "Next Post Text"
+msgstr "Seuraavan viestin teksti"
+
+#: inc/settings/tab-post-navigation.php:76
+msgid "Previous Post Text"
+msgstr "Edellisen viestin teksti"
+
+#: inc/settings/tab-post-navigation.php:81
+msgid "First Post Text"
+msgstr "Ensimmäisen viestin teksti"
+
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "Ota PublishPress Series käyttöön mukautetuille viestityypeille."
+
+#: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr ""
+"Nämä asetukset sallivat sinun ottaa käyttöön tai poistaa käytöstä "
+"ominaisuuksia PublishPress Series Pro:ssa."
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Mukautetun viestityypin tuki"
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Salli mukautettujen viestityyppien käyttö PublishPress Series:n kanssa."
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Shortcodes"
+msgstr "Shortcodet"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "Tarjoaa shortcodeja näyttämään sarjatietoja."
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "Lisämerkit"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Tarjoaa lisämerkkejä sarjatietojen ulkoasun mukauttamiseksi."
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "Useita sarjoja"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "Sallii kirjoittajien lisätä viestejä useampaan kuin yhteen sarjaan."
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142
+msgid "Series Category"
+msgstr "Sarjan kategoria"
+
+#: inc/settings/tab-series-category.php:13
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr ""
+"Asetukset sarjan kategorioiden arkiston URL-osoitteelle ja "
+"näyttökäyttäytymiselle."
+
+#: inc/settings/tab-series-category.php:26
+msgid "Series Categories URL Base:"
+msgstr "Sarjan kategorioiden URL-pohja:"
+
+#: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"Tätä tekstiä käytetään sarjan kategorioiden arkiston URL-osoitteissa. Jos "
+"muutat sen, vanhat URL-osoitteet ohjataan uuteen pohjaan."
+
+#: inc/settings/tab-series-category.php:36
+msgid "Series Categories Archive Template:"
+msgstr "Sarjasarjatarkistuspohja:"
+
+#: inc/settings/tab-series-category.php:39
+msgid "Use template from Theme"
+msgstr "Käytä pohjaa teeman mukaan"
+
+#: inc/settings/tab-series-category.php:40
+msgid "Use template from Plugin"
+msgstr "Käytä pohjaa liitännäisen mukaan"
+
+#: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"Teeman pohja käyttää aktiivista teemapohjahierarkiaasi. Liitännäisen pohja "
+"käyttää PublishPress Sarjat -varasuunnitelmaa, kun teemasi ei tarjoa "
+"taxonomy-series_group.php:tä."
+
+#: inc/settings/tab-series-category.php:49
+msgid "Plugin Template Display Options:"
+msgstr "Liitännäisen pohjan näyttöasetukset:"
+
+#: inc/settings/tab-series-category.php:53
+msgid "Show Series Icon"
+msgstr "Näytä sarjan kuvake"
+
+#: inc/settings/tab-series-category.php:58
+msgid "Show Series Description"
+msgstr "Näytä sarjan kuvaus"
+
+#: inc/settings/tab-series-category.php:63
+msgid "Show Posts in each Series as list items"
+msgstr "Näytä julkaisut jokaisessa sarjassa luetteloitemina"
+
+#: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"Tämä ominaisuus mahdollistaa uuden taksonomian luomisen tätä liitännäistä "
+"varten, jos et halua käyttää oletus \"Sarjat\" -taksonomiaa."
+
+#: inc/settings/tab-taxonomy.php:28
+msgid "Series Taxonomy Slug:"
+msgstr "Sarjataksonomian slug:"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "Tämä teksti on osa sarjan perus-URL-osoitetta."
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "Sarjataksonomia:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr ""
+"Uuden taksonomian luomiseksi syötä uusi nimi ja napsauta \"Päivitä "
+"asetukset\" -painiketta."
+
+#: inc/settings/tab-taxonomy.php:47
+msgid "Migrate Terms"
+msgstr "Siirrä termejä"
+
+#: inc/settings/tab-taxonomy.php:53
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr "Siirrä automaattisesti olemassa olevat sarjatermit uuteen taksonomiaan"
+
+#: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"Jos valittu, kaikki nykyisen taksonomian termit siirretään uuteen "
+"taksonomiaan, kun vaihdat taksonomian slugia. Jos ei valittu, vain "
+"taksonomian slugia muutetaan."
+
+#: inc/templates/taxonomy-series.php:70
+msgid "Sorry, no results found."
+msgstr "Anteeksi, tuloksia ei löytynyt."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"Käytät PublishPress Series Free -versiota. Pro-versiossa on enemmän "
+"ominaisuuksia ja tukea. %sPäivitä Pro:hon%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
+msgid "Upgrade to Pro"
+msgstr "Päivitä Pro:hon"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "Tarvitsetko PublishPress Series -tukea?"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Jos tarvitset apua tai sinulla on uusi toiminto-ehdotus, kerro meille."
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "Pyydä tukea"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr ""
+"Yksityiskohtainen dokumentaatio on myös saatavilla liitännäisen "
+"verkkosivustolla."
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "Näytä tietopankki"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "Virhe tapahtui"
+
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s sarja siirretty uuteen taksonomiaan"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "Jos pidät %s:stä, jätä meille %s-arvostelu. Kiitos!"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "Tietoa PublishPress Seriesistä"
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "Tietoa"
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "PublishPress Series -dokumentaatio"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "Dokumentaatio"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "Ota yhteyttä PublishPress-tiimiin"
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "Ota yhteyttä"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "Anteeksi, mutta sinulla ei ole oikeuksia lisätä sarjoja"
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "Valitsemasi nimi ei puhdistu oikein. Kokeile jotain muuta."
+
+#: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "Hmm... näyttää siltä, että sillä nimellä on jo sarja. Kokeile jotain muuta"
+
+#: orgSeries-admin.php:359
+msgid "Not part of a series"
+msgstr "Ei osa sarjaa"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "Hae sarjoja"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "Sarjan osa:"
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "Viestin otsikko widgetissä:"
+
+#: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"Lyhyt otsikko tälle viestille, jota käytetään Sarja-widgetissä. Jätä "
+"tyhjäksi käyttääksesi koko otsikkoa."
+
+#: orgSeries-admin.php:519
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ei osanumeroa)"
+
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Osa %1$s %2$s:stä)"
+
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ei osanumeroa)"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:272
+msgid "No Series"
+msgstr "Ei sarjaa"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "Näytä kaikki sarjat"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "Hallitse kaikkia sarjoja"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "Termijärjestys"
+
+#: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"Siirtääksesi kohteen, vedä ja pudota riviä \"klikkaamalla ja pitämällä\" "
+"sitä missä tahansa ja siirrä se uuteen paikkaansa."
+
+#: orgSeries-manage.php:196, fuzzy
+msgid "ID"
+msgstr "ID"
+
+#: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"Termit järjestetään yleensä aakkosjärjestyksessä, mutta voit valita oman "
+"järjestyksesi syöttämällä numeron (1 ensimmäiselle jne.) tähän kenttään."
+
+#: orgSeries-manage.php:240
+msgid "Current series icon:"
+msgstr "Nykyinen sarjaikoni:"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "Ei ikonia tällä hetkellä"
+
+#: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+"Poistetaanko kuva? (huom: tämän sarjan kanssa ei ole kuvaa, jos valitset "
+"tämän)"
+
+#: orgSeries-manage.php:261
+msgid "Series Icon Upload:"
+msgstr "Sarjaikonin lataus:"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "Lataa kuva sarjaa varten."
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "Virheelliset lomaketiedot"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "Virheellinen nonce, lataa sivu uudelleen ja yritä uudelleen"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "Virheellinen taksonomia"
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "Ei tarpeeksi oikeuksia"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "Päivitys onnistui"
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:874
+msgid "Settings"
+msgstr "Asetukset"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "PublishPress-sarjan asetukset"
+
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Julkaisutyypit"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Taksonomia"
+
+#: orgSeries-options.php:143
+msgid "Metabox"
+msgstr "Metaruutu"
+
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Pro-ominaisuudet"
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "Lisäasetukset"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr "Valitse \"Ei osa sarjaa\" poistaaksesi kaikki sarjatiedot viestistä"
+
+#: orgSeries-setup.php:270
+msgid "&larr; Go to Series"
+msgstr "&larr; Siirry sarjaan"
+
+#: orgSeries-setup.php:271
+msgid "View Series"
+msgstr "Näytä sarja"
+
+#: orgSeries-setup.php:273
+msgid "Series List"
+msgstr "Sarjalista"
+
+#: orgSeries-setup.php:274
+msgid "Series Link"
+msgstr "Sarjan linkki"
+
+#: orgSeries-setup.php:275
+msgid "A link to a Series"
+msgstr "Linkki sarjaan"
+
+#: orgSeries-setup.php:329
+msgid "Series Navigation"
+msgstr "Sarjan navigointi"
+
+#: orgSeries-setup.php:860
+msgid "Series: "
+msgstr "Sarja: "
+
+#: orgSeries-setup.php:862
+msgid "Posts from the series: "
+msgstr "Sarjasta: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "Sarja:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "Osa:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "Kaikki kirjoittamani sarjat"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Sarja</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "Auto/Ei mitään"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "Käytä tätä ohjataksesi viimeisimmän sarja-widgetin tulostusta"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "Viimeisin sarja"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "Otsikko:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"Tämän widgetin asettelua ja sisältöä voidaan säätää <a "
+"href=\"%s\">Viimeisin sarja</a> alueen kautta."
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "Piilotetaanko sarjat, joilla ei ole julkaisuja?"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "Järjestä:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "Julkaisujen määrä sarjassa"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "Sarjan nimi"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "Sarjan slug"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "Kun sarja luotiin"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "Satunnainen"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "Näytettävien sarjojen määrä:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "Näyttöjärjestys: "
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "Nouseva: "
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "Laskeva: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "Käytä tätä näyttääksesi Sarjan sisällysluettelo"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "Valitse sarja"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "Muut julkaisut sarjassa:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "Näytä sarjan sisällysluettelo"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "Näytä sarjan sisällysluettelo muodossa:"
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "Pudotusvalikko:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "Luettelo:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "Näytä viestien määrä:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "Piilota tyhjät sarjat:"
+
+#: orgSeries-widgets.php:299
+msgid "name"
+msgstr "nimi"
+
+#: orgSeries-widgets.php:300
+msgid "count"
+msgstr "määrä"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-widgets.php:302
+msgid "series id"
+msgstr "sarjan id"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "Järjestys:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "Poissulje sarjat:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "Sisällytä sarjat:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "Sarjojen määrä:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "Siirto:"
+
+#: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"Voit valita siirron sarjojen määrälle (hyödyllinen sivutuksessa). Ei "
+"siirtoa, jos jätetään tyhjäksi"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "Haku:"
+
+#: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"Voit palauttaa kaikki sarjat, jotka vastaavat tätä hakulauseketta "
+"(verrattuna sarjan nimiin)"
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "Näytä muut viestit nykyisessä sarjassa:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "Nykyinen sarja"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "Sarjan widgetin otsikko:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "Tämä teksti näkyy muiden tämän sarjan viestien yläpuolella."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>Tämä laajennus voidaan poistaa.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s:llä on jo parametri, jonka nimi on: %2$s."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "%1$s-metodia voidaan käyttää vain %2$s:n lapsen rekisteröimiseen."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "Ei voitu noutaa instanssia %1$s:stä. Ei löytynyt."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s ei ole voimassa oleva entiteetti (odotettu: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"Tiedostoa \"%1$s\" ei ole tai sitä ei voitu lukea käyttöoikeuksien vuoksi. "
+"Varmista, että seuraava polku on oikea ja tarkista, että tiedoston "
+"käyttöoikeudet ovat oikein:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s ei ole olemassa tai sitä ei voida saavuttaa."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Nonce-virhe."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr ""
+"Annetun objektin täysin määritelty luokan nimi (%1$s) on toteutettava "
+"%2$s-rajapinta."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "Annettua tiedostopolku (%s) ei voida lukea."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "Tapahtui virhe, yritä uudelleen."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "%1$s:lle odotettu saapuva arvo on sulku. Sitä ei ollut."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "Poista lisenssi"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "Aktivoi lisenssi"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "Lisenssiavain aktivoitu onnistuneesti."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "Lisenssiavain deaktivoitu onnistuneesti."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"%1$s:n arvo on jo asetettu, eikä se ole taulukko. %2$s-metodia voidaan "
+"käyttää vain arvojen työntämiseen tähän tietoelementtiin, kun se on "
+"taulukko."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"%1$s:n arvo on jo olemassa %2$s-ominaisuudessa. Ylikirjoitukset eivät ole "
+"sallittuja. Koska tämän datan arvo on taulukko, saatat haluta käyttää "
+"%3$s-metodia työntääksesi arvosi taulukkoon."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"Arvo %1$s on jo olemassa ominaisuudessa %2$s. Ylikirjoituksia ei sallita. "
+"Harkitse arvosi liittämistä toiseen avaimeseen"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr ""
+"Tämän manifestitiedoston nimiavaruus on jo rekisteröity, valitse "
+"nimiavaruus, joka ei ole %s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "Annettu arvo %1$s ei ole voimassa oleva url. Annettu url oli: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "Lisenssiavain %1$s:lle"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "Syötä lisenssiavaimesi: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Sarjakategoriat"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:259
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Sarja"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Sarjakategoria"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:260
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Sarja"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "Tämä merkintä on osa %series_part% / %total_posts_in_series% sarjassa "

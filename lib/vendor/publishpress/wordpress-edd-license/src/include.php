@@ -16,7 +16,7 @@ if (! function_exists('add_action')) {
     return;
 }
 
-if (! function_exists(__NAMESPACE__ . '\register3Dot0Dot4')) {
+if (! function_exists(__NAMESPACE__ . '\register3Dot0Dot5')) {
     if (! defined('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_INCLUDED')) {
         define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_INCLUDED', __DIR__);
     }
@@ -27,24 +27,24 @@ if (! function_exists(__NAMESPACE__ . '\register3Dot0Dot4')) {
         add_action('plugins_loaded', [Versions::class, 'initializeLatestVersion'], -150, 0);
     }
 
-    add_action('plugins_loaded', __NAMESPACE__ . '\register3Dot0Dot4', -190, 0);
+    add_action('plugins_loaded', __NAMESPACE__ . '\register3Dot0Dot5', -190, 0);
 
-    function register3Dot0Dot4()
+    function register3Dot0Dot5()
     {
         if (! class_exists('PublishPress\WordPressEDDLicense\License')) {
             $versions = Versions::getInstance();
-            $versions->register('3.0.4', __NAMESPACE__ . '\initialize3Dot0Dot4');
+            $versions->register('3.0.5', __NAMESPACE__ . '\initialize3Dot0Dot5');
         }
     }
 
-    function initialize3Dot0Dot4()
+    function initialize3Dot0Dot5()
     {
         require_once __DIR__ . '/autoload.php';
 
         if (! defined('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION')) {
-            define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION', '3.0.4');
+            define('PUBLISHPRESS_WORDPRESS_EDD_LICENSE_VERSION', '3.0.5');
         }
 
-        do_action('publishpress_wordpress_edd_license_3Dot0Dot4_initialized');
+        do_action('publishpress_wordpress_edd_license_3Dot0Dot5_initialized');
     }
 }

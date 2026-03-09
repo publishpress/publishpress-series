@@ -93,6 +93,51 @@ class PPS_Post_List_Box_Utilities {
     }
 
     /**
+     * Resolve series term from the first post in a list.
+     *
+     * @param array $posts Posts array.
+     * @return WP_Term|null
+     */
+    public static function get_series_term($posts)
+    {
+        if (empty($posts) || !isset($posts[0]) || !is_object($posts[0]) || empty($posts[0]->ID)) {
+            return null;
+        }
+
+        $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
+        $series_terms = get_the_terms((int) $posts[0]->ID, $taxonomy_slug);
+
+        if (empty($series_terms) || is_wp_error($series_terms)) {
+            return null;
+        }
+
+        $series_term = reset($series_terms);
+
+        return ($series_term && isset($series_term->term_id)) ? $series_term : null;
+    }
+
+    /**
+     * Get the series archive link from the first post in a list.
+     *
+     * @param array $posts Posts array.
+     * @return string
+     */
+    public static function get_series_link($posts)
+    {
+        $series_term = self::get_series_term($posts);
+        if (!$series_term) {
+            return '';
+        }
+
+        $series_link = get_term_link($series_term);
+        if (is_wp_error($series_link)) {
+            return '';
+        }
+
+        return $series_link;
+    }
+
+    /**
      * Get the title text based on title type setting
      *
      * @param array $settings Layout settings
@@ -102,25 +147,18 @@ class PPS_Post_List_Box_Utilities {
     public static function get_title_text($settings, $posts)
     {
         $title_type = isset($settings['title_type']) ? $settings['title_type'] : 'series';
-        
+
         if ($title_type === 'custom') {
-            // Use custom title text
             return isset($settings['title_text']) ? $settings['title_text'] : '';
         }
-        
-        // Use series title (default behavior)
+
         if (!empty($posts)) {
-            // Get series from the first post
-            $first_post = $posts[0];
-            $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-            $series_terms = get_the_terms($first_post->ID, $taxonomy_slug);
-            
-            if ($series_terms && !is_wp_error($series_terms)) {
-                return $series_terms[0]->name;
+            $series_term = self::get_series_term($posts);
+            if ($series_term) {
+                return $series_term->name;
             }
         }
-        
-        // Fallback to custom title if series title not found
+
         return isset($settings['title_text']) ? $settings['title_text'] : __('Series Posts', 'organize-series');
     }
 

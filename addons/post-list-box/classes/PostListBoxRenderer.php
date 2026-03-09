@@ -231,6 +231,36 @@ class PostListBoxRenderer
     }
 
     /**
+     * Get normalized order number position.
+     *
+     * @param array $settings Layout settings.
+     * @return string
+     */
+    private static function get_series_order_number_position($settings)
+    {
+        $position = isset($settings['series_order_number_position']) ? sanitize_text_field($settings['series_order_number_position']) : 'before_title';
+        return in_array($position, ['before_title', 'after_title'], true) ? $position : 'before_title';
+    }
+
+    /**
+     * Build title number token.
+     *
+     * @param array $settings Layout settings.
+     * @param int   $index    Zero-based post index.
+     * @return string
+     */
+    private static function get_series_order_number_html($settings, $index)
+    {
+        if (empty($settings['show_series_order_number'])) {
+            return '';
+        }
+
+        $number = (int) $index + 1;
+
+        return '<span class="pps-post-order-number">(' . esc_html((string) $number) . ')</span>';
+    }
+
+    /**
      * Render the HTML
      *
      * @param array $posts Posts to display
@@ -262,11 +292,23 @@ class PostListBoxRenderer
         <div class="<?php echo esc_attr($wrapper_class); ?>">
             <?php if (!empty($settings['title_show'])) : 
                 $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts);
+                $title_tag = !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+                $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
+                $series_link = '';
+                if ($link_title_to_series) {
+                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts);
+                }
                 if (!empty($title_text)) :
             ?>
-                <<?php echo esc_html($settings['title_html_tag'] ?: 'h3'); ?> class="pps-post-list-title">
-                    <?php echo esc_html($title_text); ?>
-                </<?php echo esc_html($settings['title_html_tag'] ?: 'h3'); ?>>
+                <<?php echo esc_html($title_tag); ?> class="pps-post-list-title">
+                    <?php if (!empty($series_link)) : ?>
+                        <a href="<?php echo esc_url($series_link); ?>">
+                            <?php echo esc_html($title_text); ?>
+                        </a>
+                    <?php else : ?>
+                        <?php echo esc_html($title_text); ?>
+                    <?php endif; ?>
+                </<?php echo esc_html($title_tag); ?>>
             <?php endif; endif; ?>
 
             <div class="pps-post-list <?php echo esc_attr($layout_style); ?>">
@@ -322,10 +364,20 @@ class PostListBoxRenderer
 
                         <div class="pps-post-content">
                             <?php if (!empty($settings['show_post_titles'])) : ?>
+                                <?php
+                                $order_number_html = self::get_series_order_number_html($settings, $index);
+                                $order_number_position = self::get_series_order_number_position($settings);
+                                ?>
                                 <h4 class="pps-post-title">
+                                    <?php if ($order_number_html && $order_number_position === 'before_title') : ?>
+                                        <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php endif; ?>
                                     <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
                                         <?php echo esc_html(get_the_title($post->ID)); ?>
                                     </a>
+                                    <?php if ($order_number_html && $order_number_position === 'after_title') : ?>
+                                        <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php endif; ?>
                                 </h4>
                             <?php endif; ?>
 
@@ -429,6 +481,7 @@ class PostListBoxRenderer
 
         if (!empty($title_styles)) {
             $css_parts[] = '.' . $css_class . ' .pps-post-list-title { ' . implode(' ', $title_styles) . ' }';
+            $css_parts[] = '.' . $css_class . ' .pps-post-list-title a { ' . implode(' ', $title_styles) . ' }';
         }
 
         // Post title styles

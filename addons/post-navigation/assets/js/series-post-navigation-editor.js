@@ -53,6 +53,7 @@
             toggleLabelFields();
             toggleFeaturedImageFields();
             toggleArrowFields();
+            toggleSeriesTitleFields();
         });
 
         // Toggle label field visibility based on dropdown selections
@@ -127,10 +128,18 @@
             );
         }
 
+        // Toggle series title link field
+        function toggleSeriesTitleFields() {
+            var activeTab = $('.pps-series-post-navigation-editor-tabs a.active').data('tab') || 'general';
+            var includeSeriesTitle = $('#include_series_title').is(':checked');
+            setRowVisibility($('#link_series_title').closest('tr'), includeSeriesTitle, activeTab);
+        }
+
         // Initialize field visibility on page load
         toggleLabelFields();
         toggleFeaturedImageFields();
         toggleArrowFields();
+        toggleSeriesTitleFields();
 
         // Update label field visibility when dropdowns change
         $('#previous_link_type, #next_link_type, #first_link_type').on('change', function() {
@@ -145,6 +154,11 @@
         // Update arrow field visibility when checkboxes change
         $('#previous_show_arrow, #next_show_arrow, #previous_arrow_type, #next_arrow_type').on('change', function() {
             toggleArrowFields();
+        });
+
+        // Update series title dependent fields
+        $('#include_series_title').on('change', function() {
+            toggleSeriesTitleFields();
         });
 
         // Color picker

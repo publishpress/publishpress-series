@@ -15,10 +15,30 @@ class PPS_Post_List_Box_Preview {
      * @param int $series_id
      * @return array
      */
-    public static function get_sample_series_posts($series_id)
+    public static function get_sample_series_posts($series_id, $settings = [])
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        $posts = get_posts([
+        $query_params = [
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'maximum_items' => 4,
+        ];
+
+        /**
+         * Filter query parameters for post list box admin preview.
+         *
+         * @param array $query_params Preview query parameters.
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         */
+        $query_params = apply_filters('pps_post_list_box_preview_query_params', $query_params, $settings, $series_id);
+
+        $orderby = isset($query_params['orderby']) ? $query_params['orderby'] : 'date';
+        $order = isset($query_params['order']) ? strtoupper($query_params['order']) : 'DESC';
+        $order = $order === 'ASC' ? 'ASC' : 'DESC';
+        $maximum_items = isset($query_params['maximum_items']) ? (int) $query_params['maximum_items'] : 4;
+
+        $query_args = [
             'post_type' => 'post',
             'tax_query' => [
                 [
@@ -27,17 +47,39 @@ class PPS_Post_List_Box_Preview {
                     'terms' => $series_id,
                 ],
             ],
-            'posts_per_page' => 4,
-            'orderby' => 'date',
-            'order' => 'DESC'
-        ]);
+            'posts_per_page' => $maximum_items,
+            'orderby' => $orderby,
+            'order' => $order,
+        ];
 
-        // If no posts found, create sample posts
-        if (empty($posts)) {
-            return self::get_sample_posts();
+        /**
+         * Filter WP_Query args for post list box admin preview.
+         *
+         * @param array $query_args   Preview query args for get_posts().
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         * @param array $query_params Normalized preview query params.
+         */
+        $query_args = apply_filters('pps_post_list_box_preview_query_args', $query_args, $settings, $series_id, $query_params);
+
+        $posts = get_posts($query_args);
+
+        /**
+         * Filter retrieved posts for post list box admin preview.
+         *
+         * @param array $posts        Posts retrieved for preview.
+         * @param array $settings     Layout settings.
+         * @param int   $series_id    Series term ID.
+         * @param array $query_params Normalized preview query params.
+         */
+        $posts = apply_filters('pps_post_list_box_preview_posts', $posts, $settings, $series_id, $query_params);
+
+        if (!empty($posts)) {
+            return $posts;
         }
 
-        return $posts;
+        // If no posts found, create sample posts
+        return self::get_sample_posts();
     }
 
     /**
@@ -243,6 +285,36 @@ class PPS_Post_List_Box_Preview {
     }
 
     /**
+     * Get normalized order number position.
+     *
+     * @param array $settings Layout settings.
+     * @return string
+     */
+    private static function get_series_order_number_position($settings)
+    {
+        $position = isset($settings['series_order_number_position']) ? sanitize_text_field($settings['series_order_number_position']) : 'before_title';
+        return in_array($position, ['before_title', 'after_title'], true) ? $position : 'before_title';
+    }
+
+    /**
+     * Build title number token.
+     *
+     * @param array $settings Layout settings.
+     * @param int   $index    Zero-based post index.
+     * @return string
+     */
+    private static function get_series_order_number_html($settings, $index)
+    {
+        if (empty($settings['show_series_order_number'])) {
+            return '';
+        }
+
+        $number = (int) $index + 1;
+
+        return '<span class="pps-post-order-number">(' . esc_html((string) $number) . ')</span>';
+    }
+
+    /**
      * Render preview content based on settings
      *
      * @param array $settings
@@ -281,7 +353,19 @@ class PPS_Post_List_Box_Preview {
             if (!empty($title_text)) {
                 $title_html_tag = isset($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
                 $title_styles = self::get_title_styles($settings);
-                echo '<' . esc_attr($title_html_tag) . ' class="pps-post-list-title"' . $title_styles . '>' . esc_html($title_text) . '</' . esc_attr($title_html_tag) . '>';
+                $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
+                $series_link = '';
+                if ($link_title_to_series) {
+                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts_to_render);
+                }
+
+                echo '<' . esc_attr($title_html_tag) . ' class="pps-post-list-title"' . $title_styles . '>';
+                if (!empty($series_link)) {
+                    echo '<a href="' . esc_url($series_link) . '">' . esc_html($title_text) . '</a>';
+                } else {
+                    echo esc_html($title_text);
+                }
+                echo '</' . esc_attr($title_html_tag) . '>';
             }
         }
 
@@ -377,8 +461,20 @@ class PPS_Post_List_Box_Preview {
                 $title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px';
             }
             $post_title_styles = !empty($title_styles) ? ' style="' . implode('; ', $title_styles) . ';"' : '';
-            
-            echo '<h4 class="pps-post-title"' . $post_title_styles . '>' . esc_html(isset($post->post_title) ? $post->post_title : '') . '</h4>';
+
+            $order_number_html = self::get_series_order_number_html($settings, $index);
+            $order_number_position = self::get_series_order_number_position($settings);
+            $post_title_text = esc_html(isset($post->post_title) ? $post->post_title : '');
+
+            echo '<h4 class="pps-post-title"' . $post_title_styles . '>';
+            if ($order_number_html && $order_number_position === 'before_title') {
+                echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            echo $post_title_text;
+            if ($order_number_html && $order_number_position === 'after_title') {
+                echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            echo '</h4>';
         }
 
         // Excerpt

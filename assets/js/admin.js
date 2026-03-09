@@ -40,6 +40,182 @@
     }
 
     // -------------------------------------------------------------
+    //   Token sidebar: only show when "Custom Template" is selected
+    // -------------------------------------------------------------
+    function updateTokenSidebar() {
+      var $sidebar = $('#ppseries-token-sidebar');
+      if (!$sidebar.length) return;
+
+      // Find the currently visible tab's layout select
+      var $activeSelect = $('.ppseries-settings-tab-content:not(.ppseries-hide-content) .ppseries-layout-select');
+
+      if ($activeSelect.length) {
+        // Custom Template = empty value
+        var isCustom = $activeSelect.val() === '';
+        if (isCustom) {
+          $sidebar.show();
+        } else {
+          $sidebar.hide();
+        }
+      } else {
+        // Legacy tab has no layout dropdown, so keep token sidebar visible.
+        $sidebar.show();
+      }
+    }
+
+    $(document).on('click', '.ppseries-settings-tab .nav-tab', function() {
+      setTimeout(updateTokenSidebar, 50);
+    });
+
+    $(document).on('change', '.ppseries-layout-select', function() {
+      updateTokenSidebar();
+    });
+
+    // Initial state
+    setTimeout(updateTokenSidebar, 100);
+
+    // -------------------------------------------------------------
+    //   Real-time "Edit this box/layout" link for layout selects
+    // -------------------------------------------------------------
+    function updateEditLink($select) {
+      var $wrap  = $select.siblings('.ppseries-edit-link-wrap');
+      var $link  = $wrap.find('.ppseries-edit-link');
+      var $opt   = $select.find('option:selected');
+      var url    = $opt.data('edit-url');
+      var label  = $select.data('edit-label') || 'Edit';
+
+      if (url) {
+        $link.attr('href', url).text(label + ' \u2192');
+        $wrap.show();
+      } else {
+        $wrap.hide();
+      }
+    }
+
+    function bindEditLinks() {
+      $('.ppseries-layout-select').each(function() {
+        var $sel = $(this);
+        updateEditLink($sel);
+        $sel.off('change.editlink').on('change.editlink', function() {
+          updateEditLink($sel);
+        });
+      });
+    }
+
+    // -------------------------------------------------------------
+    //   AJAX lazy-load layout select options
+    // -------------------------------------------------------------
+    var layoutSelectLoaded = {};
+
+    function loadLayoutSelect($select, callback) {
+      var postType = $select.data('post-type');
+      if (!postType || layoutSelectLoaded[postType]) {
+        if (callback) callback();
+        return;
+      }
+
+      var settings = window.ppseriesSettings || {};
+      var savedKey = $select.data('saved-key');
+      var savedVal = settings.saved && savedKey ? parseInt(settings.saved[savedKey], 10) || 0 : 0;
+
+      $.ajax({
+        url: settings.ajaxUrl,
+        data: {
+          action: 'ppseries_get_layout_options',
+          nonce: settings.nonce,
+          post_type: postType
+        },
+        dataType: 'json',
+        success: function(response) {
+          if (!response.success) return;
+
+          $select.empty();
+          $select.append('<option value="">Custom Template</option>');
+
+          $.each(response.data, function(i, item) {
+            var $opt = $('<option></option>')
+              .val(item.id)
+              .text(item.title)
+              .attr('data-edit-url', item.edit_url || '');
+
+            if (item.id === savedVal) {
+              $opt.prop('selected', true);
+            }
+            $select.append($opt);
+          });
+
+          layoutSelectLoaded[postType] = true;
+
+          // Re-bind everything after options are loaded
+          updateEditLink($select);
+          $select.trigger('change');
+          if (callback) callback();
+        }
+      });
+    }
+
+    // Load all layout selects immediately
+    $('.ppseries-layout-select[data-post-type]').each(function() {
+      var $sel = $(this);
+      loadLayoutSelect($sel, function() {
+        bindEditLinks();
+        updateTokenSidebar();
+      });
+    });
+
+    // -------------------------------------------------------------
+    //   Checkbox → disable selection + dependent rows (all tabs)
+    // -------------------------------------------------------------
+    function bindToggleCheckbox(checkboxId, selectionId, dependentRows) {
+      var $checkbox  = $('#' + checkboxId);
+      var $selection = $('#' + selectionId);
+      var $selectionRow = $selection.closest('tr');
+      var $rows = $(dependentRows);
+
+      function apply() {
+        var enabled = $checkbox.is(':checked');
+        $selection.prop('disabled', !enabled);
+        var $fallbackUnpublishedRow = $('#series_post_list_unpublished_post_template').closest('tr');
+        if (enabled) {
+          $selectionRow.css('opacity', '');
+        } else {
+          $selectionRow.css('opacity', '0.5');
+          $rows.hide();
+          if ($fallbackUnpublishedRow.length) {
+            $fallbackUnpublishedRow.hide();
+          }
+        }
+      }
+
+      if ($checkbox.length && $selection.length) {
+        apply();
+        $checkbox.on('change', function() {
+          apply();
+          // Re-run the selection toggle so template rows show/hide correctly
+          $selection.trigger('change');
+        });
+      }
+    }
+
+    bindToggleCheckbox(
+      'auto_tag_toggle',
+      'series_post_list_box_selection',
+      '#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_unpublished_post, #series_post_list_currentpost_row'
+    );
+
+    bindToggleCheckbox(
+      'auto_tag_seriesmeta_toggle',
+      'series_post_details_selection',
+      '#series_metabox_position_row, #series_meta_template_row, #series_meta_excerpt_template_row, #limit_series_meta_to_single_row'
+    );
+
+    bindToggleCheckbox(
+      'auto_tag_nav_toggle',
+      'series_post_navigation_selection',
+      '#series_post_nav_template_row, #series_navigation_box_position_row, #series_nextpost_nav_custom_text_row, #series_prevpost_nav_custom_text_row, #series_firstpost_nav_custom_text_row'
+    );
+
+    // -------------------------------------------------------------
     //   Series Post Details selection enhancement
     // -------------------------------------------------------------
     function toggleSeriesPostDetailsLegacyFields() {
@@ -55,18 +231,11 @@
 
     function toggleSeriesPostDetailsTemplateFields() {
       var selectedValue = $('#series_post_details_selection').val();
+      var templateRows = $('#series_meta_template_row, #series_meta_excerpt_template_row, #limit_series_meta_to_single_row, #series_metabox_position_row');
       if (selectedValue && selectedValue !== '') {
-        // Hide template fields when a Series Post Details is selected
-        $('#series_meta_template_row').hide();
-        $('#series_meta_excerpt_template_row').hide();
-        $('#limit_series_meta_to_single_row').hide();
-        $('#series_metabox_position_row').hide();
+        templateRows.hide();
       } else {
-        // Show template fields when "Custom Template" is selected
-        $('#series_meta_template_row').show();
-        $('#series_meta_excerpt_template_row').show();
-        $('#limit_series_meta_to_single_row').show();
-        $('#series_metabox_position_row').show();
+        templateRows.show();
       }
     }
 
@@ -119,7 +288,7 @@
     if (pp_series_activetab !== '' && $(pp_series_activetab+'-series-tab').length) {
         $(pp_series_activetab+'-series-tab').trigger('click');
     } else {
-        $('#series_automation_settings-series-tab').trigger('click');
+        $('#series_post_list_box_settings-series-tab').trigger('click');
     }
 
     // -------------------------------------------------------------
@@ -132,14 +301,23 @@
     // -------------------------------------------------------------
     //   Post List Box selection enhancement
     // -------------------------------------------------------------
+    function getPostListLegacyTemplateRows() {
+      var $rows = $('#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_unpublished_post, #series_post_list_currentpost_row');
+      var $unpublishedRowFallback = $('#series_post_list_unpublished_post_template').closest('tr');
+      if ($unpublishedRowFallback.length) {
+        $rows = $rows.add($unpublishedRowFallback);
+      }
+      return $rows;
+    }
+
     function toggleTemplateField() {
       var selectedValue = $('#series_post_list_box_selection').val();
-      var legacyTemplateSettings = $('#series_post_list_template, #series_post_list_post_linked_post, #series_post_list_unpublished_post, #series_post_list_currentpost');
+      var legacyTemplateSettings = getPostListLegacyTemplateRows();
 
       if (selectedValue && selectedValue !== '') {
-        legacyTemplateSettings.fadeOut(300);
+        legacyTemplateSettings.hide();
       } else {
-        legacyTemplateSettings.fadeIn(300);
+        legacyTemplateSettings.show();
       }
     }
 
@@ -158,14 +336,12 @@
     // -------------------------------------------------------------
     function togglePostNavigationCustomFields() {
       var selectedValue = $('#series_post_navigation_selection').val();
-      var legacyNavRows = $('#series_post_nav_template_row, #series_navigation_box_position_row, #series_nextpost_nav_custom_text_row, #series_prevpost_nav_custom_text_row, #series_firstpost_nav_custom_text_row');
+      var templateRows = $('#series_post_nav_template_row, #series_navigation_box_position_row, #series_nextpost_nav_custom_text_row, #series_prevpost_nav_custom_text_row, #series_firstpost_nav_custom_text_row');
 
       if (selectedValue && selectedValue !== '') {
-        // A layout is selected - hide the custom template fields
-        legacyNavRows.fadeOut(300);
+        templateRows.hide();
       } else {
-        // Custom Template selected - show the fields
-        legacyNavRows.fadeIn(300);
+        templateRows.show();
       }
     }
 
