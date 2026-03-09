@@ -175,11 +175,15 @@
       function apply() {
         var enabled = $checkbox.is(':checked');
         $selection.prop('disabled', !enabled);
+        var $fallbackUnpublishedRow = $('#series_post_list_unpublished_post_template').closest('tr');
         if (enabled) {
           $selectionRow.css('opacity', '');
         } else {
           $selectionRow.css('opacity', '0.5');
           $rows.hide();
+          if ($fallbackUnpublishedRow.length) {
+            $fallbackUnpublishedRow.hide();
+          }
         }
       }
 
@@ -196,7 +200,7 @@
     bindToggleCheckbox(
       'auto_tag_toggle',
       'series_post_list_box_selection',
-      '#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_currentpost_row'
+      '#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_unpublished_post, #series_post_list_currentpost_row'
     );
 
     bindToggleCheckbox(
@@ -297,9 +301,18 @@
     // -------------------------------------------------------------
     //   Post List Box selection enhancement
     // -------------------------------------------------------------
+    function getPostListLegacyTemplateRows() {
+      var $rows = $('#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_unpublished_post, #series_post_list_currentpost_row');
+      var $unpublishedRowFallback = $('#series_post_list_unpublished_post_template').closest('tr');
+      if ($unpublishedRowFallback.length) {
+        $rows = $rows.add($unpublishedRowFallback);
+      }
+      return $rows;
+    }
+
     function toggleTemplateField() {
       var selectedValue = $('#series_post_list_box_selection').val();
-      var legacyTemplateSettings = $('#series_post_list_position_row, #series_post_list_template_row, #series_post_list_post_linked_post_row, #series_post_list_currentpost_row');
+      var legacyTemplateSettings = getPostListLegacyTemplateRows();
 
       if (selectedValue && selectedValue !== '') {
         legacyTemplateSettings.hide();

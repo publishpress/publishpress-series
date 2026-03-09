@@ -6,13 +6,15 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: none\n"
+"Language-Team: Russian "
+"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
+"series/ru/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
-"PO-Revision-Date: 2026-02-27 13:43+0000\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
+"PO-Revision-Date: 2026-03-09 13:55+0000\n"
+"X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
@@ -102,7 +104,7 @@ msgstr "Удалить все данные \"Категории серий\" и�
 #: orgSeries-admin.php:491
 #: orgSeries-admin.php:571
 #: orgSeries-options.php:55
-#: orgSeries-setup.php:254
+#: orgSeries-setup.php:268
 #: orgSeries-taxonomy.php:381
 #: orgSeries-widgets.php:233
 #: orgSeries-widgets.php:386
@@ -115,14 +117,6 @@ msgstr[2] "Серий"
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "Нажмите, чтобы переключить"
-
-#: addons/grouping/legacy-includes.php:812
-msgid "[more]"
-msgstr "[больше]"
-
-#: addons/grouping/legacy-includes.php:813
-msgid "[less]"
-msgstr "[меньше]"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
 msgid "Series in this category"
@@ -304,7 +298,7 @@ msgid "Meta Box Position"
 msgstr "Позиция мета-бокса"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:511
+#: addons/post-list-box/classes/PostListBoxFields.php:535
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -312,7 +306,7 @@ msgid "Top"
 msgstr "Верх"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:512
+#: addons/post-list-box/classes/PostListBoxFields.php:536
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -425,7 +419,7 @@ msgstr "Детали поста серии"
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
-#: orgSeries-setup.php:194
+#: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Добавить новый"
 
@@ -586,148 +580,172 @@ msgid "Show Post Titles"
 msgstr "Показать заголовки постов"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Номер заказа серии"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Показать номер заказа серии рядом с каждым заголовком поста."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Позиция номера заказа серии"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Перед заголовком"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "После заголовка"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Выберите, где появляется номер заказа относительно заголовка."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Post Title Color"
 msgstr "Цвет заголовка поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:259
+#: addons/post-list-box/classes/PostListBoxFields.php:283
 msgid "Post Title Font Size (px)"
 msgstr "Размер шрифта заголовка поста (пиксели)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:270
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Show Post Excerpt"
 msgstr "Показать отрывок поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:278
+#: addons/post-list-box/classes/PostListBoxFields.php:302
 msgid "Excerpt Length (words)"
 msgstr "Длина отрывка (слов)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:290
+#: addons/post-list-box/classes/PostListBoxFields.php:314
 msgid "Excerpt Color"
 msgstr "Цвет отрывка"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:300
+#: addons/post-list-box/classes/PostListBoxFields.php:324
 msgid "Show Post Author"
 msgstr "Показать автора поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:308
+#: addons/post-list-box/classes/PostListBoxFields.php:332
 msgid "Post Author Color"
 msgstr "Цвет автора поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:318
+#: addons/post-list-box/classes/PostListBoxFields.php:342
 msgid "Show Post Date"
 msgstr "Показать дату поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:326
+#: addons/post-list-box/classes/PostListBoxFields.php:350
 msgid "Post Date Color"
 msgstr "Цвет даты поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:347
+#: addons/post-list-box/classes/PostListBoxFields.php:371
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "Показать изображение записи"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Featured Image Width (px)"
 msgstr "Ширина изображения записи (пиксели)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:361
+#: addons/post-list-box/classes/PostListBoxFields.php:385
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "Ширина изображения записи в пикселях"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:366
+#: addons/post-list-box/classes/PostListBoxFields.php:390
 msgid "Featured Image Height (px)"
 msgstr "Высота изображения записи (пиксели)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:373
+#: addons/post-list-box/classes/PostListBoxFields.php:397
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "Высота изображения записи в пикселях"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:402
 msgid "Fallback Featured Image"
 msgstr "Резервное изображение записи"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:383
+#: addons/post-list-box/classes/PostListBoxFields.php:407
 msgid "Image to display when a post does not have a featured image"
 msgstr "Изображение для отображения, если у поста нет изображения записи"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:400
+#: addons/post-list-box/classes/PostListBoxFields.php:424
 msgid "Post Padding (px)"
 msgstr "Отступ записи (пиксели)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:409
+#: addons/post-list-box/classes/PostListBoxFields.php:433
 msgid "Post Border Width (px)"
 msgstr "Ширина границы записи (пиксели)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:418
+#: addons/post-list-box/classes/PostListBoxFields.php:442
 msgid "Post Border Color"
 msgstr "Цвет границы записи"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:425
+#: addons/post-list-box/classes/PostListBoxFields.php:449
 msgid "Post Background Color"
 msgstr "Цвет фона поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:430
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Background color for the post list container"
 msgstr "Цвет фона для контейнера списка постов"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:444
+#: addons/post-list-box/classes/PostListBoxFields.php:468
 msgid "Layout Style"
 msgstr "Стиль макета"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:448
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Список"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:473
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "Сетка"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:456
+#: addons/post-list-box/classes/PostListBoxFields.php:480
 msgid "Columns"
 msgstr "Колонки"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:460
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "2 Columns"
 msgstr "2 колонки"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:461
+#: addons/post-list-box/classes/PostListBoxFields.php:485
 msgid "3 Columns"
 msgstr "3 Колонки"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:462
+#: addons/post-list-box/classes/PostListBoxFields.php:486
 msgid "4 Columns"
 msgstr "4 Колонки"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "6 Columns"
 msgstr "6 Колонок"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:496
 msgid "Order By"
 msgstr "Сортировать по"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:476
+#: addons/post-list-box/classes/PostListBoxFields.php:500
 msgid "Date"
 msgstr "Дата"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:477
+#: addons/post-list-box/classes/PostListBoxFields.php:501
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Заголовок"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:478
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826
@@ -737,41 +755,41 @@ msgstr "Заголовок"
 msgid "Series Order"
 msgstr "Порядок Серии"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:509
 #: orgSeries-manage.php:51
 #: orgSeries-manage.php:227
 msgid "Order"
 msgstr "Порядок"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:489
+#: addons/post-list-box/classes/PostListBoxFields.php:513
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "По возрастанию"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:490
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
 msgstr "По убыванию"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:497
+#: addons/post-list-box/classes/PostListBoxFields.php:521
 msgid "Gap Between Items (px)"
 msgstr "Промежуток между элементами (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:507
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 msgid "Post List Box Location"
 msgstr "Расположение списка постов"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:540
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Выберите, где отображать список постов относительно содержания"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:520
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "Maximum number of items"
 msgstr "Максимальное количество элементов"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:550
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -780,23 +798,23 @@ msgstr ""
 "для отсутствия ограничений. Предварительный просмотр администратора "
 "ограничен 4 постами."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:541
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 msgid "Highlight Current Post"
 msgstr "Выделить текущий пост"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:546
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "Выделить текущий пост при просмотре конкретного поста серии"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:549
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 msgid "Current Post Background Color"
 msgstr "Цвет фона текущего поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:556
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid "Current Post Border Color"
 msgstr "Цвет границы текущего поста"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:563
+#: addons/post-list-box/classes/PostListBoxFields.php:587
 msgid "Current Post Text Color"
 msgstr "Цвет текста текущего поста"
 
@@ -992,7 +1010,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Это пример аннотации для поста %d в серии."
 
-#: addons/post-list-box/includes/class-preview.php:450
+#: addons/post-list-box/includes/class-preview.php:492
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1923,43 +1941,43 @@ msgid "Series order sync completed. %d posts updated."
 msgstr "Синхронизация порядка серий завершена. Обновлено %d постов."
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:247
+#: orgSeries-setup.php:261
 msgid "Search Series"
 msgstr "Поиск серий"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:248
+#: orgSeries-setup.php:262
 msgid "Popular Series"
 msgstr "Популярные серии"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:249
-#: orgSeries-setup.php:303
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
 msgid "All Series"
 msgstr "Все серии"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:250
+#: orgSeries-setup.php:264
 msgid "Edit Series"
 msgstr "Редактировать серию"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:251
+#: orgSeries-setup.php:265
 msgid "Update Series"
 msgstr "Обновить серию"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:252
+#: orgSeries-setup.php:266
 msgid "Add New Series"
 msgstr "Добавить новую серию"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:253
+#: orgSeries-setup.php:267
 msgid "New Series Name"
 msgstr "Название новой серии"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:255
+#: orgSeries-setup.php:269
 msgid "No series found"
 msgstr "Серии не найдены"
 
@@ -2136,7 +2154,7 @@ msgstr "Метод сортировки серий"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:473
+#: orgSeries-setup.php:487
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Содержание серий"
@@ -2667,7 +2685,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Нет номера детали)"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:258
+#: orgSeries-setup.php:272
 msgid "No Series"
 msgstr "Нет Серий"
 
@@ -2750,7 +2768,7 @@ msgstr "Успешно обновлено"
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:874
 msgid "Settings"
 msgstr "Настройки"
 
@@ -2778,39 +2796,39 @@ msgstr "Премиум функции"
 msgid "Advanced"
 msgstr "Дополнительно"
 
-#: orgSeries-setup.php:195
+#: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "Выберите \"Не часть серии\", чтобы удалить данные серии из поста"
 
-#: orgSeries-setup.php:256
+#: orgSeries-setup.php:270
 msgid "&larr; Go to Series"
 msgstr "&larr; Перейти к серии"
 
-#: orgSeries-setup.php:257
+#: orgSeries-setup.php:271
 msgid "View Series"
 msgstr "Просмотреть серию"
 
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:273
 msgid "Series List"
 msgstr "Список серий"
 
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:274
 msgid "Series Link"
 msgstr "Ссылка на серию"
 
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:275
 msgid "A link to a Series"
 msgstr "Ссылка на серию"
 
-#: orgSeries-setup.php:315
+#: orgSeries-setup.php:329
 msgid "Series Navigation"
 msgstr "Навигация по сериям"
 
-#: orgSeries-setup.php:846
+#: orgSeries-setup.php:860
 msgid "Series: "
 msgstr "Серия: "
 
-#: orgSeries-setup.php:848
+#: orgSeries-setup.php:862
 msgid "Posts from the series: "
 msgstr "Посты из серии: "
 
@@ -3162,7 +3180,7 @@ msgid "Series Categories"
 msgstr "Категории серий"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
+#: orgSeries-setup.php:259
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Серия"
@@ -3173,7 +3191,7 @@ msgid "Series Category"
 msgstr "Категория серии"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
+#: orgSeries-setup.php:260
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Серия"
@@ -3196,8 +3214,8 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-setup.php:309
-#: orgSeries-setup.php:310
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "

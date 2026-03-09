@@ -1,88 +1,828 @@
-# Copyright (C) 2026 PublishPress
-# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Series 3.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/publishpress-"
-"series\n"
-"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: it\n"
+"Project-Id-Version: Plugins - PublishPress Series: Issues for Newspapers, Magazines, Publishers, Writers - Stable (latest release)\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-07 08:08+0000\n"
+"PO-Revision-Date: 2026-02-16 18:04+0100\n"
+"Language: it_IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: organize-series\n"
+"X-Generator: Poedit 3.7\n"
 
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#: orgSeries.php
-msgid "PublishPress Series"
-msgstr ""
+#: src/domain/exceptions/InvalidEntityException.php:29
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s non è un'entità valida (previsto: %2$s)."
 
-#. Plugin URI of the plugin
-#: orgSeries.php
-msgid "https://publishpress.com/publishpress-series/"
-msgstr ""
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s serie sono state migrate nella nuova tassonomia"
 
-#. Description of the plugin
-#: orgSeries.php
-msgid "PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic."
-msgstr ""
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s non esiste o non è raggiungibile."
 
-#. Author of the plugin
-#: orgSeries.php
-msgid "PublishPress"
-msgstr ""
+#: orgSeries-setup.php:270
+msgid "&larr; Go to Series"
+msgstr "&larr; vai alla serie"
 
-#. Author URI of the plugin
-#: orgSeries.php
-msgid "https://publishpress.com/"
-msgstr ""
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(Attualmente non ha un numero di parti)"
 
-#: addons/grouping/legacy-includes.php:278
-msgctxt "taxonomy general name"
-msgid "Series Categories"
-msgstr ""
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Senza numero di parte)"
 
-#: addons/grouping/legacy-includes.php:279
-msgctxt "taxonomy singular name"
-msgid "Series Category"
-msgstr ""
+#: orgSeries-admin.php:519
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Senza numero di parte)"
 
-#: addons/grouping/legacy-includes.php:280
-msgid "Search Series Categories"
-msgstr ""
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Parte %1$s di %2$s)"
 
-#: addons/grouping/legacy-includes.php:281
-msgid "Popular Series Categories"
-msgstr ""
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Serie</a>"
+
+#: orgSeries-setup.php:275
+msgid "A link to a Series"
+msgstr "Un link alla serie"
+
+#: orgSeries-admin.php:445
+msgid "A short title of this post that will be used in the Series widget. Leave blank to use the full title."
+msgstr "Un titolo breve di questo articolo da usare el widget Serie. Lascia vuoto per usare il titolo completo."
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "Chi siamo"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "Informazioni su PublishPress Series"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "Attiva la licenza"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "Aggiungi nuova"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:266
+msgid "Add New Series"
+msgstr "Aggiungi nuova serie"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "Aggiungi una nuova categoria alla serie"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "Aggiungi una nuova serie."
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "Avanzate"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "Tutte le categorie"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
+msgid "All Series"
+msgstr "Tutte le serie"
 
 #: addons/grouping/legacy-includes.php:282
 #: addons/grouping/legacy-includes.php:786
 msgid "All Series Categories"
-msgstr ""
+msgstr "Tutte le categorie della serie"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "Tutte le serie che ho scritto"
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Consenti l'utilizzo di tipi di contenuto personalizzati con PublishPress Series."
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "Html consentito"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "Permette agli autori di aggiungere articoli a più di una serie."
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "Alfabetico a-z"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "Alfabetico z-a"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "Si è verificato un errore"
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "Si è verificato un errore, riprova."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "Come da template"
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "Cresc: "
+
+#: addons/post-list-box/classes/PostListBoxFields.php:513
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "Crescente"
+
+#: addons/post-list-box/includes/class-preview.php:492
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "Autore"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "Auto/Nessuna"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:536
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "In basso"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "Categorie"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Scegli il design per la pagina della tassonomia dove viene visualizzata la serie."
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid "Choosing a layout different to \"Default\" will override the taxonomy template from your theme. <a href=\"%s\" target=\"_blank\">Click here for details on how to customize these designs</a>."
+msgstr "La scelta di un layout diverso da \"Predefinito\" sovrascriverà il modello di tassonomia del tuo tema. <a href=\"%s\" target=\"_blank\">Fai clic qui per i dettagli su come personalizzare questo design</a>."
+
+#: inc/settings/settings-page.php:308
+msgid "Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return."
+msgstr "Facendo clic su Sì, le opzioni verranno ripristinate ai valori predefiniti e perderai tutte le personalizzazioni. Oppure puoi fare clic su Annulla e ritorna."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
+msgid "Columns:"
+msgstr "Colonne:"
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "I tuoi articoli sono stati pubblicati con successo."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "I tuoi articoli sono stati programmati con successo."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "Complimenti. L'ordinamento della tua serie è stato aggiornato con successo."
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "Contatto"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "Contatta il team di PublishPress"
+
+#: orgSeries-widgets.php:300
+msgid "count"
+msgstr "conteggio"
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "Creati come non pubblicati:"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "Parte attuale"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "Serie corrente"
+
+#: orgSeries-manage.php:240
+msgid "Current series icon:"
+msgstr "Icona della serie corrente:"
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Compatibilità con i tipi di contenuto personalizzati"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "Disattiva la licenza"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "Predefinito"
+
+#: inc/settings/tab-metabox.php:26
+msgid "Default Series Order"
+msgstr "Ordine serie predefinito"
+
+#: addons/grouping/legacy-includes.php:627
+msgid "Delete all \"Series Categories\" data from the database when deleting the plugin."
+msgstr "Elimina dal database tutti i dati delle \"Categorie delle serie\" quando si elimina il plugin."
+
+#: inc/settings/tab-advanced.php:40
+msgid "Delete all PublishPress Series data from the database when deleting this plugin."
+msgstr "Elimina dal database tutti i dati di PublishPress Series quando questo plugin viene eliminato."
+
+#: orgSeries-manage.php:256
+msgid "Delete image? (note: there will not be an image associated with this series if you select this)"
+msgstr "Eliminare l'immagine? (nota: se selezioni questa opzione questa serie non avrà un'immagine associata)"
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "Decr: "
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "Decrescente"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Una documentazione dettagliata è disponibile anche sul sito del plugin."
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "Visualizzazione"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "Ordine di visualizzazione: "
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "Visualizzare la navigazione della serie?"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "Documentazione"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid "Drag the post names into the order you want them to be in the series, from the first part to the last part."
+msgstr "Trascina il nome degli articoli come che vuoi appaiano nella serie, nell'ordine dal primo all'ultimo."
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "A discesa:"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "Modifica"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:264
+msgid "Edit Series"
+msgstr "Modifica serie"
 
 #: addons/grouping/legacy-includes.php:283
 msgid "Edit Series Category"
-msgstr ""
+msgstr "Modifica le categorie della serie"
 
-#: addons/grouping/legacy-includes.php:284
-msgid "Update Series Category"
-msgstr ""
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "Modifica lo stato di %1$s"
 
-#: addons/grouping/legacy-includes.php:285
-msgid "Add New Series Category"
-msgstr ""
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "Abilita PublishPress Series per i tipi di contenuto personalizzati."
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "Inserisci la tua chiave di licenza: "
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "Escludi la serie:"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "Token extra"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "Filtro"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "Vista frontale"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:473
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "Griglia"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "Nascondi le serie vuote:"
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "Vuoi nascondere le serie senza articoli?"
+
+#: orgSeries-admin.php:236
+msgid "Hmm... it looks like there is already a series with that name. Try something else"
+msgstr "Hmm... sembra che ci sia già una serie con questo nome. Prova qualcos'altro"
+
+#. Author URI of the plugin
+#: orgSeries.php, fuzzy
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#. Plugin URI of the plugin
+#: orgSeries.php, fuzzy
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries-manage.php:196, fuzzy
+msgid "ID"
+msgstr "ID"
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "Se l'articolo ha un'immagine in evidenza, questa verrà visualizzata"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "Se sei soddisfatto di %s, lasciaci una valutazione di %s!"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Se ti serve aiuto o vuoi fare una richiesta di nuove funzionalità, faccelo sapere."
+
+#: inc/settings/tab-advanced.php:56
+msgid "In version 2.11.4, PublishPress Series made changes to how series are stored. You can run the upgrade task here if you're having issues with series parts."
+msgstr "Nella versione 2.11.4, PublishPress Series ha apportato delle modifiche al metodo di memorizzazione delle serie. Puoi avviare qui l'aggiornamento se stai avendo dei problemi con le parti delle serie."
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "Includi la serie:"
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "Dati modulo non validi"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "Nonce non valido, ricarica e riprova"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "Tassonomia non valida"
+
+#: inc/settings/settings-page.php:116
+msgid "Is the location token for where the contents of the post list post templates will appear and use provided widget post short title."
+msgstr "È il token di posizione per dove apparirà il contenuto dei template di articoli dell'elenco degli articoli e usa il titolo breve dell'articolo del widget fornito."
+
+#: inc/settings/settings-page.php:108
+msgid "Is the location token for where the contents of the post list post templates will appear."
+msgstr "È il token di posizione in cui verranno visualizzati i contenuti dei template degli articoli dell'elenco di articoli."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "Ultime serie"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "Ultima serie (inner tag):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "Ultima serie (tag after):"
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "Ultima serie (tag before):"
+
+#: inc/settings/tab-legacy.php:66, fuzzy
+msgid "Layout:"
+msgstr "Layout:"
+
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "Questa voce fa parte %series_part% di %total_posts_in_series% nella serie "
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "Chiave della licenza per %1$s"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "Chiave della licenza attivata con successo."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "Chiave della licenza disattivata con successo."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "Elenco"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "Elenco:"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "Gestisci tutte le serie"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "Gestione delle serie"
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "Gestisci le uscite della serie"
+
+#: orgSeries-options.php:143, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "Metabox dell'ordine serie"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "Serie più recenti"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "Serie multiple"
+
+#: orgSeries-widgets.php:299
+msgid "name"
+msgstr "nome"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "Nome della serie"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "Hai bisogno del supporto di PublishPress Series?"
 
 #: addons/grouping/legacy-includes.php:286
 msgid "New Series Category"
-msgstr ""
+msgstr "Nuova categoria della serie"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:267
+msgid "New Series Name"
+msgstr "Nome nuova serie"
+
+#: inc/settings/settings-page.php:309, fuzzy
+msgid "No"
+msgstr "No"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "Nessuna icona attualmente"
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "Senza numero di parti"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:272
+msgid "No Series"
+msgstr "Nessuna serie"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:269
+msgid "No series found"
+msgstr "Nessuna serie trovata"
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Nonce fallito."
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "Autorizzazioni insufficienti"
+
+#: orgSeries-admin.php:359
+msgid "Not part of a series"
+msgstr "Non fa parte di una serie"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "Numero di elementi per pagina"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "Numero di articoli nella serie"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "Numero di serie da visualizzare:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "Numero della serie:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "Offset"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:509
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "Ordine"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "Ordina per data"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "Ordina per:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "Ordina serie per:"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "Ordinamento:"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "Altri articoli della serie:"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "Panoramica"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "Parte:"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "Autorizzazione negata"
+
+#: inc/settings/tab-advanced.php:16
+msgid "Please change these settings carefully as they make significant changes to PublishPress Series."
+msgstr "Fai attenzione nel modificare queste impostazioni perché apportano dei cambiamenti importanti a PublishPress Series."
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "Aggiorna i tuoi dati di PublishPress Series"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:262
+msgid "Popular Series"
+msgstr "Serie popolari"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "Categorie popolari della serie"
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "L'articolo è stato spostato nel cestino."
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "Titolo dell'articolo nel widget:"
+
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Tipi di contenuto"
+
+#: orgSeries-setup.php:862
+msgid "Posts from the series: "
+msgstr "Articoli della serie: "
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "Anteprima"
+
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Caratteristiche Pro"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Fornisce dei token aggiuntivi per personalizzare l'output delle informazioni della serie."
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "Fornisce gli shortcode per visualizzare le informazioni della serie."
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "Data/ora della pubblicazione:"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "Pubblica o programma gli articoli"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "Pubblica la serie"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "Pubblica gli aticoli non pubblicati"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "Serie editoriale:"
+
+#. Author of the plugin
+#: orgSeries.php, fuzzy
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#. Plugin Name of the plugin
+#: orgSeries.php, fuzzy
+msgid "PublishPress Series"
+msgstr "PublishPress Series"
+
+#. Description of the plugin
+#: orgSeries.php
+msgid "PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic."
+msgstr "PublishPress Series ti consente di raggruppare i contenuti in una serie. Questo è ideale per riviste, quotidiani, scrittori di novelle, insegnanti, artisti di fumetti e chiunque scriva diversi articoli sullo stesso argomento."
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "Documentazione di PublishPress Series"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "Opzioni PublishPress Series"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "Opzioni plugin PublishPress Series"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "Le opzioni del plugin PublishPress Series sono state reimpostate"
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "Le opzioni del plugin PublishPress Series sono state aggiornate"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "Casuale"
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "Richiedi assistenza"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "Reimposta le opzioni ai valori predefiniti"
+
+#: inc/settings/tab-advanced.php:83
+msgid "Reset settings"
+msgstr "Reimposta le impostazioni"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "Avvia l'aggiornamento"
+
+#: inc/settings/settings-page.php:76
+#, no-php-format,php-format
+msgid "Same as %series_icon% except that the series icon will be linked to the series page"
+msgstr "Uguale a %series_icon% tranne per il fatto che l'icona della serie sarà collegata alla pagina della serie"
+
+#: inc/settings/settings-page.php:100
+#, no-php-format,php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr "Uguale a %series_title% tranne per il fatto che sarà collegato anche alla pagina della serie"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "Cerca"
+
+#. translators: %s: search keywords
+#: addons/publisher/series_issue_manager.php:649
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Risultati della ricerca per &#8220;%s&#8221;"
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:261
+msgid "Search Series"
+msgstr "Cerca serie"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "Cerca serie"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "Cerca le categorie della serie"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "Cerca:"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr "Seleziona \"Non fa parte di una serie\" per rimuovere i dati della serie dall'articolo"
+
+#: addons/post-list-box/includes/class-admin-ui.php:674
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "Seleziona immagine"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "Seleziona serie"
+
+#: addons/grouping/legacy-includes.php:670
+#: addons/publisher/series_im_admin_main.php:7
+#: orgSeries-admin.php:478
+#: orgSeries-admin.php:491
+#: orgSeries-admin.php:571
+#: orgSeries-options.php:55
+#: orgSeries-setup.php:268
+#: orgSeries-taxonomy.php:381
+#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:386
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Serie"
+msgstr[1] ""
 
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
@@ -92,37 +832,612 @@ msgstr ""
 #: addons/grouping/legacy-includes.php:777
 #: addons/grouping/legacy-includes.php:811
 msgid "Series Categories"
-msgstr ""
+msgstr "Categorie della serie"
 
-#: addons/grouping/legacy-includes.php:627
-msgid "Delete all \"Series Categories\" data from the database when deleting the plugin."
-msgstr ""
+#: orgSeries-manage.php:261
+msgid "Series Icon Upload:"
+msgstr "Caricamento dell'icona della serie:"
 
-#: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:254
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:302
+msgid "series id"
+msgstr "id della serie"
+
+#: orgSeries-setup.php:274
+msgid "Series Link"
+msgstr "Link serie"
+
+#: orgSeries-setup.php:273
+msgid "Series List"
+msgstr "Elenco serie"
+
+#: orgSeries-setup.php:329
+msgid "Series Navigation"
+msgstr "Navigazione serie"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "Ordine della serie"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "Ordine della serie"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "Metodo di ordinamento serie"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "Ordine della serie:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "Parte di serie"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "Parte della serie:"
+
+#: inc/settings/tab-legacy.php:154
+msgid "Series Per Page:"
+msgstr "Serie per pagina:"
+
+#: inc/settings/tab-advanced.php:34
+msgid "Series Settings"
+msgstr "Impostazioni di Series"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "Slug della serie"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:487
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "Indice delle serie"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "Titolo indice della serie:"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "URL indice serie:"
+
+#: inc/settings/tab-taxonomy.php:28
+msgid "Series Taxonomy Slug:"
+msgstr "Slug della tassonomia della serie:"
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "Tassonomia serie:"
+
+#: inc/settings/tab-advanced.php:47
+msgid "Series Upgrade"
+msgstr "Aggiornamento serie"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "L'aggiornamento di Series è stato completato."
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "Titolo del widget della serie:"
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "Serie:"
+
+#: orgSeries-setup.php:860
+msgid "Series: "
+msgstr "Serie: "
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:874
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Shortcodes"
+msgstr "Shortcode"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "Mostra \"Aggiungi nuova\""
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "Mostra \"Titolo dell'articolo nel widget\""
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "Mostra gli altri articoli della serie corrente:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "Mostra conteggio articolo:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "Mostra l'indice della serie"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "Mostra l'indice della serie come:"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "Non hai il permesso per aggiungere delle serie"
+
+#: inc/templates/taxonomy-series.php:70
+msgid "Sorry, no results found."
+msgstr "Nessun risultato trovato."
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "Stati"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "Opzioni di stile"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "Tag"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Tassonomia"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:259
+msgctxt "taxonomy general name"
 msgid "Series"
-msgid_plural "Series"
-msgstr[0] ""
-msgstr[1] ""
+msgstr "Serie"
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Categorie della serie"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:260
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Serie"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Categoria della serie"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "Ordine dei termini"
+
+#: orgSeries-manage.php:233
+msgid "Terms are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field."
+msgstr "I termini sono solitamente ordinati in ordine alfabetico, ma è possibile scegliere un ordine personalizzato inserendo un numero (1 per il primo, ecc.) in questo campo."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid "The \"%1$s\" file is either missing or could not be read due to permissions. Please ensure that the following path is correct and verify that the file permissions are correct:%2$s %3$s"
+msgstr "Il file \"%1$s\" è mancante oppure non può essere letto per motivi di autorizzazioni. Assicurarti che il percorso seguente sia corretto e verifica che i permessi del file siano corretti:%2$s %3$s"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "Il %1$s ha già un parametro indicizzato con il nome: %2$s."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "Questo metodo %1$s può essere utilizzato solo per registrare un figlio di %2$s."
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "La data di pubblicazione dell'articolo"
+
+#: inc/settings/settings-page.php:63
+msgid "The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs."
+msgstr "Di seguito è riportata una legenda o tabella dei token disponibili per l'uso nei campi del template personalizzato. Questi verranno sostituiti con i valori appropriati quando viene eseguito il plugin."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "Il percorso del file specificato (%s) non è leggibile."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "Il valore in entrata per %1$s dovrebbe essere una chiusura. Non lo era."
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid "The layout and content of this widget can be adjusted via the <a href=\"%s\">Latest Series</a> area."
+msgstr "Il layout e il contenuto di questo widget possono essere regolati tramite l'area <a href=\"%s\">Serie più recente</a>."
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "Il nome che hai scelto non è strutturato correttamente. Prova qualcos'altro."
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid "The namespace for this manifest file has already been registered, choose a namespace other than %s"
+msgstr "Il namespace per questo file manifesto è già stato registrato, scegli un namespace diverso da %s"
+
+#: addons/publisher/series_issue_manager.php:290
+msgid "The posts in your series were successfully unpublished."
+msgstr "Gli articoli della tua serie sono stati depubblicati con successo."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid "The provided object fully qualified class name (%1$s) must implement the %2$s interface."
+msgstr "Il nome classe completo dell'oggetto fornito (%1$s) deve implementare l'interfaccia %2$s."
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "Il valore inserito per %1$s non è un valido url. L'url digitato era: %2$s"
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed.  Consider attaching your value to a different key"
+msgstr "Il valore per %1$s esiste già nel %2$s proprietà. Non è permesso sovrascriverlo.  Prendi in considerazione la possibilità di collegare il tuo valore a una chiave diversa"
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed. Since the value of this data is an array, you may want to use the %3$s method to push your value to the array."
+msgstr "Il valore per %1$s esiste già nel %2$s proprietà. Non è permesso sovrascriverlo. Visto che questo valore dati è un array, potresti utilizzare il metodo %3$s per inviare il tuo valore all'array."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid "The value for %1$s is already set and it is not an array. The %2$s method can only be used to push values to this data element when it is an array."
+msgstr "Il valore per %1$s è già stato impostato e non è un array. Il metodo %2$s può essere utilizzato soltanto per inviare valori a questo elemento dati quando è un array."
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "Non ci sono articoli pubblicati in questa serie."
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "Non ci sono articoli non pubblicati in questa serie."
+
+#: inc/settings/tab-pro-features.php:18
+msgid "These settings allow you enable or disable features in PublishPress Series Pro."
+msgstr "Queste impostazioni ti permettono di abilitare o disabilitare le funzionalità di PublishPress Series Pro."
+
+#: inc/settings/tab-metabox.php:16
+msgid "These settings allow you to customize the metabox on the post editing screen."
+msgstr "Queste impostazioni ti permettono di personalizzare le metabox nella schermata di modifica dell'articolo."
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "Questa schermata è utilizzata dal widget \"Indice della serie\"."
+
+#: inc/settings/tab-legacy.php:217
+msgid "This display is used by the \"Series Table of Contents\" widget, shortcode, and URL."
+msgstr "Questa schermata è utilizzata dal widget \"Indice della serie\", dallo shortcode, e dall'URL."
+
+#: inc/settings/tab-legacy.php:224
+msgid "This display is used by the \"Series Table of Contents\". To find the URL for this display, go the \"Display\" tab and then \"Series Table of Contents URL\"."
+msgstr "Questa visualizzazione è usata nell' \"Indice delle serie\". Per trovare l'URL di questa visualizzazione, vai alla scheda \"Display\" e poi \"URL indice della serie\"."
+
+#: inc/settings/tab-taxonomy.php:16
+msgid "This feature allows you to create a new taxonomy for this plugin to use if you don't want to use the default \"Series\" taxonomy."
+msgstr "Questa funzionalità ti permette di creare una nuova tassonomia per questo plugin da utilizzare se non vuoi usare la tassonomia predefinita \"Serie\"."
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:420
+#: addons/post-list-box/includes/class-admin-ui.php:698
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "Questa funzionalità è disponibile in PublishPress Series Pro"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "Questo testo sarà parte dell'URL di base della serie."
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "Questo testo verrà mostrato sopra agli altri articoli in questa serie."
+
+#: inc/settings/settings-page.php:84
+msgid "This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set."
+msgstr "Questo token deve essere utilizzato solo con il widget orgSeries: fa riferimento al punto in cui si desidera inserire l'elenco dei titoli della serie e richiede che sia impostato anche il template per ciascun titolo della serie."
+
+#: inc/settings/settings-page.php:68
+msgid "This will be replaced with the series icon for a series."
+msgstr "Questa verrà sostituita con l'icona della serie per una serie."
+
+#: inc/settings/settings-page.php:92
+msgid "This will be replaced with the title of a series"
+msgstr "Questo sarà sostituito con il titolo di una serie"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:501
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "Titolo"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "Titolo:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid "To create a new taxonomy, enter the new name and click the \"Update Options\" button."
+msgstr "Per creareuna nuova tassonomia, inserisci un nuovo nome e fai clic sul pulsante \"Aggiorna opzioni\"."
+
+#: orgSeries-manage.php:67
+msgid "To reposition an item, drag and drop the row by \"clicking and holding\" it anywhere and moving it to its new position."
+msgstr "Per riposizionare un elemento, trascinare la riga facendo \"clic e tenendo premuto\" su un punto qualsiasi e poi spostarla nella nuova posizione."
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:535
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "In alto"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "Cestina"
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "Impossibile recuperare un'istanza di %1$s. Non è stata trovata."
+
+#: addons/publisher/series_issue_manager.php:901
+msgid "Unpublished Posts"
+msgstr "Articoli non pubblicati"
+
+#: addons/publisher/series_issue_manager.php:867
+msgid "Unpublished posts in series:"
+msgstr "Articoli non pubblicati nella serie:"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "Ordine serie non pubblicate"
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "Aggiorna opzioni"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "Ordine di aggiornamento"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:265
+msgid "Update Series"
+msgstr "Aggiorna serie"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "Aggiorna le categorie della serie"
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
+msgid "Update Series data"
+msgstr "Aggiorna dati serie"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "Aggiornato correttamente"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
+msgid "Upgrade to Pro"
+msgstr "Aggiorna a Pro"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "Carica un'immagine per la serie."
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "Usa lo stile box"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "Usa lo stile scuro"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "Usa lo stile predefinito"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "Usa lo stile chiaro"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "Vuoi usare gli stili CSS di PublishPress Series?"
+
+#: inc/settings/settings-page.php:179
+msgid "Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display."
+msgstr "Usa questo tag prima o dopo il resto del codice del template. Indicherà dove vuoi che venga visualizzato il contenuto di un articolo."
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "Utilizza questo per controllare l'output del widget ultime serie"
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "Usa questo per visualizzare l'indice delle serie"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "Visualizza tutte le serie"
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "Vedi la documentazione"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "visualizza pagina"
+
+#: orgSeries-setup.php:271
+msgid "View Series"
+msgstr "Visualizza serie"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "Visualizza la serie nel frontend"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid "We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade."
+msgstr "Abbiamo apportato dei cambiamenti alla modalità con cui le serie vengono memorizzate perciò è necessario fare un piccolo aggiornamento. Questo migliora la compatibilità con la caratteristica delle serie multiple e risolve delle problematiche con l'ordine degli articoli. Fai clic su questo pulsante per aggiornare."
+
+#: addons/publisher/series_issue_manager.php:212
+msgid "When checked, all posts you assign to this series will remain unpublished until you publish the entire series."
+msgstr "Quando è selezionata, tutti gli articoli che assegni a questa serie rimarranno non pubblicati fin quando non pubblicherai l'intera serie."
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "Quando è stata creata la serie"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid "When these posts are published, they will be added after the last current post in the series."
+msgstr "Quando questi articoli saranno pubblicati verranno aggiunti di seguito all'ultimo articolo attuale della serie."
+
+#: inc/settings/tab-post-details.php:79
+msgid "Whether to limit series meta display to single page only or include archive page."
+msgstr "Consente di limitare la visualizzazione dei meta delle serie soltanto a una singola pagina o di includere la pagina dell'archivio."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr "Larghezza dell'icona se visualizzata tramite il template ultima serie (in pixels)."
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "Larghezza dell'icona sulla pagina di un articolo (in pixel)."
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "Larghezza dell'icona sulla pagina indice di una serie (in pixel)."
+
+#: inc/settings/settings-page.php:172
+msgid "Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the 'Custom First Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgstr "Sarà sostituito dal link di navigazione per il primo articolo di una serie. Il testo sarà qualsiasi cosa sia inclusa nel campo \"Testo di navigazione personalizzato per il primo articolo\". Se quel campo è vuoto allora il testo sarà il titolo dell'articolo"
+
+#: inc/settings/settings-page.php:164
+msgid "Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the 'Custom Next Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgstr "Verrà sostituito dal link di navigazione per l'articolo successivo di una serie. Il testo comprenderà tutto ciò che è incluso nel campo \"Testo di navigazione personalizzato articolo successivo\". Se quel campo è vuoto, verrà usato come testo il titolo dell'articolo"
+
+#: inc/settings/settings-page.php:156
+msgid "Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the 'Custom Previous Post Navigation Text' field. If that field is empty then the text will be the title of the post"
+msgstr "Verrà sostituito dal link di navigazione per l'articolo precedente di una serie. Il testo comprenderà tutto ciò che è incluso nel campo \"Testo di navigazione personalizzato articolo precedente\". Se quel campo è vuoto, verrà usato come testo il titolo dell'articolo"
+
+#: inc/settings/settings-page.php:124
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "Verrà sostituito con il titolo dell'articolo di un articolo della serie"
+
+#: inc/settings/settings-page.php:132
+msgid "Will be replaced with the post title of a post in the series linked to the page view of that post."
+msgstr "Verrà sostituito con il titolo dell'articolo di un articolo della serie collegata alla visualizzazione della pagina di quell'articolo."
+
+#: inc/settings/settings-page.php:140
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "Verrà sostituito con il titolo abbreviato di un articolo della serie"
+
+#: inc/settings/settings-page.php:148
+msgid "Will be replaced with the post title short of a post in the series linked to the page view of that post."
+msgstr "Sarà sostituito dal titolo abbreviato di un articolo della serie collegato alla visualizzazione della pagina di quell'articolo."
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "Verrà sostituito con il titolo dell'articolo di un articolo non pubblicato della serie"
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "Visualizzerà la descrizione per la serie"
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "Visualizzerà il numero totale degli articoli di una serie"
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "Visualizzerà il numero totale degli articoli pubblicati e non pubblicati di una serie"
+
+#: inc/settings/settings-page.php:187
+msgid "Will display what part of a series the post is"
+msgstr "Visualizzerà quale parte di una serie è l'articolo"
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "Visualizzerà l'autore dell'articolo"
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "Visualizzerà l'ID della serie"
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "Visualizzerà lo slug della serie"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "Sì"
+
+#: orgSeries-widgets.php:376
+msgid "You can return any series that match this search string (matched against series names)"
+msgstr "Puoi restituire tutte le serie che corrispondono a questa stringa di ricerca (comparata con i nomi delle serie)"
+
+#: orgSeries-widgets.php:370
+msgid "You can select the offset for the number of series (useful for paging).  No offset if left blank"
+msgstr "Puoi selezionare l'offset per il numero di serie (utile per l'impaginazione).  Nessun offset impostato se lasciato vuoto"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "Non hai serie disponibili."
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid "You must %1s update your permalink structure %2s to something other than \"Plain\" for the Series Table of Contents URL to work."
+msgstr "Devi %1s aggiornare la tua struttura dei permalink %2s a qualcosa di diverso da \"Semplice\" per far funzionare l'URL dell'indice della serie."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid "You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s"
+msgstr "Stai usando la versione gratuita di PublishPress Series. La versione Pro ha maggiori funzionalità e supporto. %sAggiorna a Pro%s"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:812
-msgid "[more]"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:813
-msgid "[less]"
 msgstr ""
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
@@ -217,16 +1532,6 @@ msgstr ""
 msgid "Default Meta Box"
 msgstr ""
 
-#: addons/post-details/includes/class-admin-ui.php:274
-#: addons/post-details/includes/class-admin-ui.php:359
-#: addons/post-list-box/includes/class-admin-ui.php:420
-#: addons/post-list-box/includes/class-admin-ui.php:698
-#: addons/post-navigation/includes/class-admin-ui.php:442
-#: inc/settings/tab-post-types.php:59
-#: inc/settings/tab-pro-features.php:52
-msgid "This feature is available in PublishPress Series Pro"
-msgstr ""
-
 #: addons/post-details/includes/class-ajax.php:32
 #: addons/post-details/includes/class-ajax.php:99
 #: addons/post-details/includes/class-ajax.php:149
@@ -294,28 +1599,8 @@ msgstr ""
 msgid "Text shown before the series name"
 msgstr ""
 
-#: addons/post-details/includes/class-fields.php:118
-msgid "Display"
-msgstr ""
-
 #: addons/post-details/includes/class-fields.php:122
 msgid "Meta Box Position"
-msgstr ""
-
-#: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:511
-#: inc/settings/tab-post-details.php:27
-#: inc/settings/tab-post-list-box.php:27
-#: inc/settings/tab-post-navigation.php:27
-msgid "Top"
-msgstr ""
-
-#: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:512
-#: inc/settings/tab-post-details.php:28
-#: inc/settings/tab-post-list-box.php:28
-#: inc/settings/tab-post-navigation.php:28
-msgid "Bottom"
 msgstr ""
 
 #: addons/post-details/includes/class-fields.php:131
@@ -417,13 +1702,6 @@ msgstr ""
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-details/includes/class-post-type.php:29
 msgid "Series Post Details"
-msgstr ""
-
-#: addons/post-details/includes/class-post-type.php:30
-#: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413
-#: orgSeries-setup.php:194
-msgid "Add New"
 msgstr ""
 
 #: addons/post-details/includes/class-post-type.php:31
@@ -577,212 +1855,191 @@ msgid "Show Post Titles"
 msgstr ""
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Post Title Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:259
+#: addons/post-list-box/classes/PostListBoxFields.php:283
 msgid "Post Title Font Size (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:270
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Show Post Excerpt"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:278
+#: addons/post-list-box/classes/PostListBoxFields.php:302
 msgid "Excerpt Length (words)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:290
+#: addons/post-list-box/classes/PostListBoxFields.php:314
 msgid "Excerpt Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:300
+#: addons/post-list-box/classes/PostListBoxFields.php:324
 msgid "Show Post Author"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:308
+#: addons/post-list-box/classes/PostListBoxFields.php:332
 msgid "Post Author Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:318
+#: addons/post-list-box/classes/PostListBoxFields.php:342
 msgid "Show Post Date"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:326
+#: addons/post-list-box/classes/PostListBoxFields.php:350
 msgid "Post Date Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:347
+#: addons/post-list-box/classes/PostListBoxFields.php:371
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Featured Image Width (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:361
+#: addons/post-list-box/classes/PostListBoxFields.php:385
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:366
+#: addons/post-list-box/classes/PostListBoxFields.php:390
 msgid "Featured Image Height (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:373
+#: addons/post-list-box/classes/PostListBoxFields.php:397
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:402
 msgid "Fallback Featured Image"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:383
+#: addons/post-list-box/classes/PostListBoxFields.php:407
 msgid "Image to display when a post does not have a featured image"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:400
+#: addons/post-list-box/classes/PostListBoxFields.php:424
 msgid "Post Padding (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:409
+#: addons/post-list-box/classes/PostListBoxFields.php:433
 msgid "Post Border Width (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:418
+#: addons/post-list-box/classes/PostListBoxFields.php:442
 msgid "Post Border Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:425
+#: addons/post-list-box/classes/PostListBoxFields.php:449
 msgid "Post Background Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:430
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Background color for the post list container"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:444
+#: addons/post-list-box/classes/PostListBoxFields.php:468
 msgid "Layout Style"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:448
-#: inc/settings/tab-legacy.php:29
-msgid "List"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:449
-#: inc/settings/tab-legacy.php:28
-msgid "Grid"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:456
+#: addons/post-list-box/classes/PostListBoxFields.php:480
 msgid "Columns"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:460
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "2 Columns"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:461
+#: addons/post-list-box/classes/PostListBoxFields.php:485
 msgid "3 Columns"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:462
+#: addons/post-list-box/classes/PostListBoxFields.php:486
 msgid "4 Columns"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "6 Columns"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:496
 msgid "Order By"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:476
+#: addons/post-list-box/classes/PostListBoxFields.php:500
 msgid "Date"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:477
-#: addons/publisher/series-part-post-table.php:61
-#: addons/publisher/series-pending-post-table.php:63
-#: addons/publisher/series-publish-post-table.php:71
-msgid "Title"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:478
-#: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826
-#: orgSeries-admin.php:369
-#: orgSeries-manage.php:195
-#: orgSeries-manage.php:204
-msgid "Series Order"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:485
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:227
-msgid "Order"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:489
-#: inc/settings/tab-legacy.php:106
-#: orgSeries-widgets.php:320
-msgid "Ascending"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:490
-#: inc/settings/tab-legacy.php:107
-#: orgSeries-widgets.php:319
-msgid "Descending"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:497
+#: addons/post-list-box/classes/PostListBoxFields.php:521
 msgid "Gap Between Items (px)"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:507
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 msgid "Post List Box Location"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:540
 msgid "Choose where to display the post list box in relation to the content"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:520
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "Maximum number of items"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:550
 msgid "Limit the number of posts shown in the series list. Leave empty for no limit. The admin preview is limited to 4 posts."
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:541
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 msgid "Highlight Current Post"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:546
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Highlight the current post when viewing a specific series post"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:549
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 msgid "Current Post Background Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:556
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid "Current Post Border Color"
 msgstr ""
 
-#: addons/post-list-box/classes/PostListBoxFields.php:563
+#: addons/post-list-box/classes/PostListBoxFields.php:587
 msgid "Current Post Text Color"
 msgstr ""
 
@@ -852,12 +2109,6 @@ msgstr ""
 #: addons/post-list-box/includes/class-admin-ui.php:372
 #: addons/post-list-box/includes/class-admin-ui.php:376
 msgid "Error loading preview."
-msgstr ""
-
-#: addons/post-list-box/includes/class-admin-ui.php:674
-#: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
-msgid "Select Image"
 msgstr ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:678
@@ -988,13 +2239,6 @@ msgstr ""
 #: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
-msgstr ""
-
-#: addons/post-list-box/includes/class-preview.php:450
-#: addons/publisher/series-part-post-table.php:62
-#: addons/publisher/series-pending-post-table.php:64
-#: addons/publisher/series-publish-post-table.php:72
-msgid "Author"
 msgstr ""
 
 #: addons/post-list-box/post-list-box.php:91
@@ -1473,358 +2717,8 @@ msgstr ""
 msgid "Image Navigation"
 msgstr ""
 
-#: addons/publisher/series-part-post-table.php:63
-#: addons/publisher/series-pending-post-table.php:65
-#: addons/publisher/series-publish-post-table.php:73
-msgid "Categories"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:64
-#: addons/publisher/series-pending-post-table.php:66
-#: addons/publisher/series-publish-post-table.php:74
-msgid "Tags"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:65
-#: addons/publisher/series-pending-post-table.php:67
-#: addons/publisher/series-publish-post-table.php:75
-msgid "Status"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:66
-#: addons/publisher/series-pending-post-table.php:68
-msgid "Current Part"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:140
-#: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
-msgid "Edit"
-msgstr ""
-
 #: addons/publisher/series-part-post-table.php:146
 msgid "View"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:163
-#: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
-msgid "Trash"
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:190
-msgid "There are no published posts in this series."
-msgstr ""
-
-#: addons/publisher/series-part-post-table.php:309
-msgid "(Currently has no Part number)"
-msgstr ""
-
-#: addons/publisher/series-pending-post-table.php:153
-#: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
-msgid "Preview"
-msgstr ""
-
-#: addons/publisher/series-pending-post-table.php:197
-#: addons/publisher/series-publish-post-table.php:46
-msgid "There are no unpublished posts in this series."
-msgstr ""
-
-#: addons/publisher/series-pending-post-table.php:312
-msgid "No Part Number"
-msgstr ""
-
-#: addons/publisher/series-publish-post-table.php:176
-msgid "All Categories"
-msgstr ""
-
-#: addons/publisher/series-publish-post-table.php:189
-msgid "Filter"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
-#: inc/settings/settings-validation.php:67
-msgid "Manage Series"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
-msgid "Publish Series"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:10
-msgid "Front View"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:17
-#, php-format
-msgid "Edit the status of %1$s"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:19
-msgid "Series order"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:22
-msgid "Publish or schedule posts"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:25
-msgid "View series in frontend"
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:34
-msgid "You have no series available."
-msgstr ""
-
-#: addons/publisher/series_im_admin_main.php:34
-msgid "Add new Series."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:209
-msgid "Create as unpublished:"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:212
-msgid "When checked, all posts you assign to this series will remain unpublished until you publish the entire series."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:290
-msgid "The posts in your series were successfully unpublished."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
-msgid "Congratulations. Your series order was updated successfully."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
-msgid "Congratulations. Your posts were published successfully."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:316
-msgid "Post moved to the Trash."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:339
-msgid "Congratulations. Your posts were scheduled successfully."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:499
-msgid "Manage Series Issues"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:528
-msgid "Number of items per page"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:643
-msgid "Publishing Series:"
-msgstr ""
-
-#. translators: %s: search keywords
-#: addons/publisher/series_issue_manager.php:649
-#, php-format
-msgid "Search results for &#8220;%s&#8221;"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:664
-msgid "Search"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:709
-msgid "Publication Date/Time:"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
-msgid "Update Order"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:792
-msgid "Series Order:"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:795
-msgid "Drag the post names into the order you want them to be in the series, from the first part to the last part."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:867
-msgid "Unpublished posts in series:"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:870
-msgid "When these posts are published, they will be added after the last current post in the series."
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:901
-msgid "Unpublished Posts"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:915
-msgid "Publish Unpublished Posts"
-msgstr ""
-
-#: addons/publisher/series_issue_manager.php:925
-msgid "Unpublished Series Order"
-msgstr ""
-
-#: inc/settings/settings-page.php:18
-msgid "PublishPress Series Plugin Options"
-msgstr ""
-
-#: inc/settings/settings-page.php:52
-msgid "Allowed Html"
-msgstr ""
-
-#: inc/settings/settings-page.php:61
-msgid "Overview"
-msgstr ""
-
-#: inc/settings/settings-page.php:63
-msgid "The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs."
-msgstr ""
-
-#: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr ""
-
-#: inc/settings/settings-page.php:76
-#, php-format
-msgid "Same as %series_icon% except that the series icon will be linked to the series page"
-msgstr ""
-
-#: inc/settings/settings-page.php:84
-msgid "This token is for use with the orgSeries widget only - it references where you want the list of series titles to be inserted and requires that the template for each series title be also set."
-msgstr ""
-
-#: inc/settings/settings-page.php:92
-msgid "This will be replaced with the title of a series"
-msgstr ""
-
-#: inc/settings/settings-page.php:100
-#, php-format
-msgid "Same as %series_title% except that it will also be linked to the series page"
-msgstr ""
-
-#: inc/settings/settings-page.php:108
-msgid "Is the location token for where the contents of the post list post templates will appear."
-msgstr ""
-
-#: inc/settings/settings-page.php:116
-msgid "Is the location token for where the contents of the post list post templates will appear and use provided widget post short title."
-msgstr ""
-
-#: inc/settings/settings-page.php:124
-msgid "Will be replaced with the post title of a post in the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:132
-msgid "Will be replaced with the post title of a post in the series linked to the page view of that post."
-msgstr ""
-
-#: inc/settings/settings-page.php:140
-msgid "Will be replaced with the post title short of a post in the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:148
-msgid "Will be replaced with the post title short of a post in the series linked to the page view of that post."
-msgstr ""
-
-#: inc/settings/settings-page.php:156
-msgid "Will be replaced by the navigation link for the previous post in a series. The text will be whatever is included in the 'Custom Previous Post Navigation Text' field. If that field is empty then the text will be the title of the post"
-msgstr ""
-
-#: inc/settings/settings-page.php:164
-msgid "Will be replaced by the navigation link for the next post in a series. The text will be whatever is included in the 'Custom Next Post Navigation Text' field. If that field is empty then the text will be the title of the post"
-msgstr ""
-
-#: inc/settings/settings-page.php:172
-msgid "Will be replaced by the navigation link for the first post in a series. The text will be whatever is included in the 'Custom First Post Navigation Text' field. If that field is empty then the text will be the title of the post"
-msgstr ""
-
-#: inc/settings/settings-page.php:179
-msgid "Use this tag either before or after the rest of the template code.  It will indicate where you want the content of a post to display."
-msgstr ""
-
-#: inc/settings/settings-page.php:187
-msgid "Will display what part of a series the post is"
-msgstr ""
-
-#: inc/settings/settings-page.php:195
-msgid "Will display the total number of posts in a series"
-msgstr ""
-
-#: inc/settings/settings-page.php:203
-msgid "Will display the description for the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:213
-msgid "Will output the slug of the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:221
-msgid "Will output the ID of the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:229
-msgid "Will output the author of the post"
-msgstr ""
-
-#: inc/settings/settings-page.php:237
-msgid "If the post has a feature-image then that image will be displayed"
-msgstr ""
-
-#: inc/settings/settings-page.php:245
-msgid "The date that a post was published"
-msgstr ""
-
-#: inc/settings/settings-page.php:253
-msgid "Will be replaced with the unpublished post title of a post in the series"
-msgstr ""
-
-#: inc/settings/settings-page.php:261
-msgid "Will display the total number of published and unpublished posts in a series"
-msgstr ""
-
-#: inc/settings/settings-page.php:304
-msgid "Update Options"
-msgstr ""
-
-#: inc/settings/settings-page.php:308
-msgid "Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return."
-msgstr ""
-
-#: inc/settings/settings-page.php:309
-msgid "No"
-msgstr ""
-
-#: inc/settings/settings-page.php:310
-msgid "Yes"
-msgstr ""
-
-#: inc/settings/settings-upgrade.php:22
-#: inc/settings/settings-upgrade.php:44
-msgid "Please update your PublishPress Series data"
-msgstr ""
-
-#: inc/settings/settings-upgrade.php:24
-#: inc/settings/settings-upgrade.php:45
-msgid "We have made changes to how series are stored and this requires a small update. This improves support for the Multiple Series feature, and resolves some issues with the order of posts. Please click this button to upgrade."
-msgstr ""
-
-#: inc/settings/settings-upgrade.php:25
-#: inc/settings/settings-upgrade.php:46
-msgid "Update Series data"
-msgstr ""
-
-#: inc/settings/settings-upgrade.php:92
-msgid "Series upgrade completed."
 msgstr ""
 
 #: inc/settings/settings-upgrade.php:174
@@ -1832,98 +2726,9 @@ msgstr ""
 msgid "Series order sync completed. %d posts updated."
 msgstr ""
 
-#: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
-msgctxt "taxonomy general name"
-msgid "Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:247
-msgid "Search Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:248
-msgid "Popular Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:249
-#: orgSeries-setup.php:303
-msgid "All Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:250
-msgid "Edit Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:251
-msgid "Update Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:252
-msgid "Add New Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:253
-msgid "New Series Name"
-msgstr ""
-
-#: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:255
-msgid "No series found"
-msgstr ""
-
 #: inc/settings/settings-validation.php:121
 #, php-format
 msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
-msgstr ""
-
-#: inc/settings/settings-validation.php:135
-msgid "PublishPress Series Plugin Options have been updated"
-msgstr ""
-
-#: inc/settings/settings-validation.php:151
-msgid "Permission denied"
-msgstr ""
-
-#: inc/settings/settings-validation.php:157
-msgid "PublishPress Series Plugin Options have been RESET"
-msgstr ""
-
-#: inc/settings/tab-advanced.php:16
-msgid "Please change these settings carefully as they make significant changes to PublishPress Series."
-msgstr ""
-
-#: inc/settings/tab-advanced.php:34
-msgid "Series Settings"
-msgstr ""
-
-#: inc/settings/tab-advanced.php:40
-msgid "Delete all PublishPress Series data from the database when deleting this plugin."
-msgstr ""
-
-#: inc/settings/tab-advanced.php:47
-msgid "Series Upgrade"
-msgstr ""
-
-#: inc/settings/tab-advanced.php:52
-msgid "Run Upgrade Task"
-msgstr ""
-
-#: inc/settings/tab-advanced.php:56
-msgid "In version 2.11.4, PublishPress Series made changes to how series are stored. You can run the upgrade task here if you're having issues with series parts."
 msgstr ""
 
 #: inc/settings/tab-advanced.php:65
@@ -1938,14 +2743,6 @@ msgstr ""
 msgid "This will sync all series part numbers to WordPress menu_order field. Useful for themes/page builders that can only sort by menu order (Page Attributes: Order). This allows you to use native WordPress ordering instead of custom fields."
 msgstr ""
 
-#: inc/settings/tab-advanced.php:83
-msgid "Reset settings"
-msgstr ""
-
-#: inc/settings/tab-advanced.php:86
-msgid "Reset options to default"
-msgstr ""
-
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:144
 msgid "Legacy"
@@ -1955,176 +2752,16 @@ msgstr ""
 msgid "Legacy Settings"
 msgstr ""
 
-#: inc/settings/tab-legacy.php:27
-msgid "Default"
-msgstr ""
-
 #: inc/settings/tab-legacy.php:36
 msgid "CSS Styles"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:41
-msgid "Use PublishPress Series CSS styles?"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:45
-msgid "Style options"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:47
-msgid "Use default style"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:48
-msgid "Use box style"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:49
-msgid "Use dark style"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:50
-msgid "Use light style"
 msgstr ""
 
 #: inc/settings/tab-legacy.php:60
 msgid "Series Overview"
 msgstr ""
 
-#: inc/settings/tab-legacy.php:62
-msgid "Choose the design for the taxonomy page where a single Series is displayed."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:66
-msgid "Layout:"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:82
-#, php-format
-msgid "Choosing a layout different to \"Default\" will override the taxonomy template from your theme. <a href=\"%s\" target=\"_blank\">Click here for details on how to customize these designs</a>."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:91
-#: inc/settings/tab-series-category.php:66
-msgid "Columns:"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:97
-msgid "Order series by:"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:99
-msgid "Series part"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:100
-msgid "Order by date"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:104
-msgid "Series order method"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:117
-#: inc/settings/tab-legacy.php:215
-#: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:473
-#: orgSeries-widgets.php:112
-msgid "Series Table of Contents"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:122
-msgid "Series Table of Contents URL:"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:125
-msgid "view page"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:134
-#, php-format
-msgid "You must %1s update your permalink structure %2s to something other than \"Plain\" for the Series Table of Contents URL to work."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:154
-msgid "Series Per Page:"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:158
-msgid "Series Table of Contents Title:"
-msgstr ""
-
 #: inc/settings/tab-legacy.php:168
 msgid "Series Icons"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:191
-#: orgSeries-widgets.php:13
-msgid "Latest Series"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:193
-msgid "This display is used by the \"Latest Series\" widget."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:197
-msgid "Latest Series (tags before):"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:201
-msgid "Latest Series (inner tags):"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:205
-msgid "Latest Series (tags after):"
-msgstr ""
-
-#: inc/settings/tab-legacy.php:217
-msgid "This display is used by the \"Series Table of Contents\" widget, shortcode, and URL."
-msgstr ""
-
-#: inc/settings/tab-legacy.php:224
-msgid "This display is used by the \"Series Table of Contents\". To find the URL for this display, go the \"Display\" tab and then \"Series Table of Contents URL\"."
-msgstr ""
-
-#: inc/settings/tab-metabox.php:16
-msgid "These settings allow you to customize the metabox on the post editing screen."
-msgstr ""
-
-#: inc/settings/tab-metabox.php:26
-msgid "Default Series Order"
-msgstr ""
-
-#: inc/settings/tab-metabox.php:27
-msgid "Alphabetical A-Z"
-msgstr ""
-
-#: inc/settings/tab-metabox.php:28
-msgid "Alphabetical Z-A"
-msgstr ""
-
-#: inc/settings/tab-metabox.php:34
-msgid "Show \"Add New\""
-msgstr ""
-
-#: inc/settings/tab-metabox.php:38
-msgid "Show \"Post title in widget\""
-msgstr ""
-
-#: inc/settings/tab-metabox.php:42
-msgid "Metabox Series Order"
 msgstr ""
 
 #: inc/settings/tab-post-details.php:12
@@ -2133,12 +2770,6 @@ msgstr ""
 
 #: inc/settings/tab-post-details.php:16
 msgid "Configure the Series Post Details display shown on posts in a series."
-msgstr ""
-
-#: inc/settings/tab-post-details.php:26
-#: inc/settings/tab-post-list-box.php:26
-#: inc/settings/tab-post-navigation.php:26
-msgid "As in Template"
 msgstr ""
 
 #: inc/settings/tab-post-details.php:36
@@ -2174,10 +2805,6 @@ msgstr ""
 
 #: inc/settings/tab-post-details.php:76
 msgid "Limit to single page only"
-msgstr ""
-
-#: inc/settings/tab-post-details.php:79
-msgid "Whether to limit series meta display to single page only or include archive page."
 msgstr ""
 
 #: inc/settings/tab-post-list-box.php:12
@@ -2228,10 +2855,6 @@ msgstr ""
 msgid "Configure the Series Navigation display shown on posts in a series."
 msgstr ""
 
-#: inc/settings/tab-post-navigation.php:36
-msgid "Display Series Navigation?"
-msgstr ""
-
 #: inc/settings/tab-post-navigation.php:41
 msgid "Navigation Selection"
 msgstr ""
@@ -2254,46 +2877,6 @@ msgstr ""
 
 #: inc/settings/tab-post-navigation.php:81
 msgid "First Post Text"
-msgstr ""
-
-#: inc/settings/tab-post-types.php:18
-msgid "Enable PublishPress Series for custom post types."
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:18
-msgid "These settings allow you enable or disable features in PublishPress Series Pro."
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:27
-msgid "Custom Post Type Support"
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:27
-msgid "Allow custom post types to be used with PublishPress Series."
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:28
-msgid "Shortcodes"
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:28
-msgid "Provides shortcodes to display series information."
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:29
-msgid "Extra Tokens"
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:29
-msgid "Provides extra tokens to customize the output of series information."
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:30
-msgid "Multiple Series"
-msgstr ""
-
-#: inc/settings/tab-pro-features.php:30
-msgid "Allows authors to add posts to more than one series."
 msgstr ""
 
 #: inc/settings/tab-series-category.php:8
@@ -2346,26 +2929,6 @@ msgstr ""
 msgid "Show Posts in each Series as list items"
 msgstr ""
 
-#: inc/settings/tab-taxonomy.php:16
-msgid "This feature allows you to create a new taxonomy for this plugin to use if you don't want to use the default \"Series\" taxonomy."
-msgstr ""
-
-#: inc/settings/tab-taxonomy.php:28
-msgid "Series Taxonomy Slug:"
-msgstr ""
-
-#: inc/settings/tab-taxonomy.php:31
-msgid "This text will be part of the series base URL."
-msgstr ""
-
-#: inc/settings/tab-taxonomy.php:36
-msgid "Series Taxonomy:"
-msgstr ""
-
-#: inc/settings/tab-taxonomy.php:40
-msgid "To create a new taxonomy, enter the new name and click the \"Update Options\" button."
-msgstr ""
-
 #: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
 msgstr ""
@@ -2378,559 +2941,6 @@ msgstr ""
 msgid "If checked, all terms from the current taxonomy will be migrated to the new taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy slug will be changed."
 msgstr ""
 
-#: inc/templates/taxonomy-series.php:70
-msgid "Sorry, no results found."
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:13
-#, php-format
-msgid "You're using PublishPress Series Free. The Pro version has more features and support. %sUpgrade to Pro%s"
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:35
-msgid "Upgrade to Pro"
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:58
-msgid "Need PublishPress Series Support?"
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:63
-msgid "If you need help or have a new feature request, let us know."
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:65
-msgid "Request Support"
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:74
-msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:76
-msgid "View Knowledge Base"
-msgstr ""
-
-#: orgSeries-admin.php:67
-msgid "An error occured"
-msgstr ""
-
-#: orgSeries-admin.php:70
-#, php-format
-msgid "%1$s series migrated to new taxonomy"
-msgstr ""
-
-#: orgSeries-admin.php:175
-#, php-format
-msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr ""
-
-#: orgSeries-admin.php:186
-msgid "About PublishPress Series"
-msgstr ""
-
-#: orgSeries-admin.php:186
-msgid "About"
-msgstr ""
-
-#: orgSeries-admin.php:187
-msgid "PublishPress Series Documentation"
-msgstr ""
-
-#: orgSeries-admin.php:187
-msgid "Documentation"
-msgstr ""
-
-#: orgSeries-admin.php:188
-msgid "Contact the PublishPress team"
-msgstr ""
-
-#: orgSeries-admin.php:188
-msgid "Contact"
-msgstr ""
-
-#: orgSeries-admin.php:219
-msgid "Sorry but you don't have permission to add series"
-msgstr ""
-
-#: orgSeries-admin.php:230
-msgid "The name you picked isn't sanitizing correctly. Try something different."
-msgstr ""
-
-#: orgSeries-admin.php:236
-msgid "Hmm... it looks like there is already a series with that name. Try something else"
-msgstr ""
-
-#: orgSeries-admin.php:359
-msgid "Not part of a series"
-msgstr ""
-
-#: orgSeries-admin.php:421
-msgid "Search series"
-msgstr ""
-
-#: orgSeries-admin.php:436
-msgid "Series Part:"
-msgstr ""
-
-#: orgSeries-admin.php:443
-msgid "Post title in widget:"
-msgstr ""
-
-#: orgSeries-admin.php:445
-msgid "A short title of this post that will be used in the Series widget. Leave blank to use the full title."
-msgstr ""
-
-#: orgSeries-admin.php:519
-#, php-format
-msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr ""
-
-#: orgSeries-admin.php:521
-#, php-format
-msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
-msgstr ""
-
-#: orgSeries-admin.php:525
-#, php-format
-msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr ""
-
-#: orgSeries-admin.php:531
-#: orgSeries-setup.php:258
-msgid "No Series"
-msgstr ""
-
-#: orgSeries-admin.php:552
-msgid "View all series"
-msgstr ""
-
-#: orgSeries-admin.php:561
-msgid "Manage All Series"
-msgstr ""
-
-#: orgSeries-manage.php:66
-msgid "Term Order"
-msgstr ""
-
-#: orgSeries-manage.php:67
-msgid "To reposition an item, drag and drop the row by \"clicking and holding\" it anywhere and moving it to its new position."
-msgstr ""
-
-#: orgSeries-manage.php:196
-msgid "ID"
-msgstr ""
-
-#: orgSeries-manage.php:233
-msgid "Terms are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field."
-msgstr ""
-
-#: orgSeries-manage.php:240
-msgid "Current series icon:"
-msgstr ""
-
-#: orgSeries-manage.php:246
-msgid "No icon currently"
-msgstr ""
-
-#: orgSeries-manage.php:256
-msgid "Delete image? (note: there will not be an image associated with this series if you select this)"
-msgstr ""
-
-#: orgSeries-manage.php:261
-msgid "Series Icon Upload:"
-msgstr ""
-
-#: orgSeries-manage.php:265
-msgid "Upload an image for the series."
-msgstr ""
-
-#: orgSeries-manage.php:280
-msgid "Invalid form data"
-msgstr ""
-
-#: orgSeries-manage.php:290
-msgid "Invalid nonce, reload and try again"
-msgstr ""
-
-#: orgSeries-manage.php:299
-msgid "Invalid taxonomy"
-msgstr ""
-
-#: orgSeries-manage.php:305
-msgid "Not enough permission"
-msgstr ""
-
-#: orgSeries-manage.php:309
-msgid "Updated successfully"
-msgstr ""
-
-#: orgSeries-options.php:43
-#: orgSeries-options.php:64
-#: orgSeries-options.php:65
-#: orgSeries-setup.php:860
-msgid "Settings"
-msgstr ""
-
-#: orgSeries-options.php:54
-msgid "PublishPress Series Options"
-msgstr ""
-
-#: orgSeries-options.php:138
-msgid "Post Types"
-msgstr ""
-
-#: orgSeries-options.php:141
-msgid "Taxonomy"
-msgstr ""
-
-#: orgSeries-options.php:143
-msgid "Metabox"
-msgstr ""
-
-#: orgSeries-options.php:147
-msgid "Pro Features"
-msgstr ""
-
-#: orgSeries-options.php:150
-msgid "Advanced"
-msgstr ""
-
-#: orgSeries-setup.php:195
-msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr ""
-
-#: orgSeries-setup.php:256
-msgid "&larr; Go to Series"
-msgstr ""
-
-#: orgSeries-setup.php:257
-msgid "View Series"
-msgstr ""
-
-#: orgSeries-setup.php:259
-msgid "Series List"
-msgstr ""
-
-#: orgSeries-setup.php:260
-msgid "Series Link"
-msgstr ""
-
-#: orgSeries-setup.php:261
-msgid "A link to a Series"
-msgstr ""
-
-#: orgSeries-setup.php:309
-#: orgSeries-setup.php:310
-#, php-format
-msgctxt "leave the %tokens% as is when translating"
-msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr ""
-
-#: orgSeries-setup.php:315
-msgid "Series Navigation"
-msgstr ""
-
-#: orgSeries-setup.php:846
-msgid "Series: "
-msgstr ""
-
-#: orgSeries-setup.php:848
-msgid "Posts from the series: "
-msgstr ""
-
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
-msgid "Series:"
-msgstr ""
-
-#: orgSeries-taxonomy.php:666
-msgid "Part:"
-msgstr ""
-
-#: orgSeries-template-tags.php:264
-msgid "All the Series I've Written"
-msgstr ""
-
-#: orgSeries-template-tags.php:268
-#: orgSeries-template-tags.php:277
-#, php-format
-msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr ""
-
-#: orgSeries-utility.php:410
-msgid "Auto/None"
-msgstr ""
-
-#: orgSeries-widgets.php:12
-msgid "Use this to control the output of the latest series widget"
-msgstr ""
-
-#: orgSeries-widgets.php:20
-msgid "Most Recent Series"
-msgstr ""
-
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
-msgid "Title:"
-msgstr ""
-
-#: orgSeries-widgets.php:79
-#, php-format
-msgid "The layout and content of this widget can be adjusted via the <a href=\"%s\">Latest Series</a> area."
-msgstr ""
-
-#: orgSeries-widgets.php:82
-msgid "Hide series with no posts?"
-msgstr ""
-
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
-msgid "Order by:"
-msgstr ""
-
-#: orgSeries-widgets.php:87
-msgid "Number of posts in Series"
-msgstr ""
-
-#: orgSeries-widgets.php:88
-msgid "Name of Series"
-msgstr ""
-
-#: orgSeries-widgets.php:89
-msgid "Series Slug"
-msgstr ""
-
-#: orgSeries-widgets.php:90
-msgid "When Series was Created"
-msgstr ""
-
-#: orgSeries-widgets.php:91
-msgid "Random"
-msgstr ""
-
-#: orgSeries-widgets.php:95
-msgid "Number of series to display:"
-msgstr ""
-
-#: orgSeries-widgets.php:99
-msgid "Display Order: "
-msgstr ""
-
-#: orgSeries-widgets.php:100
-msgid "ASC: "
-msgstr ""
-
-#: orgSeries-widgets.php:101
-msgid "DESC: "
-msgstr ""
-
-#: orgSeries-widgets.php:111
-msgid "Use this to display the Series Table of contents"
-msgstr ""
-
-#: orgSeries-widgets.php:178
-msgid "Select Series"
-msgstr ""
-
-#: orgSeries-widgets.php:234
-msgid "Other posts in series:"
-msgstr ""
-
-#: orgSeries-widgets.php:274
-msgid "Show Series Table Of Content"
-msgstr ""
-
-#: orgSeries-widgets.php:279
-msgid "Show Series Table Of Content as:"
-msgstr ""
-
-#: orgSeries-widgets.php:280
-msgid "Dropdown:"
-msgstr ""
-
-#: orgSeries-widgets.php:281
-msgid "List:"
-msgstr ""
-
-#: orgSeries-widgets.php:285
-msgid "Show post count:"
-msgstr ""
-
-#: orgSeries-widgets.php:290
-msgid "Hide empty series:"
-msgstr ""
-
-#: orgSeries-widgets.php:299
-msgid "name"
-msgstr ""
-
-#: orgSeries-widgets.php:300
-msgid "count"
-msgstr ""
-
-#: orgSeries-widgets.php:301
-msgid "slug"
-msgstr ""
-
-#: orgSeries-widgets.php:302
-msgid "series id"
-msgstr ""
-
-#: orgSeries-widgets.php:315
-msgid "Order:"
-msgstr ""
-
-#: orgSeries-widgets.php:333
-msgid "Exclude series:"
-msgstr ""
-
-#: orgSeries-widgets.php:348
-msgid "Include series:"
-msgstr ""
-
-#: orgSeries-widgets.php:363
-msgid "Number of Series:"
-msgstr ""
-
-#: orgSeries-widgets.php:368
-msgid "Offset:"
-msgstr ""
-
-#: orgSeries-widgets.php:370
-msgid "You can select the offset for the number of series (useful for paging).  No offset if left blank"
-msgstr ""
-
-#: orgSeries-widgets.php:374
-msgid "Search:"
-msgstr ""
-
-#: orgSeries-widgets.php:376
-msgid "You can return any series that match this search string (matched against series names)"
-msgstr ""
-
-#: orgSeries-widgets.php:380
-msgid "Show other posts in the current series:"
-msgstr ""
-
-#: orgSeries-widgets.php:397
-msgid "Current series"
-msgstr ""
-
-#: orgSeries-widgets.php:416
-msgid "Series widget title:"
-msgstr ""
-
-#: orgSeries-widgets.php:418
-msgid "This text will display above other posts in this series."
-msgstr ""
-
 #: orgSeries.php:164
 msgid "<strong>This plugin can be deleted.</strong>"
-msgstr ""
-
-#: src/application/Container.php:160
-#, php-format
-msgid "The %1$s already has a parameter indexed with the name: %2$s."
-msgstr ""
-
-#: src/application/Root.php:139
-#, php-format
-msgid "The %1$s method can only be used to register a child of %2$s."
-msgstr ""
-
-#: src/domain/exceptions/EntityNotFoundException.php:30
-#, php-format
-msgid "Unable to retrieve an instance of %1$s. Not found."
-msgstr ""
-
-#: src/domain/exceptions/InvalidEntityException.php:29
-#, php-format
-msgid "%1$s is not a valid entity (expected: %2$s)."
-msgstr ""
-
-#: src/domain/exceptions/InvalidFilePathException.php:27
-#, php-format
-msgid "The \"%1$s\" file is either missing or could not be read due to permissions. Please ensure that the following path is correct and verify that the file permissions are correct:%2$s %3$s"
-msgstr ""
-
-#: src/domain/exceptions/InvalidInterfaceException.php:26
-#, php-format
-msgid "%s does not exist or is not reachable."
-msgstr ""
-
-#: src/domain/exceptions/NonceFailException.php:18
-msgid "Nonce fail."
-msgstr ""
-
-#: src/domain/model/ControllerRoute.php:50
-#: src/domain/model/HasHooksRoute.php:59
-#, php-format
-msgid "The provided object fully qualified class name (%1$s) must implement the %2$s interface."
-msgstr ""
-
-#: src/domain/model/FileLocation.php:50
-#, php-format
-msgid "The given file path (%s) is not readable."
-msgstr ""
-
-#: src/domain/model/LicenseKeyRepository.php:131
-msgid "An error occurred, please try again."
-msgstr ""
-
-#: src/domain/model/RouteIdentifier.php:51
-#, php-format
-msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:122
-#: src/views/admin/templates/license_key_form.template.php:31
-msgid "Deactivate License"
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:123
-#: src/views/admin/templates/license_key_form.template.php:33
-msgid "Activate License"
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:241
-msgid "License Key successfully activated."
-msgstr ""
-
-#: src/domain/services/admin/LicenseKeyFormManager.php:242
-msgid "License Key successfully deactivated."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:228
-#, php-format
-msgid "The value for %1$s is already set and it is not an array. The %2$s method can only be used to push values to this data element when it is an array."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:271
-#, php-format
-msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed. Since the value of this data is an array, you may want to use the %3$s method to push your value to the array."
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:283
-#, php-format
-msgid "The value for %1$s already exists in the %2$s property. Overrides are not allowed.  Consider attaching your value to a different key"
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:408
-#, php-format
-msgid "The namespace for this manifest file has already been registered, choose a namespace other than %s"
-msgstr ""
-
-#: src/domain/services/AssetRegistry.php:419
-#, php-format
-msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
-msgstr ""
-
-#: src/views/admin/templates/license_key_form.template.php:16
-#, php-format
-msgid "License Key for %1$s"
-msgstr ""
-
-#: src/views/admin/templates/license_key_form.template.php:19
-msgid "Enter your license key: "
 msgstr ""

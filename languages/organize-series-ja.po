@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26T12:10:30+00:00\n"
-"PO-Revision-Date: 2026-02-27 13:53+0000\n"
+"POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
+"PO-Revision-Date: 2026-03-09 13:55+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ja\n"
@@ -99,7 +99,7 @@ msgstr "プラグインを削除する際に、データベースからすべて
 #: orgSeries-admin.php:491
 #: orgSeries-admin.php:571
 #: orgSeries-options.php:55
-#: orgSeries-setup.php:254
+#: orgSeries-setup.php:268
 #: orgSeries-taxonomy.php:381
 #: orgSeries-widgets.php:233
 #: orgSeries-widgets.php:386
@@ -110,14 +110,6 @@ msgstr[0] "シリーズ"
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "クリックして切り替え"
-
-#: addons/grouping/legacy-includes.php:812, fuzzy
-msgid "[more]"
-msgstr "[more]"
-
-#: addons/grouping/legacy-includes.php:813, fuzzy
-msgid "[less]"
-msgstr "[less]"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
 msgid "Series in this category"
@@ -297,7 +289,7 @@ msgid "Meta Box Position"
 msgstr "メタボックスの位置"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:511
+#: addons/post-list-box/classes/PostListBoxFields.php:535
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -305,7 +297,7 @@ msgid "Top"
 msgstr "上"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:512
+#: addons/post-list-box/classes/PostListBoxFields.php:536
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -416,7 +408,7 @@ msgstr "シリーズ投稿の詳細"
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
-#: orgSeries-setup.php:194
+#: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "新規追加"
 
@@ -575,148 +567,172 @@ msgid "Show Post Titles"
 msgstr "投稿タイトルを表示"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "シリーズ順序番号"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "各投稿タイトルの横にシリーズ順序番号を表示します。"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "シリーズ順序番号の位置"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "タイトルの前"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "タイトルの後"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "タイトルに対する順序番号の表示位置を選択します。"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Post Title Color"
 msgstr "投稿タイトルの色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:259
+#: addons/post-list-box/classes/PostListBoxFields.php:283
 msgid "Post Title Font Size (px)"
 msgstr "投稿タイトルフォントサイズ（px）"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:270
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Show Post Excerpt"
 msgstr "投稿の抜粋を表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:278
+#: addons/post-list-box/classes/PostListBoxFields.php:302
 msgid "Excerpt Length (words)"
 msgstr "抜粋の長さ（単語）"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:290
+#: addons/post-list-box/classes/PostListBoxFields.php:314
 msgid "Excerpt Color"
 msgstr "抜粋の色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:300
+#: addons/post-list-box/classes/PostListBoxFields.php:324
 msgid "Show Post Author"
 msgstr "投稿作者を表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:308
+#: addons/post-list-box/classes/PostListBoxFields.php:332
 msgid "Post Author Color"
 msgstr "投稿者の色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:318
+#: addons/post-list-box/classes/PostListBoxFields.php:342
 msgid "Show Post Date"
 msgstr "投稿日を表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:326
+#: addons/post-list-box/classes/PostListBoxFields.php:350
 msgid "Post Date Color"
 msgstr "投稿日付の色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:347
+#: addons/post-list-box/classes/PostListBoxFields.php:371
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "アイキャッチ画像を表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Featured Image Width (px)"
 msgstr "アイキャッチ画像の幅 (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:361
+#: addons/post-list-box/classes/PostListBoxFields.php:385
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "アイキャッチ画像の幅（ピクセル単位）"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:366
+#: addons/post-list-box/classes/PostListBoxFields.php:390
 msgid "Featured Image Height (px)"
 msgstr "アイキャッチ画像の高さ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:373
+#: addons/post-list-box/classes/PostListBoxFields.php:397
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "アイキャッチ画像の高さ（ピクセル単位）"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:402
 msgid "Fallback Featured Image"
 msgstr "フォールバックアイキャッチ画像"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:383
+#: addons/post-list-box/classes/PostListBoxFields.php:407
 msgid "Image to display when a post does not have a featured image"
 msgstr "投稿にアイキャッチ画像がない場合に表示する画像"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:400
+#: addons/post-list-box/classes/PostListBoxFields.php:424
 msgid "Post Padding (px)"
 msgstr "投稿の余白 (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:409
+#: addons/post-list-box/classes/PostListBoxFields.php:433
 msgid "Post Border Width (px)"
 msgstr "投稿のボーダー幅 (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:418
+#: addons/post-list-box/classes/PostListBoxFields.php:442
 msgid "Post Border Color"
 msgstr "投稿のボーダー色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:425
+#: addons/post-list-box/classes/PostListBoxFields.php:449
 msgid "Post Background Color"
 msgstr "投稿の背景色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:430
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Background color for the post list container"
 msgstr "投稿リストコンテナの背景色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:444
+#: addons/post-list-box/classes/PostListBoxFields.php:468
 msgid "Layout Style"
 msgstr "レイアウトスタイル"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:448
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "リスト"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:473
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "グリッド"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:456
+#: addons/post-list-box/classes/PostListBoxFields.php:480
 msgid "Columns"
 msgstr "列"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:460
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "2 Columns"
 msgstr "2列"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:461
+#: addons/post-list-box/classes/PostListBoxFields.php:485
 msgid "3 Columns"
 msgstr "3列"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:462
+#: addons/post-list-box/classes/PostListBoxFields.php:486
 msgid "4 Columns"
 msgstr "4列"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "6 Columns"
 msgstr "6列"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:496
 msgid "Order By"
 msgstr "並べ替え"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:476
+#: addons/post-list-box/classes/PostListBoxFields.php:500
 msgid "Date"
 msgstr "日付"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:477
+#: addons/post-list-box/classes/PostListBoxFields.php:501
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "タイトル"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:478
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826
@@ -726,63 +742,63 @@ msgstr "タイトル"
 msgid "Series Order"
 msgstr "シリーズ順序"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:509
 #: orgSeries-manage.php:51
 #: orgSeries-manage.php:227
 msgid "Order"
 msgstr "順序"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:489
+#: addons/post-list-box/classes/PostListBoxFields.php:513
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "昇順"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:490
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
 msgstr "降順"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:497
+#: addons/post-list-box/classes/PostListBoxFields.php:521
 msgid "Gap Between Items (px)"
 msgstr "アイテム間のギャップ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:507
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 msgid "Post List Box Location"
 msgstr "投稿リストボックスの位置"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:540
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "コンテンツに対して投稿リストボックスを表示する場所を選択します"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:520
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "Maximum number of items"
 msgstr "最大アイテム数"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:550
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
 msgstr "シリーズリストに表示される投稿の数を制限します。制限なしの場合は空のままにしてください。管理者プレビューは4件の投稿に制限されています。"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:541
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 msgid "Highlight Current Post"
 msgstr "現在の投稿を強調表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:546
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "特定のシリーズ投稿を表示しているときに現在の投稿を強調表示します"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:549
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 msgid "Current Post Background Color"
 msgstr "現在の投稿の背景色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:556
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid "Current Post Border Color"
 msgstr "現在の投稿の枠線の色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:563
+#: addons/post-list-box/classes/PostListBoxFields.php:587
 msgid "Current Post Text Color"
 msgstr "現在の投稿のテキストの色"
 
@@ -978,7 +994,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "これはシリーズの投稿 %d のサンプル抜粋です。"
 
-#: addons/post-list-box/includes/class-preview.php:450
+#: addons/post-list-box/includes/class-preview.php:492
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1871,43 +1887,43 @@ msgid "Series order sync completed. %d posts updated."
 msgstr "シリーズの順序同期が完了しました。 %d 件の投稿が更新されました。"
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:247
+#: orgSeries-setup.php:261
 msgid "Search Series"
 msgstr "シリーズを検索"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:248
+#: orgSeries-setup.php:262
 msgid "Popular Series"
 msgstr "人気シリーズ"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:249
-#: orgSeries-setup.php:303
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
 msgid "All Series"
 msgstr "すべてのシリーズ"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:250
+#: orgSeries-setup.php:264
 msgid "Edit Series"
 msgstr "シリーズを編集"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:251
+#: orgSeries-setup.php:265
 msgid "Update Series"
 msgstr "シリーズを更新"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:252
+#: orgSeries-setup.php:266
 msgid "Add New Series"
 msgstr "新しいシリーズを追加"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:253
+#: orgSeries-setup.php:267
 msgid "New Series Name"
 msgstr "新しいシリーズ名"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:255
+#: orgSeries-setup.php:269
 msgid "No series found"
 msgstr "シリーズが見つかりません"
 
@@ -2075,7 +2091,7 @@ msgstr "シリーズの順序方法"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:473
+#: orgSeries-setup.php:487
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "シリーズ目次"
@@ -2581,7 +2597,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  （部品番号なし）"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:258
+#: orgSeries-setup.php:272
 msgid "No Series"
 msgstr "シリーズなし"
 
@@ -2658,7 +2674,7 @@ msgstr "正常に更新されました"
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:874
 msgid "Settings"
 msgstr "設定"
 
@@ -2686,39 +2702,39 @@ msgstr "プロ機能"
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: orgSeries-setup.php:195
+#: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "「シリーズの一部ではない」を選択して投稿からシリーズデータを削除します"
 
-#: orgSeries-setup.php:256
+#: orgSeries-setup.php:270
 msgid "&larr; Go to Series"
 msgstr "&larr; シリーズに移動"
 
-#: orgSeries-setup.php:257
+#: orgSeries-setup.php:271
 msgid "View Series"
 msgstr "シリーズを見る"
 
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:273
 msgid "Series List"
 msgstr "シリーズリスト"
 
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:274
 msgid "Series Link"
 msgstr "シリーズリンク"
 
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:275
 msgid "A link to a Series"
 msgstr "シリーズへのリンク"
 
-#: orgSeries-setup.php:315
+#: orgSeries-setup.php:329
 msgid "Series Navigation"
 msgstr "シリーズナビゲーション"
 
-#: orgSeries-setup.php:846
+#: orgSeries-setup.php:860
 msgid "Series: "
 msgstr "シリーズ： "
 
-#: orgSeries-setup.php:848
+#: orgSeries-setup.php:862
 msgid "Posts from the series: "
 msgstr "シリーズからの投稿： "
 
@@ -3050,7 +3066,7 @@ msgid "Series Categories"
 msgstr "シリーズカテゴリ"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
+#: orgSeries-setup.php:259
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "シリーズ"
@@ -3061,7 +3077,7 @@ msgid "Series Category"
 msgstr "シリーズカテゴリ"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
+#: orgSeries-setup.php:260
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "シリーズ"
@@ -3084,8 +3100,8 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-setup.php:309
-#: orgSeries-setup.php:310
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
