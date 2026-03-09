@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-04 03:11+0000\n"
+"PO-Revision-Date: 2026-03-09 13:55+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -104,7 +104,7 @@ msgstr ""
 #: orgSeries-admin.php:491
 #: orgSeries-admin.php:571
 #: orgSeries-options.php:55
-#: orgSeries-setup.php:254
+#: orgSeries-setup.php:268
 #: orgSeries-taxonomy.php:381
 #: orgSeries-widgets.php:233
 #: orgSeries-widgets.php:386
@@ -116,14 +116,6 @@ msgstr[1] "Serien"
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "Klicken Sie zum Umschalten"
-
-#: addons/grouping/legacy-includes.php:812
-msgid "[more]"
-msgstr "[mehr]"
-
-#: addons/grouping/legacy-includes.php:813
-msgid "[less]"
-msgstr "[weniger]"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
 msgid "Series in this category"
@@ -426,7 +418,7 @@ msgstr "Details zum Serienbeitrag"
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
-#: orgSeries-setup.php:194
+#: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Neu hinzufügen"
 
@@ -1966,43 +1958,43 @@ msgstr ""
 "aktualisiert."
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:247
+#: orgSeries-setup.php:261
 msgid "Search Series"
 msgstr "Serien suchen"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:248
+#: orgSeries-setup.php:262
 msgid "Popular Series"
 msgstr "Beliebte Serien"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:249
-#: orgSeries-setup.php:303
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
 msgid "All Series"
 msgstr "Alle Serien"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:250
+#: orgSeries-setup.php:264
 msgid "Edit Series"
 msgstr "Serie bearbeiten"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:251
+#: orgSeries-setup.php:265
 msgid "Update Series"
 msgstr "Serie aktualisieren"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:252
+#: orgSeries-setup.php:266
 msgid "Add New Series"
 msgstr "Neue Serie hinzufügen"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:253
+#: orgSeries-setup.php:267
 msgid "New Series Name"
 msgstr "Neuer Serienname"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:255
+#: orgSeries-setup.php:269
 msgid "No series found"
 msgstr "Keine Serien gefunden"
 
@@ -2182,7 +2174,7 @@ msgstr "Serienbestellmethode"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:473
+#: orgSeries-setup.php:487
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Inhaltsverzeichnis der Serien"
@@ -2735,7 +2727,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Keine Teilenummer)"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:258
+#: orgSeries-setup.php:272
 msgid "No Series"
 msgstr "Keine Serien"
 
@@ -2819,7 +2811,7 @@ msgstr "Erfolgreich aktualisiert"
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:874
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -2847,41 +2839,41 @@ msgstr "Pro-Funktionen"
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: orgSeries-setup.php:195
+#: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 "Wählen Sie \"Nicht Teil einer Serie\", um alle Serieninformationen aus dem "
 "Beitrag zu entfernen"
 
-#: orgSeries-setup.php:256
+#: orgSeries-setup.php:270
 msgid "&larr; Go to Series"
 msgstr "&larr; Gehe zu Serien"
 
-#: orgSeries-setup.php:257
+#: orgSeries-setup.php:271
 msgid "View Series"
 msgstr "Serie anzeigen"
 
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:273
 msgid "Series List"
 msgstr "Serienliste"
 
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:274
 msgid "Series Link"
 msgstr "Serienlink"
 
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:275
 msgid "A link to a Series"
 msgstr "Ein Link zu einer Serie"
 
-#: orgSeries-setup.php:315
+#: orgSeries-setup.php:329
 msgid "Series Navigation"
 msgstr "Seriennavigation"
 
-#: orgSeries-setup.php:846
+#: orgSeries-setup.php:860
 msgid "Series: "
 msgstr "Serie: "
 
-#: orgSeries-setup.php:848
+#: orgSeries-setup.php:862
 msgid "Posts from the series: "
 msgstr "Beiträge aus der Serie: "
 
@@ -3237,7 +3229,7 @@ msgid "Series Categories"
 msgstr "Serienkategorien"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
+#: orgSeries-setup.php:259
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Serie"
@@ -3248,7 +3240,7 @@ msgid "Series Category"
 msgstr "Serienkategorie"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
+#: orgSeries-setup.php:260
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Serie"
@@ -3271,8 +3263,8 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-setup.php:309
-#: orgSeries-setup.php:310
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "

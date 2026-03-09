@@ -20,6 +20,9 @@ msgstr ""
 #. Plugin Name of the plugin
 #. Plugin Name of the plugin
 #. Plugin Name of the plugin
+#. Plugin Name of the plugin
+#. Plugin Name of the plugin
+#. Plugin Name of the plugin
 #: orgSeries.php
 msgid "PublishPress Series"
 msgstr ""

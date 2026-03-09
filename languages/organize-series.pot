@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Series 3.0.0\n"
+"Project-Id-Version: PublishPress Series 3.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-04T03:10:58+00:00\n"
+"POT-Creation-Date: 2026-03-09T13:55:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
@@ -98,7 +98,7 @@ msgstr ""
 #: orgSeries-admin.php:491
 #: orgSeries-admin.php:571
 #: orgSeries-options.php:55
-#: orgSeries-setup.php:254
+#: orgSeries-setup.php:268
 #: orgSeries-taxonomy.php:381
 #: orgSeries-widgets.php:233
 #: orgSeries-widgets.php:386
@@ -109,14 +109,6 @@ msgstr[1] ""
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:812
-msgid "[more]"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:813
-msgid "[less]"
 msgstr ""
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
@@ -416,7 +408,7 @@ msgstr ""
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
-#: orgSeries-setup.php:194
+#: orgSeries-setup.php:208
 msgid "Add New"
 msgstr ""
 
@@ -1851,55 +1843,55 @@ msgid "Series order sync completed. %d posts updated."
 msgstr ""
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:245
+#: orgSeries-setup.php:259
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:246
+#: orgSeries-setup.php:260
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:247
+#: orgSeries-setup.php:261
 msgid "Search Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:248
+#: orgSeries-setup.php:262
 msgid "Popular Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:249
-#: orgSeries-setup.php:303
+#: orgSeries-setup.php:263
+#: orgSeries-setup.php:317
 msgid "All Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:250
+#: orgSeries-setup.php:264
 msgid "Edit Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:251
+#: orgSeries-setup.php:265
 msgid "Update Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:252
+#: orgSeries-setup.php:266
 msgid "Add New Series"
 msgstr ""
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:253
+#: orgSeries-setup.php:267
 msgid "New Series Name"
 msgstr ""
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:255
+#: orgSeries-setup.php:269
 msgid "No series found"
 msgstr ""
 
@@ -2046,7 +2038,7 @@ msgstr ""
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:473
+#: orgSeries-setup.php:487
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr ""
@@ -2515,7 +2507,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr ""
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:258
+#: orgSeries-setup.php:272
 msgid "No Series"
 msgstr ""
 
@@ -2586,7 +2578,7 @@ msgstr ""
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:874
 msgid "Settings"
 msgstr ""
 
@@ -2614,46 +2606,46 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: orgSeries-setup.php:195
+#: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 
-#: orgSeries-setup.php:256
+#: orgSeries-setup.php:270
 msgid "&larr; Go to Series"
 msgstr ""
 
-#: orgSeries-setup.php:257
+#: orgSeries-setup.php:271
 msgid "View Series"
 msgstr ""
 
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:273
 msgid "Series List"
 msgstr ""
 
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:274
 msgid "Series Link"
 msgstr ""
 
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:275
 msgid "A link to a Series"
 msgstr ""
 
-#: orgSeries-setup.php:309
-#: orgSeries-setup.php:310
+#: orgSeries-setup.php:323
+#: orgSeries-setup.php:324
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr ""
 
-#: orgSeries-setup.php:315
+#: orgSeries-setup.php:329
 msgid "Series Navigation"
 msgstr ""
 
-#: orgSeries-setup.php:846
+#: orgSeries-setup.php:860
 msgid "Series: "
 msgstr ""
 
-#: orgSeries-setup.php:848
+#: orgSeries-setup.php:862
 msgid "Posts from the series: "
 msgstr ""
 

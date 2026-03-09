@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[3.1.0] - 05 Mar, 2026
+[3.1.0] - 09 Mar, 2026
 
 * Added: Add a "No Series" option in bulk edit #1016
 * Added: Add a default Series categories template and add a fallback to theme template #1020
