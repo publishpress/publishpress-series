@@ -7,8 +7,8 @@
  * @package Publishpress Series
  */
 
-add_settings_section('series_cpt_settings', __('Post Types', 'publishpress-series-pro'), 'ppseries_cpt_section', 'orgseries_options_page');
-add_settings_field('orgseries_cpt_settings', __('Custom Post Type Support', 'publishpress-series-pro'), 'series_cpt_settings_display', 'orgseries_options_page', 'series_cpt_settings');
+add_settings_section('series_cpt_settings', __('Post Types', 'organize-series'), 'ppseries_cpt_section', 'orgseries_options_page');
+add_settings_field('orgseries_cpt_settings', __('Custom Post Type Support', 'organize-series'), 'series_cpt_settings_display', 'orgseries_options_page', 'series_cpt_settings');
 
 /**
  * Display the Post Types section header
