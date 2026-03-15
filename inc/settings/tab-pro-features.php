@@ -7,8 +7,8 @@
  * @package Publishpress Series
  */
 
-add_settings_section('series_addon_settings', __('Pro Features', 'publishpress-series-pro'), 'ppseries_addon_section', 'orgseries_options_page');
-add_settings_field('orgseries_addon_settings', __('Pro Features', 'publishpress-series-pro'), 'series_addon_settings_display', 'orgseries_options_page', 'series_addon_settings');
+add_settings_section('series_addon_settings', __('Pro Features', 'organize-series'), 'ppseries_addon_section', 'orgseries_options_page');
+add_settings_field('orgseries_addon_settings', __('Pro Features', 'organize-series'), 'series_addon_settings_display', 'orgseries_options_page', 'series_addon_settings');
 
 /**
  * Display the Pro Features section header
