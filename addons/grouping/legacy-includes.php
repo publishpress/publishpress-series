@@ -449,7 +449,7 @@ function pp_series_group_theme_archive_permalink($post_link, $post) {
     return $series_link;
 }
 
-function pp_series_group_theme_archive_excerpt($excerpt, $post) {
+function pp_series_group_theme_archive_excerpt($excerpt, $post = null) {
     if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
         return $excerpt;
     }
