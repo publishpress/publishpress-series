@@ -28,7 +28,7 @@
     "automattic/vipwpcs": "^2.3",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "overtrue/phplint": "^9.6",
-    "publishpress/translations": "dev-development"
+    "publishpress/translations": "^1.0"
   },
   "scripts": {
     "build": "build zip",
