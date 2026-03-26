@@ -147,38 +147,49 @@ class PPS_Post_List_Box_Admin_UI {
 
         $messages[self::POST_TYPE_BOXES] = [
             'updated' => sprintf(
-                _n('%1$s %2$s updated.', '%1$s %3$s updated.', $countsUpdated),
+                _n('%1$s %2$s updated.', '%1$s %2$s updated.', $countsUpdated, 'organize-series'),
                 $countsUpdated,
-                $postTypeNameSingular,
-                $postTypeNamePlural
+                1 === $countsUpdated ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'locked' => sprintf(
                 _n(
                     '%1$s %2$s not updated, somebody is editing it.',
-                    '%1$s %3$s not updated, somebody is editing them.',
-                    $countsLocked
+                    '%1$s %2$s not updated, somebody is editing them.',
+                    $countsLocked,
+                    'organize-series'
                 ),
                 $countsLocked,
-                $postTypeNameSingular,
-                $postTypeNamePlural
+                1 === $countsLocked ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'deleted' => sprintf(
-                _n('%1$s %2$s permanently deleted.', '%1$s %3$s permanently deleted.', $countsDeleted),
+                _n(
+                    '%1$s %2$s permanently deleted.',
+                    '%1$s %2$s permanently deleted.',
+                    $countsDeleted,
+                    'organize-series'
+                ),
                 $countsDeleted,
-                $postTypeNameSingular,
-                $postTypeNamePlural
+                1 === $countsDeleted ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'trashed' => sprintf(
-                _n('%1$s %2$s moved to the Trash.', '%1$s %3$s moved to the Trash.', $countsTrashed),
+                _n(
+                    '%1$s %2$s moved to the Trash.',
+                    '%1$s %2$s moved to the Trash.',
+                    $countsTrashed,
+                    'organize-series'
+                ),
                 $countsTrashed,
-                $postTypeNameSingular,
-                $postTypeNamePlural
+                1 === $countsTrashed ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'untrashed' => sprintf(
-                _n('%1$s %2$s restored from the Trash.', '%1$s %3$s restored from the Trash.', $countsUntrashed),
+                _n(
+                    '%1$s %2$s restored from the Trash.',
+                    '%1$s %2$s restored from the Trash.',
+                    $countsUntrashed,
+                    'organize-series'
+                ),
                 $countsUntrashed,
-                $postTypeNameSingular,
-                $postTypeNamePlural
+                1 === $countsUntrashed ? $postTypeNameSingular : $postTypeNamePlural
             ),
         ];
 
