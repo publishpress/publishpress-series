@@ -163,7 +163,7 @@ class orgSeries {
     //add support for capabilities tab in PublishPress Capabilities
     function pp_series_cme_plugin_capabilities($plugin_caps){
 
-        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_series', 'manage_publishpress_series']);
+        $plugin_caps['PublishPress Series'] = apply_filters('publishpress_series_capabilities', ['manage_publishpress_series']);
 
         return $plugin_caps;
     }
@@ -215,12 +215,10 @@ class orgSeries {
 	function orgSeries_roles() {
 		global $wp_roles;
 		$roles = array('administrator', 'editor');
-		$capability = 'manage_series';
-		$capability_2 = 'manage_publishpress_series';
+		$capability = 'manage_publishpress_series';
 
 		foreach ($roles as $role) {
 			$wp_roles->add_cap($role, $capability, true);
-			$wp_roles->add_cap($role, $capability_2, true);
 		}
 		return true;
 	}
