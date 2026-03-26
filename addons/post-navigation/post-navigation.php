@@ -83,8 +83,8 @@ class PPS_Series_Post_Navigation
                 'nonce' => wp_create_nonce('series-post-navigation-nonce'),
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'i18n' => [
-                    'loading_preview' => __('Loading preview...', 'publishpress-series-pro'),
-                    'error_loading_preview' => __('Error updating preview.', 'publishpress-series-pro'),
+                    'loading_preview' => __('Loading preview...', 'organize-series'),
+                    'error_loading_preview' => __('Error updating preview.', 'organize-series'),
                 ],
             ]
         );

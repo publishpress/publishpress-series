@@ -112,7 +112,7 @@ class PPS_Series_Post_Navigation_Admin_UI
         echo '<div class="pps-series-selector-container" style="margin-bottom: 20px;">';
         if (! empty($all_series) && ! is_wp_error($all_series)) {
             echo '<div class="pps-series-selector">';
-            echo '<label for="pps-series-post-navigation-preview-select">' . esc_html__('Select Series to Preview:', 'publishpress-series-pro') . '</label>';
+            echo '<label for="pps-series-post-navigation-preview-select">' . esc_html__('Select Series to Preview:', 'organize-series') . '</label>';
             echo '<select id="pps-series-post-navigation-preview-select" style="margin-left: 10px; min-width: 200px;">';
             foreach ($all_series as $series) {
                 $selected = selected($selected_series_id, (int) $series->term_id, false);
@@ -121,7 +121,7 @@ class PPS_Series_Post_Navigation_Admin_UI
             echo '</select>';
             echo '</div>';
         } else {
-            echo '<p class="description">' . esc_html__('No series found. Create a series to preview the navigation.', 'publishpress-series-pro') . '</p>';
+            echo '<p class="description">' . esc_html__('No series found. Create a series to preview the navigation.', 'organize-series') . '</p>';
         }
         echo '</div>';
 
