@@ -1,6 +1,14 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.1.1] - 31 Mar, 2026
+
+* Fixed: Make the post optional in pp_series_group_theme_archive_excerpt #1089
+* Fixed: Fix xgettext plural formats #1085
+* Fixed: Shortcode not working in when module disabled #1080
+* Deprecated: Remove manage_series capability #1091
+* Changed: Update text domain (thanks to @DAnn2012) #1090
+
 [3.1.0] - 09 Mar, 2026
 
 * Added: Add a "No Series" option in bulk edit #1016

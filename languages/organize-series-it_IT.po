@@ -15,6 +15,8 @@ msgstr ""
 
 #: src/domain/exceptions/InvalidEntityException.php:29
 #: src/domain/exceptions/InvalidEntityException.php:29
+#: src/domain/exceptions/InvalidEntityException.php:29
+#: src/domain/exceptions/InvalidEntityException.php:29
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
 msgstr "%1$s non è un'entità valida (previsto: %2$s)."
@@ -29,7 +31,7 @@ msgstr "%1$s serie sono state migrate nella nuova tassonomia"
 msgid "%s does not exist or is not reachable."
 msgstr "%s non esiste o non è raggiungibile."
 
-#: orgSeries-setup.php:270
+#: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
 msgstr "&larr; vai alla serie"
 
@@ -58,7 +60,7 @@ msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Parte %1$s di %2$s)"
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr "<a href=\"%s\" title=\"%s\">Serie</a>"
 
-#: orgSeries-setup.php:275
+#: orgSeries-setup.php:273
 msgid "A link to a Series"
 msgstr "Un link alla serie"
 
@@ -87,7 +89,7 @@ msgid "Add New"
 msgstr "Aggiungi nuova"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:266
+#: orgSeries-setup.php:264
 msgid "Add New Series"
 msgstr "Aggiungi nuova serie"
 
@@ -108,8 +110,8 @@ msgid "All Categories"
 msgstr "Tutte le categorie"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:263
-#: orgSeries-setup.php:317
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
 msgid "All Series"
 msgstr "Tutte le serie"
 
@@ -252,6 +254,7 @@ msgstr "Serie corrente"
 msgid "Current series icon:"
 msgstr "Icona della serie corrente:"
 
+#: inc/settings/tab-post-types.php:11
 #: inc/settings/tab-pro-features.php:27
 msgid "Custom Post Type Support"
 msgstr "Compatibilità con i tipi di contenuto personalizzati"
@@ -326,7 +329,7 @@ msgid "Edit"
 msgstr "Modifica"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:264
+#: orgSeries-setup.php:262
 msgid "Edit Series"
 msgstr "Modifica serie"
 
@@ -456,8 +459,8 @@ msgstr "Ultima serie (tag before):"
 msgid "Layout:"
 msgstr "Layout:"
 
-#: orgSeries-setup.php:323
-#: orgSeries-setup.php:324
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
@@ -532,7 +535,7 @@ msgid "New Series Category"
 msgstr "Nuova categoria della serie"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:267
+#: orgSeries-setup.php:265
 msgid "New Series Name"
 msgstr "Nome nuova serie"
 
@@ -549,12 +552,12 @@ msgid "No Part Number"
 msgstr "Senza numero di parti"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:272
+#: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Nessuna serie"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:269
+#: orgSeries-setup.php:267
 msgid "No series found"
 msgstr "Nessuna serie trovata"
 
@@ -639,7 +642,7 @@ msgid "Please update your PublishPress Series data"
 msgstr "Aggiorna i tuoi dati di PublishPress Series"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:262
+#: orgSeries-setup.php:260
 msgid "Popular Series"
 msgstr "Serie popolari"
 
@@ -655,11 +658,12 @@ msgstr "L'articolo è stato spostato nel cestino."
 msgid "Post title in widget:"
 msgstr "Titolo dell'articolo nel widget:"
 
+#: inc/settings/tab-post-types.php:10
 #: orgSeries-options.php:138
 msgid "Post Types"
 msgstr "Tipi di contenuto"
 
-#: orgSeries-setup.php:862
+#: orgSeries-setup.php:860
 msgid "Posts from the series: "
 msgstr "Articoli della serie: "
 
@@ -669,6 +673,8 @@ msgstr "Articoli della serie: "
 msgid "Preview"
 msgstr "Anteprima"
 
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
 #: orgSeries-options.php:147
 msgid "Pro Features"
 msgstr "Caratteristiche Pro"
@@ -707,11 +713,6 @@ msgstr "Serie editoriale:"
 #: orgSeries.php, fuzzy
 msgid "PublishPress"
 msgstr "PublishPress"
-
-#. Plugin Name of the plugin
-#: orgSeries.php, fuzzy
-msgid "PublishPress Series"
-msgstr "PublishPress Series"
 
 #. Description of the plugin
 #: orgSeries.php
@@ -779,7 +780,7 @@ msgid "Search results for &#8220;%s&#8221;"
 msgstr "Risultati della ricerca per &#8220;%s&#8221;"
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:259
 msgid "Search Series"
 msgstr "Cerca serie"
 
@@ -799,7 +800,7 @@ msgstr "Cerca:"
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "Seleziona \"Non fa parte di una serie\" per rimuovere i dati della serie dall'articolo"
 
-#: addons/post-list-box/includes/class-admin-ui.php:674
+#: addons/post-list-box/includes/class-admin-ui.php:685
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
@@ -815,7 +816,7 @@ msgstr "Seleziona serie"
 #: orgSeries-admin.php:491
 #: orgSeries-admin.php:571
 #: orgSeries-options.php:55
-#: orgSeries-setup.php:268
+#: orgSeries-setup.php:266
 #: orgSeries-taxonomy.php:381
 #: orgSeries-widgets.php:233
 #: orgSeries-widgets.php:386
@@ -842,15 +843,15 @@ msgstr "Caricamento dell'icona della serie:"
 msgid "series id"
 msgstr "id della serie"
 
-#: orgSeries-setup.php:274
+#: orgSeries-setup.php:272
 msgid "Series Link"
 msgstr "Link serie"
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:271
 msgid "Series List"
 msgstr "Elenco serie"
 
-#: orgSeries-setup.php:329
+#: orgSeries-setup.php:327
 msgid "Series Navigation"
 msgstr "Navigazione serie"
 
@@ -899,7 +900,7 @@ msgstr "Slug della serie"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:487
+#: orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Indice delle serie"
@@ -937,14 +938,14 @@ msgstr "Titolo del widget della serie:"
 msgid "Series:"
 msgstr "Serie:"
 
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:858
 msgid "Series: "
 msgstr "Serie: "
 
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:874
+#: orgSeries-setup.php:872
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -1009,7 +1010,7 @@ msgid "Taxonomy"
 msgstr "Tassonomia"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:257
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Serie"
@@ -1020,7 +1021,7 @@ msgid "Series Categories"
 msgstr "Categorie della serie"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:258
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Serie"
@@ -1150,8 +1151,8 @@ msgstr "Questa funzionalità ti permette di creare una nuova tassonomia per ques
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
-#: addons/post-list-box/includes/class-admin-ui.php:420
-#: addons/post-list-box/includes/class-admin-ui.php:698
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:442
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
@@ -1240,7 +1241,7 @@ msgid "Update Order"
 msgstr "Ordine di aggiornamento"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:265
+#: orgSeries-setup.php:263
 msgid "Update Series"
 msgstr "Aggiorna serie"
 
@@ -1309,7 +1310,7 @@ msgstr "Vedi la documentazione"
 msgid "view page"
 msgstr "visualizza pagina"
 
-#: orgSeries-setup.php:271
+#: orgSeries-setup.php:269
 msgid "View Series"
 msgstr "Visualizza serie"
 
@@ -1512,14 +1513,14 @@ msgstr ""
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
 #: addons/post-list-box/includes/class-admin-ui.php:55
-#: addons/post-list-box/includes/class-admin-ui.php:231
+#: addons/post-list-box/includes/class-admin-ui.php:242
 #: addons/post-navigation/includes/class-admin-ui.php:85
 #: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
 msgstr ""
 
 #: addons/post-details/includes/class-admin-ui.php:147
-#: addons/post-list-box/includes/class-admin-ui.php:262
+#: addons/post-list-box/includes/class-admin-ui.php:273
 #: addons/post-navigation/includes/class-admin-ui.php:182
 msgid "Use this shortcode:"
 msgstr ""
@@ -2078,40 +2079,42 @@ msgstr ""
 msgid "Post List Box"
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:197
+#: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:214
+#: addons/post-list-box/includes/class-admin-ui.php:225
 msgid "Post List Box Editor"
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:264
+#: addons/post-list-box/includes/class-admin-ui.php:275
 msgid "Insert into posts or pages to display this Post List Box manually."
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:306
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
 msgid "Select Series to Preview:"
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:324
+#: addons/post-list-box/includes/class-admin-ui.php:335
 msgid "No series found. Create a series to see the preview."
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:339
+#: addons/post-list-box/includes/class-admin-ui.php:350
 msgid "No posts found in selected series."
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:357
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
 msgid "Loading preview..."
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:372
-#: addons/post-list-box/includes/class-admin-ui.php:376
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
 msgid "Error loading preview."
 msgstr ""
 
-#: addons/post-list-box/includes/class-admin-ui.php:678
+#: addons/post-list-box/includes/class-admin-ui.php:689
 msgid "Remove"
 msgstr ""
 
@@ -2943,4 +2946,56 @@ msgstr ""
 
 #: orgSeries.php:164
 msgid "<strong>This plugin can be deleted.</strong>"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: orgSeries.php
+msgid "PublishPress Series Free"
+msgstr ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr ""
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr ""
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
 msgstr ""
