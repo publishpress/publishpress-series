@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-26 08:59+0000\n"
+"PO-Revision-Date: 2026-03-30 10:52+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -96,20 +96,6 @@ msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "Hapus semua data \"Kategori Seri\" dari database saat menghapus plugin."
-
-#: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:266
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Seri"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -1610,6 +1596,10 @@ msgstr "Filter"
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "Kelola Seri"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Seri"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
@@ -3241,6 +3231,11 @@ msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Seri"
 
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Seri"
+
 #: addons/post-list-box/includes/class-post-type.php:27
 #, fuzzy, php-format
 msgctxt "Post List Box post type name"
@@ -3259,6 +3254,32 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Seri"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Seri"
+
 #: orgSeries-setup.php:321
 #: orgSeries-setup.php:322
 #, php-format
@@ -3267,3 +3288,18 @@ msgid "This entry is part %series_part% of %total_posts_in_series% in the series
 msgstr ""
 "Entri ini adalah bagian %series_part% dari %total_posts_in_series% dalam "
 "seri "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Seri"

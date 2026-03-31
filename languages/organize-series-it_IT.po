@@ -17,6 +17,7 @@ msgstr ""
 #: src/domain/exceptions/InvalidEntityException.php:29
 #: src/domain/exceptions/InvalidEntityException.php:29
 #: src/domain/exceptions/InvalidEntityException.php:29
+#: src/domain/exceptions/InvalidEntityException.php:29
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
 msgstr "%1$s non è un'entità valida (previsto: %2$s)."

@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-26 08:59+0000\n"
+"PO-Revision-Date: 2026-03-30 10:52+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ko_KR\n"
@@ -93,20 +93,6 @@ msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "플러그인을 삭제할 때 데이터베이스에서 모든 \"시리즈 카테고리\" 데이터를 삭제합니다."
-
-#: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:266
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "시리즈"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -1595,6 +1581,10 @@ msgstr "필터"
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "시리즈 관리"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "시리즈"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
@@ -3128,6 +3118,11 @@ msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "시리즈"
 
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "시리즈"
+
 #: addons/post-list-box/includes/class-post-type.php:27
 #, fuzzy, php-format
 msgctxt "Post List Box post type name"
@@ -3146,9 +3141,50 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "시리즈"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "시리즈"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "시리즈"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "시리즈"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "시리즈"
+
 #: orgSeries-setup.php:321
 #: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "이 항목은 시리즈의 %series_part% 중 %total_posts_in_series%입니다. "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "시리즈"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "시리즈"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "시리즈"

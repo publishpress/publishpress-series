@@ -17,6 +17,7 @@ msgstr ""
 #. Plugin URI of the plugin
 #. Plugin URI of the plugin
 #. Plugin URI of the plugin
+#. Plugin URI of the plugin
 #: orgSeries.php
 msgid "https://publishpress.com/publishpress-series/"
 msgstr ""

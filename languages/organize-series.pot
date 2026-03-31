@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-26T08:58:51+00:00\n"
+"POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
@@ -93,19 +93,9 @@ msgid "Delete all \"Series Categories\" data from the database when deleting the
 msgstr ""
 
 #: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:266
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
+msgctxt "series grouping column header"
 msgid "Series"
-msgid_plural "Series"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -1608,6 +1598,10 @@ msgstr ""
 msgid "Manage Series"
 msgstr ""
 
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr ""
+
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
 #: addons/publisher/series_issue_manager.php:741
@@ -2552,6 +2546,16 @@ msgstr ""
 msgid "A short title of this post that will be used in the Series widget. Leave blank to use the full title."
 msgstr ""
 
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr ""
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr ""
+
 #: orgSeries-admin.php:519
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
@@ -2579,6 +2583,13 @@ msgstr ""
 #: orgSeries-admin.php:561
 msgid "Manage All Series"
 msgstr ""
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] ""
+msgstr[1] ""
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
@@ -2647,6 +2658,11 @@ msgstr ""
 msgid "PublishPress Series Options"
 msgstr ""
 
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr ""
+
 #: orgSeries-options.php:141
 msgid "Taxonomy"
 msgstr ""
@@ -2661,6 +2677,11 @@ msgstr ""
 
 #: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr ""
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
 msgstr ""
 
 #: orgSeries-setup.php:268
@@ -2700,6 +2721,11 @@ msgstr ""
 
 #: orgSeries-setup.php:860
 msgid "Posts from the series: "
+msgstr ""
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
 msgstr ""
 
 #: orgSeries-taxonomy.php:664
@@ -2796,6 +2822,11 @@ msgstr ""
 msgid "Select Series"
 msgstr ""
 
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr ""
+
 #: orgSeries-widgets.php:234
 msgid "Other posts in series:"
 msgstr ""
@@ -2874,6 +2905,11 @@ msgstr ""
 
 #: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
+msgstr ""
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
 msgstr ""
 
 #: orgSeries-widgets.php:397
