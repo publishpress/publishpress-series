@@ -16,11 +16,9 @@ msgstr ""
 "PO-Revision-Date: 2026-03-26 08:59+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
+"Language: yor\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Language: yo\n"
 
-#: orgSeries.php
-#: orgSeries.php
 #: orgSeries.php
 #: orgSeries.php, fuzzy
 #. Plugin Name of the plugin
@@ -114,7 +112,6 @@ msgstr ""
 msgid "Series"
 msgid_plural "Series"
 msgstr[0] "Jara"
-msgstr[1] ""
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -857,35 +854,30 @@ msgstr "Àkọsílẹ Àwọn Ìkànsí"
 msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
 msgstr[0] "%1$s %2$s ti ni imudojuiwọn."
-msgstr[1] "%1$s %2$s ti ni imudojuiwọn."
 
 #: addons/post-list-box/includes/class-admin-ui.php:155
 #, php-format
 msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
 msgstr[0] "%1$s %2$s ko ti ni imudojuiwọn, ẹnikan n ṣe atunṣe rẹ."
-msgstr[1] "%1$s %2$s ko ti ni imudojuiwọn, ẹnikan n ṣe atunṣe wọn."
 
 #: addons/post-list-box/includes/class-admin-ui.php:165
 #, php-format
 msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
 msgstr[0] "%1$s %2$s ti paarẹ patapata."
-msgstr[1] "%1$s %2$s ti paarẹ patapata."
 
 #: addons/post-list-box/includes/class-admin-ui.php:175
 #, php-format
 msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
 msgstr[0] "%1$s %2$s ti gbe si Ibi idoti."
-msgstr[1] "%1$s %2$s ti gbe si Ibi idoti."
 
 #: addons/post-list-box/includes/class-admin-ui.php:185
 #, php-format
 msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
 msgstr[0] "%1$s %2$s ti gba pada lati Ibi idoti."
-msgstr[1] "%1$s %2$s ti gba pada lati Ibi idoti."
 
 #: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"
