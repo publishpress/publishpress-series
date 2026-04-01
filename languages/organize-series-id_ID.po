@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-09 13:55+0000\n"
+"PO-Revision-Date: 2026-03-30 10:52+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,8 +22,8 @@ msgstr ""
 #: orgSeries.php
 #: orgSeries.php, fuzzy
 #. Plugin Name of the plugin
-msgid "PublishPress Series"
-msgstr "PublishPress Series"
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
@@ -96,20 +96,6 @@ msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "Hapus semua data \"Kategori Seri\" dari database saat menghapus plugin."
-
-#: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:268
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Seri"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -187,14 +173,14 @@ msgstr "Editor Detail Pos Seri"
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
 #: addons/post-list-box/includes/class-admin-ui.php:55
-#: addons/post-list-box/includes/class-admin-ui.php:231
+#: addons/post-list-box/includes/class-admin-ui.php:242
 #: addons/post-navigation/includes/class-admin-ui.php:85
 #: addons/post-navigation/includes/class-admin-ui.php:193, fuzzy
 msgid "Shortcode"
 msgstr "Shortcode"
 
 #: addons/post-details/includes/class-admin-ui.php:147
-#: addons/post-list-box/includes/class-admin-ui.php:262
+#: addons/post-list-box/includes/class-admin-ui.php:273
 #: addons/post-navigation/includes/class-admin-ui.php:182
 msgid "Use this shortcode:"
 msgstr "Gunakan shortcode ini:"
@@ -211,8 +197,8 @@ msgstr "Kotak Meta Default"
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
-#: addons/post-list-box/includes/class-admin-ui.php:420
-#: addons/post-list-box/includes/class-admin-ui.php:698
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:442
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
@@ -847,48 +833,80 @@ msgstr "Kotak Daftar Pos dikirim."
 msgid "Post List Box"
 msgstr "Kotak Daftar Pos"
 
-#: addons/post-list-box/includes/class-admin-ui.php:197
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s diperbarui."
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s tidak diperbarui, seseorang sedang mengeditnya."
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s terhapus secara permanen."
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s dipindahkan ke Tempat Sampah."
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s dipulihkan dari Tempat Sampah."
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"
 msgstr "Prabaca Kotak Daftar Pos"
 
-#: addons/post-list-box/includes/class-admin-ui.php:214
+#: addons/post-list-box/includes/class-admin-ui.php:225
 msgid "Post List Box Editor"
 msgstr "Editor Kotak Daftar Pos"
 
-#: addons/post-list-box/includes/class-admin-ui.php:264
+#: addons/post-list-box/includes/class-admin-ui.php:275
 msgid "Insert into posts or pages to display this Post List Box manually."
 msgstr ""
 "Sisipkan ke dalam pos atau halaman untuk menampilkan Kotak Daftar Pos ini "
 "secara manual."
 
-#: addons/post-list-box/includes/class-admin-ui.php:306
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
 msgid "Select Series to Preview:"
 msgstr "Pilih Seri untuk Prabaca:"
 
-#: addons/post-list-box/includes/class-admin-ui.php:324
+#: addons/post-list-box/includes/class-admin-ui.php:335
 msgid "No series found. Create a series to see the preview."
 msgstr "Tidak ada seri yang ditemukan. Buat sebuah seri untuk melihat prabaca."
 
-#: addons/post-list-box/includes/class-admin-ui.php:339
+#: addons/post-list-box/includes/class-admin-ui.php:350
 msgid "No posts found in selected series."
 msgstr "Tidak ada pos yang ditemukan dalam seri yang dipilih."
 
-#: addons/post-list-box/includes/class-admin-ui.php:357
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
 msgid "Loading preview..."
 msgstr "Memuat prabaca..."
 
-#: addons/post-list-box/includes/class-admin-ui.php:372
-#: addons/post-list-box/includes/class-admin-ui.php:376
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
 msgid "Error loading preview."
 msgstr "Kesalahan memuat prabaca."
 
-#: addons/post-list-box/includes/class-admin-ui.php:674
+#: addons/post-list-box/includes/class-admin-ui.php:685
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
 msgstr "Pilih Gambar"
 
-#: addons/post-list-box/includes/class-admin-ui.php:678
+#: addons/post-list-box/includes/class-admin-ui.php:689
 msgid "Remove"
 msgstr "Hapus"
 
@@ -1069,6 +1087,10 @@ msgstr "Prabaca Navigasi Pos Seri"
 msgid "Series Post Navigation Editor"
 msgstr "Editor Navigasi Pos Seri"
 
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "Tidak ada seri yang ditemukan. Buat seri untuk melihat pratinjau navigasi."
+
 #: addons/post-navigation/includes/class-admin-ui.php:184
 msgid "Insert into posts or pages to display this Series Post Navigation manually."
 msgstr ""
@@ -1131,6 +1153,10 @@ msgstr "Tengah"
 #: addons/post-navigation/includes/class-fields.php:425
 msgid "Right"
 msgstr "Kanan"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "Warna Judul Seri"
 
 #: addons/post-navigation/includes/class-fields.php:125
 msgid "Hide When Single Post"
@@ -1479,6 +1505,10 @@ msgstr "Buat pos dalam sebuah seri untuk menampilkan pratinjau navigasi."
 msgid "Sample series for preview purposes"
 msgstr "Contoh seri untuk tujuan pratinjau"
 
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "Kesalahan memperbarui pratinjau."
+
 #: addons/post-navigation/post-navigation.php:211
 msgid "Simple Navigation"
 msgstr "Navigasi Sederhana"
@@ -1566,6 +1596,10 @@ msgstr "Filter"
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "Kelola Seri"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Seri"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
@@ -1936,43 +1970,43 @@ msgid "Series order sync completed. %d posts updated."
 msgstr "Sinkronisasi urutan Seri selesai. %d pos diperbarui."
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:259
 msgid "Search Series"
 msgstr "Cari Seri"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:262
+#: orgSeries-setup.php:260
 msgid "Popular Series"
 msgstr "Seri Populer"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:263
-#: orgSeries-setup.php:317
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
 msgid "All Series"
 msgstr "Semua Seri"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:264
+#: orgSeries-setup.php:262
 msgid "Edit Series"
 msgstr "Edit Seri"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:265
+#: orgSeries-setup.php:263
 msgid "Update Series"
 msgstr "Perbarui Seri"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:266
+#: orgSeries-setup.php:264
 msgid "Add New Series"
 msgstr "Tambah Seri Baru"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:267
+#: orgSeries-setup.php:265
 msgid "New Series Name"
 msgstr "Nama Seri Baru"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:269
+#: orgSeries-setup.php:267
 msgid "No series found"
 msgstr "Tidak ada seri yang ditemukan"
 
@@ -2149,7 +2183,7 @@ msgstr "Metode urutan seri"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:487
+#: orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Daftar Isi Seri"
@@ -2402,9 +2436,25 @@ msgstr "Teks Pos Sebelumnya"
 msgid "First Post Text"
 msgstr "Teks Pos Pertama"
 
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Tipe Postingan"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Dukungan Tipe Pos Kustom"
+
 #: inc/settings/tab-post-types.php:18
 msgid "Enable PublishPress Series for custom post types."
 msgstr "Aktifkan PublishPress Series untuk tipe pos kustom."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Fitur Pro"
 
 #: inc/settings/tab-pro-features.php:18
 msgid ""
@@ -2413,10 +2463,6 @@ msgid ""
 msgstr ""
 "Pengaturan ini memungkinkan Anda mengaktifkan atau menonaktifkan fitur di "
 "PublishPress Series Pro."
-
-#: inc/settings/tab-pro-features.php:27
-msgid "Custom Post Type Support"
-msgstr "Dukungan Tipe Pos Kustom"
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
@@ -2684,7 +2730,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak ada nomor bagian)"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:272
+#: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Tidak Ada Seri"
 
@@ -2768,17 +2814,13 @@ msgstr "Diperbarui dengan sukses"
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:874
+#: orgSeries-setup.php:872
 msgid "Settings"
 msgstr "Pengaturan"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
 msgstr "Opsi PublishPress Series"
-
-#: orgSeries-options.php:138
-msgid "Post Types"
-msgstr "Tipe Postingan"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"
@@ -2788,10 +2830,6 @@ msgstr "Taksonomi"
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:147
-msgid "Pro Features"
-msgstr "Fitur Pro"
-
 #: orgSeries-options.php:150
 msgid "Advanced"
 msgstr "Lanjutkan"
@@ -2800,35 +2838,35 @@ msgstr "Lanjutkan"
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "Pilih \"Bukan bagian dari seri\" untuk menghapus data seri dari postingan"
 
-#: orgSeries-setup.php:270
+#: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
 msgstr "&larr; Pergi ke Seri"
 
-#: orgSeries-setup.php:271
+#: orgSeries-setup.php:269
 msgid "View Series"
 msgstr "Lihat Seri"
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:271
 msgid "Series List"
 msgstr "Daftar Seri"
 
-#: orgSeries-setup.php:274
+#: orgSeries-setup.php:272
 msgid "Series Link"
 msgstr "Tautan Seri"
 
-#: orgSeries-setup.php:275
+#: orgSeries-setup.php:273
 msgid "A link to a Series"
 msgstr "Tautan ke Seri"
 
-#: orgSeries-setup.php:329
+#: orgSeries-setup.php:327
 msgid "Series Navigation"
 msgstr "Navigasi Seri"
 
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:858
 msgid "Series: "
 msgstr "Seri: "
 
-#: orgSeries-setup.php:862
+#: orgSeries-setup.php:860
 msgid "Posts from the series: "
 msgstr "Postingan dari seri: "
 
@@ -3177,7 +3215,7 @@ msgid "Series Categories"
 msgstr "Kategori Seri"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:257
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Seri"
@@ -3188,8 +3226,13 @@ msgid "Series Category"
 msgstr "Kategori Seri"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:258
 msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Seri"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
 msgid "Series"
 msgstr "Seri"
 
@@ -3211,11 +3254,52 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-setup.php:323
-#: orgSeries-setup.php:324
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Seri"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr ""
 "Entri ini adalah bagian %series_part% dari %total_posts_in_series% dalam "
 "seri "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Seri"

@@ -52,7 +52,7 @@ function orgseries_create_options() {
 
 	$page = add_menu_page(
 		__('PublishPress Series Options', 'organize-series'),
-		__('Series', 'organize-series'),
+		_x('Series', 'top-level admin menu label', 'organize-series'),
 		'manage_publishpress_series',
 		'orgseries_options_page',
 		'orgseries_option_page',

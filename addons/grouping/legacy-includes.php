@@ -667,7 +667,7 @@ function orgseries_groups_styles() {
 
 function series_grouping_columns($columns) {
     unset($columns['posts']);
-    $columns[''.ppseries_get_series_slug().''] =  __('Series', 'organize-series');
+    $columns[''.ppseries_get_series_slug().''] = _x('Series', 'series grouping column header', 'organize-series');
     return $columns;
 }
 

@@ -475,7 +475,7 @@ function orgseries_add_meta_box()
 	$posttypes = apply_filters( 'orgseries_posttype_support', array( 'post' ) );
 
 	foreach ( $posttypes as $posttype ) {
-		add_meta_box( 'seriesdiv', __( 'Series', 'organize-series' ), 'series_edit_meta_box', $posttype, 'side' );
+			add_meta_box( 'seriesdiv', _x( 'Series', 'series meta box title', 'organize-series' ), 'series_edit_meta_box', $posttype, 'side' );
 		remove_meta_box( 'tagsdiv-' . $taxonomy_slug, $posttype, 'side' ); // Removes taxonomy meta box added by WordPress.
 	}
 }
@@ -488,7 +488,7 @@ function orgSeries_custom_column_filter($defaults)
 	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 	if (isset($_REQUEST['post_type']) && !in_array($_REQUEST['post_type'], $post_types))
 		return $defaults; //get out we only want this showing up on post post types for now.*/
-	$defaults[ppseries_get_series_slug()] = __('Series', 'organize-series');
+	$defaults[ppseries_get_series_slug()] = _x('Series', 'posts list column header', 'organize-series');
 	return $defaults;
 }
 
@@ -568,7 +568,7 @@ function add_series_to_right_now()
 	global $orgseries;
 	$num_series = wp_count_terms(ppseries_get_series_slug());
 	$num = number_format_i18n($num_series);
-	$text = _n('Series', 'Series', $num_series, 'organize-series');
+	$text = _nx('Series', 'Series', $num_series, 'dashboard count label', 'organize-series');
 	$manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
 	if (current_user_can('manage_publishpress_series')) {
 		$series_num = "<a href='" . esc_url($manage_link) . "'>$num</a>";

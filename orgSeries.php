@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: PublishPress Series
+ * Plugin Name: PublishPress Series Free
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 3.1.0
+ * Version: 3.1.1
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -119,7 +119,7 @@ add_action('plugins_loaded', function() {
     }
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '3.1.0'); //the current version of the plugin
+        define('ORG_SERIES_VERSION', '3.1.1'); //the current version of the plugin
         define( 'SERIES_FILE_PATH', __FILE__ );
         define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
         define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.

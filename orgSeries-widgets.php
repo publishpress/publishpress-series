@@ -230,7 +230,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 		global $orgseries;
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array(
-			'title' => __('Series', 'organize-series'),
+			'title' => _x('Series', 'widget title default', 'organize-series'),
 			'serieswidget-title' => __('Other posts in series:', 'organize-series'),
 			'list-type' => 'list',
 			'show-count' => 1,
@@ -383,7 +383,7 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 
 
 		<p>
-			<?php esc_html_e('Series', 'organize-series'); ?>
+			<?php echo esc_html_x('Series', 'widget section label', 'organize-series'); ?>
 		<ul class="pp-widget-series">
 				<?php 
 				$series_list = get_series_list($series_id);
