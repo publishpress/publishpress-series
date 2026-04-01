@@ -28,7 +28,7 @@
     "automattic/vipwpcs": "^2.3",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "overtrue/phplint": "^9.6",
-    "publishpress/translations": "dev-development"
+    "publishpress/translations": "^1.0"
   },
   "scripts": {
     "build": "build zip",
@@ -40,26 +40,22 @@
     "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
     "pre-update-cmd": "composer update --working-dir=./lib",
     "pre-install-cmd": "composer install --working-dir=./lib",
-    "make-pot": [
-      "wp i18n make-pot . languages/organize-series.pot --domain=organize-series --exclude=vendor,node_modules,dist,tests,lib/vendor"
+    "translate": "dev-workspace/run vendor/bin/publishpress-translate --languages=de_DE,fi,fil,id_ID,ja,ko_KR,nl_NL,ru_RU,yo",
+    "translate:dry-run": "dev-workspace/run vendor/bin/publishpress-translate --dry-run",
+    "translate:download": "dev-workspace/run vendor/bin/publishpress-translate --download",
+    "translate:upload": "dev-workspace/run vendor/bin/publishpress-translate --upload",
+    "translate:custom": "dev-workspace/run vendor/bin/publishpress-translate --languages",
+    "translate:force": "dev-workspace/run vendor/bin/publishpress-translate --force",
+    "translate:force-custom": "dev-workspace/run vendor/bin/publishpress-translate --force --languages",
+    "translate:compile": [
+        "@translate:mo",
+        "@translate:json",
+        "@translate:php"
     ],
-    "make-mo": [
-      "wp i18n make-mo languages/"
-    ],
-    "update-po": [
-      "wp i18n update-po languages/organize-series.pot languages/"
-    ],
-    "translate": [
-      "@make-pot",
-      "@update-po",
-      "vendor/bin/publishpress-translate translate",
-      "@make-mo"
-    ],
-    "translate:dry-run": "vendor/bin/publishpress-translate --dry-run",
-    "translate:download": "vendor/bin/publishpress-translate --download",
-    "translate:upload": "vendor/bin/publishpress-translate --upload",
-    "translate:force": "vendor/bin/publishpress-translate --force",
-    "translate:force-custom": "vendor/bin/publishpress-translate --force --languages"
+    "translate:pot": "dev-workspace/run wp i18n make-pot . ./languages/organize-series.pot --domain=organize-series --exclude=dev-workspace,.wordpress-org,.github,dist,tests,lib,tmp,doc,*.js,*.js.map --allow-root",
+    "translate:mo": "dev-workspace/run wp i18n make-mo ./languages ./languages --allow-root",
+    "translate:json": "dev-workspace/run bash ./dev-workspace/scripts/lang-make-json.sh",
+    "translate:php": "dev-workspace/run wp i18n make-php ./languages --allow-root"
   },
   "extra": {
     "plugin-name": "publishpress-series",

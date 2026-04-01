@@ -6,20 +6,18 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Filipino "
+"Language-Team: Yoruba "
 "<https://weblate.publishpress.com/projects/publishpress-series/organize-"
-"series/fil/>\n"
+"series/yo/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-30 10:52+0000\n"
+"PO-Revision-Date: 2026-03-26 08:59+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
-"|| n % 10 == 6 || n % 10 == 9);\n"
-"|| n % 10 == 6 || n % 10 == 9);: \n"
-"Language: fil\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
+"Language: yor\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: orgSeries.php
 #: orgSeries.php, fuzzy
@@ -39,10 +37,10 @@ msgid ""
 "This is ideal for magazines, newspapers, short-story writers, teachers, "
 "comic artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
-"Ang PublishPress Series ay nagbibigay-daan sa iyo upang pagsamahin ang "
-"nilalaman sa isang serye. Ito ay perpekto para sa mga magasin, pahayagan, "
-"mga manunulat ng maikling kwento, mga guro, mga artist ng komiks, o "
-"sinumang sumusulat ng maraming post sa parehong paksa."
+"PublishPress Series gba ọ laaye lati kó akoonu pọ jọ sinu jara. Eyi jẹ ti o "
+"dara fun awọn iwe iroyin, awọn iwe, awọn onkọwe itan kukuru, awọn olukọ, "
+"awọn oṣere eré, tabi ẹnikẹni ti o kọ ọpọlọpọ awọn ifiweranṣẹ lori akọle "
+"kanna."
 
 #: orgSeries.php, fuzzy
 #. Author of the plugin
@@ -56,32 +54,32 @@ msgstr "https://publishpress.com/"
 
 #: addons/grouping/legacy-includes.php:280
 msgid "Search Series Categories"
-msgstr "Maghanap ng mga Kategorya ng Serye"
+msgstr "Wa Awọn Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:281
 msgid "Popular Series Categories"
-msgstr "Mga Sikat na Kategorya ng Serye"
+msgstr "Awọn Ẹka Jara Ti o Gbajumọ"
 
 #: addons/grouping/legacy-includes.php:282
 #: addons/grouping/legacy-includes.php:786
 msgid "All Series Categories"
-msgstr "Lahat ng Kategorya ng Serye"
+msgstr "Gbogbo Awọn Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:283
 msgid "Edit Series Category"
-msgstr "I-edit ang Kategorya ng Serye"
+msgstr "Ṣatunkọ Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:284
 msgid "Update Series Category"
-msgstr "I-update ang Kategorya ng Serye"
+msgstr "Imudojuiwọn Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:285
 msgid "Add New Series Category"
-msgstr "Magdagdag ng Bagong Kategorya ng Serye"
+msgstr "Fi Ẹka Jara Tuntun Kun"
 
 #: addons/grouping/legacy-includes.php:286
 msgid "New Series Category"
-msgstr "Bagong Kategorya ng Serye"
+msgstr "Ẹka Jara Tuntun"
 
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
@@ -91,57 +89,71 @@ msgstr "Bagong Kategorya ng Serye"
 #: addons/grouping/legacy-includes.php:777
 #: addons/grouping/legacy-includes.php:811
 msgid "Series Categories"
-msgstr "Mga Kategorya ng Serye"
+msgstr "Awọn Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:627
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr ""
-"Burahin ang lahat ng data ng \"Mga Kategorya ng Serye\" mula sa database "
-"kapag binura ang plugin."
+"Pa gbogbo data \"Awọn Ẹka Jara\" kuro ninu ipilẹ data nigbati o ba pa "
+"plugin naa."
+
+#: addons/grouping/legacy-includes.php:670
+#: addons/publisher/series_im_admin_main.php:7
+#: orgSeries-admin.php:478
+#: orgSeries-admin.php:491
+#: orgSeries-admin.php:571
+#: orgSeries-options.php:55
+#: orgSeries-setup.php:266
+#: orgSeries-taxonomy.php:381
+#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:386
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Jara"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
-msgstr "I-click upang i-toggle"
+msgstr "Tẹ lati yi pada"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:37
 msgid "Series in this category"
-msgstr "Mga serye sa kategoryang ito"
+msgstr "Jara ninu ẹka yii"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:117
 msgid "Sorry, no series were found in this category."
-msgstr "Paumanhin, walang serye na natagpuan sa kategoryang ito."
+msgstr "E ma binu, ko si jara ti a ri ninu ẹka yii."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
 #: addons/post-details/includes/class-fields.php:105
 #: addons/post-details/includes/class-utilities.php:123
 msgid "This entry is"
-msgstr "Ang pagpasok na ito ay"
+msgstr "Iwọnyi jẹ"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
 #: addons/post-details/includes/class-fields.php:113
 #: addons/post-details/includes/class-utilities.php:124
 msgid "in the series"
-msgstr "sa serye"
+msgstr "ní àtẹ̀jáde"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
 #, php-format
 msgid "part %1$s of %2$s"
-msgstr "bahagi %1$s ng %2$s"
+msgstr "ipin %1$s ti %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
 #: addons/post-details/includes/class-utilities.php:268
 #: addons/post-navigation/includes/class-utilities.php:172
 msgid "Sample Series"
-msgstr "Halimbawang Serye"
+msgstr "Àtẹ̀jáde Àpẹẹrẹ"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
 msgid "Sample Post Title"
-msgstr "Halimbawang Pamagat ng Post"
+msgstr "Àkòrí Àpẹẹrẹ"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -149,55 +161,55 @@ msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
 msgid "Previous post link"
-msgstr "Link ng nakaraang post"
+msgstr "ọna asopọ ifiweranṣẹ ti iṣaaju"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
 msgid "Next post link"
-msgstr "Link ng susunod na post"
+msgstr "ọna asopọ ifiweranṣẹ ti n bọ"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
 msgid "Sample series description."
-msgstr "Paglalarawan ng halimbawang serye."
+msgstr "Apejuwe àtẹ̀jáde àpẹẹrẹ."
 
 #: addons/post-details/includes/class-admin-ui.php:31
 #: addons/post-details/includes/class-admin-ui.php:32
 #: inc/settings/tab-post-details.php:11
 #: orgSeries-utility.php:309
 msgid "Post Details"
-msgstr "Mga Detalye ng Post"
+msgstr "Alaye Ifiweranṣẹ"
 
 #: addons/post-details/includes/class-admin-ui.php:61
 msgid "Series Post Details Preview"
-msgstr "Pagsusuri ng Mga Detalye ng Post ng Serye"
+msgstr "Akọkọ Alaye Ifiweranṣẹ Àtẹ̀jáde"
 
 #: addons/post-details/includes/class-admin-ui.php:70
 msgid "Series Post Details Editor"
-msgstr "Pateditor ng Mga Detalye ng Post ng Serye"
+msgstr "Olùkọ́ Alaye Ifiweranṣẹ Àtẹ̀jáde"
 
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
 #: addons/post-list-box/includes/class-admin-ui.php:55
 #: addons/post-list-box/includes/class-admin-ui.php:242
 #: addons/post-navigation/includes/class-admin-ui.php:85
-#: addons/post-navigation/includes/class-admin-ui.php:193, fuzzy
+#: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
-msgstr "Shortcode"
+msgstr "Koodu Kuru"
 
 #: addons/post-details/includes/class-admin-ui.php:147
 #: addons/post-list-box/includes/class-admin-ui.php:273
 #: addons/post-navigation/includes/class-admin-ui.php:182
 msgid "Use this shortcode:"
-msgstr "Gamitin ang shortcode na ito:"
+msgstr "Lo koodu kuru yìí:"
 
 #: addons/post-details/includes/class-admin-ui.php:149
 msgid "Insert into posts or pages to display this Series Post Details manually."
 msgstr ""
-"Ipasok sa mga post o pahina upang manu-manong ipakita ang Mga Detalye ng "
-"Post ng Serye na ito."
+"Fi sinu awọn ifiweranṣẹ tabi awọn oju-iwe lati fi han Alaye Ifiweranṣẹ "
+"Àtẹ̀jáde yìí ni ọwọ́."
 
 #: addons/post-details/includes/class-admin-ui.php:157
 msgid "Default Meta Box"
-msgstr "Default na Meta Box"
+msgstr "Apoti Meta Aiyipada"
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
@@ -207,7 +219,7 @@ msgstr "Default na Meta Box"
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
 msgid "This feature is available in PublishPress Series Pro"
-msgstr "Ang tampok na ito ay available sa PublishPress Series Pro"
+msgstr "Ẹya yìí wà ní PublishPress Series Pro"
 
 #: addons/post-details/includes/class-ajax.php:32
 #: addons/post-details/includes/class-ajax.php:99
@@ -216,73 +228,73 @@ msgstr "Ang tampok na ito ay available sa PublishPress Series Pro"
 #: addons/post-navigation/includes/class-ajax.php:167
 #: addons/post-navigation/includes/class-ajax.php:207
 msgid "Invalid post ID."
-msgstr "Di-wastong post ID."
+msgstr "ID ifiweranṣẹ ti ko tọ."
 
 #: addons/post-details/includes/class-ajax.php:67
 #: addons/post-navigation/includes/class-ajax.php:115
 msgid "No series available to preview."
-msgstr "Walang serye na available para sa pagsusuri."
+msgstr "Ko si àtẹ̀jáde ti o wa lati ṣàtúnṣe."
 
 #: addons/post-details/includes/class-ajax.php:122
 #: addons/post-navigation/includes/class-ajax.php:190
 msgid "Invalid import data."
-msgstr "Di-wastong data ng pag-import."
+msgstr "Data ikojọpọ ti ko tọ."
 
 #: addons/post-details/includes/class-ajax.php:137
 #: addons/post-navigation/includes/class-ajax.php:195
 msgid "Settings imported successfully."
-msgstr "Matagumpay na na-import ang mga setting."
+msgstr "Awọn eto ti wọle ni aṣeyọri."
 
 #: addons/post-details/includes/class-ajax.php:166
 #: addons/post-navigation/includes/class-ajax.php:213
 msgid "Settings reset to defaults."
-msgstr "Naibalik ang mga setting sa mga default."
+msgstr "Awọn eto ti tunto si awọn aiyipada."
 
 #: addons/post-details/includes/class-fields.php:30
 #: addons/post-navigation/includes/class-fields.php:30
 #: addons/post-navigation/includes/class-fields.php:85
 msgid "General"
-msgstr "Pangkalahatan"
+msgstr "Gbogbogbo"
 
 #: addons/post-details/includes/class-fields.php:34
 msgid "Styling"
-msgstr "Estilo"
+msgstr "Iṣakoso"
 
 #: addons/post-details/includes/class-fields.php:89
 msgid "Content"
-msgstr "Nilalaman"
+msgstr "Ak contenido"
 
 #: addons/post-details/includes/class-fields.php:93
 msgid "Show Part Number"
-msgstr "Ipakita ang Numero ng Bahagi"
+msgstr "Fihan Nọmba Apá"
 
 #: addons/post-details/includes/class-fields.php:98
 msgid "Display \"part X of Y\" in the series text"
-msgstr "I-display ang \"bahagi X ng Y\" sa teksto ng serye"
+msgstr "Fihan \"apá X ti Y\" ninu ọrọ jara"
 
 #: addons/post-details/includes/class-fields.php:101
 msgid "Text Before"
-msgstr "Teksto Bago"
+msgstr "Ọrọ Ṣaaju"
 
 #: addons/post-details/includes/class-fields.php:106
 msgid "Text shown at the beginning"
-msgstr "Tekstong ipinapakita sa simula"
+msgstr "Ọrọ ti a fihan ni ibẹrẹ"
 
 #: addons/post-details/includes/class-fields.php:109
 msgid "Text After"
-msgstr "Teksto Pagkatapos"
+msgstr "Ọrọ Lẹhin"
 
 #: addons/post-details/includes/class-fields.php:114
 msgid "Text shown before the series name"
-msgstr "Tekstong ipinapakita bago ang pangalan ng serye"
+msgstr "Ọrọ ti a fihan ṣaaju orukọ jara"
 
 #: addons/post-details/includes/class-fields.php:118
 msgid "Display"
-msgstr "I-display"
+msgstr "Fihan"
 
 #: addons/post-details/includes/class-fields.php:122
 msgid "Meta Box Position"
-msgstr "Posisyon ng Meta Box"
+msgstr "Ipo Apo Meta"
 
 #: addons/post-details/includes/class-fields.php:126
 #: addons/post-list-box/classes/PostListBoxFields.php:535
@@ -290,7 +302,7 @@ msgstr "Posisyon ng Meta Box"
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
 msgid "Top"
-msgstr "Itaas"
+msgstr "Oju-oke"
 
 #: addons/post-details/includes/class-fields.php:127
 #: addons/post-list-box/classes/PostListBoxFields.php:536
@@ -298,61 +310,61 @@ msgstr "Itaas"
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
 msgid "Bottom"
-msgstr "Ibaba"
+msgstr "Isalẹ"
 
 #: addons/post-details/includes/class-fields.php:131
 msgid "Choose where to display the meta box in relation to the content"
-msgstr "Pumili kung saan ipapakita ang meta box kaugnay ng nilalaman"
+msgstr "Yan ibi ti a yoo fi hàn apo meta ni ibamu pẹlu ak contenido"
 
 #: addons/post-details/includes/class-fields.php:134
 msgid "Limit to Single Posts"
-msgstr "Limitahan sa Mga Isang Post"
+msgstr "Limiti si Awọn Ifiweranṣẹ Kan"
 
 #: addons/post-details/includes/class-fields.php:139
 msgid "Enable to display meta box only on single post view, not on archives."
 msgstr ""
-"I-enable upang ipakita ang meta box lamang sa view ng isang post, hindi sa "
-"mga archive."
+"Mu ki o fihan apo meta nikan lori iwo ifiweranṣẹ kan, kii ṣe lori awọn "
+"akọsilẹ."
 
-#: addons/post-details/includes/class-fields.php:152
+#: addons/post-details/includes/class-fields.php:152, fuzzy
 msgid "Typography"
-msgstr "Tipograpiya"
+msgstr "Typography"
 
 #: addons/post-details/includes/class-fields.php:156
 msgid "Text Size (px)"
-msgstr "Sukat ng Teksto (px)"
+msgstr "Iwọn Ọrọ (px)"
 
 #: addons/post-details/includes/class-fields.php:163
 msgid "Font size for text in the meta box"
-msgstr "Sukat ng font para sa teksto sa meta box"
+msgstr "Iwọn fọọnti fun ọrọ inu apoti meta"
 
 #: addons/post-details/includes/class-fields.php:166
 #: addons/post-navigation/includes/class-fields.php:453
 msgid "Text Color"
-msgstr "Kulay ng Teksto"
+msgstr "Color Ọrọ"
 
 #: addons/post-details/includes/class-fields.php:173
 msgid "Link Color"
-msgstr "Kulay ng Link"
+msgstr "Color Asopọ"
 
 #: addons/post-details/includes/class-fields.php:181
 msgid "Background"
-msgstr "Kulay ng Likuran"
+msgstr "Àtẹ́lẹwọ́"
 
 #: addons/post-details/includes/class-fields.php:185
 #: addons/post-list-box/classes/PostListBoxFields.php:191
 #: addons/post-navigation/includes/class-fields.php:460
 msgid "Background Color"
-msgstr "Kulay ng Likuran"
+msgstr "Color Àtẹ́lẹwọ́"
 
 #: addons/post-details/includes/class-fields.php:190
 msgid "Background color for the meta box container"
-msgstr "Kulay ng likuran para sa lalagyan ng meta box"
+msgstr "Color àtẹ́lẹwọ́ fun apoti meta"
 
 #: addons/post-details/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:498
 msgid "Spacing"
-msgstr "Espasyo"
+msgstr "Ífẹnukò"
 
 #: addons/post-details/includes/class-fields.php:198
 #: addons/post-list-box/classes/PostListBoxFields.php:223
@@ -362,7 +374,7 @@ msgstr "Padding (px)"
 
 #: addons/post-details/includes/class-fields.php:205
 msgid "Padding applied to all sides of the content area"
-msgstr "Padding na inilapat sa lahat ng panig ng lugar ng nilalaman"
+msgstr "Padding ti a lo si gbogbo ẹgbẹ́ ti agbegbe akoonu"
 
 #: addons/post-details/includes/class-fields.php:208
 #: addons/post-navigation/includes/class-fields.php:511, fuzzy
@@ -371,85 +383,85 @@ msgstr "Margin (px)"
 
 #: addons/post-details/includes/class-fields.php:215
 msgid "Margin applied to all sides of the meta box"
-msgstr "Margin na inilapat sa lahat ng panig ng meta box"
+msgstr "Margin ti a lo si gbogbo ẹgbẹ́ ti apoti meta"
 
 #: addons/post-details/includes/class-fields.php:219
 #: addons/post-navigation/includes/class-fields.php:468
 msgid "Border"
-msgstr "Hangganan"
+msgstr "Ààlà"
 
 #: addons/post-details/includes/class-fields.php:223
 #: addons/post-list-box/classes/PostListBoxFields.php:205
 #: addons/post-navigation/includes/class-fields.php:479
 msgid "Border Width (px)"
-msgstr "Lapad ng Hangganan (px)"
+msgstr "Iwọn Ààlà (px)"
 
 #: addons/post-details/includes/class-fields.php:232
 #: addons/post-list-box/classes/PostListBoxFields.php:214
 #: addons/post-navigation/includes/class-fields.php:488
 msgid "Border Radius (px)"
-msgstr "Radius ng Hangganan (px)"
+msgstr "Iwọn Rádiọ̀s Ààlà (px)"
 
 #: addons/post-details/includes/class-fields.php:241
 #: addons/post-list-box/classes/PostListBoxFields.php:198
 #: addons/post-navigation/includes/class-fields.php:472
 msgid "Border Color"
-msgstr "Kulay ng Hangganan"
+msgstr "Color Ààlà"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-details/includes/class-post-type.php:29
 msgid "Series Post Details"
-msgstr "Mga Detalye ng Post ng Series"
+msgstr "Àwọn Alaye Ifiweranṣẹ Series"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
 #: orgSeries-admin.php:413
 #: orgSeries-setup.php:208
 msgid "Add New"
-msgstr "Magdagdag ng Bago"
+msgstr "Fi Ẹ̀kúnrẹ́rẹ́ Tuntun Kún"
 
 #: addons/post-details/includes/class-post-type.php:31
 msgid "Add New Series Post Details"
-msgstr "Magdagdag ng Mga Detalye ng Bago ng Post ng Series"
+msgstr "Fi Ẹ̀kúnrẹ́rẹ́ Ifiweranṣẹ Series Tuntun Kún"
 
 #: addons/post-details/includes/class-post-type.php:32
 msgid "New Series Post Details"
-msgstr "Mga Bagong Detalye ng Post ng Series"
+msgstr "Àwọn Alaye Ifiweranṣẹ Series Tuntun"
 
 #: addons/post-details/includes/class-post-type.php:33
 msgid "Edit Series Post Details"
-msgstr "I-edit ang Mga Detalye ng Post ng Series"
+msgstr "Ṣatunkọ Àwọn Alaye Ifiweranṣẹ Series"
 
 #: addons/post-details/includes/class-post-type.php:34
 msgid "View Series Post Details"
-msgstr "Tingnan ang Mga Detalye ng Series Post"
+msgstr "Wo Awọn alaye Ifiweranṣẹ Jara"
 
 #: addons/post-details/includes/class-post-type.php:35
 msgid "All Series Post Details"
-msgstr "Lahat ng Mga Detalye ng Series Post"
+msgstr "Gbogbo Awọn alaye Ifiweranṣẹ Jara"
 
 #: addons/post-details/includes/class-post-type.php:36
 msgid "Search Series Post Details"
-msgstr "Maghanap ng Mga Detalye ng Series Post"
+msgstr "Wa Awọn alaye Ifiweranṣẹ Jara"
 
 #: addons/post-details/includes/class-post-type.php:37
 msgid "No Series Post Details found."
-msgstr "Walang Mga Detalye ng Series Post na natagpuan."
+msgstr "Ko si Awọn alaye Ifiweranṣẹ Jara ti a ri."
 
 #: addons/post-details/includes/class-post-type.php:38
 msgid "No Series Post Details found in Trash."
-msgstr "Walang Mga Detalye ng Series Post na natagpuan sa Trash."
+msgstr "Ko si Awọn alaye Ifiweranṣẹ Jara ti a ri ninu Ibi idalẹnu."
 
 #: addons/post-details/includes/class-preview.php:25
 msgid "Create a series to preview the post details."
-msgstr "Lumikha ng isang series upang i-preview ang mga detalye ng post."
+msgstr "Ṣẹda jara kan lati ṣafihan awọn alaye ifiweranṣẹ."
 
 #: addons/post-details/includes/class-utilities.php:303
 #, php-format
 msgid "Sample Series Post %d"
-msgstr "Halimbawa ng Series Post %d"
+msgstr "Apeere Ifiweranṣẹ Jara %d"
 
 #: addons/post-details/includes/class-utilities.php:304
 msgid ""
@@ -461,276 +473,274 @@ msgstr ""
 
 #: addons/post-details/includes/class-utilities.php:305
 msgid "Sample excerpt preview content for the series meta box."
-msgstr "Sample excerpt preview content para sa meta box ng series."
+msgstr "Apeere akoonu iwoye fun apakan meta jara."
 
 #: addons/post-details/post-details.php:176
 msgid "Series Post Details #1"
-msgstr "Mga Detalye ng Series Post #1"
+msgstr "Awọn alaye Ifiweranṣẹ Jara #1"
 
 #: addons/post-details/post-details.php:181
 msgid "Series Post Details #2"
-msgstr "Mga Detalye ng Series Post #2"
+msgstr "Awọn alaye Ifiweranṣẹ Jara #2"
 
 #: addons/post-details/post-details.php:186
 msgid "Series Post Details #3"
-msgstr "Mga Detalye ng Series Post #3"
+msgstr "Awọn alaye Ifiweranṣẹ Jara #3"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:34
 msgid "Box Title"
-msgstr "Pamagat ng Kahon"
+msgstr "Ikọkọ Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:42
 msgid "Box Style"
-msgstr "Estilo ng Kahon"
+msgstr "Iru Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:50
 msgid "Content Display"
-msgstr "Ipakita ang Nilalaman"
+msgstr "Ifihan Akopọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:58
 msgid "Featured Image Settings"
-msgstr "Mga Setting ng Itinatampok na Larawan"
+msgstr "Settings Aworan Ti a Fihan"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:66
 msgid "Post Style"
-msgstr "Estilo ng Post"
+msgstr "Iru Ifiweranṣẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:74
 msgid "Layout Display"
-msgstr "Ipakita ang Layout"
+msgstr "Ifihan Ilana"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:82
 msgid "Highlights Current Post"
-msgstr "I-highlight ang Kasalukuyang Post"
+msgstr "Ṣe Ifojusi Ifiweranṣẹ Tọju"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:99
 msgid "Show Box Title"
-msgstr "Ipakita ang Pamagat ng Kahon"
+msgstr "Fihan Ikọkọ Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:106
 msgid "Box Title Type"
-msgstr "Uri ng Pamagat ng Kahon"
+msgstr "Iru Akọle Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:110
 msgid "Use Series Title"
-msgstr "Gamitin ang Pamagat ng Serye"
+msgstr "Lo Akọle Ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Custom Title"
-msgstr "Pasadyang Pamagat"
+msgstr "Akọle Aṣ customized"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:115
 msgid "Choose whether to display the series title or a custom title"
-msgstr "Pumili kung ipapakita ang pamagat ng serye o isang pasadyang pamagat"
+msgstr "Yan boya lati fi han akọle ẹ̀rọ tabi akọle customized"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:120
 msgid "Link Box Title to Series"
-msgstr "I-link ang Pamagat ng Kahon sa Serye"
+msgstr "So Akọle Apoti pọ̀ mọ́ Ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:125
 msgid "Link the box title to the current series archive when using the series title"
-msgstr ""
-"I-link ang pamagat ng kahon sa kasalukuyang archive ng serye kapag "
-"ginagamit ang pamagat ng serye"
+msgstr "So akọle apoti pọ̀ mọ́ àkọsílẹ̀ ẹ̀rọ lọwọlọwọ nigbati o ba nlo akọle ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:130
 msgid "Custom Box Title Text"
-msgstr "Teksto ng Pasadyang Pamagat ng Kahon"
+msgstr "Ọrọ Akọle Apoti Aṣ customized"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:134
 #: addons/post-list-box/includes/class-utilities.php:162
 msgid "Series Posts"
-msgstr "Mga Post ng Serye"
+msgstr "Àwọn Ifiṣootọ Ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:135
 msgid "Enter custom title for the post list"
-msgstr "Ilagay ang pasadyang pamagat para sa listahan ng post"
+msgstr "Tẹ akọle customized fun atokọ ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Only used when \"Custom Title\" is selected above"
-msgstr "Ginagamit lamang kapag \"Pasadyang Pamagat\" ang napili sa itaas"
+msgstr "Nìkan lo nigbati \"Akọle Aṣ customized\" ti yan loke"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:141
 msgid "Box Title HTML Tag"
-msgstr "HTML Tag ng Pamagat ng Kahon"
+msgstr "Akọle HTML Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:160
 msgid "Box Title Color"
-msgstr "Kulay ng Pamagat ng Kahon"
+msgstr "Color Akọle Apoti"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:169
 msgid "Box Title Font Size (px)"
-msgstr "Sukat ng Font ng Pamagat ng Kahon (px)"
+msgstr "Iwọn Font Akọle Apoti (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:243
 msgid "Show Post Titles"
-msgstr "Ipakita ang mga Pamagat ng Post"
+msgstr "Fi Han Awọn Akọle Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:250
 msgid "Series Order Number"
-msgstr "Numero ng Order ng Series"
+msgstr "Nọ́mbà Ẹ̀kọ́ Tẹ́lẹ̀"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:255
 msgid "Show the series order number next to each post title."
-msgstr "Ipakita ang numero ng order ng series sa tabi ng bawat pamagat ng post."
+msgstr "Fihàn nọ́mbà ẹ̀kọ́ tẹ́lẹ̀ lẹ́gbẹ̀ẹ́ akọ́le ọkọọkan."
 
 #: addons/post-list-box/classes/PostListBoxFields.php:260
 msgid "Series Order Number Position"
-msgstr "Posisyon ng Numero ng Order ng Series"
+msgstr "Ipò Nọ́mbà Ẹ̀kọ́ Tẹ́lẹ̀"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:264
 msgid "Before the title"
-msgstr "Bago ang pamagat"
+msgstr "Ká tó akọ́le"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:265
 msgid "After the title"
-msgstr "Pagkatapos ng pamagat"
+msgstr "Lẹ́yìn akọ́le"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:269
 msgid "Choose where the order number appears relative to the title."
-msgstr "Pumili kung saan lilitaw ang numero ng order kaugnay ng pamagat."
+msgstr "Yàn ibè tí nọ́mbà ẹ̀kọ́ tẹ́lẹ̀ bá yẹ ní ìbámu pẹ̀lú akọ́le."
 
 #: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Post Title Color"
-msgstr "Kulay ng Pamagat ng Post"
+msgstr "Color Akọle Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:283
 msgid "Post Title Font Size (px)"
-msgstr "Sukat ng Font ng Pamagat ng Post (px)"
+msgstr "Iwọn Font Akọle Ifiṣootọ (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Show Post Excerpt"
-msgstr "Ipakita ang Buod ng Post"
+msgstr "Fi Han Akọsilẹ Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:302
 msgid "Excerpt Length (words)"
-msgstr "Haba ng Buod (mga salita)"
+msgstr "Gigun Akọsilẹ (ọ̀rọ̀)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:314
 msgid "Excerpt Color"
-msgstr "Kulay ng Buod"
+msgstr "Color Akọsilẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:324
 msgid "Show Post Author"
-msgstr "Ipakita ang May-akda ng Post"
+msgstr "Fi Han Onkọwe Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:332
 msgid "Post Author Color"
-msgstr "Kulay ng May-akda ng Post"
+msgstr "Àwọ̀ Onkọ̀wé Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:342
 msgid "Show Post Date"
-msgstr "Ipakita ang Petsa ng Post"
+msgstr "Fihan Ọjọ́ Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:350
 msgid "Post Date Color"
-msgstr "Kulay ng Petsa ng Post"
+msgstr "Àwọ̀ Ọjọ́ Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:371
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
-msgstr "Ipakita ang Itinatampok na Larawan"
+msgstr "Fihan Aworan Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:378
 msgid "Featured Image Width (px)"
-msgstr "Lapad ng Itinatampok na Larawan (px)"
+msgstr "Iwọn Aworan Ifiṣootọ (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:385
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
-msgstr "Lapad ng itinatampok na larawan sa mga pixel"
+msgstr "Iwọn aworan ifiṣootọ ni píksẹli"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:390
 msgid "Featured Image Height (px)"
-msgstr "Taas ng Itinatampok na Larawan (px)"
+msgstr "Giga Aworan Ifiṣootọ (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:397
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
-msgstr "Taas ng itinatampok na larawan sa mga pixel"
+msgstr "Giga aworan ifiṣootọ ni píksẹli"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:402
 msgid "Fallback Featured Image"
-msgstr "Fallback na Itinatampok na Larawan"
+msgstr "Aworan Ifiṣootọ Tẹ́lẹ̀"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:407
 msgid "Image to display when a post does not have a featured image"
-msgstr "Larawan na ipapakita kapag ang post ay walang itinatampok na larawan"
+msgstr "Aworan lati fi hàn nigbati ifiṣootọ ko ní aworan ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:424
 msgid "Post Padding (px)"
-msgstr "Padding ng Post (px)"
+msgstr "Àkóónú Ifiṣootọ (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:433
 msgid "Post Border Width (px)"
-msgstr "Lapad ng Hangganan ng Post (px)"
+msgstr "Iwọn Ààlà Ifiṣootọ (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:442
 msgid "Post Border Color"
-msgstr "Kulay ng Hangganan ng Post"
+msgstr "Àwọ̀ Ààlà Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:449
 msgid "Post Background Color"
-msgstr "Kulay ng Background ng Post"
+msgstr "Àwọ̀ Àyè Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Background color for the post list container"
-msgstr "Kulay ng background para sa lalagyan ng listahan ng post"
+msgstr "Àwọ̀ àyè fún apoti atokọ ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:468
 msgid "Layout Style"
-msgstr "Estilo ng Layout"
+msgstr "Ìṣàkóso Àwòrán"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:472
 #: inc/settings/tab-legacy.php:29
 msgid "List"
-msgstr "Listahan"
+msgstr "Atokọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:473
-#: inc/settings/tab-legacy.php:28, fuzzy
+#: inc/settings/tab-legacy.php:28
 msgid "Grid"
-msgstr "Grid"
+msgstr "Gírọ́dù"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:480
 msgid "Columns"
-msgstr "Mga Kolum"
+msgstr "Àwọn Ẹka"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "2 Columns"
-msgstr "2 Kolum"
+msgstr "2 Àwọn Ẹka"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:485
 msgid "3 Columns"
-msgstr "3 Haligi"
+msgstr "Ẹ̀ka mẹta"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:486
 msgid "4 Columns"
-msgstr "4 Haligi"
+msgstr "Ẹ̀ka mẹrin"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "6 Columns"
-msgstr "6 Haligi"
+msgstr "Ẹ̀ka mẹfa"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:496, fuzzy
+#: addons/post-list-box/classes/PostListBoxFields.php:496
 msgid "Order By"
-msgstr "Order By"
+msgstr "ṣẹ́lẹ̀ nipasẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:500
 msgid "Date"
-msgstr "Petsa"
+msgstr "Ọjọ́"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:501
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
-msgstr "Pamagat"
+msgstr "Àkọlé"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:502
 #: addons/publisher/series_im_admin_main.php:8
@@ -740,76 +750,73 @@ msgstr "Pamagat"
 #: orgSeries-manage.php:195
 #: orgSeries-manage.php:204
 msgid "Series Order"
-msgstr "Sunod ng Serye"
+msgstr "Àtòjọ Ẹ̀ka"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:509
 #: orgSeries-manage.php:51
-#: orgSeries-manage.php:227, fuzzy
+#: orgSeries-manage.php:227
 msgid "Order"
-msgstr "Order"
+msgstr "ṣẹ́lẹ̀"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:513
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
-msgstr "Tumataas"
+msgstr "Igbàlódé"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:514
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
-msgstr "Bumababa"
+msgstr "Ìdàlẹ́kọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:521
 msgid "Gap Between Items (px)"
-msgstr "Agwat sa Pagitan ng mga Item (px)"
+msgstr "Ààlà Laarin Àwọn Nkan (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:531
 msgid "Post List Box Location"
-msgstr "Lokasyon ng Listahan ng Post Box"
+msgstr "Ipo Àkópọ̀ Ifiweranṣẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:540
 msgid "Choose where to display the post list box in relation to the content"
-msgstr "Pumili kung saan ipapakita ang listahan ng post box kaugnay sa nilalaman"
+msgstr "Yan ibiti a o ti fi àkópọ̀ ifiweranṣẹ hàn ní ìbáṣepọ̀ pẹ̀lú akoonu"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "Maximum number of items"
-msgstr "Maximum na bilang ng mga item"
+msgstr "Ìwọn tó pọ̀jùlọ ti àwọn nkan"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:550
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
 msgstr ""
-"Limitahan ang bilang ng mga post na ipinapakita sa listahan ng serye. "
-"Iwanang walang laman para sa walang limit. Ang preview ng admin ay limitado "
-"sa 4 na post."
+"Dín iye àfikún ifiweranṣẹ tí a fi hàn nínú àtòjọ ẹ̀ka. Fìdí rẹ̀ múlẹ̀ fún "
+"àìmọ́ iye. Àyẹyẹ alákóso ni a dín sí 4 ifiweranṣẹ."
 
 #: addons/post-list-box/classes/PostListBoxFields.php:565
 msgid "Highlight Current Post"
-msgstr "I-highlight ang Kasalukuyang Post"
+msgstr "Fihàn Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Highlight the current post when viewing a specific series post"
-msgstr ""
-"I-highlight ang kasalukuyang post kapag tinitingnan ang isang tiyak na post "
-"ng serye"
+msgstr "Fihàn ifiweranṣẹ tó wà lọwọlọwọ́ nígbà tí a ń wo ifiweranṣẹ ẹ̀ka pàtó"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:573
 msgid "Current Post Background Color"
-msgstr "Kulay ng Background ng Kasalukuyang Post"
+msgstr "Àwọ̀ Abẹ́rẹ́ Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid "Current Post Border Color"
-msgstr "Kulay ng Hangganan ng Kasalukuyang Post"
+msgstr "Àwọ̀ Ààlà Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:587
 msgid "Current Post Text Color"
-msgstr "Kulay ng Teksto ng Kasalukuyang Post"
+msgstr "Àwọ̀ Ọrọ̀ Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
-msgstr "Default na Listahan ng Post"
+msgstr "Àkọsílẹ Àkọsílẹ Àwọn Ìkànsí"
 
 #: addons/post-list-box/includes/class-admin-ui.php:102
 #: addons/post-list-box/includes/class-admin-ui.php:103
@@ -817,145 +824,140 @@ msgstr "Default na Listahan ng Post"
 #: addons/post-list-box/includes/class-post-type.php:24
 #: orgSeries-utility.php:308
 msgid "Post List Boxes"
-msgstr "Mga Listahan ng Post"
+msgstr "Àwọn Ìkànsí Àkọsílẹ"
 
 #: addons/post-list-box/includes/class-admin-ui.php:119
 #: addons/post-list-box/includes/class-admin-ui.php:120
 msgid "Post List Box updated."
-msgstr "Na-update ang Listahan ng Post."
+msgstr "Àkọsílẹ Àwọn Ìkànsí ti ni imudojuiwọn."
 
 #: addons/post-list-box/includes/class-admin-ui.php:121
 msgid "Post List Box added."
-msgstr "Idinagdag ang Listahan ng Post."
+msgstr "Àkọsílẹ Àwọn Ìkànsí ti fi kun."
 
 #: addons/post-list-box/includes/class-admin-ui.php:122
 msgid "Post List Box saved."
-msgstr "Nai-save ang Listahan ng Post."
+msgstr "Àkọsílẹ Àwọn Ìkànsí ti fipamọ."
 
 #: addons/post-list-box/includes/class-admin-ui.php:123
 msgid "Post List Box submitted."
-msgstr "Isinumite ang Listahan ng Post."
+msgstr "Àkọsílẹ Àwọn Ìkànsí ti fi ranṣẹ."
 
 #: addons/post-list-box/includes/class-admin-ui.php:145
 #: addons/post-list-box/includes/class-post-type.php:23
 #: inc/settings/tab-post-list-box.php:11
 msgid "Post List Box"
-msgstr "Listahan ng Post"
+msgstr "Àkọsílẹ Àwọn Ìkànsí"
 
 #: addons/post-list-box/includes/class-admin-ui.php:150
 #, php-format
 msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
-msgstr[0] "%1$s %2$s na-update."
-msgstr[1] "%1$s %2$s na-update."
+msgstr[0] "%1$s %2$s ti ni imudojuiwọn."
 
 #: addons/post-list-box/includes/class-admin-ui.php:155
 #, php-format
 msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
-msgstr[0] "%1$s %2$s hindi na-update, may nag-e-edit nito."
-msgstr[1] "%1$s %2$s hindi na-update, may nag-e-edit sa kanila."
+msgstr[0] "%1$s %2$s ko ti ni imudojuiwọn, ẹnikan n ṣe atunṣe rẹ."
 
 #: addons/post-list-box/includes/class-admin-ui.php:165
 #, php-format
 msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
-msgstr[0] "%1$s %2$s permanente nang tinanggal."
-msgstr[1] "%1$s %2$s permanente nang tinanggal."
+msgstr[0] "%1$s %2$s ti paarẹ patapata."
 
 #: addons/post-list-box/includes/class-admin-ui.php:175
 #, php-format
 msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
-msgstr[0] "%1$s %2$s inilipat sa Basurahan."
-msgstr[1] "%1$s %2$s inilipat sa Basurahan."
+msgstr[0] "%1$s %2$s ti gbe si Ibi idoti."
 
 #: addons/post-list-box/includes/class-admin-ui.php:185
 #, php-format
 msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
-msgstr[0] "%1$s %2$s naibalik mula sa Basurahan."
-msgstr[1] "%1$s %2$s naibalik mula sa Basurahan."
+msgstr[0] "%1$s %2$s ti gba pada lati Ibi idoti."
 
 #: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"
-msgstr "Preview ng Listahan ng Post"
+msgstr "Àwòrán Àkọsílẹ Àwọn Ìkànsí"
 
 #: addons/post-list-box/includes/class-admin-ui.php:225
 msgid "Post List Box Editor"
-msgstr "Tagapag-edit ng Listahan ng Post"
+msgstr "Ẹlẹda Àkọsílẹ Àwọn Ìkànsí"
 
 #: addons/post-list-box/includes/class-admin-ui.php:275
 msgid "Insert into posts or pages to display this Post List Box manually."
 msgstr ""
-"Ilagay sa mga post o pahina upang ipakita ang Listahan ng Post nang "
-"manu-manong."
+"Fi sinu awọn àkọsílẹ tabi awọn oju-iwe lati fi Àkọsílẹ Àwọn Ìkànsí yii han "
+"laifọwọyi."
 
 #: addons/post-list-box/includes/class-admin-ui.php:317
 #: addons/post-navigation/includes/class-admin-ui.php:115
 msgid "Select Series to Preview:"
-msgstr "Pumili ng Serye para sa Preview:"
+msgstr "Yan Jara lati Ṣawari:"
 
 #: addons/post-list-box/includes/class-admin-ui.php:335
 msgid "No series found. Create a series to see the preview."
-msgstr "Walang natagpuang serye. Lumikha ng serye upang makita ang preview."
+msgstr "Ko si jara ti a ri. Ṣẹda jara kan lati wo awòrán."
 
 #: addons/post-list-box/includes/class-admin-ui.php:350
 msgid "No posts found in selected series."
-msgstr "Walang natagpuang post sa napiling serye."
+msgstr "Ko si awọn àkọsílẹ ti a ri ninu jara ti a yan."
 
 #: addons/post-list-box/includes/class-admin-ui.php:368
 #: addons/post-navigation/post-navigation.php:86
 msgid "Loading preview..."
-msgstr "Naglo-load ng preview..."
+msgstr "Nṣiṣẹ awòrán..."
 
 #: addons/post-list-box/includes/class-admin-ui.php:383
 #: addons/post-list-box/includes/class-admin-ui.php:387
 msgid "Error loading preview."
-msgstr "Nagkaroon ng error sa paglo-load ng preview."
+msgstr "Aṣiṣe nṣiṣẹ awòrán."
 
 #: addons/post-list-box/includes/class-admin-ui.php:685
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
-msgstr "Pumili ng Imahe"
+msgstr "Yan Aworan"
 
 #: addons/post-list-box/includes/class-admin-ui.php:689
 msgid "Remove"
-msgstr "Tanggalin"
+msgstr "Yọ"
 
 #: addons/post-list-box/includes/class-fields.php:25
 msgid "Box Container"
-msgstr "Konteyner ng Kahon"
+msgstr "Apoti Ikọkọ"
 
-#: addons/post-list-box/includes/class-fields.php:29, fuzzy
+#: addons/post-list-box/includes/class-fields.php:29
 msgid "Post"
-msgstr "Post"
+msgstr "Àkọsílẹ"
 
 #: addons/post-list-box/includes/class-fields.php:33
-#: addons/post-navigation/includes/class-fields.php:38, fuzzy
+#: addons/post-navigation/includes/class-fields.php:38
 msgid "Layout"
-msgstr "Layout"
+msgstr "Ìtọ́ka"
 
 #: addons/post-list-box/includes/class-post-type.php:33
 #, php-format
 msgid "New %1s"
-msgstr "Bago %1$s"
+msgstr "Tuntun %1s"
 
 #: addons/post-list-box/includes/class-post-type.php:34
 #, php-format
 msgid "Add New %1$s"
-msgstr "Magdagdag ng Bago %1$s"
+msgstr "Fi Tuntun %1$s kun"
 
 #: addons/post-list-box/includes/class-post-type.php:35
 #, php-format
 msgid "Edit %1$s"
-msgstr "I-edit ang %1$s"
+msgstr "Ṣatunkọ %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:36
 #, php-format
 msgid "New %1$s"
-msgstr "Bago %1$s"
+msgstr "Tuntun %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:37
 #, fuzzy, php-format
@@ -965,62 +967,62 @@ msgstr "%2$s"
 #: addons/post-list-box/includes/class-post-type.php:38
 #, php-format
 msgid "View %1$s"
-msgstr "Tingnan ang %1$s"
+msgstr "Wo %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:39
 #, php-format
 msgid "Search %2$s"
-msgstr "Maghanap ng %2$s"
+msgstr "Wa %2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:40
 #, php-format
 msgid "No %2$s found"
-msgstr "Walang %2$s na natagpuan"
+msgstr "Kò sí %2$s ti a ri"
 
 #: addons/post-list-box/includes/class-post-type.php:41
 #, php-format
 msgid "No %2$s found in Trash"
-msgstr "Walang %2$s na natagpuan sa Basurahan"
+msgstr "Kò sí %2$s ti a ri ninu Àpò"
 
 #: addons/post-list-box/includes/class-post-type.php:44
 #, php-format
 msgid "%1$s Image"
-msgstr "%1$s Larawan"
+msgstr "%1$s Aworan"
 
 #: addons/post-list-box/includes/class-post-type.php:45
 #, php-format
 msgid "Set %1$s Image"
-msgstr "Itakda ang %1$s Larawan"
+msgstr "Sẹ́tò %1$s Aworan"
 
 #: addons/post-list-box/includes/class-post-type.php:46
 #, php-format
 msgid "Remove %1$s Image"
-msgstr "Tanggalin ang %1$s Larawan"
+msgstr "Yọ %1$s Aworan"
 
 #: addons/post-list-box/includes/class-post-type.php:47
 #, php-format
 msgid "Use as %1$s Image"
-msgstr "Gamitin bilang %1$s Larawan"
+msgstr "Lò gẹ́gẹ́ bí %1$s Aworan"
 
 #: addons/post-list-box/includes/class-post-type.php:48
 #, php-format
 msgid "Filter %2$s list"
-msgstr "I-filter ang listahan ng %2$s"
+msgstr "Àlẹ́mọ́ %2$s atokọ"
 
 #: addons/post-list-box/includes/class-post-type.php:49
 #, php-format
 msgid "%2$s list navigation"
-msgstr "Nabigasyon ng listahan ng %2$s"
+msgstr "%2$s atokọ ìrìnàjò"
 
 #: addons/post-list-box/includes/class-post-type.php:50
 #, php-format
 msgid "%2$s list"
-msgstr "Listahan ng %2$s"
+msgstr "%2$s atokọ"
 
 #: addons/post-list-box/includes/class-preview.php:98
 #, php-format
 msgid "Sample Post %d"
-msgstr "Halimbawa ng Post %d"
+msgstr "Àpẹẹrẹ Ifiweranṣẹ %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
 #, php-format
@@ -1029,37 +1031,37 @@ msgid ""
 "amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
 "labore et dolore magna aliqua."
 msgstr ""
-"Ito ay sample na nilalaman para sa post %d sa serye. Lorem ipsum dolor sit "
+"Eyi ni akoonu àpẹẹrẹ fun ifiweranṣẹ %d ninu jara. Lorem ipsum dolor sit "
 "amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
 "labore et dolore magna aliqua."
 
 #: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
-msgstr "Ito ay isang sample na sipi para sa post %d sa serye."
+msgstr "Eyi ni àpẹẹrẹ àkọọlẹ fun ifiweranṣẹ %d ninu jara."
 
 #: addons/post-list-box/includes/class-preview.php:492
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
 msgid "Author"
-msgstr "May-akda"
+msgstr "Onkọwe"
 
-#: addons/post-list-box/post-list-box.php:91, fuzzy
+#: addons/post-list-box/post-list-box.php:91
 msgid "Default List Box"
-msgstr "Default List Box"
+msgstr "Àtòkọ Àkọsílẹ Àtọka"
 
-#: addons/post-list-box/post-list-box.php:95, fuzzy
+#: addons/post-list-box/post-list-box.php:95
 msgid "Grid Style Box"
-msgstr "Grid Style Box"
+msgstr "Àtòkọ Àtẹle Gíríìdù"
 
-#: addons/post-list-box/post-list-box.php:109, fuzzy
+#: addons/post-list-box/post-list-box.php:109
 msgid "Simple List Box"
-msgstr "Simple List Box"
+msgstr "Àtòkọ Àkọsílẹ Rọrun"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:263
 msgid "Navigation hidden (series has only one post)"
-msgstr "Nakatagong nabigasyon (isang post lamang ang mayroon ang serye)"
+msgstr "Ìmúlò Ìtòsọna ti a pamọ (ìjápọ níkan ni ìkànsí kan)"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:317
 #: addons/post-navigation/classes/PostNavigationRenderer.php:348
@@ -1069,7 +1071,7 @@ msgstr "Nakatagong nabigasyon (isang post lamang ang mayroon ang serye)"
 #: addons/post-navigation/classes/PostNavigationRenderer.php:569
 #: addons/post-navigation/includes/class-utilities.php:62
 msgid "Series Home"
-msgstr "Tahanan ng Serye"
+msgstr "Ìbẹ̀rẹ̀ Ìjápọ"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
@@ -1077,7 +1079,7 @@ msgstr "Tahanan ng Serye"
 #: addons/post-navigation/includes/class-fields.php:165
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
-msgstr "Nakaraan"
+msgstr "Tẹ́lẹ̀"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
@@ -1085,68 +1087,68 @@ msgstr "Nakaraan"
 #: addons/post-navigation/includes/class-fields.php:280
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
-msgstr "Susunod"
+msgstr "Tí ó tẹ̀síwájú"
 
 #: addons/post-navigation/includes/class-admin-ui.php:31
 #: addons/post-navigation/includes/class-admin-ui.php:32
 #: orgSeries-utility.php:310
 msgid "Post Navigation"
-msgstr "Nabigasyon ng Post"
+msgstr "Ìtòsọna Ìkọ̀wé"
 
 #: addons/post-navigation/includes/class-admin-ui.php:67
 msgid "Series Post Navigation Preview"
-msgstr "Pagsusuri ng Nabigasyon ng Post ng Serye"
+msgstr "Ìtòsọna Ìkọ̀wé Ìjápọ Ìmúlò"
 
 #: addons/post-navigation/includes/class-admin-ui.php:76
 msgid "Series Post Navigation Editor"
-msgstr "Tagapag-edit ng Nabigasyon ng Post ng Serye"
+msgstr "Ẹ̀dá Ìtòsọna Ìkọ̀wé Ìjápọ"
 
 #: addons/post-navigation/includes/class-admin-ui.php:124
 msgid "No series found. Create a series to preview the navigation."
-msgstr "Walang natagpuang serye. Lumikha ng serye upang tingnan ang nabigasyon."
+msgstr "Ko si jara ti a ri. Ṣẹda jara kan lati wo iṣipopada naa."
 
 #: addons/post-navigation/includes/class-admin-ui.php:184
 msgid "Insert into posts or pages to display this Series Post Navigation manually."
 msgstr ""
-"Ipasok sa mga post o pahina upang ipakita nang mano-mano ang Nabigasyon ng "
-"Post ng Serye."
+"Fi sílẹ̀ nínú àwọn ìkọ̀wé tàbí àwọn ojúewé láti fi hàn Ìtòsọna Ìkọ̀wé yìí "
+"lọ́wọ́."
 
 #: addons/post-navigation/includes/class-admin-ui.php:192
 msgid "Default Navigation"
-msgstr "Default na Nabigasyon"
+msgstr "Ìtòsọna Àtọka Àkọsílẹ"
 
 #: addons/post-navigation/includes/class-admin-ui.php:414
 msgid "Change Image"
-msgstr "Palitan ang Imahe"
+msgstr "Yíyí Àwòrán"
 
 #: addons/post-navigation/includes/class-admin-ui.php:422
 msgid "Remove Image"
-msgstr "Alisin ang Imahe"
+msgstr "Yọ Àwòrán"
 
 #: addons/post-navigation/includes/class-ajax.php:122
 #: addons/post-navigation/includes/class-ajax.php:129
 msgid "No posts found in series to preview."
-msgstr "Walang mga post na natagpuan sa serye upang suriin."
+msgstr "Kò sí ìkọ̀wé tí a rí nínú ìjápọ láti fi hàn."
 
-#: addons/post-navigation/includes/class-fields.php:34, fuzzy
+#: addons/post-navigation/includes/class-fields.php:34
 msgid "Item"
-msgstr "Item"
+msgstr "Àkóónú"
 
 #: addons/post-navigation/includes/class-fields.php:89
 msgid "Include Series Title"
-msgstr "Isama ang Pamagat ng Serye"
+msgstr "Kó Orúkọ Ìjápọ Kún"
 
 #: addons/post-navigation/includes/class-fields.php:96
 msgid "Link Series Title"
-msgstr "I-link ang Pamagat ng Serye"
+msgstr "Bá Orúkọ Ìjápọ Ṣe"
 
 #: addons/post-navigation/includes/class-fields.php:101
 msgid "Link the series title to the series archive page"
-msgstr "I-link ang pamagat ng serye sa pahina ng archive ng serye"
+msgstr "Bá orúkọ ìjápọ ṣe pẹ̀lú ojúewé àkópọ̀ ìjápọ"
 
 #: addons/post-navigation/includes/class-fields.php:106
 msgid "Series Title Alignment"
-msgstr "Pagkaka-align ng Pamagat ng Serye"
+msgstr "Ìtòsọna Orúkọ Ìjápọ"
 
 #: addons/post-navigation/includes/class-fields.php:110
 #: addons/post-navigation/includes/class-fields.php:181
@@ -1154,11 +1156,11 @@ msgstr "Pagkaka-align ng Pamagat ng Serye"
 #: addons/post-navigation/includes/class-fields.php:296
 #: addons/post-navigation/includes/class-fields.php:424
 msgid "Left"
-msgstr "Kaliwa"
+msgstr "Ẹgbẹ osi"
 
 #: addons/post-navigation/includes/class-fields.php:111
 msgid "Center"
-msgstr "Gitna"
+msgstr "Aringbungbun"
 
 #: addons/post-navigation/includes/class-fields.php:112
 #: addons/post-navigation/includes/class-fields.php:182
@@ -1166,603 +1168,599 @@ msgstr "Gitna"
 #: addons/post-navigation/includes/class-fields.php:297
 #: addons/post-navigation/includes/class-fields.php:425
 msgid "Right"
-msgstr "Kanan"
+msgstr "Ẹgbẹ ọtun"
 
 #: addons/post-navigation/includes/class-fields.php:118
 msgid "Series Title Color"
-msgstr "Kulay ng Pamagat ng Serye"
+msgstr "Àwọ́ Akọ́kọ́ Jara"
 
 #: addons/post-navigation/includes/class-fields.php:125
 msgid "Hide When Single Post"
-msgstr "Itago Kapag Isang Post Lamang"
+msgstr "Tọju Nigbati Iwe Kan"
 
 #: addons/post-navigation/includes/class-fields.php:130
 msgid "Do not display navigation if series has only one post"
-msgstr "Huwag ipakita ang nabigasyon kung ang serye ay may isang post lamang"
+msgstr "Ma ṣe afihan ìṣàkóso ti jara ba ni iwe kan ṣoṣo"
 
 #: addons/post-navigation/includes/class-fields.php:148
 msgid "Previous Navigation Type"
-msgstr "Uri ng Nakaraang Nabigasyon"
+msgstr "Iru Iṣàkóso Tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:152
 #: addons/post-navigation/includes/class-fields.php:267
 #: addons/post-navigation/includes/class-fields.php:382
 msgid "None"
-msgstr "Wala"
+msgstr "Ko si"
 
 #: addons/post-navigation/includes/class-fields.php:153
 msgid "Previous Post Title"
-msgstr "Pamagat ng Nakaraang Post"
+msgstr "Akọle Iwe Tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:154
 #: addons/post-navigation/includes/class-fields.php:269
 #: addons/post-navigation/includes/class-fields.php:384
 msgid "Custom Label"
-msgstr "Pasadyang Label"
+msgstr "Aami Aṣa"
 
 #: addons/post-navigation/includes/class-fields.php:158
 msgid "Choose how to display the previous navigation"
-msgstr "Pumili kung paano ipapakita ang nakaraang nabigasyon"
+msgstr "Yan bi a ṣe fẹ́ ṣe afihan iṣàkóso tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:161
 msgid "Previous Label"
-msgstr "Nakaraang Label"
+msgstr "Aami Tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:166
 msgid "Custom text for previous post link"
-msgstr "Pasadyang teksto para sa link ng nakaraang post"
+msgstr "Ọrọ aṣa fun ìjápọ iwe tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:174
 msgid "Display featured image for previous post"
-msgstr "Ipakita ang tampok na larawan para sa nakaraang post"
+msgstr "Ṣe afihan aworan to ṣe pataki fun iwe tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:177
 #: addons/post-navigation/includes/class-fields.php:292
 #: addons/post-navigation/includes/class-fields.php:420
 msgid "Image Position"
-msgstr "Posisyon ng Imahe"
+msgstr "Ipo Aworan"
 
 #: addons/post-navigation/includes/class-fields.php:186
 msgid "Position of the featured image relative to the navigation"
-msgstr "Posisyon ng tampok na larawan kaugnay ng nabigasyon"
+msgstr "Ipo ti aworan to ṣe pataki ni ibatan si iṣàkóso"
 
 #: addons/post-navigation/includes/class-fields.php:189
 #: addons/post-navigation/includes/class-fields.php:304
 #: addons/post-navigation/includes/class-fields.php:432
 msgid "Image Width (px)"
-msgstr "Lapad ng Imahe (px)"
+msgstr "Iwọn Aworan (px)"
 
 #: addons/post-navigation/includes/class-fields.php:197
 #: addons/post-navigation/includes/class-fields.php:312
 #: addons/post-navigation/includes/class-fields.php:440
 msgid "Image Height (px)"
-msgstr "Taas ng Imahe (px)"
+msgstr "Giga Aworan (px)"
 
 #: addons/post-navigation/includes/class-fields.php:205
 #: addons/post-navigation/includes/class-fields.php:320
 msgid "Show Arrow"
-msgstr "Ipakita ang Arrow"
+msgstr "Fi Ẹrọ aami han"
 
 #: addons/post-navigation/includes/class-fields.php:210
 msgid "Display an arrow icon with the previous navigation"
-msgstr "Ipakita ang isang arrow icon kasama ang nakaraang nabigasyon"
+msgstr "Ṣe afihan aami ẹfọn pẹlu iṣàkóso tẹlẹ"
 
 #: addons/post-navigation/includes/class-fields.php:213
 #: addons/post-navigation/includes/class-fields.php:328
 msgid "Arrow Type"
-msgstr "Uri ng Arrow"
+msgstr "Iru Ẹfọn"
 
 #: addons/post-navigation/includes/class-fields.php:217
 msgid "Chevron Left (‹)"
-msgstr "Chevron Kaliwa (‹)"
+msgstr "Chevron Osì (‹)"
 
 #: addons/post-navigation/includes/class-fields.php:218
 msgid "Arrow Left (←)"
-msgstr "Arrow Kaliwa (←)"
+msgstr "Arrow Osì (←)"
 
 #: addons/post-navigation/includes/class-fields.php:219
 msgid "Double Chevron Left («)"
-msgstr "Double Chevron Kaliwa («)"
+msgstr "Double Chevron Osì («)"
 
 #: addons/post-navigation/includes/class-fields.php:220
 msgid "Triangle Left (◄)"
-msgstr "Triangle Kaliwa (◄)"
+msgstr "Triangle Osì (◄)"
 
 #: addons/post-navigation/includes/class-fields.php:221
 #: addons/post-navigation/includes/class-fields.php:336
 msgid "Custom Image"
-msgstr "Pasadyang Imahe"
+msgstr "Aworan Aṣ customized"
 
 #: addons/post-navigation/includes/class-fields.php:225
 #: addons/post-navigation/includes/class-fields.php:340
 msgid "Choose the arrow icon style"
-msgstr "Pumili ng istilo ng arrow icon"
+msgstr "Yan irisi aami arrow"
 
 #: addons/post-navigation/includes/class-fields.php:228
 #: addons/post-navigation/includes/class-fields.php:343
 msgid "Arrow Position"
-msgstr "Posisyon ng Arrow"
+msgstr "Ipo Arrow"
 
 #: addons/post-navigation/includes/class-fields.php:237
 msgid "Position of the arrow relative to the navigation"
-msgstr "Posisyon ng arrow kaugnay ng nabigasyon"
+msgstr "Ipo ti arrow ni ibamu si lilọ kiri"
 
 #: addons/post-navigation/includes/class-fields.php:240
 #: addons/post-navigation/includes/class-fields.php:355
 msgid "Arrow Size (px)"
-msgstr "Sukat ng Arrow (px)"
+msgstr "Iwọn Arrow (px)"
 
 #: addons/post-navigation/includes/class-fields.php:247
 #: addons/post-navigation/includes/class-fields.php:362
 msgid "Size of the arrow icon in pixels (applies to both width and height)"
-msgstr "Sukat ng arrow icon sa mga pixel (umaangkop sa parehong lapad at taas)"
+msgstr "Iwọn aami arrow ni awọn piksẹli (tó ní àkópọ̀ pẹ̀lú ìwọn àti gígùn)"
 
 #: addons/post-navigation/includes/class-fields.php:250
 #: addons/post-navigation/includes/class-fields.php:365
 msgid "Custom Arrow Image"
-msgstr "Pasadyang Imahe ng Arrow"
+msgstr "Aworan Arrow Aṣ customized"
 
 #: addons/post-navigation/includes/class-fields.php:255
 #: addons/post-navigation/includes/class-fields.php:370
 msgid "Select custom arrow image from media library"
-msgstr "Pumili ng pasadyang imahe ng arrow mula sa media library"
+msgstr "Yan aworan arrow aṣa lati ile-ikawe media"
 
 #: addons/post-navigation/includes/class-fields.php:263
 msgid "Next Navigation Type"
-msgstr "Susunod na Uri ng Nabigasyon"
+msgstr "Iru Lilọ Kẹta Tó Ń Bọ"
 
 #: addons/post-navigation/includes/class-fields.php:268
 msgid "Next Post Title"
-msgstr "Susunod na Pamagat ng Post"
+msgstr "Akole Ifiweranṣẹ Tó Ń Bọ"
 
 #: addons/post-navigation/includes/class-fields.php:273
 msgid "Choose how to display the next post link"
-msgstr "Pumili kung paano ipapakita ang susunod na link ng post"
+msgstr "Yan bi a ṣe le fi hàn ìjápọ̀ ifiweranṣẹ tó ń bọ"
 
 #: addons/post-navigation/includes/class-fields.php:276
 msgid "Next Label"
-msgstr "Susunod na Label"
+msgstr "Àkọlé Tó Ń Bọ"
 
 #: addons/post-navigation/includes/class-fields.php:281
 msgid "Custom text for next post link"
-msgstr "Pasadyang teksto para sa susunod na link ng post"
+msgstr "Àkọsílẹ̀ aṣa fun ìjápọ̀ ifiweranṣẹ tó ń bọ"
 
 #: addons/post-navigation/includes/class-fields.php:289
 msgid "Display featured image for next post"
-msgstr "Ipakita ang tampok na imahe para sa susunod na post"
+msgstr "Fi aworan pataki hàn fun ifiweranṣẹ tó ń bọ"
 
 #: addons/post-navigation/includes/class-fields.php:301
 msgid "Position of the featured image relative to navigation"
-msgstr "Posisyon ng tampok na imahe kaugnay ng nabigasyon"
+msgstr "Ipo aworan pataki ni ibamu si lilọ kiri"
 
 #: addons/post-navigation/includes/class-fields.php:325
 msgid "Display an arrow icon with the next navigation"
-msgstr "Ipakita ang isang arrow icon kasama ang susunod na nabigasyon"
+msgstr "Fi aami arrow hàn pẹlú lilọ kiri tó ń bọ"
 
 #: addons/post-navigation/includes/class-fields.php:332
 msgid "Chevron Right (›)"
-msgstr "Chevron Kanang (›)"
+msgstr "Chevron Otun (›)"
 
 #: addons/post-navigation/includes/class-fields.php:333
 msgid "Arrow Right (→)"
-msgstr "Arrow Kanang (→)"
+msgstr "Ọta Otun (→)"
 
 #: addons/post-navigation/includes/class-fields.php:334
 msgid "Double Chevron Right (»)"
-msgstr "Double Chevron Kanang (»)"
+msgstr "Double Chevron Otun (»)"
 
 #: addons/post-navigation/includes/class-fields.php:335
 msgid "Triangle Right (►)"
-msgstr "Triangle Kanang (►)"
+msgstr "Ibi onigun mẹta Otun (►)"
 
 #: addons/post-navigation/includes/class-fields.php:347
 msgid "Left of Text"
-msgstr "Kaliwa ng Teksto"
+msgstr "Osi ti ọrọ"
 
 #: addons/post-navigation/includes/class-fields.php:348
 msgid "Right of Text"
-msgstr "Kanan ng Teksto"
+msgstr "Otun ti ọrọ"
 
 #: addons/post-navigation/includes/class-fields.php:352
 msgid "Position of the arrow relative to the link text"
-msgstr "Posisyon ng arrow kaugnay ng link na teksto"
+msgstr "Ipo ti ọta ni ibamu si ọrọ asopọ"
 
 #: addons/post-navigation/includes/class-fields.php:374
 msgid "First"
-msgstr "Una"
+msgstr "Kíníkọ́kọ́"
 
 #: addons/post-navigation/includes/class-fields.php:378
 msgid "First Navigation Type"
-msgstr "Unang Uri ng Nabigasyon"
+msgstr "Kíníkọ́kọ́ Irin-ajo"
 
 #: addons/post-navigation/includes/class-fields.php:383
 msgid "First Post Title"
-msgstr "Unang Pamagat ng Post"
+msgstr "Kíníkọ́kọ́ Akọle Ifiweranṣẹ"
 
 #: addons/post-navigation/includes/class-fields.php:388
 msgid "Choose how to display the first navigation"
-msgstr "Pumili kung paano ipapakita ang unang nabigasyon"
+msgstr "Yan bi a ṣe le ṣe afihan kinikọ́kọ́ irin-ajo"
 
 #: addons/post-navigation/includes/class-fields.php:391
 msgid "First Label"
-msgstr "Unang Label"
+msgstr "Kíníkọ́kọ́ Àkọlé"
 
 #: addons/post-navigation/includes/class-fields.php:395
 msgid "Go to First"
-msgstr "Pumunta sa Unang"
+msgstr "Lọ si Kíníkọ́kọ́"
 
 #: addons/post-navigation/includes/class-fields.php:396
 msgid "Custom text for first navigation"
-msgstr "Pasadyang teksto para sa unang nabigasyon"
+msgstr "Ọrọ aṣa fun kinikọ́kọ́ irin-ajo"
 
 #: addons/post-navigation/includes/class-fields.php:399
 msgid "First Navigation Position"
-msgstr "Posisyon ng Unang Nabigasyon"
+msgstr "Ipo Kíníkọ́kọ́ Irin-ajo"
 
 #: addons/post-navigation/includes/class-fields.php:403
 msgid "Left (First → Previous → Next)"
-msgstr "Kaliwa (Unang → Nakaraan → Susunod)"
+msgstr "Osi (Kíníkọ́kọ́ → Tẹ́lẹ̀ → Tẹ̀síwájú)"
 
 #: addons/post-navigation/includes/class-fields.php:404
 msgid "Center (Previous → First → Next)"
-msgstr "Sentro (Nakaraan → Unang → Susunod)"
+msgstr "Àárín (Tẹ́lẹ̀ → Kíníkọ́kọ́ → Tẹ̀síwájú)"
 
 #: addons/post-navigation/includes/class-fields.php:405
 msgid "Right (Previous → Next → First)"
-msgstr "Kanan (Nakaraan → Susunod → Unang)"
+msgstr "Otun (Tẹ́lẹ̀ → Tẹ̀síwájú → Kíníkọ́kọ́)"
 
 #: addons/post-navigation/includes/class-fields.php:409
 msgid "Position of the first/series home link in navigation"
-msgstr "Posisyon ng unang/serye ng home link sa nabigasyon"
+msgstr "Ipo ti asopọ ile akọkọ/series ni irin-ajo"
 
 #: addons/post-navigation/includes/class-fields.php:417
 msgid "Display featured image for first post"
-msgstr "Ipakita ang tampok na larawan para sa unang post"
+msgstr "Ṣafihan aworan ti a ṣe afihan fun kinikọ́kọ́ ifiweranṣẹ"
 
 #: addons/post-navigation/includes/class-fields.php:429
 msgid "Position of the featured image relative to the link text"
-msgstr "Posisyon ng tampok na larawan kaugnay ng teksto ng link"
+msgstr "Ipo ti aworan ti a ṣe afihan ni ibamu si ọrọ asopọ"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:449, fuzzy
 msgid "Color"
-msgstr "Kulay"
+msgstr "Color"
 
 #: addons/post-navigation/includes/class-fields.php:520
 msgid "Gap Between Links (px)"
-msgstr "Agwat sa pagitan ng mga link (px)"
+msgstr "Iya laarin awọn asopọ (px)"
 
 #: addons/post-navigation/includes/class-fields.php:527
 msgid "Space between navigation links"
-msgstr "Espasyo sa pagitan ng mga link ng nabigasyon"
+msgstr "Ibi ti awọn asopọ lilọ kiri wa"
 
 #: addons/post-navigation/includes/class-fields.php:540
 msgid "Container Style"
-msgstr "Estilo ng lalagyan"
+msgstr "Iru Apoti"
 
 #: addons/post-navigation/includes/class-fields.php:544
 msgid "Container Background Color"
-msgstr "Kulay ng background ng lalagyan"
+msgstr "Color Abẹ Apoti"
 
 #: addons/post-navigation/includes/class-fields.php:549
 msgid "Background color for the navigation container"
-msgstr "Kulay ng background para sa lalagyan ng nabigasyon"
+msgstr "Color abẹ fun apoti lilọ kiri"
 
 #: addons/post-navigation/includes/class-fields.php:552
 msgid "Container Border Color"
-msgstr "Kulay ng hangganan ng lalagyan"
+msgstr "Color Iwọ Apoti"
 
 #: addons/post-navigation/includes/class-fields.php:559
 msgid "Container Border Width (px)"
-msgstr "Lapad ng hangganan ng lalagyan (px)"
+msgstr "Iwọn Iwọ Apoti (px)"
 
 #: addons/post-navigation/includes/class-fields.php:568
 msgid "Container Border Radius (px)"
-msgstr "Radyus ng hangganan ng lalagyan (px)"
+msgstr "Radius Iwọ Apoti (px)"
 
 #: addons/post-navigation/includes/class-fields.php:577
 msgid "Container Padding (px)"
-msgstr "Padding ng lalagyan (px)"
+msgstr "Padding Apoti (px)"
 
 #: addons/post-navigation/includes/class-fields.php:584
 msgid "Inner spacing for the container"
-msgstr "Panloob na espasyo para sa lalagyan"
+msgstr "Ibi inu fun apoti"
 
 #: addons/post-navigation/includes/class-post-type.php:26
 #: addons/post-navigation/includes/class-post-type.php:27
 #: addons/post-navigation/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:29
 msgid "Series Post Navigation"
-msgstr "Nabigasyon ng Post ng Serye"
+msgstr "Lilọ kiri ifiweranṣẹ jara"
 
 #: addons/post-navigation/includes/class-post-type.php:31
 msgid "Add New Series Post Navigation"
-msgstr "Magdagdag ng Bagong Nabigasyon ng Post ng Serye"
+msgstr "Fikun-un Lilọ kiri ifiweranṣẹ jara tuntun"
 
 #: addons/post-navigation/includes/class-post-type.php:32
 msgid "New Series Post Navigation"
-msgstr "Bagong Nabigasyon ng Post ng Serye"
+msgstr "Lilọ kiri ifiweranṣẹ jara tuntun"
 
 #: addons/post-navigation/includes/class-post-type.php:33
 msgid "Edit Series Post Navigation"
-msgstr "I-edit ang Nabigasyon ng Post ng Serye"
+msgstr "Ṣatunkọ Lilọ kiri ifiweranṣẹ jara"
 
 #: addons/post-navigation/includes/class-post-type.php:34
 msgid "View Series Post Navigation"
-msgstr "Tingnan ang Nabigasyon ng Post ng Serye"
+msgstr "Wo Lilọ kiri ifiweranṣẹ jara"
 
 #: addons/post-navigation/includes/class-post-type.php:35
 msgid "All Series Post Navigation"
-msgstr "Lahat ng Nabigasyon ng Post ng Serye"
+msgstr "Gbogbo Lilọ kiri ifiweranṣẹ jara"
 
 #: addons/post-navigation/includes/class-post-type.php:36
 msgid "Search Series Post Navigation"
-msgstr "Maghanap ng Nabigasyon ng Post ng Serye"
+msgstr "Wa Lilọ kiri ifiweranṣẹ jara"
 
 #: addons/post-navigation/includes/class-post-type.php:37
 msgid "No Series Post Navigation found."
-msgstr "Walang Nabigasyon ng Post ng Serye na natagpuan."
+msgstr "Ko si Lilọ kiri ifiweranṣẹ jara ti a ri."
 
 #: addons/post-navigation/includes/class-post-type.php:38
 msgid "No Series Post Navigation found in Trash."
-msgstr "Walang Natagpuang Navigasyon ng Post ng Serye sa Basurahan."
+msgstr "Ko si Iṣakoso Iwe Akọsilẹ Series ti a ri ninu Iboju idalẹnu."
 
 #: addons/post-navigation/includes/class-preview.php:37
 msgid "Create a series to preview the navigation."
-msgstr "Lumikha ng serye upang i-preview ang navigasyon."
+msgstr "Ṣẹda jara kan lati ṣe iworan iṣakoso naa."
 
 #: addons/post-navigation/includes/class-preview.php:45
 #: addons/post-navigation/includes/class-preview.php:57
 msgid "Create posts in a series to preview the navigation."
-msgstr "Lumikha ng mga post sa isang serye upang i-preview ang navigasyon."
+msgstr "Ṣẹda awọn ifiweranṣẹ ninu jara kan lati ṣe iworan iṣakoso naa."
 
 #: addons/post-navigation/includes/class-utilities.php:174
 msgid "Sample series for preview purposes"
-msgstr "Halimbawang serye para sa mga layunin ng preview"
+msgstr "Apeere jara fun awọn idi iworan"
 
 #: addons/post-navigation/post-navigation.php:87
 msgid "Error updating preview."
-msgstr "Error sa pag-update ng preview."
+msgstr "Aṣiṣe ni imudojuiwọn iworan."
 
 #: addons/post-navigation/post-navigation.php:211
 msgid "Simple Navigation"
-msgstr "Simpleng Navigasyon"
+msgstr "Iṣakoso Rọrun"
 
 #: addons/post-navigation/post-navigation.php:216
 msgid "Button Navigation"
-msgstr "Navigasyon ng Button"
+msgstr "Iṣakoso Bọtini"
 
 #: addons/post-navigation/post-navigation.php:221
 msgid "Image Navigation"
-msgstr "Navigasyon ng Imahe"
+msgstr "Iṣakoso Aworan"
 
 #: addons/publisher/series-part-post-table.php:63
 #: addons/publisher/series-pending-post-table.php:65
 #: addons/publisher/series-publish-post-table.php:73
 msgid "Categories"
-msgstr "Mga Kategorya"
+msgstr "Ẹka"
 
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
 msgid "Tags"
-msgstr "Mga Tag"
+msgstr "Àkíyèsí"
 
 #: addons/publisher/series-part-post-table.php:65
 #: addons/publisher/series-pending-post-table.php:67
 #: addons/publisher/series-publish-post-table.php:75
 msgid "Status"
-msgstr "Katayuan"
+msgstr "Ipo"
 
 #: addons/publisher/series-part-post-table.php:66
 #: addons/publisher/series-pending-post-table.php:68
 msgid "Current Part"
-msgstr "Kasalukuyang Bahagi"
+msgstr "Apá Tí ń lọ"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
 #: addons/publisher/series-publish-post-table.php:270
 msgid "Edit"
-msgstr "I-edit"
+msgstr "Ṣatunkọ"
 
 #: addons/publisher/series-part-post-table.php:146
 msgid "View"
-msgstr "Tingnan"
+msgstr "Wo"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
 #: addons/publisher/series-publish-post-table.php:287
 msgid "Trash"
-msgstr "Basurahan"
+msgstr "Iboju idalẹnu"
 
 #: addons/publisher/series-part-post-table.php:190
 msgid "There are no published posts in this series."
-msgstr "Walang mga na-publish na post sa seryeng ito."
+msgstr "Ko si awọn ifiweranṣẹ ti a tẹjade ninu jara yii."
 
 #: addons/publisher/series-part-post-table.php:309
 msgid "(Currently has no Part number)"
-msgstr "(Kasalukuyan ay walang numero ng Bahagi)"
+msgstr "(Kosi nọmba apá lọwọlọwọ)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
 #: addons/publisher/series-publish-post-table.php:422
 msgid "Preview"
-msgstr "I-preview"
+msgstr "Iworan"
 
 #: addons/publisher/series-pending-post-table.php:197
 #: addons/publisher/series-publish-post-table.php:46
 msgid "There are no unpublished posts in this series."
-msgstr "Walang mga hindi na-publish na post sa seryeng ito."
+msgstr "Ko si awọn ifiweranṣẹ ti a ko tẹjade ninu jara yii."
 
 #: addons/publisher/series-pending-post-table.php:312
 msgid "No Part Number"
-msgstr "Walang Numero ng Bahagi"
+msgstr "Ko si Nọmba Apá"
 
 #: addons/publisher/series-publish-post-table.php:176
 msgid "All Categories"
-msgstr "Lahat ng Kategorya"
+msgstr "Gbogbo Ẹka"
 
 #: addons/publisher/series-publish-post-table.php:189
 msgid "Filter"
-msgstr "Salain"
+msgstr "Àtọka"
 
 #: addons/publisher/series_im_admin_main.php:2
 #: addons/publisher/series_issue_manager.php:500
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
-msgstr "Pamahalaan ang mga Serye"
-
-#: addons/publisher/series_im_admin_main.php:7
-msgid "Series"
-msgstr "Serye"
+msgstr "Ṣakoso Jara"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
 #: addons/publisher/series_issue_manager.php:741
 msgid "Publish Series"
-msgstr "I-publish ang Serye"
+msgstr "Ṣe Iwe Jara"
 
 #: addons/publisher/series_im_admin_main.php:10
 msgid "Front View"
-msgstr "Pangunahing Tanaw"
+msgstr "Iwo iwaju"
 
 #: addons/publisher/series_im_admin_main.php:17
 #, php-format
 msgid "Edit the status of %1$s"
-msgstr "I-edit ang katayuan ng %1$s"
+msgstr "Ṣatunkọ ipo ti %1$s"
 
 #: addons/publisher/series_im_admin_main.php:19
 msgid "Series order"
-msgstr "Kaayusan ng serye"
+msgstr "Àtò jara"
 
 #: addons/publisher/series_im_admin_main.php:22
 msgid "Publish or schedule posts"
-msgstr "I-publish o itakda ang mga post"
+msgstr "Ṣe Iwe tabi ṣeto awọn ifiweranṣẹ"
 
 #: addons/publisher/series_im_admin_main.php:25
 msgid "View series in frontend"
-msgstr "Tingnan ang mga serye sa frontend"
+msgstr "Wo jara ni iwaju"
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "You have no series available."
-msgstr "Wala kang magagamit na mga serye."
+msgstr "O ko ni jara ti o wa."
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "Add new Series."
-msgstr "Magdagdag ng bagong Serye."
+msgstr "Fi Jara tuntun kun."
 
 #: addons/publisher/series_issue_manager.php:209
 msgid "Create as unpublished:"
-msgstr "Lumikha bilang hindi na-publish:"
+msgstr "Ṣẹda gẹgẹbi ti a ko ṣe iwe:"
 
 #: addons/publisher/series_issue_manager.php:212
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr ""
-"Kapag naka-check, lahat ng post na itatalaga mo sa seryeng ito ay "
-"mananatiling hindi na-publish hanggang sa i-publish mo ang buong serye."
+"Nigbati a ba ṣe ayẹyẹ, gbogbo awọn ifiweranṣẹ ti o pin si jara yii yoo wa "
+"ni a ko ṣe iwe titi ti iwọ yoo fi ṣe iwe jara gbogbo."
 
 #: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
-msgstr "Ang mga post sa iyong serye ay matagumpay na hindi na-publish."
+msgstr "Awọn ifiweranṣẹ ninu jara rẹ ti a ko ṣe iwe ni aṣeyọri."
 
 #: addons/publisher/series_issue_manager.php:299
 #: addons/publisher/series_issue_manager.php:416
 msgid "Congratulations. Your series order was updated successfully."
-msgstr "Binabati kita. Ang kaayusan ng iyong serye ay matagumpay na na-update."
+msgstr "Ẹ kú àṣeyọrí. Àtò jara rẹ ti ni imudojuiwọn ni aṣeyọri."
 
 #: addons/publisher/series_issue_manager.php:307
 #: addons/publisher/series_issue_manager.php:344
 msgid "Congratulations. Your posts were published successfully."
-msgstr "Binabati kita. Ang iyong mga post ay matagumpay na na-publish."
+msgstr "Ẹ kú àṣeyọrí. Awọn ifiweranṣẹ rẹ ti a ṣe iwe ni aṣeyọri."
 
 #: addons/publisher/series_issue_manager.php:316
 msgid "Post moved to the Trash."
-msgstr "Ang post ay inilipat sa Basurahan."
+msgstr "Ifiweranṣẹ ti gbe lọ si Iṣan."
 
 #: addons/publisher/series_issue_manager.php:339
 msgid "Congratulations. Your posts were scheduled successfully."
-msgstr "Binabati kita. Ang iyong mga post ay matagumpay na itinalaga."
+msgstr "Ẹ kú àṣeyọrí. Awọn ifiweranṣẹ rẹ ti a ṣeto ni aṣeyọri."
 
 #: addons/publisher/series_issue_manager.php:499
 msgid "Manage Series Issues"
-msgstr "Pamahalaan ang mga Isyu sa Serye"
+msgstr "Ṣakoso Awọn Isoro Jara"
 
 #: addons/publisher/series_issue_manager.php:528
 msgid "Number of items per page"
-msgstr "Bilang ng mga item bawat pahina"
+msgstr "Iye awọn nkan fun oju-iwe"
 
 #: addons/publisher/series_issue_manager.php:643
 msgid "Publishing Series:"
-msgstr "Pag-publish ng Serye:"
+msgstr "Ṣiṣẹda Jara:"
 
 #: addons/publisher/series_issue_manager.php:649
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
-msgstr "Mga resulta ng paghahanap para sa &#8220;%s&#8221;"
+msgstr "Awọn abajade wiwa fun &#8220;%s&#8221;"
 
 #: addons/publisher/series_issue_manager.php:664
 msgid "Search"
-msgstr "Maghanap"
+msgstr "Wa"
 
 #: addons/publisher/series_issue_manager.php:709
 msgid "Publication Date/Time:"
-msgstr "Petsa/Wika ng Paglalathala:"
+msgstr "Ọjọ/Àkókò Ifiṣootọ:"
 
 #: addons/publisher/series_issue_manager.php:765
 #: addons/publisher/series_issue_manager.php:840
 #: addons/publisher/series_issue_manager.php:939
 msgid "Update Order"
-msgstr "Ayusin ang Pag-update"
+msgstr "Ṣatunkọ Ẹlẹsẹ"
 
 #: addons/publisher/series_issue_manager.php:792
 msgid "Series Order:"
-msgstr "Ayusin ang Serye:"
+msgstr "Ẹlẹsẹ Iru:"
 
 #: addons/publisher/series_issue_manager.php:795
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr ""
-"I-drag ang mga pangalan ng post sa pagkakasunud-sunod na nais mo silang "
-"ilagay sa serye, mula sa unang bahagi hanggang sa huling bahagi."
+"Fa awọn orukọ ifiṣootọ sinu aṣẹ ti o fẹ ki wọn wa ninu ẹlẹsẹ, lati apakan "
+"akọkọ si apakan ikẹhin."
 
 #: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
-msgstr "Mga hindi nailathalang post sa serye:"
+msgstr "Awọn ifiṣootọ ti ko tii tẹjade ninu ẹlẹsẹ:"
 
 #: addons/publisher/series_issue_manager.php:870
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
 msgstr ""
-"Kapag nailathala ang mga post na ito, idadagdag sila pagkatapos ng huling "
-"kasalukuyang post sa serye."
+"Nigbati awọn ifiṣootọ wọnyi ba tẹjade, wọn yoo wa ni afikun lẹhin ifiṣootọ "
+"lọwọlọwọ ti o kẹhin ninu ẹlẹsẹ."
 
 #: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
-msgstr "Mga Hindi Nailathalang Post"
+msgstr "Awọn Ifiṣootọ Ti Ko Ti Tẹjade"
 
 #: addons/publisher/series_issue_manager.php:915
 msgid "Publish Unpublished Posts"
-msgstr "I-publish ang Mga Hindi Nailathalang Post"
+msgstr "Tẹjade Awọn Ifiṣootọ Ti Ko Ti Tẹjade"
 
 #: addons/publisher/series_issue_manager.php:925
 msgid "Unpublished Series Order"
-msgstr "Ayusin ang Hindi Nailathalang Serye"
+msgstr "Aṣẹ Ẹlẹsẹ Ti Ko Ti Tẹjade"
 
 #: inc/settings/settings-page.php:18
 msgid "PublishPress Series Plugin Options"
-msgstr "Mga Opsyon ng PublishPress Series Plugin"
+msgstr "Àwọn aṣayan Plugin Ẹlẹsẹ PublishPress"
 
 #: inc/settings/settings-page.php:52
 msgid "Allowed Html"
-msgstr "Pinapayagang Html"
+msgstr "Html ti a gba laaye"
 
 #: inc/settings/settings-page.php:61
 msgid "Overview"
-msgstr "Pangkalahatang-ideya"
+msgstr "Akopọ"
 
 #: inc/settings/settings-page.php:63
 msgid ""
@@ -1770,22 +1768,19 @@ msgid ""
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
 msgstr ""
-"Ang sumusunod ay isang talaan ng mga token na magagamit para sa paggamit sa "
-"mga custom na template field. Ito ay mapapalitan ng mga angkop na halaga "
-"kapag tumatakbo ang plugin."
+"Eyi ni itumọ ti awọn ami ti o wa fun lilo ninu awọn aaye apẹrẹ aṣa. Awọn "
+"wọnyi yoo wa ni rọpo pẹlu awọn iye to yẹ nigbati plugin naa ba ṣiṣẹ."
 
 #: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
-msgstr "Ito ay mapapalitan ng icon ng serye para sa isang serye."
+msgstr "Eyi yoo wa ni rọpo pẹlu aami ẹlẹsẹ fun ẹlẹsẹ kan."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
-msgstr ""
-"Katulad ng %series_icon% maliban na ang icon ng serye ay mai-link sa pahina "
-"ng serye"
+msgstr "Bii %series_icon% ayafi pe aami ẹlẹsẹ yoo jẹ asopọ si oju-iwe ẹlẹsẹ"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -1793,60 +1788,56 @@ msgid ""
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
-"Ang token na ito ay para sa paggamit lamang sa widget ng orgSeries - ito ay "
-"tumutukoy kung saan mo nais ipasok ang listahan ng mga pamagat ng serye at "
-"nangangailangan na ang template para sa bawat pamagat ng serye ay nakaset "
-"din."
+"Ami yii jẹ fun lilo pẹlu widget orgSeries nikan - o tọka si ibiti o fẹ ki "
+"atokọ awọn akọle ẹlẹsẹ ti wa ni ifọwọsi ati pe o nilo pe aṣẹ fun ọkọọkan "
+"akọle ẹlẹsẹ naa tun jẹ seti."
 
 #: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
-msgstr "Ito ay mapapalitan ng pamagat ng isang serye"
+msgstr "Eyi yoo wa ni rọpo pẹlu akọle ẹlẹsẹ kan"
 
 #: inc/settings/settings-page.php:100
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
-msgstr "Katulad ng %series_title% maliban na ito ay mai-link din sa pahina ng serye"
+msgstr "Bii %series_title% ayafi pe yoo tun jẹ asopọ si oju-iwe ẹlẹsẹ"
 
 #: inc/settings/settings-page.php:108
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
-msgstr ""
-"Ito ang token ng lokasyon para sa kung saan lilitaw ang nilalaman ng mga "
-"template ng listahan ng post."
+msgstr "Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han."
 
 #: inc/settings/settings-page.php:116
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
 msgstr ""
-"Ito ang token ng lokasyon para sa kung saan lilitaw ang nilalaman ng mga "
-"template ng listahan ng post at gumamit ng ibinigay na maikling pamagat ng "
-"widget post."
+"Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han "
+"ati lo akọle kukuru àtẹjáde ti a pese."
 
 #: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
-msgstr "Mapapalitan ng pamagat ng post ng isang post sa serye"
+msgstr "A yoo rọpo rẹ pẹlu akọle ifiweranṣẹ ti ifiweranṣẹ kan ninu jara"
 
 #: inc/settings/settings-page.php:132
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
-"Mapapalitan ng pamagat ng post ng isang post sa serye na naka-link sa page "
-"view ng post na iyon."
+"A yoo rọpo rẹ pẹlu akọle ifiweranṣẹ ti ifiweranṣẹ kan ninu jara ti o ni "
+"asopọ si wiwo oju-iwe ti ifiweranṣẹ yẹn."
 
 #: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
-msgstr "Mapapalitan ng maikling pamagat ng post ng isang post sa serye"
+msgstr "A yoo rọpo rẹ pẹlu akọle kukuru ifiweranṣẹ ti ifiweranṣẹ kan ninu jara"
 
 #: inc/settings/settings-page.php:148
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
 msgstr ""
-"Mapapalitan ng maikling pamagat ng post ng isang post sa serye na naka-link "
-"sa page view ng post na iyon."
+"A yoo rọpo rẹ pẹlu akọle kukuru ifiweranṣẹ ti ifiweranṣẹ kan ninu jara ti o "
+"ni asopọ si wiwo oju-iwe ti ifiweranṣẹ yẹn."
 
 #: inc/settings/settings-page.php:156
 msgid ""
@@ -1855,10 +1846,9 @@ msgid ""
 "Navigation Text' field. If that field is empty then the text will be the "
 "title of the post"
 msgstr ""
-"Mapapalitan ng navigation link para sa nakaraang post sa isang serye. Ang "
-"teksto ay magiging anuman ang kasama sa 'Custom Previous Post Navigation "
-"Text' na field. Kung ang field na iyon ay walang laman, ang teksto ay "
-"magiging pamagat ng post"
+"A yoo rọpo rẹ pẹlu ọna asopọ lilọ fun ifiweranṣẹ ti tẹlẹ ninu jara. Ọrọ naa "
+"yoo jẹ ohun gbogbo ti a fi sinu aaye 'Ọrọ Lilọ Ifiweranṣẹ Tẹlẹ Sọtọ'. Ti "
+"aaye yẹn ba ṣofo, lẹhinna ọrọ naa yoo jẹ akọle ifiweranṣẹ naa"
 
 #: inc/settings/settings-page.php:164
 msgid ""
@@ -1866,10 +1856,9 @@ msgid ""
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
-"Mapapalitan ng navigation link para sa susunod na post sa isang serye. Ang "
-"teksto ay magiging anuman ang kasama sa 'Custom Next Post Navigation Text' "
-"na field. Kung ang field na iyon ay walang laman, ang teksto ay magiging "
-"pamagat ng post"
+"A yoo rọpo rẹ pẹlu ọna asopọ lilọ fun ifiweranṣẹ ti n bọ ninu jara. Ọrọ naa "
+"yoo jẹ ohun gbogbo ti a fi sinu aaye 'Ọrọ Lilọ Ifiweranṣẹ Tẹlẹ Sọtọ'. Ti "
+"aaye yẹn ba ṣofo, lẹhinna ọrọ naa yoo jẹ akọle ifiweranṣẹ naa"
 
 #: inc/settings/settings-page.php:172
 msgid ""
@@ -1878,87 +1867,84 @@ msgid ""
 "Text' field. If that field is empty then the text will be the title of the "
 "post"
 msgstr ""
-"Mapapalitan ng navigation link para sa unang post sa isang serye. Ang "
-"teksto ay magiging anuman ang kasama sa 'Custom First Post Navigation Text' "
-"na field. Kung ang field na iyon ay walang laman, ang teksto ay magiging "
-"pamagat ng post"
+"A yoo rọpo rẹ pẹlu ọna asopọ lilọ fun ifiweranṣẹ akọkọ ninu jara. Ọrọ naa "
+"yoo jẹ ohun gbogbo ti a fi sinu aaye 'Ọrọ Lilọ Ifiweranṣẹ Kọ́kọ́ Sọtọ'. Ti "
+"aaye yẹn ba ṣofo, lẹhinna ọrọ naa yoo jẹ akọle ifiweranṣẹ naa"
 
 #: inc/settings/settings-page.php:179
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr ""
-"Gamitin ang tag na ito bago o pagkatapos ng iba pang bahagi ng code ng "
-"template. Ipinapakita nito kung saan mo gustong ipakita ang nilalaman ng "
-"isang post."
+"Lo aami yii boya ṣaaju tabi lẹhin iyoku koodu àtẹjáde. Yoo tọka ibi ti o fẹ "
+"ki akoonu ifiweranṣẹ han."
 
 #: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
-msgstr "Ipinapakita kung anong bahagi ng serye ang post"
+msgstr "Yoo fihan iru apakan jara ti ifiweranṣẹ jẹ"
 
 #: inc/settings/settings-page.php:195
 msgid "Will display the total number of posts in a series"
-msgstr "Ipinapakita ang kabuuang bilang ng mga post sa isang serye"
+msgstr "Yoo fihan nọmba lapapọ ti awọn ifiweranṣẹ ninu jara"
 
 #: inc/settings/settings-page.php:203
 msgid "Will display the description for the series"
-msgstr "Ipinapakita ang paglalarawan para sa serye"
+msgstr "Yoo fihan apejuwe fun jara"
 
 #: inc/settings/settings-page.php:213
 msgid "Will output the slug of the series"
-msgstr "Ipinapakita ang slug ng serye"
+msgstr "Yoo funni ni slug ti jara"
 
 #: inc/settings/settings-page.php:221
 msgid "Will output the ID of the series"
-msgstr "Ipinapakita ang ID ng serye"
+msgstr "Yoo funni ni ID ti jara"
 
 #: inc/settings/settings-page.php:229
 msgid "Will output the author of the post"
-msgstr "Ipinapakita ang may-akda ng post"
+msgstr "Yoo funni ni onkọwe ifiweranṣẹ naa"
 
 #: inc/settings/settings-page.php:237
 msgid "If the post has a feature-image then that image will be displayed"
-msgstr "Kung ang post ay may feature-image, ang larawang iyon ay ipapakita"
+msgstr "Ti ifiweranṣẹ ba ni aworan ẹya, lẹhinna aworan yẹn yoo han"
 
 #: inc/settings/settings-page.php:245
 msgid "The date that a post was published"
-msgstr "Ang petsa kung kailan inilathala ang isang post"
+msgstr "Ọjọ ti ifiweranṣẹ kan ti wa ni atẹjade"
 
 #: inc/settings/settings-page.php:253
 msgid "Will be replaced with the unpublished post title of a post in the series"
-msgstr "Mapapalitan ng hindi nailathalang pamagat ng post ng isang post sa serye"
+msgstr "A yoo rọpo rẹ pẹlu akọle ifiweranṣẹ ti ko tẹjade ti ifiweranṣẹ kan ninu jara"
 
 #: inc/settings/settings-page.php:261
 msgid "Will display the total number of published and unpublished posts in a series"
 msgstr ""
-"Ipinapakita ang kabuuang bilang ng mga nailathala at hindi nailathalang "
-"post sa isang serye"
+"Yoo fihan nọmba lapapọ ti awọn ifiweranṣẹ ti a tẹjade ati ti ko tẹjade ninu "
+"jara"
 
 #: inc/settings/settings-page.php:304
 msgid "Update Options"
-msgstr "Mga Opsyon sa Pag-update"
+msgstr "Awọn aṣayan imudojuiwọn"
 
 #: inc/settings/settings-page.php:308
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
 msgstr ""
-"Ang pag-click sa Oo ay ibabalik ang mga opsyon sa mga default at mawawala "
-"sa iyo ang lahat ng mga pasadyang pagbabago. O maaari mong i-click ang "
-"kanselahin at bumalik."
+"Tite Yes yoo tun awọn aṣayan pada si awọn aiyipada ati pe iwọ yoo padanu "
+"gbogbo awọn aṣa. Tabi o le tẹ ipinnu ati pada."
 
 #: inc/settings/settings-page.php:309
 msgid "No"
-msgstr "Hindi"
+msgstr "Bẹẹkọ"
 
 #: inc/settings/settings-page.php:310
 msgid "Yes"
-msgstr "Oo"
+msgstr "Bẹẹni"
 
 #: inc/settings/settings-upgrade.php:22
 #: inc/settings/settings-upgrade.php:44
 msgid "Please update your PublishPress Series data"
-msgstr "Pakisuyong i-update ang iyong data ng PublishPress Series"
+msgstr "Jọwọ mu data PublishPress Series rẹ pọ si"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
@@ -1967,115 +1953,112 @@ msgid ""
 "update. This improves support for the Multiple Series feature, and resolves "
 "some issues with the order of posts. Please click this button to upgrade."
 msgstr ""
-"Ginawa namin ang mga pagbabago kung paano naka-imbak ang mga serye at "
-"nangangailangan ito ng maliit na pag-update. Pinapabuti nito ang suporta "
-"para sa Multiple Series feature, at nalulutas ang ilang mga isyu sa "
-"pagkakasunod-sunod ng mga post. Pakiclick ang button na ito upang "
-"mag-upgrade."
+"A ti ṣe awọn ayipada si bi awọn jara ti wa ni fipamọ ati eyi nilo "
+"imudojuiwọn kekere kan. Eyi mu atilẹyin fun ẹya Multiple Series pọ si, ati "
+"pe o yanju diẹ ninu awọn iṣoro pẹlu ìtòsọna awọn ifiweranṣẹ. Jọwọ tẹ bọtini "
+"yii lati ṣe imudojuiwọn."
 
 #: inc/settings/settings-upgrade.php:25
 #: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
-msgstr "I-update ang data ng Serye"
+msgstr "Mudarasi data Series"
 
 #: inc/settings/settings-upgrade.php:92
 msgid "Series upgrade completed."
-msgstr "Nakumpleto ang pag-upgrade ng Serye."
+msgstr "Imudojuiwọn jara ti pari."
 
 #: inc/settings/settings-upgrade.php:174
 #, php-format
 msgid "Series order sync completed. %d posts updated."
-msgstr ""
-"Nakumpleto ang pagkaka-sync ng pagkakasunod-sunod ng Serye. %d na mga post "
-"ang na-update."
+msgstr "Iṣọpọ ìtòsọna jara ti pari. %d awọn ifiweranṣẹ ti ni imudojuiwọn."
 
 #: inc/settings/settings-validation.php:60
 #: orgSeries-setup.php:259
 msgid "Search Series"
-msgstr "Maghanap ng Serye"
+msgstr "Wa Jara"
 
 #: inc/settings/settings-validation.php:61
 #: orgSeries-setup.php:260
 msgid "Popular Series"
-msgstr "Mga Sikat na Serye"
+msgstr "Awọn Jara Olokiki"
 
 #: inc/settings/settings-validation.php:62
 #: orgSeries-setup.php:261
 #: orgSeries-setup.php:315
 msgid "All Series"
-msgstr "Lahat ng Serye"
+msgstr "Gbogbo Awọn Jara"
 
 #: inc/settings/settings-validation.php:63
 #: orgSeries-setup.php:262
 msgid "Edit Series"
-msgstr "I-edit ang Serye"
+msgstr "Ṣatunkọ Jara"
 
 #: inc/settings/settings-validation.php:64
 #: orgSeries-setup.php:263
 msgid "Update Series"
-msgstr "I-update ang Serye"
+msgstr "Mudarasi Jara"
 
 #: inc/settings/settings-validation.php:65
 #: orgSeries-setup.php:264
 msgid "Add New Series"
-msgstr "Magdagdag ng Bagong Serye"
+msgstr "Fi Jara Tuntun Kun"
 
 #: inc/settings/settings-validation.php:66
 #: orgSeries-setup.php:265
 msgid "New Series Name"
-msgstr "Pangalan ng Bagong Serye"
+msgstr "Orukọ Jara Tuntun"
 
 #: inc/settings/settings-validation.php:68
 #: orgSeries-setup.php:267
 msgid "No series found"
-msgstr "Walang natagpuang serye"
+msgstr "Ko si jara ti a rii"
 
 #: inc/settings/settings-validation.php:121
 #, php-format
 msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
 msgstr ""
-"%1$s na serye ay nailipat mula sa \"%2$s\" patungo sa \"%3$s\" taxonomy. "
-"Na-update ang mga setting."
+"%1$s jara ti yipada lati \"%2$s\" si \"%3$s\" taxonomy. Awọn eto ti ni "
+"imudojuiwọn."
 
 #: inc/settings/settings-validation.php:135
 msgid "PublishPress Series Plugin Options have been updated"
-msgstr "Na-update ang mga Opsyon ng PublishPress Series Plugin"
+msgstr "Awọn aṣayan Plugin PublishPress Series ti ni imudojuiwọn"
 
 #: inc/settings/settings-validation.php:151
 msgid "Permission denied"
-msgstr "Tanggihan ang pahintulot"
+msgstr "Iwe-aṣẹ kọ"
 
 #: inc/settings/settings-validation.php:157
 msgid "PublishPress Series Plugin Options have been RESET"
-msgstr "Ang mga opsyon sa Plugin ng PublishPress Series ay na RESET"
+msgstr "Aṣayan Plugin PublishPress Series ti wa ni TUNṣe"
 
 #: inc/settings/tab-advanced.php:16
 msgid ""
 "Please change these settings carefully as they make significant changes to "
 "PublishPress Series."
 msgstr ""
-"Mangyaring baguhin ang mga setting na ito nang maingat dahil nagdudulot ito "
-"ng makabuluhang pagbabago sa PublishPress Series."
+"Jọwọ yipada awọn eto wọnyi pẹlu iṣọra bi wọn ṣe ṣe awọn ayipada pataki si "
+"PublishPress Series."
 
 #: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
-msgstr "Mga Setting ng Series"
+msgstr "Awọn Eto Series"
 
 #: inc/settings/tab-advanced.php:40
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
 msgstr ""
-"Tanggalin ang lahat ng data ng PublishPress Series mula sa database kapag "
-"tinanggal ang plugin na ito."
+"Pa gbogbo data PublishPress Series kuro ninu ibi ipamọ nigba ti o ba n pa "
+"plugin yii."
 
 #: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
-msgstr "Pag-upgrade ng Series"
+msgstr "Imudojuiwọn Series"
 
 #: inc/settings/tab-advanced.php:52
 msgid "Run Upgrade Task"
-msgstr "Patakbuhin ang Tungkulin ng Pag-upgrade"
+msgstr "Ṣiṣejade Iṣẹ Imudojuiwọn"
 
 #: inc/settings/tab-advanced.php:56
 msgid ""
@@ -2083,17 +2066,17 @@ msgid ""
 "stored. You can run the upgrade task here if you're having issues with "
 "series parts."
 msgstr ""
-"Sa bersyon 2.11.4, gumawa ng mga pagbabago ang PublishPress Series sa kung "
-"paano nakaimbak ang mga series. Maaari mong patakbuhin ang tungkulin ng "
-"pag-upgrade dito kung mayroon kang mga isyu sa mga bahagi ng series."
+"Ninu ẹya 2.11.4, PublishPress Series ṣe awọn ayipada si bi a ṣe n pa awọn "
+"series. O le ṣiṣẹ iṣẹ imudojuiwọn nibi ti o ba ni awọn iṣoro pẹlu awọn ẹya "
+"series."
 
 #: inc/settings/tab-advanced.php:65
 msgid "Sync Series Order to Menu Order"
-msgstr "I-sync ang Order ng Series sa Order ng Menu"
+msgstr "Sopọ Ibere Series si Ibere Menu"
 
 #: inc/settings/tab-advanced.php:70
 msgid "Sync to Menu Order"
-msgstr "I-sync sa Order ng Menu"
+msgstr "Sopọ si Ibere Menu"
 
 #: inc/settings/tab-advanced.php:74
 msgid ""
@@ -2102,74 +2085,71 @@ msgid ""
 "Attributes: Order). This allows you to use native WordPress ordering "
 "instead of custom fields."
 msgstr ""
-"Ito ay mag-synchronize ng lahat ng numero ng bahagi ng series sa field na "
-"menu_order ng WordPress. Kapaki-pakinabang para sa mga tema/tagabuo ng "
-"pahina na maaari lamang mag-uri batay sa order ng menu (Mga Katangian ng "
-"Pahina: Order). Pinapayagan ka nitong gumamit ng katutubong pag-uuri ng "
-"WordPress sa halip na mga custom na field."
+"Eyi yoo sopọ gbogbo awọn nọmba ẹya series si aaye menu_order ti WordPress. "
+"Wulo fun awọn akori/olugbasilẹ oju-iwe ti o le ṣe irọrun nikan nipasẹ ibere "
+"menu (Awọn Attribut Oju: Ibere). Eyi gba ọ laaye lati lo ibere WordPress "
+"abinibi dipo awọn aaye aṣa."
 
 #: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
-msgstr "I-reset ang mga setting"
+msgstr "Tun awọn eto"
 
 #: inc/settings/tab-advanced.php:86
 msgid "Reset options to default"
-msgstr "I-reset ang mga opsyon sa default"
+msgstr "Tun awọn aṣayan si aiyipada"
 
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:144
 msgid "Legacy"
-msgstr "Pamana"
+msgstr "Itan"
 
 #: inc/settings/tab-legacy.php:13
 msgid "Legacy Settings"
-msgstr "Mga Setting ng Pamana"
+msgstr "Awọn Eto Itan"
 
-#: inc/settings/tab-legacy.php:27, fuzzy
+#: inc/settings/tab-legacy.php:27
 msgid "Default"
-msgstr "Default"
+msgstr "Aiyipada"
 
 #: inc/settings/tab-legacy.php:36
 msgid "CSS Styles"
-msgstr "Mga Estilo ng CSS"
+msgstr "Awọn Ara CSS"
 
 #: inc/settings/tab-legacy.php:41
 msgid "Use PublishPress Series CSS styles?"
-msgstr "Gamitin ang mga estilo ng CSS ng PublishPress Series?"
+msgstr "Lo awọn ara CSS PublishPress Series?"
 
 #: inc/settings/tab-legacy.php:45
 msgid "Style options"
-msgstr "Mga opsyon sa estilo"
+msgstr "Awọn aṣayan ara"
 
 #: inc/settings/tab-legacy.php:47
 msgid "Use default style"
-msgstr "Gamitin ang default na estilo"
+msgstr "Lo ara aiyipada"
 
 #: inc/settings/tab-legacy.php:48
 msgid "Use box style"
-msgstr "Gamitin ang estilo ng kahon"
+msgstr "Lo ara apoti"
 
 #: inc/settings/tab-legacy.php:49
 msgid "Use dark style"
-msgstr "Gumamit ng madilim na estilo"
+msgstr "Lo aṣa dudu"
 
 #: inc/settings/tab-legacy.php:50
 msgid "Use light style"
-msgstr "Gumamit ng maliwanag na estilo"
+msgstr "Lo aṣa imọlẹ"
 
 #: inc/settings/tab-legacy.php:60
 msgid "Series Overview"
-msgstr "Pangkalahatang-ideya ng Series"
+msgstr "Akopọ Ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:62
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
-msgstr ""
-"Pumili ng disenyo para sa pahina ng taxonomy kung saan ipinapakita ang "
-"isang solong Series."
+msgstr "Yan apẹrẹ fun oju-iwe taxonomy ti a fi ẹ̀ka kan han."
 
 #: inc/settings/tab-legacy.php:66
 msgid "Layout:"
-msgstr "Kahulugan:"
+msgstr "Ilana:"
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
@@ -2178,30 +2158,30 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
 "details on how to customize these designs</a>."
 msgstr ""
-"Ang pagpili ng layout na iba sa \"Default\" ay mag-ooverride sa taxonomy "
-"template mula sa iyong tema. <a href=\"%s\" target=\"_blank\">I-click dito "
-"para sa mga detalye kung paano i-customize ang mga disenyo na ito</a>."
+"Yiyan ilana ti o yatọ si \"Ibi isalẹ\" yoo kọja awoṣe taxonomy lati inu "
+"akori rẹ. <a href=\"%s\" target=\"_blank\">Tẹ nibi fun alaye lori bi a ṣe "
+"le ṣe atunṣe awọn apẹrẹ wọnyi</a>."
 
 #: inc/settings/tab-legacy.php:91
 #: inc/settings/tab-series-category.php:66
 msgid "Columns:"
-msgstr "Mga Kolum:"
+msgstr "Awọn ọwọn:"
 
 #: inc/settings/tab-legacy.php:97
 msgid "Order series by:"
-msgstr "I-order ang series ayon sa:"
+msgstr "Paṣẹ ẹ̀ka nipasẹ:"
 
 #: inc/settings/tab-legacy.php:99
 msgid "Series part"
-msgstr "Bahagi ng series"
+msgstr "Apá ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:100
 msgid "Order by date"
-msgstr "I-order ayon sa petsa"
+msgstr "Paṣẹ nipasẹ ọjọ"
 
 #: inc/settings/tab-legacy.php:104
 msgid "Series order method"
-msgstr "Paraan ng pag-order ng series"
+msgstr "Ọna paṣẹ ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
@@ -2209,15 +2189,15 @@ msgstr "Paraan ng pag-order ng series"
 #: orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
-msgstr "Talaan ng Nilalaman ng Series"
+msgstr "Atokọ Akọkọ Ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:122
 msgid "Series Table of Contents URL:"
-msgstr "URL ng Talaan ng Nilalaman ng Series:"
+msgstr "URL Atokọ Akọkọ Ẹ̀ka:"
 
 #: inc/settings/tab-legacy.php:125
 msgid "view page"
-msgstr "tingnan ang pahina"
+msgstr "wo oju-iwe"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
@@ -2225,63 +2205,61 @@ msgid ""
 "You must %1s update your permalink structure %2s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"Dapat mong %1s i-update ang iyong permalink structure %2s sa ibang bagay "
-"maliban sa \"Plain\" upang gumana ang URL ng Talaan ng Nilalaman ng Series."
+"O gbọdọ %1s ṣe imudojuiwọn ilana permalink rẹ %2s si nkan miiran ju "
+"\"Pẹ̀lú\" lọ ki URL Atokọ Akọkọ Ẹ̀ka le ṣiṣẹ."
 
 #: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
-msgstr "Series Per Pahina:"
+msgstr "Ẹ̀ka Fun Oju-iwe:"
 
 #: inc/settings/tab-legacy.php:158
 msgid "Series Table of Contents Title:"
-msgstr "Pamagat ng Talaan ng Nilalaman ng Series:"
+msgstr "Ak标题 Atokọ Akọkọ Ẹ̀ka:"
 
 #: inc/settings/tab-legacy.php:168
 msgid "Series Icons"
-msgstr "Mga Icon ng Series"
+msgstr "Àwòrán Ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:173
 msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Lapad para sa icon sa pahina ng talaan ng nilalaman ng series (sa mga pixel)"
+msgstr "Iwọn fun àwòrán lori oju-iwe atokọ ẹ̀ka (ninu awọn piksẹli)"
 
 #: inc/settings/tab-legacy.php:177
 msgid "Width for icon on a post page (in pixels)."
-msgstr "Lapad para sa icon sa isang post na pahina (sa mga pixel)."
+msgstr "Iwọn fun àwòrán lori oju-iwe ifiweranṣẹ (ninu awọn piksẹli)."
 
 #: inc/settings/tab-legacy.php:181
 msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-"Lapad para sa icon kung ipapakita sa pinakabagong series na template (sa "
-"pixels)."
+msgstr "Iwọn fun aami ti a ba ṣe afihan nipasẹ awoṣe jara tuntun (ni pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
 msgid "Latest Series"
-msgstr "Pinakabagong Series"
+msgstr "Jara Tuntun"
 
 #: inc/settings/tab-legacy.php:193
 msgid "This display is used by the \"Latest Series\" widget."
-msgstr "Ginagamit ang display na ito ng \"Pinakabagong Series\" widget."
+msgstr "Iṣafihan yii ni a lo nipasẹ \"Jara Tuntun\" widget."
 
 #: inc/settings/tab-legacy.php:197
 msgid "Latest Series (tags before):"
-msgstr "Pinakabagong Series (mga tag bago):"
+msgstr "Jara Tuntun (awọn aami ṣaaju):"
 
 #: inc/settings/tab-legacy.php:201
 msgid "Latest Series (inner tags):"
-msgstr "Pinakabagong Series (mga panloob na tag):"
+msgstr "Jara Tuntun (awọn aami inu):"
 
 #: inc/settings/tab-legacy.php:205
 msgid "Latest Series (tags after):"
-msgstr "Pinakabagong Series (mga tag pagkatapos):"
+msgstr "Jara Tuntun (awọn aami lẹhin):"
 
 #: inc/settings/tab-legacy.php:217
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr ""
-"Ginagamit ang display na ito ng \"Series Table of Contents\" widget, "
-"shortcode, at URL."
+"Iṣafihan yii ni a lo nipasẹ \"Tabili Akopọ Jara\" widget, shortcode, ati "
+"URL."
 
 #: inc/settings/tab-legacy.php:224
 msgid ""
@@ -2289,276 +2267,267 @@ msgid ""
 "for this display, go the \"Display\" tab and then \"Series Table of "
 "Contents URL\"."
 msgstr ""
-"Ginagamit ang display na ito ng \"Series Table of Contents\". Upang mahanap "
-"ang URL para sa display na ito, pumunta sa \"Display\" tab at pagkatapos ay "
-"\"Series Table of Contents URL\"."
+"Iṣafihan yii ni a lo nipasẹ \"Tabili Akopọ Jara\". Lati wa URL fun iṣafihan "
+"yii, lọ si taabu \"Iṣafihan\" ki o si \"Tabili Akopọ Jara URL\"."
 
 #: inc/settings/tab-metabox.php:16
 msgid ""
 "These settings allow you to customize the metabox on the post editing "
 "screen."
 msgstr ""
-"Pinapayagan ng mga setting na ito na i-customize ang metabox sa post "
-"editing screen."
+"Awọn eto wọnyi gba ọ laaye lati ṣe akanṣe metabox lori iboju ṣiṣatunkọ "
+"ifiweranṣẹ."
 
 #: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
-msgstr "Default na Kaayusan ng Series"
+msgstr "Aṣẹ Jara Aiyipada"
 
 #: inc/settings/tab-metabox.php:27
 msgid "Alphabetical A-Z"
-msgstr "Alfabeto A-Z"
+msgstr "A-Z nipasẹ Alifabeeti"
 
 #: inc/settings/tab-metabox.php:28
 msgid "Alphabetical Z-A"
-msgstr "Alfabeto Z-A"
+msgstr "Z-A nipasẹ Alifabeeti"
 
 #: inc/settings/tab-metabox.php:34
 msgid "Show \"Add New\""
-msgstr "Ipakita ang \"Magdagdag ng Bago\""
+msgstr "Fihan \"Fikun-un Tuntun\""
 
 #: inc/settings/tab-metabox.php:38
 msgid "Show \"Post title in widget\""
-msgstr "Ipakita ang \"Pamagat ng Post sa widget\""
+msgstr "Fihan \"Orukọ ifiweranṣẹ ninu widget\""
 
 #: inc/settings/tab-metabox.php:42
 msgid "Metabox Series Order"
-msgstr "Kaayusan ng Metabox ng Series"
+msgstr "Aṣẹ Metabox Jara"
 
 #: inc/settings/tab-post-details.php:12
 msgid "Post Details Settings"
-msgstr "Mga Setting ng Detalye ng Post"
+msgstr "Eto Awọn alaye Ifiweranṣẹ"
 
 #: inc/settings/tab-post-details.php:16
 msgid "Configure the Series Post Details display shown on posts in a series."
 msgstr ""
-"I-configure ang display ng Detalye ng Post ng Series na ipinapakita sa mga "
-"post sa isang series."
+"Ṣeto iṣafihan Awọn alaye Ifiweranṣẹ Jara ti a fihan lori awọn ifiweranṣẹ "
+"ninu jara kan."
 
 #: inc/settings/tab-post-details.php:26
 #: inc/settings/tab-post-list-box.php:26
 #: inc/settings/tab-post-navigation.php:26
 msgid "As in Template"
-msgstr "Tulad sa Template"
+msgstr "Gẹgẹbi ninu Awoṣe"
 
 #: inc/settings/tab-post-details.php:36
 msgid "Display Series Post Details?"
-msgstr "I-display ang Detalye ng Post ng Series?"
+msgstr "Ṣiṣafihan Awọn alaye Ifiweranṣẹ Jara?"
 
 #: inc/settings/tab-post-details.php:41
 msgid "Post Details Selection"
-msgstr "Piliin ang Detalye ng Post"
+msgstr "Yiyan Awọn alaye Ifiweranṣẹ"
 
 #: inc/settings/tab-post-details.php:43
 #: inc/settings/tab-post-navigation.php:43
 msgid "Edit this layout"
-msgstr "I-edit ang layout na ito"
+msgstr "Ṣatunkọ àtẹ̀jáde yìí"
 
 #: inc/settings/tab-post-details.php:44
 #: inc/settings/tab-post-list-box.php:44
 #: inc/settings/tab-post-navigation.php:44
 msgid "Loading…"
-msgstr "Naglo-load…"
+msgstr "Nṣiṣẹ…"
 
 #: inc/settings/tab-post-details.php:51
 msgid "Post Details Position"
-msgstr "Posisyon ng Detalye ng Post"
+msgstr "Ipò Àlàyé Fífi"
 
 #: inc/settings/tab-post-details.php:66
 msgid "Series Meta Template"
-msgstr "Template ng Meta ng Serye"
+msgstr "Àtẹ̀jáde Meta Ẹ̀kó"
 
 #: inc/settings/tab-post-details.php:71
 msgid "Series Meta (with excerpts)"
-msgstr "Meta ng Serye (na may mga sipi)"
+msgstr "Meta Ẹ̀kó (pẹlu àpẹẹrẹ)"
 
 #: inc/settings/tab-post-details.php:76
 msgid "Limit to single page only"
-msgstr "Limitahan sa isang pahina lamang"
+msgstr "Dín kún ẹ̀ka kan ṣoṣo"
 
 #: inc/settings/tab-post-details.php:79
 msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
 msgstr ""
-"Kung limitahan ang pagpapakita ng meta ng serye sa isang pahina lamang o "
-"isama ang pahina ng archive."
+"Báwo ni a ṣe fẹ́ dín àfihàn meta ẹ̀kó kún ẹ̀ka kan ṣoṣo tàbí kó àtẹ̀jáde "
+"ìkànsí kún."
 
 #: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
-msgstr "Mga Setting ng Post List Box"
+msgstr "Àwọn Àtọ́kà Post List Box"
 
 #: inc/settings/tab-post-list-box.php:16
 msgid "Configure the Post List Box that displays all posts in a series."
 msgstr ""
-"I-configure ang Post List Box na nagpapakita ng lahat ng post sa isang "
-"serye."
+"Ṣe àtúnṣe àtọ́kà Post List Box tí ń fi gbogbo àwọn àkọsílẹ̀ hàn nínú ẹ̀kó "
+"kan."
 
 #: inc/settings/tab-post-list-box.php:36
 msgid "Display Post List Boxes?"
-msgstr "Ipakita ang mga Post List Box?"
+msgstr "Ṣe àfihàn Àtọ́kà Post List Boxes?"
 
 #: inc/settings/tab-post-list-box.php:41
 msgid "Post List Boxes Selection"
-msgstr "Pagpili ng Post List Boxes"
+msgstr "Yiyan Àtọ́kà Post List Boxes"
 
 #: inc/settings/tab-post-list-box.php:43
 msgid "Edit this box"
-msgstr "I-edit ang kahon na ito"
+msgstr "Ṣatunkọ àpoti yìí"
 
 #: inc/settings/tab-post-list-box.php:51
 msgid "Post List Box Position"
-msgstr "Posisyon ng Post List Box"
+msgstr "Ipò Àtọ́kà Post List Box"
 
 #: inc/settings/tab-post-list-box.php:66
 msgid "Series Post List Template"
-msgstr "Template ng Listahan ng Post ng Serye"
+msgstr "Àtẹ̀jáde Àtẹ́wọ́ Post List Ẹ̀kó"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"
-msgstr "Pamagat ng Post (Naka-link na Post)"
+msgstr "Àkọlé Post (Post Tí a So)"
 
 #: inc/settings/tab-post-list-box.php:75
 msgid "Post Title (Current Post)"
-msgstr "Pamagat ng Post (Kasalukuyang Post)"
+msgstr "Àkọlé Post (Post Tí o Wà Lọwọ́lọwọ)"
 
 #: inc/settings/tab-post-navigation.php:11
 msgid "Navigation"
-msgstr "Nabigasyon"
+msgstr "Iṣàkóso"
 
 #: inc/settings/tab-post-navigation.php:12
 msgid "Navigation Settings"
-msgstr "Mga Setting ng Nabigasyon"
+msgstr "Àtọ́kà Iṣàkóso"
 
 #: inc/settings/tab-post-navigation.php:16
 msgid "Configure the Series Navigation display shown on posts in a series."
-msgstr ""
-"I-configure ang pagpapakita ng Nabigasyon ng Serye na ipinapakita sa mga "
-"post sa isang serye."
+msgstr "Ṣe àtúnṣe àfihàn Iṣàkóso Ẹ̀kó tí a fi hàn lórí àwọn àkọsílẹ̀ nínú ẹ̀kó kan."
 
 #: inc/settings/tab-post-navigation.php:36
 msgid "Display Series Navigation?"
-msgstr "Ipakita ang Nabigasyon ng Serye?"
+msgstr "Ṣe àfihàn Iṣàkóso Ẹ̀kó?"
 
 #: inc/settings/tab-post-navigation.php:41
 msgid "Navigation Selection"
-msgstr "Pagsasala ng Navigasyon"
+msgstr "Yiyan Irin-ajo"
 
 #: inc/settings/tab-post-navigation.php:51
 msgid "Navigation Position"
-msgstr "Posisyon ng Navigasyon"
+msgstr "Ipo Irin-ajo"
 
 #: inc/settings/tab-post-navigation.php:66
 msgid "Navigation Template"
-msgstr "Template ng Navigasyon"
+msgstr "Awoṣe Irin-ajo"
 
 #: inc/settings/tab-post-navigation.php:71
 msgid "Next Post Text"
-msgstr "Susunod na Post na Teksto"
+msgstr "Ọrọ Iposti Tó Ń Bọ"
 
 #: inc/settings/tab-post-navigation.php:76
 msgid "Previous Post Text"
-msgstr "Nakaraang Post na Teksto"
+msgstr "Ọrọ Iposti Tó Ṣáájú"
 
 #: inc/settings/tab-post-navigation.php:81
 msgid "First Post Text"
-msgstr "Unang Post na Teksto"
+msgstr "Ọrọ Iposti Àkọ́kọ́"
 
 #: inc/settings/tab-post-types.php:10
 #: orgSeries-options.php:138
 msgid "Post Types"
-msgstr "Mga Uri ng Post"
+msgstr "Iru Ifiweranṣẹ"
 
 #: inc/settings/tab-post-types.php:11
 #: inc/settings/tab-pro-features.php:27
 msgid "Custom Post Type Support"
-msgstr "Suporta sa Pasadyang Uri ng Post"
+msgstr "Support Irú Akọsilẹ̀ Àdáni"
 
 #: inc/settings/tab-post-types.php:18
 msgid "Enable PublishPress Series for custom post types."
-msgstr "Paganahin ang PublishPress Series para sa mga pasadyang uri ng post."
+msgstr "Mú Ẹ̀rọ PublishPress Series ṣiṣẹ́ fún irú akọsilẹ̀ àdáni."
 
 #: inc/settings/tab-pro-features.php:10
 #: inc/settings/tab-pro-features.php:11
 #: orgSeries-options.php:147
 msgid "Pro Features"
-msgstr "Mga Pro Feature"
+msgstr "Àwọn ẹya Pro"
 
 #: inc/settings/tab-pro-features.php:18
 msgid ""
 "These settings allow you enable or disable features in PublishPress Series "
 "Pro."
 msgstr ""
-"Ang mga setting na ito ay nagpapahintulot sa iyo na paganahin o huwag "
-"paganahin ang mga tampok sa PublishPress Series Pro."
+"Àwọn eto wọ̀nyí jẹ́ kí o ní ànfààní tàbí kó pa àwọn ẹya mọ́ nínú "
+"PublishPress Series Pro."
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "Paganahin ang mga pasadyang uri ng post na magamit sa PublishPress Series."
+msgstr "Gba irú akọsilẹ̀ àdáni láti lo pẹ̀lú PublishPress Series."
 
 #: inc/settings/tab-pro-features.php:28
 msgid "Shortcodes"
-msgstr "Mga Shortcode"
+msgstr "Koodu Kékèké"
 
 #: inc/settings/tab-pro-features.php:28
 msgid "Provides shortcodes to display series information."
-msgstr "Nagbibigay ng mga shortcode upang ipakita ang impormasyon tungkol sa serye."
+msgstr "N pese koodu kékèké láti fi hàn ìmọ̀ràn series."
 
 #: inc/settings/tab-pro-features.php:29
 msgid "Extra Tokens"
-msgstr "Karagdagang Token"
+msgstr "Àwọn Ọ̀rọ̀ Tó Kù"
 
 #: inc/settings/tab-pro-features.php:29
 msgid "Provides extra tokens to customize the output of series information."
-msgstr ""
-"Nagbibigay ng karagdagang mga token upang i-customize ang output ng "
-"impormasyon tungkol sa serye."
+msgstr "N pese àwọn ọrọ̀ tó kù láti ṣe àtúnṣe àbájáde ìmọ̀ràn series."
 
 #: inc/settings/tab-pro-features.php:30
 msgid "Multiple Series"
-msgstr "Maramihang Serye"
+msgstr "Ọpọ̀ Series"
 
 #: inc/settings/tab-pro-features.php:30
 msgid "Allows authors to add posts to more than one series."
-msgstr ""
-"Pinapayagan ang mga may-akda na magdagdag ng mga post sa higit sa isang "
-"serye."
+msgstr "Gba àwọn onkọ̀wé láti fi àwọn ìposti kún diẹ ẹ̀dá ẹgbẹ̀run kan."
 
 #: inc/settings/tab-series-category.php:8
 #: inc/settings/tab-series-category.php:9
 #: orgSeries-options.php:142
 msgid "Series Category"
-msgstr "Kategorya ng Serye"
+msgstr "Ẹ̀ka Series"
 
 #: inc/settings/tab-series-category.php:13
 msgid "Settings for Series Categories archive URL and display behavior."
-msgstr ""
-"Mga setting para sa URL ng archive ng Kategorya ng Serye at pag-uugali ng "
-"pagpapakita."
+msgstr "Àwọn eto fún URL ìkànsí Ẹ̀ka Series àti ihuwasi àfihàn."
 
 #: inc/settings/tab-series-category.php:26
 msgid "Series Categories URL Base:"
-msgstr "Base ng URL ng Kategorya ng Serye:"
+msgstr "Ibi URL Ẹ̀ka Series:"
 
 #: inc/settings/tab-series-category.php:30
 msgid ""
 "This text will be used in Series Categories archive URLs. If you change it, "
 "old URLs will be redirected to the new base."
 msgstr ""
-"Ang text na ito ay gagamitin sa mga URL ng archive ng Kategorya ng Serye. "
-"Kung babaguhin mo ito, ang mga lumang URL ay ire-redirect sa bagong base."
+"Ọrọ yìí máa ṣee lo nínú URL ìkànsí Ẹ̀ka Series. Tí o bá yí i padà, awọn URL "
+"atijọ́ máa ṣe àtúnṣe sí ibi tuntun."
 
 #: inc/settings/tab-series-category.php:36
 msgid "Series Categories Archive Template:"
-msgstr "Template ng Archive ng Kategorya ng Series:"
+msgstr "Awoṣe Ibi ipamọ Ẹka jara:"
 
 #: inc/settings/tab-series-category.php:39
 msgid "Use template from Theme"
-msgstr "Gamitin ang template mula sa Tema"
+msgstr "Lo awoṣe lati Theme"
 
 #: inc/settings/tab-series-category.php:40
 msgid "Use template from Plugin"
-msgstr "Gamitin ang template mula sa Plugin"
+msgstr "Lo awoṣe lati Plugin"
 
 #: inc/settings/tab-series-category.php:43
 msgid ""
@@ -2566,63 +2535,61 @@ msgid ""
 "uses PublishPress Series fallback design when your theme does not provide "
 "taxonomy-series_group.php."
 msgstr ""
-"Ang template ng tema ay gumagamit ng hierarchy ng template ng iyong "
-"aktibong tema. Ang template ng Plugin ay gumagamit ng fallback design ng "
-"PublishPress Series kapag ang iyong tema ay hindi nagbibigay ng "
+"Awoṣe theme nlo ilana awoṣe theme ti o wa lọwọlọwọ. Awoṣe plugin nlo apẹrẹ "
+"isalẹ PublishPress Series nigbati theme rẹ ko pese "
 "taxonomy-series_group.php."
 
 #: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
-msgstr "Mga Opsyon sa Pagpapakita ng Template ng Plugin:"
+msgstr "Awọn aṣayan Ifihan Awoṣe Plugin:"
 
 #: inc/settings/tab-series-category.php:53
 msgid "Show Series Icon"
-msgstr "Ipakita ang Icon ng Series"
+msgstr "Fihan Aami Jara"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
-msgstr "Ipakita ang Deskripsyon ng Series"
+msgstr "Fihan Apejuwe Jara"
 
 #: inc/settings/tab-series-category.php:63
 msgid "Show Posts in each Series as list items"
-msgstr "Ipakita ang mga Post sa bawat Series bilang mga item sa listahan"
+msgstr "Fihan Awọn ifiweranṣẹ ni gbogbo Jara gẹgẹ bi awọn nkan akojọ"
 
 #: inc/settings/tab-taxonomy.php:16
 msgid ""
 "This feature allows you to create a new taxonomy for this plugin to use if "
 "you don't want to use the default \"Series\" taxonomy."
 msgstr ""
-"Ang tampok na ito ay nagbibigay-daan sa iyo upang lumikha ng bagong "
-"taxonomy para sa plugin na ito kung ayaw mong gamitin ang default na "
-"taxonomy na \"Series\"."
+"Iwa yii n jẹ ki o ṣẹda taxonomy tuntun fun plugin yii lati lo ti o ko ba fẹ "
+"lo taxonomy \"Jara\" aiyipada."
 
 #: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
-msgstr "Slug ng Taxonomy ng Series:"
+msgstr "Slug Taxonomy Jara:"
 
 #: inc/settings/tab-taxonomy.php:31
 msgid "This text will be part of the series base URL."
-msgstr "Ang tekstong ito ay magiging bahagi ng base URL ng series."
+msgstr "Ọrọ yii yoo jẹ apakan ti URL ipilẹ jara."
 
 #: inc/settings/tab-taxonomy.php:36
 msgid "Series Taxonomy:"
-msgstr "Taxonomy ng Series:"
+msgstr "Taxonomy Jara:"
 
 #: inc/settings/tab-taxonomy.php:40
 msgid ""
 "To create a new taxonomy, enter the new name and click the \"Update "
 "Options\" button."
 msgstr ""
-"Upang lumikha ng bagong taxonomy, ilagay ang bagong pangalan at i-click ang "
-"button na \"I-update ang Mga Opsyon\"."
+"Lati ṣẹda taxonomy tuntun, tẹ orukọ tuntun ki o si tẹ bọtini \"Imudojuiwọn "
+"Awọn aṣayan\"."
 
 #: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
-msgstr "Ilipat ang mga Termino"
+msgstr "Gbe Awọn ọrọ"
 
 #: inc/settings/tab-taxonomy.php:53
 msgid "Automatically migrate existing series terms to the new taxonomy"
-msgstr "Awtomatikong ilipat ang mga umiiral na termino ng series sa bagong taxonomy"
+msgstr "Gbe awọn ọrọ jara to wa tẹlẹ laifọwọyi si taxonomy tuntun"
 
 #: inc/settings/tab-taxonomy.php:56
 msgid ""
@@ -2630,13 +2597,13 @@ msgid ""
 "taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
 "slug will be changed."
 msgstr ""
-"Kung naka-check, lahat ng termino mula sa kasalukuyang taxonomy ay ililipat "
-"sa bagong taxonomy kapag binago mo ang slug ng taxonomy. Kung hindi "
-"naka-check, ang slug ng taxonomy lamang ang mababago."
+"Ti o ba ti ṣayẹwo, gbogbo awọn ọrọ lati taxonomy ti o wa lọwọlọwọ yoo gbe "
+"si taxonomy tuntun nigbati o ba yi slug taxonomy pada. Ti o ko ba ṣayẹwo, "
+"slug taxonomy nikan ni yoo yipada."
 
 #: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
-msgstr "Paumanhin, walang natagpuang resulta."
+msgstr "E ma binu, ko si awọn esi ti a ri."
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
@@ -2644,151 +2611,148 @@ msgid ""
 "You're using PublishPress Series Free. The Pro version has more features "
 "and support. %sUpgrade to Pro%s"
 msgstr ""
-"Gumagamit ka ng PublishPress Series Free. Ang Pro bersyon ay may higit pang "
-"mga tampok at suporta. %sMag-upgrade sa Pro%s"
+"O nlo PublishPress Series Free. Ẹya Pro ni awọn ẹya diẹ sii ati atilẹyin. "
+"%sGbadun si Pro%s"
 
 #: includes-core/PPSeriesCoreAdmin.php:35
 msgid "Upgrade to Pro"
-msgstr "Mag-upgrade sa Pro"
+msgstr "Gbadun si Pro"
 
 #: includes-core/PPSeriesCoreAdmin.php:58
 msgid "Need PublishPress Series Support?"
-msgstr "Kailangan ng Suporta sa PublishPress Series?"
+msgstr "Nilo Atilẹyin PublishPress Series?"
 
 #: includes-core/PPSeriesCoreAdmin.php:63
 msgid "If you need help or have a new feature request, let us know."
-msgstr "Kung kailangan mo ng tulong o may bagong hiling na tampok, ipaalam sa amin."
+msgstr "Ti o ba nilo iranlọwọ tabi ni ibeere ẹya tuntun, jọwọ jẹ ki a mọ."
 
 #: includes-core/PPSeriesCoreAdmin.php:65
 msgid "Request Support"
-msgstr "Humiling ng Suporta"
+msgstr "Beere Atilẹyin"
 
 #: includes-core/PPSeriesCoreAdmin.php:74
 msgid "Detailed documentation is also available on the plugin website."
-msgstr "Detalyadong dokumentasyon ay available din sa website ng plugin."
+msgstr "Iwe afọwọkọ alaye tun wa lori oju opo wẹẹbu amugbooro naa."
 
 #: includes-core/PPSeriesCoreAdmin.php:76
 msgid "View Knowledge Base"
-msgstr "Tingnan ang Knowledge Base"
+msgstr "Wo Ipilẹ Ọgbọ́n"
 
 #: orgSeries-admin.php:67
 msgid "An error occured"
-msgstr "Nagkaroon ng error"
+msgstr "Aṣiṣe kan ṣẹlẹ"
 
 #: orgSeries-admin.php:70
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
-msgstr "%1$s serye ay nailipat sa bagong taxonomy"
+msgstr "%1$s jara ti a gbe lọ si imọ-ẹrọ tuntun"
 
 #: orgSeries-admin.php:175
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr "Kung gusto mo ang %s, mangyaring iwanan kami ng %s rating. Salamat!"
+msgstr "Ti o ba fẹ %s, jọwọ fi %s ìwọn kan silẹ fun wa. O ṣeun!"
 
 #: orgSeries-admin.php:186
 msgid "About PublishPress Series"
-msgstr "Tungkol sa PublishPress Series"
+msgstr "Nipa PublishPress Jara"
 
 #: orgSeries-admin.php:186
 msgid "About"
-msgstr "Tungkol"
+msgstr "Nipa"
 
 #: orgSeries-admin.php:187
 msgid "PublishPress Series Documentation"
-msgstr "Dokumentasyon ng PublishPress Series"
+msgstr "Iwe afọwọkọ PublishPress Jara"
 
 #: orgSeries-admin.php:187
 msgid "Documentation"
-msgstr "Dokumentasyon"
+msgstr "Iwe afọwọkọ"
 
 #: orgSeries-admin.php:188
 msgid "Contact the PublishPress team"
-msgstr "Makipag-ugnayan sa team ng PublishPress"
+msgstr "Kan si ẹgbẹ PublishPress"
 
 #: orgSeries-admin.php:188
 msgid "Contact"
-msgstr "Makipag-ugnayan"
+msgstr "Kan si"
 
 #: orgSeries-admin.php:219
 msgid "Sorry but you don't have permission to add series"
-msgstr "Paumanhin ngunit wala kang pahintulot na magdagdag ng serye"
+msgstr "E ma binu ṣugbọn o ko ni igbanilaaye lati fi jara kun"
 
 #: orgSeries-admin.php:230
 msgid "The name you picked isn't sanitizing correctly. Try something different."
-msgstr ""
-"Ang pangalan na pinili mo ay hindi tama ang pag-sanitize. Subukan ang ibang "
-"bagay."
+msgstr "Orukọ ti o yan ko ni imukuro ni deede. Gbiyanju nkan miiran."
 
 #: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
-msgstr "Hmm... mukhang mayroon nang serye na may ganung pangalan. Subukan ang iba."
+msgstr "Hmm... o dabi pe jara kan ti wa pẹlu orukọ yẹn. Gbiyanju nkan miiran"
 
 #: orgSeries-admin.php:359
 msgid "Not part of a series"
-msgstr "Hindi bahagi ng isang serye"
+msgstr "Kii ṣe apakan jara"
 
 #: orgSeries-admin.php:421
 msgid "Search series"
-msgstr "Maghanap ng serye"
+msgstr "Wa jara"
 
 #: orgSeries-admin.php:436
 msgid "Series Part:"
-msgstr "Bahagi ng Serye:"
+msgstr "Apakan Jara:"
 
 #: orgSeries-admin.php:443
 msgid "Post title in widget:"
-msgstr "Pamagat ng post sa widget:"
+msgstr "Akole ifiweranṣẹ ninu widget:"
 
 #: orgSeries-admin.php:445
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr ""
-"Isang maikling pamagat ng post na ito na gagamitin sa widget ng Series. "
-"Iwanang blangko upang gamitin ang buong pamagat."
+"Akọle kukuru ti ifiweranṣẹ yii ti a yoo lo ninu widget Series. Fi silẹ silẹ "
+"lati lo akọle pipe."
 
 #: orgSeries-admin.php:519
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Walang bahagi ng numero)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ko si nọmba apakan)"
 
 #: orgSeries-admin.php:521
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
-msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Bahagi %1$s ng %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Apakan %1$s ti %2$s)"
 
 #: orgSeries-admin.php:525
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Walang Bahagi ng Numero)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ko si Nọmba Apakan)"
 
 #: orgSeries-admin.php:531
 #: orgSeries-setup.php:270
 msgid "No Series"
-msgstr "Walang Series"
+msgstr "Ko si Series"
 
 #: orgSeries-admin.php:552
 msgid "View all series"
-msgstr "Tingnan ang lahat ng series"
+msgstr "Wo gbogbo awọn jara"
 
 #: orgSeries-admin.php:561
 msgid "Manage All Series"
-msgstr "Pamahalaan ang Lahat ng Series"
+msgstr "Ṣakoso Gbogbo Awọn Jara"
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
-msgstr "Kaayusan ng Termino"
+msgstr "Ilana Ọrọ"
 
 #: orgSeries-manage.php:67
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
-"Upang ilipat ang isang item, i-drag at i-drop ang hilera sa pamamagitan ng "
-"\"pag-click at paghawak\" nito kahit saan at ilipat ito sa bagong posisyon "
-"nito."
+"Lati tun ipo nkan kan, fa ati tu ila pẹlu \"titẹ ati mimu\" rẹ ni ibikibi "
+"ki o si gbe e si ipo titun rẹ."
 
 #: orgSeries-manage.php:196, fuzzy
 msgid "ID"
@@ -2799,64 +2763,63 @@ msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
-"Karaniwang ini-order ang mga termino nang ayon sa alpabeto, ngunit maaari "
-"mong piliin ang iyong sariling kaayusan sa pamamagitan ng pagpasok ng isang "
-"numero (1 para sa una, atbp.) sa patlang na ito."
+"Awọn ọrọ nigbagbogbo ni a paṣẹ ni lẹta, ṣugbọn o le yan ilana tirẹ nipa "
+"titẹ nọmba kan (1 fun akọkọ, bbl) ni aaye yii."
 
 #: orgSeries-manage.php:240
 msgid "Current series icon:"
-msgstr "Kasalukuyang icon ng series:"
+msgstr "Aami jara lọwọlọwọ:"
 
 #: orgSeries-manage.php:246
 msgid "No icon currently"
-msgstr "Walang icon sa kasalukuyan"
+msgstr "Ko si aami lọwọlọwọ"
 
 #: orgSeries-manage.php:256
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
-"Burahin ang larawan? (tandaan: walang larawang maiuugnay sa series na ito "
-"kung pipiliin mo ito)"
+"Pa aworan? (akọsilẹ: ko si aworan ti o ni nkan ṣe pẹlu jara yii ti o ba yan "
+"eyi)"
 
 #: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
-msgstr "Pag-upload ng Icon ng Series:"
+msgstr "Gbe aami Jara:"
 
 #: orgSeries-manage.php:265
 msgid "Upload an image for the series."
-msgstr "Mag-upload ng larawan para sa series."
+msgstr "Gbe aworan kan fun jara naa."
 
 #: orgSeries-manage.php:280
 msgid "Invalid form data"
-msgstr "Hindi wastong data ng form"
+msgstr "Data fọọmu ti ko tọ"
 
 #: orgSeries-manage.php:290
 msgid "Invalid nonce, reload and try again"
-msgstr "Hindi wastong nonce, i-reload at subukan muli"
+msgstr "Nonce ti ko tọ, tun gbe e ki o si gbiyanju lẹẹkansi"
 
 #: orgSeries-manage.php:299
 msgid "Invalid taxonomy"
-msgstr "Hindi wastong taxonomy"
+msgstr "Taxonomy ti ko tọ"
 
 #: orgSeries-manage.php:305
 msgid "Not enough permission"
-msgstr "Hindi sapat na pahintulot"
+msgstr "Iwe-aṣẹ ti ko to"
 
 #: orgSeries-manage.php:309
 msgid "Updated successfully"
-msgstr "Nai-update nang matagumpay"
+msgstr "Ti a ṣe imudojuiwọn ni aṣeyọri"
 
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
 #: orgSeries-setup.php:872
 msgid "Settings"
-msgstr "Mga Setting"
+msgstr "Àwọn àṣàyàn"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
-msgstr "Mga Pagpipilian ng PublishPress Series"
+msgstr "Àwọn aṣayan PublishPress Series"
 
 #: orgSeries-options.php:141, fuzzy
 msgid "Taxonomy"
@@ -2866,83 +2829,81 @@ msgstr "Taxonomy"
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:150, fuzzy
+#: orgSeries-options.php:150
 msgid "Advanced"
-msgstr "Advanced"
+msgstr "Ijinle"
 
 #: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr ""
-"Pumili ng \"Hindi bahagi ng isang serye\" upang alisin ang anumang data ng "
-"serye mula sa post"
+msgstr "Yan \"Kò jẹ́ apá ti jara\" lati yọ eyikeyi data jara kuro ninu ifiweranṣẹ"
 
 #: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
-msgstr "&larr; Pumunta sa Serye"
+msgstr "&larr; Lọ si Jara"
 
 #: orgSeries-setup.php:269
 msgid "View Series"
-msgstr "Tingnan ang Serye"
+msgstr "Wo Jara"
 
 #: orgSeries-setup.php:271
 msgid "Series List"
-msgstr "Listahan ng Serye"
+msgstr "Atokọ Jara"
 
 #: orgSeries-setup.php:272
 msgid "Series Link"
-msgstr "Link ng Serye"
+msgstr "Lọ́ńkò Jara"
 
 #: orgSeries-setup.php:273
 msgid "A link to a Series"
-msgstr "Isang link sa isang Serye"
+msgstr "Akọ́kọ́ sí Jara kan"
 
 #: orgSeries-setup.php:327
 msgid "Series Navigation"
-msgstr "Nabigasyon ng Serye"
+msgstr "Iṣàkóso Jara"
 
 #: orgSeries-setup.php:858
 msgid "Series: "
-msgstr "Serye: "
+msgstr "Jara: "
 
 #: orgSeries-setup.php:860
 msgid "Posts from the series: "
-msgstr "Mga Post mula sa serye: "
+msgstr "Àwọn ifiweranṣẹ lati jara: "
 
 #: orgSeries-taxonomy.php:664
 #: orgSeries-taxonomy.php:693
 msgid "Series:"
-msgstr "Serye:"
+msgstr "Jara:"
 
 #: orgSeries-taxonomy.php:666
 msgid "Part:"
-msgstr "Bahagi:"
+msgstr "Apá:"
 
 #: orgSeries-template-tags.php:264
 msgid "All the Series I've Written"
-msgstr "Lahat ng Serye na Aking Sinulat"
+msgstr "Gbogbo Jara tí mo ti kọ"
 
 #: orgSeries-template-tags.php:268
 #: orgSeries-template-tags.php:277
 #, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr "<a href=\"%s\" title=\"%s\">Serye</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Jara</a>"
 
 #: orgSeries-utility.php:410
 msgid "Auto/None"
-msgstr "Auto/Wala"
+msgstr "Auto/Ko si"
 
 #: orgSeries-widgets.php:12
 msgid "Use this to control the output of the latest series widget"
-msgstr "Gamitin ito upang kontrolin ang output ng pinakabagong widget ng serye"
+msgstr "Lo eyi lati ṣakoso iṣẹjade ti widget jara tuntun julọ"
 
 #: orgSeries-widgets.php:20
 msgid "Most Recent Series"
-msgstr "Pinakabagong Serye"
+msgstr "Jara Tuntun Jùlọ"
 
 #: orgSeries-widgets.php:73
 #: orgSeries-widgets.php:269
 msgid "Title:"
-msgstr "Pamagat:"
+msgstr "Ak title:"
 
 #: orgSeries-widgets.php:79
 #, php-format
@@ -2950,45 +2911,45 @@ msgid ""
 "The layout and content of this widget can be adjusted via the <a "
 "href=\"%s\">Latest Series</a> area."
 msgstr ""
-"Ang layout at nilalaman ng widget na ito ay maaaring ayusin sa pamamagitan "
-"ng <a href=\"%s\">Pinakabagong Serye</a> na lugar."
+"Iṣeto ati akoonu ti widget yii le ṣe atunṣe nipasẹ agbegbe <a "
+"href=\"%s\">Jara Tuntun</a>."
 
 #: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
-msgstr "Itago ang mga serye na walang mga post?"
+msgstr "Ṣe o fẹ pa awọn jara ti ko ni awọn ifiweranṣẹ?"
 
 #: orgSeries-widgets.php:85
 #: orgSeries-widgets.php:295
 msgid "Order by:"
-msgstr "Ayusin ayon sa:"
+msgstr "Paṣẹ nipasẹ:"
 
 #: orgSeries-widgets.php:87
 msgid "Number of posts in Series"
-msgstr "Bilang ng mga post sa Serye"
+msgstr "Iye awọn ifiweranṣẹ ninu Jara"
 
 #: orgSeries-widgets.php:88
 msgid "Name of Series"
-msgstr "Pangalan ng Serye"
+msgstr "Orukọ Jara"
 
 #: orgSeries-widgets.php:89
 msgid "Series Slug"
-msgstr "Slug ng Serye"
+msgstr "Slug Jara"
 
 #: orgSeries-widgets.php:90
 msgid "When Series was Created"
-msgstr "Kailan nalikha ang Serye"
+msgstr "Nigbati Jara ti ṣẹda"
 
-#: orgSeries-widgets.php:91, fuzzy
+#: orgSeries-widgets.php:91
 msgid "Random"
-msgstr "Random"
+msgstr "Ayanfẹ"
 
 #: orgSeries-widgets.php:95
 msgid "Number of series to display:"
-msgstr "Bilang ng mga serye na ipapakita:"
+msgstr "Iye awọn jara lati ṣe afihan:"
 
 #: orgSeries-widgets.php:99
 msgid "Display Order: "
-msgstr "Order ng Display: "
+msgstr "Paṣẹ Ifihan: "
 
 #: orgSeries-widgets.php:100, fuzzy
 msgid "ASC: "
@@ -3000,47 +2961,47 @@ msgstr "DESC: "
 
 #: orgSeries-widgets.php:111
 msgid "Use this to display the Series Table of contents"
-msgstr "Gamitin ito upang ipakita ang Talaan ng nilalaman ng Serye"
+msgstr "Lo eyi lati ṣe afihan Tabili akoonu Jara"
 
 #: orgSeries-widgets.php:178
 msgid "Select Series"
-msgstr "Pumili ng Serye"
+msgstr "Yan Jara"
 
 #: orgSeries-widgets.php:234
 msgid "Other posts in series:"
-msgstr "Ibang mga post sa serye:"
+msgstr "Awọn ifiweranṣẹ miiran ninu jara:"
 
 #: orgSeries-widgets.php:274
 msgid "Show Series Table Of Content"
-msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye"
+msgstr "Fihan Tabili Akopọ Ẹ̀ka"
 
 #: orgSeries-widgets.php:279
 msgid "Show Series Table Of Content as:"
-msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye bilang:"
+msgstr "Fihan Tabili Akopọ Ẹ̀ka gẹ́gẹ́ bi:"
 
-#: orgSeries-widgets.php:280, fuzzy
+#: orgSeries-widgets.php:280
 msgid "Dropdown:"
-msgstr "Dropdown:"
+msgstr "Iṣọkan:"
 
 #: orgSeries-widgets.php:281
 msgid "List:"
-msgstr "Listahan:"
+msgstr "Àtòjọ:"
 
 #: orgSeries-widgets.php:285
 msgid "Show post count:"
-msgstr "Ipakita ang bilang ng mga post:"
+msgstr "Fihan iye ifiweranṣẹ:"
 
 #: orgSeries-widgets.php:290
 msgid "Hide empty series:"
-msgstr "Itago ang mga walang laman na serye:"
+msgstr "Pa ẹ̀ka tí kò ní akoonu sílẹ̀:"
 
 #: orgSeries-widgets.php:299
 msgid "name"
-msgstr "pangalan"
+msgstr "orúkọ"
 
 #: orgSeries-widgets.php:300
 msgid "count"
-msgstr "bilang"
+msgstr "iye"
 
 #: orgSeries-widgets.php:301, fuzzy
 msgid "slug"
@@ -3048,89 +3009,87 @@ msgstr "slug"
 
 #: orgSeries-widgets.php:302
 msgid "series id"
-msgstr "id ng serye"
+msgstr "id ẹ̀ka"
 
 #: orgSeries-widgets.php:315
 msgid "Order:"
-msgstr "Kaayusan:"
+msgstr "Àṣẹ:"
 
 #: orgSeries-widgets.php:333
 msgid "Exclude series:"
-msgstr "I-exclude ang mga serye:"
+msgstr "Yọ ẹ̀ka kúrò:"
 
 #: orgSeries-widgets.php:348
 msgid "Include series:"
-msgstr "Isama ang mga serye:"
+msgstr "Fọwọ́sowọpọ̀ ẹ̀ka:"
 
 #: orgSeries-widgets.php:363
 msgid "Number of Series:"
-msgstr "Bilang ng mga Serye:"
+msgstr "Iye Ẹ̀ka:"
 
-#: orgSeries-widgets.php:368, fuzzy
+#: orgSeries-widgets.php:368
 msgid "Offset:"
-msgstr "Offset:"
+msgstr "Ipo:"
 
 #: orgSeries-widgets.php:370
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
-"Maaari mong piliin ang offset para sa bilang ng mga serye "
-"(kapaki-pakinabang para sa paging). Walang offset kung iiwanang blangko"
+"O le yan ipo fun iye ẹ̀ka (wulo fun ìtẹ́numọ́). Kò sí ipo tí a bá fi silẹ́ "
+"láìkọ́"
 
 #: orgSeries-widgets.php:374
 msgid "Search:"
-msgstr "Maghanap:"
+msgstr "Wa:"
 
 #: orgSeries-widgets.php:376
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr ""
-"Maaari mong ibalik ang anumang serye na tumutugma sa string ng paghahanap "
-"na ito (tumugma sa mga pangalan ng serye)"
+"O le gba ẹ̀ka eyikeyi tí o baamu pẹlu ọrọ ìwàásù yìí (ti a fiwe si orukọ "
+"ẹ̀ka)"
 
 #: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
-msgstr "Ipakita ang iba pang mga post sa kasalukuyang serye:"
+msgstr "Fihan awọn ifiweranṣẹ miiran ninu ẹ̀ka lọwọlọwọ:"
 
 #: orgSeries-widgets.php:397
 msgid "Current series"
-msgstr "Kasalukuyang serye"
+msgstr "Ẹ̀ka lọwọlọwọ"
 
 #: orgSeries-widgets.php:416
 msgid "Series widget title:"
-msgstr "Pamagat ng widget ng serye:"
+msgstr "Akọle ẹ̀rọ iṣe jara:"
 
 #: orgSeries-widgets.php:418
 msgid "This text will display above other posts in this series."
-msgstr "Ang tekstong ito ay ipapakita sa itaas ng iba pang mga post sa seryeng ito."
+msgstr "Àkọsílẹ yìí yóò hàn lórí àwọn àkọsílẹ míì nínú jara yìí."
 
 #: orgSeries.php:164
 msgid "<strong>This plugin can be deleted.</strong>"
-msgstr "<strong>Maaaring tanggalin ang plugin na ito.</strong>"
+msgstr "<strong>Àwọn àfikún yìí lè parẹ.</strong>"
 
 #: src/application/Container.php:160
 #, php-format
 msgid "The %1$s already has a parameter indexed with the name: %2$s."
-msgstr "Ang %1$s ay mayroon nang parameter na naka-index gamit ang pangalan: %2$s."
+msgstr "%1$s ti ni paramita kan tó ti n ṣàkóso pẹ̀lú orúkọ: %2$s."
 
 #: src/application/Root.php:139
 #, php-format
 msgid "The %1$s method can only be used to register a child of %2$s."
-msgstr ""
-"Ang %1$s na pamamaraan ay maaari lamang gamitin upang irehistro ang isang "
-"anak ng %2$s."
+msgstr "Ọna %1$s lè jẹ́ kí a lo láti forúkọsílẹ ọmọ %2$s kan nìkan."
 
 #: src/domain/exceptions/EntityNotFoundException.php:30
 #, php-format
 msgid "Unable to retrieve an instance of %1$s. Not found."
-msgstr "Hindi makuha ang isang instance ng %1$s. Hindi natagpuan."
+msgstr "Kò le gba àpẹẹrẹ %1$s. Kò rí."
 
 #: src/domain/exceptions/InvalidEntityException.php:29
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
-msgstr "%1$s ay hindi isang wastong entidad (inaasahan: %2$s)."
+msgstr "%1$s kì í ṣe ẹ̀dá tó wúlò (tí a nírètí: %2$s)."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
@@ -3139,18 +3098,17 @@ msgid ""
 "permissions. Please ensure that the following path is correct and verify "
 "that the file permissions are correct:%2$s %3$s"
 msgstr ""
-"Ang \"%1$s\" na file ay nawawala o hindi mabasa dahil sa mga pahintulot. "
-"Pakisigurado na ang sumusunod na landas ay tama at suriin ang mga "
-"pahintulot ng file:%2$s %3$s"
+"Fáìlì \"%1$s\" tàbí kò sí tàbí kò lè ka nitori awọn àṣẹ. Jọwọ jẹ́ kó dájú "
+"pé ọ̀nà yìí tọ́ àti ṣàdédé pé àwọn àṣẹ fáìlì náà tọ́:%2$s %3$s"
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
 #, php-format
 msgid "%s does not exist or is not reachable."
-msgstr "%s ay hindi umiiral o hindi maaabot."
+msgstr "%s kò sí tàbí kò lè dé."
 
 #: src/domain/exceptions/NonceFailException.php:18
 msgid "Nonce fail."
-msgstr "Nabigo ang nonce."
+msgstr "Aṣiṣe nonce."
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
@@ -3158,43 +3116,39 @@ msgstr "Nabigo ang nonce."
 msgid ""
 "The provided object fully qualified class name (%1$s) must implement the "
 "%2$s interface."
-msgstr ""
-"Ang ibinigay na ganap na kwalipikadong pangalan ng klase ng bagay (%1$s) ay "
-"dapat magpatupad ng %2$s na interface."
+msgstr "Orúkọ kilasi tí a fúnni (%1$s) gbọ́dọ̀ ṣe àfihàn %2$s interface."
 
 #: src/domain/model/FileLocation.php:50
 #, php-format
 msgid "The given file path (%s) is not readable."
-msgstr "Ang ibinigay na landas ng file (%s) ay hindi mabasa."
+msgstr "Ọ̀nà fáìlì tí a fúnni (%s) kò lè ka."
 
 #: src/domain/model/LicenseKeyRepository.php:131
 msgid "An error occurred, please try again."
-msgstr "Nagkaroon ng error, pakisubukan muli."
+msgstr "Aṣiṣe kan ṣẹlẹ̀, jọwọ tún gbìmọ̀."
 
 #: src/domain/model/RouteIdentifier.php:51
 #, php-format
 msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr ""
-"Ang incoming na halaga para sa %1$s ay inaasahang isang closure. Ito ay "
-"hindi."
+msgstr "Iye tí ń bọ fún %1$s ni a nírètí láti jẹ́ àkópọ. Kò jẹ́ bẹ́ẹ̀."
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:122
 #: src/views/admin/templates/license_key_form.template.php:31
 msgid "Deactivate License"
-msgstr "I-deactivate ang Lisensya"
+msgstr "Dákẹ́kọ́ Àṣẹ"
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:123
 #: src/views/admin/templates/license_key_form.template.php:33
 msgid "Activate License"
-msgstr "I-activate ang Lisensya"
+msgstr "Ṣíṣe Àṣẹ"
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:241
 msgid "License Key successfully activated."
-msgstr "Matagumpay na na-activate ang License Key."
+msgstr "Bọtini Àṣẹ ti ṣe àfikún pẹ̀lú aṣeyọrí."
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:242
 msgid "License Key successfully deactivated."
-msgstr "Matagumpay na na-deactivate ang License Key."
+msgstr "Bọtini Àṣẹ ti dákẹ́kọ́ pẹ̀lú aṣeyọrí."
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
@@ -3202,9 +3156,8 @@ msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
 "can only be used to push values to this data element when it is an array."
 msgstr ""
-"Ang halaga para sa %1$s ay naka-set na at hindi ito isang array. Ang %2$s "
-"na pamamaraan ay maaari lamang gamitin upang itulak ang mga halaga sa "
-"elementong data na ito kapag ito ay isang array."
+"Iye fún %1$s ti ṣàtúnṣe tẹlẹ̀ àti kò jẹ́ àkópọ. Ọna %2$s lè jẹ́ kí a lo "
+"láti fi iye kun àkópọ yìí nígbà tí ó bá jẹ́ àkópọ."
 
 #: src/domain/services/AssetRegistry.php:271
 #, php-format
@@ -3213,10 +3166,8 @@ msgid ""
 "allowed. Since the value of this data is an array, you may want to use the "
 "%3$s method to push your value to the array."
 msgstr ""
-"Ang halaga para sa %1$s ay umiiral na sa %2$s na property. Hindi "
-"pinapayagan ang mga override. Dahil ang halaga ng data na ito ay isang "
-"array, maaari mong gamitin ang %3$s na pamamaraan upang itulak ang iyong "
-"halaga sa array."
+"Iye fún %1$s ti wà ní %2$s ohun-ini. Àtúnṣeto kì í ṣe àfihàn. Níwọ̀n bí iye "
+"data yìí ṣe jẹ́ àkópọ, o lè fẹ́ lo ọ̀nà %3$s láti fi iye rẹ sí àkópọ náà."
 
 #: src/domain/services/AssetRegistry.php:283
 #, php-format
@@ -3224,9 +3175,8 @@ msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed.  Consider attaching your value to a different key"
 msgstr ""
-"Ang halaga para sa %1$s ay umiiral na sa property na %2$s. Hindi "
-"pinapayagan ang mga override. Isaalang-alang ang pag-attach ng iyong halaga "
-"sa ibang key"
+"Iye fun %1$s ti wa ni tẹlẹ ninu ohun-ini %2$s. Awọn ikolu ko gba laaye. "
+"Ronu nipa fifi iye rẹ si bọtini miiran"
 
 #: src/domain/services/AssetRegistry.php:408
 #, php-format
@@ -3234,51 +3184,44 @@ msgid ""
 "The namespace for this manifest file has already been registered, choose a "
 "namespace other than %s"
 msgstr ""
-"Ang namespace para sa manifest file na ito ay nairehistro na, pumili ng "
-"namespace bukod sa %s"
+"A ti forukọsilẹ orukọ aaye fun faili manifest yi, yan orukọ aaye miiran ju "
+"%s lọ"
 
 #: src/domain/services/AssetRegistry.php:419
 #, php-format
 msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
-msgstr ""
-"Ang ibinigay na halaga para sa %1$s ay hindi isang wastong url. Ang "
-"ibinigay na url ay: %2$s"
+msgstr "Iye ti a pese fun %1$s kii ṣe url to wulo. Url ti a pese ni: %2$s"
 
 #: src/views/admin/templates/license_key_form.template.php:16
 #, php-format
 msgid "License Key for %1$s"
-msgstr "Key ng Lisensya para sa %1$s"
+msgstr "Bọtini Iwe-aṣẹ fun %1$s"
 
 #: src/views/admin/templates/license_key_form.template.php:19
 msgid "Enter your license key: "
-msgstr "Ilagay ang iyong key ng lisensya: "
+msgstr "Tẹ bọtini iwe-aṣẹ rẹ: "
 
 #: addons/grouping/legacy-includes.php:278
 msgctxt "taxonomy general name"
 msgid "Series Categories"
-msgstr "Kategorya ng Serye"
+msgstr "Ẹka Awọn jara"
 
 #: inc/settings/settings-validation.php:58
 #: orgSeries-setup.php:257
 msgctxt "taxonomy general name"
 msgid "Series"
-msgstr "Serye"
+msgstr "Jara"
 
 #: addons/grouping/legacy-includes.php:279
 msgctxt "taxonomy singular name"
 msgid "Series Category"
-msgstr "Kategorya ng Serye"
+msgstr "Ẹka Jara"
 
 #: inc/settings/settings-validation.php:59
 #: orgSeries-setup.php:258
 msgctxt "taxonomy singular name"
 msgid "Series"
-msgstr "Serye"
-
-#: addons/grouping/legacy-includes.php:670
-msgctxt "series grouping column header"
-msgid "Series"
-msgstr "Serye"
+msgstr "Jara"
 
 #: addons/post-list-box/includes/class-post-type.php:27
 #, fuzzy, php-format
@@ -3298,53 +3241,9 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:478
-msgctxt "series meta box title"
-msgid "Series"
-msgstr "Serye"
-
-#: orgSeries-admin.php:491
-msgctxt "posts list column header"
-msgid "Series"
-msgstr "Serye"
-
-#: orgSeries-admin.php:571
-msgctxt "dashboard count label"
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Serye"
-msgstr[1] "Serye"
-
-#: orgSeries-options.php:55
-msgctxt "top-level admin menu label"
-msgid "Series"
-msgstr "Serye"
-
-#: orgSeries-setup.php:266
-msgctxt "taxonomy menu name"
-msgid "Series"
-msgstr "Serye"
-
 #: orgSeries-setup.php:321
 #: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr ""
-"Ang entry na ito ay bahagi %series_part% ng %total_posts_in_series% sa "
-"serye "
-
-#: orgSeries-taxonomy.php:381
-msgctxt "series list title"
-msgid "Series"
-msgstr "Serye"
-
-#: orgSeries-widgets.php:233
-msgctxt "widget title default"
-msgid "Series"
-msgstr "Serye"
-
-#: orgSeries-widgets.php:386
-msgctxt "widget section label"
-msgid "Series"
-msgstr "Serye"
+msgstr "Iwọnyi jẹ apakan %series_part% ti %total_posts_in_series% ninu jara "

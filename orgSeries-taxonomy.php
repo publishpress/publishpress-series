@@ -378,7 +378,7 @@ function wp_list_series($args = '')
 {
 	global $orgseries;
 	$defaults = array(
-		'title_li' => __('Series', 'organize-series'),
+		'title_li' => _x('Series', 'series list title', 'organize-series'),
 		'taxonomy' => ppseries_get_series_slug(),
 		'echo' => 1
 	);

@@ -115,7 +115,7 @@ class PPS_Series_Post_Navigation_Fields
                 'default'  => 'center',
             ],
             'series_title_color' => [
-                'label'    => __('Series Title Color', 'publishpress-series-pro'),
+                'label'    => __('Series Title Color', 'organize-series'),
                 'type'     => 'color',
                 'tab'      => 'general',
                 'sanitize' => 'sanitize_hex_color',

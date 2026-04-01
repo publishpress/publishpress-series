@@ -13,18 +13,20 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-09 13:55+0000\n"
+"PO-Revision-Date: 2026-03-30 10:52+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"Language: ru-RU\n"
+">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1: 2);\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1: 2;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
 #: orgSeries.php
 #: orgSeries.php, fuzzy
 #. Plugin Name of the plugin
-msgid "PublishPress Series"
-msgstr "PublishPress Series"
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
@@ -97,22 +99,6 @@ msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "Удалить все данные \"Категории серий\" из базы данных при удалении плагина."
-
-#: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:268
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Серия"
-msgstr[1] "Серии"
-msgstr[2] "Серий"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -190,14 +176,14 @@ msgstr "Редактор деталей поста серии"
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
 #: addons/post-list-box/includes/class-admin-ui.php:55
-#: addons/post-list-box/includes/class-admin-ui.php:231
+#: addons/post-list-box/includes/class-admin-ui.php:242
 #: addons/post-navigation/includes/class-admin-ui.php:85
 #: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
 msgstr "Шорткод"
 
 #: addons/post-details/includes/class-admin-ui.php:147
-#: addons/post-list-box/includes/class-admin-ui.php:262
+#: addons/post-list-box/includes/class-admin-ui.php:273
 #: addons/post-navigation/includes/class-admin-ui.php:182
 msgid "Use this shortcode:"
 msgstr "Используйте этот шорткод:"
@@ -214,8 +200,8 @@ msgstr "Стандартный мета-бокс"
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
-#: addons/post-list-box/includes/class-admin-ui.php:420
-#: addons/post-list-box/includes/class-admin-ui.php:698
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:442
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
@@ -853,46 +839,88 @@ msgstr "Список Постов отправлен."
 msgid "Post List Box"
 msgstr "Список Постов"
 
-#: addons/post-list-box/includes/class-admin-ui.php:197
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s обновлён.|%1$s %2$s обновлён."
+msgstr[1] "%1$s %2$s обновлена.|%1$s %2$s обновлены."
+msgstr[2] "%1$s %2$s обновлены.|%1$s %2$s обновлены."
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s не обновлён, кто-то редактирует его."
+msgstr[1] "%1$s %2$s не обновлён, кто-то редактирует их."
+msgstr[2] "%1$s %2$s не обновлены, кто-то редактирует их."
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s удалён навсегда.|%1$s %2$s удалён навсегда."
+msgstr[1] "%1$s %2$s удалена навсегда.|%1$s %2$s удалены навсегда."
+msgstr[2] "%1$s %2$s удалены навсегда.|%1$s %2$s удалены навсегда."
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s перемещён в Корзину.|%1$s %2$s перемещён в Корзину."
+msgstr[1] "%1$s %2$s перемещена в Корзину.|%1$s %2$s перемещены в Корзину."
+msgstr[2] "%1$s %2$s перемещены в Корзину.|%1$s %2$s перемещены в Корзину."
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s восстановлен из Корзины.|%1$s %2$s восстановлен из Корзины."
+msgstr[1] "%1$s %2$s восстановлена из Корзины.|%1$s %2$s восстановлены из Корзины."
+msgstr[2] "%1$s %2$s восстановлены из Корзины.|%1$s %2$s восстановлены из Корзины."
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"
 msgstr "Предварительный просмотр Списка Постов"
 
-#: addons/post-list-box/includes/class-admin-ui.php:214
+#: addons/post-list-box/includes/class-admin-ui.php:225
 msgid "Post List Box Editor"
 msgstr "Редактор Списка Постов"
 
-#: addons/post-list-box/includes/class-admin-ui.php:264
+#: addons/post-list-box/includes/class-admin-ui.php:275
 msgid "Insert into posts or pages to display this Post List Box manually."
 msgstr "Вставьте в посты или страницы, чтобы вручную отобразить этот Список Постов."
 
-#: addons/post-list-box/includes/class-admin-ui.php:306
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
 msgid "Select Series to Preview:"
 msgstr "Выберите серию для предварительного просмотра:"
 
-#: addons/post-list-box/includes/class-admin-ui.php:324
+#: addons/post-list-box/includes/class-admin-ui.php:335
 msgid "No series found. Create a series to see the preview."
 msgstr "Серии не найдены. Создайте серию, чтобы увидеть предварительный просмотр."
 
-#: addons/post-list-box/includes/class-admin-ui.php:339
+#: addons/post-list-box/includes/class-admin-ui.php:350
 msgid "No posts found in selected series."
 msgstr "В выбранной серии посты не найдены."
 
-#: addons/post-list-box/includes/class-admin-ui.php:357
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
 msgid "Loading preview..."
 msgstr "Загрузка предварительного просмотра..."
 
-#: addons/post-list-box/includes/class-admin-ui.php:372
-#: addons/post-list-box/includes/class-admin-ui.php:376
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
 msgid "Error loading preview."
 msgstr "Ошибка при загрузке предварительного просмотра."
 
-#: addons/post-list-box/includes/class-admin-ui.php:674
+#: addons/post-list-box/includes/class-admin-ui.php:685
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
 msgstr "Выбрать изображение"
 
-#: addons/post-list-box/includes/class-admin-ui.php:678
+#: addons/post-list-box/includes/class-admin-ui.php:689
 msgid "Remove"
 msgstr "Удалить"
 
@@ -1073,6 +1101,12 @@ msgstr "Предварительный просмотр навигации по 
 msgid "Series Post Navigation Editor"
 msgstr "Редактор навигации по постам серии"
 
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr ""
+"Не найдено ни одной серии. Создайте серию для предварительного просмотра "
+"навигации."
+
 #: addons/post-navigation/includes/class-admin-ui.php:184
 msgid "Insert into posts or pages to display this Series Post Navigation manually."
 msgstr ""
@@ -1135,6 +1169,10 @@ msgstr "По центру"
 #: addons/post-navigation/includes/class-fields.php:425
 msgid "Right"
 msgstr "Справа"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "Цвет заголовка серии"
 
 #: addons/post-navigation/includes/class-fields.php:125
 msgid "Hide When Single Post"
@@ -1483,6 +1521,10 @@ msgstr "Создайте посты в серии, чтобы просмотре
 msgid "Sample series for preview purposes"
 msgstr "Пример серии для целей предварительного просмотра"
 
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "Ошибка обновления предварительного просмотра."
+
 #: addons/post-navigation/post-navigation.php:211
 msgid "Simple Navigation"
 msgstr "Простая навигация"
@@ -1570,6 +1612,10 @@ msgstr "Фильтр"
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "Управление сериями"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Серия"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
@@ -1941,43 +1987,43 @@ msgid "Series order sync completed. %d posts updated."
 msgstr "Синхронизация порядка серий завершена. Обновлено %d постов."
 
 #: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:261
+#: orgSeries-setup.php:259
 msgid "Search Series"
 msgstr "Поиск серий"
 
 #: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:262
+#: orgSeries-setup.php:260
 msgid "Popular Series"
 msgstr "Популярные серии"
 
 #: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:263
-#: orgSeries-setup.php:317
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
 msgid "All Series"
 msgstr "Все серии"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:264
+#: orgSeries-setup.php:262
 msgid "Edit Series"
 msgstr "Редактировать серию"
 
 #: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:265
+#: orgSeries-setup.php:263
 msgid "Update Series"
 msgstr "Обновить серию"
 
 #: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:266
+#: orgSeries-setup.php:264
 msgid "Add New Series"
 msgstr "Добавить новую серию"
 
 #: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:267
+#: orgSeries-setup.php:265
 msgid "New Series Name"
 msgstr "Название новой серии"
 
 #: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:269
+#: orgSeries-setup.php:267
 msgid "No series found"
 msgstr "Серии не найдены"
 
@@ -2154,7 +2200,7 @@ msgstr "Метод сортировки серий"
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:487
+#: orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Содержание серий"
@@ -2401,9 +2447,25 @@ msgstr "Текст предыдущего поста"
 msgid "First Post Text"
 msgstr "Текст первого поста"
 
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Типы постов"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Поддержка пользовательских типов постов"
+
 #: inc/settings/tab-post-types.php:18
 msgid "Enable PublishPress Series for custom post types."
 msgstr "Включить PublishPress Series для пользовательских типов постов."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Премиум функции"
 
 #: inc/settings/tab-pro-features.php:18
 msgid ""
@@ -2412,10 +2474,6 @@ msgid ""
 msgstr ""
 "Эти настройки позволяют вам включать или отключать функции в PublishPress "
 "Series Pro."
-
-#: inc/settings/tab-pro-features.php:27
-msgid "Custom Post Type Support"
-msgstr "Поддержка пользовательских типов постов"
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
@@ -2685,7 +2743,7 @@ msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Нет номера детали)"
 
 #: orgSeries-admin.php:531
-#: orgSeries-setup.php:272
+#: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Нет Серий"
 
@@ -2768,17 +2826,13 @@ msgstr "Успешно обновлено"
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
-#: orgSeries-setup.php:874
+#: orgSeries-setup.php:872
 msgid "Settings"
 msgstr "Настройки"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
 msgstr "Опции PublishPress Series"
-
-#: orgSeries-options.php:138
-msgid "Post Types"
-msgstr "Типы постов"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"
@@ -2788,10 +2842,6 @@ msgstr "Таксономия"
 msgid "Metabox"
 msgstr "Метабокс"
 
-#: orgSeries-options.php:147
-msgid "Pro Features"
-msgstr "Премиум функции"
-
 #: orgSeries-options.php:150
 msgid "Advanced"
 msgstr "Дополнительно"
@@ -2800,35 +2850,35 @@ msgstr "Дополнительно"
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "Выберите \"Не часть серии\", чтобы удалить данные серии из поста"
 
-#: orgSeries-setup.php:270
+#: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
 msgstr "&larr; Перейти к серии"
 
-#: orgSeries-setup.php:271
+#: orgSeries-setup.php:269
 msgid "View Series"
 msgstr "Просмотреть серию"
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:271
 msgid "Series List"
 msgstr "Список серий"
 
-#: orgSeries-setup.php:274
+#: orgSeries-setup.php:272
 msgid "Series Link"
 msgstr "Ссылка на серию"
 
-#: orgSeries-setup.php:275
+#: orgSeries-setup.php:273
 msgid "A link to a Series"
 msgstr "Ссылка на серию"
 
-#: orgSeries-setup.php:329
+#: orgSeries-setup.php:327
 msgid "Series Navigation"
 msgstr "Навигация по сериям"
 
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:858
 msgid "Series: "
 msgstr "Серия: "
 
-#: orgSeries-setup.php:862
+#: orgSeries-setup.php:860
 msgid "Posts from the series: "
 msgstr "Посты из серии: "
 
@@ -3180,7 +3230,7 @@ msgid "Series Categories"
 msgstr "Категории серий"
 
 #: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:259
+#: orgSeries-setup.php:257
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Серия"
@@ -3191,8 +3241,13 @@ msgid "Series Category"
 msgstr "Категория серии"
 
 #: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:260
+#: orgSeries-setup.php:258
 msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Серия"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
 msgid "Series"
 msgstr "Серия"
 
@@ -3214,9 +3269,52 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-setup.php:323
-#: orgSeries-setup.php:324
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Серия"
+msgstr[1] "Серии"
+msgstr[2] "Серий"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "Эта запись является частью %series_part% из %total_posts_in_series% в серии "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Серия"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Серия"
