@@ -22,6 +22,7 @@
 - .vscode
 - .wordpress-org
 - /dev-workspace
+- /dev-workspace-cache
 - /dist
 - /version.txt
 - /webpack.config.js

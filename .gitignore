@@ -28,7 +28,7 @@ tests/_support/*
 *.code-workspace
 .claude
 
-dev-workspace/.cache
+dev-workspace-cache/
 .env
 .phplint-cache
 .phplint.cache
