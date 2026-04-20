@@ -38,21 +38,11 @@ It's easy to keep track of what posts have been added to a series. You can also 
 
 ## Display options for your Series information ##
 
-Right out-of-the-box, the Series meta box will be automatically added to posts that are a part of a series. You can modify how this meta box appears using the template for it in the Series Options Page. Plus, there are at least four different displays that your visitors may see in PublishPress Series.
+PublishPress Series allows you to add three different Series displays to your posts:
 
-[Click here to see more about displaying Series](https://publishpress.com/knowledge-base/displays-series/).
-
-## Advanced layouts for PublishPress Series ##
-
-You can easily create beautiful layouts with PublishPress Series. This is possible thanks to an integration with the PublishPress Blocks plugin. Using the Content Display block, you choose your series from the “Show content with these Series” box. You will then have access to dozens of layout options.
-
-[Click here to see more about advanced layouts](https://publishpress.com/knowledge-base/blocks-series/).
-
-## Widgets and Blocks to show your Series information ##
-
-PublishPress Series plugin provides two widgets you can use to display your series: Series Table of Contents, and Latest Series. Both widgets are packed with features and can be dropped into your theme, or into the Gutenberg editor.
-
-[Click here to see more about Series widgets](https://publishpress.com/knowledge-base/series-widgets/).
+* [Series Post List Boxes](https://publishpress.com/knowledge-base/the-post-list-box/): This feature allows you to show all the posts in the current series. You can choose to show the post title, featured image, author, publishing date, and much more.
+* [Series Post Details](https://publishpress.com/knowledge-base/series-post-details/): This display allows you to show where a post stands inside a series. The typical display will appear this way: "This entry is part 3 of 8 in the series How to Use WordPress".
+* [Series Post Navigation](https://publishpress.com/knowledge-base/series-post-navigation/): This feature enables users to navigate the previous or next post in a series. There will be a Previous arrow and a Next arrow.
 
 ## Order, schedule, publish and unpublish posts in your series
 
@@ -60,36 +50,39 @@ The Publish Series feature is available in the Free and Pro versions of PublishP
 
 [Click here to see more about Publish Series screen](https://publishpress.com/knowledge-base/usage-publisher/).
 
+## Blocks and widgets to show your Series information ##
+
+You can easily create beautiful layouts with PublishPress Series. This is possible thanks to an integration with the PublishPress Blocks plugin. Using the Content Display block, you choose your series from the “Show content with these Series” box. You will then have access to dozens of layout options.
+
+[Click here to see more about advanced layouts](https://publishpress.com/knowledge-base/blocks-series/).
+
+PublishPress Series plugin provides two widgets you can use to display your series: Series Table of Contents, and Latest Series. Both widgets are packed with features and can be dropped into your theme, or into the Gutenberg editor.
+
+[Click here to see more about Series widgets](https://publishpress.com/knowledge-base/series-widgets/).
+
 ## Series Pro: Custom post type support ##
 
 Custom Post Type support is available in the Pro version of PublishPress Series. With this feature, not only can you use PublishPress Series with WordPress posts, plus you can also create series with pages, or any other WordPress Custom Post Type. Your series can even have parts across different post types. That means you could have “Part 1” that is a post, “Part 2” that is a page, and “Part 3” that is another post type.
 
 [Click here to see more about custom post types](https://publishpress.com/knowledge-base/custom-post-types/).
 
-## Series Pro: Shortcodes ##
+## PublishPress Series Pro: Shortcodes ##
 
 PublishPress Series Shortcodes is a feature in the Pro version of PublishPress Series. This provides a set of WordPress shortcodes that allow you insert series information into posts. There are five shortcodes available:
 
 [Click here to see more about Series shortcodes](https://publishpress.com/knowledge-base/overview-shortcodes/).
 
-## Series Pro: Multiples
+## PublishPress Series Pro: Add Posts to Multiple Series
 
 The Pro version of PublishPress Series allows you to add posts to more than one series. The core plugin only allows posts to be added to one series. The most obvious change you will see after enabling this feature is inside the post editing screen. The “Series” metabox will allow you to choose more than one series.
 
-[Click here to see more about the Multiples feature](https://publishpress.com/knowledge-base/overview-multiples/).
-
-## Series Pro: Extra Tokens
-
- token is a specific format for indicating where you want series information to appear. Tokens can be added in any of the PublishPress Series templates available on the Series Options screen. Extra tokens are available in the Pro version of PublishPress Series. This adds new tokens to the “Templates” screen for customizing the various series templates.
-
-[Click here to see more about the extra tokens](https://publishpress.com/knowledge-base/overview-tokens/).
-
+[Click here to see more about the Multiples Series feature](https://publishpress.com/knowledge-base/overview-multiples/).
 
 = Join PublishPress and get the Pro plugins =
 
 The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
 
-Join PublishPress and you'll get access to these ten Pro plugins:
+Join PublishPress and you'll get access to these Pro plugins:
 
 * [PublishPress Authors Pro](https://publishpress.com/authors) allows you to add multiple authors and guest authors to WordPress posts.
 * [PublishPress Blocks Pro](https://publishpress.com/blocks) has everything you need to build professional websites with the WordPress block editor.
@@ -100,18 +93,14 @@ Join PublishPress and you'll get access to these ten Pro plugins:
 * [PublishPress Planner Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
 * [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
 * [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series.
-* [PublishPress Statuses Pro](https://publishpress.com/series) enables you to create additional publishing steps for your posts.
+* [PublishPress Shortlinks Pro](https://publishpress.com/shortlinks) allows you to create custom URLs for your posts and external links.
+* [PublishPress Statuses Pro](https://publishpress.com/statuses) enables you to create additional publishing steps for your posts.
 
 Together, these plugins are a suite of powerful publishing tools for WordPress. If you need to create a professional workflow in WordPress, with moderation, revisions, permissions and more... then you should try PublishPress.
 
 =  Bug Reports =
 
 Bug reports for PublishPress Series are welcomed in our [repository on GitHub](https://github.com/publishpress/publishpress-series). Please note that GitHub is not a support forum, and that issues that aren't properly qualified as bugs will be closed.
-
-= Follow the PublishPress team = 
-
-Follow PublishPress on [Facebook](https://www.facebook.com/publishpress), [Twitter](https://www.twitter.com/publishpresscom) and [YouTube](https://www.youtube.com/publishpress).
-
 
 == Installation ==
 
@@ -151,27 +140,16 @@ Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich 
 
 == Screenshots ==
 
-
 1. When you're writing a post, you can easily add a post to an existing series, or start a new series.
-
 2. Integration with the Posts List table - it's easy to keep track of what posts have been added to a series.  
-
 3. Right out-of-the-box, the Series meta box will be automatically added to posts that are a part of a series. 
-
 4. Add, delete, edit all your series on one handy dandy page. You can also upload/select images to associate with the series.  
-
 5. This feature is in the Pro version of PublishPress Series and it allows you to use the plugin with any WordPress post type.
-
 6. The Pro version of PublishPress Series provides a set of WordPress “shortcodes” that provide users a way to easily insert various series information into their posts.
-
 7. This feature is in the Pro version of PublishPress Series and it brings the capability of adding a post to more than one series.
-
 8. The Pro version provides additional tokens to use in the series options page for customizing various series templates.
-
 9. The PublishPress Series core plugin groups posts together in series. The Pro version gives the ability to put series together in groups.
-
 10. The Pro version of Series enables easy bulk publishing of all posts in a series at once.
-
 
 == Changelog ==
 
