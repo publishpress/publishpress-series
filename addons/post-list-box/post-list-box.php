@@ -95,7 +95,6 @@ class PPS_Post_List_Box
                 'title' => __('Grid Style Box', 'organize-series'),
                 'slug' => 'grid-style-box',
                 'overrides' => [
-                    'show_post_excerpt' => '1',
                     'excerpt_length' => '20',
                     'show_post_thumbnail' => 1,
                     'thumbnail_width' => '80',
