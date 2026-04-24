@@ -1,0 +1,2774 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Free 3.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
+"PO-Revision-Date: 2026-04-24 08:20+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: organize-series\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: orgSeries.php:3
+#. Plugin Name of the plugin
+msgid "PublishPress Series Free"
+msgstr "PublishPress Serisi Ücretsiz"
+
+#: orgSeries.php:4, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries.php:5
+#. Description of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php:8, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "Seri Kategorilerini Ara"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "Popüler Seri Kategorileri"
+
+#: addons/grouping/legacy-includes.php:282
+#: addons/grouping/legacy-includes.php:786
+msgid "All Series Categories"
+msgstr "Tüm Seri Kategorileri"
+
+#: addons/grouping/legacy-includes.php:283
+msgid "Edit Series Category"
+msgstr "Seri Kategorisini Düzenle"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "Seri Kategorisini Güncelle"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "Yeni Seri Kategorisi Ekle"
+
+#: addons/grouping/legacy-includes.php:286
+msgid "New Series Category"
+msgstr "Yeni Seri Kategorisi"
+
+#: addons/grouping/legacy-includes.php:287
+#: addons/grouping/legacy-includes.php:549
+#: addons/grouping/legacy-includes.php:621
+#: addons/grouping/legacy-includes.php:715
+#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:777
+#: addons/grouping/legacy-includes.php:811
+msgid "Series Categories"
+msgstr "Seri Kategorileri"
+
+#: addons/grouping/legacy-includes.php:627
+msgid "Click to toggle"
+msgstr "Değiştirmek için tıklayın"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "Bu kategorideki seriler"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "Üzgünüm, bu kategoride herhangi bir seri bulunamadı."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:123
+msgid "This entry is"
+msgstr "Bu giriş"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:124
+msgid "in the series"
+msgstr "seride"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "%2$s'nin %1$s. kısmı"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
+#: addons/post-details/includes/class-utilities.php:268
+#: addons/post-navigation/includes/class-utilities.php:172
+msgid "Sample Series"
+msgstr "Örnek Seri"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+msgid "Sample Post Title"
+msgstr "Örnek Yazı Başlığı"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+msgid "Previous post link"
+msgstr "Önceki yazı bağlantısı"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+msgid "Next post link"
+msgstr "Sonraki yazı bağlantısı"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Sample series description."
+msgstr "Örnek seri açıklaması."
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309
+msgid "Post Details"
+msgstr "Yazı Detayları"
+
+#: addons/post-details/includes/class-admin-ui.php:61
+msgid "Series Post Details Preview"
+msgstr "Seri Yazı Detayları Önizleme"
+
+#: addons/post-details/includes/class-admin-ui.php:70
+msgid "Series Post Details Editor"
+msgstr "Seri Yazı Detayları Düzenleyici"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:158
+#: addons/post-list-box/includes/class-admin-ui.php:55
+#: addons/post-list-box/includes/class-admin-ui.php:242
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:193
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-admin-ui.php:273
+#: addons/post-navigation/includes/class-admin-ui.php:182
+msgid "Use this shortcode:"
+msgstr "Bu shortcode'u kullanın:"
+
+#: addons/post-details/includes/class-admin-ui.php:149
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"Bu Seri Yazı Detaylarını manuel olarak görüntülemek için yazılara veya "
+"sayfalara ekleyin."
+
+#: addons/post-details/includes/class-admin-ui.php:157
+msgid "Default Meta Box"
+msgstr "Varsayılan Meta Kutusu"
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:715
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "Bu özellik PublishPress Series Pro'da mevcuttur"
+
+#: addons/post-details/includes/class-ajax.php:32
+#: addons/post-details/includes/class-ajax.php:99
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:32
+#: addons/post-navigation/includes/class-ajax.php:167
+#: addons/post-navigation/includes/class-ajax.php:207
+msgid "Invalid post ID."
+msgstr "Geçersiz yazı kimliği."
+
+#: addons/post-details/includes/class-ajax.php:67
+#: addons/post-navigation/includes/class-ajax.php:115
+msgid "No series available to preview."
+msgstr "Önizleme için kullanılabilir seri yok."
+
+#: addons/post-details/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:190
+msgid "Invalid import data."
+msgstr "Geçersiz içe aktarma verisi."
+
+#: addons/post-details/includes/class-ajax.php:137
+#: addons/post-navigation/includes/class-ajax.php:195
+msgid "Settings imported successfully."
+msgstr "Ayarlar başarıyla içe aktarıldı."
+
+#: addons/post-details/includes/class-ajax.php:166
+#: addons/post-navigation/includes/class-ajax.php:213
+msgid "Settings reset to defaults."
+msgstr "Ayarlar varsayılan değerlere sıfırlandı."
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "Genel"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "Stil"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "İçerik"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "Parça Numarasını Göster"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "Seri metninde \"parça X of Y\" olarak göster"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "Önceki Metin"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "Başlangıçta gösterilen metin"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "Sonraki Metin"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "Seri adından önce gösterilen metin"
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "Göster"
+
+#: addons/post-details/includes/class-fields.php:122
+msgid "Meta Box Position"
+msgstr "Meta Kutusu Pozisyonu"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "Üst"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "Alt"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "İçeriğe göre meta kutusunun nerede gösterileceğini seçin"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "Tek Gönderilere Sınırlı Tut"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr ""
+"Meta kutusunun yalnızca tek gönderi görünümünde gösterilmesini, arşivlerde "
+"değil, etkinleştir."
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "Tipografi"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "Metin Boyutu (px)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "Meta kutusundaki metin için yazı tipi boyutu"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:453
+msgid "Text Color"
+msgstr "Metin Rengi"
+
+#: addons/post-details/includes/class-fields.php:173
+msgid "Link Color"
+msgstr "Bağlantı Rengi"
+
+#: addons/post-details/includes/class-fields.php:181
+msgid "Background"
+msgstr "Arka Plan"
+
+#: addons/post-details/includes/class-fields.php:185
+#: addons/post-list-box/classes/PostListBoxFields.php:191
+#: addons/post-navigation/includes/class-fields.php:460
+msgid "Background Color"
+msgstr "Arka Plan Rengi"
+
+#: addons/post-details/includes/class-fields.php:190
+msgid "Background color for the meta box container"
+msgstr "Meta kutusu konteyneri için arka plan rengi"
+
+#: addons/post-details/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:498
+msgid "Spacing"
+msgstr "Boşluk"
+
+#: addons/post-details/includes/class-fields.php:198
+#: addons/post-list-box/classes/PostListBoxFields.php:223
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Padding (px)"
+msgstr "İçerik alanının tüm kenarlarına uygulanan dolgu (px)"
+
+#: addons/post-details/includes/class-fields.php:205
+msgid "Padding applied to all sides of the content area"
+msgstr "İçerik alanının tüm kenarlarına uygulanan dolgu (px)"
+
+#: addons/post-details/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:511
+msgid "Margin (px)"
+msgstr "Kenar Boşluğu (px)"
+
+#: addons/post-details/includes/class-fields.php:215
+msgid "Margin applied to all sides of the meta box"
+msgstr "Meta kutusunun tüm kenarlarına uygulanan kenar boşluğu"
+
+#: addons/post-details/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:468
+msgid "Border"
+msgstr "Sınır"
+
+#: addons/post-details/includes/class-fields.php:223
+#: addons/post-list-box/classes/PostListBoxFields.php:205
+#: addons/post-navigation/includes/class-fields.php:479
+msgid "Border Width (px)"
+msgstr "Sınır Genişliği (px)"
+
+#: addons/post-details/includes/class-fields.php:232
+#: addons/post-list-box/classes/PostListBoxFields.php:214
+#: addons/post-navigation/includes/class-fields.php:488
+msgid "Border Radius (px)"
+msgstr "Sınır Yumuşaklığı (px)"
+
+#: addons/post-details/includes/class-fields.php:241
+#: addons/post-list-box/classes/PostListBoxFields.php:198
+#: addons/post-navigation/includes/class-fields.php:472
+msgid "Border Color"
+msgstr "Sınır Rengi"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "Seri Gönderi Ayrıntıları"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "Yeni Ekle"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "Yeni Seri Gönderi Ayrıntıları Ekle"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "Yeni Seri Gönderi Ayrıntıları"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "Seri Gönderi Ayrıntılarını Düzenle"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "Seri Gönderi Ayrıntılarını Görüntüle"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "Tüm Seri Gönderi Ayrıntıları"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "Seri Gönderi Ayrıntılarını Ara"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "Seri Gönderi Detayları bulunamadı."
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "Çöp Kutusunda Seri Gönderi Detayları bulunamadı."
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "Gönderi detaylarını önizlemek için bir seri oluşturun."
+
+#: addons/post-details/includes/class-utilities.php:303
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "Örnek Seri Gönderisi %d"
+
+#: addons/post-details/includes/class-utilities.php:304
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "Seri meta kutusu için örnek alıntı önizleme içeriği."
+
+#: addons/post-details/post-details.php:176
+msgid "Series Post Details #1"
+msgstr "Seri Gönderi Detayları #1"
+
+#: addons/post-details/post-details.php:181
+msgid "Series Post Details #2"
+msgstr "Seri Gönderi Detayları #2"
+
+#: addons/post-details/post-details.php:186
+msgid "Series Post Details #3"
+msgstr "Seri Gönderi Detayları #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "Kutu Başlığı"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "Kutu Stili"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "İçerik Görüntüleme"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "Öne Çıkan Görsel Ayarları"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "Gönderi Stili"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "Düzen Görüntüleme"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "Mevcut Gönderiyi Vurgula"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "Kutu Başlığını Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:106
+msgid "Box Title Type"
+msgstr "Kutu Başlığı Türü"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:110
+msgid "Use Series Title"
+msgstr "Seri Başlığını Kullan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Custom Title"
+msgstr "Özel Başlık"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:115
+msgid "Choose whether to display the series title or a custom title"
+msgstr "Seri başlığını mı yoksa özel bir başlığı mı göstereceğinizi seçin"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:120
+msgid "Link Box Title to Series"
+msgstr "Kutu Başlığını Seriye Bağla"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:125
+msgid "Link the box title to the current series archive when using the series title"
+msgstr "Seri başlığını kullanırken kutu başlığını mevcut seri arşivine bağlayın"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:130
+msgid "Custom Box Title Text"
+msgstr "Özel Kutu Başlığı Metni"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/includes/class-utilities.php:162
+msgid "Series Posts"
+msgstr "Seri Gönderileri"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+msgid "Enter custom title for the post list"
+msgstr "Gönderi listesi için özel başlık girin"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "Yukarıda \"Özel Başlık\" seçildiğinde yalnızca kullanılır"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:141
+msgid "Box Title HTML Tag"
+msgstr "Kutu Başlığı HTML Etiketi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:160
+msgid "Box Title Color"
+msgstr "Kutu Başlığı Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:169
+msgid "Box Title Font Size (px)"
+msgstr "Kutu Başlığı Yazı Boyutu (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:243
+msgid "Show Post Titles"
+msgstr "Gönderi Başlıklarını Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Seri Sıra Numarası"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Her gönderi başlığının yanında seri sıra numarasını gösterin."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Seri Sıra Numarası Pozisyonu"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Başlıktan önce"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "Başlıktan sonra"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Sıra numarasının başlıkla ilgili olarak nerede görüneceğini seçin."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Post Title Color"
+msgstr "Gönderi Başlığı Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:283
+msgid "Post Title Font Size (px)"
+msgstr "Gönderi Başlığı Yazı Boyutu (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Show Post Excerpt"
+msgstr "Gönderi Özeti Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:302
+msgid "Excerpt Length (words)"
+msgstr "Alıntı Uzunluğu (kelime)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:314
+msgid "Excerpt Color"
+msgstr "Alıntı Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "Gönderi Özeti Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "Özet Uzunluğu (kelime)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "Özet Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
+msgid "Show Post Author"
+msgstr "Gönderi Yazarını Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:362
+msgid "Post Author Color"
+msgstr "Gönderi Yazarı Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
+msgid "Show Post Date"
+msgstr "Gönderi Tarihini Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:380
+msgid "Post Date Color"
+msgstr "Gönderi Tarihi Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
+#: addons/post-navigation/includes/class-fields.php:169
+#: addons/post-navigation/includes/class-fields.php:284
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Show Featured Image"
+msgstr "Öne Çıkan Resmi Göster"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:408
+msgid "Featured Image Width (px)"
+msgstr "Öne Çıkan Resim Genişliği (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:415
+#: addons/post-navigation/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:309
+#: addons/post-navigation/includes/class-fields.php:437
+msgid "Width of the featured image in pixels"
+msgstr "Öne çıkan resmin genişliği piksel cinsinden"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:420
+msgid "Featured Image Height (px)"
+msgstr "Öne Çıkan Resim Yüksekliği (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:427
+#: addons/post-navigation/includes/class-fields.php:202
+#: addons/post-navigation/includes/class-fields.php:317
+#: addons/post-navigation/includes/class-fields.php:445
+msgid "Height of the featured image in pixels"
+msgstr "Öne çıkan resmin yüksekliği piksel cinsinden"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:432
+msgid "Fallback Featured Image"
+msgstr "Yedek Öne Çıkan Resim"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:437
+msgid "Image to display when a post does not have a featured image"
+msgstr "Bir gönderide öne çıkan resim yoksa gösterilecek resim"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:454
+msgid "Post Padding (px)"
+msgstr "Gönderi Dolgu (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:463
+msgid "Post Border Width (px)"
+msgstr "Gönderi Kenar Genişliği (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+msgid "Post Border Color"
+msgstr "Gönderi Kenar Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:479
+msgid "Post Background Color"
+msgstr "Gönderi Arka Plan Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Background color for the post list container"
+msgstr "Gönderi listesi konteyneri için arka plan rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:498
+msgid "Layout Style"
+msgstr "Düzen Stili"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "Liste"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "Izgara"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:510
+msgid "Columns"
+msgstr "Sütunlar"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+msgid "2 Columns"
+msgstr "2 Sütun"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:515
+msgid "3 Columns"
+msgstr "3 Sütun"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:516
+msgid "4 Columns"
+msgstr "4 Sütun"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:517
+msgid "6 Columns"
+msgstr "6 Sütun"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:526
+msgid "Order By"
+msgstr "Sırala"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:530
+msgid "Date"
+msgstr "Tarih"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "Başlık"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "Seri Sırası"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "Sıra"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "Artan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "Azalan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:551
+msgid "Gap Between Items (px)"
+msgstr "Ögeler Arasındaki Boşluk (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:561
+msgid "Post List Box Location"
+msgstr "Gönderi Listesi Kutusu Konumu"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:570
+msgid "Choose where to display the post list box in relation to the content"
+msgstr ""
+"İçerik ile ilişkilendirilerek gönderi listesi kutusunun nerede "
+"görüntüleneceğini seçin"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:574
+msgid "Maximum number of items"
+msgstr "Maksimum öge sayısı"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid "Highlight Current Post"
+msgstr "Geçerli Gönderiyi Vurgula"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:600
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "Belirli bir seri gönderisini görüntülerken geçerli gönderiyi vurgula"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:603
+msgid "Current Post Background Color"
+msgstr "Geçerli Gönderi Arka Plan Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:610
+msgid "Current Post Border Color"
+msgstr "Geçerli Gönderi Kenar Rengi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Current Post Text Color"
+msgstr "Geçerli Gönderi Metin Rengi"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54
+msgid "Default Post List Box"
+msgstr "Varsayılan Gönderi Listesi Kutusu"
+
+#: addons/post-list-box/includes/class-admin-ui.php:102
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+#: orgSeries-utility.php:308
+msgid "Post List Boxes"
+msgstr "Gönderi Liste Kutuları"
+
+#: addons/post-list-box/includes/class-admin-ui.php:119
+#: addons/post-list-box/includes/class-admin-ui.php:120
+msgid "Post List Box updated."
+msgstr "Gönderi Liste Kutusu güncellendi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box added."
+msgstr "Gönderi Liste Kutusu eklendi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box saved."
+msgstr "Gönderi Liste Kutusu kaydedildi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box submitted."
+msgstr "Gönderi Liste Kutusu gönderildi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:145
+#: addons/post-list-box/includes/class-post-type.php:23
+#: inc/settings/tab-post-list-box.php:11
+msgid "Post List Box"
+msgstr "Gönderi Liste Kutusu"
+
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s güncellendi."
+msgstr[1] "%1$s %2$s güncellendi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s güncellenmedi, biri düzenliyor."
+msgstr[1] "%1$s %2$s güncellenmedi, biri düzenliyor."
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s kalıcı olarak silindi."
+msgstr[1] "%1$s %2$s kalıcı olarak silindi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s Çöp Kutusuna taşındı."
+msgstr[1] "%1$s %2$s Çöp Kutusuna taşındı."
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s Çöp Kutusundan geri yüklendi."
+msgstr[1] "%1$s %2$s Çöp Kutusundan geri yüklendi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
+msgid "Post List Box Preview"
+msgstr "Gönderi Liste Kutusu Önizlemesi"
+
+#: addons/post-list-box/includes/class-admin-ui.php:225
+msgid "Post List Box Editor"
+msgstr "Gönderi Liste Kutusu Düzenleyici"
+
+#: addons/post-list-box/includes/class-admin-ui.php:275
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr ""
+"Bu Post Listesi Kutusunu manuel olarak görüntülemek için gönderilere veya "
+"sayfalara ekleyin."
+
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
+msgid "Select Series to Preview:"
+msgstr "Önizleme için Seri Seçin:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:335
+msgid "No series found. Create a series to see the preview."
+msgstr "Hiçbir seri bulunamadı. Önizleme görmek için bir seri oluşturun."
+
+#: addons/post-list-box/includes/class-admin-ui.php:350
+msgid "No posts found in selected series."
+msgstr "Seçilen seride hiçbir gönderi bulunamadı."
+
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
+msgid "Loading preview..."
+msgstr "Önizleme yükleniyor..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
+msgid "Error loading preview."
+msgstr "Önizleme yüklenirken hata oluştu."
+
+#: addons/post-list-box/includes/class-admin-ui.php:691
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "Resim Seç"
+
+#: addons/post-list-box/includes/class-admin-ui.php:695
+msgid "Remove"
+msgstr "Kaldır"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "Kutu Kontaineri"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "Gönderi"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38
+msgid "Layout"
+msgstr "Düzen"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#, php-format
+msgid "New %1s"
+msgstr "Yeni %1s"
+
+#: addons/post-list-box/includes/class-post-type.php:34
+#, php-format
+msgid "Add New %1$s"
+msgstr "Yeni %1$s Ekle"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#, php-format
+msgid "Edit %1$s"
+msgstr "%1$s Düzenle"
+
+#: addons/post-list-box/includes/class-post-type.php:36
+#, php-format
+msgid "New %1$s"
+msgstr "Yeni %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:37
+#, fuzzy, php-format
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:38
+#, php-format
+msgid "View %1$s"
+msgstr "%1$s Görüntüle"
+
+#: addons/post-list-box/includes/class-post-type.php:39
+#, php-format
+msgid "Search %2$s"
+msgstr "%2$s Ara"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#, php-format
+msgid "No %2$s found"
+msgstr "Hiçbir %2$s bulunamadı"
+
+#: addons/post-list-box/includes/class-post-type.php:41
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "Çöp Kutusunda hiçbir %2$s bulunamadı"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s Görsel"
+
+#: addons/post-list-box/includes/class-post-type.php:45
+#, php-format
+msgid "Set %1$s Image"
+msgstr "%1$s Görseli Ayarla"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "%1$s Görselini Kaldır"
+
+#: addons/post-list-box/includes/class-post-type.php:47
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "%1$s Görseli Olarak Kullan"
+
+#: addons/post-list-box/includes/class-post-type.php:48
+#, php-format
+msgid "Filter %2$s list"
+msgstr "%2$s listesini filtrele"
+
+#: addons/post-list-box/includes/class-post-type.php:49
+#, php-format
+msgid "%2$s list navigation"
+msgstr "%2$s liste navigasyonu"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#, php-format
+msgid "%2$s list"
+msgstr "%2$s listesi"
+
+#: addons/post-list-box/includes/class-preview.php:98
+#, php-format
+msgid "Sample Post %d"
+msgstr "Örnek Gönderi %d"
+
+#: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "Bu, serideki %d numaralı gönderi için bir örnek alıntıdır."
+
+#: addons/post-list-box/includes/class-preview.php:504
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "Yazar"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "Varsayılan Liste Kutusu"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "Izgara Stil Kutusu"
+
+#: addons/post-list-box/post-list-box.php:108
+msgid "Simple List Box"
+msgstr "Basit Liste Kutusu"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "Navigasyon gizli (seride sadece bir gönderi var)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "Seri Anasayfa"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:144
+#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "Önceki"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:259
+#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "Sonraki"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: orgSeries-utility.php:310
+msgid "Post Navigation"
+msgstr "Gönderi Navigasyonu"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "Seri Gönderi Navigasyonu Önizlemesi"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "Seri Gönderi Navigasyon Editörü"
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "Seri bulunamadı. Navigasyonu önizlemek için bir seri oluşturun."
+
+#: addons/post-navigation/includes/class-admin-ui.php:184
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"Bu Seri Gönderi Navigasyonunu manuel olarak görüntülemek için gönderilere "
+"veya sayfalara ekleyin."
+
+#: addons/post-navigation/includes/class-admin-ui.php:192
+msgid "Default Navigation"
+msgstr "Varsayılan Navigasyon"
+
+#: addons/post-navigation/includes/class-admin-ui.php:414
+msgid "Change Image"
+msgstr "Resmi Değiştir"
+
+#: addons/post-navigation/includes/class-admin-ui.php:422
+msgid "Remove Image"
+msgstr "Resmi Kaldır"
+
+#: addons/post-navigation/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:129
+msgid "No posts found in series to preview."
+msgstr "Önizlemek için seride gönderi bulunamadı."
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "Öğe"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "Seri Başlığını Dahil Et"
+
+#: addons/post-navigation/includes/class-fields.php:96
+msgid "Link Series Title"
+msgstr "Seri Başlığına Bağlantı"
+
+#: addons/post-navigation/includes/class-fields.php:101
+msgid "Link the series title to the series archive page"
+msgstr "Seri başlığını seri arşiv sayfasına bağlayın"
+
+#: addons/post-navigation/includes/class-fields.php:106
+msgid "Series Title Alignment"
+msgstr "Seri Başlığı Hizalaması"
+
+#: addons/post-navigation/includes/class-fields.php:110
+#: addons/post-navigation/includes/class-fields.php:181
+#: addons/post-navigation/includes/class-fields.php:232
+#: addons/post-navigation/includes/class-fields.php:296
+#: addons/post-navigation/includes/class-fields.php:424
+msgid "Left"
+msgstr "Sola"
+
+#: addons/post-navigation/includes/class-fields.php:111
+msgid "Center"
+msgstr "Ortaya"
+
+#: addons/post-navigation/includes/class-fields.php:112
+#: addons/post-navigation/includes/class-fields.php:182
+#: addons/post-navigation/includes/class-fields.php:233
+#: addons/post-navigation/includes/class-fields.php:297
+#: addons/post-navigation/includes/class-fields.php:425
+msgid "Right"
+msgstr "Sağa"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "Seri Başlığı Rengi"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Hide When Single Post"
+msgstr "Tek Gönderi Varken Gizle"
+
+#: addons/post-navigation/includes/class-fields.php:130
+msgid "Do not display navigation if series has only one post"
+msgstr "Seride yalnızca bir gönderi varsa navigasyonu göstermeyin"
+
+#: addons/post-navigation/includes/class-fields.php:148
+msgid "Previous Navigation Type"
+msgstr "Önceki Navigasyon Türü"
+
+#: addons/post-navigation/includes/class-fields.php:152
+#: addons/post-navigation/includes/class-fields.php:267
+#: addons/post-navigation/includes/class-fields.php:382
+msgid "None"
+msgstr "Yok"
+
+#: addons/post-navigation/includes/class-fields.php:153
+msgid "Previous Post Title"
+msgstr "Önceki Gönderi Başlığı"
+
+#: addons/post-navigation/includes/class-fields.php:154
+#: addons/post-navigation/includes/class-fields.php:269
+#: addons/post-navigation/includes/class-fields.php:384
+msgid "Custom Label"
+msgstr "Özel Etiket"
+
+#: addons/post-navigation/includes/class-fields.php:158
+msgid "Choose how to display the previous navigation"
+msgstr "Önceki navigasyonu nasıl görüntüleyeceğinizi seçin"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Previous Label"
+msgstr "Önceki Etiket"
+
+#: addons/post-navigation/includes/class-fields.php:166
+msgid "Custom text for previous post link"
+msgstr "Önceki gönderi bağlantısı için özel metin"
+
+#: addons/post-navigation/includes/class-fields.php:174
+msgid "Display featured image for previous post"
+msgstr "Önceki gönderi için öne çıkan resmi göster"
+
+#: addons/post-navigation/includes/class-fields.php:177
+#: addons/post-navigation/includes/class-fields.php:292
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Image Position"
+msgstr "Resim Pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:186
+msgid "Position of the featured image relative to the navigation"
+msgstr "Öne çıkan resmin navigasyona göre pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:189
+#: addons/post-navigation/includes/class-fields.php:304
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Image Width (px)"
+msgstr "Resim Genişliği (px)"
+
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Image Height (px)"
+msgstr "Resim Yüksekliği (px)"
+
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+msgid "Show Arrow"
+msgstr "Ok Göster"
+
+#: addons/post-navigation/includes/class-fields.php:210
+msgid "Display an arrow icon with the previous navigation"
+msgstr "Önceki navigasyon ile birlikte bir ok simgesi göster"
+
+#: addons/post-navigation/includes/class-fields.php:213
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Arrow Type"
+msgstr "Ok Türü"
+
+#: addons/post-navigation/includes/class-fields.php:217
+msgid "Chevron Left (‹)"
+msgstr "Sol Çentik (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:218
+msgid "Arrow Left (←)"
+msgstr "Sol Ok (←)"
+
+#: addons/post-navigation/includes/class-fields.php:219
+msgid "Double Chevron Left («)"
+msgstr "Çift Çentik Sol («)"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Triangle Left (◄)"
+msgstr "Sol Üçgen (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Custom Image"
+msgstr "Özel Resim"
+
+#: addons/post-navigation/includes/class-fields.php:225
+#: addons/post-navigation/includes/class-fields.php:340
+msgid "Choose the arrow icon style"
+msgstr "Ok simgesi stilini seçin"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Arrow Position"
+msgstr "Ok Pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:237
+msgid "Position of the arrow relative to the navigation"
+msgstr "Navigasyona göre okun konumu"
+
+#: addons/post-navigation/includes/class-fields.php:240
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Arrow Size (px)"
+msgstr "Ok Boyutu (px)"
+
+#: addons/post-navigation/includes/class-fields.php:247
+#: addons/post-navigation/includes/class-fields.php:362
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr ""
+"Ok simgesinin piksel cinsinden boyutu (hem genişlik hem de yükseklik için "
+"geçerlidir)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Custom Arrow Image"
+msgstr "Özel Ok Resmi"
+
+#: addons/post-navigation/includes/class-fields.php:255
+#: addons/post-navigation/includes/class-fields.php:370
+msgid "Select custom arrow image from media library"
+msgstr "Medya kütüphanesinden özel ok resmini seçin"
+
+#: addons/post-navigation/includes/class-fields.php:263
+msgid "Next Navigation Type"
+msgstr "Sonraki Navigasyon Türü"
+
+#: addons/post-navigation/includes/class-fields.php:268
+msgid "Next Post Title"
+msgstr "Sonraki Gönderi Başlığı"
+
+#: addons/post-navigation/includes/class-fields.php:273
+msgid "Choose how to display the next post link"
+msgstr "Sonraki gönderi bağlantısını nasıl görüntülemek istediğinizi seçin"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Next Label"
+msgstr "Sonraki Etiket"
+
+#: addons/post-navigation/includes/class-fields.php:281
+msgid "Custom text for next post link"
+msgstr "Sonraki gönderi bağlantısı için özel metin"
+
+#: addons/post-navigation/includes/class-fields.php:289
+msgid "Display featured image for next post"
+msgstr "Sonraki gönderi için öne çıkan resmi görüntüle"
+
+#: addons/post-navigation/includes/class-fields.php:301
+msgid "Position of the featured image relative to navigation"
+msgstr "Öne çıkan resmin navigasyona göre konumu"
+
+#: addons/post-navigation/includes/class-fields.php:325
+msgid "Display an arrow icon with the next navigation"
+msgstr "Sonraki navigasyon ile bir ok simgesi görüntüle"
+
+#: addons/post-navigation/includes/class-fields.php:332
+msgid "Chevron Right (›)"
+msgstr "Sağa Çevre (›)"
+
+#: addons/post-navigation/includes/class-fields.php:333
+msgid "Arrow Right (→)"
+msgstr "Sağa Ok (→)"
+
+#: addons/post-navigation/includes/class-fields.php:334
+msgid "Double Chevron Right (»)"
+msgstr "Çift Sağa Çevre (»)"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Triangle Right (►)"
+msgstr "Sağa Üçgen (►)"
+
+#: addons/post-navigation/includes/class-fields.php:347
+msgid "Left of Text"
+msgstr "Metnin Solunda"
+
+#: addons/post-navigation/includes/class-fields.php:348
+msgid "Right of Text"
+msgstr "Metnin Sağında"
+
+#: addons/post-navigation/includes/class-fields.php:352
+msgid "Position of the arrow relative to the link text"
+msgstr "Okun bağlantı metnine göre konumu"
+
+#: addons/post-navigation/includes/class-fields.php:374
+msgid "First"
+msgstr "İlk"
+
+#: addons/post-navigation/includes/class-fields.php:378
+msgid "First Navigation Type"
+msgstr "İlk Navigasyon Türü"
+
+#: addons/post-navigation/includes/class-fields.php:383
+msgid "First Post Title"
+msgstr "İlk Gönderi Başlığı"
+
+#: addons/post-navigation/includes/class-fields.php:388
+msgid "Choose how to display the first navigation"
+msgstr "İlk navigasyonu nasıl görüntüleyeceğinizi seçin"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "First Label"
+msgstr "İlk Etiket"
+
+#: addons/post-navigation/includes/class-fields.php:395
+msgid "Go to First"
+msgstr "İlke Git"
+
+#: addons/post-navigation/includes/class-fields.php:396
+msgid "Custom text for first navigation"
+msgstr "İlk navigasyon için özel metin"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "First Navigation Position"
+msgstr "İlk Navigasyon Pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:403
+msgid "Left (First → Previous → Next)"
+msgstr "Sol (İlk → Önceki → Sonraki)"
+
+#: addons/post-navigation/includes/class-fields.php:404
+msgid "Center (Previous → First → Next)"
+msgstr "Merkez (Önceki → İlk → Sonraki)"
+
+#: addons/post-navigation/includes/class-fields.php:405
+msgid "Right (Previous → Next → First)"
+msgstr "Sağ (Önceki → Sonraki → İlk)"
+
+#: addons/post-navigation/includes/class-fields.php:409
+msgid "Position of the first/series home link in navigation"
+msgstr "Navigasyondaki ilk/seriler ana linkinin pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:417
+msgid "Display featured image for first post"
+msgstr "İlk gönderi için öne çıkan resmi göster"
+
+#: addons/post-navigation/includes/class-fields.php:429
+msgid "Position of the featured image relative to the link text"
+msgstr "Link metnine göre öne çıkan resmin pozisyonu"
+
+#: addons/post-navigation/includes/class-fields.php:449
+msgid "Color"
+msgstr "Renk"
+
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Gap Between Links (px)"
+msgstr "Bağlantılar Arasındaki Boşluk (px)"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Space between navigation links"
+msgstr "Navigasyon bağlantıları arasındaki boşluk"
+
+#: addons/post-navigation/includes/class-fields.php:540
+msgid "Container Style"
+msgstr "Kapsayıcı Stili"
+
+#: addons/post-navigation/includes/class-fields.php:544
+msgid "Container Background Color"
+msgstr "Kapsayıcı Arka Plan Rengi"
+
+#: addons/post-navigation/includes/class-fields.php:549
+msgid "Background color for the navigation container"
+msgstr "Navigasyon kapsayıcısı için arka plan rengi"
+
+#: addons/post-navigation/includes/class-fields.php:552
+msgid "Container Border Color"
+msgstr "Konteyner Kenar Rengi"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Container Border Width (px)"
+msgstr "Konteyner Kenar Genişliği (px)"
+
+#: addons/post-navigation/includes/class-fields.php:568
+msgid "Container Border Radius (px)"
+msgstr "Konteyner Kenar Yarıçapı (px)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Container Padding (px)"
+msgstr "Konteyner İç Boşluğu (px)"
+
+#: addons/post-navigation/includes/class-fields.php:584
+msgid "Inner spacing for the container"
+msgstr "Konteyner için iç boşluk"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "Seri Gönderi Navigasyonu"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "Yeni Seri Gönderi Navigasyonu Ekle"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "Yeni Seri Gönderi Navigasyonu"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "Seri Gönderi Navigasyonunu Düzenle"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "Seri Gönderi Navigasyonunu Görüntüle"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "Tüm Seri Gönderi Navigasyonu"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "Seri Gönderi Navigasyonunu Ara"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "Seri Gönderi Navigasyonu bulunamadı."
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "Çöp kutusunda Seri Gönderi Navigasyonu bulunamadı."
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "Navigasyonu önizlemek için bir seri oluşturun."
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "Navigasyonu önizlemek için bir seride gönderi oluşturun."
+
+#: addons/post-navigation/includes/class-utilities.php:174
+msgid "Sample series for preview purposes"
+msgstr "Önizleme amaçlı örnek seri"
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "Önizleme güncellenirken hata oluştu."
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "Basit Navigasyon"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "Buton Navigasyonu"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "Görüntü Navigasyonu"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "Etiketler"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "Durum"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "Geçerli Parça"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "Düzenle"
+
+#: addons/publisher/series-part-post-table.php:146
+msgid "View"
+msgstr "Görüntüle"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "Çöp Kutusu"
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "Bu seride yayımlanmış gönderi yok."
+
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(Şu anda Parça numarası yok)"
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "Önizleme"
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "Bu seride yayımlanmamış gönderi yok."
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "Parça Numarası Yok"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "Tüm Kategoriler"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "Filtrele"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "Serileri Yönet"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Seri"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "Seriyi Yayınla"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "Ön Görünüm"
+
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "%1$s durumunu düzenle"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "Seri sırası"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "Gönderileri yayınla veya planla"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "Serileri ön uçta görüntüle"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "Mevcut bir seriniz yok."
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "Yeni Seri ekle."
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "Yayınlanmamış olarak oluştur:"
+
+#: addons/publisher/series_issue_manager.php:212
+msgid "The posts in your series were successfully unpublished."
+msgstr "Serinizdeki gönderiler başarıyla yayınlanmadı."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "Tebrikler. Seri sıralamanız başarıyla güncellendi."
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "Tebrikler. Gönderileriniz başarıyla yayınlandı."
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "Gönderi Çöp Kutusuna taşındı."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "Tebrikler. Gönderileriniz başarıyla planlandı."
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "Seri Sorunlarını Yönet"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "Sayfa başına öğe sayısı"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "Yayınlanan Seriler:"
+
+#: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "“%s” için arama sonuçları"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "Ara"
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "Yayın Tarihi/Saati:"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "Sıralamayı Güncelle"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "Seri Sırası:"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid "Unpublished posts in series:"
+msgstr "Serideki yayımlanmamış postlar:"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid "Unpublished Posts"
+msgstr "Yayımlanmamış Postlar"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "Yayımlanmamış Postları Yayınla"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "Yayımlanmamış Seri Sırası"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "PublishPress Seri Eklenti Seçenekleri"
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "İzin Verilen Html"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "Genel Bakış"
+
+#: inc/settings/settings-page.php:63
+msgid "This will be replaced with the series icon for a series."
+msgstr "Bu, bir seri için seri simgesi ile değiştirilecektir."
+
+#: inc/settings/settings-page.php:76
+#, php-format
+msgid "This will be replaced with the title of a series"
+msgstr "Bu, bir serinin başlığı ile değiştirilecektir."
+
+#: inc/settings/settings-page.php:100
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr ""
+"%series_title% ile aynı, tek farkı bunun da seri sayfasına bağlanacak "
+"olmasıdır."
+
+#: inc/settings/settings-page.php:108
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "Serideki bir postun başlığı ile değiştirilecektir."
+
+#: inc/settings/settings-page.php:132
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "Serideki bir postun kısa başlığı ile değiştirilecektir."
+
+#: inc/settings/settings-page.php:148
+msgid "Will display what part of a series the post is"
+msgstr "Gönderinin hangi serinin parçası olduğunu gösterecektir."
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "Serideki toplam gönderi sayısını gösterecektir."
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "Serinin tanımını gösterecektir."
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "Serinin slug'ını çıkartacaktır."
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "Serinin ID'sini çıkartacaktır."
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "Gönderinin yazarını çıkartacaktır."
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "Gönderinin bir öne çıkan görseli varsa, o görsel görüntülenecektir."
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "Bir gönderinin yayımlandığı tarih."
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "Serideki bir gönderinin yayımlanmamış başlığı ile değiştirilecektir."
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "Serideki yayımlanan ve yayımlanmamış toplam gönderi sayısını gösterecektir."
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "Seçenekleri Güncelle"
+
+#: inc/settings/settings-page.php:308
+msgid "No"
+msgstr "Hayır"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "Evet"
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "Lütfen PublishPress Serisi verilerinizi güncelleyin"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid "Update Series data"
+msgstr "Seri verilerini güncelle"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "Seri yükseltme tamamlandı."
+
+#: inc/settings/settings-upgrade.php:174
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "Seri sırası senkronizasyonu tamamlandı. %d gönderi güncellendi."
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:259
+msgid "Search Series"
+msgstr "Seri Ara"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:260
+msgid "Popular Series"
+msgstr "Popüler Seriler"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
+msgid "All Series"
+msgstr "Tüm Seriler"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:262
+msgid "Edit Series"
+msgstr "Seriyi Düzenle"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:263
+msgid "Update Series"
+msgstr "Seri Güncelle"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:264
+msgid "Add New Series"
+msgstr "Yeni Seri Ekle"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:265
+msgid "New Series Name"
+msgstr "Yeni Seri Adı"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:267
+msgid "No series found"
+msgstr "Hiçbir seri bulunamadı"
+
+#: inc/settings/settings-validation.php:121
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s serisi \"%2$s\" taksonomiden \"%3$s\" taksonomiye taşındı. Ayarlar "
+"güncellendi."
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "PublishPress Seri Eklenti Seçenekleri güncellendi"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "İzin reddedildi"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "PublishPress Seri Eklenti Seçenekleri SIFIRLANDI"
+
+#: inc/settings/tab-advanced.php:16
+msgid "Series Settings"
+msgstr "Seri Ayarları"
+
+#: inc/settings/tab-advanced.php:40
+msgid "Series Upgrade"
+msgstr "Seri Yükseltme"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "Yükseltme Görevini Çalıştır"
+
+#: inc/settings/tab-advanced.php:56
+msgid "Sync Series Order to Menu Order"
+msgstr "Seri Sırasını Menü Sırasına Senkronize Et"
+
+#: inc/settings/tab-advanced.php:70
+msgid "Sync to Menu Order"
+msgstr "Menü Sırasına Senkronize Et"
+
+#: inc/settings/tab-advanced.php:74
+msgid "Reset settings"
+msgstr "Ayarları sıfırla"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "Seçenekleri varsayılan değerlere sıfırla"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144
+msgid "Legacy"
+msgstr "Eski"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "Eski Ayarlar"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "Varsayılan"
+
+#: inc/settings/tab-legacy.php:36
+msgid "CSS Styles"
+msgstr "CSS Stil"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "PublishPress Serisi CSS stillerini kullanmak ister misiniz?"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "Stil seçenekleri"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "Varsayılan stili kullan"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "Kutu stilini kullan"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "Karanlık stili kullan"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "Aydınlık stili kullan"
+
+#: inc/settings/tab-legacy.php:60
+msgid "Series Overview"
+msgstr "Seri Genel Bakış"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Tek bir Serinin görüntülendiği taksonomi sayfası için tasarımı seçin."
+
+#: inc/settings/tab-legacy.php:66
+msgid "Layout:"
+msgstr "Düzen:"
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid "Columns:"
+msgstr "Sütunlar:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "Serileri şuna göre sırala:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "Seri kısmı"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "Tarihe göre sırala"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "Seri sıralama yöntemi"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:485
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "Seri İçindekiler"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "Seri İçindekiler URL&#39;i:"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "sayfayı görüntüle"
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid "Series Per Page:"
+msgstr "Sayfada gösterilecek seri sayısı:"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "Seri İçindekiler Başlığı:"
+
+#: inc/settings/tab-legacy.php:168
+msgid "Series Icons"
+msgstr "Seri İkonları"
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "Seri içindekiler sayfasındaki ikonun genişliği (piksel cinsinden)"
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "Gönderi sayfasındaki ikonun genişliği (piksel cinsinden)."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr ""
+"En son seri şablonu ile görüntülendiğinde ikonun genişliği (piksel "
+"cinsinden)."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "En Son Seriler"
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "Bu görüntü \"En Son Seriler\" widget&#39;ı tarafından kullanılmaktadır."
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "En Son Seriler (önceki etiketler):"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "En Son Seriler (iç etiketler):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "Son Seri (etiketler sonrası):"
+
+#: inc/settings/tab-legacy.php:217
+msgid "Default Series Order"
+msgstr "Varsayılan Seri Sırası"
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "Alfabetik A-Z"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "Alfabetik Z-A"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "\"Yeni Ekle\"yi Göster"
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "\"Widget'taki gönderi başlığı\"nı Göster"
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "Metabox Seri Sırası"
+
+#: inc/settings/tab-post-details.php:12
+msgid "Post Details Settings"
+msgstr "Gönderi Detayları Ayarları"
+
+#: inc/settings/tab-post-details.php:16
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr ""
+"Seri içindeki gönderilerde gösterilen Seri Gönderi Detayları görüntüsünü "
+"yapılandırın."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "Şablondaki Gibi"
+
+#: inc/settings/tab-post-details.php:36
+msgid "Display Series Post Details?"
+msgstr "Seri Gönderi Detaylarını Göster?"
+
+#: inc/settings/tab-post-details.php:41
+msgid "Post Details Selection"
+msgstr "Gönderi Detayları Seçimi"
+
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43
+msgid "Edit this layout"
+msgstr "Bu düzeni düzenle"
+
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44
+msgid "Loading…"
+msgstr "Yükleniyor…"
+
+#: inc/settings/tab-post-details.php:51
+msgid "Post Details Position"
+msgstr "Gönderi Detayları Pozisyonu"
+
+#: inc/settings/tab-post-details.php:66
+msgid "Series Meta Template"
+msgstr "Seri Meta Şablonu"
+
+#: inc/settings/tab-post-details.php:71
+msgid "Series Meta (with excerpts)"
+msgstr "Seri Meta (alıntılarla)"
+
+#: inc/settings/tab-post-details.php:76
+msgid "Limit to single page only"
+msgstr "Sadece tek sayfayla sınırlı"
+
+#: inc/settings/tab-post-details.php:79
+msgid "Post List Box Settings"
+msgstr "Gönderi Listesi Kutusu Ayarları"
+
+#: inc/settings/tab-post-list-box.php:16
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr "Serideki tüm gönderileri görüntüleyen Gönderi Listesi Kutusunu yapılandırın."
+
+#: inc/settings/tab-post-list-box.php:36
+msgid "Display Post List Boxes?"
+msgstr "Gönderi Listesi Kutularını görüntülesin mi?"
+
+#: inc/settings/tab-post-list-box.php:41
+msgid "Post List Boxes Selection"
+msgstr "Gönderi Listesi Kutuları Seçimi"
+
+#: inc/settings/tab-post-list-box.php:43
+msgid "Edit this box"
+msgstr "Bu kutuyu düzenle"
+
+#: inc/settings/tab-post-list-box.php:51
+msgid "Post List Box Position"
+msgstr "Gönderi Listesi Kutusu Pozisyonu"
+
+#: inc/settings/tab-post-list-box.php:66
+msgid "Series Post List Template"
+msgstr "Seri Gönderi Listesi Şablonu"
+
+#: inc/settings/tab-post-list-box.php:70
+msgid "Post Title (Linked Post)"
+msgstr "Gönderi Başlığı (Bağlantılı Gönderi)"
+
+#: inc/settings/tab-post-list-box.php:75
+msgid "Post Title (Current Post)"
+msgstr "Gönderi Başlığı (Geçerli Gönderi)"
+
+#: inc/settings/tab-post-navigation.php:11
+msgid "Navigation"
+msgstr "Navigasyon"
+
+#: inc/settings/tab-post-navigation.php:12
+msgid "Navigation Settings"
+msgstr "Navigasyon Ayarları"
+
+#: inc/settings/tab-post-navigation.php:16
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "Serideki gönderilerde gösterilen Seri Navigasyon görüntüsünü yapılandırın."
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "Seri Navigasyonu görüntülesin mi?"
+
+#: inc/settings/tab-post-navigation.php:41
+msgid "Navigation Selection"
+msgstr "Navigasyon Seçimi"
+
+#: inc/settings/tab-post-navigation.php:51
+msgid "Navigation Position"
+msgstr "Navigasyon Pozisyonu"
+
+#: inc/settings/tab-post-navigation.php:66
+msgid "Navigation Template"
+msgstr "Navigasyon Şablonu"
+
+#: inc/settings/tab-post-navigation.php:71
+msgid "Next Post Text"
+msgstr "Sonraki Gönderi Metni"
+
+#: inc/settings/tab-post-navigation.php:76
+msgid "Previous Post Text"
+msgstr "Önceki Gönderi Metni"
+
+#: inc/settings/tab-post-navigation.php:81
+msgid "First Post Text"
+msgstr "İlk Gönderi Metni"
+
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Post Türleri"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Özel Post Türü Desteği"
+
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "Özel post türleri için PublishPress Serileri'ni etkinleştir."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Pro Özellikler"
+
+#: inc/settings/tab-pro-features.php:18
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Özel post türlerinin PublishPress Serileri ile kullanılmasına izin ver."
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Shortcodes"
+msgstr "Kısa Kodlar"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "Seri bilgilerini görüntülemek için kısa kodlar sağlar."
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "Ekstra Jetonlar"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Seri bilgilerini özelleştirmek için ekstra jetonlar sağlar."
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "Birden Fazla Seri"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "Yazarların birden fazla seriye gönderi eklemesine izin verir."
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142
+msgid "Series Category"
+msgstr "Seri Kategorisi"
+
+#: inc/settings/tab-series-category.php:13
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr "Seri Kategorileri arşiv URL'si ve görüntüleme davranışı için ayarlar."
+
+#: inc/settings/tab-series-category.php:26
+msgid "Series Categories URL Base:"
+msgstr "Seri Kategorileri URL Temeli:"
+
+#: inc/settings/tab-series-category.php:30
+msgid "Series Categories Archive Template:"
+msgstr "Seri Kategorileri Arşiv Şablonu:"
+
+#: inc/settings/tab-series-category.php:39
+msgid "Use template from Theme"
+msgstr "Temadan şablon kullan"
+
+#: inc/settings/tab-series-category.php:40
+msgid "Use template from Plugin"
+msgstr "Eklentiden şablon kullan"
+
+#: inc/settings/tab-series-category.php:43
+msgid "Plugin Template Display Options:"
+msgstr "Eklenti Şablon Görüntüleme Seçenekleri:"
+
+#: inc/settings/tab-series-category.php:53
+msgid "Show Series Icon"
+msgstr "Seri İkonunu Göster"
+
+#: inc/settings/tab-series-category.php:58
+msgid "Show Series Description"
+msgstr "Seri Açıklamasını Göster"
+
+#: inc/settings/tab-series-category.php:63
+msgid "Show Posts in each Series as list items"
+msgstr "Her Serideki Gönderileri liste öğeleri olarak göster"
+
+#: inc/settings/tab-taxonomy.php:16
+msgid "Series Taxonomy Slug:"
+msgstr "Seri Taksonomi Kısmı:"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "Bu metin, serinin temel URL'sinin bir parçası olacaktır."
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "Seri Taksonomisi:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid "Migrate Terms"
+msgstr "Terimleri Taşı"
+
+#: inc/settings/tab-taxonomy.php:53
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr "Mevcut seri terimlerini yeni taksonomiye otomatik olarak taşıyın"
+
+#: inc/settings/tab-taxonomy.php:56
+msgid "Sorry, no results found."
+msgstr "Üzgünüz, sonuç bulunamadı."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid "Upgrade to Pro"
+msgstr "Pro'ya Yükselt"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "PublishPress Series Desteğine İhtiyacınız Var mı?"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Yardım gerekiyorsa veya yeni bir özellik talebiniz varsa, bize bildirin."
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "Destek Talep Et"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Ayrıntılı belgeler ayrıca eklenti web sitesinde mevcuttur."
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "Bilgi Tabanını Görüntüle"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "Bir hata oluştu"
+
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s serisi yeni taxonomy'ye taşındı"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "%s'yi beğendiyseniz, lütfen bize %s puanı bırakın. Teşekkürler!"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "PublishPress Serileri Hakkında"
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "Hakkında"
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "PublishPress Serileri Dokümantasyonu"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "Dokümantasyon"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "PublishPress ekibi ile iletişime geçin"
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "İletişim"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "Üzgünüm ama seri eklemek için izniniz yok"
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "Seçtiğiniz isim doğru bir şekilde temizlenmiyor. Farklı bir şey deneyin."
+
+#: orgSeries-admin.php:236
+msgid "Not part of a series"
+msgstr "Bir serinin parçası değil"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "Seri ara"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "Seri Parçası:"
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "Widget'ta yer alan gönderi başlığı:"
+
+#: orgSeries-admin.php:445
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Parça numarası yok)"
+
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Parça %1$s %2$s'nın parçası)"
+
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Parça Numarası Yok)"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:270
+msgid "No Series"
+msgstr "Seri Yok"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "Tüm serileri görüntüle"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "Tüm Serileri Yönet"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "Terim Sırası"
+
+#: orgSeries-manage.php:67
+msgid "ID"
+msgstr "ID"
+
+#: orgSeries-manage.php:233
+msgid "Current series icon:"
+msgstr "Geçerli seri simgesi:"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "Şu anda simge yok"
+
+#: orgSeries-manage.php:256
+msgid "Series Icon Upload:"
+msgstr "Seri Simgesi Yükle:"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "Seri için bir resim yükleyin."
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "Geçersiz form verisi"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "Geçersiz nonce, sayfayı yeniden yükleyin ve tekrar deneyin"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "Geçersiz taxonomy"
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "Yeterli izin yok"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "Başarıyla güncellendi"
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:872
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "PublishPress Seri Seçenekleri"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Taksonomi"
+
+#: orgSeries-options.php:143, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr ""
+"Seri verilerini gönderiden kaldırmak için \"Serinin bir parçası değil\" "
+"seçin"
+
+#: orgSeries-setup.php:268
+msgid "&larr; Go to Series"
+msgstr "&larr; Seriye Git"
+
+#: orgSeries-setup.php:269
+msgid "View Series"
+msgstr "Seriyi Görüntüle"
+
+#: orgSeries-setup.php:271
+msgid "Series List"
+msgstr "Seri Listesi"
+
+#: orgSeries-setup.php:272
+msgid "Series Link"
+msgstr "Seri Bağlantısı"
+
+#: orgSeries-setup.php:273
+msgid "A link to a Series"
+msgstr "Bir Seri için bağlantı"
+
+#: orgSeries-setup.php:327
+msgid "Series Navigation"
+msgstr "Seri Navigasyonu"
+
+#: orgSeries-setup.php:858
+msgid "Series: "
+msgstr "Seri: "
+
+#: orgSeries-setup.php:860
+msgid "Posts from the series: "
+msgstr "Seriden gelen gönderiler: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "Seri:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "Bölüm:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "Yazdığım Tüm Seriler"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Seri</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "Otomatik/Yok"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "Son seri widget'ının çıktısını kontrol etmek için bunu kullanın"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "En Son Seri"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "Başlık:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid "Hide series with no posts?"
+msgstr "Gönderisi olmayan serileri gizle?"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "Sırala:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "Serideki gönderi sayısı"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "Serinin Adı"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "Seri Kısa Adı"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "Seri Ne Zaman Oluşturuldu"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "Rastgele"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "Gösterilecek seri sayısı:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "Gösterim Sırası: "
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "ARTAN: "
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "AZALAN: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "Seri İçindekiler Tablosunu görüntülemek için bunu kullanın"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "Seri Seçin"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "Serideki diğer gönderiler:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "Seri İçindekiler Tablosunu Göster"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "Seri İçindekiler Tablosunu şuna göre göster:"
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "Açılır Menü:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "Liste:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "Gönderi sayısını göster:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "Boş serileri gizle:"
+
+#: orgSeries-widgets.php:299, fuzzy
+msgid "name"
+msgstr "name"
+
+#: orgSeries-widgets.php:300, fuzzy
+msgid "count"
+msgstr "count"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-widgets.php:302, fuzzy
+msgid "series id"
+msgstr "series id"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "Sıra:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "Serileri hariç tut:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "Serileri dahil et:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "Seri Sayısı:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "Kaydırma:"
+
+#: orgSeries-widgets.php:370
+msgid "Search:"
+msgstr "Ara:"
+
+#: orgSeries-widgets.php:376
+msgid "Show other posts in the current series:"
+msgstr "Mevcut serideki diğer gönderileri göster:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "Mevcut seri"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "Seri widget başlığı:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "Bu metin, bu serideki diğer gönderilerin üzerinde görüntülenecektir."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>Bu eklenti silinebilir.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s zaten %2$s adıyla indekslenmiş bir parametreye sahiptir."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "%1$s yöntemi yalnızca %2$s'ın bir çocuğunu kaydetmek için kullanılabilir."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "%1$s örneği alınamıyor. Bulunamadı."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s geçerli bir varlık değil (beklenen: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s mevcut değil veya ulaşılamıyor."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Nonce hatası."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "Verilen dosya yolu (%s) okunabilir değil."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "Bir hata oluştu, lütfen tekrar deneyin."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "%1$s için gelen değerin bir closure olması bekleniyor. Olmadı."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "Lisansı Deaktif Et"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "Lisansı Aktif Et"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "Lisans Anahtarı başarıyla aktif edildi."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "Lisans Anahtarı başarıyla deaktif edildi."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "%1$s için sağlanan değer geçerli bir url değil. Sağlanan url şuydu: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "%1$s için Lisans Anahtarı"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "Lisans anahtarınızı girin: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr ""
+"Bu giriş %series_part% olarak %total_posts_in_series% serisindeki bir "
+"parçadır "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"

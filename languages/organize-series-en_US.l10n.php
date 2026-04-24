@@ -1,2 +1,2 @@
 <?php
-return ['domain'=>'organize-series','plural-forms'=>NULL,'language'=>'','project-id-version'=>'PublishPress Series 3.0.0','pot-creation-date'=>'2026-02-27T13:21:22+00:00','po-revision-date'=>'YEAR-MO-DA HO:MI+ZONE','x-generator'=>'WP-CLI 2.12.0','messages'=>[]];
+return ['domain'=>'organize-series','plural-forms'=>NULL,'language'=>'','project-id-version'=>'PublishPress Series 3.0.0','pot-creation-date'=>'2026-04-24T07:56:49+00:00','po-revision-date'=>'YEAR-MO-DA HO:MI+ZONE','x-generator'=>'WP-CLI 2.12.0','messages'=>[]];

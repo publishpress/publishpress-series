@@ -1,0 +1,3306 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Free 3.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
+"PO-Revision-Date: 2026-04-24 08:20+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: organize-series\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: orgSeries.php:3, fuzzy
+#. Plugin Name of the plugin
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
+
+#: orgSeries.php:4, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries.php:5
+#. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series cho phép bạn nhóm nội dung lại thành một loạt. Điều này "
+"rất lý tưởng cho các tạp chí, báo chí, nhà văn truyện ngắn, giáo viên, họa "
+"sĩ truyện tranh, hoặc bất kỳ ai viết nhiều bài về cùng một chủ đề."
+
+#: orgSeries.php:7
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php:8, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "Tìm kiếm Danh mục Series"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "Danh mục Series Phổ biến"
+
+#: addons/grouping/legacy-includes.php:282
+#: addons/grouping/legacy-includes.php:786
+msgid "All Series Categories"
+msgstr "Tất cả Danh mục Series"
+
+#: addons/grouping/legacy-includes.php:283
+msgid "Edit Series Category"
+msgstr "Chỉnh sửa Danh mục Series"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "Cập nhật Danh mục Series"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "Thêm Danh mục Series Mới"
+
+#: addons/grouping/legacy-includes.php:286
+msgid "New Series Category"
+msgstr "Danh mục Series Mới"
+
+#: addons/grouping/legacy-includes.php:287
+#: addons/grouping/legacy-includes.php:549
+#: addons/grouping/legacy-includes.php:621
+#: addons/grouping/legacy-includes.php:715
+#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:777
+#: addons/grouping/legacy-includes.php:811
+msgid "Series Categories"
+msgstr "Danh mục Series"
+
+#: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "Xóa tất cả dữ liệu \"Danh mục Series\" khỏi cơ sở dữ liệu khi xóa plugin."
+
+#: addons/grouping/legacy-includes.php:756
+msgid "Click to toggle"
+msgstr "Nhấp để chuyển đổi"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "Series trong danh mục này"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "Xin lỗi, không tìm thấy series nào trong danh mục này."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:123
+msgid "This entry is"
+msgstr "Mục này là"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:124
+msgid "in the series"
+msgstr "trong series"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "phần %1$s của %2$s"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
+#: addons/post-details/includes/class-utilities.php:268
+#: addons/post-navigation/includes/class-utilities.php:172
+msgid "Sample Series"
+msgstr "Chuỗi mẫu"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+msgid "Sample Post Title"
+msgstr "Tiêu đề bài viết mẫu"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+msgid "Previous post link"
+msgstr "Liên kết bài viết trước"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+msgid "Next post link"
+msgstr "Liên kết bài viết kế tiếp"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Sample series description."
+msgstr "Mô tả chuỗi mẫu."
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309
+msgid "Post Details"
+msgstr "Chi tiết bài viết"
+
+#: addons/post-details/includes/class-admin-ui.php:61
+msgid "Series Post Details Preview"
+msgstr "Xem trước chi tiết bài viết chuỗi"
+
+#: addons/post-details/includes/class-admin-ui.php:70
+msgid "Series Post Details Editor"
+msgstr "Trình chỉnh sửa chi tiết bài viết chuỗi"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:158
+#: addons/post-list-box/includes/class-admin-ui.php:55
+#: addons/post-list-box/includes/class-admin-ui.php:242
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:193
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-admin-ui.php:273
+#: addons/post-navigation/includes/class-admin-ui.php:182
+msgid "Use this shortcode:"
+msgstr "Sử dụng shortcode này:"
+
+#: addons/post-details/includes/class-admin-ui.php:149
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"Chèn vào bài viết hoặc trang để hiển thị chi tiết bài viết chuỗi này một "
+"cách thủ công."
+
+#: addons/post-details/includes/class-admin-ui.php:157
+msgid "Default Meta Box"
+msgstr "Hộp Meta Mặc Định"
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:715
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "Tính năng này có sẵn trong PublishPress Series Pro"
+
+#: addons/post-details/includes/class-ajax.php:32
+#: addons/post-details/includes/class-ajax.php:99
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:32
+#: addons/post-navigation/includes/class-ajax.php:167
+#: addons/post-navigation/includes/class-ajax.php:207
+msgid "Invalid post ID."
+msgstr "ID bài viết không hợp lệ."
+
+#: addons/post-details/includes/class-ajax.php:67
+#: addons/post-navigation/includes/class-ajax.php:115
+msgid "No series available to preview."
+msgstr "Không có chuỗi nào để xem trước."
+
+#: addons/post-details/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:190
+msgid "Invalid import data."
+msgstr "Dữ liệu nhập không hợp lệ."
+
+#: addons/post-details/includes/class-ajax.php:137
+#: addons/post-navigation/includes/class-ajax.php:195
+msgid "Settings imported successfully."
+msgstr "Cài đặt đã được nhập thành công."
+
+#: addons/post-details/includes/class-ajax.php:166
+#: addons/post-navigation/includes/class-ajax.php:213
+msgid "Settings reset to defaults."
+msgstr "Cài đặt đã được đặt lại về mặc định."
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "Chung"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "Phong cách"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "Nội dung"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "Hiển thị Số phần"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "Hiển thị \"phần X của Y\" trong văn bản chuỗi"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "Văn bản Trước"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "Văn bản hiển thị ở đầu"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "Văn bản Sau"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "Văn bản hiển thị trước tên chuỗi"
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "Hiển thị"
+
+#: addons/post-details/includes/class-fields.php:122
+msgid "Meta Box Position"
+msgstr "Vị trí Hộp Meta"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "Trên"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "Dưới"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "Chọn vị trí hiển thị hộp meta liên quan đến nội dung"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "Giới hạn cho Bài viết Đơn"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr ""
+"Kích hoạt để chỉ hiển thị hộp meta trên chế độ xem bài viết đơn, không hiển "
+"thị trên các lưu trữ."
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "Kiểu chữ"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "Kích thước Văn bản (px)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "Kích thước phông chữ cho văn bản trong hộp meta"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:453
+msgid "Text Color"
+msgstr "Màu Văn bản"
+
+#: addons/post-details/includes/class-fields.php:173
+msgid "Link Color"
+msgstr "Màu Liên kết"
+
+#: addons/post-details/includes/class-fields.php:181
+msgid "Background"
+msgstr "Nền"
+
+#: addons/post-details/includes/class-fields.php:185
+#: addons/post-list-box/classes/PostListBoxFields.php:191
+#: addons/post-navigation/includes/class-fields.php:460
+msgid "Background Color"
+msgstr "Màu nền"
+
+#: addons/post-details/includes/class-fields.php:190
+msgid "Background color for the meta box container"
+msgstr "Màu nền cho hộp meta"
+
+#: addons/post-details/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:498
+msgid "Spacing"
+msgstr "Khoảng cách"
+
+#: addons/post-details/includes/class-fields.php:198
+#: addons/post-list-box/classes/PostListBoxFields.php:223
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Padding (px)"
+msgstr "Đệm (px)"
+
+#: addons/post-details/includes/class-fields.php:205
+msgid "Padding applied to all sides of the content area"
+msgstr "Đệm áp dụng cho tất cả các mặt của khu vực nội dung"
+
+#: addons/post-details/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:511
+msgid "Margin (px)"
+msgstr "Lề (px)"
+
+#: addons/post-details/includes/class-fields.php:215
+msgid "Margin applied to all sides of the meta box"
+msgstr "Lề áp dụng cho tất cả các mặt của hộp meta"
+
+#: addons/post-details/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:468
+msgid "Border"
+msgstr "Viền"
+
+#: addons/post-details/includes/class-fields.php:223
+#: addons/post-list-box/classes/PostListBoxFields.php:205
+#: addons/post-navigation/includes/class-fields.php:479
+msgid "Border Width (px)"
+msgstr "Độ rộng viền (px)"
+
+#: addons/post-details/includes/class-fields.php:232
+#: addons/post-list-box/classes/PostListBoxFields.php:214
+#: addons/post-navigation/includes/class-fields.php:488
+msgid "Border Radius (px)"
+msgstr "Bán kính viền (px)"
+
+#: addons/post-details/includes/class-fields.php:241
+#: addons/post-list-box/classes/PostListBoxFields.php:198
+#: addons/post-navigation/includes/class-fields.php:472
+msgid "Border Color"
+msgstr "Màu viền"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "Chi tiết bài viết theo chuỗi"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "Thêm mới"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "Thêm chi tiết bài viết theo chuỗi mới"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "Chi tiết bài viết theo chuỗi mới"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "Chỉnh sửa chi tiết bài viết theo chuỗi"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "Xem chi tiết bài viết theo chuỗi"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "Tất cả chi tiết bài viết theo chuỗi"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "Tìm kiếm chi tiết bài viết theo chuỗi"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "Không tìm thấy chi tiết bài viết trong chuỗi."
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "Không tìm thấy chi tiết bài viết trong chuỗi trong Thùng rác."
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "Tạo một chuỗi để xem trước chi tiết bài viết."
+
+#: addons/post-details/includes/class-utilities.php:303
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "Bài viết chuỗi mẫu %d"
+
+#: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "Nội dung xem trước mẫu cho hộp meta chuỗi."
+
+#: addons/post-details/post-details.php:176
+msgid "Series Post Details #1"
+msgstr "Chi tiết bài viết chuỗi #1"
+
+#: addons/post-details/post-details.php:181
+msgid "Series Post Details #2"
+msgstr "Chi tiết bài viết chuỗi #2"
+
+#: addons/post-details/post-details.php:186
+msgid "Series Post Details #3"
+msgstr "Chi tiết bài viết chuỗi #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "Tiêu đề hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "Kiểu hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "Hiển thị nội dung"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "Cài đặt hình ảnh nổi bật"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "Kiểu bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "Hiển thị bố cục"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "Nổi bật bài viết hiện tại"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "Hiển thị tiêu đề hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:106
+msgid "Box Title Type"
+msgstr "Loại tiêu đề hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:110
+msgid "Use Series Title"
+msgstr "Sử dụng tiêu đề chuỗi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Custom Title"
+msgstr "Tiêu đề tùy chỉnh"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:115
+msgid "Choose whether to display the series title or a custom title"
+msgstr "Chọn xem có hiển thị tiêu đề loạt bài hay tiêu đề tùy chỉnh"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:120
+msgid "Link Box Title to Series"
+msgstr "Liên kết Tiêu đề Hộp với Loạt Bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:125
+msgid "Link the box title to the current series archive when using the series title"
+msgstr ""
+"Liên kết tiêu đề hộp với kho lưu trữ loạt bài hiện tại khi sử dụng tiêu đề "
+"loạt bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:130
+msgid "Custom Box Title Text"
+msgstr "Văn bản Tiêu đề Hộp Tùy Chỉnh"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/includes/class-utilities.php:162
+msgid "Series Posts"
+msgstr "Bài Viết Trong Loạt"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+msgid "Enter custom title for the post list"
+msgstr "Nhập tiêu đề tùy chỉnh cho danh sách bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "Chỉ được sử dụng khi \"Tiêu đề Tùy Chỉnh\" được chọn ở trên"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:141
+msgid "Box Title HTML Tag"
+msgstr "Thẻ HTML Tiêu đề Hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:160
+msgid "Box Title Color"
+msgstr "Màu Tiêu đề Hộp"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:169
+msgid "Box Title Font Size (px)"
+msgstr "Kích Cỡ Chữ Tiêu đề Hộp (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:243
+msgid "Show Post Titles"
+msgstr "Hiển Thị Tiêu Đề Bài Viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Số Thứ Tự Loạt Bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Hiển thị số thứ tự loạt bài bên cạnh mỗi tiêu đề bài viết."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Vị Trí Số Thứ Tự Loạt Bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Trước tiêu đề"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "Sau tiêu đề"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Chọn nơi số thứ tự xuất hiện liên quan đến tiêu đề."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Post Title Color"
+msgstr "Màu Tiêu Đề Bài Viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:283
+msgid "Post Title Font Size (px)"
+msgstr "Kích Cỡ Chữ Tiêu Đề Bài Viết (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Show Post Excerpt"
+msgstr "Hiển Thị Đoạn Trích Bài Viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:302
+msgid "Excerpt Length (words)"
+msgstr "Độ dài đoạn trích (từ)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:314
+msgid "Excerpt Color"
+msgstr "Màu sắc đoạn trích"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "Hiển thị tóm tắt bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "Độ dài tóm tắt (từ)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "Màu sắc tóm tắt"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
+msgid "Show Post Author"
+msgstr "Hiển thị tác giả bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:362
+msgid "Post Author Color"
+msgstr "Màu sắc tác giả bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
+msgid "Show Post Date"
+msgstr "Hiển thị ngày đăng bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:380
+msgid "Post Date Color"
+msgstr "Màu sắc ngày đăng bài"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
+#: addons/post-navigation/includes/class-fields.php:169
+#: addons/post-navigation/includes/class-fields.php:284
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Show Featured Image"
+msgstr "Hiển thị hình ảnh nổi bật"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:408
+msgid "Featured Image Width (px)"
+msgstr "Chiều rộng hình ảnh nổi bật (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:415
+#: addons/post-navigation/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:309
+#: addons/post-navigation/includes/class-fields.php:437
+msgid "Width of the featured image in pixels"
+msgstr "Chiều rộng của hình ảnh nổi bật tính bằng pixel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:420
+msgid "Featured Image Height (px)"
+msgstr "Chiều cao hình ảnh nổi bật (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:427
+#: addons/post-navigation/includes/class-fields.php:202
+#: addons/post-navigation/includes/class-fields.php:317
+#: addons/post-navigation/includes/class-fields.php:445
+msgid "Height of the featured image in pixels"
+msgstr "Chiều cao của hình ảnh nổi bật tính bằng pixel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:432
+msgid "Fallback Featured Image"
+msgstr "Hình ảnh nổi bật dự phòng"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:437
+msgid "Image to display when a post does not have a featured image"
+msgstr "Hình ảnh để hiển thị khi bài viết không có hình ảnh nổi bật"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:454
+msgid "Post Padding (px)"
+msgstr "Đệm bài viết (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:463
+msgid "Post Border Width (px)"
+msgstr "Chiều rộng viền bài viết (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+msgid "Post Border Color"
+msgstr "Màu sắc viền bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:479
+msgid "Post Background Color"
+msgstr "Màu sắc nền bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Background color for the post list container"
+msgstr "Màu nền cho bộ chứa danh sách bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:498
+msgid "Layout Style"
+msgstr "Kiểu bố trí"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "Danh sách"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "Lưới"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:510
+msgid "Columns"
+msgstr "Cột"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+msgid "2 Columns"
+msgstr "2 Cột"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:515
+msgid "3 Columns"
+msgstr "3 Cột"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:516
+msgid "4 Columns"
+msgstr "4 Cột"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:517
+msgid "6 Columns"
+msgstr "6 Cột"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:526
+msgid "Order By"
+msgstr "Sắp xếp theo"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:530
+msgid "Date"
+msgstr "Ngày"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "Tiêu đề"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "Thứ tự series"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "Thứ tự"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "Tăng dần"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "Giảm dần"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:551
+msgid "Gap Between Items (px)"
+msgstr "Khoảng cách giữa các mục (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:561
+msgid "Post List Box Location"
+msgstr "Vị trí hộp danh sách bài viết"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:570
+msgid "Choose where to display the post list box in relation to the content"
+msgstr "Chọn nơi hiển thị hộp danh sách bài viết liên quan đến nội dung"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:574
+msgid "Maximum number of items"
+msgstr "Số lượng mục tối đa"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"Giới hạn số lượng bài viết hiển thị trong danh sách chuỗi. Để trống nếu "
+"không có giới hạn. Cái nhìn trước của admin giới hạn ở 4 bài viết."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595, fuzzy
+msgid "Highlight Current Post"
+msgstr "Highlight Current Post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:600
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "Nổi bật bài viết hiện tại khi xem một bài viết cụ thể trong chuỗi"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:603
+msgid "Current Post Background Color"
+msgstr "Màu nền bài viết hiện tại"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:610
+msgid "Current Post Border Color"
+msgstr "Màu viền bài viết hiện tại"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Current Post Text Color"
+msgstr "Màu chữ bài viết hiện tại"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54
+msgid "Default Post List Box"
+msgstr "Hộp danh sách bài viết mặc định"
+
+#: addons/post-list-box/includes/class-admin-ui.php:102
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+#: orgSeries-utility.php:308
+msgid "Post List Boxes"
+msgstr "Hộp danh sách bài viết"
+
+#: addons/post-list-box/includes/class-admin-ui.php:119
+#: addons/post-list-box/includes/class-admin-ui.php:120
+msgid "Post List Box updated."
+msgstr "Hộp danh sách bài viết đã được cập nhật."
+
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box added."
+msgstr "Hộp danh sách bài viết đã được thêm."
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box saved."
+msgstr "Hộp danh sách bài viết đã được lưu."
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box submitted."
+msgstr "Hộp danh sách bài viết đã được gửi."
+
+#: addons/post-list-box/includes/class-admin-ui.php:145
+#: addons/post-list-box/includes/class-post-type.php:23
+#: inc/settings/tab-post-list-box.php:11
+msgid "Post List Box"
+msgstr "Hộp danh sách bài viết"
+
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s đã được cập nhật."
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s không được cập nhật, có người đang chỉnh sửa nó."
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s đã bị xóa vĩnh viễn."
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s đã được chuyển vào Thùng rác."
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s đã được khôi phục từ Thùng rác."
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
+msgid "Post List Box Preview"
+msgstr "Xem trước Hộp danh sách bài viết"
+
+#: addons/post-list-box/includes/class-admin-ui.php:225
+msgid "Post List Box Editor"
+msgstr "Trình chỉnh sửa Hộp danh sách bài viết"
+
+#: addons/post-list-box/includes/class-admin-ui.php:275
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr ""
+"Chèn vào bài viết hoặc trang để hiển thị Hộp Danh Sách Bài Viết này một "
+"cách thủ công."
+
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
+msgid "Select Series to Preview:"
+msgstr "Chọn Dòng để Xem trước:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:335
+msgid "No series found. Create a series to see the preview."
+msgstr "Không tìm thấy dòng nào. Tạo một dòng để xem trước."
+
+#: addons/post-list-box/includes/class-admin-ui.php:350
+msgid "No posts found in selected series."
+msgstr "Không tìm thấy bài viết nào trong dòng đã chọn."
+
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
+msgid "Loading preview..."
+msgstr "Đang tải xem trước..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
+msgid "Error loading preview."
+msgstr "Lỗi khi tải xem trước."
+
+#: addons/post-list-box/includes/class-admin-ui.php:691
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "Chọn Hình ảnh"
+
+#: addons/post-list-box/includes/class-admin-ui.php:695
+msgid "Remove"
+msgstr "Xóa"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "Hộp Chứa"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "Bài viết"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38
+msgid "Layout"
+msgstr "Bố cục"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#, php-format
+msgid "New %1s"
+msgstr "Mới %1s"
+
+#: addons/post-list-box/includes/class-post-type.php:34
+#, php-format
+msgid "Add New %1$s"
+msgstr "Thêm Mới %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#, php-format
+msgid "Edit %1$s"
+msgstr "Chỉnh sửa %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:36
+#, php-format
+msgid "New %1$s"
+msgstr "Mới %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:37
+#, fuzzy, php-format
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:38
+#, php-format
+msgid "View %1$s"
+msgstr "Xem %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:39
+#, php-format
+msgid "Search %2$s"
+msgstr "Tìm kiếm %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#, php-format
+msgid "No %2$s found"
+msgstr "Không tìm thấy %2$s nào"
+
+#: addons/post-list-box/includes/class-post-type.php:41
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "Không tìm thấy %2$s nào trong Thùng rác"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s Hình ảnh"
+
+#: addons/post-list-box/includes/class-post-type.php:45
+#, php-format
+msgid "Set %1$s Image"
+msgstr "Đặt Hình ảnh %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "Xóa Hình ảnh %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:47
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "Sử dụng làm Hình ảnh %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:48
+#, php-format
+msgid "Filter %2$s list"
+msgstr "Lọc danh sách %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:49
+#, php-format
+msgid "%2$s list navigation"
+msgstr "Điều hướng danh sách %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#, php-format
+msgid "%2$s list"
+msgstr "Danh sách %2$s"
+
+#: addons/post-list-box/includes/class-preview.php:98
+#, php-format
+msgid "Sample Post %d"
+msgstr "Mẫu Bài viết %d"
+
+#: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"Đây là nội dung mẫu cho bài viết %d trong loạt bài. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "Đây là đoạn trích mẫu cho bài viết %d trong loạt bài."
+
+#: addons/post-list-box/includes/class-preview.php:504
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "Tác giả"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "Hộp danh sách Mặc định"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "Hộp Kiểu Lưới"
+
+#: addons/post-list-box/post-list-box.php:108
+msgid "Simple List Box"
+msgstr "Hộp Danh sách Đơn giản"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "Điều hướng bị ẩn (loạt bài chỉ có một bài viết)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "Trang Chủ Loạt bài"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:144
+#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "Trước"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:259
+#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: orgSeries-utility.php:310
+msgid "Post Navigation"
+msgstr "Điều hướng Bài viết"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "Xem trước Điều hướng Bài viết Loạt bài"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "Trình chỉnh sửa điều hướng bài viết chuỗi"
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "Không tìm thấy chuỗi nào. Tạo một chuỗi để xem trước điều hướng."
+
+#: addons/post-navigation/includes/class-admin-ui.php:184
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"Chèn vào bài viết hoặc trang để hiển thị điều hướng bài viết chuỗi này thủ "
+"công."
+
+#: addons/post-navigation/includes/class-admin-ui.php:192
+msgid "Default Navigation"
+msgstr "Điều hướng mặc định"
+
+#: addons/post-navigation/includes/class-admin-ui.php:414
+msgid "Change Image"
+msgstr "Thay đổi hình ảnh"
+
+#: addons/post-navigation/includes/class-admin-ui.php:422
+msgid "Remove Image"
+msgstr "Xóa hình ảnh"
+
+#: addons/post-navigation/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:129
+msgid "No posts found in series to preview."
+msgstr "Không tìm thấy bài viết nào trong chuỗi để xem trước."
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "Mục"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "Bao gồm tiêu đề chuỗi"
+
+#: addons/post-navigation/includes/class-fields.php:96
+msgid "Link Series Title"
+msgstr "Liên kết tiêu đề chuỗi"
+
+#: addons/post-navigation/includes/class-fields.php:101
+msgid "Link the series title to the series archive page"
+msgstr "Liên kết tiêu đề chuỗi đến trang lưu trữ chuỗi"
+
+#: addons/post-navigation/includes/class-fields.php:106
+msgid "Series Title Alignment"
+msgstr "Căn chỉnh tiêu đề chuỗi"
+
+#: addons/post-navigation/includes/class-fields.php:110
+#: addons/post-navigation/includes/class-fields.php:181
+#: addons/post-navigation/includes/class-fields.php:232
+#: addons/post-navigation/includes/class-fields.php:296
+#: addons/post-navigation/includes/class-fields.php:424
+msgid "Left"
+msgstr "Trái"
+
+#: addons/post-navigation/includes/class-fields.php:111
+msgid "Center"
+msgstr "Giữa"
+
+#: addons/post-navigation/includes/class-fields.php:112
+#: addons/post-navigation/includes/class-fields.php:182
+#: addons/post-navigation/includes/class-fields.php:233
+#: addons/post-navigation/includes/class-fields.php:297
+#: addons/post-navigation/includes/class-fields.php:425
+msgid "Right"
+msgstr "Phải"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "Màu tiêu đề chuỗi"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Hide When Single Post"
+msgstr "Ẩn khi xem bài viết đơn"
+
+#: addons/post-navigation/includes/class-fields.php:130
+msgid "Do not display navigation if series has only one post"
+msgstr "Không hiển thị điều hướng nếu chuỗi chỉ có một bài viết"
+
+#: addons/post-navigation/includes/class-fields.php:148
+msgid "Previous Navigation Type"
+msgstr "Loại điều hướng trước"
+
+#: addons/post-navigation/includes/class-fields.php:152
+#: addons/post-navigation/includes/class-fields.php:267
+#: addons/post-navigation/includes/class-fields.php:382
+msgid "None"
+msgstr "Không có"
+
+#: addons/post-navigation/includes/class-fields.php:153
+msgid "Previous Post Title"
+msgstr "Tiêu đề Bài viết Trước"
+
+#: addons/post-navigation/includes/class-fields.php:154
+#: addons/post-navigation/includes/class-fields.php:269
+#: addons/post-navigation/includes/class-fields.php:384
+msgid "Custom Label"
+msgstr "Nhãn Tùy chỉnh"
+
+#: addons/post-navigation/includes/class-fields.php:158
+msgid "Choose how to display the previous navigation"
+msgstr "Chọn cách hiển thị điều hướng trước"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Previous Label"
+msgstr "Nhãn Trước"
+
+#: addons/post-navigation/includes/class-fields.php:166
+msgid "Custom text for previous post link"
+msgstr "Văn bản tùy chỉnh cho liên kết bài viết trước"
+
+#: addons/post-navigation/includes/class-fields.php:174
+msgid "Display featured image for previous post"
+msgstr "Hiển thị hình ảnh nổi bật cho bài viết trước"
+
+#: addons/post-navigation/includes/class-fields.php:177
+#: addons/post-navigation/includes/class-fields.php:292
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Image Position"
+msgstr "Vị trí Hình ảnh"
+
+#: addons/post-navigation/includes/class-fields.php:186
+msgid "Position of the featured image relative to the navigation"
+msgstr "Vị trí của hình ảnh nổi bật so với điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:189
+#: addons/post-navigation/includes/class-fields.php:304
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Image Width (px)"
+msgstr "Chiều rộng Hình ảnh (px)"
+
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Image Height (px)"
+msgstr "Chiều cao Hình ảnh (px)"
+
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+msgid "Show Arrow"
+msgstr "Hiển thị Mũi tên"
+
+#: addons/post-navigation/includes/class-fields.php:210
+msgid "Display an arrow icon with the previous navigation"
+msgstr "Hiển thị biểu tượng mũi tên với điều hướng trước"
+
+#: addons/post-navigation/includes/class-fields.php:213
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Arrow Type"
+msgstr "Loại Mũi tên"
+
+#: addons/post-navigation/includes/class-fields.php:217
+msgid "Chevron Left (‹)"
+msgstr "Mũi tên Chevron Trái (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:218
+msgid "Arrow Left (←)"
+msgstr "Mũi tên Trái (←)"
+
+#: addons/post-navigation/includes/class-fields.php:219
+msgid "Double Chevron Left («)"
+msgstr "Mũi tên Chevron Đôi Trái («)"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Triangle Left (◄)"
+msgstr "Mũi tên Tam giác Trái (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Custom Image"
+msgstr "Hình ảnh Tùy chỉnh"
+
+#: addons/post-navigation/includes/class-fields.php:225
+#: addons/post-navigation/includes/class-fields.php:340
+msgid "Choose the arrow icon style"
+msgstr "Chọn kiểu biểu tượng mũi tên"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Arrow Position"
+msgstr "Vị trí Mũi tên"
+
+#: addons/post-navigation/includes/class-fields.php:237
+msgid "Position of the arrow relative to the navigation"
+msgstr "Vị trí của mũi tên so với điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:240
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Arrow Size (px)"
+msgstr "Kích thước mũi tên (px)"
+
+#: addons/post-navigation/includes/class-fields.php:247
+#: addons/post-navigation/includes/class-fields.php:362
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr ""
+"Kích thước của biểu tượng mũi tên tính bằng pixel (áp dụng cho cả chiều "
+"rộng và chiều cao)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Custom Arrow Image"
+msgstr "Hình ảnh mũi tên tùy chỉnh"
+
+#: addons/post-navigation/includes/class-fields.php:255
+#: addons/post-navigation/includes/class-fields.php:370
+msgid "Select custom arrow image from media library"
+msgstr "Chọn hình ảnh mũi tên tùy chỉnh từ thư viện phương tiện"
+
+#: addons/post-navigation/includes/class-fields.php:263
+msgid "Next Navigation Type"
+msgstr "Loại điều hướng tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:268
+msgid "Next Post Title"
+msgstr "Tiêu đề bài viết tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:273
+msgid "Choose how to display the next post link"
+msgstr "Chọn cách hiển thị liên kết bài viết tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Next Label"
+msgstr "Nhãn tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:281
+msgid "Custom text for next post link"
+msgstr "Văn bản tùy chỉnh cho liên kết bài viết tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:289
+msgid "Display featured image for next post"
+msgstr "Hiển thị hình ảnh nổi bật cho bài viết tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:301
+msgid "Position of the featured image relative to navigation"
+msgstr "Vị trí của hình ảnh nổi bật so với điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:325
+msgid "Display an arrow icon with the next navigation"
+msgstr "Hiển thị biểu tượng mũi tên với điều hướng tiếp theo"
+
+#: addons/post-navigation/includes/class-fields.php:332
+msgid "Chevron Right (›)"
+msgstr "Mũi tên phải (›)"
+
+#: addons/post-navigation/includes/class-fields.php:333
+msgid "Arrow Right (→)"
+msgstr "Mũi tên phải (→)"
+
+#: addons/post-navigation/includes/class-fields.php:334
+msgid "Double Chevron Right (»)"
+msgstr "Mũi tên kép phải (»)"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Triangle Right (►)"
+msgstr "Mũi tên tam giác phải (►)"
+
+#: addons/post-navigation/includes/class-fields.php:347
+msgid "Left of Text"
+msgstr "Bên trái văn bản"
+
+#: addons/post-navigation/includes/class-fields.php:348
+msgid "Right of Text"
+msgstr "Bên phải văn bản"
+
+#: addons/post-navigation/includes/class-fields.php:352
+msgid "Position of the arrow relative to the link text"
+msgstr "Vị trí của mũi tên so với văn bản liên kết"
+
+#: addons/post-navigation/includes/class-fields.php:374
+msgid "First"
+msgstr "Đầu tiên"
+
+#: addons/post-navigation/includes/class-fields.php:378
+msgid "First Navigation Type"
+msgstr "Loại Điều Hướng Đầu Tiên"
+
+#: addons/post-navigation/includes/class-fields.php:383
+msgid "First Post Title"
+msgstr "Tiêu Đề Bài Viết Đầu Tiên"
+
+#: addons/post-navigation/includes/class-fields.php:388
+msgid "Choose how to display the first navigation"
+msgstr "Chọn cách hiển thị điều hướng đầu tiên"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "First Label"
+msgstr "Nhãn Đầu Tiên"
+
+#: addons/post-navigation/includes/class-fields.php:395
+msgid "Go to First"
+msgstr "Đi tới Đầu Tiên"
+
+#: addons/post-navigation/includes/class-fields.php:396
+msgid "Custom text for first navigation"
+msgstr "Văn bản tùy chỉnh cho điều hướng đầu tiên"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "First Navigation Position"
+msgstr "Vị trí Điều Hướng Đầu Tiên"
+
+#: addons/post-navigation/includes/class-fields.php:403
+msgid "Left (First → Previous → Next)"
+msgstr "Trái (Đầu Tiên → Trước → Tiếp)"
+
+#: addons/post-navigation/includes/class-fields.php:404
+msgid "Center (Previous → First → Next)"
+msgstr "Giữa (Trước → Đầu Tiên → Tiếp)"
+
+#: addons/post-navigation/includes/class-fields.php:405
+msgid "Right (Previous → Next → First)"
+msgstr "Phải (Trước → Tiếp → Đầu Tiên)"
+
+#: addons/post-navigation/includes/class-fields.php:409
+msgid "Position of the first/series home link in navigation"
+msgstr "Vị trí của liên kết về nhà đầu tiên/chuỗi trong điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:417
+msgid "Display featured image for first post"
+msgstr "Hiển thị hình ảnh nổi bật cho bài viết đầu tiên"
+
+#: addons/post-navigation/includes/class-fields.php:429
+msgid "Position of the featured image relative to the link text"
+msgstr "Vị trí của hình ảnh nổi bật so với văn bản liên kết"
+
+#: addons/post-navigation/includes/class-fields.php:449
+msgid "Color"
+msgstr "Màu sắc"
+
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Gap Between Links (px)"
+msgstr "Khoảng cách giữa các liên kết (px)"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Space between navigation links"
+msgstr "Không gian giữa các liên kết điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:540
+msgid "Container Style"
+msgstr "Phong cách Container"
+
+#: addons/post-navigation/includes/class-fields.php:544
+msgid "Container Background Color"
+msgstr "Màu Nền Container"
+
+#: addons/post-navigation/includes/class-fields.php:549
+msgid "Background color for the navigation container"
+msgstr "Màu nền cho container điều hướng"
+
+#: addons/post-navigation/includes/class-fields.php:552
+msgid "Container Border Color"
+msgstr "Màu viền của Container"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Container Border Width (px)"
+msgstr "Độ rộng viền của Container (px)"
+
+#: addons/post-navigation/includes/class-fields.php:568
+msgid "Container Border Radius (px)"
+msgstr "Bán kính viền của Container (px)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Container Padding (px)"
+msgstr "Khoảng cách bên trong của Container (px)"
+
+#: addons/post-navigation/includes/class-fields.php:584
+msgid "Inner spacing for the container"
+msgstr "Khoảng cách bên trong cho container"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "Điều hướng Bài viết Chuỗi"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "Thêm Điều hướng Bài viết Chuỗi Mới"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "Điều hướng Bài viết Chuỗi Mới"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "Chỉnh sửa Điều hướng Bài viết Chuỗi"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "Xem Điều hướng Bài viết Chuỗi"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "Tất cả Điều hướng Bài viết Chuỗi"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "Tìm kiếm Điều hướng Bài viết Chuỗi"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "Không tìm thấy Điều hướng Bài viết Chuỗi."
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "Không tìm thấy Điều hướng Bài viết Chuỗi trong Thùng rác."
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "Tạo một chuỗi để xem trước điều hướng."
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "Tạo bài viết trong một chuỗi để xem trước điều hướng."
+
+#: addons/post-navigation/includes/class-utilities.php:174
+msgid "Sample series for preview purposes"
+msgstr "Chuỗi mẫu cho mục đích xem trước"
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "Lỗi khi cập nhật xem trước."
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "Điều hướng Đơn giản"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "Điều hướng Nút"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "Điều hướng Hình ảnh"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "Danh mục"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "Thẻ"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "Trạng thái"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "Phần hiện tại"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+#: addons/publisher/series-part-post-table.php:146
+msgid "View"
+msgstr "Xem"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "Thùng rác"
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "Không có bài viết nào được xuất bản trong chuỗi này."
+
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(Hiện tại không có số phần nào)"
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "Xem trước"
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "Không có bài viết chưa xuất bản nào trong chuỗi này."
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "Không có Số phần"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "Tất cả Danh mục"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "Lọc"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "Quản lý Chuỗi"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Chuỗi"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "Xuất bản Chuỗi"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "Xem từ phía trước"
+
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "Chỉnh sửa trạng thái của %1$s"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "Thứ tự chuỗi"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "Xuất bản hoặc lên lịch bài viết"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "Xem chuỗi ở giao diện người dùng"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "Bạn không có chuỗi nào có sẵn."
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "Thêm chuỗi mới."
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "Tạo dưới dạng chưa xuất bản:"
+
+#: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"Khi được chọn, tất cả các bài viết bạn gán cho chuỗi này sẽ vẫn chưa được "
+"xuất bản cho đến khi bạn xuất bản toàn bộ chuỗi."
+
+#: addons/publisher/series_issue_manager.php:290
+msgid "The posts in your series were successfully unpublished."
+msgstr "Các bài viết trong chuỗi của bạn đã được bỏ xuất bản thành công."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "Chúc mừng. Thứ tự chuỗi của bạn đã được cập nhật thành công."
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "Chúc mừng. Các bài viết của bạn đã được xuất bản thành công."
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "Bài viết đã được chuyển vào Thùng rác."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "Chúc mừng. Các bài viết của bạn đã được lên lịch thành công."
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "Quản lý Vấn đề Chuỗi"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "Số lượng mục trên trang"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "Xuất bản Chuỗi:"
+
+#: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Kết quả tìm kiếm cho &#8220;%s&#8221;"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "Ngày/Thời gian Xuất bản:"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "Cập nhật Thứ tự"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "Thứ tự Chuỗi:"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"Kéo tên bài viết vào thứ tự bạn muốn chúng xuất hiện trong chuỗi, từ phần "
+"đầu đến phần cuối."
+
+#: addons/publisher/series_issue_manager.php:867
+msgid "Unpublished posts in series:"
+msgstr "Bài viết chưa công bố trong chuỗi:"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr ""
+"Khi các bài viết này được công bố, chúng sẽ được thêm vào sau bài viết hiện "
+"tại cuối cùng trong chuỗi."
+
+#: addons/publisher/series_issue_manager.php:901
+msgid "Unpublished Posts"
+msgstr "Bài viết chưa công bố"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "Công bố bài viết chưa công bố"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "Thứ tự chuỗi chưa công bố"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "Tùy chọn Plugin Chuỗi PublishPress"
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "Html cho phép"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "Tổng quan"
+
+#: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"Dưới đây là một chú giải về các token có sẵn để sử dụng trong các trường "
+"mẫu tùy chỉnh. Những token này sẽ được thay thế bằng các giá trị thích hợp "
+"khi plugin chạy."
+
+#: inc/settings/settings-page.php:68
+msgid "This will be replaced with the series icon for a series."
+msgstr "Điều này sẽ được thay thế bằng biểu tượng chuỗi cho một chuỗi."
+
+#: inc/settings/settings-page.php:76
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr ""
+"Giống như %series_icon% ngoại trừ việc biểu tượng chuỗi sẽ được liên kết "
+"với trang chuỗi"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"Token này chỉ được sử dụng với widget orgSeries - nó tham chiếu đến nơi bạn "
+"muốn danh sách tiêu đề chuỗi được chèn vào và yêu cầu mẫu cho mỗi tiêu đề "
+"chuỗi cũng phải được thiết lập."
+
+#: inc/settings/settings-page.php:92
+msgid "This will be replaced with the title of a series"
+msgstr "Điều này sẽ được thay thế bằng tiêu đề của một chuỗi"
+
+#: inc/settings/settings-page.php:100
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr ""
+"Giống như %series_title% ngoại trừ việc nó cũng sẽ được liên kết với trang "
+"chuỗi"
+
+#: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr ""
+"Là token vị trí cho nơi nội dung của các mẫu danh sách bài viết sẽ xuất "
+"hiện."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"Là token vị trí cho nơi nội dung của các mẫu danh sách bài viết sẽ xuất "
+"hiện và sử dụng tiêu đề ngắn bài viết được cung cấp."
+
+#: inc/settings/settings-page.php:124
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "Sẽ được thay thế bằng tiêu đề bài viết của một bài trong chuỗi"
+
+#: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+"Sẽ được thay thế bằng tiêu đề bài viết của một bài trong chuỗi được liên "
+"kết với trang xem của bài viết đó."
+
+#: inc/settings/settings-page.php:140
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "Sẽ được thay thế bằng tiêu đề ngắn của một bài trong chuỗi"
+
+#: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"Sẽ được thay thế bằng tiêu đề ngắn của một bài viết trong chuỗi liên kết "
+"với trang xem của bài viết đó."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"Sẽ được thay thế bằng liên kết điều hướng cho bài viết trước trong một "
+"chuỗi. Văn bản sẽ là bất kỳ nội dung nào có trong trường 'Văn Bản Điều "
+"Hướng Bài Viết Trước Tùy Chỉnh'. Nếu trường đó trống thì văn bản sẽ là tiêu "
+"đề của bài viết"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"Sẽ được thay thế bằng liên kết điều hướng cho bài viết tiếp theo trong một "
+"chuỗi. Văn bản sẽ là bất kỳ nội dung nào có trong trường 'Văn Bản Điều "
+"Hướng Bài Viết Tiếp Theo Tùy Chỉnh'. Nếu trường đó trống thì văn bản sẽ là "
+"tiêu đề của bài viết"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"Sẽ được thay thế bằng liên kết điều hướng cho bài viết đầu tiên trong một "
+"chuỗi. Văn bản sẽ là bất kỳ nội dung nào có trong trường 'Văn Bản Điều "
+"Hướng Bài Viết Đầu Tiên Tùy Chỉnh'. Nếu trường đó trống thì văn bản sẽ là "
+"tiêu đề của bài viết"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"Sử dụng thẻ này trước hoặc sau phần còn lại của mã mẫu. Nó sẽ chỉ ra nơi "
+"bạn muốn nội dung của một bài viết hiển thị."
+
+#: inc/settings/settings-page.php:187
+msgid "Will display what part of a series the post is"
+msgstr "Sẽ hiển thị phần nào của một chuỗi mà bài viết đang ở"
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "Sẽ hiển thị tổng số bài viết trong một chuỗi"
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "Sẽ hiển thị mô tả cho chuỗi"
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "Sẽ in ra slug của chuỗi"
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "Sẽ in ra ID của chuỗi"
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "Sẽ in ra tác giả của bài viết"
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "Nếu bài viết có hình ảnh đặc trưng thì hình ảnh đó sẽ được hiển thị"
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "Ngày mà một bài viết được xuất bản"
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr ""
+"Sẽ được thay thế bằng tiêu đề bài viết chưa xuất bản của một bài viết trong "
+"chuỗi"
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "Sẽ hiển thị tổng số bài viết đã xuất bản và chưa xuất bản trong một chuỗi"
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "Cập nhật tùy chọn"
+
+#: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Nhấn Có sẽ đặt lại các tùy chọn về mặc định và bạn sẽ mất tất cả các tùy "
+"chỉnh. Hoặc bạn có thể nhấn hủy và quay lại."
+
+#: inc/settings/settings-page.php:309
+msgid "No"
+msgstr "Không"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "Có"
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "Vui lòng cập nhật dữ liệu Chuỗi PublishPress của bạn"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"Chúng tôi đã thực hiện thay đổi cách lưu trữ các chuỗi và điều này yêu cầu "
+"một bản cập nhật nhỏ. Điều này cải thiện hỗ trợ cho tính năng Nhiều Chuỗi, "
+"và giải quyết một số vấn đề với thứ tự của các bài viết. Vui lòng nhấn nút "
+"này để nâng cấp."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
+msgid "Update Series data"
+msgstr "Cập nhật dữ liệu Chuỗi"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "Nâng cấp Chuỗi hoàn tất."
+
+#: inc/settings/settings-upgrade.php:174
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "Đồng bộ thứ tự Chuỗi hoàn tất. %d bài viết đã được cập nhật."
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:259
+msgid "Search Series"
+msgstr "Tìm kiếm Chuỗi"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:260
+msgid "Popular Series"
+msgstr "Chuỗi Phổ biến"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
+msgid "All Series"
+msgstr "Tất cả các Chuỗi"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:262
+msgid "Edit Series"
+msgstr "Chỉnh sửa Chuỗi"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:263
+msgid "Update Series"
+msgstr "Cập nhật Chuỗi"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:264
+msgid "Add New Series"
+msgstr "Thêm Chuỗi Mới"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:265
+msgid "New Series Name"
+msgstr "Tên Chuỗi Mới"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:267
+msgid "No series found"
+msgstr "Không tìm thấy chuỗi nào"
+
+#: inc/settings/settings-validation.php:121
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s chuỗi đã được di chuyển từ \"%2$s\" đến \"%3$s\" taxonomy. Cài đặt đã "
+"được cập nhật."
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "Tùy chọn Plugin Chuỗi PublishPress đã được cập nhật"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "Quyền truy cập bị từ chối"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "Tùy chọn Plugin Chuỗi PublishPress đã được ĐẶT LẠI"
+
+#: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"Vui lòng thay đổi các cài đặt này cẩn thận vì chúng tạo ra những thay đổi "
+"đáng kể cho Chuỗi PublishPress."
+
+#: inc/settings/tab-advanced.php:34
+msgid "Series Settings"
+msgstr "Cài đặt Chuỗi"
+
+#: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "Xóa tất cả dữ liệu Chuỗi PublishPress khỏi cơ sở dữ liệu khi xóa plugin này."
+
+#: inc/settings/tab-advanced.php:47
+msgid "Series Upgrade"
+msgstr "Nâng cấp Chuỗi"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "Chạy tác vụ nâng cấp"
+
+#: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"Trong phiên bản 2.11.4, PublishPress Series đã thực hiện thay đổi cách lưu "
+"trữ các phần series. Bạn có thể chạy tác vụ nâng cấp ở đây nếu bạn gặp sự "
+"cố với các phần của series."
+
+#: inc/settings/tab-advanced.php:65
+msgid "Sync Series Order to Menu Order"
+msgstr "Đồng bộ thứ tự Series với thứ tự Menu"
+
+#: inc/settings/tab-advanced.php:70
+msgid "Sync to Menu Order"
+msgstr "Đồng bộ với thứ tự Menu"
+
+#: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"Điều này sẽ đồng bộ tất cả các số phần series với trường menu_order của "
+"WordPress. Hữu ích cho các chủ đề/trình tạo trang chỉ có thể sắp xếp theo "
+"thứ tự menu (Thuộc tính Trang: Thứ tự). Điều này cho phép bạn sử dụng thứ "
+"tự WordPress gốc thay vì các trường tùy chỉnh."
+
+#: inc/settings/tab-advanced.php:83
+msgid "Reset settings"
+msgstr "Đặt lại cài đặt"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "Đặt lại tùy chọn về mặc định"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144
+msgid "Legacy"
+msgstr "Di sản"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "Cài đặt Di sản"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "Mặc định"
+
+#: inc/settings/tab-legacy.php:36
+msgid "CSS Styles"
+msgstr "Kiểu CSS"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "Sử dụng kiểu CSS của PublishPress Series?"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "Tùy chọn kiểu"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "Sử dụng kiểu mặc định"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "Sử dụng kiểu hộp"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "Sử dụng kiểu tối"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "Sử dụng kiểu sáng"
+
+#: inc/settings/tab-legacy.php:60
+msgid "Series Overview"
+msgstr "Tổng quan về Series"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Chọn thiết kế cho trang phân loại nơi một Series đơn lẻ được hiển thị."
+
+#: inc/settings/tab-legacy.php:66
+msgid "Layout:"
+msgstr "Bố cục:"
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"Chọn một bố cục khác với \"Mặc định\" sẽ ghi đè mẫu taxonomy từ chủ đề của "
+"bạn. <a href=\"%s\" target=\"_blank\">Nhấn vào đây để biết chi tiết về cách "
+"tùy chỉnh các thiết kế này</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
+msgid "Columns:"
+msgstr "Cột:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "Sắp xếp series theo:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "Phần series"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "Sắp xếp theo ngày"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "Phương thức sắp xếp series"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:485
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "Mục lục Series"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "URL Mục lục Series:"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "xem trang"
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"Bạn phải %1s cập nhật cấu trúc permalink của bạn %2s thành một thứ gì đó "
+"khác với \"Plain\" để URL Mục lục Series hoạt động."
+
+#: inc/settings/tab-legacy.php:154
+msgid "Series Per Page:"
+msgstr "Series Mỗi Trang:"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "Tiêu đề Mục lục Series:"
+
+#: inc/settings/tab-legacy.php:168
+msgid "Series Icons"
+msgstr "Biểu tượng Series"
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "Chiều rộng cho biểu tượng trên trang mục lục series (tính bằng pixel)"
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "Chiều rộng cho biểu tượng trên trang bài viết (tính bằng pixel)."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr ""
+"Chiều rộng cho biểu tượng nếu hiển thị qua mẫu series mới nhất (tính bằng "
+"pixel)."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "Series Mới Nhất"
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "Hiển thị này được sử dụng bởi widget \"Series Mới Nhất\"."
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "Series Mới Nhất (thẻ trước):"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "Series Mới Nhất (thẻ bên trong):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "Chuỗi mới nhất (nhãn sau):"
+
+#: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr "Màn hình này được sử dụng bởi widget \"Mục lục Series\", shortcode và URL."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"Màn hình này được sử dụng bởi \"Mục lục Series\". Để tìm URL cho màn hình "
+"này, hãy đi đến tab \"Hiển thị\" và sau đó \"URL Mục lục Series\"."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "Cài đặt này cho phép bạn tùy chỉnh metabox trên màn hình chỉnh sửa bài viết."
+
+#: inc/settings/tab-metabox.php:26
+msgid "Default Series Order"
+msgstr "Thứ tự Series Mặc định"
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "Theo bảng chữ cái A-Z"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "Theo bảng chữ cái Z-A"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "Hiển thị \"Thêm mới\""
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "Hiển thị \"Tiêu đề bài viết trong widget\""
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "Thứ tự Metabox Series"
+
+#: inc/settings/tab-post-details.php:12
+msgid "Post Details Settings"
+msgstr "Cài đặt Chi tiết Bài viết"
+
+#: inc/settings/tab-post-details.php:16
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr ""
+"Cấu hình hiển thị Chi tiết Bài viết Series cho các bài viết trong một "
+"series."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "Như trong Mẫu"
+
+#: inc/settings/tab-post-details.php:36
+msgid "Display Series Post Details?"
+msgstr "Hiển thị Chi tiết Bài viết Series?"
+
+#: inc/settings/tab-post-details.php:41
+msgid "Post Details Selection"
+msgstr "Lựa chọn Chi tiết Bài viết"
+
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43
+msgid "Edit this layout"
+msgstr "Chỉnh sửa bố cục này"
+
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44
+msgid "Loading…"
+msgstr "Đang tải…"
+
+#: inc/settings/tab-post-details.php:51
+msgid "Post Details Position"
+msgstr "Vị trí Chi tiết Bài viết"
+
+#: inc/settings/tab-post-details.php:66
+msgid "Series Meta Template"
+msgstr "Mẫu Meta Series"
+
+#: inc/settings/tab-post-details.php:71
+msgid "Series Meta (with excerpts)"
+msgstr "Meta Series (với đoạn trích)"
+
+#: inc/settings/tab-post-details.php:76
+msgid "Limit to single page only"
+msgstr "Giới hạn chỉ một trang"
+
+#: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr ""
+"Có giới hạn hiển thị meta chuỗi chỉ một trang hay bao gồm trang lưu trữ "
+"không."
+
+#: inc/settings/tab-post-list-box.php:12
+msgid "Post List Box Settings"
+msgstr "Cài đặt Hộp Danh Sách Bài Viết"
+
+#: inc/settings/tab-post-list-box.php:16
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr ""
+"Cấu hình Hộp Danh Sách Bài Viết hiển thị tất cả các bài viết trong một "
+"chuỗi."
+
+#: inc/settings/tab-post-list-box.php:36
+msgid "Display Post List Boxes?"
+msgstr "Hiển thị Hộp Danh Sách Bài Viết?"
+
+#: inc/settings/tab-post-list-box.php:41
+msgid "Post List Boxes Selection"
+msgstr "Lựa chọn Hộp Danh Sách Bài Viết"
+
+#: inc/settings/tab-post-list-box.php:43
+msgid "Edit this box"
+msgstr "Chỉnh sửa hộp này"
+
+#: inc/settings/tab-post-list-box.php:51
+msgid "Post List Box Position"
+msgstr "Vị trí Hộp Danh Sách Bài Viết"
+
+#: inc/settings/tab-post-list-box.php:66
+msgid "Series Post List Template"
+msgstr "Mẫu Danh Sách Bài Viết Chuỗi"
+
+#: inc/settings/tab-post-list-box.php:70
+msgid "Post Title (Linked Post)"
+msgstr "Tiêu đề Bài Viết (Bài Viết Liên Kết)"
+
+#: inc/settings/tab-post-list-box.php:75
+msgid "Post Title (Current Post)"
+msgstr "Tiêu đề Bài Viết (Bài Viết Hiện Tại)"
+
+#: inc/settings/tab-post-navigation.php:11
+msgid "Navigation"
+msgstr "Điều hướng"
+
+#: inc/settings/tab-post-navigation.php:12
+msgid "Navigation Settings"
+msgstr "Cài đặt Điều Hướng"
+
+#: inc/settings/tab-post-navigation.php:16
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "Cấu hình hiển thị Điều Hướng Chuỗi trên các bài viết trong một chuỗi."
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "Hiển thị Điều Hướng Chuỗi?"
+
+#: inc/settings/tab-post-navigation.php:41
+msgid "Navigation Selection"
+msgstr "Lựa chọn Điều Hướng"
+
+#: inc/settings/tab-post-navigation.php:51
+msgid "Navigation Position"
+msgstr "Vị trí Điều Hướng"
+
+#: inc/settings/tab-post-navigation.php:66
+msgid "Navigation Template"
+msgstr "Mẫu Điều Hướng"
+
+#: inc/settings/tab-post-navigation.php:71
+msgid "Next Post Text"
+msgstr "Văn bản Bài Viết Tiếp Theo"
+
+#: inc/settings/tab-post-navigation.php:76
+msgid "Previous Post Text"
+msgstr "Văn bản Bài Viết Trước"
+
+#: inc/settings/tab-post-navigation.php:81
+msgid "First Post Text"
+msgstr "Văn bản Bài đăng đầu tiên"
+
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Hỗ trợ Post Type tùy chỉnh"
+
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "Bật PublishPress Series cho các post type tùy chỉnh."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Tính năng Pro"
+
+#: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr ""
+"Các cài đặt này cho phép bạn bật hoặc tắt các tính năng trong PublishPress "
+"Series Pro."
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Cho phép các post type tùy chỉnh được sử dụng với PublishPress Series."
+
+#: inc/settings/tab-pro-features.php:28, fuzzy
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "Cung cấp shortcodes để hiển thị thông tin series."
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "Mã thông báo bổ sung"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Cung cấp mã thông báo bổ sung để tùy chỉnh đầu ra của thông tin series."
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "Nhiều series"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "Cho phép tác giả thêm bài viết vào nhiều series hơn một."
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142
+msgid "Series Category"
+msgstr "Danh mục Series"
+
+#: inc/settings/tab-series-category.php:13
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr "Cài đặt cho URL lưu trữ Danh mục Series và hành vi hiển thị."
+
+#: inc/settings/tab-series-category.php:26
+msgid "Series Categories URL Base:"
+msgstr "URL cơ sở Danh mục Series:"
+
+#: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"Văn bản này sẽ được sử dụng trong các URL lưu trữ Danh mục Series. Nếu bạn "
+"thay đổi nó, các URL cũ sẽ được chuyển hướng tới cơ sở mới."
+
+#: inc/settings/tab-series-category.php:36
+msgid "Series Categories Archive Template:"
+msgstr "Mẫu lưu trữ Danh mục Series:"
+
+#: inc/settings/tab-series-category.php:39
+msgid "Use template from Theme"
+msgstr "Sử dụng mẫu từ Chủ đề"
+
+#: inc/settings/tab-series-category.php:40
+msgid "Use template from Plugin"
+msgstr "Sử dụng mẫu từ Plugin"
+
+#: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"Mẫu chủ đề sử dụng cấu trúc mẫu chủ đề đang hoạt động của bạn. Mẫu plugin "
+"sử dụng thiết kế dự phòng của PublishPress Series khi chủ đề của bạn không "
+"cung cấp taxonomy-series_group.php."
+
+#: inc/settings/tab-series-category.php:49
+msgid "Plugin Template Display Options:"
+msgstr "Tùy chọn hiển thị mẫu Plugin:"
+
+#: inc/settings/tab-series-category.php:53
+msgid "Show Series Icon"
+msgstr "Hiển thị biểu tượng Series"
+
+#: inc/settings/tab-series-category.php:58
+msgid "Show Series Description"
+msgstr "Hiển thị mô tả Series"
+
+#: inc/settings/tab-series-category.php:63
+msgid "Show Posts in each Series as list items"
+msgstr "Hiển thị các bài viết trong mỗi Series dưới dạng mục danh sách"
+
+#: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"Tính năng này cho phép bạn tạo một taxonomy mới để plugin này sử dụng nếu "
+"bạn không muốn sử dụng taxonomy mặc định \"Series\"."
+
+#: inc/settings/tab-taxonomy.php:28
+msgid "Series Taxonomy Slug:"
+msgstr "Slug Taxonomy Series:"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "Văn bản này sẽ là một phần của URL cơ sở của series."
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "Taxonomy Series:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr "Để tạo một taxonomy mới, nhập tên mới và nhấn nút \"Cập nhật tùy chọn\"."
+
+#: inc/settings/tab-taxonomy.php:47
+msgid "Migrate Terms"
+msgstr "Di chuyển Thuật ngữ"
+
+#: inc/settings/tab-taxonomy.php:53
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr "Tự động di chuyển các thuật ngữ series hiện có sang taxonomy mới"
+
+#: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"Nếu được chọn, tất cả các thuật ngữ từ taxonomy hiện tại sẽ được di chuyển "
+"sang taxonomy mới khi bạn thay đổi slug taxonomy. Nếu không được chọn, chỉ "
+"slug taxonomy sẽ được thay đổi."
+
+#: inc/templates/taxonomy-series.php:70
+msgid "Sorry, no results found."
+msgstr "Xin lỗi, không tìm thấy kết quả nào."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"Bạn đang sử dụng PublishPress Series Free. Phiên bản Pro có nhiều tính năng "
+"và hỗ trợ hơn. %sNâng cấp lên Pro%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
+msgid "Upgrade to Pro"
+msgstr "Nâng cấp lên Pro"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "Cần hỗ trợ PublishPress Series?"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Nếu bạn cần trợ giúp hoặc có yêu cầu tính năng mới, hãy cho chúng tôi biết."
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "Yêu cầu Hỗ trợ"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Tài liệu chi tiết cũng có sẵn trên trang web của plugin."
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "Xem Cơ sở Kiến thức"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "Đã xảy ra lỗi"
+
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s chuỗi đã được chuyển sang taxonomy mới"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "Nếu bạn thích %s, vui lòng để lại cho chúng tôi một đánh giá %s. Cảm ơn bạn!"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "Giới thiệu về PublishPress Series"
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "Giới thiệu"
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "Tài liệu về PublishPress Series"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "Tài liệu"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "Liên hệ với đội ngũ PublishPress"
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "Liên hệ"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "Xin lỗi nhưng bạn không có quyền thêm chuỗi"
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "Tên bạn chọn không được làm sạch đúng cách. Hãy thử một cái gì đó khác."
+
+#: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "Hmm... có vẻ như đã có một chuỗi với tên đó. Hãy thử cái khác"
+
+#: orgSeries-admin.php:359
+msgid "Not part of a series"
+msgstr "Không thuộc chuỗi nào"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "Tìm kiếm chuỗi"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "Phần Chuỗi:"
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "Tiêu đề bài viết trong widget:"
+
+#: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"Một tiêu đề ngắn của bài viết này sẽ được sử dụng trong widget Series. Để "
+"trống để sử dụng tiêu đề đầy đủ."
+
+#: orgSeries-admin.php:519
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Không có số phần)"
+
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Phần %1$s của %2$s)"
+
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Không có số phần)"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:270
+msgid "No Series"
+msgstr "Không có chuỗi"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "Xem tất cả các chuỗi"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "Quản lý tất cả các chuỗi"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "Thứ tự thuật ngữ"
+
+#: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"Để thay đổi vị trí một mục, hãy kéo và thả hàng bằng cách \"nhấp và giữ\" "
+"nó ở bất kỳ đâu và di chuyển đến vị trí mới của nó."
+
+#: orgSeries-manage.php:196, fuzzy
+msgid "ID"
+msgstr "ID"
+
+#: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"Các thuật ngữ thường được sắp xếp theo thứ tự bảng chữ cái, nhưng bạn có "
+"thể chọn thứ tự của riêng mình bằng cách nhập một số (1 cho đầu tiên, v.v.) "
+"vào trường này."
+
+#: orgSeries-manage.php:240
+msgid "Current series icon:"
+msgstr "Biểu tượng chuỗi hiện tại:"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "Hiện không có biểu tượng"
+
+#: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+"Xóa hình ảnh? (lưu ý: sẽ không có hình ảnh nào liên kết với chuỗi này nếu "
+"bạn chọn điều này)"
+
+#: orgSeries-manage.php:261
+msgid "Series Icon Upload:"
+msgstr "Tải lên biểu tượng chuỗi:"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "Tải lên một hình ảnh cho chuỗi."
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "Dữ liệu biểu mẫu không hợp lệ"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "Nonce không hợp lệ, hãy tải lại và thử lại"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "Taxonomy không hợp lệ"
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "Không đủ quyền"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "Cập nhật thành công"
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:872
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "Tùy chọn chuỗi PublishPress"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Taxonomy"
+
+#: orgSeries-options.php:143, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "Nâng cao"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr "Chọn \"Không thuộc một loạt\" để xóa bất kỳ dữ liệu loạt nào từ bài viết"
+
+#: orgSeries-setup.php:268
+msgid "&larr; Go to Series"
+msgstr "&larr; Đi đến Loạt"
+
+#: orgSeries-setup.php:269
+msgid "View Series"
+msgstr "Xem Loạt"
+
+#: orgSeries-setup.php:271
+msgid "Series List"
+msgstr "Danh sách Loạt"
+
+#: orgSeries-setup.php:272
+msgid "Series Link"
+msgstr "Liên kết Loạt"
+
+#: orgSeries-setup.php:273
+msgid "A link to a Series"
+msgstr "Một liên kết đến một Loạt"
+
+#: orgSeries-setup.php:327
+msgid "Series Navigation"
+msgstr "Điều hướng Loạt"
+
+#: orgSeries-setup.php:858
+msgid "Series: "
+msgstr "Loạt: "
+
+#: orgSeries-setup.php:860
+msgid "Posts from the series: "
+msgstr "Bài viết từ loạt: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "Loạt:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "Phần:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "Tất cả các Loạt tôi đã viết"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Loạt</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "Tự động/Không có"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "Sử dụng cái này để kiểm soát đầu ra của widget loạt mới nhất"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "Loạt Gần đây nhất"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "Tiêu đề:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"Bố cục và nội dung của widget này có thể được điều chỉnh qua khu vực <a "
+"href=\"%s\">Series Mới Nhất</a>."
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "Có ẩn các series không có bài viết không?"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "Sắp xếp theo:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "Số bài viết trong Series"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "Tên của Series"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "Slug của Series"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "Thời gian tạo Series"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "Ngẫu nhiên"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "Số lượng series để hiển thị:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "Thứ tự hiển thị: "
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "Tăng dần: "
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "Giảm dần: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "Sử dụng cái này để hiển thị Mục lục của Series"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "Chọn Series"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "Các bài viết khác trong series:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "Hiển thị Mục lục của Series"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "Hiển thị Mục lục của Series dưới dạng:"
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "Danh sách thả xuống:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "Danh sách:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "Hiển thị số lượng bài viết:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "Ẩn các chuỗi rỗng:"
+
+#: orgSeries-widgets.php:299, fuzzy
+msgid "name"
+msgstr "name"
+
+#: orgSeries-widgets.php:300, fuzzy
+msgid "count"
+msgstr "count"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-widgets.php:302, fuzzy
+msgid "series id"
+msgstr "series id"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "Thứ tự:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "Loại trừ chuỗi:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "Bao gồm chuỗi:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "Số lượng chuỗi:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "Bù đắp:"
+
+#: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"Bạn có thể chọn bù đắp cho số lượng chuỗi (hữu ích cho phân trang). Không "
+"có bù đắp nếu để trống"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "Tìm kiếm:"
+
+#: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"Bạn có thể trả về bất kỳ chuỗi nào phù hợp với chuỗi tìm kiếm này (so khớp "
+"với tên chuỗi)"
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "Hiển thị các bài viết khác trong chuỗi hiện tại:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "Chuỗi hiện tại"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "Tiêu đề widget chuỗi:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "Văn bản này sẽ hiển thị ở trên các bài viết khác trong chuỗi này."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>Plugin này có thể bị xóa.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s đã có một tham số được lập chỉ mục với tên: %2$s."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "Phương thức %1$s chỉ có thể được sử dụng để đăng ký một con của %2$s."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "Không thể lấy một thể hiện của %1$s. Không tìm thấy."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s không phải là một thực thể hợp lệ (mong đợi: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"Tệp \"%1$s\" hoặc là bị thiếu hoặc không thể đọc do quyền truy cập. Vui "
+"lòng đảm bảo rằng đường dẫn sau đây là chính xác và xác minh rằng quyền "
+"truy cập tệp là chính xác:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s không tồn tại hoặc không thể truy cập."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Lỗi nonce."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr ""
+"Tên lớp đầy đủ của đối tượng đã cung cấp (%1$s) phải triển khai giao diện "
+"%2$s."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "Đường dẫn tệp đã cho (%s) không thể đọc được."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "Đã xảy ra lỗi, vui lòng thử lại."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "Giá trị đầu vào cho %1$s dự kiến là một closure. Nó không phải là như vậy."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "Vô hiệu hóa Giấy phép"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "Kích hoạt Giấy phép"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "Khóa Giấy phép đã được kích hoạt thành công."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "Khóa Giấy phép đã được vô hiệu hóa thành công."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"Giá trị cho %1$s đã được thiết lập và nó không phải là một mảng. Phương "
+"thức %2$s chỉ có thể được sử dụng để thêm giá trị vào phần tử dữ liệu này "
+"khi nó là một mảng."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"Giá trị cho %1$s đã tồn tại trong thuộc tính %2$s. Không cho phép ghi đè. "
+"Vì giá trị của dữ liệu này là một mảng, bạn có thể muốn sử dụng phương thức "
+"%3$s để thêm giá trị của bạn vào mảng."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"Giá trị cho %1$s đã tồn tại trong thuộc tính %2$s. Không cho phép ghi đè. "
+"Hãy xem xét việc đính kèm giá trị của bạn vào một khóa khác"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr ""
+"Không gian tên cho tệp manifest này đã được đăng ký, hãy chọn một không "
+"gian tên khác ngoài %s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr ""
+"Giá trị đã cung cấp cho %1$s không phải là một url hợp lệ. Url đã cung cấp "
+"là: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "Khóa Giấy phép cho %1$s"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "Nhập khóa giấy phép của bạn: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Danh mục Loạt"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Loạt"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Danh mục Loạt"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Loạt"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Loạt"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Loạt"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "Mục này là phần %series_part% của %total_posts_in_series% trong loạt "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Loạt"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Loạt"

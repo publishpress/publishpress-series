@@ -1,13 +1,14 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[3.1.1] - 01 Apr, 2026
+[3.1.2] - 27 Apr, 2026
 
-* Fixed: Make the post optional in pp_series_group_theme_archive_excerpt #1089
-* Fixed: Fix xgettext plural formats #1085
-* Fixed: Shortcode not working in when module disabled #1080
-* Deprecated: Remove manage_series capability #1091
-* Changed: Update text domain (thanks to @DAnn2012) #1090
+* Added: Add new translation languages #1082
+* Added: Migrate to shared dev-workspace #1108
+* Added: Add new field to add post summary field in Post List Box #1116
+* Changed: Update readme file #1111
+* Changed: Disable Excerpt in default box #1115
+* Fixed: Translation warning in WordPress admin #1117
 
 [3.1.0] - 09 Mar, 2026
 
