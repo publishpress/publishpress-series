@@ -499,14 +499,16 @@ h4.pps-post-title {
     align-items: center;
 }
 
-.pps-post-excerpt {
+.pps-post-excerpt,
+.pps-post-summary {
     margin: 8px 0;
     color: #666;
     line-height: 1.5;
     font-size: 14px;
 }
 
-.pps-post-excerpt p {
+.pps-post-excerpt p,
+.pps-post-summary p {
     margin: 0;
 }
 

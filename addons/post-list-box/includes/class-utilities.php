@@ -186,9 +186,11 @@ class PPS_Post_List_Box_Utilities {
      *
      * @param int|WP_Post|object $post_or_id Post ID, WP_Post, or sample stdClass
      * @param int $length Desired word length
+     * @param bool $fallback_to_content When true, fall back to post_content if post_excerpt is empty.
+     *                                  When false, only use the real post_excerpt field (returns '' if empty).
      * @return string Trimmed plain-text excerpt
      */
-    public static function build_safe_excerpt($post_or_id, $length = 55)
+    public static function build_safe_excerpt($post_or_id, $length = 55, $fallback_to_content = true)
     {
         $length = intval($length);
         $length = max(10, min(500, $length));
@@ -199,7 +201,7 @@ class PPS_Post_List_Box_Utilities {
         if (is_numeric($post_or_id)) {
             $post_id = intval($post_or_id);
             $raw_text = get_post_field('post_excerpt', $post_id, 'raw');
-            if ($raw_text === '' || $raw_text === null) {
+            if (($raw_text === '' || $raw_text === null) && $fallback_to_content) {
                 $raw_text = get_post_field('post_content', $post_id, 'raw');
             }
         } elseif (is_object($post_or_id)) {
@@ -207,7 +209,7 @@ class PPS_Post_List_Box_Utilities {
             if (isset($post_or_id->ID) && is_numeric($post_or_id->ID)) {
                 $post_id = intval($post_or_id->ID);
                 $raw_text = get_post_field('post_excerpt', $post_id, 'raw');
-                if ($raw_text === '' || $raw_text === null) {
+                if (($raw_text === '' || $raw_text === null) && $fallback_to_content) {
                     $raw_text = get_post_field('post_content', $post_id, 'raw');
                 }
             }
@@ -216,7 +218,7 @@ class PPS_Post_List_Box_Utilities {
             if ($raw_text === '' || $raw_text === null) {
                 if (isset($post_or_id->post_excerpt) && $post_or_id->post_excerpt !== '') {
                     $raw_text = (string) $post_or_id->post_excerpt;
-                } elseif (isset($post_or_id->post_content)) {
+                } elseif ($fallback_to_content && isset($post_or_id->post_content)) {
                     $raw_text = (string) $post_or_id->post_content;
                 }
             }
