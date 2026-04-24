@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:30+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
-msgstr "PublishPress Series Ingyenes"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin
@@ -2767,93 +2767,99 @@ msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Rész %1$s a %2$s-ból)"
 #: orgSeries-admin.php:525
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr ""
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Nincs cikkszám)"
 
 #: orgSeries-admin.php:531
 #: orgSeries-setup.php:270
 msgid "No Series"
-msgstr ""
+msgstr "Nincs sorozat"
 
 #: orgSeries-admin.php:552
 msgid "View all series"
-msgstr ""
+msgstr "Összes sorozat megtekintése"
 
 #: orgSeries-admin.php:561
 msgid "Manage All Series"
-msgstr ""
+msgstr "Összes sorozat kezelése"
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
-msgstr ""
+msgstr "Kifejezés sorrend"
 
 #: orgSeries-manage.php:67
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
+"Elem áthelyezéséhez húzza és ejtse le a sort azzal, hogy \"rákattint és "
+"nyomva tartja\" bárhol, majd mozgassa az új helyére."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: orgSeries-manage.php:233
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
+"A kifejezések általában ábécésorrendben vannak, de saját sorrendet "
+"választhat, ha számot (1 az első, stb.) ad meg ebben a mezőben."
 
 #: orgSeries-manage.php:240
 msgid "Current series icon:"
-msgstr ""
+msgstr "Aktuális sorozat ikon:"
 
 #: orgSeries-manage.php:246
 msgid "No icon currently"
-msgstr ""
+msgstr "Jelenleg nincs ikon"
 
 #: orgSeries-manage.php:256
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
+"Kép törlése? (megjegyzés: ha ezt választja, akkor nem lesz kép társítva "
+"ehhez a sorozathoz)"
 
 #: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
-msgstr ""
+msgstr "Sorozat ikon feltöltése:"
 
 #: orgSeries-manage.php:265
 msgid "Upload an image for the series."
-msgstr ""
+msgstr "Töltsön fel egy képet a sorozathoz."
 
 #: orgSeries-manage.php:280
 msgid "Invalid form data"
-msgstr ""
+msgstr "Érvénytelen űrlapadatok"
 
 #: orgSeries-manage.php:290
 msgid "Invalid nonce, reload and try again"
-msgstr ""
+msgstr "Érvénytelen nonce, töltse újra és próbálja újra"
 
 #: orgSeries-manage.php:299
 msgid "Invalid taxonomy"
-msgstr ""
+msgstr "Érvénytelen taxonomy"
 
 #: orgSeries-manage.php:305
 msgid "Not enough permission"
-msgstr ""
+msgstr "Nincs elegendő jogosultság"
 
 #: orgSeries-manage.php:309
 msgid "Updated successfully"
-msgstr ""
+msgstr "Sikeresen frissítve"
 
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
 #: orgSeries-options.php:65
 #: orgSeries-setup.php:872
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
-msgstr ""
+msgstr "PublishPress Sorozat Opciók"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"

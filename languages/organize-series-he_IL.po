@@ -10,13 +10,15 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:41+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
+"% 10 == 0) ? 2 : 3)));\n"
+"% 10 == 0) ? 2: 3)));\n"
 "Language: he_IL\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 ? 0 : (n == 2 ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3)));\n"
 
-#: orgSeries.php:3, fuzzy
+#: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -28,6 +30,17 @@ msgstr "https://publishpress.com/publishpress-series/"
 
 #: orgSeries.php:5
 #. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series מאפשר לך לקבץ תוכן יחד לסדרה. זה אידיאלי למגזינים, "
+"עיתונים, סופרי סיפורים קצרים, מורים, אמני קומיקס, או כל מי שכותב מספר "
+"פוסטים על אותו נושא."
+
+#: orgSeries.php:7
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
@@ -76,6 +89,12 @@ msgid "Series Categories"
 msgstr "קטגוריות סדרות"
 
 #: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "מחק את כל הנתונים של \"קטגוריות סדרות\" מהמאגר כאשר מוחקים את התוסף."
+
+#: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "לחץ כדי להחליף"
 
@@ -422,6 +441,14 @@ msgid "Sample Series Post %d"
 msgstr "פוסט סדרה לדוגמה %d"
 
 #: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
 msgid "Sample excerpt preview content for the series meta box."
 msgstr "תוכן תצוגת תמצית לדוגמה עבור תיבת המידע של הסדרה."
 
@@ -749,6 +776,14 @@ msgid "Maximum number of items"
 msgstr "מספר מקסימלי של פריטים"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"מגביל את מספר הפוסטים המוצגים ברשימת הסדרות. השאר ריק כדי לא לקבוע מגבלה. "
+"תצוגת המנהל מוגבלת ל-4 פוסטים."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "הדגש פוסט נוכחי"
 
@@ -992,6 +1027,17 @@ msgid "Sample Post %d"
 msgstr "פוסט לדוגמה %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"זהו תוכן לדוגמה עבור פוסט %d בסדרה. Lorem ipsum dolor sit amet, consectetur "
+"adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna "
+"aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "זהו קטע לדוגמה לפוסט %d בסדרה."
@@ -1611,6 +1657,14 @@ msgid "Create as unpublished:"
 msgstr "צור כלא פורסם:"
 
 #: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"כאשר מסומן, כל הפוסטים שתשייך לסדרה זו יישארו לא מפורסמים עד שתפרסם את כל "
+"הסדרה."
+
+#: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
 msgstr "הפוסטים בסדרה שלך הוסרו בהצלחה מהפרסום."
 
@@ -1669,10 +1723,24 @@ msgid "Series Order:"
 msgstr "סדר סדרות:"
 
 #: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"גרור את שמות הפוסטים לסדר שבו אתה רוצה שהם יהיו בסדרה, מהחלק הראשון ועד "
+"לחלק האחרון."
+
+#: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
 msgstr "פוסטים לא פורסמו בסדרה:"
 
 #: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr "כאשר הפוסטים הללו יפורסמו, הם יתווספו אחרי הפוסט הנוכחי האחרון בסדרה."
+
+#: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
 msgstr "פוסטים לא פורסמו"
 
@@ -1697,11 +1765,36 @@ msgid "Overview"
 msgstr "סקירה כללית"
 
 #: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"הבא הוא מקרא של הטוקנים הזמינים לשימוש בשדות התבנית המותאמת. אלה יוחלפו "
+"בערכים המתאימים כאשר התוסף פועל."
+
+#: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
 msgstr "זה יוחלף באייקון הסדרה עבור סדרה."
 
 #: inc/settings/settings-page.php:76
 #, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr "אותו הדבר כמו %series_icon% מלבד שהאייקון של הסדרה יהיה מקושר לדף הסדרה"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"טוקן זה מיועד לשימוש עם ה-widget של orgSeries בלבד - הוא מתייחס למקום שבו "
+"אתה רוצה להכניס את רשימת כותרות הסדרות ודורש שהשבלונה עבור כל כותרת סדרה "
+"תהיה גם מוגדרת."
+
+#: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
 msgstr "זה יוחלף בכותרת של סדרה"
 
@@ -1711,14 +1804,77 @@ msgid "Same as %series_title% except that it will also be linked to the series p
 msgstr "אותו דבר כמו %series_title% חוץ מזה שהוא גם יהיה מקושר לדף הסדרה"
 
 #: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr "זהו טוקן המיקום עבור המקום שבו יופיע תוכן תבניות הפוסט ברשימת הפוסטים."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"זהו טוקן המיקום עבור המקום שבו יופיע תוכן תבניות הפוסט ברשימת הפוסטים "
+"וישתמש בכותרת הקצרה של הפוסט שסופק."
+
+#: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "יוחלף בכותרת הפוסט של פוסט בסדרה"
 
 #: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr "יוחלף בכותרת הפוסט של פוסט בסדרה המקושר לתצוגת הדף של הפוסט הזה."
+
+#: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "יוחלף בכותרת הקצרה של פוסט בסדרה"
 
 #: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr "יוחלף בכותרת הקצרה של פוסט בסדרה המקושר לתצוגת הדף של הפוסט הזה."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"יוחלף בקישור ניווט לפוסט הקודם בסדרה. הטקסט יהיה כל מה שנכלל בשדה 'טקסט "
+"ניווט לפוסט הקודם מותאם אישית'. אם השדה ריק, אז הטקסט יהיה כותרת הפוסט"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"יוחלף בקישור ניווט לפוסט הבא בסדרה. הטקסט יהיה כל מה שנכלל בשדה 'טקסט ניווט "
+"לפוסט הבא מותאם אישית'. אם השדה ריק, אז הטקסט יהיה כותרת הפוסט"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"יוחלף בקישור ניווט לפוסט הראשון בסדרה. הטקסט יהיה כל מה שנכלל בשדה 'טקסט "
+"ניווט לפוסט הראשון מותאם אישית'. אם השדה ריק, אז הטקסט יהיה כותרת הפוסט"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"שימוש בתג זה או לפני או אחרי שאר קוד התבנית. זה יבהיר היכן אתה רוצה שהתוכן "
+"של פוסט יופיע."
+
+#: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
 msgstr "יציג מה חלק בסדרה הפוסט נמצא"
 
@@ -1763,6 +1919,14 @@ msgid "Update Options"
 msgstr "עדכון אפשרויות"
 
 #: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"לחיצה על \"כן\" ת reset את האפשרויות לברירות המחדל ואתה תאבד את כל ההתאמות "
+"האישיות. או שאתה יכול ללחוץ על ביטול ולחזור."
+
+#: inc/settings/settings-page.php:309
 msgid "No"
 msgstr "לא"
 
@@ -1777,6 +1941,17 @@ msgstr "אנא עדכן את נתוני הסדרה של PublishPress שלך"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"ביצענו שינויים בדרך שבה נשמרות הסדרות וזה דורש עדכון קטן. זה משפר את התמיכה "
+"בתכונת סדרות מרובות, ומפحل בעיות מסוימות עם הסדר של הפוסטים. אנא לחץ על "
+"כפתור זה כדי לשדרג."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
 msgstr "עדכן נתוני סדרה"
 
@@ -1848,10 +2023,24 @@ msgid "PublishPress Series Plugin Options have been RESET"
 msgstr "אפשרויות תוסף PublishPress Series הוחזרו לברירת מחדל"
 
 #: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"אנא שנה את ההגדרות הללו בזהירות מכיוון שהן מביאות לשינויים משמעותיים "
+"ב-PublishPress Series."
+
+#: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
 msgstr "הגדרות סדרה"
 
 #: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "מחק את כל נתוני PublishPress Series מהמסד נתונים כאשר מוחקים את התוסף הזה."
+
+#: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
 msgstr "שדרוג סדרות"
 
@@ -1860,6 +2049,15 @@ msgid "Run Upgrade Task"
 msgstr "הרץ משימת שדרוג"
 
 #: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"בגרסה 2.11.4, PublishPress Series ביצע שינויים בדרך שבה נשמרות הסדרות. תוכל "
+"להריץ את משימת השדרוג כאן אם יש לך בעיות עם חלקי סדרות."
+
+#: inc/settings/tab-advanced.php:65
 msgid "Sync Series Order to Menu Order"
 msgstr "סנכרן סדרת סדר למערכת תפריטים"
 
@@ -1868,6 +2066,17 @@ msgid "Sync to Menu Order"
 msgstr "סנכרן למערכת תפריטים"
 
 #: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"זה יסנכרן את כל מספרי חלקי הסדרות לשדה menu_order של WordPress. שימושי עבור "
+"ערכות נושא/בוני דפים שיכולים למיין רק לפי סדר תפריט (מאפייני עמוד: סדר). זה "
+"מאפשר לך להשתמש בסדר המקורי של WordPress במקום שדות מותאמים אישית."
+
+#: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
 msgstr "אפס הגדרות"
 
@@ -1930,6 +2139,17 @@ msgstr "פריסה:"
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"בחירת פריסה שונה מ-\"ברירת מחדל\" תחליף את תבנית הטקסונומיה מהערכת נושא "
+"שלך. <a href=\"%s\" target=\"_blank\">לחץ כאן לפרטים על איך להתאים אישית את "
+"העיצובים הללו</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
 msgid "Columns:"
 msgstr "עמודות:"
 
@@ -1967,6 +2187,14 @@ msgstr "הצג דף"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"עליך %1$s לעדכן את מבנה הקישורים הקבועים שלך %2$s למשהו שונה מ-\"פשוט\" כדי "
+"שכותרת הסדרות של תוכן תעבוד."
+
+#: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
 msgstr "סדרות לדף:"
 
@@ -2012,6 +2240,27 @@ msgid "Latest Series (tags after):"
 msgstr "סדרות אחרונות (תגים אחרי):"
 
 #: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr "תצוגה זו משמשת על ידי ה-widget \"טבלת התוכן של סדרות\", shortcode, ו-URL."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"תצוגה זו משמשת על ידי ה-\"טבלת התוכן של סדרות\". כדי למצוא את ה-URL עבור "
+"תצוגה זו, עבור ללשונית \"תצוגה\" ואז \"URL של טבלת התוכן של סדרות\"."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "ההגדרות הללו מאפשרות לך להתאים אישית את תיבת המידע במסך עריכת הפוסט."
+
+#: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
 msgstr "סדר ברירת מחדל של סדרות"
 
@@ -2085,6 +2334,12 @@ msgid "Limit to single page only"
 msgstr "הגבל רק לדף בודד"
 
 #: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr "האם להגביל את תצוגת המטה של סדרות לעמוד בודד בלבד או לכלול עמוד ארכיון."
+
+#: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
 msgstr "הגדרות תיבת רשימת פוסטים"
 
@@ -2181,6 +2436,12 @@ msgid "Pro Features"
 msgstr "תכונות פרו"
 
 #: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr "ההגדרות הללו מאפשרות לך להפעיל או לכבות תכונות ב-PublishPress Series Pro."
+
+#: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
 msgstr "אפשר סוגי פוסטים מותאמים לשימוש עם PublishPress Series."
 
@@ -2223,6 +2484,14 @@ msgid "Series Categories URL Base:"
 msgstr "בסיס כתובת ה-URL של קטגוריות סדרות:"
 
 #: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"טקסט זה ישמש ב-URLs של ארכיון קטגוריות סדרות. אם תשנה אותו, URLs ישנים "
+"יופנו לבסיס החדש."
+
+#: inc/settings/tab-series-category.php:36
 msgid "Series Categories Archive Template:"
 msgstr "תבנית ארכיון קטגוריות סדרות:"
 
@@ -2235,6 +2504,16 @@ msgid "Use template from Plugin"
 msgstr "השתמש בתבנית מהתוסף"
 
 #: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"תבנית הערכה משתמשת בהיררכיית התבנית של הערכה הפעילה שלך. תבנית התוסף משתמשת "
+"בעיצוב הגיבוי של PublishPress Series כאשר הערכה שלך אינה מספקת "
+"taxonomy-series_group.php."
+
+#: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
 msgstr "אפשרויות תצוגת תבנית התוסף:"
 
@@ -2251,6 +2530,14 @@ msgid "Show Posts in each Series as list items"
 msgstr "הצג פוסטים בכל סדרה כפריטי רשימה"
 
 #: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"תכונה זו מאפשרת לך ליצור טקסונומיה חדשה לשימוש בתוסף הזה אם אינך רוצה "
+"להשתמש בטקסונומיה המוגדרת ברירת מחדל \"סדרות\"."
+
+#: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
 msgstr "סלאג Taxonomy של סדרות:"
 
@@ -2263,6 +2550,12 @@ msgid "Series Taxonomy:"
 msgstr "Taxonomy של סדרות:"
 
 #: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr "כדי ליצור טקסונומיה חדשה, הזן את השם החדש ולחץ על כפתור \"עדכן אפשרויות\"."
+
+#: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
 msgstr "מעבר מונחים"
 
@@ -2271,11 +2564,28 @@ msgid "Automatically migrate existing series terms to the new taxonomy"
 msgstr "מעבר אוטומטי של מונחים קיימים של סדרות ל-taxonomy החדשה"
 
 #: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"אם מסומן, כל המונחים מהטקסונומיה הנוכחית יועברו לטקסונומיה החדשה כאשר תשנה "
+"את ה-slug של הטקסונומיה. אם לא מסומן, רק ה-slug של הטקסונומיה ישתנה."
+
+#: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
 msgstr "סליחה, לא נמצאו תוצאות."
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"אתה משתמש ב-PublishPress Series Free. הגרסה Pro כוללת יותר תכונות ותמיכה. "
+"%sשדרג לגרסה Pro%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
 msgid "Upgrade to Pro"
 msgstr "שדרג לגרסת פרו"
 
@@ -2346,6 +2656,12 @@ msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "השם שבחרת לא מתנקה כראוי. נסה משהו אחר."
 
 #: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "הממ... נראה שכבר יש סדרה עם השם הזה. נסה משהו אחר"
+
+#: orgSeries-admin.php:359
 msgid "Not part of a series"
 msgstr "לא חלק מסדרה"
 
@@ -2362,6 +2678,15 @@ msgid "Post title in widget:"
 msgstr "כותרת הפוסט בווידג'ט:"
 
 #: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"כותרת קצרה של פוסט זה שתשמש ב-widget של סדרות. השאר ריק כדי להשתמש בכותרת "
+"המלאה."
+
+#: orgSeries-admin.php:519
+#, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (ללא מספר חלק)"
 
@@ -2393,10 +2718,26 @@ msgid "Term Order"
 msgstr "סדר מונח"
 
 #: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"כדי להזיז פריט, גרור ושחרר את השורה על ידי \"לחיצה והחזקה\" שלה בכל מקום "
+"והזז אותה למיקום החדש שלה."
+
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
 msgstr "ID"
 
 #: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"תנאים מסודרים בדרך כלל בסדר אלפביתי, אך אתה יכול לבחור את הסדר שלך על ידי "
+"הזנת מספר (1 עבור הראשון, וכו') בשדה זה."
+
+#: orgSeries-manage.php:240
 msgid "Current series icon:"
 msgstr "אייקון סדרה נוכחי:"
 
@@ -2405,6 +2746,12 @@ msgid "No icon currently"
 msgstr "אין אייקון כרגע"
 
 #: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr "למחוק תמונה? (הערה: לא תהיה תמונה קשורה לסדרה זו אם תבחר באפשרות זו)"
+
+#: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
 msgstr "העלאת אייקון סדרה:"
 
@@ -2529,6 +2876,14 @@ msgstr "כותרת:"
 
 #: orgSeries-widgets.php:79
 #, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"הפריסה והתוכן של ה-widget הזה יכולים להסתגל דרך אזור <a href=\"%s\">סדרות "
+"האחרונות</a>."
+
+#: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
 msgstr "האם להסוות סדרות ללא פוסטים?"
 
@@ -2646,10 +3001,24 @@ msgid "Offset:"
 msgstr "הסטה:"
 
 #: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"אתה יכול לבחור את ההזזה עבור מספר הסדרות (שימושי עבור דפים). אין הזזה אם "
+"נשאר ריק"
+
+#: orgSeries-widgets.php:374
 msgid "Search:"
 msgstr "חפש:"
 
 #: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr "אתה יכול להחזיר כל סדרה שתואמת את מיתר החיפוש הזה (הושווה לשמות סדרות)"
+
+#: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
 msgstr "הצג פוסטים אחרים בסדרה הנוכחית:"
 
@@ -2691,6 +3060,16 @@ msgstr "%1$s אינו ישות חוקית (צפוי: %2$s)."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"הקובץ \"%1$s\" חסר או לא ניתן לקריאה עקב הרשאות. אנא ודא שהנתיב הבא נכון "
+"ואמת שההגדרות הרשאת הקובץ נכונות:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
 msgid "%s does not exist or is not reachable."
 msgstr "%s אינו קיים או לא נגיש."
 
@@ -2700,6 +3079,13 @@ msgstr "שגיאת nonce."
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr "שם הקלאס המלא של האובייקט שסופק (%1$s) חייב לממש את הממשק %2$s."
+
+#: src/domain/model/FileLocation.php:50
 #, php-format
 msgid "The given file path (%s) is not readable."
 msgstr "נתיב הקובץ שניתן (%s) אינו קריא."
@@ -2733,6 +3119,41 @@ msgstr "מפתח הרישוי בוטל בהצלחה."
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"הערך עבור %1$s כבר מוגדר והוא לא מערך. השיטה %2$s יכולה לשמש רק כדי לדחוף "
+"ערכים לאלמנט הנתונים הזה כאשר הוא מערך."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"הערך עבור %1$s כבר קיים בתכונה %2$s. לא מותר עליות. מכיוון שהערך של נתונים "
+"אלה הוא מערך, ייתכן שתרצה להשתמש בשיטה %3$s כדי לדחוף את הערך שלך למערך."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"הערך עבור %1$s כבר קיים בתכונה %2$s. לא מותר עליות. שקול לצרף את הערך שלך "
+"למפתח שונה"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr "התחום עבור קובץ המניפסט הזה כבר נרשם, בחר תחום אחר מאשר %s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
 msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr "הערך שניתן עבור %1$s אינו כתובת URL חוקית. הכתובת שניתנה הייתה: %2$s"
 
@@ -2747,14 +3168,96 @@ msgstr "הזן את מפתח הרישוי שלך: "
 
 #: addons/grouping/legacy-includes.php:278
 msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "קטגוריות סדרות"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "סדרה"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "קטגוריית סדרה"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "סדרה"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "סדרה"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
 msgid "%1$s"
 msgstr "%1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:43
 #, fuzzy, php-format
 msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "סדרה"
+msgstr[1] "סדרות"
+msgstr[2] ""
+msgstr[3] ""
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr "הכניסה הזו היא חלק %series_part% מתוך %total_posts_in_series% בסדרה "
+msgstr "פריט זה הוא חלק %series_part% מתוך %total_posts_in_series% בסדרה "
 
 #: orgSeries-taxonomy.php:381
 msgctxt "series list title"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "סדרה"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "סדרה"

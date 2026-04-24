@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:20+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #, fuzzy
 msgid "PublishPress Series Free"
-msgstr "PublicarPress Séries"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin

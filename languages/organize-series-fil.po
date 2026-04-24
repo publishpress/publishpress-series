@@ -21,12 +21,12 @@ msgstr ""
 "|| n % 10 == 6 || n % 10 == 9);\n"
 
 #. Plugin Name of the plugin
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
 #. Plugin URI of the plugin
-#: orgSeries.php:4
+#: orgSeries.php:4, fuzzy
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
@@ -48,7 +48,7 @@ msgid "PublishPress"
 msgstr "PublishPress"
 
 #. Author URI of the plugin
-#: orgSeries.php:8
+#: orgSeries.php:8, fuzzy
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
@@ -156,7 +156,7 @@ msgstr "Halimbawang Serye"
 msgid "Sample Post Title"
 msgstr "Halimbawang Pamagat ng Post"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
@@ -366,7 +366,7 @@ msgstr "Espasyo"
 
 #: addons/post-details/includes/class-fields.php:198
 #: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-navigation/includes/class-fields.php:502, fuzzy
 msgid "Padding (px)"
 msgstr "Padding (px)"
 
@@ -375,7 +375,7 @@ msgid "Padding applied to all sides of the content area"
 msgstr "Padding na inilapat sa lahat ng panig ng lugar ng nilalaman"
 
 #: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-navigation/includes/class-fields.php:511, fuzzy
 msgid "Margin (px)"
 msgstr "Margin (px)"
 
@@ -720,7 +720,7 @@ msgid "List"
 msgstr "Listahan"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:503
-#: inc/settings/tab-legacy.php:28
+#: inc/settings/tab-legacy.php:28, fuzzy
 msgid "Grid"
 msgstr "Grid"
 
@@ -744,7 +744,7 @@ msgstr "4 Haligi"
 msgid "6 Columns"
 msgstr "6 Haligi"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:526, fuzzy
 msgid "Order By"
 msgstr "Order By"
 
@@ -768,7 +768,7 @@ msgid "Series Order"
 msgstr "Sunod ng Serye"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:539
-#: orgSeries-manage.php:51 orgSeries-manage.php:227
+#: orgSeries-manage.php:51 orgSeries-manage.php:227, fuzzy
 msgid "Order"
 msgstr "Order"
 
@@ -951,12 +951,12 @@ msgstr "Tanggalin"
 msgid "Box Container"
 msgstr "Konteyner ng Kahon"
 
-#: addons/post-list-box/includes/class-fields.php:29
+#: addons/post-list-box/includes/class-fields.php:29, fuzzy
 msgid "Post"
 msgstr "Post"
 
 #: addons/post-list-box/includes/class-fields.php:33
-#: addons/post-navigation/includes/class-fields.php:38
+#: addons/post-navigation/includes/class-fields.php:38, fuzzy
 msgid "Layout"
 msgstr "Layout"
 
@@ -1086,15 +1086,15 @@ msgstr "Ito ay isang sample na sipi para sa post %d sa serye."
 msgid "Author"
 msgstr "May-akda"
 
-#: addons/post-list-box/post-list-box.php:91
+#: addons/post-list-box/post-list-box.php:91, fuzzy
 msgid "Default List Box"
 msgstr "Default List Box"
 
-#: addons/post-list-box/post-list-box.php:95
+#: addons/post-list-box/post-list-box.php:95, fuzzy
 msgid "Grid Style Box"
 msgstr "Grid Style Box"
 
-#: addons/post-list-box/post-list-box.php:108
+#: addons/post-list-box/post-list-box.php:108, fuzzy
 msgid "Simple List Box"
 msgstr "Simple List Box"
 
@@ -1171,7 +1171,7 @@ msgstr "Alisin ang Imahe"
 msgid "No posts found in series to preview."
 msgstr "Walang mga post na natagpuan sa serye upang suriin."
 
-#: addons/post-navigation/includes/class-fields.php:34
+#: addons/post-navigation/includes/class-fields.php:34, fuzzy
 msgid "Item"
 msgstr "Item"
 
@@ -2171,7 +2171,7 @@ msgstr "Pamana"
 msgid "Legacy Settings"
 msgstr "Mga Setting ng Pamana"
 
-#: inc/settings/tab-legacy.php:27
+#: inc/settings/tab-legacy.php:27, fuzzy
 msgid "Default"
 msgstr "Default"
 
@@ -2846,7 +2846,7 @@ msgstr ""
 "\"pag-click at paghawak\" nito kahit saan at ilipat ito sa bagong posisyon "
 "nito."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -2921,11 +2921,11 @@ msgstr "Serye"
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: orgSeries-options.php:143
+#: orgSeries-options.php:143, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:150
+#: orgSeries-options.php:150, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
@@ -3051,7 +3051,7 @@ msgstr "Slug ng Serye"
 msgid "When Series was Created"
 msgstr "Kailan nalikha ang Serye"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:91, fuzzy
 msgid "Random"
 msgstr "Random"
 
@@ -3063,11 +3063,11 @@ msgstr "Bilang ng mga serye na ipapakita:"
 msgid "Display Order: "
 msgstr "Order ng Display: "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:100, fuzzy
 msgid "ASC: "
 msgstr "ASC: "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:101, fuzzy
 msgid "DESC: "
 msgstr "DESC: "
 
@@ -3096,7 +3096,7 @@ msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye"
 msgid "Show Series Table Of Content as:"
 msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye bilang:"
 
-#: orgSeries-widgets.php:280
+#: orgSeries-widgets.php:280, fuzzy
 msgid "Dropdown:"
 msgstr "Dropdown:"
 
@@ -3120,7 +3120,7 @@ msgstr "pangalan"
 msgid "count"
 msgstr "bilang"
 
-#: orgSeries-widgets.php:301
+#: orgSeries-widgets.php:301, fuzzy
 msgid "slug"
 msgstr "slug"
 
@@ -3144,7 +3144,7 @@ msgstr "Isama ang mga serye:"
 msgid "Number of Series:"
 msgstr "Bilang ng mga Serye:"
 
-#: orgSeries-widgets.php:368
+#: orgSeries-widgets.php:368, fuzzy
 msgid "Offset:"
 msgstr "Offset:"
 

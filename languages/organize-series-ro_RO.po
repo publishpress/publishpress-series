@@ -10,14 +10,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:44+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);\n"
 "Language: ro-RO\n"
 
-#: orgSeries.php:3, fuzzy
+#: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -852,6 +852,7 @@ msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
 msgstr[0] "%1$s %2$s actualizat."
 msgstr[1] "%1$s %2$s actualizate."
+msgstr[2] ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:155
 #, php-format
@@ -859,6 +860,7 @@ msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
 msgstr[0] "%1$s %2$s nu a fost actualizat, cineva o editează."
 msgstr[1] "%1$s %2$s nu au fost actualizate, cineva le editează."
+msgstr[2] ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:165
 #, php-format
@@ -866,6 +868,7 @@ msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
 msgstr[0] "%1$s %2$s șters permanent."
 msgstr[1] "%1$s %2$s șterse permanent."
+msgstr[2] ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:175
 #, php-format
@@ -873,6 +876,7 @@ msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
 msgstr[0] "%1$s %2$s mutat în Coșul de gunoi."
 msgstr[1] "%1$s %2$s mutați în Coșul de gunoi."
+msgstr[2] ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:185
 #, php-format
@@ -880,6 +884,7 @@ msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
 msgstr[0] "%1$s %2$s restaurat din Coșul de gunoi."
 msgstr[1] "%1$s %2$s restaurate din Coșul de gunoi."
+msgstr[2] ""
 
 #: addons/post-list-box/includes/class-admin-ui.php:208
 msgid "Post List Box Preview"

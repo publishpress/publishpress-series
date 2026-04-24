@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:20+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: tr_TR\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
-msgstr "PublishPress Serisi Ücretsiz"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin
@@ -28,6 +28,18 @@ msgstr "https://publishpress.com/publishpress-series/"
 
 #: orgSeries.php:5
 #. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series, içeriği bir dizi halinde gruplamanıza olanak tanır. "
+"Bu, dergiler, gazeteler, kısa hikaye yazarları, öğretmenler, çizgi roman "
+"sanatçıları veya aynı konuda birden fazla gönderi yazan herkes için "
+"idealdir."
+
+#: orgSeries.php:7
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
@@ -76,6 +88,12 @@ msgid "Series Categories"
 msgstr "Seri Kategorileri"
 
 #: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "Eklentiyi silerken veritabanından tüm \"Seri Kategorileri\" verilerini sil."
+
+#: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "Değiştirmek için tıklayın"
 
@@ -426,6 +444,14 @@ msgid "Sample Series Post %d"
 msgstr "Örnek Seri Gönderisi %d"
 
 #: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
 msgid "Sample excerpt preview content for the series meta box."
 msgstr "Seri meta kutusu için örnek alıntı önizleme içeriği."
 
@@ -755,6 +781,14 @@ msgid "Maximum number of items"
 msgstr "Maksimum öge sayısı"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"Seri listesindeki gösterilecek gönderi sayısını sınırlayın. Sınırsız için "
+"boş bırakın. Admin önizlemesi 4 gönderi ile sınırlıdır."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "Geçerli Gönderiyi Vurgula"
 
@@ -990,6 +1024,17 @@ msgid "Sample Post %d"
 msgstr "Örnek Gönderi %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"Bu, dizideki %d numaralı gönderi için örnek içeriktir. Lorem ipsum dolor "
+"sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Bu, serideki %d numaralı gönderi için bir örnek alıntıdır."
@@ -1613,6 +1658,14 @@ msgid "Create as unpublished:"
 msgstr "Yayınlanmamış olarak oluştur:"
 
 #: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"İşaretlendiğinde, bu seriye atadığınız tüm gönderiler, tüm dizi yayımlanana "
+"kadar yayımlanmayacaktır."
+
+#: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
 msgstr "Serinizdeki gönderiler başarıyla yayınlanmadı."
 
@@ -1671,10 +1724,26 @@ msgid "Series Order:"
 msgstr "Seri Sırası:"
 
 #: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"Gönderi adlarını, seride hangi sırada olmasını istediğiniz şekilde "
+"sürükleyin, ilk bölümden son bölüme kadar."
+
+#: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
 msgstr "Serideki yayımlanmamış postlar:"
 
 #: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr ""
+"Bu gönderiler yayımlandığında, dizideki mevcut son gönderiden sonra "
+"eklenecektir."
+
+#: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
 msgstr "Yayımlanmamış Postlar"
 
@@ -1699,11 +1768,39 @@ msgid "Overview"
 msgstr "Genel Bakış"
 
 #: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"Aşağıda, özel şablon alanlarında kullanılabilir olan belirteçlerin bir "
+"legendası bulunmaktadır. Bunlar, eklenti çalıştığında uygun değerlerle "
+"değiştirilecektir."
+
+#: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
 msgstr "Bu, bir seri için seri simgesi ile değiştirilecektir."
 
 #: inc/settings/settings-page.php:76
 #, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr ""
+"%series_icon% ile aynı, tek fark dizinin simgesinin dizi sayfasına bağlı "
+"olmasıdır."
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"Bu belirteç yalnızca orgSeries widget ile kullanılmak üzere tasarlanmıştır "
+"- seri başlıklarının listesinin nerede yer alacağını belirtir ve her dizi "
+"başlığı için şablonun da ayarlanmasını gerektirir."
+
+#: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
 msgstr "Bu, bir serinin başlığı ile değiştirilecektir."
 
@@ -1715,14 +1812,87 @@ msgstr ""
 "olmasıdır."
 
 #: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr ""
+"Gönderi listesi gönderi şablonlarının içeriklerinin nerede görüneceği için "
+"konum belirtecidir."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"Gönderi listesi gönderi şablonlarının içeriklerinin nerede görüneceği için "
+"konum belirtecidir ve sağlanan widget gönderi kısa başlığını kullanır."
+
+#: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "Serideki bir postun başlığı ile değiştirilecektir."
 
 #: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+"Dizideki bir gönderinin başlığı ile değiştirilecektir ve bu gönderinin "
+"sayfa görünümüne bağlantılıdır."
+
+#: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "Serideki bir postun kısa başlığı ile değiştirilecektir."
 
 #: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"Dizideki bir gönderinin kısa başlığı ile değiştirilecektir ve bu gönderinin "
+"sayfa görünümüne bağlantılıdır."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"Dizideki bir önceki gönderinin navigasyon bağlantısı ile değiştirilecektir. "
+"Metin, 'Özel Önceki Gönderi Navigasyon Metni' alanında dahil edilen her şey "
+"olacaktır. O alan boşsa, metin gönderinin başlığı olacaktır."
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"Dizideki bir sonraki gönderinin navigasyon bağlantısı ile "
+"değiştirilecektir. Metin, 'Özel Sonraki Gönderi Navigasyon Metni' alanında "
+"dahil edilen her şey olacaktır. O alan boşsa, metin gönderinin başlığı "
+"olacaktır."
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"Dizideki ilk gönderinin navigasyon bağlantısı ile değiştirilecektir. Metin, "
+"'Özel İlk Gönderi Navigasyon Metni' alanında dahil edilen her şey "
+"olacaktır. O alan boşsa, metin gönderinin başlığı olacaktır."
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"Bu etiketi, şablon kodunun geri kalanından önce veya sonra kullanın. Bu, "
+"bir gönderinin içeriğinin nerede görünmesini istediğinizi belirtecektir."
+
+#: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
 msgstr "Gönderinin hangi serinin parçası olduğunu gösterecektir."
 
@@ -1767,6 +1937,15 @@ msgid "Update Options"
 msgstr "Seçenekleri Güncelle"
 
 #: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Evet'a tıklamak, seçenekleri varsayılanlara sıfırlayacak ve tüm "
+"özelleştirmeleri kaybedeceksiniz. Ya da iptal et butonuna tıklayıp geri "
+"dönebilirsiniz."
+
+#: inc/settings/settings-page.php:309
 msgid "No"
 msgstr "Hayır"
 
@@ -1781,6 +1960,18 @@ msgstr "Lütfen PublishPress Serisi verilerinizi güncelleyin"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"Serilerin nasıl saklandığına dair değişiklikler yaptık ve bu küçük bir "
+"güncelleme gerektiriyor. Bu, Birden Fazla Seri özelliği için desteği "
+"geliştirir ve gönderilerin sıralamasıyla ilgili bazı sorunları çözer. "
+"Lütfen güncellemek için bu düğmeye tıklayın."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
 msgstr "Seri verilerini güncelle"
 
@@ -1854,10 +2045,26 @@ msgid "PublishPress Series Plugin Options have been RESET"
 msgstr "PublishPress Seri Eklenti Seçenekleri SIFIRLANDI"
 
 #: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"Lütfen bu ayarları dikkatlice değiştirin, çünkü PublishPress Series "
+"üzerinde önemli değişiklikler yapar."
+
+#: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
 msgstr "Seri Ayarları"
 
 #: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr ""
+"Bu eklentiyi silerken veritabanından tüm PublishPress Series verilerini "
+"silin."
+
+#: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
 msgstr "Seri Yükseltme"
 
@@ -1866,6 +2073,16 @@ msgid "Run Upgrade Task"
 msgstr "Yükseltme Görevini Çalıştır"
 
 #: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"2.11.4 sürümünde, PublishPress Series serilerin nasıl saklandığına dair "
+"değişiklikler yaptı. Seri parçalarıyla ilgili sorun yaşıyorsanız, buradan "
+"güncelleme görevini çalıştırabilirsiniz."
+
+#: inc/settings/tab-advanced.php:65
 msgid "Sync Series Order to Menu Order"
 msgstr "Seri Sırasını Menü Sırasına Senkronize Et"
 
@@ -1874,6 +2091,18 @@ msgid "Sync to Menu Order"
 msgstr "Menü Sırasına Senkronize Et"
 
 #: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"Bu, tüm seri parça numaralarını WordPress menu_order alanına senkronize "
+"edecektir. Sadece menü sırasına göre sıralayabilen temalar/sayfa "
+"oluşturucular için yararlıdır (Sayfa Özellikleri: Sıra). Bu, özel alanlar "
+"yerine yerel WordPress sıralamasını kullanmanıza olanak tanır."
+
+#: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
 msgstr "Ayarları sıfırla"
 
@@ -1936,6 +2165,17 @@ msgstr "Düzen:"
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"\"Varsayılan\"dan farklı bir düzen seçmek, temanızdan taksonomi şablonunu "
+"geçersiz kılacaktır. <a href=\"%s\" target=\"_blank\">Bu tasarımları nasıl "
+"özelleştireceğinize dair ayrıntılar için buraya tıklayın</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
 msgid "Columns:"
 msgstr "Sütunlar:"
 
@@ -1973,6 +2213,14 @@ msgstr "sayfayı görüntüle"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"Seri İçindekiler URL'sinin çalışması için kalıcı bağlantı yapınızı %1s %2s "
+"dışında bir şeyle güncellemeniz gerekir."
+
+#: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
 msgstr "Sayfada gösterilecek seri sayısı:"
 
@@ -2020,6 +2268,30 @@ msgid "Latest Series (tags after):"
 msgstr "Son Seri (etiketler sonrası):"
 
 #: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr ""
+"Bu görüntü \"Seri İçindekiler\" widget'ı, shortcode'u ve URL'si tarafından "
+"kullanılır."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"Bu görüntü \"Seri İçindekiler\" tarafından kullanılır. Bu görüntünün "
+"URL'sini bulmak için \"Görüntü\" sekmesine gidin ve ardından \"Seri "
+"İçindekiler URL'si\"ne tıklayın."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "Bu ayarlar, yazı düzenleme ekranındaki metabox'ı özelleştirmenizi sağlar."
+
+#: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
 msgstr "Varsayılan Seri Sırası"
 
@@ -2095,6 +2367,14 @@ msgid "Limit to single page only"
 msgstr "Sadece tek sayfayla sınırlı"
 
 #: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr ""
+"Seri meta görüntüsünü yalnızca tek sayfa ile sınırlayıp sınırlamamak veya "
+"arşiv sayfasını dahil etmek."
+
+#: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
 msgstr "Gönderi Listesi Kutusu Ayarları"
 
@@ -2191,6 +2471,14 @@ msgid "Pro Features"
 msgstr "Pro Özellikler"
 
 #: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr ""
+"Bu ayarlar, PublishPress Series Pro'daki özellikleri etkinleştirmenizi veya "
+"devre dışı bırakmanızı sağlar."
+
+#: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
 msgstr "Özel post türlerinin PublishPress Serileri ile kullanılmasına izin ver."
 
@@ -2233,6 +2521,14 @@ msgid "Series Categories URL Base:"
 msgstr "Seri Kategorileri URL Temeli:"
 
 #: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"Bu metin, Seri Kategorileri arşiv URL'lerinde kullanılacaktır. Bunu "
+"değiştirirseniz, eski URL'ler yeni temele yönlendirilecektir."
+
+#: inc/settings/tab-series-category.php:36
 msgid "Series Categories Archive Template:"
 msgstr "Seri Kategorileri Arşiv Şablonu:"
 
@@ -2245,6 +2541,16 @@ msgid "Use template from Plugin"
 msgstr "Eklentiden şablon kullan"
 
 #: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"Tema şablonu, aktif tema şablon hiyerarşinizi kullanır. Eklenti şablonu, "
+"temanız taxonomy-series_group.php sağlamadığında PublishPress Series yedek "
+"tasarımını kullanır."
+
+#: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
 msgstr "Eklenti Şablon Görüntüleme Seçenekleri:"
 
@@ -2261,6 +2567,14 @@ msgid "Show Posts in each Series as list items"
 msgstr "Her Serideki Gönderileri liste öğeleri olarak göster"
 
 #: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"Bu özellik, varsayılan \"Seri\" taksonomisini kullanmak istemiyorsanız, bu "
+"eklenti için yeni bir taksonomi oluşturmanıza olanak tanır."
+
+#: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
 msgstr "Seri Taksonomi Kısmı:"
 
@@ -2273,6 +2587,14 @@ msgid "Series Taxonomy:"
 msgstr "Seri Taksonomisi:"
 
 #: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr ""
+"Yeni bir taksonomi oluşturmak için yeni ismi girin ve \"Seçenekleri "
+"Güncelle\" düğmesine tıklayın."
+
+#: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
 msgstr "Terimleri Taşı"
 
@@ -2281,11 +2603,29 @@ msgid "Automatically migrate existing series terms to the new taxonomy"
 msgstr "Mevcut seri terimlerini yeni taksonomiye otomatik olarak taşıyın"
 
 #: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"Seçili ise, taksonomi slug'ını değiştirdiğinizde mevcut taksonomiden tüm "
+"terimler yeni taksonomiye taşınacaktır. Seçili değilse, yalnızca taksonomi "
+"slug'ı değiştirilecektir."
+
+#: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
 msgstr "Üzgünüz, sonuç bulunamadı."
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"PublishPress Series Free kullanıyorsunuz. Pro versiyonu daha fazla özellik "
+"ve destek sunar. %sPro'ya Yükselt%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
 msgid "Upgrade to Pro"
 msgstr "Pro'ya Yükselt"
 
@@ -2356,6 +2696,12 @@ msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Seçtiğiniz isim doğru bir şekilde temizlenmiyor. Farklı bir şey deneyin."
 
 #: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "Hmm... o isimde zaten bir seri var gibi görünüyor. Başka bir şey deneyin"
+
+#: orgSeries-admin.php:359
 msgid "Not part of a series"
 msgstr "Bir serinin parçası değil"
 
@@ -2372,6 +2718,15 @@ msgid "Post title in widget:"
 msgstr "Widget'ta yer alan gönderi başlığı:"
 
 #: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"Bu yazının kısa başlığı, Seri widget'ında kullanılacaktır. Tam başlığı "
+"kullanmak için boş bırakın."
+
+#: orgSeries-admin.php:519
+#, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Parça numarası yok)"
 
@@ -2403,10 +2758,26 @@ msgid "Term Order"
 msgstr "Terim Sırası"
 
 #: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"Bir öğeyi yeniden konumlandırmak için, satırı herhangi bir yerinde "
+"\"tıklayıp tutarak\" sürükleyin ve yeni konumuna taşıyın."
+
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
 msgstr "ID"
 
 #: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"Terimler genellikle alfabetik sıraya göre sıralanır, ancak bu alana bir "
+"sayı (ilk için 1, vb.) girerek kendi sıralamanızı seçebilirsiniz."
+
+#: orgSeries-manage.php:240
 msgid "Current series icon:"
 msgstr "Geçerli seri simgesi:"
 
@@ -2415,6 +2786,14 @@ msgid "No icon currently"
 msgstr "Şu anda simge yok"
 
 #: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+"Resmi silmek istiyor musunuz? (not: bunu seçerseniz, bu seri ile ilişkili "
+"bir resim olmayacaktır)"
+
+#: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
 msgstr "Seri Simgesi Yükle:"
 
@@ -2541,6 +2920,14 @@ msgstr "Başlık:"
 
 #: orgSeries-widgets.php:79
 #, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"Bu widget'ın düzeni ve içeriği <a href=\"%s\">Son Seriler</a> alanı "
+"aracılığıyla ayarlanabilir."
+
+#: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
 msgstr "Gönderisi olmayan serileri gizle?"
 
@@ -2658,10 +3045,26 @@ msgid "Offset:"
 msgstr "Kaydırma:"
 
 #: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"Seri sayısı için kaydırma seçeneğini seçebilirsiniz (sayfalandırma için "
+"kullanışlı). Boş bırakılırsa kaydırma yoktur"
+
+#: orgSeries-widgets.php:374
 msgid "Search:"
 msgstr "Ara:"
 
 #: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"Bu arama dizesine uyan herhangi bir seriyi döndürebilirsiniz (seri adları "
+"ile eşleştirildi)"
+
+#: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
 msgstr "Mevcut serideki diğer gönderileri göster:"
 
@@ -2703,6 +3106,17 @@ msgstr "%1$s geçerli bir varlık değil (beklenen: %2$s)."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"\"%1$s\" dosyası ya kaybolmuş ya da izinler nedeniyle okunamadı. Lütfen "
+"aşağıdaki yolun doğru olduğundan emin olun ve dosya izinlerini kontrol "
+"edin:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
 msgid "%s does not exist or is not reachable."
 msgstr "%s mevcut değil veya ulaşılamıyor."
 
@@ -2712,6 +3126,13 @@ msgstr "Nonce hatası."
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr "Sağlanan nesne tam nitelikli sınıf adı (%1$s) %2$s arayüzünü uygulamalıdır."
+
+#: src/domain/model/FileLocation.php:50
 #, php-format
 msgid "The given file path (%s) is not readable."
 msgstr "Verilen dosya yolu (%s) okunabilir değil."
@@ -2745,6 +3166,44 @@ msgstr "Lisans Anahtarı başarıyla deaktif edildi."
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"%1$s için değer zaten ayarlandı ve bu bir dizi değil. %2$s yöntemi yalnızca "
+"bu veri öğesine değer itmek için bir dizi olduğunda kullanılabilir."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"%1$s için değer zaten %2$s özelliğinde mevcut. Geçersiz kılmalar izin "
+"verilmez. Bu verinin değeri bir dizi olduğundan, değerinizi diziye itmek "
+"için %3$s yöntemini kullanmak isteyebilirsiniz."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"%1$s için değer zaten %2$s özelliğinde mevcut. Geçersiz kılmalar izin "
+"verilmez. Değerinizi farklı bir anahtara eklemeyi düşünün"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr ""
+"Bu manifest dosyası için ad alanı zaten kaydedilmiştir, %s dışında bir ad "
+"alanı seçin"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
 msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr "%1$s için sağlanan değer geçerli bir url değil. Sağlanan url şuydu: %2$s"
 
@@ -2759,16 +3218,96 @@ msgstr "Lisans anahtarınızı girin: "
 
 #: addons/grouping/legacy-includes.php:278
 msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Seri Kategorileri"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Seri"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Seri Kategorisi"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Seri"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Seri"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
 msgid "%1$s"
 msgstr "%1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:43
 #, fuzzy, php-format
 msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Seri"
+msgstr[1] "Seriler"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr ""
-"Bu giriş %series_part% olarak %total_posts_in_series% serisindeki bir "
-"parçadır "
+"Bu giriş, serinin %series_part% kısmıdır ve toplam %total_posts_in_series% "
+"post bulunmaktadır "
 
 #: orgSeries-taxonomy.php:381
 msgctxt "series list title"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Seri"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Seri"

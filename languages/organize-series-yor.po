@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Plugin Name of the plugin
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
 #. Plugin URI of the plugin
-#: orgSeries.php:4
+#: orgSeries.php:4, fuzzy
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
@@ -45,7 +45,7 @@ msgid "PublishPress"
 msgstr "PublishPress"
 
 #. Author URI of the plugin
-#: orgSeries.php:8
+#: orgSeries.php:8, fuzzy
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
@@ -156,7 +156,7 @@ msgstr "Àtẹ̀jáde Àpẹẹrẹ"
 msgid "Sample Post Title"
 msgstr "Àkòrí Àpẹẹrẹ"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
@@ -324,7 +324,7 @@ msgstr ""
 "Mu ki o fihan apo meta nikan lori iwo ifiweranṣẹ kan, kii ṣe lori awọn "
 "akọsilẹ."
 
-#: addons/post-details/includes/class-fields.php:152
+#: addons/post-details/includes/class-fields.php:152, fuzzy
 msgid "Typography"
 msgstr "Typography"
 
@@ -366,7 +366,7 @@ msgstr "Ífẹnukò"
 
 #: addons/post-details/includes/class-fields.php:198
 #: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-navigation/includes/class-fields.php:502, fuzzy
 msgid "Padding (px)"
 msgstr "Padding (px)"
 
@@ -375,7 +375,7 @@ msgid "Padding applied to all sides of the content area"
 msgstr "Padding ti a lo si gbogbo ẹgbẹ́ ti agbegbe akoonu"
 
 #: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-navigation/includes/class-fields.php:511, fuzzy
 msgid "Margin (px)"
 msgstr "Margin (px)"
 
@@ -1452,7 +1452,7 @@ msgstr "Ṣafihan aworan ti a ṣe afihan fun kinikọ́kọ́ ifiweranṣẹ"
 msgid "Position of the featured image relative to the link text"
 msgstr "Ipo ti aworan ti a ṣe afihan ni ibamu si ọrọ asopọ"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:449, fuzzy
 msgid "Color"
 msgstr "Color"
 
@@ -2803,7 +2803,7 @@ msgstr ""
 "Lati tun ipo nkan kan, fa ati tu ila pẹlu \"titẹ ati mimu\" rẹ ni ibikibi ki "
 "o si gbe e si ipo titun rẹ."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -2880,7 +2880,7 @@ msgstr "Jara"
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: orgSeries-options.php:143
+#: orgSeries-options.php:143, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
@@ -3026,11 +3026,11 @@ msgstr "Iye awọn jara lati ṣe afihan:"
 msgid "Display Order: "
 msgstr "Paṣẹ Ifihan: "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:100, fuzzy
 msgid "ASC: "
 msgstr "ASC: "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:101, fuzzy
 msgid "DESC: "
 msgstr "DESC: "
 
@@ -3086,7 +3086,7 @@ msgstr "orúkọ"
 msgid "count"
 msgstr "iye"
 
-#: orgSeries-widgets.php:301
+#: orgSeries-widgets.php:301, fuzzy
 msgid "slug"
 msgstr "slug"
 

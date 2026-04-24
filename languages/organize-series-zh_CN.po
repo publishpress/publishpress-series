@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:22+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: zh_CN\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
-msgstr "PublishPress 系列免费"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin
@@ -28,6 +28,16 @@ msgstr "https://publishpress.com/publishpress-series/"
 
 #: orgSeries.php:5
 #. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series "
+"允许您将内容分组为一个系列。这对于杂志、报纸、短篇小说作者、教师、漫画艺术家或任何在同一主题上写多个帖子的人来说都是理想的。"
+
+#: orgSeries.php:7
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
@@ -76,6 +86,12 @@ msgid "Series Categories"
 msgstr "系列类别"
 
 #: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "删除插件时，从数据库中删除所有“系列分类”数据。"
+
+#: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
 msgstr "点击切换"
 
@@ -422,6 +438,14 @@ msgid "Sample Series Post %d"
 msgstr "示例系列帖子 %d"
 
 #: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
 msgid "Sample excerpt preview content for the series meta box."
 msgstr "系列元框的示例摘录预览内容。"
 
@@ -749,6 +773,12 @@ msgid "Maximum number of items"
 msgstr "最大项目数"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr "限制系列列表中显示的帖子数量。留空则无限制。管理员预览限制为 4 个帖子。"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "突出显示当前帖子"
 
@@ -977,6 +1007,16 @@ msgid "Sample Post %d"
 msgstr "示例帖子 %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"这是系列中帖子 %d 的示例内容。Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "这是系列中帖子 %d 的示例摘录。"
@@ -1596,6 +1636,12 @@ msgid "Create as unpublished:"
 msgstr "创建为未发布："
 
 #: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr "选中后，您分配给该系列的所有帖子将保持未发布状态，直到您发布整个系列。"
+
+#: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
 msgstr "您系列中的帖子已成功取消发布。"
 
@@ -1654,10 +1700,22 @@ msgid "Series Order:"
 msgstr "系列顺序："
 
 #: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr "将帖子名称拖动到您希望它们在系列中出现的顺序，从第一部分到最后一部分。"
+
+#: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
 msgstr "系列中的未发布帖子："
 
 #: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr "当这些帖子被发布时，它们将被添加到系列中当前最后一个帖子的后面。"
+
+#: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
 msgstr "未发布的帖子"
 
@@ -1682,11 +1740,31 @@ msgid "Overview"
 msgstr "概述"
 
 #: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr "以下是可以在自定义模板字段中使用的令牌的图例。这些将在插件运行时被替换为相应的值。"
+
+#: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
 msgstr "这将被替换为系列的系列图标。"
 
 #: inc/settings/settings-page.php:76
 #, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr "与 %series_icon% 相同，除了系列图标将链接到系列页面"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr "此令牌仅用于 orgSeries widget - 它引用您希望插入系列标题列表的位置，并要求为每个系列标题设置模板。"
+
+#: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
 msgstr "这将被替换为系列的标题"
 
@@ -1696,14 +1774,67 @@ msgid "Same as %series_title% except that it will also be linked to the series p
 msgstr "同 %series_title%，但它也将链接到系列页面"
 
 #: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr "是帖子列表帖子模板内容出现的位置令牌。"
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr "是帖子列表帖子模板内容出现的位置令牌，并使用提供的 widget 帖子短标题。"
+
+#: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "将被替换为系列中某个帖子的标题"
 
 #: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr "将被替换为与该帖子的页面视图链接的系列中帖子的标题。"
+
+#: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "将被替换为系列中某个帖子的短标题"
 
 #: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr "将被替换为与该帖子的页面视图链接的系列中帖子的短标题。"
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr "将被替换为系列中前一个帖子的导航链接。文本将是“自定义前一个帖子导航文本”字段中包含的内容。如果该字段为空，则文本将是帖子的标题。"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr "将被替换为系列中下一个帖子的导航链接。文本将是“自定义下一个帖子导航文本”字段中包含的内容。如果该字段为空，则文本将是帖子的标题。"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr "将被替换为系列中第一个帖子的导航链接。文本将是“自定义第一个帖子导航文本”字段中包含的内容。如果该字段为空，则文本将是帖子的标题。"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr "在模板代码的其余部分之前或之后使用此标签。它将指示您希望帖子内容显示的位置。"
+
+#: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
 msgstr "将显示该文章在系列中的部分"
 
@@ -1748,6 +1879,12 @@ msgid "Update Options"
 msgstr "更新选项"
 
 #: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr "点击“是”将重置选项为默认值，您将失去所有自定义设置。或者您可以点击取消并返回。"
+
+#: inc/settings/settings-page.php:309
 msgid "No"
 msgstr "否"
 
@@ -1762,6 +1899,14 @@ msgstr "请更新您的 PublishPress 系列数据"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr "我们对系列的存储方式进行了更改，这需要进行小幅更新。这改善了对多个系列功能的支持，并解决了一些与帖子顺序相关的问题。请点击此按钮进行升级。"
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
 msgstr "更新系列数据"
 
@@ -1833,10 +1978,22 @@ msgid "PublishPress Series Plugin Options have been RESET"
 msgstr "PublishPress 系列插件选项已被重置"
 
 #: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr "请小心更改这些设置，因为它们会对 PublishPress Series 进行重大更改。"
+
+#: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
 msgstr "系列设置"
 
 #: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "在删除此插件时，从数据库中删除所有 PublishPress Series 数据。"
+
+#: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
 msgstr "系列升级"
 
@@ -1845,6 +2002,13 @@ msgid "Run Upgrade Task"
 msgstr "运行升级任务"
 
 #: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr "在版本 2.11.4 中，PublishPress Series 对系列的存储方式进行了更改。如果您在使用系列部分时遇到问题，可以在这里运行升级任务。"
+
+#: inc/settings/tab-advanced.php:65
 msgid "Sync Series Order to Menu Order"
 msgstr "同步系列顺序到菜单顺序"
 
@@ -1853,6 +2017,16 @@ msgid "Sync to Menu Order"
 msgstr "同步到菜单顺序"
 
 #: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"这将同步所有系列部分编号到 WordPress 的 menu_order "
+"字段。对只能按菜单顺序排序的主题/页面构建器非常有用（页面属性：顺序）。这允许您使用原生 WordPress 排序而不是自定义字段。"
+
+#: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
 msgstr "重置设置"
 
@@ -1915,6 +2089,16 @@ msgstr "布局："
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"选择不同于“默认”的布局将覆盖您主题中的分类模板。<a href=\"%s\" "
+"target=\"_blank\">点击这里查看如何自定义这些设计的详细信息</a>。"
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
 msgid "Columns:"
 msgstr "列："
 
@@ -1952,6 +2136,12 @@ msgstr "查看页面"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr "您必须 %1s 更新您的固定链接结构 %2s 为除“普通”以外的其他内容，以便系列目录 URL 正常工作。"
+
+#: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
 msgstr "每页系列："
 
@@ -1997,6 +2187,25 @@ msgid "Latest Series (tags after):"
 msgstr "最新系列（标签在后）："
 
 #: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr "此显示由“系列目录”小部件、短代码和 URL 使用。"
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr "此显示由“系列目录”使用。要找到此显示的 URL，请转到“显示”标签，然后选择“系列目录 URL”。"
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "这些设置允许您自定义帖子编辑屏幕上的元框。"
+
+#: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
 msgstr "默认系列顺序"
 
@@ -2070,6 +2279,12 @@ msgid "Limit to single page only"
 msgstr "仅限单页"
 
 #: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr "是否仅限于单页显示系列元数据，或包括归档页面。"
+
+#: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
 msgstr "帖子列表框设置"
 
@@ -2166,6 +2381,12 @@ msgid "Pro Features"
 msgstr "专业功能"
 
 #: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr "这些设置允许您启用或禁用 PublishPress Series Pro 中的功能。"
+
+#: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
 msgstr "允许将自定义文章类型与 PublishPress Series 一起使用。"
 
@@ -2208,6 +2429,12 @@ msgid "Series Categories URL Base:"
 msgstr "系列类别 URL 基础："
 
 #: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr "此文本将在系列分类归档 URL 中使用。如果您更改它，旧的 URL 将重定向到新的基础 URL。"
+
+#: inc/settings/tab-series-category.php:36
 msgid "Series Categories Archive Template:"
 msgstr "系列类别存档模板："
 
@@ -2220,6 +2447,15 @@ msgid "Use template from Plugin"
 msgstr "使用插件中的模板"
 
 #: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"主题模板使用您当前激活的主题模板层次结构。当您的主题未提供 taxonomy-series_group.php 时，插件模板使用 "
+"PublishPress Series 回退设计。"
+
+#: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
 msgstr "插件模板显示选项："
 
@@ -2236,6 +2472,12 @@ msgid "Show Posts in each Series as list items"
 msgstr "以列表项的形式显示每个系列的帖子"
 
 #: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr "此功能允许您为此插件创建一个新的分类法，如果您不想使用默认的“系列”分类法。"
+
+#: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
 msgstr "系列分类法标识符："
 
@@ -2248,6 +2490,12 @@ msgid "Series Taxonomy:"
 msgstr "系列分类法："
 
 #: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr "要创建新的分类法，请输入新名称并单击“更新选项”按钮。"
+
+#: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
 msgstr "迁移术语"
 
@@ -2256,11 +2504,24 @@ msgid "Automatically migrate existing series terms to the new taxonomy"
 msgstr "自动将现有的系列术语迁移到新的分类法"
 
 #: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr "如果选中，则在您更改分类法别名时，当前分类法中的所有术语将迁移到新的分类法。如果未选中，则仅更改分类法别名。"
+
+#: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
 msgstr "抱歉，未找到结果。"
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr "您正在使用 PublishPress Series 免费版。专业版具有更多功能和支持。%s升级到专业版%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
 msgid "Upgrade to Pro"
 msgstr "升级到专业版"
 
@@ -2331,6 +2592,12 @@ msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "您选择的名称未正确清理。请尝试其他名称。"
 
 #: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "嗯……看起来已经有一个同名的系列。试试其他名称"
+
+#: orgSeries-admin.php:359
 msgid "Not part of a series"
 msgstr "不属于任何系列"
 
@@ -2347,6 +2614,13 @@ msgid "Post title in widget:"
 msgstr "小部件中的帖子标题："
 
 #: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr "此帖的短标题将用于系列小部件。留空以使用完整标题。"
+
+#: orgSeries-admin.php:519
+#, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>（无部分编号）"
 
@@ -2378,10 +2652,22 @@ msgid "Term Order"
 msgstr "术语顺序"
 
 #: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr "要重新定位项目，请通过“单击并按住”该行的任何位置进行拖放，将其移动到新位置。"
+
+#: orgSeries-manage.php:196, fuzzy
 msgid "ID"
 msgstr "ID"
 
 #: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr "条目通常按字母顺序排列，但您可以通过在此字段中输入一个数字（1为第一，等等）选择自己的顺序。"
+
+#: orgSeries-manage.php:240
 msgid "Current series icon:"
 msgstr "当前系列图标："
 
@@ -2390,6 +2676,12 @@ msgid "No icon currently"
 msgstr "当前没有图标"
 
 #: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr "删除图片？（注意：如果选择此项，则该系列将不再关联任何图片）"
+
+#: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
 msgstr "系列图标上传："
 
@@ -2514,6 +2806,12 @@ msgstr "标题:"
 
 #: orgSeries-widgets.php:79
 #, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr "此widget的布局和内容可以通过<a href=\"%s\">最新系列</a>区域进行调整。"
+
+#: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
 msgstr "隐藏没有帖子系列？"
 
@@ -2631,10 +2929,22 @@ msgid "Offset:"
 msgstr "偏移量："
 
 #: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr "您可以选择系列数量的偏移量（对分页有用）。如果留空，则没有偏移量"
+
+#: orgSeries-widgets.php:374
 msgid "Search:"
 msgstr "搜索："
 
 #: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr "您可以返回与此搜索字符串匹配的任何系列（与系列名称匹配）"
+
+#: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
 msgstr "显示当前系列中的其他帖子："
 
@@ -2676,6 +2986,14 @@ msgstr "%1$s 不是有效的实体（预期：%2$s）。"
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr "“%1$s”文件丢失或由于权限问题无法读取。请确保以下路径正确并验证文件权限是否正确：%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
 msgid "%s does not exist or is not reachable."
 msgstr "%s 不存在或无法访问。"
 
@@ -2685,6 +3003,13 @@ msgstr "Nonce 失败。"
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr "提供的对象完全限定类名（%1$s）必须实现%2$s接口。"
+
+#: src/domain/model/FileLocation.php:50
 #, php-format
 msgid "The given file path (%s) is not readable."
 msgstr "给定的文件路径 (%s) 不能读取。"
@@ -2718,6 +3043,35 @@ msgstr "许可证密钥成功停用。"
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr "%1$s的值已设置，并且不是数组。当它是数组时，%2$s方法只能用于将值推送到此数据元素。"
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr "%1$s的值已存在于%2$s属性中。禁止覆盖。由于此数据的值是数组，您可能想使用%3$s方法将您的值推送到数组中。"
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr "%1$s的值已存在于%2$s属性中。禁止覆盖。考虑将您的值附加到不同的键"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr "此清单文件的命名空间已注册，请选择其他命名空间而不是%s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
 msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr "提供的 %1$s 值不是有效的 URL。提供的 URL 是：%2$s"
 
@@ -2732,14 +3086,93 @@ msgstr "输入您的许可证密钥："
 
 #: addons/grouping/legacy-includes.php:278
 msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "系列类别"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "系列"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "系列类别"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "系列"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "系列"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
 msgid "%1$s"
 msgstr "%1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:43
 #, fuzzy, php-format
 msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "系列"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr "此条目是系列中 %series_part% 的 %total_posts_in_series% 个条目的一部分 "
+msgstr "此条目是系列中 %series_part% 的 %total_posts_in_series% 部分 "
 
 #: orgSeries-taxonomy.php:381
 msgctxt "series list title"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "系列"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "系列"

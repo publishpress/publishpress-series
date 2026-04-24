@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-04-24 08:41+0000\n"
+"PO-Revision-Date: 2026-04-24 15:38+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ko_KR\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
-msgstr "퍼블리시프레스 시리즈 무료"
+msgstr "PublishPress Series Free"
 
 #: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin
