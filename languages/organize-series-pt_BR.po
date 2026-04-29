@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
-"PO-Revision-Date: 2026-04-24 15:38+0000\n"
+"PO-Revision-Date: 2026-04-29 12:22+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
@@ -2421,8 +2421,8 @@ msgid "Post List Box Position"
 msgstr "Posição da Caixa de Lista de Posts"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "Modelo de lista de posts da série"
+msgid "Post List Box Template"
+msgstr "Modelo de Caixa de Listagem de Postagens"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"

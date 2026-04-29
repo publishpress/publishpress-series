@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 15:38+0000\n"
+"PO-Revision-Date: 2026-04-29 12:23+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
@@ -2415,8 +2415,8 @@ msgid "Post List Box Position"
 msgstr "Poziția Casetei Listă Postări"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "Șablon Listă Postări Serii"
+msgid "Post List Box Template"
+msgstr "Șablon listă de posturi"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"

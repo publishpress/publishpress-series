@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-24 15:38+0000\n"
+"PO-Revision-Date: 2026-04-29 12:22+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: fa_IR\n"
@@ -2376,8 +2376,8 @@ msgid "Post List Box Position"
 msgstr "موقعیت جعبه لیست پست"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "قالب لیست پست سری"
+msgid "Post List Box Template"
+msgstr "قالب جعبه لیست پست"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"

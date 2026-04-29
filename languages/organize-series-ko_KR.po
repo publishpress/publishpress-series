@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-04-24 15:38+0000\n"
+"PO-Revision-Date: 2026-04-29 12:23+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ko_KR\n"
@@ -2325,8 +2325,8 @@ msgid "Post List Box Position"
 msgstr "게시물 목록 상자 위치"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "시리즈 게시물 목록 템플릿"
+msgid "Post List Box Template"
+msgstr "게시물 목록 상자 템플릿"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"

@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-04-24 15:38+0000\n"
+"PO-Revision-Date: 2026-04-29 12:22+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -2397,8 +2397,8 @@ msgid "Post List Box Position"
 msgstr "Posisi Kotak Daftar Pos"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "Template Daftar Pos Seri"
+msgid "Post List Box Template"
+msgstr "Template Kotak Daftar Pos"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"

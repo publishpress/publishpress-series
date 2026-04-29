@@ -17,8 +17,8 @@ msgstr ""
 "X-Domain: organize-series\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
 "|| n % 10 == 6 || n % 10 == 9);: \n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
 #. Plugin Name of the plugin
 #: orgSeries.php:3, fuzzy

@@ -63,7 +63,7 @@ function series_post_list_box_fieldset() {
 				</tr>
 
 				<tr valign="top" id="series_post_list_template_row" class="ppseries-custom-template-row">
-					<th scope="row"><label for="series_post_list_template"><?php esc_html_e('Series Post List Template', 'organize-series'); ?></label></th>
+					<th scope="row"><label for="series_post_list_template"><?php esc_html_e('Post List Box Template', 'organize-series'); ?></label></th>
 					<td><textarea name="<?php echo esc_attr($org_name); ?>[series_post_list_template]" id="series_post_list_template" class="ppseries-textarea ppseries-full-width"><?php echo isset($org_opt['series_post_list_template']) ? esc_html(htmlspecialchars(stripslashes($org_opt['series_post_list_template']))) : ''; ?></textarea></td>
 				</tr>
 				<tr valign="top" id="series_post_list_post_linked_post_row" class="ppseries-custom-template-row">
