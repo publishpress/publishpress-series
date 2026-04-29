@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[3.1.2] - 27 Apr, 2026
+[3.1.2] - 29 Apr, 2026
 
 * Added: Add new translation languages #1082
 * Added: Migrate to shared dev-workspace #1108
