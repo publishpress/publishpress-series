@@ -3,54 +3,61 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Series 3.0.0\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/publishpress-series\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Yoruba "
-"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
-"series/yo/>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
 "PO-Revision-Date: 2026-03-26 08:59+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Yoruba <https://weblate.publishpress.com/projects/"
+"publishpress-series/organize-series/yo/>\n"
+"Language: yor\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
-"Language: yor\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: orgSeries.php
-#: orgSeries.php, fuzzy
 #. Plugin Name of the plugin
+#: orgSeries.php:3, fuzzy
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
+#: orgSeries.php:4, fuzzy
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php
 #. Description of the plugin
+#: orgSeries.php:5
 msgid ""
-"PublishPress Series allows you to group content together into a series. "
-"This is ideal for magazines, newspapers, short-story writers, teachers, "
-"comic artists, or anyone who writes multiple posts on the same topic."
+"PublishPress Series allows you to group content together into a series. This "
+"is ideal for magazines, newspapers, short-story writers, teachers, comic "
+"artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
 "PublishPress Series gba ọ laaye lati kó akoonu pọ jọ sinu jara. Eyi jẹ ti o "
 "dara fun awọn iwe iroyin, awọn iwe, awọn onkọwe itan kukuru, awọn olukọ, "
 "awọn oṣere eré, tabi ẹnikẹni ti o kọ ọpọlọpọ awọn ifiweranṣẹ lori akọle "
 "kanna."
 
-#: orgSeries.php, fuzzy
 #. Author of the plugin
+#: orgSeries.php:7
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php, fuzzy
 #. Author URI of the plugin
+#: orgSeries.php:8, fuzzy
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Ẹka Awọn jara"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Ẹka Jara"
 
 #: addons/grouping/legacy-includes.php:280
 msgid "Search Series Categories"
@@ -96,22 +103,16 @@ msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr ""
-"Pa gbogbo data \"Awọn Ẹka Jara\" kuro ninu ipilẹ data nigbati o ba pa "
-"plugin naa."
+"Pa gbogbo data \"Awọn Ẹka Jara\" kuro ninu ipilẹ data nigbati o ba pa plugin "
+"naa."
 
 #: addons/grouping/legacy-includes.php:670
-#: addons/publisher/series_im_admin_main.php:7
-#: orgSeries-admin.php:478
-#: orgSeries-admin.php:491
-#: orgSeries-admin.php:571
-#: orgSeries-options.php:55
-#: orgSeries-setup.php:266
-#: orgSeries-taxonomy.php:381
-#: orgSeries-widgets.php:233
-#: orgSeries-widgets.php:386
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "series grouping column header"
 msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Jara"
+msgstr "Jara"
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -173,8 +174,7 @@ msgstr "Apejuwe àtẹ̀jáde àpẹẹrẹ."
 
 #: addons/post-details/includes/class-admin-ui.php:31
 #: addons/post-details/includes/class-admin-ui.php:32
-#: inc/settings/tab-post-details.php:11
-#: orgSeries-utility.php:309
+#: inc/settings/tab-post-details.php:11 orgSeries-utility.php:309
 msgid "Post Details"
 msgstr "Alaye Ifiweranṣẹ"
 
@@ -202,7 +202,8 @@ msgid "Use this shortcode:"
 msgstr "Lo koodu kuru yìí:"
 
 #: addons/post-details/includes/class-admin-ui.php:149
-msgid "Insert into posts or pages to display this Series Post Details manually."
+msgid ""
+"Insert into posts or pages to display this Series Post Details manually."
 msgstr ""
 "Fi sinu awọn ifiweranṣẹ tabi awọn oju-iwe lati fi han Alaye Ifiweranṣẹ "
 "Àtẹ̀jáde yìí ni ọwọ́."
@@ -214,10 +215,9 @@ msgstr "Apoti Meta Aiyipada"
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
 #: addons/post-list-box/includes/class-admin-ui.php:431
-#: addons/post-list-box/includes/class-admin-ui.php:709
+#: addons/post-list-box/includes/class-admin-ui.php:715
 #: addons/post-navigation/includes/class-admin-ui.php:442
-#: inc/settings/tab-post-types.php:59
-#: inc/settings/tab-pro-features.php:52
+#: inc/settings/tab-post-types.php:59 inc/settings/tab-pro-features.php:52
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "Ẹya yìí wà ní PublishPress Series Pro"
 
@@ -297,17 +297,15 @@ msgid "Meta Box Position"
 msgstr "Ipo Apo Meta"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:535
-#: inc/settings/tab-post-details.php:27
-#: inc/settings/tab-post-list-box.php:27
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: inc/settings/tab-post-details.php:27 inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
 msgid "Top"
 msgstr "Oju-oke"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:536
-#: inc/settings/tab-post-details.php:28
-#: inc/settings/tab-post-list-box.php:28
+#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: inc/settings/tab-post-details.php:28 inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
 msgid "Bottom"
 msgstr "Isalẹ"
@@ -417,8 +415,7 @@ msgstr "Àwọn Alaye Ifiweranṣẹ Series"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413
-#: orgSeries-setup.php:208
+#: orgSeries-admin.php:413 orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Fi Ẹ̀kúnrẹ́rẹ́ Tuntun Kún"
 
@@ -540,7 +537,8 @@ msgid "Link Box Title to Series"
 msgstr "So Akọle Apoti pọ̀ mọ́ Ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:125
-msgid "Link the box title to the current series archive when using the series title"
+msgid ""
+"Link the box title to the current series archive when using the series title"
 msgstr "So akọle apoti pọ̀ mọ́ àkọsílẹ̀ ẹ̀rọ lọwọlọwọ nigbati o ba nlo akọle ẹ̀rọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:130
@@ -621,196 +619,207 @@ msgid "Excerpt Color"
 msgstr "Color Akọsilẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:324
-msgid "Show Post Author"
+#, fuzzy
+#| msgid "Show Post Author"
+msgid "Show Post Summary"
 msgstr "Fi Han Onkọwe Ifiṣootọ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:332
+#, fuzzy
+#| msgid "Excerpt Length (words)"
+msgid "Summary Length (words)"
+msgstr "Gigun Akọsilẹ (ọ̀rọ̀)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr ""
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
+msgid "Show Post Author"
+msgstr "Fi Han Onkọwe Ifiṣootọ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:362
 msgid "Post Author Color"
 msgstr "Àwọ̀ Onkọ̀wé Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:342
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Date"
 msgstr "Fihan Ọjọ́ Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:350
+#: addons/post-list-box/classes/PostListBoxFields.php:380
 msgid "Post Date Color"
 msgstr "Àwọ̀ Ọjọ́ Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:371
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "Fihan Aworan Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:408
 msgid "Featured Image Width (px)"
 msgstr "Iwọn Aworan Ifiṣootọ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:385
+#: addons/post-list-box/classes/PostListBoxFields.php:415
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "Iwọn aworan ifiṣootọ ni píksẹli"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:390
+#: addons/post-list-box/classes/PostListBoxFields.php:420
 msgid "Featured Image Height (px)"
 msgstr "Giga Aworan Ifiṣootọ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:397
+#: addons/post-list-box/classes/PostListBoxFields.php:427
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "Giga aworan ifiṣootọ ni píksẹli"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:402
+#: addons/post-list-box/classes/PostListBoxFields.php:432
 msgid "Fallback Featured Image"
 msgstr "Aworan Ifiṣootọ Tẹ́lẹ̀"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:407
+#: addons/post-list-box/classes/PostListBoxFields.php:437
 msgid "Image to display when a post does not have a featured image"
 msgstr "Aworan lati fi hàn nigbati ifiṣootọ ko ní aworan ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:424
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Post Padding (px)"
 msgstr "Àkóónú Ifiṣootọ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:433
+#: addons/post-list-box/classes/PostListBoxFields.php:463
 msgid "Post Border Width (px)"
 msgstr "Iwọn Ààlà Ifiṣootọ (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:442
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 msgid "Post Border Color"
 msgstr "Àwọ̀ Ààlà Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:479
 msgid "Post Background Color"
 msgstr "Àwọ̀ Àyè Ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "Background color for the post list container"
 msgstr "Àwọ̀ àyè fún apoti atokọ ifiṣootọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:468
+#: addons/post-list-box/classes/PostListBoxFields.php:498
 msgid "Layout Style"
 msgstr "Ìṣàkóso Àwòrán"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Atokọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:473
+#: addons/post-list-box/classes/PostListBoxFields.php:503
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "Gírọ́dù"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:480
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Columns"
 msgstr "Àwọn Ẹka"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 msgid "2 Columns"
 msgstr "2 Àwọn Ẹka"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:515
 msgid "3 Columns"
 msgstr "Ẹ̀ka mẹta"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:486
+#: addons/post-list-box/classes/PostListBoxFields.php:516
 msgid "4 Columns"
 msgstr "Ẹ̀ka mẹrin"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:487
+#: addons/post-list-box/classes/PostListBoxFields.php:517
 msgid "6 Columns"
 msgstr "Ẹ̀ka mẹfa"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:496
+#: addons/post-list-box/classes/PostListBoxFields.php:526
 msgid "Order By"
 msgstr "ṣẹ́lẹ̀ nipasẹ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:500
+#: addons/post-list-box/classes/PostListBoxFields.php:530
 msgid "Date"
 msgstr "Ọjọ́"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:501
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Àkọlé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:532
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826
-#: orgSeries-admin.php:369
-#: orgSeries-manage.php:195
-#: orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:826 orgSeries-admin.php:369
+#: orgSeries-manage.php:195 orgSeries-manage.php:204
 msgid "Series Order"
 msgstr "Àtòjọ Ẹ̀ka"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:509
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:227
+#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: orgSeries-manage.php:51 orgSeries-manage.php:227
 msgid "Order"
 msgstr "ṣẹ́lẹ̀"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:513
-#: inc/settings/tab-legacy.php:106
-#: orgSeries-widgets.php:320
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: inc/settings/tab-legacy.php:106 orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "Igbàlódé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
-#: inc/settings/tab-legacy.php:107
-#: orgSeries-widgets.php:319
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: inc/settings/tab-legacy.php:107 orgSeries-widgets.php:319
 msgid "Descending"
 msgstr "Ìdàlẹ́kọ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:521
+#: addons/post-list-box/classes/PostListBoxFields.php:551
 msgid "Gap Between Items (px)"
 msgstr "Ààlà Laarin Àwọn Nkan (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:561
 msgid "Post List Box Location"
 msgstr "Ipo Àkópọ̀ Ifiweranṣẹ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:540
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Yan ibiti a o ti fi àkópọ̀ ifiweranṣẹ hàn ní ìbáṣepọ̀ pẹ̀lú akoonu"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:574
 msgid "Maximum number of items"
 msgstr "Ìwọn tó pọ̀jùlọ ti àwọn nkan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:550
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
 msgstr ""
-"Dín iye àfikún ifiweranṣẹ tí a fi hàn nínú àtòjọ ẹ̀ka. Fìdí rẹ̀ múlẹ̀ fún "
-"àìmọ́ iye. Àyẹyẹ alákóso ni a dín sí 4 ifiweranṣẹ."
+"Dín iye àfikún ifiweranṣẹ tí a fi hàn nínú àtòjọ ẹ̀ka. Fìdí rẹ̀ múlẹ̀ fún àìmọ́ "
+"iye. Àyẹyẹ alákóso ni a dín sí 4 ifiweranṣẹ."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "Fihàn Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:600
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "Fihàn ifiweranṣẹ tó wà lọwọlọwọ́ nígbà tí a ń wo ifiweranṣẹ ẹ̀ka pàtó"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: addons/post-list-box/classes/PostListBoxFields.php:603
 msgid "Current Post Background Color"
 msgstr "Àwọ̀ Abẹ́rẹ́ Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:610
 msgid "Current Post Border Color"
 msgstr "Àwọ̀ Ààlà Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:587
+#: addons/post-list-box/classes/PostListBoxFields.php:617
 msgid "Current Post Text Color"
 msgstr "Àwọ̀ Ọrọ̀ Ifiweranṣẹ Tó Wà Lọwọ́lọwọ́"
 
@@ -916,13 +925,13 @@ msgstr "Nṣiṣẹ awòrán..."
 msgid "Error loading preview."
 msgstr "Aṣiṣe nṣiṣẹ awòrán."
 
-#: addons/post-list-box/includes/class-admin-ui.php:685
+#: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
 msgstr "Yan Aworan"
 
-#: addons/post-list-box/includes/class-admin-ui.php:689
+#: addons/post-list-box/includes/class-admin-ui.php:695
 msgid "Remove"
 msgstr "Yọ"
 
@@ -938,6 +947,18 @@ msgstr "Àkọsílẹ"
 #: addons/post-navigation/includes/class-fields.php:38
 msgid "Layout"
 msgstr "Ìtọ́ka"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:33
 #, php-format
@@ -983,6 +1004,12 @@ msgstr "Kò sí %2$s ti a ri"
 #, php-format
 msgid "No %2$s found in Trash"
 msgstr "Kò sí %2$s ti a ri ninu Àpò"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:44
 #, php-format
@@ -1040,7 +1067,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Eyi ni àpẹẹrẹ àkọọlẹ fun ifiweranṣẹ %d ninu jara."
 
-#: addons/post-list-box/includes/class-preview.php:492
+#: addons/post-list-box/includes/class-preview.php:504
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1055,7 +1082,7 @@ msgstr "Àtòkọ Àkọsílẹ Àtọka"
 msgid "Grid Style Box"
 msgstr "Àtòkọ Àtẹle Gíríìdù"
 
-#: addons/post-list-box/post-list-box.php:109
+#: addons/post-list-box/post-list-box.php:108
 msgid "Simple List Box"
 msgstr "Àtòkọ Àkọsílẹ Rọrun"
 
@@ -1108,10 +1135,10 @@ msgid "No series found. Create a series to preview the navigation."
 msgstr "Ko si jara ti a ri. Ṣẹda jara kan lati wo iṣipopada naa."
 
 #: addons/post-navigation/includes/class-admin-ui.php:184
-msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgid ""
+"Insert into posts or pages to display this Series Post Navigation manually."
 msgstr ""
-"Fi sílẹ̀ nínú àwọn ìkọ̀wé tàbí àwọn ojúewé láti fi hàn Ìtòsọna Ìkọ̀wé yìí "
-"lọ́wọ́."
+"Fi sílẹ̀ nínú àwọn ìkọ̀wé tàbí àwọn ojúewé láti fi hàn Ìtòsọna Ìkọ̀wé yìí lọ́wọ́."
 
 #: addons/post-navigation/includes/class-admin-ui.php:192
 msgid "Default Navigation"
@@ -1613,6 +1640,13 @@ msgstr "Àtọka"
 msgid "Manage Series"
 msgstr "Ṣakoso Jara"
 
+#: addons/publisher/series_im_admin_main.php:7
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgid "Series"
+msgstr "Jara"
+
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
 #: addons/publisher/series_issue_manager.php:741
@@ -1657,8 +1691,8 @@ msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr ""
-"Nigbati a ba ṣe ayẹyẹ, gbogbo awọn ifiweranṣẹ ti o pin si jara yii yoo wa "
-"ni a ko ṣe iwe titi ti iwọ yoo fi ṣe iwe jara gbogbo."
+"Nigbati a ba ṣe ayẹyẹ, gbogbo awọn ifiweranṣẹ ti o pin si jara yii yoo wa ni "
+"a ko ṣe iwe titi ti iwọ yoo fi ṣe iwe jara gbogbo."
 
 #: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
@@ -1694,8 +1728,8 @@ msgstr "Iye awọn nkan fun oju-iwe"
 msgid "Publishing Series:"
 msgstr "Ṣiṣẹda Jara:"
 
-#: addons/publisher/series_issue_manager.php:649
 #. translators: %s: search keywords
+#: addons/publisher/series_issue_manager.php:649
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Awọn abajade wiwa fun &#8220;%s&#8221;"
@@ -1798,22 +1832,24 @@ msgstr "Eyi yoo wa ni rọpo pẹlu akọle ẹlẹsẹ kan"
 
 #: inc/settings/settings-page.php:100
 #, php-format
-msgid "Same as %series_title% except that it will also be linked to the series page"
+msgid ""
+"Same as %series_title% except that it will also be linked to the series page"
 msgstr "Bii %series_title% ayafi pe yoo tun jẹ asopọ si oju-iwe ẹlẹsẹ"
 
 #: inc/settings/settings-page.php:108
 msgid ""
-"Is the location token for where the contents of the post list post "
-"templates will appear."
-msgstr "Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han."
+"Is the location token for where the contents of the post list post templates "
+"will appear."
+msgstr ""
+"Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han."
 
 #: inc/settings/settings-page.php:116
 msgid ""
-"Is the location token for where the contents of the post list post "
-"templates will appear and use provided widget post short title."
+"Is the location token for where the contents of the post list post templates "
+"will appear and use provided widget post short title."
 msgstr ""
-"Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han "
-"ati lo akọle kukuru àtẹjáde ti a pese."
+"Ipo ti aami fun ibi ti akoonu ti awọn àtẹjáde akojọpọ ifiweranṣẹ yoo han ati "
+"lo akọle kukuru àtẹjáde ti a pese."
 
 #: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
@@ -1833,8 +1869,8 @@ msgstr "A yoo rọpo rẹ pẹlu akọle kukuru ifiweranṣẹ ti ifiweranṣẹ
 
 #: inc/settings/settings-page.php:148
 msgid ""
-"Will be replaced with the post title short of a post in the series linked "
-"to the page view of that post."
+"Will be replaced with the post title short of a post in the series linked to "
+"the page view of that post."
 msgstr ""
 "A yoo rọpo rẹ pẹlu akọle kukuru ifiweranṣẹ ti ifiweranṣẹ kan ninu jara ti o "
 "ni asopọ si wiwo oju-iwe ti ifiweranṣẹ yẹn."
@@ -1863,9 +1899,8 @@ msgstr ""
 #: inc/settings/settings-page.php:172
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
-"text will be whatever is included in the 'Custom First Post Navigation "
-"Text' field. If that field is empty then the text will be the title of the "
-"post"
+"text will be whatever is included in the 'Custom First Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
 msgstr ""
 "A yoo rọpo rẹ pẹlu ọna asopọ lilọ fun ifiweranṣẹ akọkọ ninu jara. Ọrọ naa "
 "yoo jẹ ohun gbogbo ti a fi sinu aaye 'Ọrọ Lilọ Ifiweranṣẹ Kọ́kọ́ Sọtọ'. Ti "
@@ -1912,11 +1947,14 @@ msgid "The date that a post was published"
 msgstr "Ọjọ ti ifiweranṣẹ kan ti wa ni atẹjade"
 
 #: inc/settings/settings-page.php:253
-msgid "Will be replaced with the unpublished post title of a post in the series"
-msgstr "A yoo rọpo rẹ pẹlu akọle ifiweranṣẹ ti ko tẹjade ti ifiweranṣẹ kan ninu jara"
+msgid ""
+"Will be replaced with the unpublished post title of a post in the series"
+msgstr ""
+"A yoo rọpo rẹ pẹlu akọle ifiweranṣẹ ti ko tẹjade ti ifiweranṣẹ kan ninu jara"
 
 #: inc/settings/settings-page.php:261
-msgid "Will display the total number of published and unpublished posts in a series"
+msgid ""
+"Will display the total number of published and unpublished posts in a series"
 msgstr ""
 "Yoo fihan nọmba lapapọ ti awọn ifiweranṣẹ ti a tẹjade ati ti ko tẹjade ninu "
 "jara"
@@ -1941,13 +1979,11 @@ msgstr "Bẹẹkọ"
 msgid "Yes"
 msgstr "Bẹẹni"
 
-#: inc/settings/settings-upgrade.php:22
-#: inc/settings/settings-upgrade.php:44
+#: inc/settings/settings-upgrade.php:22 inc/settings/settings-upgrade.php:44
 msgid "Please update your PublishPress Series data"
 msgstr "Jọwọ mu data PublishPress Series rẹ pọ si"
 
-#: inc/settings/settings-upgrade.php:24
-#: inc/settings/settings-upgrade.php:45
+#: inc/settings/settings-upgrade.php:24 inc/settings/settings-upgrade.php:45
 msgid ""
 "We have made changes to how series are stored and this requires a small "
 "update. This improves support for the Multiple Series feature, and resolves "
@@ -1958,8 +1994,7 @@ msgstr ""
 "pe o yanju diẹ ninu awọn iṣoro pẹlu ìtòsọna awọn ifiweranṣẹ. Jọwọ tẹ bọtini "
 "yii lati ṣe imudojuiwọn."
 
-#: inc/settings/settings-upgrade.php:25
-#: inc/settings/settings-upgrade.php:46
+#: inc/settings/settings-upgrade.php:25 inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
 msgstr "Mudarasi data Series"
 
@@ -1972,50 +2007,53 @@ msgstr "Imudojuiwọn jara ti pari."
 msgid "Series order sync completed. %d posts updated."
 msgstr "Iṣọpọ ìtòsọna jara ti pari. %d awọn ifiweranṣẹ ti ni imudojuiwọn."
 
-#: inc/settings/settings-validation.php:60
-#: orgSeries-setup.php:259
+#: inc/settings/settings-validation.php:58 orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Jara"
+
+#: inc/settings/settings-validation.php:59 orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Jara"
+
+#: inc/settings/settings-validation.php:60 orgSeries-setup.php:259
 msgid "Search Series"
 msgstr "Wa Jara"
 
-#: inc/settings/settings-validation.php:61
-#: orgSeries-setup.php:260
+#: inc/settings/settings-validation.php:61 orgSeries-setup.php:260
 msgid "Popular Series"
 msgstr "Awọn Jara Olokiki"
 
-#: inc/settings/settings-validation.php:62
-#: orgSeries-setup.php:261
+#: inc/settings/settings-validation.php:62 orgSeries-setup.php:261
 #: orgSeries-setup.php:315
 msgid "All Series"
 msgstr "Gbogbo Awọn Jara"
 
-#: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:262
+#: inc/settings/settings-validation.php:63 orgSeries-setup.php:262
 msgid "Edit Series"
 msgstr "Ṣatunkọ Jara"
 
-#: inc/settings/settings-validation.php:64
-#: orgSeries-setup.php:263
+#: inc/settings/settings-validation.php:64 orgSeries-setup.php:263
 msgid "Update Series"
 msgstr "Mudarasi Jara"
 
-#: inc/settings/settings-validation.php:65
-#: orgSeries-setup.php:264
+#: inc/settings/settings-validation.php:65 orgSeries-setup.php:264
 msgid "Add New Series"
 msgstr "Fi Jara Tuntun Kun"
 
-#: inc/settings/settings-validation.php:66
-#: orgSeries-setup.php:265
+#: inc/settings/settings-validation.php:66 orgSeries-setup.php:265
 msgid "New Series Name"
 msgstr "Orukọ Jara Tuntun"
 
-#: inc/settings/settings-validation.php:68
-#: orgSeries-setup.php:267
+#: inc/settings/settings-validation.php:68 orgSeries-setup.php:267
 msgid "No series found"
 msgstr "Ko si jara ti a rii"
 
 #: inc/settings/settings-validation.php:121
 #, php-format
-msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgid ""
+"%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
 msgstr ""
 "%1$s jara ti yipada lati \"%2$s\" si \"%3$s\" taxonomy. Awọn eto ti ni "
 "imudojuiwọn."
@@ -2080,10 +2118,10 @@ msgstr "Sopọ si Ibere Menu"
 
 #: inc/settings/tab-advanced.php:74
 msgid ""
-"This will sync all series part numbers to WordPress menu_order field. "
-"Useful for themes/page builders that can only sort by menu order (Page "
-"Attributes: Order). This allows you to use native WordPress ordering "
-"instead of custom fields."
+"This will sync all series part numbers to WordPress menu_order field. Useful "
+"for themes/page builders that can only sort by menu order (Page Attributes: "
+"Order). This allows you to use native WordPress ordering instead of custom "
+"fields."
 msgstr ""
 "Eyi yoo sopọ gbogbo awọn nọmba ẹya series si aaye menu_order ti WordPress. "
 "Wulo fun awọn akori/olugbasilẹ oju-iwe ti o le ṣe irọrun nikan nipasẹ ibere "
@@ -2098,8 +2136,7 @@ msgstr "Tun awọn eto"
 msgid "Reset options to default"
 msgstr "Tun awọn aṣayan si aiyipada"
 
-#: inc/settings/tab-legacy.php:12
-#: orgSeries-options.php:144
+#: inc/settings/tab-legacy.php:12 orgSeries-options.php:144
 msgid "Legacy"
 msgstr "Itan"
 
@@ -2144,7 +2181,8 @@ msgid "Series Overview"
 msgstr "Akopọ Ẹ̀ka"
 
 #: inc/settings/tab-legacy.php:62
-msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgid ""
+"Choose the design for the taxonomy page where a single Series is displayed."
 msgstr "Yan apẹrẹ fun oju-iwe taxonomy ti a fi ẹ̀ka kan han."
 
 #: inc/settings/tab-legacy.php:66
@@ -2159,11 +2197,10 @@ msgid ""
 "details on how to customize these designs</a>."
 msgstr ""
 "Yiyan ilana ti o yatọ si \"Ibi isalẹ\" yoo kọja awoṣe taxonomy lati inu "
-"akori rẹ. <a href=\"%s\" target=\"_blank\">Tẹ nibi fun alaye lori bi a ṣe "
-"le ṣe atunṣe awọn apẹrẹ wọnyi</a>."
+"akori rẹ. <a href=\"%s\" target=\"_blank\">Tẹ nibi fun alaye lori bi a ṣe le "
+"ṣe atunṣe awọn apẹrẹ wọnyi</a>."
 
-#: inc/settings/tab-legacy.php:91
-#: inc/settings/tab-series-category.php:66
+#: inc/settings/tab-legacy.php:91 inc/settings/tab-series-category.php:66
 msgid "Columns:"
 msgstr "Awọn ọwọn:"
 
@@ -2183,10 +2220,8 @@ msgstr "Paṣẹ nipasẹ ọjọ"
 msgid "Series order method"
 msgstr "Ọna paṣẹ ẹ̀ka"
 
-#: inc/settings/tab-legacy.php:117
-#: inc/settings/tab-legacy.php:215
-#: inc/settings/tab-legacy.php:221
-#: orgSeries-setup.php:485
+#: inc/settings/tab-legacy.php:117 inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221 orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
 msgstr "Atokọ Akọkọ Ẹ̀ka"
@@ -2205,8 +2240,8 @@ msgid ""
 "You must %1s update your permalink structure %2s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"O gbọdọ %1s ṣe imudojuiwọn ilana permalink rẹ %2s si nkan miiran ju "
-"\"Pẹ̀lú\" lọ ki URL Atokọ Akọkọ Ẹ̀ka le ṣiṣẹ."
+"O gbọdọ %1s ṣe imudojuiwọn ilana permalink rẹ %2s si nkan miiran ju \"Pẹ̀lú\" "
+"lọ ki URL Atokọ Akọkọ Ẹ̀ka le ṣiṣẹ."
 
 #: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
@@ -2232,8 +2267,7 @@ msgstr "Iwọn fun àwòrán lori oju-iwe ifiweranṣẹ (ninu awọn piksẹli)
 msgid "Width for icon if displayed via the latest series template (in pixels)."
 msgstr "Iwọn fun aami ti a ba ṣe afihan nipasẹ awoṣe jara tuntun (ni pixels)."
 
-#: inc/settings/tab-legacy.php:191
-#: orgSeries-widgets.php:13
+#: inc/settings/tab-legacy.php:191 orgSeries-widgets.php:13
 msgid "Latest Series"
 msgstr "Jara Tuntun"
 
@@ -2258,22 +2292,20 @@ msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr ""
-"Iṣafihan yii ni a lo nipasẹ \"Tabili Akopọ Jara\" widget, shortcode, ati "
-"URL."
+"Iṣafihan yii ni a lo nipasẹ \"Tabili Akopọ Jara\" widget, shortcode, ati URL."
 
 #: inc/settings/tab-legacy.php:224
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
-"for this display, go the \"Display\" tab and then \"Series Table of "
-"Contents URL\"."
+"for this display, go the \"Display\" tab and then \"Series Table of Contents "
+"URL\"."
 msgstr ""
 "Iṣafihan yii ni a lo nipasẹ \"Tabili Akopọ Jara\". Lati wa URL fun iṣafihan "
 "yii, lọ si taabu \"Iṣafihan\" ki o si \"Tabili Akopọ Jara URL\"."
 
 #: inc/settings/tab-metabox.php:16
 msgid ""
-"These settings allow you to customize the metabox on the post editing "
-"screen."
+"These settings allow you to customize the metabox on the post editing screen."
 msgstr ""
 "Awọn eto wọnyi gba ọ laaye lati ṣe akanṣe metabox lori iboju ṣiṣatunkọ "
 "ifiweranṣẹ."
@@ -2312,8 +2344,7 @@ msgstr ""
 "Ṣeto iṣafihan Awọn alaye Ifiweranṣẹ Jara ti a fihan lori awọn ifiweranṣẹ "
 "ninu jara kan."
 
-#: inc/settings/tab-post-details.php:26
-#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-details.php:26 inc/settings/tab-post-list-box.php:26
 #: inc/settings/tab-post-navigation.php:26
 msgid "As in Template"
 msgstr "Gẹgẹbi ninu Awoṣe"
@@ -2326,13 +2357,11 @@ msgstr "Ṣiṣafihan Awọn alaye Ifiweranṣẹ Jara?"
 msgid "Post Details Selection"
 msgstr "Yiyan Awọn alaye Ifiweranṣẹ"
 
-#: inc/settings/tab-post-details.php:43
-#: inc/settings/tab-post-navigation.php:43
+#: inc/settings/tab-post-details.php:43 inc/settings/tab-post-navigation.php:43
 msgid "Edit this layout"
 msgstr "Ṣatunkọ àtẹ̀jáde yìí"
 
-#: inc/settings/tab-post-details.php:44
-#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-details.php:44 inc/settings/tab-post-list-box.php:44
 #: inc/settings/tab-post-navigation.php:44
 msgid "Loading…"
 msgstr "Nṣiṣẹ…"
@@ -2358,8 +2387,8 @@ msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
 msgstr ""
-"Báwo ni a ṣe fẹ́ dín àfihàn meta ẹ̀kó kún ẹ̀ka kan ṣoṣo tàbí kó àtẹ̀jáde "
-"ìkànsí kún."
+"Báwo ni a ṣe fẹ́ dín àfihàn meta ẹ̀kó kún ẹ̀ka kan ṣoṣo tàbí kó àtẹ̀jáde ìkànsí "
+"kún."
 
 #: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
@@ -2368,8 +2397,7 @@ msgstr "Àwọn Àtọ́kà Post List Box"
 #: inc/settings/tab-post-list-box.php:16
 msgid "Configure the Post List Box that displays all posts in a series."
 msgstr ""
-"Ṣe àtúnṣe àtọ́kà Post List Box tí ń fi gbogbo àwọn àkọsílẹ̀ hàn nínú ẹ̀kó "
-"kan."
+"Ṣe àtúnṣe àtọ́kà Post List Box tí ń fi gbogbo àwọn àkọsílẹ̀ hàn nínú ẹ̀kó kan."
 
 #: inc/settings/tab-post-list-box.php:36
 msgid "Display Post List Boxes?"
@@ -2409,7 +2437,8 @@ msgstr "Àtọ́kà Iṣàkóso"
 
 #: inc/settings/tab-post-navigation.php:16
 msgid "Configure the Series Navigation display shown on posts in a series."
-msgstr "Ṣe àtúnṣe àfihàn Iṣàkóso Ẹ̀kó tí a fi hàn lórí àwọn àkọsílẹ̀ nínú ẹ̀kó kan."
+msgstr ""
+"Ṣe àtúnṣe àfihàn Iṣàkóso Ẹ̀kó tí a fi hàn lórí àwọn àkọsílẹ̀ nínú ẹ̀kó kan."
 
 #: inc/settings/tab-post-navigation.php:36
 msgid "Display Series Navigation?"
@@ -2439,13 +2468,11 @@ msgstr "Ọrọ Iposti Tó Ṣáájú"
 msgid "First Post Text"
 msgstr "Ọrọ Iposti Àkọ́kọ́"
 
-#: inc/settings/tab-post-types.php:10
-#: orgSeries-options.php:138
+#: inc/settings/tab-post-types.php:10 orgSeries-options.php:138
 msgid "Post Types"
 msgstr "Iru Ifiweranṣẹ"
 
-#: inc/settings/tab-post-types.php:11
-#: inc/settings/tab-pro-features.php:27
+#: inc/settings/tab-post-types.php:11 inc/settings/tab-pro-features.php:27
 msgid "Custom Post Type Support"
 msgstr "Support Irú Akọsilẹ̀ Àdáni"
 
@@ -2453,8 +2480,7 @@ msgstr "Support Irú Akọsilẹ̀ Àdáni"
 msgid "Enable PublishPress Series for custom post types."
 msgstr "Mú Ẹ̀rọ PublishPress Series ṣiṣẹ́ fún irú akọsilẹ̀ àdáni."
 
-#: inc/settings/tab-pro-features.php:10
-#: inc/settings/tab-pro-features.php:11
+#: inc/settings/tab-pro-features.php:10 inc/settings/tab-pro-features.php:11
 #: orgSeries-options.php:147
 msgid "Pro Features"
 msgstr "Àwọn ẹya Pro"
@@ -2464,8 +2490,8 @@ msgid ""
 "These settings allow you enable or disable features in PublishPress Series "
 "Pro."
 msgstr ""
-"Àwọn eto wọ̀nyí jẹ́ kí o ní ànfààní tàbí kó pa àwọn ẹya mọ́ nínú "
-"PublishPress Series Pro."
+"Àwọn eto wọ̀nyí jẹ́ kí o ní ànfààní tàbí kó pa àwọn ẹya mọ́ nínú PublishPress "
+"Series Pro."
 
 #: inc/settings/tab-pro-features.php:27
 msgid "Allow custom post types to be used with PublishPress Series."
@@ -2496,8 +2522,7 @@ msgid "Allows authors to add posts to more than one series."
 msgstr "Gba àwọn onkọ̀wé láti fi àwọn ìposti kún diẹ ẹ̀dá ẹgbẹ̀run kan."
 
 #: inc/settings/tab-series-category.php:8
-#: inc/settings/tab-series-category.php:9
-#: orgSeries-options.php:142
+#: inc/settings/tab-series-category.php:9 orgSeries-options.php:142
 msgid "Series Category"
 msgstr "Ẹ̀ka Series"
 
@@ -2536,8 +2561,7 @@ msgid ""
 "taxonomy-series_group.php."
 msgstr ""
 "Awoṣe theme nlo ilana awoṣe theme ti o wa lọwọlọwọ. Awoṣe plugin nlo apẹrẹ "
-"isalẹ PublishPress Series nigbati theme rẹ ko pese "
-"taxonomy-series_group.php."
+"isalẹ PublishPress Series nigbati theme rẹ ko pese taxonomy-series_group.php."
 
 #: inc/settings/tab-series-category.php:49
 msgid "Plugin Template Display Options:"
@@ -2597,9 +2621,9 @@ msgid ""
 "taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
 "slug will be changed."
 msgstr ""
-"Ti o ba ti ṣayẹwo, gbogbo awọn ọrọ lati taxonomy ti o wa lọwọlọwọ yoo gbe "
-"si taxonomy tuntun nigbati o ba yi slug taxonomy pada. Ti o ko ba ṣayẹwo, "
-"slug taxonomy nikan ni yoo yipada."
+"Ti o ba ti ṣayẹwo, gbogbo awọn ọrọ lati taxonomy ti o wa lọwọlọwọ yoo gbe si "
+"taxonomy tuntun nigbati o ba yi slug taxonomy pada. Ti o ko ba ṣayẹwo, slug "
+"taxonomy nikan ni yoo yipada."
 
 #: inc/templates/taxonomy-series.php:70
 msgid "Sorry, no results found."
@@ -2608,8 +2632,8 @@ msgstr "E ma binu, ko si awọn esi ti a ri."
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
 msgid ""
-"You're using PublishPress Series Free. The Pro version has more features "
-"and support. %sUpgrade to Pro%s"
+"You're using PublishPress Series Free. The Pro version has more features and "
+"support. %sUpgrade to Pro%s"
 msgstr ""
 "O nlo PublishPress Series Free. Ẹya Pro ni awọn ẹya diẹ sii ati atilẹyin. "
 "%sGbadun si Pro%s"
@@ -2681,13 +2705,14 @@ msgid "Sorry but you don't have permission to add series"
 msgstr "E ma binu ṣugbọn o ko ni igbanilaaye lati fi jara kun"
 
 #: orgSeries-admin.php:230
-msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgid ""
+"The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Orukọ ti o yan ko ni imukuro ni deede. Gbiyanju nkan miiran."
 
 #: orgSeries-admin.php:236
 msgid ""
-"Hmm... it looks like there is already a series with that name. Try "
-"something else"
+"Hmm... it looks like there is already a series with that name. Try something "
+"else"
 msgstr "Hmm... o dabi pe jara kan ti wa pẹlu orukọ yẹn. Gbiyanju nkan miiran"
 
 #: orgSeries-admin.php:359
@@ -2714,6 +2739,22 @@ msgstr ""
 "Akọle kukuru ti ifiweranṣẹ yii ti a yoo lo ninu widget Series. Fi silẹ silẹ "
 "lati lo akọle pipe."
 
+#: orgSeries-admin.php:478
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Jara"
+
+#: orgSeries-admin.php:491
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Jara"
+
 #: orgSeries-admin.php:519
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
@@ -2729,8 +2770,7 @@ msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Apakan %1$s ti %2$s)"
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ko si Nọmba Apakan)"
 
-#: orgSeries-admin.php:531
-#: orgSeries-setup.php:270
+#: orgSeries-admin.php:531 orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Ko si Series"
 
@@ -2742,6 +2782,15 @@ msgstr "Wo gbogbo awọn jara"
 msgid "Manage All Series"
 msgstr "Ṣakoso Gbogbo Awọn Jara"
 
+#: orgSeries-admin.php:571
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Jara"
+
 #: orgSeries-manage.php:66
 msgid "Term Order"
 msgstr "Ilana Ọrọ"
@@ -2751,8 +2800,8 @@ msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
-"Lati tun ipo nkan kan, fa ati tu ila pẹlu \"titẹ ati mimu\" rẹ ni ibikibi "
-"ki o si gbe e si ipo titun rẹ."
+"Lati tun ipo nkan kan, fa ati tu ila pẹlu \"titẹ ati mimu\" rẹ ni ibikibi ki "
+"o si gbe e si ipo titun rẹ."
 
 #: orgSeries-manage.php:196, fuzzy
 msgid "ID"
@@ -2763,8 +2812,8 @@ msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
-"Awọn ọrọ nigbagbogbo ni a paṣẹ ni lẹta, ṣugbọn o le yan ilana tirẹ nipa "
-"titẹ nọmba kan (1 fun akọkọ, bbl) ni aaye yii."
+"Awọn ọrọ nigbagbogbo ni a paṣẹ ni lẹta, ṣugbọn o le yan ilana tirẹ nipa titẹ "
+"nọmba kan (1 fun akọkọ, bbl) ni aaye yii."
 
 #: orgSeries-manage.php:240
 msgid "Current series icon:"
@@ -2810,9 +2859,7 @@ msgstr "Iwe-aṣẹ ti ko to"
 msgid "Updated successfully"
 msgstr "Ti a ṣe imudojuiwọn ni aṣeyọri"
 
-#: orgSeries-options.php:43
-#: orgSeries-options.php:64
-#: orgSeries-options.php:65
+#: orgSeries-options.php:43 orgSeries-options.php:64 orgSeries-options.php:65
 #: orgSeries-setup.php:872
 msgid "Settings"
 msgstr "Àwọn àṣàyàn"
@@ -2821,7 +2868,15 @@ msgstr "Àwọn àṣàyàn"
 msgid "PublishPress Series Options"
 msgstr "Àwọn aṣayan PublishPress Series"
 
-#: orgSeries-options.php:141, fuzzy
+#: orgSeries-options.php:55
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Jara"
+
+#: orgSeries-options.php:141
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
@@ -2835,7 +2890,16 @@ msgstr "Ijinle"
 
 #: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr "Yan \"Kò jẹ́ apá ti jara\" lati yọ eyikeyi data jara kuro ninu ifiweranṣẹ"
+msgstr ""
+"Yan \"Kò jẹ́ apá ti jara\" lati yọ eyikeyi data jara kuro ninu ifiweranṣẹ"
+
+#: orgSeries-setup.php:266
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Jara"
 
 #: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
@@ -2857,6 +2921,13 @@ msgstr "Lọ́ńkò Jara"
 msgid "A link to a Series"
 msgstr "Akọ́kọ́ sí Jara kan"
 
+#: orgSeries-setup.php:321 orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid ""
+"This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "Iwọnyi jẹ apakan %series_part% ti %total_posts_in_series% ninu jara "
+
 #: orgSeries-setup.php:327
 msgid "Series Navigation"
 msgstr "Iṣàkóso Jara"
@@ -2869,8 +2940,15 @@ msgstr "Jara: "
 msgid "Posts from the series: "
 msgstr "Àwọn ifiweranṣẹ lati jara: "
 
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:381
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "series list title"
+msgid "Series"
+msgstr "Jara"
+
+#: orgSeries-taxonomy.php:664 orgSeries-taxonomy.php:693
 msgid "Series:"
 msgstr "Jara:"
 
@@ -2882,8 +2960,7 @@ msgstr "Apá:"
 msgid "All the Series I've Written"
 msgstr "Gbogbo Jara tí mo ti kọ"
 
-#: orgSeries-template-tags.php:268
-#: orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:268 orgSeries-template-tags.php:277
 #, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
 msgstr "<a href=\"%s\" title=\"%s\">Jara</a>"
@@ -2900,8 +2977,7 @@ msgstr "Lo eyi lati ṣakoso iṣẹjade ti widget jara tuntun julọ"
 msgid "Most Recent Series"
 msgstr "Jara Tuntun Jùlọ"
 
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
+#: orgSeries-widgets.php:73 orgSeries-widgets.php:269
 msgid "Title:"
 msgstr "Ak title:"
 
@@ -2918,8 +2994,7 @@ msgstr ""
 msgid "Hide series with no posts?"
 msgstr "Ṣe o fẹ pa awọn jara ti ko ni awọn ifiweranṣẹ?"
 
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
+#: orgSeries-widgets.php:85 orgSeries-widgets.php:295
 msgid "Order by:"
 msgstr "Paṣẹ nipasẹ:"
 
@@ -2966,6 +3041,14 @@ msgstr "Lo eyi lati ṣe afihan Tabili akoonu Jara"
 #: orgSeries-widgets.php:178
 msgid "Select Series"
 msgstr "Yan Jara"
+
+#: orgSeries-widgets.php:233
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Jara"
 
 #: orgSeries-widgets.php:234
 msgid "Other posts in series:"
@@ -3036,8 +3119,7 @@ msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
-"O le yan ipo fun iye ẹ̀ka (wulo fun ìtẹ́numọ́). Kò sí ipo tí a bá fi silẹ́ "
-"láìkọ́"
+"O le yan ipo fun iye ẹ̀ka (wulo fun ìtẹ́numọ́). Kò sí ipo tí a bá fi silẹ́ láìkọ́"
 
 #: orgSeries-widgets.php:374
 msgid "Search:"
@@ -3048,12 +3130,19 @@ msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr ""
-"O le gba ẹ̀ka eyikeyi tí o baamu pẹlu ọrọ ìwàásù yìí (ti a fiwe si orukọ "
-"ẹ̀ka)"
+"O le gba ẹ̀ka eyikeyi tí o baamu pẹlu ọrọ ìwàásù yìí (ti a fiwe si orukọ ẹ̀ka)"
 
 #: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
 msgstr "Fihan awọn ifiweranṣẹ miiran ninu ẹ̀ka lọwọlọwọ:"
+
+#: orgSeries-widgets.php:386
+#, fuzzy
+#| msgid "Series"
+#| msgid_plural "Series"
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Jara"
 
 #: orgSeries-widgets.php:397
 msgid "Current series"
@@ -3094,12 +3183,12 @@ msgstr "%1$s kì í ṣe ẹ̀dá tó wúlò (tí a nírètí: %2$s)."
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
 msgid ""
-"The \"%1$s\" file is either missing or could not be read due to "
-"permissions. Please ensure that the following path is correct and verify "
-"that the file permissions are correct:%2$s %3$s"
+"The \"%1$s\" file is either missing or could not be read due to permissions. "
+"Please ensure that the following path is correct and verify that the file "
+"permissions are correct:%2$s %3$s"
 msgstr ""
-"Fáìlì \"%1$s\" tàbí kò sí tàbí kò lè ka nitori awọn àṣẹ. Jọwọ jẹ́ kó dájú "
-"pé ọ̀nà yìí tọ́ àti ṣàdédé pé àwọn àṣẹ fáìlì náà tọ́:%2$s %3$s"
+"Fáìlì \"%1$s\" tàbí kò sí tàbí kò lè ka nitori awọn àṣẹ. Jọwọ jẹ́ kó dájú pé "
+"ọ̀nà yìí tọ́ àti ṣàdédé pé àwọn àṣẹ fáìlì náà tọ́:%2$s %3$s"
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
 #, php-format
@@ -3156,8 +3245,8 @@ msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
 "can only be used to push values to this data element when it is an array."
 msgstr ""
-"Iye fún %1$s ti ṣàtúnṣe tẹlẹ̀ àti kò jẹ́ àkópọ. Ọna %2$s lè jẹ́ kí a lo "
-"láti fi iye kun àkópọ yìí nígbà tí ó bá jẹ́ àkópọ."
+"Iye fún %1$s ti ṣàtúnṣe tẹlẹ̀ àti kò jẹ́ àkópọ. Ọna %2$s lè jẹ́ kí a lo láti fi "
+"iye kun àkópọ yìí nígbà tí ó bá jẹ́ àkópọ."
 
 #: src/domain/services/AssetRegistry.php:271
 #, php-format
@@ -3175,8 +3264,8 @@ msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed.  Consider attaching your value to a different key"
 msgstr ""
-"Iye fun %1$s ti wa ni tẹlẹ ninu ohun-ini %2$s. Awọn ikolu ko gba laaye. "
-"Ronu nipa fifi iye rẹ si bọtini miiran"
+"Iye fun %1$s ti wa ni tẹlẹ ninu ohun-ini %2$s. Awọn ikolu ko gba laaye. Ronu "
+"nipa fifi iye rẹ si bọtini miiran"
 
 #: src/domain/services/AssetRegistry.php:408
 #, php-format
@@ -3189,7 +3278,8 @@ msgstr ""
 
 #: src/domain/services/AssetRegistry.php:419
 #, php-format
-msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgid ""
+"The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr "Iye ti a pese fun %1$s kii ṣe url to wulo. Url ti a pese ni: %2$s"
 
 #: src/views/admin/templates/license_key_form.template.php:16
@@ -3200,50 +3290,3 @@ msgstr "Bọtini Iwe-aṣẹ fun %1$s"
 #: src/views/admin/templates/license_key_form.template.php:19
 msgid "Enter your license key: "
 msgstr "Tẹ bọtini iwe-aṣẹ rẹ: "
-
-#: addons/grouping/legacy-includes.php:278
-msgctxt "taxonomy general name"
-msgid "Series Categories"
-msgstr "Ẹka Awọn jara"
-
-#: inc/settings/settings-validation.php:58
-#: orgSeries-setup.php:257
-msgctxt "taxonomy general name"
-msgid "Series"
-msgstr "Jara"
-
-#: addons/grouping/legacy-includes.php:279
-msgctxt "taxonomy singular name"
-msgid "Series Category"
-msgstr "Ẹka Jara"
-
-#: inc/settings/settings-validation.php:59
-#: orgSeries-setup.php:258
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr "Jara"
-
-#: addons/post-list-box/includes/class-post-type.php:27
-#, fuzzy, php-format
-msgctxt "Post List Box post type name"
-msgid "%2$s"
-msgstr "%2$s"
-
-#: addons/post-list-box/includes/class-post-type.php:28
-#, fuzzy, php-format
-msgctxt "singular post list box post type name"
-msgid "%1$s"
-msgstr "%1$s"
-
-#: addons/post-list-box/includes/class-post-type.php:43
-#, fuzzy, php-format
-msgctxt "custom layout post type menu name"
-msgid "%2$s"
-msgstr "%2$s"
-
-#: orgSeries-setup.php:321
-#: orgSeries-setup.php:322
-#, php-format
-msgctxt "leave the %tokens% as is when translating"
-msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr "Iwọnyi jẹ apakan %series_part% ti %total_posts_in_series% ninu jara "

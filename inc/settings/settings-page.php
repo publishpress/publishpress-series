@@ -39,7 +39,7 @@ function orgseries_option_page() {
   </h2>
 
 
-	<div id="poststuff" class="metabox-holder has-right-sidebar">
+	<div id="poststuff" class="metabox-holder has-right-sidebar ppseries-settings-layout">
 
         <div id="side-info-column">
 

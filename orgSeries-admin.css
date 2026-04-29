@@ -83,6 +83,67 @@
     width: -webkit-fill-available !important;
     width: -moz-available !important;
 }
+
+#poststuff.ppseries-settings-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+#poststuff.ppseries-settings-layout #post-body {
+    order: 1;
+    clear: none;
+    flex: 1 1 calc(100% - 308px);
+    float: none;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    width: calc(100% - 308px);
+}
+
+#poststuff.ppseries-settings-layout #post-body-content {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    width: 100%;
+}
+
+#poststuff.ppseries-settings-layout .inner-sidebar {
+    float: none;
+}
+
+#poststuff.ppseries-settings-layout #side-info-column {
+    order: 2;
+    flex: 0 0 280px;
+    float: none;
+    margin-left: 0;
+    width: 280px;
+}
+
+#poststuff.ppseries-settings-layout .seriesmanage {
+    max-width: none;
+    width: 100%;
+}
+
+#poststuff.ppseries-settings-layout .ppseries-settings-table select,
+#poststuff.ppseries-settings-layout .ppseries-settings-table input[type=text],
+#poststuff.ppseries-settings-layout .ppseries-settings-table input[type=number] {
+    max-width: 400px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 960px) {
+    #poststuff.ppseries-settings-layout {
+        display: block;
+    }
+
+    #poststuff.ppseries-settings-layout #side-info-column,
+    #poststuff.ppseries-settings-layout #post-body {
+        width: auto;
+    }
+}
+
 .post-series {
     display: inline;
     margin: 0;

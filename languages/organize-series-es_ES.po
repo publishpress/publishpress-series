@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Plugins - Issues and Series for Newspapers, Magazines, "
 "Publishers, Writers - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
-"PO-Revision-Date: 2026-03-30 18:25+0200\n"
+"POT-Creation-Date: 2026-04-29T12:17:39+00:00\n"
+"PO-Revision-Date: 2026-04-29 15:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -17,18 +17,17 @@ msgstr ""
 "X-Generator: Poedit 3.7\n"
 
 #. Plugin Name of the plugin
-#. Plugin Name of the plugin
-#: orgSeries.php
+#: orgSeries.php:3
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
 #. Plugin URI of the plugin
-#: orgSeries.php
+#: orgSeries.php:4
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
 #. Description of the plugin
-#: orgSeries.php
+#: orgSeries.php:5
 msgid ""
 "PublishPress Series allows you to group content together into a series. This "
 "is ideal for magazines, newspapers, short-story writers, teachers, comic "
@@ -40,12 +39,12 @@ msgstr ""
 "tema."
 
 #. Author of the plugin
-#: orgSeries.php
+#: orgSeries.php:7
 msgid "PublishPress"
 msgstr "PublishPress"
 
 #. Author URI of the plugin
-#: orgSeries.php
+#: orgSeries.php:8
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
@@ -212,7 +211,7 @@ msgstr "Caja meta por defecto"
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
 #: addons/post-list-box/includes/class-admin-ui.php:431
-#: addons/post-list-box/includes/class-admin-ui.php:709
+#: addons/post-list-box/includes/class-admin-ui.php:715
 #: addons/post-navigation/includes/class-admin-ui.php:442
 #: inc/settings/tab-post-types.php:59 inc/settings/tab-pro-features.php:52
 msgid "This feature is available in PublishPress Series Pro"
@@ -294,14 +293,14 @@ msgid "Meta Box Position"
 msgstr "Posición de la caja meta"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:535
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 #: inc/settings/tab-post-details.php:27 inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
 msgid "Top"
 msgstr "Arriba"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:536
+#: addons/post-list-box/classes/PostListBoxFields.php:566
 #: inc/settings/tab-post-details.php:28 inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
 msgid "Bottom"
@@ -622,128 +621,140 @@ msgid "Excerpt Color"
 msgstr "Color del extracto"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "Muestra el resumen de la entrada"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "Longitud del resumen (palabras)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "Color del resumen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
 msgid "Show Post Author"
 msgstr "Muestra el autor de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:362
 msgid "Post Author Color"
 msgstr "Color del autor de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:342
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Date"
 msgstr "Muestra la fecha de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:350
+#: addons/post-list-box/classes/PostListBoxFields.php:380
 msgid "Post Date Color"
 msgstr "Color de la fecha de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:371
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "Muestra la imagen destacada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:408
 msgid "Featured Image Width (px)"
 msgstr "Ancho de la imagen destacada (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:385
+#: addons/post-list-box/classes/PostListBoxFields.php:415
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "Ancho de la imagen destacada en píxeles"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:390
+#: addons/post-list-box/classes/PostListBoxFields.php:420
 msgid "Featured Image Height (px)"
 msgstr "Alto de la imagen destacada (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:397
+#: addons/post-list-box/classes/PostListBoxFields.php:427
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "Alto de la imagen destacada en píxeles"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:402
+#: addons/post-list-box/classes/PostListBoxFields.php:432
 msgid "Fallback Featured Image"
 msgstr "Imagen destacada alternativa"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:407
+#: addons/post-list-box/classes/PostListBoxFields.php:437
 msgid "Image to display when a post does not have a featured image"
 msgstr "Imagen a mostrar cuando una entrada no tiene una imagen destacada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:424
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Post Padding (px)"
 msgstr "Relleno de entrada (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:433
+#: addons/post-list-box/classes/PostListBoxFields.php:463
 msgid "Post Border Width (px)"
 msgstr "Ancho del borde de la entrada (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:442
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 msgid "Post Border Color"
 msgstr "Color del borde de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:479
 msgid "Post Background Color"
 msgstr "Color de fondo de la entrada"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "Background color for the post list container"
 msgstr "Color de fondo del contenedor de la lista de entradas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:468
+#: addons/post-list-box/classes/PostListBoxFields.php:498
 msgid "Layout Style"
 msgstr "Estilo del diseño"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Lista"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:473
+#: addons/post-list-box/classes/PostListBoxFields.php:503
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "Cuadrícula"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:480
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Columns"
 msgstr "Columnas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 msgid "2 Columns"
 msgstr "2 columnas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:515
 msgid "3 Columns"
 msgstr "3 columnas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:486
+#: addons/post-list-box/classes/PostListBoxFields.php:516
 msgid "4 Columns"
 msgstr "4 columnas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:487
+#: addons/post-list-box/classes/PostListBoxFields.php:517
 msgid "6 Columns"
 msgstr "6 columnas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:496
+#: addons/post-list-box/classes/PostListBoxFields.php:526
 msgid "Order By"
 msgstr "Ordenar por"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:500
+#: addons/post-list-box/classes/PostListBoxFields.php:530
 msgid "Date"
 msgstr "Fecha"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:501
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Título"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:532
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826 orgSeries-admin.php:369
@@ -751,39 +762,39 @@ msgstr "Título"
 msgid "Series Order"
 msgstr "Orden de la serie"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:509
+#: addons/post-list-box/classes/PostListBoxFields.php:539
 #: orgSeries-manage.php:51 orgSeries-manage.php:227
 msgid "Order"
 msgstr "Ordenar"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:513
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 #: inc/settings/tab-legacy.php:106 orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 #: inc/settings/tab-legacy.php:107 orgSeries-widgets.php:319
 msgid "Descending"
 msgstr "Descendente"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:521
+#: addons/post-list-box/classes/PostListBoxFields.php:551
 msgid "Gap Between Items (px)"
 msgstr "Espacio entre elementos (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:561
 msgid "Post List Box Location"
 msgstr "Ubicación de la caja de lista de entradas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:540
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Choose where to display the post list box in relation to the content"
 msgstr ""
 "Elige dónde mostrar la caja de lista de entradas en relación con el contenido"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:574
 msgid "Maximum number of items"
 msgstr "Número máximo de elementos"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:550
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -792,24 +803,24 @@ msgstr ""
 "para sin límite. La vista previa para el administrador está limitada a 4 "
 "entradas."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "Resaltar entrada actual"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:600
 msgid "Highlight the current post when viewing a specific series post"
 msgstr ""
 "Resaltar entrada actual cuando se visualizan una serie específica de entradas"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: addons/post-list-box/classes/PostListBoxFields.php:603
 msgid "Current Post Background Color"
 msgstr "Color de fondo de la entrada actual"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:610
 msgid "Current Post Border Color"
 msgstr "Color del borde de la entrada actual"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:587
+#: addons/post-list-box/classes/PostListBoxFields.php:617
 msgid "Current Post Text Color"
 msgstr "Color del texto de la entrada actual"
 
@@ -921,13 +932,13 @@ msgstr "Cargando la vista previa…"
 msgid "Error loading preview."
 msgstr "Error al cargarla vista previa."
 
-#: addons/post-list-box/includes/class-admin-ui.php:685
+#: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
 msgstr "Seleccionar imagen"
 
-#: addons/post-list-box/includes/class-admin-ui.php:689
+#: addons/post-list-box/includes/class-admin-ui.php:695
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -1063,7 +1074,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Este es un ejemplo de extracto para la entrada %d en la serie."
 
-#: addons/post-list-box/includes/class-preview.php:492
+#: addons/post-list-box/includes/class-preview.php:504
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1078,7 +1089,7 @@ msgstr "Caja lista por defecto"
 msgid "Grid Style Box"
 msgstr "Caja de estilo cuadrícula"
 
-#: addons/post-list-box/post-list-box.php:109
+#: addons/post-list-box/post-list-box.php:108
 msgid "Simple List Box"
 msgstr "Caja lista simple"
 
@@ -2437,8 +2448,8 @@ msgid "Post List Box Position"
 msgstr "Posición de la caja de lista de entradas"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "Plantilla lista de entradas de la serie"
+msgid "Post List Box Template"
+msgstr "Plantilla de la caja de lista de entradas"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"
@@ -3315,6 +3326,9 @@ msgstr "Clave de licencia para %1$s"
 #: src/views/admin/templates/license_key_form.template.php:19
 msgid "Enter your license key: "
 msgstr "Introduce tu clave de licencia: "
+
+#~ msgid "Series Post List Template"
+#~ msgstr "Plantilla lista de entradas de la serie"
 
 #~ msgid "[more]"
 #~ msgstr "[more]"

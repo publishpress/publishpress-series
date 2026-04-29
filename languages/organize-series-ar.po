@@ -1,0 +1,3287 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Free 3.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:23+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: organize-series\n"
+"% 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
+"% 100 >= 3 && n % 100 <= 10 ? 3: n % 100 >= 11 ? 4 : 5);\n"
+"&& n%100<=10 ? 3: n%100>=11 ? 4 : 5);\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
+
+#: orgSeries.php:3
+#. Plugin Name of the plugin
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
+
+#: orgSeries.php:4, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries.php:5
+#. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"تتيح لك PublishPress Series تجميع المحتوى معًا في سلسلة. هذا مثالي للمجلات "
+"والصحف وكتّاب القصص القصيرة والمعلمين وفناني الكوميكس أو أي شخص يكتب عدة "
+"منشورات حول نفس الموضوع."
+
+#: orgSeries.php:7
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php:8, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "بحث في فئات السلاسل"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "فئات السلاسل الشائعة"
+
+#: addons/grouping/legacy-includes.php:282
+#: addons/grouping/legacy-includes.php:786
+msgid "All Series Categories"
+msgstr "جميع فئات السلاسل"
+
+#: addons/grouping/legacy-includes.php:283
+msgid "Edit Series Category"
+msgstr "تحرير فئة السلسلة"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "تحديث فئة السلسلة"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "إضافة فئة سلسلة جديدة"
+
+#: addons/grouping/legacy-includes.php:286
+msgid "New Series Category"
+msgstr "فئة سلسلة جديدة"
+
+#: addons/grouping/legacy-includes.php:287
+#: addons/grouping/legacy-includes.php:549
+#: addons/grouping/legacy-includes.php:621
+#: addons/grouping/legacy-includes.php:715
+#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:777
+#: addons/grouping/legacy-includes.php:811
+msgid "Series Categories"
+msgstr "فئات السلاسل"
+
+#: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr "احذف جميع بيانات \"فئات السلسلة\" من قاعدة البيانات عند حذف الإضافة."
+
+#: addons/grouping/legacy-includes.php:756
+msgid "Click to toggle"
+msgstr "انقر للتبديل"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "السلاسل في هذه الفئة"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "عذرًا، لم يتم العثور على سلاسل في هذه الفئة."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:123
+msgid "This entry is"
+msgstr "هذه الإدخال هو"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:124
+msgid "in the series"
+msgstr "في السلسلة"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "الجزء %1$s من %2$s"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
+#: addons/post-details/includes/class-utilities.php:268
+#: addons/post-navigation/includes/class-utilities.php:172
+msgid "Sample Series"
+msgstr "سلسلة عينة"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+msgid "Sample Post Title"
+msgstr "عنوان منشور عينة"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسسينغ إليت."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+msgid "Previous post link"
+msgstr "رابط المنشور السابق"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+msgid "Next post link"
+msgstr "رابط المنشور التالي"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Sample series description."
+msgstr "وصف سلسلة العينة."
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309
+msgid "Post Details"
+msgstr "تفاصيل المنشور"
+
+#: addons/post-details/includes/class-admin-ui.php:61
+msgid "Series Post Details Preview"
+msgstr "معاينة تفاصيل منشور السلسلة"
+
+#: addons/post-details/includes/class-admin-ui.php:70
+msgid "Series Post Details Editor"
+msgstr "محرر تفاصيل منشور السلسلة"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:158
+#: addons/post-list-box/includes/class-admin-ui.php:55
+#: addons/post-list-box/includes/class-admin-ui.php:242
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:193
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-admin-ui.php:273
+#: addons/post-navigation/includes/class-admin-ui.php:182
+msgid "Use this shortcode:"
+msgstr "استخدم هذا الكود القصير:"
+
+#: addons/post-details/includes/class-admin-ui.php:149
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr "أدخل في المنشورات أو الصفحات لعرض تفاصيل منشور السلسلة يدويًا."
+
+#: addons/post-details/includes/class-admin-ui.php:157
+msgid "Default Meta Box"
+msgstr "صندوق التعريف الافتراضي"
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:715
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "تتوفر هذه الميزة في PublishPress Series Pro"
+
+#: addons/post-details/includes/class-ajax.php:32
+#: addons/post-details/includes/class-ajax.php:99
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:32
+#: addons/post-navigation/includes/class-ajax.php:167
+#: addons/post-navigation/includes/class-ajax.php:207
+msgid "Invalid post ID."
+msgstr "معرف المنشور غير صالح."
+
+#: addons/post-details/includes/class-ajax.php:67
+#: addons/post-navigation/includes/class-ajax.php:115
+msgid "No series available to preview."
+msgstr "لا توجد سلسلة متاحة للمشاهدة."
+
+#: addons/post-details/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:190
+msgid "Invalid import data."
+msgstr "بيانات الاستيراد غير صالحة."
+
+#: addons/post-details/includes/class-ajax.php:137
+#: addons/post-navigation/includes/class-ajax.php:195
+msgid "Settings imported successfully."
+msgstr "تم استيراد الإعدادات بنجاح."
+
+#: addons/post-details/includes/class-ajax.php:166
+#: addons/post-navigation/includes/class-ajax.php:213
+msgid "Settings reset to defaults."
+msgstr "تم إعادة تعيين الإعدادات إلى القيم الافتراضية."
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "عام"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "التنسيق"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "المحتوى"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "عرض رقم الجزء"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "عرض \"الجزء X من Y\" في نص السلسلة"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "نص قبل"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "النص المعروض في البداية"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "نص بعد"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "النص المعروض قبل اسم السلسلة"
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "عرض"
+
+#: addons/post-details/includes/class-fields.php:122
+msgid "Meta Box Position"
+msgstr "موضع صندوق التعريف"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "أعلى"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "أسفل"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "اختر مكان عرض صندوق التعريف بالنسبة للمحتوى"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "تحديد المشاركات الفردية"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr "تمكين عرض صندوق التعريف فقط عند عرض المشاركات الفردية، وليس في الأرشيفات."
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "الخطوط"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "حجم النص (بكسل)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "حجم الخط للنص في صندوق التعريف"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:453
+msgid "Text Color"
+msgstr "لون النص"
+
+#: addons/post-details/includes/class-fields.php:173
+msgid "Link Color"
+msgstr "لون الرابط"
+
+#: addons/post-details/includes/class-fields.php:181
+msgid "Background"
+msgstr "خلفية"
+
+#: addons/post-details/includes/class-fields.php:185
+#: addons/post-list-box/classes/PostListBoxFields.php:191
+#: addons/post-navigation/includes/class-fields.php:460
+msgid "Background Color"
+msgstr "لون الخلفية"
+
+#: addons/post-details/includes/class-fields.php:190
+msgid "Background color for the meta box container"
+msgstr "لون الخلفية لحاوية صندوق الميتا"
+
+#: addons/post-details/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:498
+msgid "Spacing"
+msgstr "المسافة"
+
+#: addons/post-details/includes/class-fields.php:198
+#: addons/post-list-box/classes/PostListBoxFields.php:223
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Padding (px)"
+msgstr "الحشوة (بكسل)"
+
+#: addons/post-details/includes/class-fields.php:205
+msgid "Padding applied to all sides of the content area"
+msgstr "الحشوة المطبقة على جميع جوانب منطقة المحتوى"
+
+#: addons/post-details/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:511
+msgid "Margin (px)"
+msgstr "الهامش (بكسل)"
+
+#: addons/post-details/includes/class-fields.php:215
+msgid "Margin applied to all sides of the meta box"
+msgstr "الهامش المطبق على جميع جوانب صندوق الميتا"
+
+#: addons/post-details/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:468
+msgid "Border"
+msgstr "الحدود"
+
+#: addons/post-details/includes/class-fields.php:223
+#: addons/post-list-box/classes/PostListBoxFields.php:205
+#: addons/post-navigation/includes/class-fields.php:479
+msgid "Border Width (px)"
+msgstr "عرض الحدود (بكسل)"
+
+#: addons/post-details/includes/class-fields.php:232
+#: addons/post-list-box/classes/PostListBoxFields.php:214
+#: addons/post-navigation/includes/class-fields.php:488
+msgid "Border Radius (px)"
+msgstr "نصف قطر الحدود (بكسل)"
+
+#: addons/post-details/includes/class-fields.php:241
+#: addons/post-list-box/classes/PostListBoxFields.php:198
+#: addons/post-navigation/includes/class-fields.php:472
+msgid "Border Color"
+msgstr "لون الحدود"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "تفاصيل منشور السلسلة"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "إضافة تفاصيل منشور سلسلة جديدة"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "تفاصيل منشور السلسلة الجديدة"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "تعديل تفاصيل منشور السلسلة"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "عرض تفاصيل منشور السلسلة"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "جميع تفاصيل منشورات السلسلة"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "بحث عن تفاصيل منشورات السلسلة"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "لا توجد تفاصيل منشور سلسلة."
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "لا توجد تفاصيل منشور سلسلة في المهملات."
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "أنشئ سلسلة لمعاينة تفاصيل المنشور."
+
+#: addons/post-details/includes/class-utilities.php:303
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "منشور سلسلة عينة %d"
+
+#: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"لوريم إيبسوم دولور سيت أميت، كونسيكتتور أديبيسسينغ إليت. فيفاموس لاسينيا "
+"أوديو فيتا فيستيبولوم فيستيبولوم."
+
+#: addons/post-details/includes/class-utilities.php:305
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "محتوى عينة لمعاينة مقتطف لسلسلة الميتا بوكس."
+
+#: addons/post-details/post-details.php:176
+msgid "Series Post Details #1"
+msgstr "تفاصيل منشور السلسلة #1"
+
+#: addons/post-details/post-details.php:181
+msgid "Series Post Details #2"
+msgstr "تفاصيل منشور السلسلة #2"
+
+#: addons/post-details/post-details.php:186
+msgid "Series Post Details #3"
+msgstr "تفاصيل منشور السلسلة #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "عنوان الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "أسلوب الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "عرض المحتوى"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "إعدادات الصورة المميزة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "أسلوب المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "عرض التخطيط"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "تسليط الضوء على المنشور الحالي"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "عرض عنوان الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:106
+msgid "Box Title Type"
+msgstr "نوع عنوان الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:110
+msgid "Use Series Title"
+msgstr "استخدام عنوان السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Custom Title"
+msgstr "عنوان مخصص"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:115
+msgid "Choose whether to display the series title or a custom title"
+msgstr "اختر ما إذا كنت ترغب في عرض عنوان السلسلة أو عنوان مخصص"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:120
+msgid "Link Box Title to Series"
+msgstr "ربط عنوان الصندوق بالسلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:125
+msgid "Link the box title to the current series archive when using the series title"
+msgstr "ربط عنوان الصندوق بأرشيف السلسلة الحالية عند استخدام عنوان السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:130
+msgid "Custom Box Title Text"
+msgstr "نص عنوان الصندوق المخصص"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/includes/class-utilities.php:162
+msgid "Series Posts"
+msgstr "منشورات السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+msgid "Enter custom title for the post list"
+msgstr "أدخل عنوانًا مخصصًا لقائمة المنشورات"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "يستخدم فقط عندما يتم اختيار \"عنوان مخصص\" أعلاه"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:141
+msgid "Box Title HTML Tag"
+msgstr "علامة HTML لعنوان الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:160
+msgid "Box Title Color"
+msgstr "لون عنوان الصندوق"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:169
+msgid "Box Title Font Size (px)"
+msgstr "حجم خط عنوان الصندوق (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:243
+msgid "Show Post Titles"
+msgstr "عرض عناوين المنشورات"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "رقم ترتيب السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "عرض رقم ترتيب السلسلة بجانب كل عنوان منشور."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "موضع رقم ترتيب السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "قبل العنوان"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "بعد العنوان"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "اختر مكان ظهور رقم الترتيب بالنسبة للعناوين."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Post Title Color"
+msgstr "لون عنوان المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:283
+msgid "Post Title Font Size (px)"
+msgstr "حجم خط عنوان المنشور (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Show Post Excerpt"
+msgstr "عرض مقتطف المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:302
+msgid "Excerpt Length (words)"
+msgstr "طول الاقتباس (كلمات)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:314
+msgid "Excerpt Color"
+msgstr "لون الاقتباس"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "عرض ملخص المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "طول الملخص (كلمات)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "لون الملخص"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
+msgid "Show Post Author"
+msgstr "عرض مؤلف المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:362
+msgid "Post Author Color"
+msgstr "لون مؤلف المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
+msgid "Show Post Date"
+msgstr "عرض تاريخ المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:380
+msgid "Post Date Color"
+msgstr "لون تاريخ المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
+#: addons/post-navigation/includes/class-fields.php:169
+#: addons/post-navigation/includes/class-fields.php:284
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Show Featured Image"
+msgstr "عرض الصورة المميزة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:408
+msgid "Featured Image Width (px)"
+msgstr "عرض الصورة المميزة (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:415
+#: addons/post-navigation/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:309
+#: addons/post-navigation/includes/class-fields.php:437
+msgid "Width of the featured image in pixels"
+msgstr "عرض الصورة المميزة بالبكسل"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:420
+msgid "Featured Image Height (px)"
+msgstr "ارتفاع الصورة المميزة (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:427
+#: addons/post-navigation/includes/class-fields.php:202
+#: addons/post-navigation/includes/class-fields.php:317
+#: addons/post-navigation/includes/class-fields.php:445
+msgid "Height of the featured image in pixels"
+msgstr "ارتفاع الصورة المميزة بالبكسل"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:432
+msgid "Fallback Featured Image"
+msgstr "صورة مميزة احتياطية"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:437
+msgid "Image to display when a post does not have a featured image"
+msgstr "صورة لعرضها عندما لا يحتوي المنشور على صورة مميزة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:454
+msgid "Post Padding (px)"
+msgstr "حشوة المنشور (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:463
+msgid "Post Border Width (px)"
+msgstr "عرض حدود المنشور (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+msgid "Post Border Color"
+msgstr "لون حدود المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:479
+msgid "Post Background Color"
+msgstr "لون خلفية المنشور"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Background color for the post list container"
+msgstr "لون الخلفية لحاوية قائمة المشاركات"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:498
+msgid "Layout Style"
+msgstr "نمط التخطيط"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "قائمة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "شبكة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:510
+msgid "Columns"
+msgstr "أعمدة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+msgid "2 Columns"
+msgstr "عمودين"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:515
+msgid "3 Columns"
+msgstr "3 أعمدة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:516
+msgid "4 Columns"
+msgstr "4 أعمدة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:517
+msgid "6 Columns"
+msgstr "6 أعمدة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:526
+msgid "Order By"
+msgstr "ترتيب بواسطة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:530
+msgid "Date"
+msgstr "التاريخ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "العنوان"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "ترتيب السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "ترتيب"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "تصاعدي"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "تنازلي"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:551
+msgid "Gap Between Items (px)"
+msgstr "الفجوة بين العناصر (بكسل)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:561
+msgid "Post List Box Location"
+msgstr "موقع مربع قائمة المشاركات"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:570
+msgid "Choose where to display the post list box in relation to the content"
+msgstr "اختر مكان عرض مربع قائمة المشاركات بالنسبة للمحتوى"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:574
+msgid "Maximum number of items"
+msgstr "الحد الأقصى لعدد العناصر"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"حدد عدد المنشورات المعروضة في قائمة السلسلة. اتركها فارغة لعدم وجود حد. "
+"المعاينة الإدارية محدودة بـ 4 منشورات."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595
+msgid "Highlight Current Post"
+msgstr "تسليط الضوء على المشاركة الحالية"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:600
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "تسليط الضوء على المشاركة الحالية عند عرض مشاركة معينة في السلسلة"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:603
+msgid "Current Post Background Color"
+msgstr "لون خلفية المشاركة الحالية"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:610
+msgid "Current Post Border Color"
+msgstr "لون حدود المشاركة الحالية"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Current Post Text Color"
+msgstr "لون نص المشاركة الحالية"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54
+msgid "Default Post List Box"
+msgstr "صندوق قائمة المشاركات الافتراضي"
+
+#: addons/post-list-box/includes/class-admin-ui.php:102
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+#: orgSeries-utility.php:308
+msgid "Post List Boxes"
+msgstr "صناديق قائمة المشاركات"
+
+#: addons/post-list-box/includes/class-admin-ui.php:119
+#: addons/post-list-box/includes/class-admin-ui.php:120
+msgid "Post List Box updated."
+msgstr "تم تحديث صندوق قائمة المشاركات."
+
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box added."
+msgstr "تم إضافة صندوق قائمة المشاركات."
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box saved."
+msgstr "تم حفظ صندوق قائمة المشاركات."
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box submitted."
+msgstr "تم إرسال صندوق قائمة المشاركات."
+
+#: addons/post-list-box/includes/class-admin-ui.php:145
+#: addons/post-list-box/includes/class-post-type.php:23
+#: inc/settings/tab-post-list-box.php:11
+msgid "Post List Box"
+msgstr "صندوق قائمة المشاركات"
+
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s تم تحديثه."
+msgstr[1] "%1$s %2$s تم تحديثهم."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s لم يتم تحديثه، شخص ما يقوم بتحريره."
+msgstr[1] "%1$s %2$s لم يتم تحديثهم، شخص ما يقوم بتحريرهم."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s تم حذفه نهائيًا."
+msgstr[1] "%1$s %2$s تم حذفهم نهائيًا."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s تم نقله إلى سلة المهملات."
+msgstr[1] "%1$s %2$s تم نقلهم إلى سلة المهملات."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s تم استعادته من سلة المهملات."
+msgstr[1] "%1$s %2$s تم استعادته من سلة المهملات."
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
+msgid "Post List Box Preview"
+msgstr "معاينة صندوق قائمة المشاركات"
+
+#: addons/post-list-box/includes/class-admin-ui.php:225
+msgid "Post List Box Editor"
+msgstr "محرر صندوق قائمة المشاركات"
+
+#: addons/post-list-box/includes/class-admin-ui.php:275
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr "أدخل في المنشورات أو الصفحات لعرض صندوق قائمة المنشورات هذا يدويًا."
+
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
+msgid "Select Series to Preview:"
+msgstr "اختر السلسلة للمعاينة:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:335
+msgid "No series found. Create a series to see the preview."
+msgstr "لم يتم العثور على أي سلسلة. أنشئ سلسلة لرؤية المعاينة."
+
+#: addons/post-list-box/includes/class-admin-ui.php:350
+msgid "No posts found in selected series."
+msgstr "لم يتم العثور على أي منشورات في السلسلة المحددة."
+
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
+msgid "Loading preview..."
+msgstr "جارٍ تحميل المعاينة..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
+msgid "Error loading preview."
+msgstr "خطأ في تحميل المعاينة."
+
+#: addons/post-list-box/includes/class-admin-ui.php:691
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "اختر صورة"
+
+#: addons/post-list-box/includes/class-admin-ui.php:695
+msgid "Remove"
+msgstr "إزالة"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "حاوية الصندوق"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "منشور"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38
+msgid "Layout"
+msgstr "تخطيط"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#, php-format
+msgid "New %1s"
+msgstr "جديد %1s"
+
+#: addons/post-list-box/includes/class-post-type.php:34
+#, php-format
+msgid "Add New %1$s"
+msgstr "إضافة جديد %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#, php-format
+msgid "Edit %1$s"
+msgstr "تحرير %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:36
+#, php-format
+msgid "New %1$s"
+msgstr "جديد %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:37
+#, fuzzy, php-format
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:38
+#, php-format
+msgid "View %1$s"
+msgstr "عرض %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:39
+#, php-format
+msgid "Search %2$s"
+msgstr "البحث عن %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#, php-format
+msgid "No %2$s found"
+msgstr "لم يتم العثور على %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:41
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "لم يتم العثور على %2$s في سلة المهملات"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s صورة"
+
+#: addons/post-list-box/includes/class-post-type.php:45
+#, php-format
+msgid "Set %1$s Image"
+msgstr "تعيين صورة %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "إزالة صورة %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:47
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "استخدام كصورة %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:48
+#, php-format
+msgid "Filter %2$s list"
+msgstr "تصفية قائمة %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:49
+#, php-format
+msgid "%2$s list navigation"
+msgstr "تنقل قائمة %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#, php-format
+msgid "%2$s list"
+msgstr "قائمة %2$s"
+
+#: addons/post-list-box/includes/class-preview.php:98
+#, php-format
+msgid "Sample Post %d"
+msgstr "مثال على منشور %d"
+
+#: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"هذا هو محتوى عينة للمنشور %d في السلسلة. لوريم إيبسوم دولور سيت أميت، "
+"كونسيكتتور أديبيسسينغ إليت. سيد دو إييوسمد تيمبور إينسيديدونت أوت لابور إت "
+"دولور ماجنا أليكوا."
+
+#: addons/post-list-box/includes/class-preview.php:100
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "هذا هو مقتطف عينة للمنشور %d في السلسلة."
+
+#: addons/post-list-box/includes/class-preview.php:504
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "المؤلف"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "صندوق القائمة الافتراضي"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "صندوق بأسلوب الشبكة"
+
+#: addons/post-list-box/post-list-box.php:108
+msgid "Simple List Box"
+msgstr "صندوق القائمة البسيطة"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "التنقل مخفي (السلسلة تحتوي على منشور واحد فقط)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "الصفحة الرئيسية للسلسلة"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:144
+#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "السابق"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:259
+#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "التالي"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: orgSeries-utility.php:310
+msgid "Post Navigation"
+msgstr "تنقل المنشور"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "معاينة تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "محرر تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "لم يتم العثور على سلسلات. أنشئ سلسلة لمعاينة التنقل."
+
+#: addons/post-navigation/includes/class-admin-ui.php:184
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr "أدخل في المنشورات أو الصفحات لعرض تنقل منشورات السلسلة يدويًا."
+
+#: addons/post-navigation/includes/class-admin-ui.php:192
+msgid "Default Navigation"
+msgstr "التنقل الافتراضي"
+
+#: addons/post-navigation/includes/class-admin-ui.php:414
+msgid "Change Image"
+msgstr "تغيير الصورة"
+
+#: addons/post-navigation/includes/class-admin-ui.php:422
+msgid "Remove Image"
+msgstr "إزالة الصورة"
+
+#: addons/post-navigation/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:129
+msgid "No posts found in series to preview."
+msgstr "لم يتم العثور على منشورات في السلسلة لمعاينتها."
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "عنصر"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "تضمين عنوان السلسلة"
+
+#: addons/post-navigation/includes/class-fields.php:96
+msgid "Link Series Title"
+msgstr "رابط عنوان السلسلة"
+
+#: addons/post-navigation/includes/class-fields.php:101
+msgid "Link the series title to the series archive page"
+msgstr "ربط عنوان السلسلة بصفحة أرشيف السلسلة"
+
+#: addons/post-navigation/includes/class-fields.php:106
+msgid "Series Title Alignment"
+msgstr "محاذاة عنوان السلسلة"
+
+#: addons/post-navigation/includes/class-fields.php:110
+#: addons/post-navigation/includes/class-fields.php:181
+#: addons/post-navigation/includes/class-fields.php:232
+#: addons/post-navigation/includes/class-fields.php:296
+#: addons/post-navigation/includes/class-fields.php:424
+msgid "Left"
+msgstr "يسار"
+
+#: addons/post-navigation/includes/class-fields.php:111
+msgid "Center"
+msgstr "مركز"
+
+#: addons/post-navigation/includes/class-fields.php:112
+#: addons/post-navigation/includes/class-fields.php:182
+#: addons/post-navigation/includes/class-fields.php:233
+#: addons/post-navigation/includes/class-fields.php:297
+#: addons/post-navigation/includes/class-fields.php:425
+msgid "Right"
+msgstr "يمين"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "لون عنوان السلسلة"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Hide When Single Post"
+msgstr "إخفاء عند عرض منشور فردي"
+
+#: addons/post-navigation/includes/class-fields.php:130
+msgid "Do not display navigation if series has only one post"
+msgstr "لا تعرض التنقل إذا كانت السلسلة تحتوي على منشور واحد فقط"
+
+#: addons/post-navigation/includes/class-fields.php:148
+msgid "Previous Navigation Type"
+msgstr "نوع التنقل السابق"
+
+#: addons/post-navigation/includes/class-fields.php:152
+#: addons/post-navigation/includes/class-fields.php:267
+#: addons/post-navigation/includes/class-fields.php:382
+msgid "None"
+msgstr "لا شيء"
+
+#: addons/post-navigation/includes/class-fields.php:153
+msgid "Previous Post Title"
+msgstr "عنوان المنشور السابق"
+
+#: addons/post-navigation/includes/class-fields.php:154
+#: addons/post-navigation/includes/class-fields.php:269
+#: addons/post-navigation/includes/class-fields.php:384
+msgid "Custom Label"
+msgstr "تسمية مخصصة"
+
+#: addons/post-navigation/includes/class-fields.php:158
+msgid "Choose how to display the previous navigation"
+msgstr "اختر كيفية عرض التنقل السابق"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Previous Label"
+msgstr "تسمية سابقة"
+
+#: addons/post-navigation/includes/class-fields.php:166
+msgid "Custom text for previous post link"
+msgstr "نص مخصص لرابط المنشور السابق"
+
+#: addons/post-navigation/includes/class-fields.php:174
+msgid "Display featured image for previous post"
+msgstr "عرض الصورة البارزة للمنشور السابق"
+
+#: addons/post-navigation/includes/class-fields.php:177
+#: addons/post-navigation/includes/class-fields.php:292
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Image Position"
+msgstr "موضع الصورة"
+
+#: addons/post-navigation/includes/class-fields.php:186
+msgid "Position of the featured image relative to the navigation"
+msgstr "موضع الصورة البارزة بالنسبة للتنقل"
+
+#: addons/post-navigation/includes/class-fields.php:189
+#: addons/post-navigation/includes/class-fields.php:304
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Image Width (px)"
+msgstr "عرض الصورة (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Image Height (px)"
+msgstr "ارتفاع الصورة (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+msgid "Show Arrow"
+msgstr "عرض السهم"
+
+#: addons/post-navigation/includes/class-fields.php:210
+msgid "Display an arrow icon with the previous navigation"
+msgstr "عرض أيقونة السهم مع التنقل السابق"
+
+#: addons/post-navigation/includes/class-fields.php:213
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Arrow Type"
+msgstr "نوع السهم"
+
+#: addons/post-navigation/includes/class-fields.php:217
+msgid "Chevron Left (‹)"
+msgstr "سهم لليسار (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:218
+msgid "Arrow Left (←)"
+msgstr "سهم لليسار (←)"
+
+#: addons/post-navigation/includes/class-fields.php:219
+msgid "Double Chevron Left («)"
+msgstr "سهم مزدوج لليسار («)"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Triangle Left (◄)"
+msgstr "مثلث لليسار (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Custom Image"
+msgstr "صورة مخصصة"
+
+#: addons/post-navigation/includes/class-fields.php:225
+#: addons/post-navigation/includes/class-fields.php:340
+msgid "Choose the arrow icon style"
+msgstr "اختر نمط أيقونة السهم"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Arrow Position"
+msgstr "موضع السهم"
+
+#: addons/post-navigation/includes/class-fields.php:237
+msgid "Position of the arrow relative to the navigation"
+msgstr "موضع السهم بالنسبة للتنقل"
+
+#: addons/post-navigation/includes/class-fields.php:240
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Arrow Size (px)"
+msgstr "حجم السهم (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:247
+#: addons/post-navigation/includes/class-fields.php:362
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr "حجم رمز السهم بالبكسل (ينطبق على كل من العرض والارتفاع)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Custom Arrow Image"
+msgstr "صورة السهم المخصصة"
+
+#: addons/post-navigation/includes/class-fields.php:255
+#: addons/post-navigation/includes/class-fields.php:370
+msgid "Select custom arrow image from media library"
+msgstr "اختر صورة السهم المخصصة من مكتبة الوسائط"
+
+#: addons/post-navigation/includes/class-fields.php:263
+msgid "Next Navigation Type"
+msgstr "نوع التنقل التالي"
+
+#: addons/post-navigation/includes/class-fields.php:268
+msgid "Next Post Title"
+msgstr "عنوان المنشور التالي"
+
+#: addons/post-navigation/includes/class-fields.php:273
+msgid "Choose how to display the next post link"
+msgstr "اختر كيفية عرض رابط المنشور التالي"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Next Label"
+msgstr "التسمية التالية"
+
+#: addons/post-navigation/includes/class-fields.php:281
+msgid "Custom text for next post link"
+msgstr "نص مخصص لرابط المنشور التالي"
+
+#: addons/post-navigation/includes/class-fields.php:289
+msgid "Display featured image for next post"
+msgstr "عرض الصورة المميزة للمنشور التالي"
+
+#: addons/post-navigation/includes/class-fields.php:301
+msgid "Position of the featured image relative to navigation"
+msgstr "موضع الصورة المميزة بالنسبة للتنقل"
+
+#: addons/post-navigation/includes/class-fields.php:325
+msgid "Display an arrow icon with the next navigation"
+msgstr "عرض رمز سهم مع التنقل التالي"
+
+#: addons/post-navigation/includes/class-fields.php:332
+msgid "Chevron Right (›)"
+msgstr "سهم إلى اليمين (›)"
+
+#: addons/post-navigation/includes/class-fields.php:333
+msgid "Arrow Right (→)"
+msgstr "سهم إلى اليمين (→)"
+
+#: addons/post-navigation/includes/class-fields.php:334
+msgid "Double Chevron Right (»)"
+msgstr "سهم مزدوج إلى اليمين (»)"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Triangle Right (►)"
+msgstr "مثلث إلى اليمين (►)"
+
+#: addons/post-navigation/includes/class-fields.php:347
+msgid "Left of Text"
+msgstr "يسار النص"
+
+#: addons/post-navigation/includes/class-fields.php:348
+msgid "Right of Text"
+msgstr "يمين النص"
+
+#: addons/post-navigation/includes/class-fields.php:352
+msgid "Position of the arrow relative to the link text"
+msgstr "موضع السهم بالنسبة لنص الرابط"
+
+#: addons/post-navigation/includes/class-fields.php:374
+msgid "First"
+msgstr "الأول"
+
+#: addons/post-navigation/includes/class-fields.php:378
+msgid "First Navigation Type"
+msgstr "نوع التنقل الأول"
+
+#: addons/post-navigation/includes/class-fields.php:383
+msgid "First Post Title"
+msgstr "عنوان المنشور الأول"
+
+#: addons/post-navigation/includes/class-fields.php:388
+msgid "Choose how to display the first navigation"
+msgstr "اختر كيفية عرض التنقل الأول"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "First Label"
+msgstr "التسمية الأولى"
+
+#: addons/post-navigation/includes/class-fields.php:395
+msgid "Go to First"
+msgstr "اذهب إلى الأول"
+
+#: addons/post-navigation/includes/class-fields.php:396
+msgid "Custom text for first navigation"
+msgstr "نص مخصص للتنقل الأول"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "First Navigation Position"
+msgstr "موضع التنقل الأول"
+
+#: addons/post-navigation/includes/class-fields.php:403
+msgid "Left (First → Previous → Next)"
+msgstr "يسار (الأول → السابق → التالي)"
+
+#: addons/post-navigation/includes/class-fields.php:404
+msgid "Center (Previous → First → Next)"
+msgstr "وسط (السابق → الأول → التالي)"
+
+#: addons/post-navigation/includes/class-fields.php:405
+msgid "Right (Previous → Next → First)"
+msgstr "يمين (السابق → التالي → الأول)"
+
+#: addons/post-navigation/includes/class-fields.php:409
+msgid "Position of the first/series home link in navigation"
+msgstr "موضع رابط الصفحة الرئيسية الأول/السلسلة في التنقل"
+
+#: addons/post-navigation/includes/class-fields.php:417
+msgid "Display featured image for first post"
+msgstr "عرض الصورة المميزة للمنشور الأول"
+
+#: addons/post-navigation/includes/class-fields.php:429
+msgid "Position of the featured image relative to the link text"
+msgstr "موضع الصورة المميزة بالنسبة لنص الرابط"
+
+#: addons/post-navigation/includes/class-fields.php:449
+msgid "Color"
+msgstr "اللون"
+
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Gap Between Links (px)"
+msgstr "الفجوة بين الروابط (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Space between navigation links"
+msgstr "المسافة بين روابط التنقل"
+
+#: addons/post-navigation/includes/class-fields.php:540
+msgid "Container Style"
+msgstr "نمط الحاوية"
+
+#: addons/post-navigation/includes/class-fields.php:544
+msgid "Container Background Color"
+msgstr "لون خلفية الحاوية"
+
+#: addons/post-navigation/includes/class-fields.php:549
+msgid "Background color for the navigation container"
+msgstr "لون الخلفية لحاوية التنقل"
+
+#: addons/post-navigation/includes/class-fields.php:552
+msgid "Container Border Color"
+msgstr "لون حدود الحاوية"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Container Border Width (px)"
+msgstr "عرض حدود الحاوية (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:568
+msgid "Container Border Radius (px)"
+msgstr "نصف قطر حدود الحاوية (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Container Padding (px)"
+msgstr "توسيع الحاوية (بكسل)"
+
+#: addons/post-navigation/includes/class-fields.php:584
+msgid "Inner spacing for the container"
+msgstr "المسافة الداخلية للحاوية"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "إضافة تنقل منشورات سلسلة جديدة"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "تنقل منشورات سلسلة جديدة"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "تحرير تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "عرض تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "جميع تنقلات منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "بحث عن تنقل منشورات السلسلة"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "لم يتم العثور على تنقل منشورات السلسلة."
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "لم يتم العثور على تنقل منشورات السلسلة في سلة المهملات."
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "قم بإنشاء سلسلة لمعاينة التنقل."
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "قم بإنشاء منشورات في سلسلة لمعاينة التنقل."
+
+#: addons/post-navigation/includes/class-utilities.php:174
+msgid "Sample series for preview purposes"
+msgstr "عينة سلسلة لأغراض المعاينة"
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "خطأ في تحديث المعاينة."
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "تنقل بسيط"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "تنقل الأزرار"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "تنقل الصورة"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "الفئات"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "الوسوم"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "الحالة"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "الجزء الحالي"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "تعديل"
+
+#: addons/publisher/series-part-post-table.php:146
+msgid "View"
+msgstr "عرض"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "سلة المهملات"
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "لا توجد منشورات منشورة في هذه السلسلة."
+
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(ليس لديه رقم جزء حالياً)"
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "معاينة"
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "لا توجد منشورات غير منشورة في هذه السلسلة."
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "لا يوجد رقم جزء"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "جميع الفئات"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "تصفية"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "إدارة السلاسل"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "السلسلة"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "نشر السلسلة"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "عرض أمامي"
+
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "تعديل حالة %1$s"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "ترتيب السلسلة"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "نشر أو جدولة المشاركات"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "عرض السلسلة في الواجهة الأمامية"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "ليس لديك أي سلسلة متاحة."
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "إضافة سلسلة جديدة."
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "إنشاء كغير منشور:"
+
+#: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"عند التحقق، ستظل جميع المنشورات التي تعينها لهذه السلسلة غير منشورة حتى "
+"تنشر السلسلة بأكملها."
+
+#: addons/publisher/series_issue_manager.php:290
+msgid "The posts in your series were successfully unpublished."
+msgstr "تم إلغاء نشر المشاركات في سلسلتك بنجاح."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "مبروك. تم تحديث ترتيب سلسلتك بنجاح."
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "مبروك. تم نشر مشاركاتك بنجاح."
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "تم نقل المشاركة إلى سلة المهملات."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "مبروك. تم جدولة مشاركاتك بنجاح."
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "إدارة مشكلات السلسلة"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "عدد العناصر في كل صفحة"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "نشر السلسلة:"
+
+#: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "نتائج البحث عن &#8220;%s&#8221;"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "بحث"
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "تاريخ/وقت النشر:"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "تحديث الترتيب"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "ترتيب السلسلة:"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"اسحب أسماء المنشورات إلى الترتيب الذي تريده أن تكون عليه في السلسلة، من "
+"الجزء الأول إلى الجزء الأخير."
+
+#: addons/publisher/series_issue_manager.php:867
+msgid "Unpublished posts in series:"
+msgstr "المنشورات غير المنشورة في السلسلة:"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr "عند نشر هذه المنشورات، سيتم إضافتها بعد آخر منشور حالي في السلسلة."
+
+#: addons/publisher/series_issue_manager.php:901
+msgid "Unpublished Posts"
+msgstr "المنشورات غير المنشورة"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "نشر المنشورات غير المنشورة"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "ترتيب السلسلة غير المنشورة"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "خيارات إضافة السلسلة لـ PublishPress"
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "Html المسموح به"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"التالي هو أسطورة الرموز المتاحة للاستخدام في حقول القالب المخصص. سيتم "
+"استبدالها بالقيم المناسبة عندما تعمل الإضافة."
+
+#: inc/settings/settings-page.php:68
+msgid "This will be replaced with the series icon for a series."
+msgstr "سيتم استبداله بأيقونة السلسلة لسلسلة."
+
+#: inc/settings/settings-page.php:76
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr "نفس %series_icon% باستثناء أن أيقونة السلسلة ستكون مرتبطة بصفحة السلسلة"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"هذه الرموز للاستخدام مع أداة orgSeries فقط - تشير إلى المكان الذي تريد "
+"إدراج قائمة عناوين السلاسل فيه وتتطلب تعيين القالب لكل عنوان سلسلة أيضًا."
+
+#: inc/settings/settings-page.php:92
+msgid "This will be replaced with the title of a series"
+msgstr "سيتم استبداله بعنوان سلسلة"
+
+#: inc/settings/settings-page.php:100
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr "نفس %series_title% باستثناء أنه سيكون مرتبطًا أيضًا بصفحة السلسلة"
+
+#: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr "هي رموز الموقع لمكان ظهور محتويات قوالب قائمة منشورات القائمة."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"هي رموز الموقع لمكان ظهور محتويات قوالب قائمة منشورات القائمة وتستخدم "
+"العنوان القصير للمنشور المقدم."
+
+#: inc/settings/settings-page.php:124
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "سيتم استبداله بعنوان منشور من منشور في السلسلة"
+
+#: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr "سيتم استبداله بعنوان منشور في السلسلة مرتبط بعرض الصفحة لذلك المنشور."
+
+#: inc/settings/settings-page.php:140
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "سيتم استبداله بعنوان قصير لمنشور من منشور في السلسلة"
+
+#: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"سيتم استبداله بالعنوان القصير لمنشور في السلسلة مرتبط بعرض الصفحة لذلك "
+"المنشور."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"سيتم استبداله برابط التنقل للمنشور السابق في السلسلة. سيكون النص هو أي شيء "
+"يتضمن في حقل 'نص التنقل السابق المخصص'. إذا كان هذا الحقل فارغًا، فسيكون "
+"النص هو عنوان المنشور"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"سيتم استبداله برابط التنقل للمنشور التالي في السلسلة. سيكون النص هو أي شيء "
+"يتضمن في حقل 'نص التنقل التالي المخصص'. إذا كان هذا الحقل فارغًا، فسيكون "
+"النص هو عنوان المنشور"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"سيتم استبداله برابط التنقل للمنشور الأول في السلسلة. سيكون النص هو أي شيء "
+"يتضمن في حقل 'نص التنقل الأول المخصص'. إذا كان هذا الحقل فارغًا، فسيكون "
+"النص هو عنوان المنشور"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"استخدم هذه العلامة إما قبل أو بعد بقية كود القالب. ستشير إلى المكان الذي "
+"تريد عرض محتوى المنشور فيه."
+
+#: inc/settings/settings-page.php:187
+msgid "Will display what part of a series the post is"
+msgstr "سيعرض أي جزء من السلسلة ينتمي إليه المنشور"
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "سيعرض العدد الإجمالي للمنشورات في السلسلة"
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "سيعرض الوصف للسلسلة"
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "سيخرج سلا slug السلسلة"
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "سيخرج معرف السلسلة"
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "سيخرج مؤلف المنشور"
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "إذا كان للمنشور صورة مميزة، فستعرض تلك الصورة"
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "التاريخ الذي تم فيه نشر المنشور"
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "سيتم استبداله بعنوان المنشور غير المنشور لمنشور في السلسلة"
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "سيعرض العدد الإجمالي للمنشورات المنشورة وغير المنشورة في السلسلة"
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "خيارات التحديث"
+
+#: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"النقر على \"نعم\" سيعيد الخيارات إلى الإعدادات الافتراضية وستفقد جميع "
+"التخصيصات. أو يمكنك النقر على إلغاء والعودة."
+
+#: inc/settings/settings-page.php:309
+msgid "No"
+msgstr "لا"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "نعم"
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "يرجى تحديث بيانات سلسلة PublishPress الخاصة بك"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"لقد أجرينا تغييرات على كيفية تخزين السلاسل، وهذا يتطلب تحديثًا صغيرًا. هذا "
+"يحسن دعم ميزة السلاسل المتعددة، ويحل بعض المشكلات المتعلقة بترتيب "
+"المنشورات. يرجى النقر على هذا الزر للتحديث."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
+msgid "Update Series data"
+msgstr "تحديث بيانات السلسلة"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "تم الانتهاء من ترقية السلسلة."
+
+#: inc/settings/settings-upgrade.php:174
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "تم الانتهاء من مزامنة ترتيب السلسلة. تم تحديث %d مشاركة."
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:259
+msgid "Search Series"
+msgstr "بحث عن السلاسل"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:260
+msgid "Popular Series"
+msgstr "السلاسل الشائعة"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
+msgid "All Series"
+msgstr "جميع السلاسل"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:262
+msgid "Edit Series"
+msgstr "تعديل السلسلة"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:263
+msgid "Update Series"
+msgstr "تحديث السلسلة"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:264
+msgid "Add New Series"
+msgstr "إضافة سلسلة جديدة"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:265
+msgid "New Series Name"
+msgstr "اسم السلسلة الجديدة"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:267
+msgid "No series found"
+msgstr "لم يتم العثور على سلاسل"
+
+#: inc/settings/settings-validation.php:121
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s السلسلة تم ترحيلها من \"%2$s\" إلى \"%3$s\" taxonomy. تم تحديث "
+"الإعدادات."
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "تم تحديث خيارات ملحق PublishPress Series"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "تم رفض الإذن"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "تم إعادة تعيين خيارات ملحق PublishPress Series"
+
+#: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"يرجى تغيير هذه الإعدادات بعناية لأنها تحدث تغييرات كبيرة على PublishPress "
+"Series."
+
+#: inc/settings/tab-advanced.php:34
+msgid "Series Settings"
+msgstr "إعدادات السلسلة"
+
+#: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "احذف جميع بيانات PublishPress Series من قاعدة البيانات عند حذف هذه الإضافة."
+
+#: inc/settings/tab-advanced.php:47
+msgid "Series Upgrade"
+msgstr "ترقية السلسلة"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "قم بتشغيل مهمة الترقية"
+
+#: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"في الإصدار 2.11.4، أجرى PublishPress Series تغييرات على كيفية تخزين "
+"السلاسل. يمكنك تشغيل مهمة التحديث هنا إذا كنت تواجه مشكلات مع أجزاء السلاسل."
+
+#: inc/settings/tab-advanced.php:65
+msgid "Sync Series Order to Menu Order"
+msgstr "مزامنة ترتيب السلسلة مع ترتيب القائمة"
+
+#: inc/settings/tab-advanced.php:70
+msgid "Sync to Menu Order"
+msgstr "مزامنة مع ترتيب القائمة"
+
+#: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"سوف يقوم هذا بمزامنة جميع أرقام أجزاء السلاسل إلى حقل menu_order في "
+"WordPress. مفيد للقوالب/بناة الصفحات التي يمكنها فرز العناصر فقط حسب ترتيب "
+"القائمة (خصائص الصفحة: الترتيب). هذا يسمح لك باستخدام ترتيب WordPress "
+"الأصلي بدلاً من الحقول المخصصة."
+
+#: inc/settings/tab-advanced.php:83
+msgid "Reset settings"
+msgstr "إعادة تعيين الإعدادات"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "إعادة تعيين الخيارات إلى الافتراضي"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144
+msgid "Legacy"
+msgstr "النسخة القديمة"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "إعدادات النسخة القديمة"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "افتراضي"
+
+#: inc/settings/tab-legacy.php:36
+msgid "CSS Styles"
+msgstr "أنماط CSS"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "استخدام أنماط CSS لـ PublishPress Series؟"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "خيارات النمط"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "استخدام النمط الافتراضي"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "استخدام نمط الصندوق"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "استخدام النمط الداكن"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "استخدام النمط الفاتح"
+
+#: inc/settings/tab-legacy.php:60
+msgid "Series Overview"
+msgstr "نظرة عامة على السلسلة"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "اختر التصميم لصفحة التصنيف حيث يتم عرض سلسلة واحدة."
+
+#: inc/settings/tab-legacy.php:66
+msgid "Layout:"
+msgstr "التخطيط:"
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"اختيار تخطيط مختلف عن \"افتراضي\" سيتجاوز قالب التصنيف من قالبك. <a "
+"href=\"%s\" target=\"_blank\">انقر هنا للحصول على تفاصيل حول كيفية تخصيص "
+"هذه التصاميم</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
+msgid "Columns:"
+msgstr "الأعمدة:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "ترتيب السلاسل حسب:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "جزء السلسلة"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "ترتيب حسب التاريخ"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "طريقة ترتيب السلسلة"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:485
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "فهرس السلسلة"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "رابط فهرس السلسلة:"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "عرض الصفحة"
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"يجب عليك %1s تحديث بنية الرابط الثابت الخاصة بك %2s إلى شيء غير \"عادي\" "
+"لكي يعمل عنوان URL لجدول محتويات السلسلة."
+
+#: inc/settings/tab-legacy.php:154
+msgid "Series Per Page:"
+msgstr "السلاسل في الصفحة:"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "عنوان فهرس السلسلة:"
+
+#: inc/settings/tab-legacy.php:168
+msgid "Series Icons"
+msgstr "أيقونات السلسلة"
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "عرض الأيقونة في صفحة فهرس السلسلة (بالبكسل)"
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "عرض الأيقونة في صفحة المشاركة (بالبكسل)."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr "عرض الأيقونة إذا تم عرضها عبر قالب السلسلة الأحدث (بالبكسل)."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "أحدث السلاسل"
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "يتم استخدام هذا العرض بواسطة أداة \"أحدث السلاسل\"."
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "أحدث السلاسل (الوسوم السابقة):"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "أحدث السلاسل (الوسوم الداخلية):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "سلسلة أحدث (العلامات بعد):"
+
+#: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr ""
+"يتم استخدام هذا العرض بواسطة عنصر واجهة المستخدم \"جدول محتويات السلسلة\"، "
+"shortcode، وURL."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"يتم استخدام هذا العرض بواسطة \"جدول محتويات السلسلة\". للعثور على عنوان URL "
+"لهذا العرض، انتقل إلى علامة التبويب \"عرض\" ثم \"عنوان URL لجدول محتويات "
+"السلسلة\"."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr "تسمح لك هذه الإعدادات بتخصيص مربع التعريف على شاشة تحرير المنشورات."
+
+#: inc/settings/tab-metabox.php:26
+msgid "Default Series Order"
+msgstr "ترتيب السلسلة الافتراضي"
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "أبجدي أ-ي"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "أبجدي ي-أ"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "عرض \"إضافة جديدة\""
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "عرض \"عنوان المنشور في widget\""
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "ترتيب ميتا بوكس السلسلة"
+
+#: inc/settings/tab-post-details.php:12
+msgid "Post Details Settings"
+msgstr "إعدادات تفاصيل المنشور"
+
+#: inc/settings/tab-post-details.php:16
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr "تكوين عرض تفاصيل منشور السلسلة المعروض على المنشورات في سلسلة."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "كما في القالب"
+
+#: inc/settings/tab-post-details.php:36
+msgid "Display Series Post Details?"
+msgstr "عرض تفاصيل منشور السلسلة؟"
+
+#: inc/settings/tab-post-details.php:41
+msgid "Post Details Selection"
+msgstr "اختيار تفاصيل المنشور"
+
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43
+msgid "Edit this layout"
+msgstr "تعديل هذا التنسيق"
+
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44
+msgid "Loading…"
+msgstr "جارٍ التحميل…"
+
+#: inc/settings/tab-post-details.php:51
+msgid "Post Details Position"
+msgstr "موضع تفاصيل المنشور"
+
+#: inc/settings/tab-post-details.php:66
+msgid "Series Meta Template"
+msgstr "قالب ميتا السلسلة"
+
+#: inc/settings/tab-post-details.php:71
+msgid "Series Meta (with excerpts)"
+msgstr "ميتا السلسلة (مع مقتطفات)"
+
+#: inc/settings/tab-post-details.php:76
+msgid "Limit to single page only"
+msgstr "تحديد صفحة واحدة فقط"
+
+#: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr "سواء لتقييد عرض بيانات السلسلة إلى صفحة واحدة فقط أو تضمين صفحة الأرشيف."
+
+#: inc/settings/tab-post-list-box.php:12
+msgid "Post List Box Settings"
+msgstr "إعدادات مربع قائمة المنشورات"
+
+#: inc/settings/tab-post-list-box.php:16
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr "تهيئة مربع قائمة المنشورات الذي يعرض جميع المنشورات في سلسلة."
+
+#: inc/settings/tab-post-list-box.php:36
+msgid "Display Post List Boxes?"
+msgstr "عرض صناديق قائمة المنشورات؟"
+
+#: inc/settings/tab-post-list-box.php:41
+msgid "Post List Boxes Selection"
+msgstr "اختيار صناديق قائمة المنشورات"
+
+#: inc/settings/tab-post-list-box.php:43
+msgid "Edit this box"
+msgstr "تعديل هذه الصندوق"
+
+#: inc/settings/tab-post-list-box.php:51
+msgid "Post List Box Position"
+msgstr "موضع مربع قائمة المنشورات"
+
+#: inc/settings/tab-post-list-box.php:66
+msgid "Post List Box Template"
+msgstr "قالب قائمة المنشورات"
+
+#: inc/settings/tab-post-list-box.php:70
+msgid "Post Title (Linked Post)"
+msgstr "عنوان المنشور (المنشور المرتبط)"
+
+#: inc/settings/tab-post-list-box.php:75
+msgid "Post Title (Current Post)"
+msgstr "عنوان المنشور (المنشور الحالي)"
+
+#: inc/settings/tab-post-navigation.php:11
+msgid "Navigation"
+msgstr "الملاحة"
+
+#: inc/settings/tab-post-navigation.php:12
+msgid "Navigation Settings"
+msgstr "إعدادات الملاحة"
+
+#: inc/settings/tab-post-navigation.php:16
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "تهيئة عرض الملاحة للسلسلة المعروضة على المنشورات في سلسلة."
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "عرض الملاحة للسلسلة؟"
+
+#: inc/settings/tab-post-navigation.php:41
+msgid "Navigation Selection"
+msgstr "اختيار الملاحة"
+
+#: inc/settings/tab-post-navigation.php:51
+msgid "Navigation Position"
+msgstr "موضع الملاحة"
+
+#: inc/settings/tab-post-navigation.php:66
+msgid "Navigation Template"
+msgstr "قالب الملاحة"
+
+#: inc/settings/tab-post-navigation.php:71
+msgid "Next Post Text"
+msgstr "نص المنشور التالي"
+
+#: inc/settings/tab-post-navigation.php:76
+msgid "Previous Post Text"
+msgstr "نص المنشور السابق"
+
+#: inc/settings/tab-post-navigation.php:81
+msgid "First Post Text"
+msgstr "نص المنشور الأول"
+
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "أنواع المنشورات"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "دعم نوع المنشور المخصص"
+
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "تفعيل سلسلة PublishPress لأنواع المنشورات المخصصة."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "ميزات برو"
+
+#: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr "تسمح لك هذه الإعدادات بتمكين أو تعطيل الميزات في PublishPress Series Pro."
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "السماح باستخدام أنواع المنشورات المخصصة مع PublishPress Series."
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Shortcodes"
+msgstr "الرموز القصيرة"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "يوفر رموزًا قصيرة لعرض معلومات السلسلة."
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "رموز إضافية"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "يوفر رموزًا إضافية لتخصيص مخرجات معلومات السلسلة."
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "سلاسل متعددة"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "يسمح للمؤلفين بإضافة مشاركات إلى أكثر من سلسلة واحدة."
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142
+msgid "Series Category"
+msgstr "فئة السلسلة"
+
+#: inc/settings/tab-series-category.php:13
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr "إعدادات لعنوان URL لأرشيف فئات السلاسل وسلوك العرض."
+
+#: inc/settings/tab-series-category.php:26
+msgid "Series Categories URL Base:"
+msgstr "قاعدة URL لفئات السلسلة:"
+
+#: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"سيتم استخدام هذا النص في عناوين URL لأرشيف فئات السلسلة. إذا قمت بتغييره، "
+"سيتم إعادة توجيه العناوين القديمة إلى القاعدة الجديدة."
+
+#: inc/settings/tab-series-category.php:36
+msgid "Series Categories Archive Template:"
+msgstr "قالب أرشيف فئات السلسلة:"
+
+#: inc/settings/tab-series-category.php:39
+msgid "Use template from Theme"
+msgstr "استخدم القالب من القالب"
+
+#: inc/settings/tab-series-category.php:40
+msgid "Use template from Plugin"
+msgstr "استخدم القالب من الإضافة"
+
+#: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"يستخدم قالب القالب تسلسل قوالب القالب النشط لديك. يستخدم قالب الإضافة تصميم "
+"الاحتياطي لـ PublishPress Series عندما لا يوفر قالبك "
+"taxonomy-series_group.php."
+
+#: inc/settings/tab-series-category.php:49
+msgid "Plugin Template Display Options:"
+msgstr "خيارات عرض قالب المكون الإضافي:"
+
+#: inc/settings/tab-series-category.php:53
+msgid "Show Series Icon"
+msgstr "عرض أيقونة السلسلة"
+
+#: inc/settings/tab-series-category.php:58
+msgid "Show Series Description"
+msgstr "عرض وصف السلسلة"
+
+#: inc/settings/tab-series-category.php:63
+msgid "Show Posts in each Series as list items"
+msgstr "عرض المشاركات في كل سلسلة كعناصر قائمة"
+
+#: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"تتيح لك هذه الميزة إنشاء تصنيف جديد لاستخدامه في هذه الإضافة إذا كنت لا "
+"تريد استخدام التصنيف الافتراضي \"السلسلة\"."
+
+#: inc/settings/tab-taxonomy.php:28
+msgid "Series Taxonomy Slug:"
+msgstr "Slug تصنيف السلسلة:"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "سيكون هذا النص جزءًا من عنوان URL الأساسي للسلسلة."
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "تصنيف السلسلة:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr "لإنشاء تصنيف جديد، أدخل الاسم الجديد وانقر على زر \"تحديث الخيارات\"."
+
+#: inc/settings/tab-taxonomy.php:47
+msgid "Migrate Terms"
+msgstr "نقل المصطلحات"
+
+#: inc/settings/tab-taxonomy.php:53
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr "نقل تلقائي للمصطلحات الموجودة في السلسلة إلى التصنيف الجديد"
+
+#: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"إذا تم تحديده، سيتم ترحيل جميع المصطلحات من التصنيف الحالي إلى التصنيف "
+"الجديد عند تغيير اسم التصنيف. إذا لم يتم تحديده، سيتم تغيير اسم التصنيف فقط."
+
+#: inc/templates/taxonomy-series.php:70
+msgid "Sorry, no results found."
+msgstr "عذرًا، لم يتم العثور على نتائج."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"أنت تستخدم PublishPress Series Free. تحتوي النسخة Pro على ميزات ودعم أكثر. "
+"%sترقية إلى Pro%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
+msgid "Upgrade to Pro"
+msgstr "ترقية إلى Pro"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "تحتاج إلى دعم PublishPress Series؟"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "إذا كنت بحاجة إلى مساعدة أو لديك طلب ميزة جديدة، يرجى إبلاغنا."
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "طلب الدعم"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "يتوفر أيضًا توثيق مفصل على موقع المكون الإضافي."
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "عرض قاعدة المعرفة"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "حدث خطأ"
+
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s سلسلة تم نقلها إلى تصنيف جديد"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "إذا أعجبتك %s، يرجى ترك تقييم %s لنا. شكراً لك!"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "حول سلسلة PublishPress"
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "حول"
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "وثائق سلسلة PublishPress"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "الوثائق"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "اتصل بفريق PublishPress"
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "اتصل"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "عذراً، لكن ليس لديك إذن لإضافة سلسلة"
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "الاسم الذي اخترته لا يتم تطهيره بشكل صحيح. جرب شيئاً مختلفاً."
+
+#: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr "هم... يبدو أن هناك بالفعل سلسلة بهذا الاسم. جرب شيئًا آخر"
+
+#: orgSeries-admin.php:359
+msgid "Not part of a series"
+msgstr "ليس جزءًا من سلسلة"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "بحث عن سلسلة"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "جزء السلسلة:"
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "عنوان المنشور في الودجت:"
+
+#: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"عنوان قصير لهذا المنشور سيتم استخدامه في عنصر واجهة المستخدم للسلسلة. اتركه "
+"فارغًا لاستخدام العنوان الكامل."
+
+#: orgSeries-admin.php:519
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (لا يوجد رقم جزء)"
+
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (جزء %1$s من %2$s)"
+
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (لا يوجد رقم جزء)"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:270
+msgid "No Series"
+msgstr "لا توجد سلسلة"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "عرض جميع السلاسل"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "إدارة جميع السلاسل"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "ترتيب المصطلحات"
+
+#: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"لإعادة تحديد موضع عنصر، اسحب وأسقط الصف عن طريق \"النقر والاحتفاظ\" به في "
+"أي مكان وتحريكه إلى موضعه الجديد."
+
+#: orgSeries-manage.php:196
+msgid "ID"
+msgstr "معرف"
+
+#: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"عادة ما يتم ترتيب المصطلحات أبجدياً، ولكن يمكنك اختيار ترتيبك الخاص عن طريق "
+"إدخال رقم (1 للأول، إلخ) في هذا الحقل."
+
+#: orgSeries-manage.php:240
+msgid "Current series icon:"
+msgstr "رمز السلسلة الحالية:"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "لا يوجد رمز حاليًا"
+
+#: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr "هل تريد حذف الصورة؟ (ملاحظة: لن توجد صورة مرتبطة بهذه السلسلة إذا اخترت هذا)"
+
+#: orgSeries-manage.php:261
+msgid "Series Icon Upload:"
+msgstr "رفع رمز السلسلة:"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "قم بتحميل صورة للسلسلة."
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "بيانات نموذج غير صالحة"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "رمز غير صالح، أعد تحميل الصفحة وحاول مرة أخرى"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "تصنيف غير صالح"
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "لا توجد إذن كافٍ"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "تم التحديث بنجاح"
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:872
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "خيارات سلاسل PublishPress"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Taxonomy"
+
+#: orgSeries-options.php:143, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "متقدم"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr "اختر \"ليس جزءًا من سلسلة\" لإزالة أي بيانات سلسلة من المنشور"
+
+#: orgSeries-setup.php:268
+msgid "&larr; Go to Series"
+msgstr "&larr; انتقل إلى السلسلة"
+
+#: orgSeries-setup.php:269
+msgid "View Series"
+msgstr "عرض السلسلة"
+
+#: orgSeries-setup.php:271
+msgid "Series List"
+msgstr "قائمة السلاسل"
+
+#: orgSeries-setup.php:272
+msgid "Series Link"
+msgstr "رابط السلسلة"
+
+#: orgSeries-setup.php:273
+msgid "A link to a Series"
+msgstr "رابط إلى سلسلة"
+
+#: orgSeries-setup.php:327
+msgid "Series Navigation"
+msgstr "تنقل السلسلة"
+
+#: orgSeries-setup.php:858
+msgid "Series: "
+msgstr "السلسلة: "
+
+#: orgSeries-setup.php:860
+msgid "Posts from the series: "
+msgstr "المنشورات من السلسلة: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "السلسلة:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "الجزء:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "جميع السلاسل التي كتبتها"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">السلسلة</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "تلقائي/لا شيء"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "استخدم هذا للتحكم في مخرجات أداة السلسلة الأخيرة"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "أحدث سلسلة"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "العنوان:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"يمكن تعديل تنسيق ومحتوى هذه الـ widget عبر منطقة <a href=\"%s\">السلاسل "
+"الأحدث</a>."
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "هل تريد إخفاء السلاسل التي لا تحتوي على منشورات؟"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "ترتيب حسب:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "عدد المنشورات في السلسلة"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "اسم السلسلة"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "رابط السلسلة"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "تاريخ إنشاء السلسلة"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "عشوائي"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "عدد السلاسل لعرضها:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "ترتيب العرض: "
+
+#: orgSeries-widgets.php:100
+msgid "ASC: "
+msgstr "تصاعدي: "
+
+#: orgSeries-widgets.php:101
+msgid "DESC: "
+msgstr "تنازلي: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "استخدم هذا لعرض جدول محتويات السلسلة"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "اختر سلسلة"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "منشورات أخرى في السلسلة:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "عرض جدول محتويات السلسلة"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "عرض جدول محتويات السلسلة كـ:"
+
+#: orgSeries-widgets.php:280
+msgid "Dropdown:"
+msgstr "قائمة منسدلة:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "قائمة:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "عرض عدد المنشورات:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "إخفاء السلاسل الفارغة:"
+
+#: orgSeries-widgets.php:299, fuzzy
+msgid "name"
+msgstr "name"
+
+#: orgSeries-widgets.php:300, fuzzy
+msgid "count"
+msgstr "count"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-widgets.php:302, fuzzy
+msgid "series id"
+msgstr "series id"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "ترتيب:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "استبعاد السلاسل:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "تضمين السلاسل:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "عدد السلاسل:"
+
+#: orgSeries-widgets.php:368
+msgid "Offset:"
+msgstr "الانزياح:"
+
+#: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr "يمكنك تحديد الإزاحة لعدد السلاسل (مفيد للتصفح). لا توجد إزاحة إذا تركت فارغة"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "بحث:"
+
+#: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"يمكنك إرجاع أي سلسلة تتطابق مع سلسلة البحث هذه (تم التحقق منها ضد أسماء "
+"السلاسل)"
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "عرض المشاركات الأخرى في السلسلة الحالية:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "السلسلة الحالية"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "عنوان أداة السلسلة:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "سيتم عرض هذا النص فوق المشاركات الأخرى في هذه السلسلة."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>يمكن حذف هذا المكون الإضافي.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "الـ %1$s لديه بالفعل معلمة مفهرسة بالاسم: %2$s."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "يمكن استخدام طريقة %1$s فقط لتسجيل طفل من %2$s."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "غير قادر على استرجاع مثيل لـ %1$s. غير موجود."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s ليست كيانًا صالحًا (المتوقع: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"ملف \"%1$s\" إما مفقود أو لا يمكن قراءته بسبب الأذونات. يرجى التأكد من أن "
+"المسار التالي صحيح والتحقق من أن أذونات الملف صحيحة: %2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s لا وجود له أو لا يمكن الوصول إليه."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "فشل nonce."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr "يجب أن تنفذ فئة اسم الكائن المؤهل بالكامل (%1$s) واجهة %2$s."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "مسار الملف المقدم (%s) غير قابل للقراءة."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "حدث خطأ، يرجى المحاولة مرة أخرى."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "القيمة المدخلة لـ %1$s من المتوقع أن تكون closure. لم تكن كذلك."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "إلغاء تفعيل الترخيص"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "تفعيل الترخيص"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "تم تفعيل مفتاح الترخيص بنجاح."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "تم إلغاء تفعيل مفتاح الترخيص بنجاح."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"القيمة لـ %1$s تم تعيينها بالفعل وليست مصفوفة. يمكن استخدام طريقة %2$s فقط "
+"لدفع القيم إلى عنصر البيانات هذا عندما تكون مصفوفة."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"القيمة لـ %1$s موجودة بالفعل في خاصية %2$s. لا يُسمح بالتجاوزات. نظرًا لأن "
+"قيمة هذه البيانات عبارة عن مصفوفة، قد ترغب في استخدام طريقة %3$s لدفع قيمتك "
+"إلى المصفوفة."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"القيمة لـ %1$s موجودة بالفعل في خاصية %2$s. لا يُسمح بالتجاوزات.  ضع في "
+"اعتبارك إرفاق قيمتك بمفتاح مختلف"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr "تم تسجيل مساحة الأسماء لهذا الملف التعريفي بالفعل، اختر مساحة أسماء غير %s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "القيمة المقدمة لـ %1$s ليست عنوان URL صالح.  كان عنوان URL المقدم هو: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "مفتاح الترخيص لـ %1$s"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "أدخل مفتاح الترخيص الخاص بك: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "فئات السلاسل"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "سلسلة"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "فئة السلسلة"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "سلسلة"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "سلسلة"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "سلسلة"
+msgstr[1] "سلسلتان"
+msgstr[2] "سلاسل"
+msgstr[3] "سلاسل"
+msgstr[4] "سلاسل"
+msgstr[5] "سلاسل"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "هذه المدخلة هي جزء %series_part% من %total_posts_in_series% في السلسلة "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "سلسلة"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "سلسلة"

@@ -34,7 +34,7 @@
   },
   "extra": {
     "plugin-name": "publishpress-series",
-    "plugin-slug": "organize-series",
+    "plugin-slug": "orgSeries",
     "plugin-folder": "organize-series",
     "version-constant": "ORG_SERIES_VERSION",
     "plugin-lang-domain": "organize-series",

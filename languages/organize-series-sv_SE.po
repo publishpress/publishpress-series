@@ -1,0 +1,3316 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Free 3.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
+"PO-Revision-Date: 2026-04-29 12:22+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: organize-series\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sv-SE\n"
+
+#: orgSeries.php:3
+#. Plugin Name of the plugin
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
+
+#: orgSeries.php:4, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries.php:5
+#. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series låter dig gruppera innehåll i en serie. Detta är "
+"idealiskt för tidskrifter, tidningar, novellförfattare, lärare, "
+"serietecknare eller någon som skriver flera inlägg om samma ämne."
+
+#: orgSeries.php:7
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php:8, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:280
+msgid "Search Series Categories"
+msgstr "Sök i serie-kategorier"
+
+#: addons/grouping/legacy-includes.php:281
+msgid "Popular Series Categories"
+msgstr "Populära serie-kategorier"
+
+#: addons/grouping/legacy-includes.php:282
+#: addons/grouping/legacy-includes.php:786
+msgid "All Series Categories"
+msgstr "Alla serie-kategorier"
+
+#: addons/grouping/legacy-includes.php:283
+msgid "Edit Series Category"
+msgstr "Redigera serie-kategori"
+
+#: addons/grouping/legacy-includes.php:284
+msgid "Update Series Category"
+msgstr "Uppdatera serie-kategori"
+
+#: addons/grouping/legacy-includes.php:285
+msgid "Add New Series Category"
+msgstr "Lägg till ny serie-kategori"
+
+#: addons/grouping/legacy-includes.php:286
+msgid "New Series Category"
+msgstr "Ny serie-kategori"
+
+#: addons/grouping/legacy-includes.php:287
+#: addons/grouping/legacy-includes.php:549
+#: addons/grouping/legacy-includes.php:621
+#: addons/grouping/legacy-includes.php:715
+#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:777
+#: addons/grouping/legacy-includes.php:811
+msgid "Series Categories"
+msgstr "Serie-kategorier"
+
+#: addons/grouping/legacy-includes.php:627
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr ""
+"Radera all data om \"Serie-kategorier\" från databasen när "
+"plugin-programmet raderas."
+
+#: addons/grouping/legacy-includes.php:756
+msgid "Click to toggle"
+msgstr "Klicka för att växla"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "Serier i denna kategori"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "Tyvärr, inga serier hittades i denna kategori."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:123
+msgid "This entry is"
+msgstr "Denna post är"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:124
+msgid "in the series"
+msgstr "i serien"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "del %1$s av %2$s"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
+#: addons/post-details/includes/class-utilities.php:268
+#: addons/post-navigation/includes/class-utilities.php:172
+msgid "Sample Series"
+msgstr "Exempelserie"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+msgid "Sample Post Title"
+msgstr "Exempel på inläggstitel"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+msgid "Previous post link"
+msgstr "Länk till föregående inlägg"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+msgid "Next post link"
+msgstr "Länk till nästa inlägg"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Sample series description."
+msgstr "Exempelseriebeskrivning."
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309
+msgid "Post Details"
+msgstr "Inläggsdetaljer"
+
+#: addons/post-details/includes/class-admin-ui.php:61
+msgid "Series Post Details Preview"
+msgstr "Förhandsgranskning av inläggsdetaljer för serien"
+
+#: addons/post-details/includes/class-admin-ui.php:70
+msgid "Series Post Details Editor"
+msgstr "Redigerare för inläggsdetaljer för serien"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:158
+#: addons/post-list-box/includes/class-admin-ui.php:55
+#: addons/post-list-box/includes/class-admin-ui.php:242
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:193
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-admin-ui.php:273
+#: addons/post-navigation/includes/class-admin-ui.php:182
+msgid "Use this shortcode:"
+msgstr "Använd denna shortcode:"
+
+#: addons/post-details/includes/class-admin-ui.php:149
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"Infoga i inlägg eller sidor för att visa detta inläggsdetaljer för serien "
+"manuellt."
+
+#: addons/post-details/includes/class-admin-ui.php:157
+msgid "Default Meta Box"
+msgstr "Standardmetabox"
+
+#: addons/post-details/includes/class-admin-ui.php:274
+#: addons/post-details/includes/class-admin-ui.php:359
+#: addons/post-list-box/includes/class-admin-ui.php:431
+#: addons/post-list-box/includes/class-admin-ui.php:715
+#: addons/post-navigation/includes/class-admin-ui.php:442
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "Denna funktion är tillgänglig i PublishPress Series Pro"
+
+#: addons/post-details/includes/class-ajax.php:32
+#: addons/post-details/includes/class-ajax.php:99
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:32
+#: addons/post-navigation/includes/class-ajax.php:167
+#: addons/post-navigation/includes/class-ajax.php:207
+msgid "Invalid post ID."
+msgstr "Ogiltigt inläggs-ID."
+
+#: addons/post-details/includes/class-ajax.php:67
+#: addons/post-navigation/includes/class-ajax.php:115
+msgid "No series available to preview."
+msgstr "Inga serier tillgängliga för förhandsgranskning."
+
+#: addons/post-details/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:190
+msgid "Invalid import data."
+msgstr "Ogiltiga importdata."
+
+#: addons/post-details/includes/class-ajax.php:137
+#: addons/post-navigation/includes/class-ajax.php:195
+msgid "Settings imported successfully."
+msgstr "Inställningar importerades framgångsrikt."
+
+#: addons/post-details/includes/class-ajax.php:166
+#: addons/post-navigation/includes/class-ajax.php:213
+msgid "Settings reset to defaults."
+msgstr "Inställningar återställdes till standard."
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "Allmänt"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "Stil"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "Innehåll"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "Visa Delnummer"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "Visa \"del X av Y\" i serietexten"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "Text Före"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "Text som visas i början"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "Text Efter"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "Text som visas före serienamn"
+
+#: addons/post-details/includes/class-fields.php:118
+msgid "Display"
+msgstr "Visa"
+
+#: addons/post-details/includes/class-fields.php:122, fuzzy
+msgid "Meta Box Position"
+msgstr "Meta Box Position"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27
+msgid "Top"
+msgstr "Topp"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28
+msgid "Bottom"
+msgstr "Botten"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "Välj var du vill visa meta box i förhållande till innehållet"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "Begränsa till Enskilda Inlägg"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr "Aktivera för att visa meta box endast på enskild inläggsvy, inte på arkiv."
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "Typografi"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "Textstorlek (px)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "Teckenstorlek för text i meta box"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:453
+msgid "Text Color"
+msgstr "Textfärg"
+
+#: addons/post-details/includes/class-fields.php:173
+msgid "Link Color"
+msgstr "Länkfärg"
+
+#: addons/post-details/includes/class-fields.php:181
+msgid "Background"
+msgstr "Bakgrund"
+
+#: addons/post-details/includes/class-fields.php:185
+#: addons/post-list-box/classes/PostListBoxFields.php:191
+#: addons/post-navigation/includes/class-fields.php:460
+msgid "Background Color"
+msgstr "Bakgrundsfärg"
+
+#: addons/post-details/includes/class-fields.php:190
+msgid "Background color for the meta box container"
+msgstr "Bakgrundsfärg för metaboxbehållaren"
+
+#: addons/post-details/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:498
+msgid "Spacing"
+msgstr "Avstånd"
+
+#: addons/post-details/includes/class-fields.php:198
+#: addons/post-list-box/classes/PostListBoxFields.php:223
+#: addons/post-navigation/includes/class-fields.php:502, fuzzy
+msgid "Padding (px)"
+msgstr "Padding (px)"
+
+#: addons/post-details/includes/class-fields.php:205
+msgid "Padding applied to all sides of the content area"
+msgstr "Padding som tillämpas på alla sidor av innehållsområdet"
+
+#: addons/post-details/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:511
+msgid "Margin (px)"
+msgstr "Marginal (px)"
+
+#: addons/post-details/includes/class-fields.php:215
+msgid "Margin applied to all sides of the meta box"
+msgstr "Marginal som tillämpas på alla sidor av metaboxen"
+
+#: addons/post-details/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:468
+msgid "Border"
+msgstr "Gräns"
+
+#: addons/post-details/includes/class-fields.php:223
+#: addons/post-list-box/classes/PostListBoxFields.php:205
+#: addons/post-navigation/includes/class-fields.php:479
+msgid "Border Width (px)"
+msgstr "Gränsbred (px)"
+
+#: addons/post-details/includes/class-fields.php:232
+#: addons/post-list-box/classes/PostListBoxFields.php:214
+#: addons/post-navigation/includes/class-fields.php:488
+msgid "Border Radius (px)"
+msgstr "Gränsradie (px)"
+
+#: addons/post-details/includes/class-fields.php:241
+#: addons/post-list-box/classes/PostListBoxFields.php:198
+#: addons/post-navigation/includes/class-fields.php:472
+msgid "Border Color"
+msgstr "Gränsfärg"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "Seriell inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:413
+#: orgSeries-setup.php:208
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "Lägg till nya seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "Nya seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "Redigera seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "Visa seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "Alla seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "Sök seriella inläggsdetaljer"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "Inga detaljer för serieinlägg hittades."
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "Inga detaljer för serieinlägg hittades i papperskorgen."
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "Skapa en serie för att förhandsgranska inläggets detaljer."
+
+#: addons/post-details/includes/class-utilities.php:303
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "Exempel på serieinlägg %d"
+
+#: addons/post-details/includes/class-utilities.php:304
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+
+#: addons/post-details/includes/class-utilities.php:305
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "Exempel på förhandsgranskningsinnehåll för utdrag i serie-meta rutan."
+
+#: addons/post-details/post-details.php:176
+msgid "Series Post Details #1"
+msgstr "Detaljer för serieinlägg #1"
+
+#: addons/post-details/post-details.php:181
+msgid "Series Post Details #2"
+msgstr "Detaljer för serieinlägg #2"
+
+#: addons/post-details/post-details.php:186
+msgid "Series Post Details #3"
+msgstr "Detaljer för serieinlägg #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "Rubriken för rutan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "Rutabestämning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "Innehållsvisning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "Inställningar för utvald bild"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "Inläggsformat"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "Layoutvisning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "Markera aktuellt inlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "Visa rubriken för rutan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:106
+msgid "Box Title Type"
+msgstr "Typ av rubrik för ruta"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:110
+msgid "Use Series Title"
+msgstr "Använd serierubrik"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Custom Title"
+msgstr "Anpassad rubrik"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:115
+msgid "Choose whether to display the series title or a custom title"
+msgstr "Välj om du vill visa serienamn eller en anpassad titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:120
+msgid "Link Box Title to Series"
+msgstr "Länka ruta titel till serien"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:125
+msgid "Link the box title to the current series archive when using the series title"
+msgstr "Länka rutan titel till det aktuella seriearkivet när serienamnet används"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:130
+msgid "Custom Box Title Text"
+msgstr "Anpassad ruta titeltext"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/includes/class-utilities.php:162
+msgid "Series Posts"
+msgstr "Serieinlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+msgid "Enter custom title for the post list"
+msgstr "Ange anpassad titel för inläggslistan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "Endast använd när \"Anpassad titel\" är vald ovan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:141
+msgid "Box Title HTML Tag"
+msgstr "HTML-tag för ruta titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:160
+msgid "Box Title Color"
+msgstr "Färg på ruta titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:169
+msgid "Box Title Font Size (px)"
+msgstr "Teckensnittsstorlek för ruta titel (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:243
+msgid "Show Post Titles"
+msgstr "Visa inläggstitlar"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:250
+msgid "Series Order Number"
+msgstr "Serieordningsnummer"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:255
+msgid "Show the series order number next to each post title."
+msgstr "Visa serieordningsnumret bredvid varje inläggstitel."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number Position"
+msgstr "Position för serieordningsnummer"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:264
+msgid "Before the title"
+msgstr "Före titeln"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "After the title"
+msgstr "Efter titeln"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:269
+msgid "Choose where the order number appears relative to the title."
+msgstr "Välj var ordningsnumret visas i förhållande till titeln."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Post Title Color"
+msgstr "Färg på inläggstitel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:283
+msgid "Post Title Font Size (px)"
+msgstr "Teckensnittsstorlek för inläggstitel (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Show Post Excerpt"
+msgstr "Visa inläggsutdrag"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:302
+msgid "Excerpt Length (words)"
+msgstr "Utdrag Längd (ord)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:314
+msgid "Excerpt Color"
+msgstr "Utdrag Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "Visa Inlägg Sammanfattning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "Sammanfattning Längd (ord)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "Sammanfattning Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
+msgid "Show Post Author"
+msgstr "Visa Inlägg Författare"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:362
+msgid "Post Author Color"
+msgstr "Inlägg Författare Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
+msgid "Show Post Date"
+msgstr "Visa Inlägg Datum"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:380
+msgid "Post Date Color"
+msgstr "Inlägg Datum Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
+#: addons/post-navigation/includes/class-fields.php:169
+#: addons/post-navigation/includes/class-fields.php:284
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Show Featured Image"
+msgstr "Visa Utvald Bild"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:408
+msgid "Featured Image Width (px)"
+msgstr "Utvald Bild Bredd (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:415
+#: addons/post-navigation/includes/class-fields.php:194
+#: addons/post-navigation/includes/class-fields.php:309
+#: addons/post-navigation/includes/class-fields.php:437
+msgid "Width of the featured image in pixels"
+msgstr "Bredden av den utvalda bilden i pixlar"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:420
+msgid "Featured Image Height (px)"
+msgstr "Utvald Bild Höjd (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:427
+#: addons/post-navigation/includes/class-fields.php:202
+#: addons/post-navigation/includes/class-fields.php:317
+#: addons/post-navigation/includes/class-fields.php:445
+msgid "Height of the featured image in pixels"
+msgstr "Höjden av den utvalda bilden i pixlar"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:432
+msgid "Fallback Featured Image"
+msgstr "Fallback Utvald Bild"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:437
+msgid "Image to display when a post does not have a featured image"
+msgstr "Bild att visa när ett inlägg inte har en utvald bild"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:454
+msgid "Post Padding (px)"
+msgstr "Inlägg Padding (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:463
+msgid "Post Border Width (px)"
+msgstr "Inlägg Kant Bredd (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:472
+msgid "Post Border Color"
+msgstr "Inlägg Kant Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:479
+msgid "Post Background Color"
+msgstr "Inlägg Bakgrund Färg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Background color for the post list container"
+msgstr "Bakgrundsfärg för inläggslistbehållaren"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:498
+msgid "Layout Style"
+msgstr "Layoutstil"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: inc/settings/tab-legacy.php:29
+msgid "List"
+msgstr "Lista"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: inc/settings/tab-legacy.php:28
+msgid "Grid"
+msgstr "Rutnät"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:510
+msgid "Columns"
+msgstr "Kolumner"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:514
+msgid "2 Columns"
+msgstr "2 kolumner"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:515
+msgid "3 Columns"
+msgstr "3 kolumner"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:516
+msgid "4 Columns"
+msgstr "4 kolumner"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:517
+msgid "6 Columns"
+msgstr "6 kolumner"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:526
+msgid "Order By"
+msgstr "Ordna efter"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:530
+msgid "Date"
+msgstr "Datum"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "Titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:751
+#: addons/publisher/series_issue_manager.php:826
+#: orgSeries-admin.php:369
+#: orgSeries-manage.php:195
+#: orgSeries-manage.php:204
+msgid "Series Order"
+msgstr "Serieordning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: orgSeries-manage.php:51
+#: orgSeries-manage.php:227
+msgid "Order"
+msgstr "Ordning"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:320
+msgid "Ascending"
+msgstr "Stigande"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:319
+msgid "Descending"
+msgstr "Fallande"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:551
+msgid "Gap Between Items (px)"
+msgstr "Avstånd mellan objekt (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:561
+msgid "Post List Box Location"
+msgstr "Plats för inläggslistbox"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:570
+msgid "Choose where to display the post list box in relation to the content"
+msgstr "Välj var du vill visa inläggslistboxen i förhållande till innehållet"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:574
+msgid "Maximum number of items"
+msgstr "Maximalt antal objekt"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:580
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"Begränsa antalet inlägg som visas i serie-listan. Lämna tomt för ingen "
+"gräns. Förhandsvisningen för admin är begränsad till 4 inlägg."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:595
+msgid "Highlight Current Post"
+msgstr "Markera Aktuellt Inlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:600
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "Markera det aktuella inlägget när du ser ett specifikt serieinlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:603
+msgid "Current Post Background Color"
+msgstr "Bakgrundsfärg för Aktuellt Inlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:610
+msgid "Current Post Border Color"
+msgstr "Kantfärg för Aktuellt Inlägg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Current Post Text Color"
+msgstr "Textfärg för Aktuellt Inlägg"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54
+msgid "Default Post List Box"
+msgstr "Standard Inläggslista Box"
+
+#: addons/post-list-box/includes/class-admin-ui.php:102
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+#: orgSeries-utility.php:308
+msgid "Post List Boxes"
+msgstr "Inläggslista Boxar"
+
+#: addons/post-list-box/includes/class-admin-ui.php:119
+#: addons/post-list-box/includes/class-admin-ui.php:120
+msgid "Post List Box updated."
+msgstr "Inläggslista Box uppdaterad."
+
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box added."
+msgstr "Inläggslista Box tillagd."
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box saved."
+msgstr "Inläggslista Box sparad."
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box submitted."
+msgstr "Inläggslista Box skickad."
+
+#: addons/post-list-box/includes/class-admin-ui.php:145
+#: addons/post-list-box/includes/class-post-type.php:23
+#: inc/settings/tab-post-list-box.php:11
+msgid "Post List Box"
+msgstr "Inläggslista Box"
+
+#: addons/post-list-box/includes/class-admin-ui.php:150
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s uppdaterad."
+msgstr[1] "%1$s %2$s uppdaterade."
+
+#: addons/post-list-box/includes/class-admin-ui.php:155
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s inte uppdaterad, någon redigerar den."
+msgstr[1] "%1$s %2$s inte uppdaterade, någon redigerar dem."
+
+#: addons/post-list-box/includes/class-admin-ui.php:165
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s permanent raderad."
+msgstr[1] "%1$s %2$s permanent raderade."
+
+#: addons/post-list-box/includes/class-admin-ui.php:175
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s flyttad till Papperskorgen."
+msgstr[1] "%1$s %2$s flyttade till Papperskorgen."
+
+#: addons/post-list-box/includes/class-admin-ui.php:185
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s återställd från Papperskorgen."
+msgstr[1] "%1$s %2$s återställda från Papperskorgen."
+
+#: addons/post-list-box/includes/class-admin-ui.php:208
+msgid "Post List Box Preview"
+msgstr "Förhandsvisning av Inläggslista Box"
+
+#: addons/post-list-box/includes/class-admin-ui.php:225
+msgid "Post List Box Editor"
+msgstr "Redigerare för Inläggslista Box"
+
+#: addons/post-list-box/includes/class-admin-ui.php:275
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr "Infoga i inlägg eller sidor för att visa denna Post Lista Låda manuellt."
+
+#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-navigation/includes/class-admin-ui.php:115
+msgid "Select Series to Preview:"
+msgstr "Välj Serie för Förhandsvisning:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:335
+msgid "No series found. Create a series to see the preview."
+msgstr "Inga serier hittades. Skapa en serie för att se förhandsvisningen."
+
+#: addons/post-list-box/includes/class-admin-ui.php:350
+msgid "No posts found in selected series."
+msgstr "Inga inlägg hittades i den valda serien."
+
+#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-navigation/post-navigation.php:86
+msgid "Loading preview..."
+msgstr "Laddar förhandsvisning..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:383
+#: addons/post-list-box/includes/class-admin-ui.php:387
+msgid "Error loading preview."
+msgstr "Fel vid laddning av förhandsvisning."
+
+#: addons/post-list-box/includes/class-admin-ui.php:691
+#: addons/post-navigation/includes/class-admin-ui.php:414
+#: orgSeries-manage.php:264
+msgid "Select Image"
+msgstr "Välj Bild"
+
+#: addons/post-list-box/includes/class-admin-ui.php:695
+msgid "Remove"
+msgstr "Ta bort"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "Låda Behållare"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "Inlägg"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38, fuzzy
+msgid "Layout"
+msgstr "Layout"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#, php-format
+msgid "New %1s"
+msgstr "Ny %1s"
+
+#: addons/post-list-box/includes/class-post-type.php:34
+#, php-format
+msgid "Add New %1$s"
+msgstr "Lägg till Ny %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#, php-format
+msgid "Edit %1$s"
+msgstr "Redigera %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:36
+#, php-format
+msgid "New %1$s"
+msgstr "Ny %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:37
+#, fuzzy, php-format
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:38
+#, php-format
+msgid "View %1$s"
+msgstr "Visa %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:39
+#, php-format
+msgid "Search %2$s"
+msgstr "Sök %2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#, php-format
+msgid "No %2$s found"
+msgstr "Inga %2$s hittades"
+
+#: addons/post-list-box/includes/class-post-type.php:41
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "Inga %2$s hittades i Papperskorgen"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s Bild"
+
+#: addons/post-list-box/includes/class-post-type.php:45
+#, php-format
+msgid "Set %1$s Image"
+msgstr "Ställ in %1$s Bild"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "Ta bort %1$s Bild"
+
+#: addons/post-list-box/includes/class-post-type.php:47
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "Använd som %1$s Bild"
+
+#: addons/post-list-box/includes/class-post-type.php:48
+#, php-format
+msgid "Filter %2$s list"
+msgstr "Filtrera %2$s lista"
+
+#: addons/post-list-box/includes/class-post-type.php:49
+#, php-format
+msgid "%2$s list navigation"
+msgstr "%2$s lista navigering"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#, php-format
+msgid "%2$s list"
+msgstr "%2$s lista"
+
+#: addons/post-list-box/includes/class-preview.php:98
+#, php-format
+msgid "Sample Post %d"
+msgstr "Exempelinlägg %d"
+
+#: addons/post-list-box/includes/class-preview.php:99
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"Detta är exempelinnehåll för inlägg %d i serien. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+
+#: addons/post-list-box/includes/class-preview.php:100
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "Detta är ett exempelutdrag för inlägg %d i serien."
+
+#: addons/post-list-box/includes/class-preview.php:504
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "Författare"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "Standard Lista Box"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "Rutnät Stil Box"
+
+#: addons/post-list-box/post-list-box.php:108
+msgid "Simple List Box"
+msgstr "Enkel Lista Box"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "Navigering gömd (serien har endast ett inlägg)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "Seriens Hem"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:144
+#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "Föregående"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:259
+#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "Nästa"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: orgSeries-utility.php:310
+msgid "Post Navigation"
+msgstr "Inläggsnavigering"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "Förhandsgranskning av Serien Inläggsnavigering"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "Serie Inlägg Navigeringsredigerare"
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "Inga serier hittades. Skapa en serie för att förhandsgranska navigeringen."
+
+#: addons/post-navigation/includes/class-admin-ui.php:184
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"Infoga i inlägg eller sidor för att visa denna Serie Inlägg Navigering "
+"manuellt."
+
+#: addons/post-navigation/includes/class-admin-ui.php:192
+msgid "Default Navigation"
+msgstr "Standardnavigering"
+
+#: addons/post-navigation/includes/class-admin-ui.php:414
+msgid "Change Image"
+msgstr "Ändra bild"
+
+#: addons/post-navigation/includes/class-admin-ui.php:422
+msgid "Remove Image"
+msgstr "Ta bort bild"
+
+#: addons/post-navigation/includes/class-ajax.php:122
+#: addons/post-navigation/includes/class-ajax.php:129
+msgid "No posts found in series to preview."
+msgstr "Inga inlägg hittades i serien för att förhandsgranska."
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "Objekt"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "Inkludera serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:96
+msgid "Link Series Title"
+msgstr "Länka serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:101
+msgid "Link the series title to the series archive page"
+msgstr "Länka serietiteln till seriearkiv-sidan"
+
+#: addons/post-navigation/includes/class-fields.php:106
+msgid "Series Title Alignment"
+msgstr "Justering av serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:110
+#: addons/post-navigation/includes/class-fields.php:181
+#: addons/post-navigation/includes/class-fields.php:232
+#: addons/post-navigation/includes/class-fields.php:296
+#: addons/post-navigation/includes/class-fields.php:424
+msgid "Left"
+msgstr "Vänster"
+
+#: addons/post-navigation/includes/class-fields.php:111, fuzzy
+msgid "Center"
+msgstr "Center"
+
+#: addons/post-navigation/includes/class-fields.php:112
+#: addons/post-navigation/includes/class-fields.php:182
+#: addons/post-navigation/includes/class-fields.php:233
+#: addons/post-navigation/includes/class-fields.php:297
+#: addons/post-navigation/includes/class-fields.php:425
+msgid "Right"
+msgstr "Höger"
+
+#: addons/post-navigation/includes/class-fields.php:118
+msgid "Series Title Color"
+msgstr "Färg på serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Hide When Single Post"
+msgstr "Dölj när enskilt inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:130
+msgid "Do not display navigation if series has only one post"
+msgstr "Visa inte navigering om serien har bara ett inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:148
+msgid "Previous Navigation Type"
+msgstr "Föregående navigeringstyp"
+
+#: addons/post-navigation/includes/class-fields.php:152
+#: addons/post-navigation/includes/class-fields.php:267
+#: addons/post-navigation/includes/class-fields.php:382
+msgid "None"
+msgstr "Ingen"
+
+#: addons/post-navigation/includes/class-fields.php:153
+msgid "Previous Post Title"
+msgstr "Föregående inläggstitel"
+
+#: addons/post-navigation/includes/class-fields.php:154
+#: addons/post-navigation/includes/class-fields.php:269
+#: addons/post-navigation/includes/class-fields.php:384
+msgid "Custom Label"
+msgstr "Anpassad etikett"
+
+#: addons/post-navigation/includes/class-fields.php:158
+msgid "Choose how to display the previous navigation"
+msgstr "Välj hur den föregående navigeringen ska visas"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Previous Label"
+msgstr "Föregående etikett"
+
+#: addons/post-navigation/includes/class-fields.php:166
+msgid "Custom text for previous post link"
+msgstr "Anpassad text för länk till föregående inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:174
+msgid "Display featured image for previous post"
+msgstr "Visa utvald bild för föregående inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:177
+#: addons/post-navigation/includes/class-fields.php:292
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Image Position"
+msgstr "Bildposition"
+
+#: addons/post-navigation/includes/class-fields.php:186
+msgid "Position of the featured image relative to the navigation"
+msgstr "Positionen för den utvalda bilden i förhållande till navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:189
+#: addons/post-navigation/includes/class-fields.php:304
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Image Width (px)"
+msgstr "Bildbredd (px)"
+
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Image Height (px)"
+msgstr "Bildhöjd (px)"
+
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+msgid "Show Arrow"
+msgstr "Visa pil"
+
+#: addons/post-navigation/includes/class-fields.php:210
+msgid "Display an arrow icon with the previous navigation"
+msgstr "Visa en pilikon med den föregående navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:213
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Arrow Type"
+msgstr "Piltyp"
+
+#: addons/post-navigation/includes/class-fields.php:217
+msgid "Chevron Left (‹)"
+msgstr "Vänster chevron (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:218
+msgid "Arrow Left (←)"
+msgstr "Vänster pil (←)"
+
+#: addons/post-navigation/includes/class-fields.php:219
+msgid "Double Chevron Left («)"
+msgstr "Dubbel vänster chevron («)"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Triangle Left (◄)"
+msgstr "Vänster triangel (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Custom Image"
+msgstr "Anpassad bild"
+
+#: addons/post-navigation/includes/class-fields.php:225
+#: addons/post-navigation/includes/class-fields.php:340
+msgid "Choose the arrow icon style"
+msgstr "Välj pilikonens stil"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Arrow Position"
+msgstr "Pilposition"
+
+#: addons/post-navigation/includes/class-fields.php:237
+msgid "Position of the arrow relative to the navigation"
+msgstr "Pilen position i förhållande till navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:240
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Arrow Size (px)"
+msgstr "Pilstorlek (px)"
+
+#: addons/post-navigation/includes/class-fields.php:247
+#: addons/post-navigation/includes/class-fields.php:362
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr "Storlek på pilikonen i pixlar (gäller både bredd och höjd)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Custom Arrow Image"
+msgstr "Anpassad pilbild"
+
+#: addons/post-navigation/includes/class-fields.php:255
+#: addons/post-navigation/includes/class-fields.php:370
+msgid "Select custom arrow image from media library"
+msgstr "Välj anpassad pilbild från mediabiblioteket"
+
+#: addons/post-navigation/includes/class-fields.php:263
+msgid "Next Navigation Type"
+msgstr "Nästa navigeringstyp"
+
+#: addons/post-navigation/includes/class-fields.php:268
+msgid "Next Post Title"
+msgstr "Titel på nästa inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:273
+msgid "Choose how to display the next post link"
+msgstr "Välj hur nästa inläggslänk ska visas"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Next Label"
+msgstr "Nästa etikett"
+
+#: addons/post-navigation/includes/class-fields.php:281
+msgid "Custom text for next post link"
+msgstr "Anpassad text för länk till nästa inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:289
+msgid "Display featured image for next post"
+msgstr "Visa utvald bild för nästa inlägg"
+
+#: addons/post-navigation/includes/class-fields.php:301
+msgid "Position of the featured image relative to navigation"
+msgstr "Positionen för den utvalda bilden i förhållande till navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:325
+msgid "Display an arrow icon with the next navigation"
+msgstr "Visa en pilikon med nästa navigering"
+
+#: addons/post-navigation/includes/class-fields.php:332
+msgid "Chevron Right (›)"
+msgstr "Höger Chevron (›)"
+
+#: addons/post-navigation/includes/class-fields.php:333
+msgid "Arrow Right (→)"
+msgstr "Höger Pil (→)"
+
+#: addons/post-navigation/includes/class-fields.php:334
+msgid "Double Chevron Right (»)"
+msgstr "Dubbel Chevron Höger (»)"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Triangle Right (►)"
+msgstr "Triangel Höger (►)"
+
+#: addons/post-navigation/includes/class-fields.php:347
+msgid "Left of Text"
+msgstr "Till vänster om text"
+
+#: addons/post-navigation/includes/class-fields.php:348
+msgid "Right of Text"
+msgstr "Till höger om text"
+
+#: addons/post-navigation/includes/class-fields.php:352
+msgid "Position of the arrow relative to the link text"
+msgstr "Pilen position i förhållande till länktexten"
+
+#: addons/post-navigation/includes/class-fields.php:374
+msgid "First"
+msgstr "Första"
+
+#: addons/post-navigation/includes/class-fields.php:378
+msgid "First Navigation Type"
+msgstr "Första navigeringstyp"
+
+#: addons/post-navigation/includes/class-fields.php:383
+msgid "First Post Title"
+msgstr "Första inläggets titel"
+
+#: addons/post-navigation/includes/class-fields.php:388
+msgid "Choose how to display the first navigation"
+msgstr "Välj hur den första navigeringen ska visas"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "First Label"
+msgstr "Första etikett"
+
+#: addons/post-navigation/includes/class-fields.php:395
+msgid "Go to First"
+msgstr "Gå till Första"
+
+#: addons/post-navigation/includes/class-fields.php:396
+msgid "Custom text for first navigation"
+msgstr "Anpassad text för första navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "First Navigation Position"
+msgstr "Första navigeringsposition"
+
+#: addons/post-navigation/includes/class-fields.php:403
+msgid "Left (First → Previous → Next)"
+msgstr "Vänster (Första → Föregående → Nästa)"
+
+#: addons/post-navigation/includes/class-fields.php:404
+msgid "Center (Previous → First → Next)"
+msgstr "Center (Föregående → Första → Nästa)"
+
+#: addons/post-navigation/includes/class-fields.php:405
+msgid "Right (Previous → Next → First)"
+msgstr "Höger (Föregående → Nästa → Första)"
+
+#: addons/post-navigation/includes/class-fields.php:409
+msgid "Position of the first/series home link in navigation"
+msgstr "Position av första/serie hem-länk i navigeringen"
+
+#: addons/post-navigation/includes/class-fields.php:417
+msgid "Display featured image for first post"
+msgstr "Visa utvald bild för första inlägget"
+
+#: addons/post-navigation/includes/class-fields.php:429
+msgid "Position of the featured image relative to the link text"
+msgstr "Position av den utvalda bilden i förhållande till länktexten"
+
+#: addons/post-navigation/includes/class-fields.php:449
+msgid "Color"
+msgstr "Färg"
+
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Gap Between Links (px)"
+msgstr "Avstånd mellan länkar (px)"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Space between navigation links"
+msgstr "Utrymme mellan navigeringslänkar"
+
+#: addons/post-navigation/includes/class-fields.php:540
+msgid "Container Style"
+msgstr "Behållarstil"
+
+#: addons/post-navigation/includes/class-fields.php:544
+msgid "Container Background Color"
+msgstr "Behållarens bakgrundsfärg"
+
+#: addons/post-navigation/includes/class-fields.php:549
+msgid "Background color for the navigation container"
+msgstr "Bakgrundsfärg för navigeringsbehållaren"
+
+#: addons/post-navigation/includes/class-fields.php:552
+msgid "Container Border Color"
+msgstr "Behållarens kantfärg"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Container Border Width (px)"
+msgstr "Behållarens kantbredd (px)"
+
+#: addons/post-navigation/includes/class-fields.php:568
+msgid "Container Border Radius (px)"
+msgstr "Behållarens hörnradie (px)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Container Padding (px)"
+msgstr "Behållarens padding (px)"
+
+#: addons/post-navigation/includes/class-fields.php:584
+msgid "Inner spacing for the container"
+msgstr "Inre avstånd för behållaren"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "Navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "Lägg till ny navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "Ny navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "Redigera navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "Visa navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "Alla navigeringar för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "Sök navigering för serieinlägg"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "Ingen navigering för serieinlägg hittades."
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "Ingen navigering för serieinlägg hittades i papperskorgen."
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "Skapa en serie för att förhandsgranska navigeringen."
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "Skapa inlägg i en serie för att förhandsgranska navigeringen."
+
+#: addons/post-navigation/includes/class-utilities.php:174
+msgid "Sample series for preview purposes"
+msgstr "Exempelserie för förhandsgranskning"
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "Fel vid uppdatering av förhandsgranskning."
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "Enkel navigering"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "Knappnavigering"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "Bildnavigering"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "Kategorier"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "Taggar"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75, fuzzy
+msgid "Status"
+msgstr "Status"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "Aktuell del"
+
+#: addons/publisher/series-part-post-table.php:140
+#: addons/publisher/series-pending-post-table.php:142
+#: addons/publisher/series-publish-post-table.php:270
+msgid "Edit"
+msgstr "Redigera"
+
+#: addons/publisher/series-part-post-table.php:146
+msgid "View"
+msgstr "Visa"
+
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:170
+#: addons/publisher/series-publish-post-table.php:287
+msgid "Trash"
+msgstr "Papperskorg"
+
+#: addons/publisher/series-part-post-table.php:190
+msgid "There are no published posts in this series."
+msgstr "Det finns inga publicerade inlägg i denna serie."
+
+#: addons/publisher/series-part-post-table.php:309
+msgid "(Currently has no Part number)"
+msgstr "(Har för närvarande inget delnummer)"
+
+#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:422
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "Det finns inga opublicerade inlägg i denna serie."
+
+#: addons/publisher/series-pending-post-table.php:312
+msgid "No Part Number"
+msgstr "Inget delnummer"
+
+#: addons/publisher/series-publish-post-table.php:176
+msgid "All Categories"
+msgstr "Alla kategorier"
+
+#: addons/publisher/series-publish-post-table.php:189
+msgid "Filter"
+msgstr "Filtrera"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:500
+#: inc/settings/settings-validation.php:67
+msgid "Manage Series"
+msgstr "Hantera serier"
+
+#: addons/publisher/series_im_admin_main.php:7
+msgid "Series"
+msgstr "Serier"
+
+#: addons/publisher/series_im_admin_main.php:9
+#: addons/publisher/series_issue_manager.php:695
+#: addons/publisher/series_issue_manager.php:741
+msgid "Publish Series"
+msgstr "Publicera serie"
+
+#: addons/publisher/series_im_admin_main.php:10
+msgid "Front View"
+msgstr "Framifrån"
+
+#: addons/publisher/series_im_admin_main.php:17
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr "Redigera statusen för %1$s"
+
+#: addons/publisher/series_im_admin_main.php:19
+msgid "Series order"
+msgstr "Serieförordning"
+
+#: addons/publisher/series_im_admin_main.php:22
+msgid "Publish or schedule posts"
+msgstr "Publicera eller schemalägg inlägg"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "View series in frontend"
+msgstr "Visa serier i frontend"
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "You have no series available."
+msgstr "Du har inga serier tillgängliga."
+
+#: addons/publisher/series_im_admin_main.php:34
+msgid "Add new Series."
+msgstr "Lägg till ny serie."
+
+#: addons/publisher/series_issue_manager.php:209
+msgid "Create as unpublished:"
+msgstr "Skapa som opublicerad:"
+
+#: addons/publisher/series_issue_manager.php:212
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"När denna är markerad kommer alla inlägg som du tilldelar denna serie att "
+"förbli opublicerade tills du publicerar hela serien."
+
+#: addons/publisher/series_issue_manager.php:290
+msgid "The posts in your series were successfully unpublished."
+msgstr "Inläggen i din serie har framgångsrikt blivit opublicerade."
+
+#: addons/publisher/series_issue_manager.php:299
+#: addons/publisher/series_issue_manager.php:416
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "Grattis. Din serieförordning har uppdaterats framgångsrikt."
+
+#: addons/publisher/series_issue_manager.php:307
+#: addons/publisher/series_issue_manager.php:344
+msgid "Congratulations. Your posts were published successfully."
+msgstr "Grattis. Dina inlägg har publicerats framgångsrikt."
+
+#: addons/publisher/series_issue_manager.php:316
+msgid "Post moved to the Trash."
+msgstr "Inlägget flyttades till papperskorgen."
+
+#: addons/publisher/series_issue_manager.php:339
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "Grattis. Dina inlägg har schemalagts framgångsrikt."
+
+#: addons/publisher/series_issue_manager.php:499
+msgid "Manage Series Issues"
+msgstr "Hantera serieproblem"
+
+#: addons/publisher/series_issue_manager.php:528
+msgid "Number of items per page"
+msgstr "Antal objekt per sida"
+
+#: addons/publisher/series_issue_manager.php:643
+msgid "Publishing Series:"
+msgstr "Publicering av serier:"
+
+#: addons/publisher/series_issue_manager.php:649
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Sökresultat för &#8220;%s&#8221;"
+
+#: addons/publisher/series_issue_manager.php:664
+msgid "Search"
+msgstr "Sök"
+
+#: addons/publisher/series_issue_manager.php:709
+msgid "Publication Date/Time:"
+msgstr "Publiceringsdatum/tid:"
+
+#: addons/publisher/series_issue_manager.php:765
+#: addons/publisher/series_issue_manager.php:840
+#: addons/publisher/series_issue_manager.php:939
+msgid "Update Order"
+msgstr "Uppdatera ordning"
+
+#: addons/publisher/series_issue_manager.php:792
+msgid "Series Order:"
+msgstr "Serieförordning:"
+
+#: addons/publisher/series_issue_manager.php:795
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"Dra postnamnen i den ordning du vill att de ska vara i serien, från den "
+"första delen till den sista delen."
+
+#: addons/publisher/series_issue_manager.php:867
+msgid "Unpublished posts in series:"
+msgstr "Opublikade inlägg i serien:"
+
+#: addons/publisher/series_issue_manager.php:870
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr ""
+"När dessa inlägg publiceras kommer de att läggas till efter det senaste "
+"aktuella inlägget i serien."
+
+#: addons/publisher/series_issue_manager.php:901
+msgid "Unpublished Posts"
+msgstr "Opublikade inlägg"
+
+#: addons/publisher/series_issue_manager.php:915
+msgid "Publish Unpublished Posts"
+msgstr "Publicera opublikade inlägg"
+
+#: addons/publisher/series_issue_manager.php:925
+msgid "Unpublished Series Order"
+msgstr "Ordning för opublikade serier"
+
+#: inc/settings/settings-page.php:18
+msgid "PublishPress Series Plugin Options"
+msgstr "Alternativ för PublishPress Series-plugin"
+
+#: inc/settings/settings-page.php:52
+msgid "Allowed Html"
+msgstr "Tillåten Html"
+
+#: inc/settings/settings-page.php:61
+msgid "Overview"
+msgstr "Översikt"
+
+#: inc/settings/settings-page.php:63
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"Följande är en legend över de tokens som är tillgängliga för användning i "
+"de anpassade mallfälten. Dessa kommer att ersättas med de lämpliga värdena "
+"när pluginet körs."
+
+#: inc/settings/settings-page.php:68
+msgid "This will be replaced with the series icon for a series."
+msgstr "Detta kommer att ersättas med serieikonen för en serie."
+
+#: inc/settings/settings-page.php:76
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series icon will be linked to the "
+"series page"
+msgstr ""
+"Samma som %series_icon% förutom att serieikonen kommer att länkas till "
+"seriesidan"
+
+#: inc/settings/settings-page.php:84
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"Denna token är endast för användning med orgSeries-widgeten - den refererar "
+"till var du vill att listan över serietitlar ska infogas och kräver att "
+"mallen för varje serietitel också är inställd."
+
+#: inc/settings/settings-page.php:92
+msgid "This will be replaced with the title of a series"
+msgstr "Detta kommer att ersättas med titeln på en serie"
+
+#: inc/settings/settings-page.php:100
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr ""
+"Samma som %series_title% förutom att den också kommer att länkas till "
+"seriesidan"
+
+#: inc/settings/settings-page.php:108
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr ""
+"Är plats-token för var innehållet i mallarna för postlistor kommer att "
+"visas."
+
+#: inc/settings/settings-page.php:116
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"Är plats-token för var innehållet i mallarna för postlistor kommer att "
+"visas och använder den angivna widgetens korta posttitel."
+
+#: inc/settings/settings-page.php:124
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "Kommer att ersättas med posttiteln för ett inlägg i serien"
+
+#: inc/settings/settings-page.php:132
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+"Kommer att ersättas med posttiteln för ett inlägg i serien länkat till "
+"sidvyn för det inlägget."
+
+#: inc/settings/settings-page.php:140
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "Kommer att ersättas med den korta posttiteln för ett inlägg i serien"
+
+#: inc/settings/settings-page.php:148
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"Kommer att ersättas med inläggets titel kort för ett inlägg i serien "
+"kopplad till sidvisningen av det inlägget."
+
+#: inc/settings/settings-page.php:156
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"Kommer att ersättas av navigeringslänken för det föregående inlägget i en "
+"serie. Texten kommer att vara vad som ingår i fältet 'Anpassad "
+"navigeringstext för föregående inlägg'. Om det fältet är tomt kommer texten "
+"att vara titeln på inlägget"
+
+#: inc/settings/settings-page.php:164
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"Kommer att ersättas av navigeringslänken för nästa inlägg i en serie. "
+"Texten kommer att vara vad som ingår i fältet 'Anpassad navigeringstext för "
+"nästa inlägg'. Om det fältet är tomt kommer texten att vara titeln på "
+"inlägget"
+
+#: inc/settings/settings-page.php:172
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"Kommer att ersättas av navigeringslänken för det första inlägget i en "
+"serie. Texten kommer att vara vad som ingår i fältet 'Anpassad "
+"navigeringstext för första inlägg'. Om det fältet är tomt kommer texten att "
+"vara titeln på inlägget"
+
+#: inc/settings/settings-page.php:179
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"Använd denna tagg antingen före eller efter resten av mallkoden. Den kommer "
+"att indikera var du vill att innehållet i ett inlägg ska visas."
+
+#: inc/settings/settings-page.php:187
+msgid "Will display what part of a series the post is"
+msgstr "Kommer att visa vilken del av en serie inlägget är"
+
+#: inc/settings/settings-page.php:195
+msgid "Will display the total number of posts in a series"
+msgstr "Kommer att visa det totala antalet inlägg i en serie"
+
+#: inc/settings/settings-page.php:203
+msgid "Will display the description for the series"
+msgstr "Kommer att visa beskrivningen för serien"
+
+#: inc/settings/settings-page.php:213
+msgid "Will output the slug of the series"
+msgstr "Kommer att skriva ut sluggen för serien"
+
+#: inc/settings/settings-page.php:221
+msgid "Will output the ID of the series"
+msgstr "Kommer att skriva ut ID:t för serien"
+
+#: inc/settings/settings-page.php:229
+msgid "Will output the author of the post"
+msgstr "Kommer att skriva ut författaren av inlägget"
+
+#: inc/settings/settings-page.php:237
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "Om inlägget har en funktionsbild kommer den bilden att visas"
+
+#: inc/settings/settings-page.php:245
+msgid "The date that a post was published"
+msgstr "Datumet då inlägget publicerades"
+
+#: inc/settings/settings-page.php:253
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr ""
+"Kommer att ersättas med den opublicerade inläggstiteln för ett inlägg i "
+"serien"
+
+#: inc/settings/settings-page.php:261
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr ""
+"Kommer att visa det totala antalet publicerade och opublicerade inlägg i en "
+"serie"
+
+#: inc/settings/settings-page.php:304
+msgid "Update Options"
+msgstr "Uppdatera alternativ"
+
+#: inc/settings/settings-page.php:308
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Att klicka på Ja kommer att återställa alternativen till standardvärdena "
+"och du kommer att förlora alla anpassningar. Eller så kan du klicka på "
+"avbryt och återvända."
+
+#: inc/settings/settings-page.php:309
+msgid "No"
+msgstr "Nej"
+
+#: inc/settings/settings-page.php:310
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44
+msgid "Please update your PublishPress Series data"
+msgstr "Vänligen uppdatera dina PublishPress Series-data"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"Vi har gjort ändringar i hur serier lagras och detta kräver en liten "
+"uppdatering. Detta förbättrar stödet för funktionen Flera serier och löser "
+"vissa problem med ordningen på inläggen. Vänligen klicka på denna knapp för "
+"att uppgradera."
+
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46
+msgid "Update Series data"
+msgstr "Uppdatera serie data"
+
+#: inc/settings/settings-upgrade.php:92
+msgid "Series upgrade completed."
+msgstr "Serieuppgradering slutförd."
+
+#: inc/settings/settings-upgrade.php:174
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "Synkronisering av serieordning slutförd. %d inlägg uppdaterade."
+
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:259
+msgid "Search Series"
+msgstr "Sök serier"
+
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:260
+msgid "Popular Series"
+msgstr "Populära serier"
+
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315
+msgid "All Series"
+msgstr "Alla serier"
+
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:262
+msgid "Edit Series"
+msgstr "Redigera serie"
+
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:263
+msgid "Update Series"
+msgstr "Uppdatera serie"
+
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:264
+msgid "Add New Series"
+msgstr "Lägg till ny serie"
+
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:265
+msgid "New Series Name"
+msgstr "Nytt serienamn"
+
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:267
+msgid "No series found"
+msgstr "Inga serier hittades"
+
+#: inc/settings/settings-validation.php:121
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s serier migrerade från \"%2$s\" till \"%3$s\" taxonomy. Inställningar "
+"uppdaterade."
+
+#: inc/settings/settings-validation.php:135
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "PublishPress Series Plugin-alternativ har uppdaterats"
+
+#: inc/settings/settings-validation.php:151
+msgid "Permission denied"
+msgstr "Behörighet nekad"
+
+#: inc/settings/settings-validation.php:157
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "PublishPress Series Plugin-alternativ har ÅTERSTÄLLTS"
+
+#: inc/settings/tab-advanced.php:16
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"Vänligen ändra dessa inställningar noggrant då de gör betydande ändringar i "
+"PublishPress Series."
+
+#: inc/settings/tab-advanced.php:34
+msgid "Series Settings"
+msgstr "Serieinställningar"
+
+#: inc/settings/tab-advanced.php:40
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr ""
+"Radera all PublishPress Series-data från databasen när du tar bort denna "
+"plugin."
+
+#: inc/settings/tab-advanced.php:47
+msgid "Series Upgrade"
+msgstr "Serieuppgradering"
+
+#: inc/settings/tab-advanced.php:52
+msgid "Run Upgrade Task"
+msgstr "Kör uppgraderingsuppgift"
+
+#: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"I version 2.11.4 gjorde PublishPress Series ändringar i hur serier lagras. "
+"Du kan köra uppgraderingsuppgiften här om du har problem med serieavsnitt."
+
+#: inc/settings/tab-advanced.php:65
+msgid "Sync Series Order to Menu Order"
+msgstr "Synkronisera serieordning till menyordning"
+
+#: inc/settings/tab-advanced.php:70
+msgid "Sync to Menu Order"
+msgstr "Synkronisera till menyordning"
+
+#: inc/settings/tab-advanced.php:74
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"Detta kommer att synkronisera alla serienummer till WordPress "
+"meny_order-fält. Användbart för teman/sidbyggare som endast kan sortera "
+"efter menyordning (Sidattribut: Ordning). Detta gör att du kan använda "
+"inbyggd WordPress-ordning istället för anpassade fält."
+
+#: inc/settings/tab-advanced.php:83
+msgid "Reset settings"
+msgstr "Återställ inställningar"
+
+#: inc/settings/tab-advanced.php:86
+msgid "Reset options to default"
+msgstr "Återställ alternativ till standard"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144, fuzzy
+msgid "Legacy"
+msgstr "Legacy"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "Legacy-inställningar"
+
+#: inc/settings/tab-legacy.php:27
+msgid "Default"
+msgstr "Standard"
+
+#: inc/settings/tab-legacy.php:36
+msgid "CSS Styles"
+msgstr "CSS-stilar"
+
+#: inc/settings/tab-legacy.php:41
+msgid "Use PublishPress Series CSS styles?"
+msgstr "Använd PublishPress CSS-stilar?"
+
+#: inc/settings/tab-legacy.php:45
+msgid "Style options"
+msgstr "Stilalternativ"
+
+#: inc/settings/tab-legacy.php:47
+msgid "Use default style"
+msgstr "Använd standardstil"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use box style"
+msgstr "Använd boxstil"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use dark style"
+msgstr "Använd mörk stil"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use light style"
+msgstr "Använd ljus stil"
+
+#: inc/settings/tab-legacy.php:60
+msgid "Series Overview"
+msgstr "Översikt över serier"
+
+#: inc/settings/tab-legacy.php:62
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Välj design för taksonominsidan där en enda serie visas."
+
+#: inc/settings/tab-legacy.php:66, fuzzy
+msgid "Layout:"
+msgstr "Layout:"
+
+#: inc/settings/tab-legacy.php:82
+#, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
+msgstr ""
+"Att välja en layout som är annorlunda än \"Standard\" kommer att åsidosätta "
+"taxonomimallen från ditt tema. <a href=\"%s\" target=\"_blank\">Klicka här "
+"för detaljer om hur du anpassar dessa designer</a>."
+
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66
+msgid "Columns:"
+msgstr "Kolumner:"
+
+#: inc/settings/tab-legacy.php:97
+msgid "Order series by:"
+msgstr "Ordna serier efter:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Series part"
+msgstr "Seriedel"
+
+#: inc/settings/tab-legacy.php:100
+msgid "Order by date"
+msgstr "Ordna efter datum"
+
+#: inc/settings/tab-legacy.php:104
+msgid "Series order method"
+msgstr "Metod för serieordning"
+
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:485
+#: orgSeries-widgets.php:112
+msgid "Series Table of Contents"
+msgstr "Innehållsförteckning för serier"
+
+#: inc/settings/tab-legacy.php:122
+msgid "Series Table of Contents URL:"
+msgstr "URL för innehållsförteckning för serier:"
+
+#: inc/settings/tab-legacy.php:125
+msgid "view page"
+msgstr "visa sida"
+
+#: inc/settings/tab-legacy.php:134
+#, php-format
+msgid ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"Du måste %1s uppdatera din permalänkstruktur %2s till något annat än "
+"\"Enkel\" för att URL:en för innehållsförteckning för serier ska fungera."
+
+#: inc/settings/tab-legacy.php:154
+msgid "Series Per Page:"
+msgstr "Serier per sida:"
+
+#: inc/settings/tab-legacy.php:158
+msgid "Series Table of Contents Title:"
+msgstr "Titel för innehållsförteckning för serier:"
+
+#: inc/settings/tab-legacy.php:168
+msgid "Series Icons"
+msgstr "Serieikoner"
+
+#: inc/settings/tab-legacy.php:173
+msgid "Width for icon on series table of contents page (in pixels)"
+msgstr "Bredd för ikon på sidan för innehållsförteckning för serier (i pixlar)"
+
+#: inc/settings/tab-legacy.php:177
+msgid "Width for icon on a post page (in pixels)."
+msgstr "Bredd för ikon på en inläggssida (i pixlar)."
+
+#: inc/settings/tab-legacy.php:181
+msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgstr "Bredd för ikon om den visas via den senaste seriemallen (i pixlar)."
+
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13
+msgid "Latest Series"
+msgstr "Senaste serier"
+
+#: inc/settings/tab-legacy.php:193
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "Denna visning används av \"Senaste serier\" widgeten."
+
+#: inc/settings/tab-legacy.php:197
+msgid "Latest Series (tags before):"
+msgstr "Senaste serier (taggar före):"
+
+#: inc/settings/tab-legacy.php:201
+msgid "Latest Series (inner tags):"
+msgstr "Senaste serier (inre taggar):"
+
+#: inc/settings/tab-legacy.php:205
+msgid "Latest Series (tags after):"
+msgstr "Senaste serier (taggar efter):"
+
+#: inc/settings/tab-legacy.php:217
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr ""
+"Denna visning används av \"Series innehållsförteckning\" widget, shortcode "
+"och URL."
+
+#: inc/settings/tab-legacy.php:224
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"Denna visning används av \"Series innehållsförteckning\". För att hitta "
+"URL:en för denna visning, gå till fliken \"Visning\" och sedan \"Series "
+"innehållsförteckning URL\"."
+
+#: inc/settings/tab-metabox.php:16
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr ""
+"Dessa inställningar låter dig anpassa metaboxen på "
+"inläggsredigeringsskärmen."
+
+#: inc/settings/tab-metabox.php:26
+msgid "Default Series Order"
+msgstr "Standardserieordning"
+
+#: inc/settings/tab-metabox.php:27
+msgid "Alphabetical A-Z"
+msgstr "Alfabetisk A-Ö"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Alphabetical Z-A"
+msgstr "Alfabetisk Ö-A"
+
+#: inc/settings/tab-metabox.php:34
+msgid "Show \"Add New\""
+msgstr "Visa \"Lägg till ny\""
+
+#: inc/settings/tab-metabox.php:38
+msgid "Show \"Post title in widget\""
+msgstr "Visa \"Inläggstitel i widget\""
+
+#: inc/settings/tab-metabox.php:42
+msgid "Metabox Series Order"
+msgstr "Metabox serieordning"
+
+#: inc/settings/tab-post-details.php:12
+msgid "Post Details Settings"
+msgstr "Inställningar för inläggsdetaljer"
+
+#: inc/settings/tab-post-details.php:16
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr ""
+"Konfigurera visningen av inläggsdetaljer för serier som visas på inlägg i "
+"en serie."
+
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26
+msgid "As in Template"
+msgstr "Som i mall"
+
+#: inc/settings/tab-post-details.php:36
+msgid "Display Series Post Details?"
+msgstr "Visa inläggsdetaljer för serier?"
+
+#: inc/settings/tab-post-details.php:41
+msgid "Post Details Selection"
+msgstr "Val av inläggsdetaljer"
+
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43
+msgid "Edit this layout"
+msgstr "Redigera denna layout"
+
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44
+msgid "Loading…"
+msgstr "Laddar…"
+
+#: inc/settings/tab-post-details.php:51
+msgid "Post Details Position"
+msgstr "Position för inläggsdetaljer"
+
+#: inc/settings/tab-post-details.php:66
+msgid "Series Meta Template"
+msgstr "Seriemeta-mall"
+
+#: inc/settings/tab-post-details.php:71
+msgid "Series Meta (with excerpts)"
+msgstr "Seriemeta (med utdrag)"
+
+#: inc/settings/tab-post-details.php:76
+msgid "Limit to single page only"
+msgstr "Begränsa till endast en sida"
+
+#: inc/settings/tab-post-details.php:79
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr ""
+"Om serien ska begränsas till att visa metadata på en enda sida eller "
+"inkludera arkivsidan."
+
+#: inc/settings/tab-post-list-box.php:12
+msgid "Post List Box Settings"
+msgstr "Inställningar för inläggslistbox"
+
+#: inc/settings/tab-post-list-box.php:16
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr "Konfigurera inläggslistboxen som visar alla inlägg i en serie."
+
+#: inc/settings/tab-post-list-box.php:36
+msgid "Display Post List Boxes?"
+msgstr "Visa inläggslistboxar?"
+
+#: inc/settings/tab-post-list-box.php:41
+msgid "Post List Boxes Selection"
+msgstr "Val av inläggslistboxar"
+
+#: inc/settings/tab-post-list-box.php:43
+msgid "Edit this box"
+msgstr "Redigera denna ruta"
+
+#: inc/settings/tab-post-list-box.php:51
+msgid "Post List Box Position"
+msgstr "Position för inläggslistbox"
+
+#: inc/settings/tab-post-list-box.php:66
+msgid "Post List Box Template"
+msgstr "Postlista Mall"
+
+#: inc/settings/tab-post-list-box.php:70
+msgid "Post Title (Linked Post)"
+msgstr "Inläggstitel (Länkat inlägg)"
+
+#: inc/settings/tab-post-list-box.php:75
+msgid "Post Title (Current Post)"
+msgstr "Inläggstitel (Aktuellt inlägg)"
+
+#: inc/settings/tab-post-navigation.php:11, fuzzy
+msgid "Navigation"
+msgstr "Navigation"
+
+#: inc/settings/tab-post-navigation.php:12
+msgid "Navigation Settings"
+msgstr "Navigationsinställningar"
+
+#: inc/settings/tab-post-navigation.php:16
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "Konfigurera den visning av serienavigering som visas på inlägg i en serie."
+
+#: inc/settings/tab-post-navigation.php:36
+msgid "Display Series Navigation?"
+msgstr "Visa serienavigering?"
+
+#: inc/settings/tab-post-navigation.php:41
+msgid "Navigation Selection"
+msgstr "Val av navigering"
+
+#: inc/settings/tab-post-navigation.php:51
+msgid "Navigation Position"
+msgstr "Navigationsposition"
+
+#: inc/settings/tab-post-navigation.php:66
+msgid "Navigation Template"
+msgstr "Navigationsmall"
+
+#: inc/settings/tab-post-navigation.php:71
+msgid "Next Post Text"
+msgstr "Text för nästa inlägg"
+
+#: inc/settings/tab-post-navigation.php:76
+msgid "Previous Post Text"
+msgstr "Text för föregående inlägg"
+
+#: inc/settings/tab-post-navigation.php:81
+msgid "First Post Text"
+msgstr "Första inläggets text"
+
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138
+msgid "Post Types"
+msgstr "Posttyper"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27
+msgid "Custom Post Type Support"
+msgstr "Stöd för anpassade posttyper"
+
+#: inc/settings/tab-post-types.php:18
+msgid "Enable PublishPress Series for custom post types."
+msgstr "Aktivera PublishPress Series för anpassade posttyper."
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147
+msgid "Pro Features"
+msgstr "Pro-funktioner"
+
+#: inc/settings/tab-pro-features.php:18
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr ""
+"Dessa inställningar låter dig aktivera eller inaktivera funktioner i "
+"PublishPress Series Pro."
+
+#: inc/settings/tab-pro-features.php:27
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Tillåt anpassade posttyper att användas med PublishPress Series."
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Shortcodes"
+msgstr "Kortkoder"
+
+#: inc/settings/tab-pro-features.php:28
+msgid "Provides shortcodes to display series information."
+msgstr "Ger kortkoder för att visa serieinformation."
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Extra Tokens"
+msgstr "Extra token"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Ger extra token för att anpassa utdata av serieinformation."
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Multiple Series"
+msgstr "Flera serier"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Allows authors to add posts to more than one series."
+msgstr "Tillåter författare att lägga till inlägg i mer än en serie."
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142
+msgid "Series Category"
+msgstr "Seriekategori"
+
+#: inc/settings/tab-series-category.php:13
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr "Inställningar för seriekategoriernas arkiv-URL och visningsbeteende."
+
+#: inc/settings/tab-series-category.php:26
+msgid "Series Categories URL Base:"
+msgstr "Seriekategorier URL-bas:"
+
+#: inc/settings/tab-series-category.php:30
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"Denna text kommer att användas i seriekategoriernas arkiv-URL:er. Om du "
+"ändrar den kommer gamla URL:er att omdirigeras till den nya basen."
+
+#: inc/settings/tab-series-category.php:36
+msgid "Series Categories Archive Template:"
+msgstr "Arkivmall för seriekategorier:"
+
+#: inc/settings/tab-series-category.php:39
+msgid "Use template from Theme"
+msgstr "Använd mall från tema"
+
+#: inc/settings/tab-series-category.php:40
+msgid "Use template from Plugin"
+msgstr "Använd mall från plugin"
+
+#: inc/settings/tab-series-category.php:43
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"Temamall använder din aktiva temamallhierarki. Pluginmall använder "
+"PublishPress Series fallback-design när ditt tema inte tillhandahåller "
+"taxonomy-series_group.php."
+
+#: inc/settings/tab-series-category.php:49
+msgid "Plugin Template Display Options:"
+msgstr "Pluginmallens visningsalternativ:"
+
+#: inc/settings/tab-series-category.php:53
+msgid "Show Series Icon"
+msgstr "Visa serieikon"
+
+#: inc/settings/tab-series-category.php:58
+msgid "Show Series Description"
+msgstr "Visa seriebeskrivning"
+
+#: inc/settings/tab-series-category.php:63
+msgid "Show Posts in each Series as list items"
+msgstr "Visa inlägg i varje serie som listobjekt"
+
+#: inc/settings/tab-taxonomy.php:16
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"Denna funktion gör att du kan skapa en ny taksonomi för denna plugin att "
+"använda om du inte vill använda den förvalda \"Series\"-taksonomin."
+
+#: inc/settings/tab-taxonomy.php:28
+msgid "Series Taxonomy Slug:"
+msgstr "Serietaksonomi slug:"
+
+#: inc/settings/tab-taxonomy.php:31
+msgid "This text will be part of the series base URL."
+msgstr "Denna text kommer att vara en del av seriens bas-URL."
+
+#: inc/settings/tab-taxonomy.php:36
+msgid "Series Taxonomy:"
+msgstr "Serietaksonomi:"
+
+#: inc/settings/tab-taxonomy.php:40
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr ""
+"För att skapa en ny taksonomi, ange det nya namnet och klicka på "
+"\"Uppdatera alternativ\"-knappen."
+
+#: inc/settings/tab-taxonomy.php:47
+msgid "Migrate Terms"
+msgstr "Migrera termer"
+
+#: inc/settings/tab-taxonomy.php:53
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr "Automatiskt migrera befintliga serie-termer till den nya taksonomin"
+
+#: inc/settings/tab-taxonomy.php:56
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"Om markerad kommer alla termer från den aktuella taksonomin att migreras "
+"till den nya taksonomin när du ändrar taksonomi-slugen. Om avmarkerad "
+"kommer endast taksonomi-slugen att ändras."
+
+#: inc/templates/taxonomy-series.php:70
+msgid "Sorry, no results found."
+msgstr "Tyvärr, inga resultat hittades."
+
+#: includes-core/PPSeriesCoreAdmin.php:13
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
+msgstr ""
+"Du använder PublishPress Series Free. Pro-versionen har fler funktioner och "
+"support. %sUppgradera till Pro%s"
+
+#: includes-core/PPSeriesCoreAdmin.php:35
+msgid "Upgrade to Pro"
+msgstr "Uppgradera till Pro"
+
+#: includes-core/PPSeriesCoreAdmin.php:58
+msgid "Need PublishPress Series Support?"
+msgstr "Behöver du PublishPress Series-support?"
+
+#: includes-core/PPSeriesCoreAdmin.php:63
+msgid "If you need help or have a new feature request, let us know."
+msgstr "Om du behöver hjälp eller har en ny funktionsförfrågan, låt oss veta."
+
+#: includes-core/PPSeriesCoreAdmin.php:65
+msgid "Request Support"
+msgstr "Begär support"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "Detaljerad dokumentation finns också på pluginens webbplats."
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "View Knowledge Base"
+msgstr "Visa kunskapsbas"
+
+#: orgSeries-admin.php:67
+msgid "An error occured"
+msgstr "Ett fel uppstod"
+
+#: orgSeries-admin.php:70
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s serier migrerade till ny taxonomy"
+
+#: orgSeries-admin.php:175
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "Om du gillar %s, vänligen ge oss en %s betyg. Tack!"
+
+#: orgSeries-admin.php:186
+msgid "About PublishPress Series"
+msgstr "Om PublishPress Series"
+
+#: orgSeries-admin.php:186
+msgid "About"
+msgstr "Om"
+
+#: orgSeries-admin.php:187
+msgid "PublishPress Series Documentation"
+msgstr "PublishPress Series Dokumentation"
+
+#: orgSeries-admin.php:187
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: orgSeries-admin.php:188
+msgid "Contact the PublishPress team"
+msgstr "Kontakta PublishPress-teamet"
+
+#: orgSeries-admin.php:188
+msgid "Contact"
+msgstr "Kontakta"
+
+#: orgSeries-admin.php:219
+msgid "Sorry but you don't have permission to add series"
+msgstr "Tyvärr har du inte behörighet att lägga till serier"
+
+#: orgSeries-admin.php:230
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "Namnet du valde sanerar inte korrekt. Försök med något annat."
+
+#: orgSeries-admin.php:236
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr ""
+"Hmm... det verkar som det redan finns en serie med det namnet. Försök med "
+"något annat"
+
+#: orgSeries-admin.php:359
+msgid "Not part of a series"
+msgstr "Inte en del av en serie"
+
+#: orgSeries-admin.php:421
+msgid "Search series"
+msgstr "Sök serier"
+
+#: orgSeries-admin.php:436
+msgid "Series Part:"
+msgstr "Seriedel:"
+
+#: orgSeries-admin.php:443
+msgid "Post title in widget:"
+msgstr "Inläggstitel i widget:"
+
+#: orgSeries-admin.php:445
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"En kort titel för detta inlägg som kommer att användas i Series-widgeten. "
+"Lämna tomt för att använda hela titeln."
+
+#: orgSeries-admin.php:519
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ingen delnummer)"
+
+#: orgSeries-admin.php:521
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Del %1$s av %2$s)"
+
+#: orgSeries-admin.php:525
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ingen delnummer)"
+
+#: orgSeries-admin.php:531
+#: orgSeries-setup.php:270
+msgid "No Series"
+msgstr "Ingen serie"
+
+#: orgSeries-admin.php:552
+msgid "View all series"
+msgstr "Visa alla serier"
+
+#: orgSeries-admin.php:561
+msgid "Manage All Series"
+msgstr "Hantera alla serier"
+
+#: orgSeries-manage.php:66
+msgid "Term Order"
+msgstr "Termordning"
+
+#: orgSeries-manage.php:67
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"För att flytta ett objekt, dra och släpp raden genom att \"klistra och "
+"hålla\" den var som helst och flytta den till sin nya position."
+
+#: orgSeries-manage.php:196, fuzzy
+msgid "ID"
+msgstr "ID"
+
+#: orgSeries-manage.php:233
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"Villkor är vanligtvis ordnade alfabetiskt, men du kan välja din egen "
+"ordning genom att ange ett nummer (1 för först, osv.) i detta fält."
+
+#: orgSeries-manage.php:240
+msgid "Current series icon:"
+msgstr "Aktuell serieikon:"
+
+#: orgSeries-manage.php:246
+msgid "No icon currently"
+msgstr "Ingen ikon för närvarande"
+
+#: orgSeries-manage.php:256
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+"Ta bort bilden? (notera: det kommer inte att finnas någon bild kopplad till "
+"denna serie om du väljer detta)"
+
+#: orgSeries-manage.php:261
+msgid "Series Icon Upload:"
+msgstr "Serieikonuppladdning:"
+
+#: orgSeries-manage.php:265
+msgid "Upload an image for the series."
+msgstr "Ladda upp en bild för serien."
+
+#: orgSeries-manage.php:280
+msgid "Invalid form data"
+msgstr "Ogiltig formulärdata"
+
+#: orgSeries-manage.php:290
+msgid "Invalid nonce, reload and try again"
+msgstr "Ogiltig nonce, ladda om och försök igen"
+
+#: orgSeries-manage.php:299
+msgid "Invalid taxonomy"
+msgstr "Ogiltig taxonomy"
+
+#: orgSeries-manage.php:305
+msgid "Not enough permission"
+msgstr "Inte tillräcklig behörighet"
+
+#: orgSeries-manage.php:309
+msgid "Updated successfully"
+msgstr "Uppdaterad framgångsrikt"
+
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:872
+msgid "Settings"
+msgstr "Inställningar"
+
+#: orgSeries-options.php:54
+msgid "PublishPress Series Options"
+msgstr "PublishPress seriealternativ"
+
+#: orgSeries-options.php:141
+msgid "Taxonomy"
+msgstr "Taxonomi"
+
+#: orgSeries-options.php:143, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: orgSeries-options.php:150
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: orgSeries-setup.php:209
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr ""
+"Välj \"Inte en del av en serie\" för att ta bort eventuell serieinformation "
+"från inlägget"
+
+#: orgSeries-setup.php:268
+msgid "&larr; Go to Series"
+msgstr "&larr; Gå till Serie"
+
+#: orgSeries-setup.php:269
+msgid "View Series"
+msgstr "Visa Serie"
+
+#: orgSeries-setup.php:271
+msgid "Series List"
+msgstr "Serielista"
+
+#: orgSeries-setup.php:272
+msgid "Series Link"
+msgstr "Serielänk"
+
+#: orgSeries-setup.php:273
+msgid "A link to a Series"
+msgstr "En länk till en Serie"
+
+#: orgSeries-setup.php:327
+msgid "Series Navigation"
+msgstr "Serienavigation"
+
+#: orgSeries-setup.php:858
+msgid "Series: "
+msgstr "Serie: "
+
+#: orgSeries-setup.php:860
+msgid "Posts from the series: "
+msgstr "Inlägg från serien: "
+
+#: orgSeries-taxonomy.php:664
+#: orgSeries-taxonomy.php:693
+msgid "Series:"
+msgstr "Serie:"
+
+#: orgSeries-taxonomy.php:666
+msgid "Part:"
+msgstr "Del:"
+
+#: orgSeries-template-tags.php:264
+msgid "All the Series I've Written"
+msgstr "Alla serier jag har skrivit"
+
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, php-format
+msgid "<a href=\"%s\" title=\"%s\">Series</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Serie</a>"
+
+#: orgSeries-utility.php:410
+msgid "Auto/None"
+msgstr "Auto/Ingen"
+
+#: orgSeries-widgets.php:12
+msgid "Use this to control the output of the latest series widget"
+msgstr "Använd detta för att styra utmatningen av den senaste seriewidgeten"
+
+#: orgSeries-widgets.php:20
+msgid "Most Recent Series"
+msgstr "Senaste Serien"
+
+#: orgSeries-widgets.php:73
+#: orgSeries-widgets.php:269
+msgid "Title:"
+msgstr "Titel:"
+
+#: orgSeries-widgets.php:79
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"Layout och innehåll för denna widget kan justeras via <a "
+"href=\"%s\">Senaste Serien</a>-området."
+
+#: orgSeries-widgets.php:82
+msgid "Hide series with no posts?"
+msgstr "Dölja serier utan inlägg?"
+
+#: orgSeries-widgets.php:85
+#: orgSeries-widgets.php:295
+msgid "Order by:"
+msgstr "Ordna efter:"
+
+#: orgSeries-widgets.php:87
+msgid "Number of posts in Series"
+msgstr "Antal inlägg i Serien"
+
+#: orgSeries-widgets.php:88
+msgid "Name of Series"
+msgstr "Namn på Serien"
+
+#: orgSeries-widgets.php:89
+msgid "Series Slug"
+msgstr "Serien Slug"
+
+#: orgSeries-widgets.php:90
+msgid "When Series was Created"
+msgstr "När Serien skapades"
+
+#: orgSeries-widgets.php:91
+msgid "Random"
+msgstr "Slumptal"
+
+#: orgSeries-widgets.php:95
+msgid "Number of series to display:"
+msgstr "Antal serier att visa:"
+
+#: orgSeries-widgets.php:99
+msgid "Display Order: "
+msgstr "Visningsordning: "
+
+#: orgSeries-widgets.php:100, fuzzy
+msgid "ASC: "
+msgstr "ASC: "
+
+#: orgSeries-widgets.php:101, fuzzy
+msgid "DESC: "
+msgstr "DESC: "
+
+#: orgSeries-widgets.php:111
+msgid "Use this to display the Series Table of contents"
+msgstr "Använd detta för att visa Serien Innehållsförteckning"
+
+#: orgSeries-widgets.php:178
+msgid "Select Series"
+msgstr "Välj Serie"
+
+#: orgSeries-widgets.php:234
+msgid "Other posts in series:"
+msgstr "Andra inlägg i serien:"
+
+#: orgSeries-widgets.php:274
+msgid "Show Series Table Of Content"
+msgstr "Visa Serien Innehållsförteckning"
+
+#: orgSeries-widgets.php:279
+msgid "Show Series Table Of Content as:"
+msgstr "Visa Serien Innehållsförteckning som:"
+
+#: orgSeries-widgets.php:280, fuzzy
+msgid "Dropdown:"
+msgstr "Dropdown:"
+
+#: orgSeries-widgets.php:281
+msgid "List:"
+msgstr "Lista:"
+
+#: orgSeries-widgets.php:285
+msgid "Show post count:"
+msgstr "Visa inläggsräknare:"
+
+#: orgSeries-widgets.php:290
+msgid "Hide empty series:"
+msgstr "Dölj tomma serier:"
+
+#: orgSeries-widgets.php:299, fuzzy
+msgid "name"
+msgstr "name"
+
+#: orgSeries-widgets.php:300, fuzzy
+msgid "count"
+msgstr "count"
+
+#: orgSeries-widgets.php:301, fuzzy
+msgid "slug"
+msgstr "slug"
+
+#: orgSeries-widgets.php:302, fuzzy
+msgid "series id"
+msgstr "series id"
+
+#: orgSeries-widgets.php:315
+msgid "Order:"
+msgstr "Ordning:"
+
+#: orgSeries-widgets.php:333
+msgid "Exclude series:"
+msgstr "Exkludera serier:"
+
+#: orgSeries-widgets.php:348
+msgid "Include series:"
+msgstr "Inkludera serier:"
+
+#: orgSeries-widgets.php:363
+msgid "Number of Series:"
+msgstr "Antal serier:"
+
+#: orgSeries-widgets.php:368, fuzzy
+msgid "Offset:"
+msgstr "Offset:"
+
+#: orgSeries-widgets.php:370
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"Du kan välja offset för antalet serier (användbart för paginering). Ingen "
+"offset om den lämnas tom"
+
+#: orgSeries-widgets.php:374
+msgid "Search:"
+msgstr "Sök:"
+
+#: orgSeries-widgets.php:376
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"Du kan returnera alla serier som matchar denna söksträng (matchas mot "
+"serietitlar)"
+
+#: orgSeries-widgets.php:380
+msgid "Show other posts in the current series:"
+msgstr "Visa andra inlägg i den aktuella serien:"
+
+#: orgSeries-widgets.php:397
+msgid "Current series"
+msgstr "Aktuell serie"
+
+#: orgSeries-widgets.php:416
+msgid "Series widget title:"
+msgstr "Seriewidgettitel:"
+
+#: orgSeries-widgets.php:418
+msgid "This text will display above other posts in this series."
+msgstr "Denna text kommer att visas ovanför andra inlägg i denna serie."
+
+#: orgSeries.php:164
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>Denna plugin kan tas bort.</strong>"
+
+#: src/application/Container.php:160
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s har redan en parameter indexerad med namnet: %2$s."
+
+#: src/application/Root.php:139
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "%1$s-metoden kan endast användas för att registrera ett barn av %2$s."
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "Kunde inte hämta en instans av %1$s. Inte hittad."
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s är inte en giltig entitet (förväntad: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:27
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"Filens \"%1$s\" saknas eller kunde inte läsas på grund av behörigheter. "
+"Vänligen säkerställ att följande sökväg är korrekt och verifiera att "
+"filbehörigheterna är korrekta:%2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s existerar inte eller är inte nåbar."
+
+#: src/domain/exceptions/NonceFailException.php:18
+msgid "Nonce fail."
+msgstr "Nonce-fel."
+
+#: src/domain/model/ControllerRoute.php:50
+#: src/domain/model/HasHooksRoute.php:59
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr ""
+"Det angivna objektets fullt kvalificerade klassnamn (%1$s) måste "
+"implementera %2$s-gränssnittet."
+
+#: src/domain/model/FileLocation.php:50
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "Den angivna filvägen (%s) är inte läsbar."
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "Ett fel inträffade, vänligen försök igen."
+
+#: src/domain/model/RouteIdentifier.php:51
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "Det inkommande värdet för %1$s förväntas vara en closure. Det var det inte."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:31
+msgid "Deactivate License"
+msgstr "Inaktivera licens"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:123
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Activate License"
+msgstr "Aktivera licens"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully activated."
+msgstr "Licensnyckel aktiverad."
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:242
+msgid "License Key successfully deactivated."
+msgstr "Licensnyckel inaktiverad."
+
+#: src/domain/services/AssetRegistry.php:228
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"Värdet för %1$s är redan inställt och det är inte en array. %2$s-metoden "
+"kan endast användas för att lägga till värden till detta dataelement när "
+"det är en array."
+
+#: src/domain/services/AssetRegistry.php:271
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"Värdet för %1$s existerar redan i %2$s-egenskapen. Överskrivningar är inte "
+"tillåtna. Eftersom värdet av dessa data är en array, kanske du vill använda "
+"%3$s-metoden för att lägga till ditt värde till arrayen."
+
+#: src/domain/services/AssetRegistry.php:283
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"Värdet för %1$s existerar redan i %2$s-egenskapen. Överskrivningar är inte "
+"tillåtna. Överväg att fästa ditt värde till en annan nyckel"
+
+#: src/domain/services/AssetRegistry.php:408
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr ""
+"Namnrymden för denna manifestfil har redan registrerats, välj en annan "
+"namnrymd än %s"
+
+#: src/domain/services/AssetRegistry.php:419
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr ""
+"Det angivna värdet för %1$s är inte en giltig url. Den angivna url:en var: "
+"%2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:16
+#, php-format
+msgid "License Key for %1$s"
+msgstr "Licensnyckel för %1$s"
+
+#: src/views/admin/templates/license_key_form.template.php:19
+msgid "Enter your license key: "
+msgstr "Ange din licensnyckel: "
+
+#: addons/grouping/legacy-includes.php:278
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Seriekategorier"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Serie"
+
+#: addons/grouping/legacy-includes.php:279
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Seriekategori"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Serie"
+
+#: addons/grouping/legacy-includes.php:670
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Serie"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:478
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-admin.php:491
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-admin.php:571
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Serie"
+msgstr[1] "Serier"
+
+#: orgSeries-options.php:55
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-setup.php:266
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "Denna post är del %series_part% av %total_posts_in_series% i serien "
+
+#: orgSeries-taxonomy.php:381
+msgctxt "series list title"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-widgets.php:233
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Serie"
+
+#: orgSeries-widgets.php:386
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Serie"
