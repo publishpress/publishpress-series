@@ -32,19 +32,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+
       - name: Create .env file
         run: |
           cp $GITHUB_WORKSPACE/.env.example $GITHUB_WORKSPACE/.env
 
-      - name: Prepare composer
+      - name: Composer prepare
         run: |
-          $GITHUB_WORKSPACE/dev-workspace/run composer validate
-          $GITHUB_WORKSPACE/dev-workspace/run composer install
+          composer validate
+          composer install
 
       - name: Show version of tools inside the dev-workspace
         run: |
-          $GITHUB_WORKSPACE/dev-workspace/run composer info:versions
+          $GITHUB_WORKSPACE/vendor/publishpress/dev-workspace/scripts/run.sh composer info:versions
 
       - name: Run Lint check
         run: |
-          $GITHUB_WORKSPACE/dev-workspace/run composer check:lint
+          $GITHUB_WORKSPACE/vendor/publishpress/dev-workspace/scripts/run.sh composer lint:php
