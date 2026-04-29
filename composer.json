@@ -25,46 +25,28 @@
     "php": ">=7.2.5"
   },
   "require-dev": {
-    "automattic/vipwpcs": "^2.3",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-    "overtrue/phplint": "^9.6",
-    "publishpress/translations": "^1.0"
+    "publishpress/dev-workspace": "^1.0"
   },
   "scripts": {
-    "build": "build zip",
-    "build:dir": "build dir",
-    "build:clean": "build clean",
-    "info:versions": "pbuild version",
-    "check:lint": "phplint",
-    "check:longpath": "longpath .",
     "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
     "pre-update-cmd": "composer update --working-dir=./lib",
-    "pre-install-cmd": "composer install --working-dir=./lib",
-    "translate": "dev-workspace/run vendor/bin/publishpress-translate --languages=de_DE,fi,fil,id_ID,ja,ko_KR,nl_NL,ru_RU,yo",
-    "translate:dry-run": "dev-workspace/run vendor/bin/publishpress-translate --dry-run",
-    "translate:download": "dev-workspace/run vendor/bin/publishpress-translate --download",
-    "translate:upload": "dev-workspace/run vendor/bin/publishpress-translate --upload",
-    "translate:custom": "dev-workspace/run vendor/bin/publishpress-translate --languages",
-    "translate:force": "dev-workspace/run vendor/bin/publishpress-translate --force",
-    "translate:force-custom": "dev-workspace/run vendor/bin/publishpress-translate --force --languages",
-    "translate:compile": [
-        "@translate:mo",
-        "@translate:json",
-        "@translate:php"
-    ],
-    "translate:pot": "dev-workspace/run wp i18n make-pot . ./languages/organize-series.pot --domain=organize-series --exclude=dev-workspace,.wordpress-org,.github,dist,tests,lib,tmp,doc,*.js,*.js.map --allow-root",
-    "translate:mo": "dev-workspace/run wp i18n make-mo ./languages ./languages --allow-root",
-    "translate:json": "dev-workspace/run bash ./dev-workspace/scripts/lang-make-json.sh",
-    "translate:php": "dev-workspace/run wp i18n make-php ./languages --allow-root"
+    "pre-install-cmd": "composer install --working-dir=./lib"
   },
   "extra": {
     "plugin-name": "publishpress-series",
     "plugin-slug": "orgSeries",
-    "plugin-folder": "organize-series"
+    "plugin-folder": "organize-series",
+    "version-constant": "ORG_SERIES_VERSION",
+    "plugin-lang-domain": "organize-series",
+    "plugin-github-repo": "publishpress/publishpress-series",
+    "plugin-composer-package": "publishpress/publishpress-series"
   },
   "config": {
     "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "publishpress/dev-workspace": true,
+      "php-http/discovery": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
     },
     "preferred-install": {
       "*": "dist"

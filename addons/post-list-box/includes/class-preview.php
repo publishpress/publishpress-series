@@ -477,13 +477,25 @@ class PPS_Post_List_Box_Preview {
             echo '</h4>';
         }
 
-        // Excerpt
+        // Excerpt (real post_excerpt field only; render nothing when empty)
         if (!empty($settings['show_post_excerpt'])) {
             $excerpt_length = isset($settings['excerpt_length']) ? intval($settings['excerpt_length']) : 55;
-            $excerpt_text = PPS_Post_List_Box_Utilities::build_safe_excerpt($post, $excerpt_length);
-            $excerpt_styles = self::get_excerpt_styles($settings);
-            echo '<div class="pps-post-excerpt"' . $excerpt_styles . '>' . wpautop(esc_html($excerpt_text)) . '</div>';
+            $excerpt_text = PPS_Post_List_Box_Utilities::build_safe_excerpt($post, $excerpt_length, false);
+            if ($excerpt_text !== '') {
+                $excerpt_styles = self::get_excerpt_styles($settings);
+                echo '<div class="pps-post-excerpt"' . $excerpt_styles . '>' . wpautop(esc_html($excerpt_text)) . '</div>';
+            }
         }
+
+        /**
+         * Action hook for Pro to render additional preview content after the excerpt
+         * (e.g. Post Summary). Kept Pro-only so that manually bypassing the
+         * pps_post_list_box_field_pro_locked filter does not enable the feature in free.
+         *
+         * @param WP_Post $post     Current post object.
+         * @param array   $settings Layout settings.
+         */
+        do_action('pps_post_list_box_preview_after_excerpt', $post, $settings);
 
         // Data and author
         if (!empty($settings['show_post_author']) || !empty($settings['show_post_date'])) {

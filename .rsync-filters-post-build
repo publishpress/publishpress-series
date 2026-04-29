@@ -27,6 +27,7 @@
 - .rsync-filters-pro-build
 - .env
 - .env.example
+- /dev-workspace-cache
 - .phplint-cache
 - .phplint.cache
 - .phplint.yml

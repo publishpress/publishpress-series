@@ -452,7 +452,13 @@ class PPS_Post_List_Box_Admin_UI {
 
                         foreach ($fields as $key => $args) {
                             $args['key']       = $key;
-                            $args['value']     = isset($editor_data[$key]) ? $editor_data[$key] : '';
+                            // Prefer saved meta; fall back to the field's declared default so new
+                            // fields added after posts were saved still render with their default value.
+                            if (array_key_exists($key, $editor_data)) {
+                                $args['value'] = $editor_data[$key];
+                            } else {
+                                $args['value'] = isset($args['default']) ? $args['default'] : '';
+                            }
                             $args['post_id']   = $post->ID;
                             echo PPS_Post_List_Box_Admin_UI::get_rendered_post_list_box_editor_partial($args);
                         }

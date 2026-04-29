@@ -13,73 +13,71 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-03-30 10:52+0000\n"
+"PO-Revision-Date: 2026-04-29 12:22+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: id-ID\n"
 
-#: orgSeries.php
-#: orgSeries.php, fuzzy
+#: orgSeries.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php, fuzzy
+#: orgSeries.php:4, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php
+#: orgSeries.php:5
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
 "This is ideal for magazines, newspapers, short-story writers, teachers, "
 "comic artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
-"PublishPress Series memungkinkan Anda mengelompokkan konten menjadi sebuah "
-"seri. Ini ideal untuk majalah, surat kabar, penulis cerita pendek, guru, "
-"seniman komik, atau siapa pun yang menulis beberapa pos tentang topik yang "
-"sama."
+"PublishPress Series memungkinkan Anda untuk mengelompokkan konten menjadi "
+"series. Ini ideal untuk majalah, surat kabar, penulis cerpen, guru, seniman "
+"komik, atau siapa pun yang menulis beberapa posting tentang topik yang sama."
 
-#: orgSeries.php, fuzzy
+#: orgSeries.php:7
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php, fuzzy
+#: orgSeries.php:8, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
 #: addons/grouping/legacy-includes.php:280
 msgid "Search Series Categories"
-msgstr "Cari Kategori Seri"
+msgstr "Cari Kategori Series"
 
 #: addons/grouping/legacy-includes.php:281
 msgid "Popular Series Categories"
-msgstr "Kategori Seri Populer"
+msgstr "Kategori Series Terpopuler"
 
 #: addons/grouping/legacy-includes.php:282
 #: addons/grouping/legacy-includes.php:786
 msgid "All Series Categories"
-msgstr "Semua Kategori Seri"
+msgstr "Semua kategori Series"
 
 #: addons/grouping/legacy-includes.php:283
 msgid "Edit Series Category"
-msgstr "Edit Kategori Seri"
+msgstr "Edit Kategori Series"
 
 #: addons/grouping/legacy-includes.php:284
 msgid "Update Series Category"
-msgstr "Perbarui Kategori Seri"
+msgstr "Perbarui Kategori Series"
 
 #: addons/grouping/legacy-includes.php:285
 msgid "Add New Series Category"
-msgstr "Tambahkan Kategori Seri Baru"
+msgstr "Tambahkan Kategori Series Baru"
 
 #: addons/grouping/legacy-includes.php:286
 msgid "New Series Category"
-msgstr "Kategori Seri Baru"
+msgstr "Kategori Series Baru"
 
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
@@ -89,13 +87,15 @@ msgstr "Kategori Seri Baru"
 #: addons/grouping/legacy-includes.php:777
 #: addons/grouping/legacy-includes.php:811
 msgid "Series Categories"
-msgstr "Kategori Seri"
+msgstr "Kategori series"
 
 #: addons/grouping/legacy-includes.php:627
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
-msgstr "Hapus semua data \"Kategori Seri\" dari database saat menghapus plugin."
+msgstr ""
+"Hapus semua data \"Kategori Series\" dari basis data ketika menghapus "
+"plugin."
 
 #: addons/grouping/legacy-includes.php:756
 msgid "Click to toggle"
@@ -175,7 +175,7 @@ msgstr "Editor Detail Pos Seri"
 #: addons/post-list-box/includes/class-admin-ui.php:55
 #: addons/post-list-box/includes/class-admin-ui.php:242
 #: addons/post-navigation/includes/class-admin-ui.php:85
-#: addons/post-navigation/includes/class-admin-ui.php:193, fuzzy
+#: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
 msgstr "Shortcode"
 
@@ -198,7 +198,7 @@ msgstr "Kotak Meta Default"
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
 #: addons/post-list-box/includes/class-admin-ui.php:431
-#: addons/post-list-box/includes/class-admin-ui.php:709
+#: addons/post-list-box/includes/class-admin-ui.php:715
 #: addons/post-navigation/includes/class-admin-ui.php:442
 #: inc/settings/tab-post-types.php:59
 #: inc/settings/tab-pro-features.php:52
@@ -281,7 +281,7 @@ msgid "Meta Box Position"
 msgstr "Posisi Kotak Meta"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:535
+#: addons/post-list-box/classes/PostListBoxFields.php:565
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -289,7 +289,7 @@ msgid "Top"
 msgstr "Atas"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:536
+#: addons/post-list-box/classes/PostListBoxFields.php:566
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -605,128 +605,140 @@ msgid "Excerpt Color"
 msgstr "Warna Cuplikan"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:324
+msgid "Show Post Summary"
+msgstr "Tampilkan Ringkasan Post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:332
+msgid "Summary Length (words)"
+msgstr "Panjang Ringkasan (kata)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Summary Color"
+msgstr "Warna Ringkasan"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:354
 msgid "Show Post Author"
 msgstr "Tampilkan Penulis Postingan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:362
 msgid "Post Author Color"
 msgstr "Warna Penulis Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:342
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Date"
 msgstr "Tampilkan Tanggal Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:350
+#: addons/post-list-box/classes/PostListBoxFields.php:380
 msgid "Post Date Color"
 msgstr "Warna Tanggal Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:371
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 #: addons/post-navigation/includes/class-fields.php:169
 #: addons/post-navigation/includes/class-fields.php:284
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Show Featured Image"
 msgstr "Tampilkan Gambar Unggulan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:378
+#: addons/post-list-box/classes/PostListBoxFields.php:408
 msgid "Featured Image Width (px)"
 msgstr "Lebar Gambar Unggulan (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:385
+#: addons/post-list-box/classes/PostListBoxFields.php:415
 #: addons/post-navigation/includes/class-fields.php:194
 #: addons/post-navigation/includes/class-fields.php:309
 #: addons/post-navigation/includes/class-fields.php:437
 msgid "Width of the featured image in pixels"
 msgstr "Lebar gambar unggulan dalam piksel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:390
+#: addons/post-list-box/classes/PostListBoxFields.php:420
 msgid "Featured Image Height (px)"
 msgstr "Tinggi Gambar Unggulan (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:397
+#: addons/post-list-box/classes/PostListBoxFields.php:427
 #: addons/post-navigation/includes/class-fields.php:202
 #: addons/post-navigation/includes/class-fields.php:317
 #: addons/post-navigation/includes/class-fields.php:445
 msgid "Height of the featured image in pixels"
 msgstr "Tinggi gambar unggulan dalam piksel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:402
+#: addons/post-list-box/classes/PostListBoxFields.php:432
 msgid "Fallback Featured Image"
 msgstr "Gambar Unggulan Cadangan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:407
+#: addons/post-list-box/classes/PostListBoxFields.php:437
 msgid "Image to display when a post does not have a featured image"
 msgstr "Gambar yang ditampilkan ketika sebuah post tidak memiliki gambar unggulan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:424
+#: addons/post-list-box/classes/PostListBoxFields.php:454
 msgid "Post Padding (px)"
 msgstr "Padding Post (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:433
+#: addons/post-list-box/classes/PostListBoxFields.php:463
 msgid "Post Border Width (px)"
 msgstr "Lebar Border Post (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:442
+#: addons/post-list-box/classes/PostListBoxFields.php:472
 msgid "Post Border Color"
 msgstr "Warna Border Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:449
+#: addons/post-list-box/classes/PostListBoxFields.php:479
 msgid "Post Background Color"
 msgstr "Warna Latar Belakang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "Background color for the post list container"
 msgstr "Warna latar belakang untuk wadah daftar post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:468
+#: addons/post-list-box/classes/PostListBoxFields.php:498
 msgid "Layout Style"
 msgstr "Gaya Tata Letak"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:502
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Daftar"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:473
-#: inc/settings/tab-legacy.php:28, fuzzy
+#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: inc/settings/tab-legacy.php:28
 msgid "Grid"
-msgstr "Grid"
+msgstr "Kisi"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:480
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Columns"
 msgstr "Kolom"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:514
 msgid "2 Columns"
 msgstr "2 Kolom"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:485
+#: addons/post-list-box/classes/PostListBoxFields.php:515
 msgid "3 Columns"
 msgstr "3 Kolom"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:486
+#: addons/post-list-box/classes/PostListBoxFields.php:516
 msgid "4 Columns"
 msgstr "4 Kolom"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:487
+#: addons/post-list-box/classes/PostListBoxFields.php:517
 msgid "6 Columns"
 msgstr "6 Kolom"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:496
+#: addons/post-list-box/classes/PostListBoxFields.php:526
 msgid "Order By"
 msgstr "Urutkan Berdasarkan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:500
+#: addons/post-list-box/classes/PostListBoxFields.php:530
 msgid "Date"
 msgstr "Tanggal"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:501
+#: addons/post-list-box/classes/PostListBoxFields.php:531
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
-#: addons/publisher/series-publish-post-table.php:71
+#: addons/publisher/series-publish-post-table.php:71, fuzzy
 msgid "Title"
-msgstr "Judul"
+msgstr "Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:532
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:751
 #: addons/publisher/series_issue_manager.php:826
@@ -734,43 +746,43 @@ msgstr "Judul"
 #: orgSeries-manage.php:195
 #: orgSeries-manage.php:204
 msgid "Series Order"
-msgstr "Urutan Seri"
+msgstr "Susunan series"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:509
+#: addons/post-list-box/classes/PostListBoxFields.php:539
 #: orgSeries-manage.php:51
 #: orgSeries-manage.php:227
 msgid "Order"
 msgstr "Urutan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:513
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 #: inc/settings/tab-legacy.php:106
 #: orgSeries-widgets.php:320
 msgid "Ascending"
 msgstr "Menaik"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 #: inc/settings/tab-legacy.php:107
 #: orgSeries-widgets.php:319
 msgid "Descending"
-msgstr "Menurun"
+msgstr "Urut dari bawah"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:521
+#: addons/post-list-box/classes/PostListBoxFields.php:551
 msgid "Gap Between Items (px)"
 msgstr "Jarak Antara Item (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:561
 msgid "Post List Box Location"
 msgstr "Lokasi Kotak Daftar Postingan"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:540
+#: addons/post-list-box/classes/PostListBoxFields.php:570
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Pilih di mana menampilkan kotak daftar postingan terkait dengan konten"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:574
 msgid "Maximum number of items"
 msgstr "Jumlah item maksimum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:550
+#: addons/post-list-box/classes/PostListBoxFields.php:580
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -778,23 +790,23 @@ msgstr ""
 "Batasi jumlah postingan yang ditampilkan dalam daftar seri. Biarkan kosong "
 "untuk tanpa batas. Prabaca admin dibatasi hingga 4 postingan."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:595
 msgid "Highlight Current Post"
 msgstr "Sorot Postingan Saat Ini"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:600
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "Sorot postingan saat ini saat melihat postingan seri tertentu"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: addons/post-list-box/classes/PostListBoxFields.php:603
 msgid "Current Post Background Color"
 msgstr "Warna Latar Belakang Postingan Saat Ini"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:610
 msgid "Current Post Border Color"
 msgstr "Warna Border Postingan Saat Ini"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:587
+#: addons/post-list-box/classes/PostListBoxFields.php:617
 msgid "Current Post Text Color"
 msgstr "Warna Teks Postingan Saat Ini"
 
@@ -900,13 +912,13 @@ msgstr "Memuat prabaca..."
 msgid "Error loading preview."
 msgstr "Kesalahan memuat prabaca."
 
-#: addons/post-list-box/includes/class-admin-ui.php:685
+#: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
 #: orgSeries-manage.php:264
 msgid "Select Image"
 msgstr "Pilih Gambar"
 
-#: addons/post-list-box/includes/class-admin-ui.php:689
+#: addons/post-list-box/includes/class-admin-ui.php:695
 msgid "Remove"
 msgstr "Hapus"
 
@@ -1024,7 +1036,7 @@ msgstr ""
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Ini adalah cuplikan contoh untuk posting %d dalam seri."
 
-#: addons/post-list-box/includes/class-preview.php:492
+#: addons/post-list-box/includes/class-preview.php:504
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1039,7 +1051,7 @@ msgstr "Kotak Daftar Default"
 msgid "Grid Style Box"
 msgstr "Kotak Gaya Grid"
 
-#: addons/post-list-box/post-list-box.php:109
+#: addons/post-list-box/post-list-box.php:108
 msgid "Simple List Box"
 msgstr "Kotak Daftar Sederhana"
 
@@ -1546,9 +1558,9 @@ msgstr "Bagian Saat Ini"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270, fuzzy
+#: addons/publisher/series-publish-post-table.php:270
 msgid "Edit"
-msgstr "Edit"
+msgstr "Sunting"
 
 #: addons/publisher/series-part-post-table.php:146
 msgid "View"
@@ -1558,15 +1570,15 @@ msgstr "Lihat"
 #: addons/publisher/series-pending-post-table.php:170
 #: addons/publisher/series-publish-post-table.php:287
 msgid "Trash"
-msgstr "Sampah"
+msgstr "Tong Sampah"
 
 #: addons/publisher/series-part-post-table.php:190
 msgid "There are no published posts in this series."
-msgstr "Tidak ada pos yang diterbitkan di seri ini."
+msgstr "Tidak ada artikel yang dipublikasikan di series ini."
 
 #: addons/publisher/series-part-post-table.php:309
 msgid "(Currently has no Part number)"
-msgstr "(Saat ini tidak memiliki nomor Bagian)"
+msgstr "(Saat ini tidak memiliki nomor bagian)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
@@ -1577,39 +1589,39 @@ msgstr "Pratinjau"
 #: addons/publisher/series-pending-post-table.php:197
 #: addons/publisher/series-publish-post-table.php:46
 msgid "There are no unpublished posts in this series."
-msgstr "Tidak ada pos yang belum diterbitkan di seri ini."
+msgstr "Tidak ada artikel yang belum dipublikasikan di series ini."
 
 #: addons/publisher/series-pending-post-table.php:312
 msgid "No Part Number"
-msgstr "Tidak ada Nomor Bagian"
+msgstr "Tidak ada nomor bagian"
 
 #: addons/publisher/series-publish-post-table.php:176
 msgid "All Categories"
 msgstr "Semua Kategori"
 
-#: addons/publisher/series-publish-post-table.php:189, fuzzy
+#: addons/publisher/series-publish-post-table.php:189
 msgid "Filter"
-msgstr "Filter"
+msgstr "Penyaring"
 
 #: addons/publisher/series_im_admin_main.php:2
 #: addons/publisher/series_issue_manager.php:500
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
-msgstr "Kelola Seri"
+msgstr "Kelola Series"
 
 #: addons/publisher/series_im_admin_main.php:7
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: addons/publisher/series_im_admin_main.php:9
 #: addons/publisher/series_issue_manager.php:695
 #: addons/publisher/series_issue_manager.php:741
 msgid "Publish Series"
-msgstr "Terbitkan Seri"
+msgstr "Memublikasikan Series"
 
 #: addons/publisher/series_im_admin_main.php:10
 msgid "Front View"
-msgstr "Tampilan Depan"
+msgstr "Tampilan depan"
 
 #: addons/publisher/series_im_admin_main.php:17
 #, php-format
@@ -1618,69 +1630,69 @@ msgstr "Edit status %1$s"
 
 #: addons/publisher/series_im_admin_main.php:19
 msgid "Series order"
-msgstr "Urutan seri"
+msgstr "Susunan series"
 
 #: addons/publisher/series_im_admin_main.php:22
 msgid "Publish or schedule posts"
-msgstr "Terbitkan atau jadwalkan pos"
+msgstr "Publikasikan atau jadwalkan artikel"
 
 #: addons/publisher/series_im_admin_main.php:25
 msgid "View series in frontend"
-msgstr "Lihat seri di frontend"
+msgstr "Lihat series di frontend"
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "You have no series available."
-msgstr "Anda tidak memiliki seri yang tersedia."
+msgstr "Anda tidak mempunyai series yang tersedia."
 
 #: addons/publisher/series_im_admin_main.php:34
 msgid "Add new Series."
-msgstr "Tambahkan Seri baru."
+msgstr "Tambahkan Series baru."
 
 #: addons/publisher/series_issue_manager.php:209
 msgid "Create as unpublished:"
-msgstr "Buat sebagai tidak diterbitkan:"
+msgstr "Buat sebagai tidak terpublikasikan:"
 
 #: addons/publisher/series_issue_manager.php:212
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr ""
-"Ketika dicentang, semua pos yang Anda tetapkan ke seri ini akan tetap tidak "
-"diterbitkan sampai Anda menerbitkan seluruh seri."
+"Ketika dicentang, semua post yang diberikan ke series ini akan tetap tidak "
+"dipublikasikan sampai anda memublikasikan keseluruhan series."
 
 #: addons/publisher/series_issue_manager.php:290
 msgid "The posts in your series were successfully unpublished."
-msgstr "Pos dalam seri Anda berhasil tidak diterbitkan."
+msgstr "Artikel di series anda berhasil tidak dipublikasikan."
 
 #: addons/publisher/series_issue_manager.php:299
 #: addons/publisher/series_issue_manager.php:416
 msgid "Congratulations. Your series order was updated successfully."
-msgstr "Selamat. Urutan seri Anda berhasil diperbarui."
+msgstr "Selamat. Urutan series anda sudah sukses diperbarui."
 
 #: addons/publisher/series_issue_manager.php:307
 #: addons/publisher/series_issue_manager.php:344
 msgid "Congratulations. Your posts were published successfully."
-msgstr "Selamat. Pos Anda berhasil diterbitkan."
+msgstr "Selamat. Artikel anda telah berhasil dipublikasikan."
 
 #: addons/publisher/series_issue_manager.php:316
 msgid "Post moved to the Trash."
-msgstr "Pos dipindahkan ke Sampah."
+msgstr "Artikel dipindahkan ke tong sampah"
 
 #: addons/publisher/series_issue_manager.php:339
 msgid "Congratulations. Your posts were scheduled successfully."
-msgstr "Selamat. Pos Anda berhasil dijadwalkan."
+msgstr "Selamat. Artikel anda telah berhasil dijadwalkan."
 
 #: addons/publisher/series_issue_manager.php:499
 msgid "Manage Series Issues"
-msgstr "Kelola Masalah Seri"
+msgstr "Kelola kendala Series"
 
 #: addons/publisher/series_issue_manager.php:528
 msgid "Number of items per page"
-msgstr "Jumlah item per halaman"
+msgstr "Jumlah item per laman"
 
 #: addons/publisher/series_issue_manager.php:643
 msgid "Publishing Series:"
-msgstr "Menerbitkan Seri:"
+msgstr "Memublikasikan Series:"
 
 #: addons/publisher/series_issue_manager.php:649
 #. translators: %s: search keywords
@@ -1700,55 +1712,55 @@ msgstr "Tanggal/Waktu Publikasi:"
 #: addons/publisher/series_issue_manager.php:840
 #: addons/publisher/series_issue_manager.php:939
 msgid "Update Order"
-msgstr "Urutan Pembaruan"
+msgstr "Perbarui Susunan"
 
 #: addons/publisher/series_issue_manager.php:792
 msgid "Series Order:"
-msgstr "Urutan Seri:"
+msgstr "Susunan Series:"
 
 #: addons/publisher/series_issue_manager.php:795
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr ""
-"Seret nama pos ke dalam urutan yang Anda inginkan dalam seri, dari bagian "
-"pertama hingga bagian terakhir."
+"Seret nama-nama posting ke dalam urutan yang Anda inginkan dalam seri, dari "
+"bagian pertama hingga bagian terakhir."
 
 #: addons/publisher/series_issue_manager.php:867
 msgid "Unpublished posts in series:"
-msgstr "Pos yang belum dipublikasikan dalam seri:"
+msgstr "Artikel yang belum dipublikasikan di series ini:"
 
 #: addons/publisher/series_issue_manager.php:870
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
 msgstr ""
-"Ketika pos ini dipublikasikan, mereka akan ditambahkan setelah pos terakhir "
-"yang ada dalam seri."
+"Ketika artikel ini di publikasikan, mereka akan ditambahkan setelah "
+"postingan terakhir saat ini dalam series."
 
 #: addons/publisher/series_issue_manager.php:901
 msgid "Unpublished Posts"
-msgstr "Pos yang Belum Dipublikasikan"
+msgstr "Artikel yang belum dipublikasikan"
 
 #: addons/publisher/series_issue_manager.php:915
 msgid "Publish Unpublished Posts"
-msgstr "Publikasikan Pos yang Belum Dipublikasikan"
+msgstr "Publikasikan artikel yang belum dipublikasikan"
 
 #: addons/publisher/series_issue_manager.php:925
 msgid "Unpublished Series Order"
-msgstr "Urutan Seri yang Belum Dipublikasikan"
+msgstr "Urutan Series yang belum dipublikasikan"
 
 #: inc/settings/settings-page.php:18
 msgid "PublishPress Series Plugin Options"
-msgstr "Opsi Plugin Seri PublishPress"
+msgstr "Pengaturan plugin PublishPress Series"
 
 #: inc/settings/settings-page.php:52
 msgid "Allowed Html"
-msgstr "Html yang Diizinkan"
+msgstr "HTML yang diizinkan"
 
 #: inc/settings/settings-page.php:61
 msgid "Overview"
-msgstr "Ikhtisar"
+msgstr "Tinjauan"
 
 #: inc/settings/settings-page.php:63
 msgid ""
@@ -1756,20 +1768,22 @@ msgid ""
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
 msgstr ""
-"Berikut adalah legenda token yang tersedia untuk digunakan dalam bidang "
-"template kustom. Ini akan diganti dengan nilai yang sesuai saat plugin "
-"dijalankan."
+"Berikut adalah legenda dari token yang tersedia untuk digunakan dalam "
+"bidang template kustom. Ini akan digantikan dengan nilai yang sesuai ketika "
+"plugin dijalankan."
 
 #: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series icon for a series."
-msgstr "Ini akan diganti dengan ikon seri untuk sebuah seri."
+msgstr "Ini akan digantikan dengan ikon series untuk series."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
 "Same as %series_icon% except that the series icon will be linked to the "
 "series page"
-msgstr "Sama seperti %series_icon% kecuali ikon seri akan terhubung ke halaman seri"
+msgstr ""
+"\"Sama seperti %series_icon%, kecuali bahwa ikon series akan dihubungkan ke "
+"halaman series"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -1777,27 +1791,27 @@ msgid ""
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
-"Token ini hanya untuk digunakan dengan widget orgSeries - ini merujuk pada "
-"tempat Anda ingin daftar judul seri disisipkan dan memerlukan bahwa "
-"template untuk setiap judul seri juga diatur."
+"Token ini hanya untuk digunakan dengan widget orgSeries - ini merujuk di "
+"mana Anda ingin daftar judul series dimasukkan dan memerlukan pengaturan "
+"templat untuk setiap judul series juga."
 
 #: inc/settings/settings-page.php:92
 msgid "This will be replaced with the title of a series"
-msgstr "Ini akan diganti dengan judul sebuah seri"
+msgstr "Ini akan digantikan dengan judul series"
 
 #: inc/settings/settings-page.php:100
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
-"Sama seperti %series_title% kecuali bahwa ini juga akan terhubung ke "
-"halaman seri"
+"Sama seperti %series_title%, kecuali bahwa ini juga akan dihubungkan ke "
+"halaman series."
 
 #: inc/settings/settings-page.php:108
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
 msgstr ""
-"Merupakan token lokasi untuk tempat konten dari template daftar pos akan "
+"Merupakan lokasi token di mana konten dari template daftar artikel akan "
 "muncul."
 
 #: inc/settings/settings-page.php:116
@@ -1805,32 +1819,32 @@ msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
 msgstr ""
-"Merupakan token lokasi untuk tempat konten dari template daftar pos akan "
-"muncul dan menggunakan judul pendek widget pos yang disediakan."
+"Token lokasi untuk di mana konten dari templat daftar artikel akan muncul "
+"dan menggunakan judul singkat artikel widget yang disediakan."
 
 #: inc/settings/settings-page.php:124
 msgid "Will be replaced with the post title of a post in the series"
-msgstr "Akan digantikan dengan judul pos dari sebuah pos dalam seri"
+msgstr "Akan digantikan dengan judul artikel dari artikel dalam series"
 
 #: inc/settings/settings-page.php:132
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
-"Akan digantikan dengan judul pos dari sebuah pos dalam seri yang terhubung "
-"ke tampilan halaman pos tersebut."
+"Akan digantikan dengan judul artikel dari posting dalam seri yang terhubung "
+"ke tampilan halaman artikel tersebut."
 
 #: inc/settings/settings-page.php:140
 msgid "Will be replaced with the post title short of a post in the series"
-msgstr "Akan digantikan dengan judul pendek pos dari sebuah pos dalam seri"
+msgstr "Akan digantikan dengan judul artikel pendek dari artikel dalam series"
 
 #: inc/settings/settings-page.php:148
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
 msgstr ""
-"Akan digantikan dengan judul pendek pos dari sebuah pos dalam seri yang "
-"terhubung ke tampilan halaman pos tersebut."
+"Akan digantikan dengan judul artikel pendek dari artikel dalam series yang "
+"terhubung ke tampilan halaman tersebut."
 
 #: inc/settings/settings-page.php:156
 msgid ""
@@ -1839,10 +1853,10 @@ msgid ""
 "Navigation Text' field. If that field is empty then the text will be the "
 "title of the post"
 msgstr ""
-"Akan digantikan oleh tautan navigasi untuk pos sebelumnya dalam sebuah "
-"seri. Teks akan menjadi apa pun yang termasuk dalam bidang 'Teks Navigasi "
-"Pos Sebelumnya Kustom'. Jika bidang itu kosong maka teks akan menjadi judul "
-"pos"
+"Akan digantikan oleh tautan navigasi untuk artikel sebelumnya dalam series. "
+"Teksnya akan sesuai dengan yang disertakan dalam bidang 'Teks Navigasi "
+"Artikel Sebelumnya Kustom'. Jika bidang itu kosong, maka teksnya akan "
+"menjadi judul artikel"
 
 #: inc/settings/settings-page.php:164
 msgid ""
@@ -1850,10 +1864,10 @@ msgid ""
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
-"Akan digantikan oleh tautan navigasi untuk pos berikutnya dalam sebuah "
-"seri. Teks akan menjadi apa pun yang termasuk dalam bidang 'Teks Navigasi "
-"Pos Berikutnya Kustom'. Jika bidang itu kosong maka teks akan menjadi judul "
-"pos"
+"Akan digantikan oleh tautan navigasi untuk artikel berikutnya dalam series. "
+"Teksnya akan sesuai dengan yang disertakan dalam bidang 'Teks Navigasi "
+"Posting Berikutnya Kustom'. Jika bidang itu kosong, maka teksnya akan "
+"menjadi judul artikel"
 
 #: inc/settings/settings-page.php:172
 msgid ""
@@ -1862,29 +1876,30 @@ msgid ""
 "Text' field. If that field is empty then the text will be the title of the "
 "post"
 msgstr ""
-"Akan digantikan oleh tautan navigasi untuk pos pertama dalam sebuah seri. "
-"Teks akan menjadi apa pun yang termasuk dalam bidang 'Teks Navigasi Pos "
-"Pertama Kustom'. Jika bidang itu kosong maka teks akan menjadi judul pos"
+"Akan digantikan oleh tautan navigasi untuk artikel pertama dalam sebuah "
+"series. Teksnya akan sesuai dengan yang disertakan dalam bidang 'Teks "
+"Khusus Navigasi Artikel Pertama'. Jika ruas itu kosong, maka teksnya akan "
+"menjadi judul artikel."
 
 #: inc/settings/settings-page.php:179
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr ""
-"Gunakan tag ini baik sebelum atau setelah sisa kode template. Ini akan "
-"menunjukkan di mana Anda ingin konten dari sebuah pos ditampilkan."
+"Gunakan tag ini sebelum atau setelah sisa kode template. Ini akan "
+"menunjukkan di mana Anda ingin konten artikel ditampilkan."
 
 #: inc/settings/settings-page.php:187
 msgid "Will display what part of a series the post is"
-msgstr "Akan menampilkan bagian mana dari seri pos tersebut"
+msgstr "Akan menampilkan nomor bagian series artikel"
 
 #: inc/settings/settings-page.php:195
 msgid "Will display the total number of posts in a series"
-msgstr "Akan menampilkan total jumlah pos dalam sebuah seri"
+msgstr "Akan menampilkan jumlah artikel di series"
 
 #: inc/settings/settings-page.php:203
 msgid "Will display the description for the series"
-msgstr "Akan menampilkan deskripsi untuk seri tersebut"
+msgstr "Akan menampilkan deskripsi untuk series"
 
 #: inc/settings/settings-page.php:213
 msgid "Will output the slug of the series"
@@ -1920,15 +1935,15 @@ msgstr ""
 
 #: inc/settings/settings-page.php:304
 msgid "Update Options"
-msgstr "Opsi Pembaruan"
+msgstr "Perbaharui Pengaturan"
 
 #: inc/settings/settings-page.php:308
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
 msgstr ""
-"Mengklik Ya akan mengatur ulang opsi ke pengaturan default dan Anda akan "
-"kehilangan semua kustomisasi. Atau Anda bisa mengklik batal dan kembali."
+"Klik Ya akan mengatur ulang opsi ke pengaturan standar dan Anda akan "
+"kehilangan semua kustomisasi. Atau Anda dapat klik Batal dan kembali."
 
 #: inc/settings/settings-page.php:309
 msgid "No"
@@ -1936,12 +1951,12 @@ msgstr "Tidak"
 
 #: inc/settings/settings-page.php:310
 msgid "Yes"
-msgstr "Ya"
+msgstr "Iya"
 
 #: inc/settings/settings-upgrade.php:22
 #: inc/settings/settings-upgrade.php:44
 msgid "Please update your PublishPress Series data"
-msgstr "Silakan perbarui data PublishPress Series Anda"
+msgstr "Mohon perbarui data PublishPress Series"
 
 #: inc/settings/settings-upgrade.php:24
 #: inc/settings/settings-upgrade.php:45
@@ -1950,19 +1965,19 @@ msgid ""
 "update. This improves support for the Multiple Series feature, and resolves "
 "some issues with the order of posts. Please click this button to upgrade."
 msgstr ""
-"Kami telah melakukan perubahan pada cara data seri disimpan dan ini "
-"memerlukan pembaruan kecil. Ini meningkatkan dukungan untuk fitur Multiple "
-"Series, dan menyelesaikan beberapa masalah dengan urutan pos. Silakan klik "
+"Kami telah melakukan perubahan pada cara penyimpanan series dan ini "
+"memerlukan pembaruan kecil. Ini meningkatkan bantuan untuk fitur Series "
+"Ganda, dan menyelesaikan beberapa kendala dengan penyusunan pos. Mohon klik "
 "tombol ini untuk melakukan upgrade."
 
 #: inc/settings/settings-upgrade.php:25
 #: inc/settings/settings-upgrade.php:46
 msgid "Update Series data"
-msgstr "Perbarui data Seri"
+msgstr "Perbarui data Series"
 
 #: inc/settings/settings-upgrade.php:92
 msgid "Series upgrade completed."
-msgstr "Pembaruan Seri selesai."
+msgstr "Upgrade Series telah selesai"
 
 #: inc/settings/settings-upgrade.php:174
 #, php-format
@@ -1972,43 +1987,43 @@ msgstr "Sinkronisasi urutan Seri selesai. %d pos diperbarui."
 #: inc/settings/settings-validation.php:60
 #: orgSeries-setup.php:259
 msgid "Search Series"
-msgstr "Cari Seri"
+msgstr "Cari Series"
 
 #: inc/settings/settings-validation.php:61
 #: orgSeries-setup.php:260
 msgid "Popular Series"
-msgstr "Seri Populer"
+msgstr "Series Populer"
 
 #: inc/settings/settings-validation.php:62
 #: orgSeries-setup.php:261
 #: orgSeries-setup.php:315
 msgid "All Series"
-msgstr "Semua Seri"
+msgstr "Semua Series"
 
 #: inc/settings/settings-validation.php:63
-#: orgSeries-setup.php:262
+#: orgSeries-setup.php:262, fuzzy
 msgid "Edit Series"
-msgstr "Edit Seri"
+msgstr "Edit Series"
 
 #: inc/settings/settings-validation.php:64
 #: orgSeries-setup.php:263
 msgid "Update Series"
-msgstr "Perbarui Seri"
+msgstr "Perbarui Series"
 
 #: inc/settings/settings-validation.php:65
 #: orgSeries-setup.php:264
 msgid "Add New Series"
-msgstr "Tambah Seri Baru"
+msgstr "Tambahkan Series baru"
 
 #: inc/settings/settings-validation.php:66
 #: orgSeries-setup.php:265
 msgid "New Series Name"
-msgstr "Nama Seri Baru"
+msgstr "Nama Series Baru"
 
 #: inc/settings/settings-validation.php:68
 #: orgSeries-setup.php:267
 msgid "No series found"
-msgstr "Tidak ada seri yang ditemukan"
+msgstr "Series tidak ditemukan"
 
 #: inc/settings/settings-validation.php:121
 #, php-format
@@ -2019,7 +2034,7 @@ msgstr ""
 
 #: inc/settings/settings-validation.php:135
 msgid "PublishPress Series Plugin Options have been updated"
-msgstr "Opsi Plugin PublishPress Series telah diperbarui"
+msgstr "Pengaturan PublishPress Series telah diperbarui"
 
 #: inc/settings/settings-validation.php:151
 msgid "Permission denied"
@@ -2027,15 +2042,15 @@ msgstr "Izin ditolak"
 
 #: inc/settings/settings-validation.php:157
 msgid "PublishPress Series Plugin Options have been RESET"
-msgstr "Opsi Plugin PublishPress Series telah DIRESET"
+msgstr "Pengaturan PublishPress Series telah di setel ulang"
 
 #: inc/settings/tab-advanced.php:16
 msgid ""
 "Please change these settings carefully as they make significant changes to "
 "PublishPress Series."
 msgstr ""
-"Silakan ubah pengaturan ini dengan hati-hati karena mereka membuat "
-"perubahan signifikan pada PublishPress Series."
+"Mohon hati-hati dalam mengubah pengaturan ini karena akan berefek besar "
+"pada  PublishPress Series."
 
 #: inc/settings/tab-advanced.php:34
 msgid "Series Settings"
@@ -2046,16 +2061,16 @@ msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
 msgstr ""
-"Hapus semua data PublishPress Series dari database saat menghapus plugin "
-"ini."
+"Hapus semua data PublishPress Series dari basis data ketika menghapus "
+"plugin."
 
 #: inc/settings/tab-advanced.php:47
 msgid "Series Upgrade"
-msgstr "Pembaruan Series"
+msgstr "Upgrade Series"
 
 #: inc/settings/tab-advanced.php:52
 msgid "Run Upgrade Task"
-msgstr "Jalankan Tugas Pembaruan"
+msgstr "Jalankan Proses Upgrade"
 
 #: inc/settings/tab-advanced.php:56
 msgid ""
@@ -2063,8 +2078,8 @@ msgid ""
 "stored. You can run the upgrade task here if you're having issues with "
 "series parts."
 msgstr ""
-"Pada versi 2.11.4, PublishPress Series melakukan perubahan pada cara series "
-"disimpan. Anda dapat menjalankan tugas pembaruan di sini jika Anda "
+"Pada versi 2.11.4, PublishPress Series melakukan perubahan pada cara "
+"penyimpanan series. Anda dapat melakukan upgrade di sini jika Anda "
 "mengalami masalah dengan bagian series."
 
 #: inc/settings/tab-advanced.php:65
@@ -2089,11 +2104,11 @@ msgstr ""
 
 #: inc/settings/tab-advanced.php:83
 msgid "Reset settings"
-msgstr "Reset pengaturan"
+msgstr "Setel ulang pengaturan"
 
 #: inc/settings/tab-advanced.php:86
 msgid "Reset options to default"
-msgstr "Reset opsi ke default"
+msgstr "Atur ulang pengaturan ke standar"
 
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:144
@@ -2114,7 +2129,7 @@ msgstr "Gaya CSS"
 
 #: inc/settings/tab-legacy.php:41
 msgid "Use PublishPress Series CSS styles?"
-msgstr "Gunakan gaya CSS PublishPress Series?"
+msgstr "Gunakan pengaturan CSS dari PublishPress Series?"
 
 #: inc/settings/tab-legacy.php:45
 msgid "Style options"
@@ -2122,7 +2137,7 @@ msgstr "Opsi gaya"
 
 #: inc/settings/tab-legacy.php:47
 msgid "Use default style"
-msgstr "Gunakan gaya default"
+msgstr "Gunakan gaya standar"
 
 #: inc/settings/tab-legacy.php:48
 msgid "Use box style"
@@ -2134,7 +2149,7 @@ msgstr "Gunakan gaya gelap"
 
 #: inc/settings/tab-legacy.php:50
 msgid "Use light style"
-msgstr "Gunakan gaya terang"
+msgstr "Gunakan style cerah"
 
 #: inc/settings/tab-legacy.php:60
 msgid "Series Overview"
@@ -2142,7 +2157,7 @@ msgstr "Ikhtisar Seri"
 
 #: inc/settings/tab-legacy.php:62
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
-msgstr "Pilih desain untuk halaman taksonomi di mana satu Seri ditampilkan."
+msgstr "Pilih desain untuk halaman taksonomi di mana satu Series ditampilkan."
 
 #: inc/settings/tab-legacy.php:66
 msgid "Layout:"
@@ -2155,9 +2170,10 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
 "details on how to customize these designs</a>."
 msgstr ""
-"Memilih tata letak yang berbeda dari \"Default\" akan menimpa template "
+"Memilih tata letak yang berbeda dari 'Default' akan menggantikan template "
 "taksonomi dari tema Anda. <a href=\"%s\" target=\"_blank\">Klik di sini "
-"untuk detail tentang cara menyesuaikan desain ini</a>."
+"untuk informasi lebih lanjut tentang cara menyesuaikan desain-desain "
+"ini</a>."
 
 #: inc/settings/tab-legacy.php:91
 #: inc/settings/tab-series-category.php:66
@@ -2166,19 +2182,19 @@ msgstr "Kolom:"
 
 #: inc/settings/tab-legacy.php:97
 msgid "Order series by:"
-msgstr "Urutkan seri berdasarkan:"
+msgstr "Susun series berdasarkan:"
 
 #: inc/settings/tab-legacy.php:99
 msgid "Series part"
-msgstr "Bagian seri"
+msgstr "Bagian Series"
 
 #: inc/settings/tab-legacy.php:100
 msgid "Order by date"
-msgstr "Urutkan berdasarkan tanggal"
+msgstr "Susun berdasarkan tanggal"
 
 #: inc/settings/tab-legacy.php:104
 msgid "Series order method"
-msgstr "Metode urutan seri"
+msgstr "Metode penyusunan Series"
 
 #: inc/settings/tab-legacy.php:117
 #: inc/settings/tab-legacy.php:215
@@ -2186,11 +2202,11 @@ msgstr "Metode urutan seri"
 #: orgSeries-setup.php:485
 #: orgSeries-widgets.php:112
 msgid "Series Table of Contents"
-msgstr "Daftar Isi Seri"
+msgstr "Tabel konten Series"
 
 #: inc/settings/tab-legacy.php:122
 msgid "Series Table of Contents URL:"
-msgstr "URL Daftar Isi Seri:"
+msgstr "URL Daftar Isi Series:"
 
 #: inc/settings/tab-legacy.php:125
 msgid "view page"
@@ -2202,16 +2218,16 @@ msgid ""
 "You must %1s update your permalink structure %2s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"Anda harus %1s memperbarui struktur permalink Anda %2s ke sesuatu yang "
-"berbeda dari \"Plain\" agar URL Daftar Isi Seri berfungsi."
+"Anda harus %1s memperbarui struktur tautan tetap %2s Anda menjadi sesuatu "
+"selain 'Biasa' agar URL Daftar Isi Seri berfungsi"
 
 #: inc/settings/tab-legacy.php:154
 msgid "Series Per Page:"
-msgstr "Seri Per Halaman:"
+msgstr "Series per halaman:"
 
 #: inc/settings/tab-legacy.php:158
 msgid "Series Table of Contents Title:"
-msgstr "Judul Daftar Isi Seri:"
+msgstr "Judul daftar isi Series:"
 
 #: inc/settings/tab-legacy.php:168
 msgid "Series Icons"
@@ -2219,44 +2235,42 @@ msgstr "Ikon Seri"
 
 #: inc/settings/tab-legacy.php:173
 msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Lebar untuk ikon di halaman daftar isi seri (dalam piksel)"
+msgstr "Lebar ikon pada halaman Daftar Isi Series (dalam piksel)."
 
 #: inc/settings/tab-legacy.php:177
 msgid "Width for icon on a post page (in pixels)."
-msgstr "Lebar untuk ikon di halaman pos (dalam piksel)."
+msgstr "Lebar ikon pada halaman artikel (dalam piksel)."
 
 #: inc/settings/tab-legacy.php:181
 msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-"Lebar untuk ikon jika ditampilkan melalui template seri terbaru (dalam "
-"piksel)."
+msgstr "Lebar ikon jika ditampilkan melalui templat series terbaru (dalam piksel)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
 msgid "Latest Series"
-msgstr "Seri Terbaru"
+msgstr "Series Terbaru"
 
 #: inc/settings/tab-legacy.php:193
 msgid "This display is used by the \"Latest Series\" widget."
-msgstr "Tampilan ini digunakan oleh widget \"Seri Terbaru\"."
+msgstr "Tampilan ini digunakan oleh widget \"Series Terakhir\"."
 
 #: inc/settings/tab-legacy.php:197
 msgid "Latest Series (tags before):"
-msgstr "Seri Terbaru (tag sebelum):"
+msgstr "Series Terbaru (tag before):"
 
 #: inc/settings/tab-legacy.php:201
 msgid "Latest Series (inner tags):"
-msgstr "Seri Terbaru (tag dalam):"
+msgstr "Series terbaru (inner tag):"
 
 #: inc/settings/tab-legacy.php:205
 msgid "Latest Series (tags after):"
-msgstr "Seri Terbaru (tag setelah):"
+msgstr "Series terbaru (setelah tag):"
 
 #: inc/settings/tab-legacy.php:217
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
-msgstr "Tampilan ini digunakan oleh widget \"Daftar Isi Seri\", shortcode, dan URL."
+msgstr "Tampilan ini digunakan oleh widget 'Daftar Isi Series', shortcode, dan URL."
 
 #: inc/settings/tab-legacy.php:224
 msgid ""
@@ -2264,40 +2278,40 @@ msgid ""
 "for this display, go the \"Display\" tab and then \"Series Table of "
 "Contents URL\"."
 msgstr ""
-"Tampilan ini digunakan oleh \"Daftar Isi Seri\". Untuk menemukan URL untuk "
-"tampilan ini, buka tab \"Tampilan\" dan kemudian \"URL Daftar Isi Seri\"."
+"Tampilan ini digunakan oleh 'Daftar Isi Series'. Untuk menemukan URL "
+"tampilan ini, buka tab 'Tampilan' dan kemudian 'URL Daftar Isi Series'"
 
 #: inc/settings/tab-metabox.php:16
 msgid ""
 "These settings allow you to customize the metabox on the post editing "
 "screen."
 msgstr ""
-"Pengaturan ini memungkinkan Anda untuk menyesuaikan metabox pada layar "
-"pengeditan pos."
+"Pengaturan ini memungkinkan anda untuk mengatur posisi metabox di layar "
+"pengeditan artikel."
 
 #: inc/settings/tab-metabox.php:26
 msgid "Default Series Order"
-msgstr "Urutan Seri Default"
+msgstr "Urutan default Series"
 
 #: inc/settings/tab-metabox.php:27
 msgid "Alphabetical A-Z"
-msgstr "Abjad A-Z"
+msgstr "Menurut abjad A-Z"
 
 #: inc/settings/tab-metabox.php:28
 msgid "Alphabetical Z-A"
-msgstr "Abjad Z-A"
+msgstr "Menurut abjad Z-A"
 
 #: inc/settings/tab-metabox.php:34
 msgid "Show \"Add New\""
-msgstr "Tampilkan \"Tambah Baru\""
+msgstr "Tampilkan \"Tambah baru\""
 
 #: inc/settings/tab-metabox.php:38
 msgid "Show \"Post title in widget\""
-msgstr "Tampilkan \"Judul pos di widget\""
+msgstr "Tampilkan \"Judul artikel di widget\""
 
 #: inc/settings/tab-metabox.php:42
 msgid "Metabox Series Order"
-msgstr "Urutan Metabox Seri"
+msgstr "Susunan Metabox Series"
 
 #: inc/settings/tab-post-details.php:12
 msgid "Post Details Settings"
@@ -2313,7 +2327,7 @@ msgstr ""
 #: inc/settings/tab-post-list-box.php:26
 #: inc/settings/tab-post-navigation.php:26
 msgid "As in Template"
-msgstr "Sama seperti di Template"
+msgstr "Seperti dalam template"
 
 #: inc/settings/tab-post-details.php:36
 msgid "Display Series Post Details?"
@@ -2355,8 +2369,8 @@ msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
 msgstr ""
-"Apakah akan membatasi tampilan meta seri hanya di satu halaman saja atau "
-"termasuk halaman arsip."
+"Apakah membatasi tampilan meta Series hanya pada halaman tunggal atau "
+"menyertakan halaman arsip."
 
 #: inc/settings/tab-post-list-box.php:12
 msgid "Post List Box Settings"
@@ -2383,8 +2397,8 @@ msgid "Post List Box Position"
 msgstr "Posisi Kotak Daftar Pos"
 
 #: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr "Template Daftar Pos Seri"
+msgid "Post List Box Template"
+msgstr "Template Kotak Daftar Pos"
 
 #: inc/settings/tab-post-list-box.php:70
 msgid "Post Title (Linked Post)"
@@ -2410,7 +2424,7 @@ msgstr ""
 
 #: inc/settings/tab-post-navigation.php:36
 msgid "Display Series Navigation?"
-msgstr "Tampilkan Navigasi Seri?"
+msgstr "Tampilkan Navigasi Series?"
 
 #: inc/settings/tab-post-navigation.php:41
 msgid "Navigation Selection"
@@ -2496,7 +2510,7 @@ msgstr "Memungkinkan penulis untuk menambahkan pos ke lebih dari satu seri."
 #: inc/settings/tab-series-category.php:9
 #: orgSeries-options.php:142
 msgid "Series Category"
-msgstr "Kategori Seri"
+msgstr "Kategori series"
 
 #: inc/settings/tab-series-category.php:13
 msgid "Settings for Series Categories archive URL and display behavior."
@@ -2557,29 +2571,28 @@ msgid ""
 "This feature allows you to create a new taxonomy for this plugin to use if "
 "you don't want to use the default \"Series\" taxonomy."
 msgstr ""
-"Fitur ini memungkinkan Anda untuk membuat taksonomi baru untuk digunakan "
-"oleh plugin ini jika Anda tidak ingin menggunakan taksonomi default "
-"\"Seri\"."
+"Fitur ini memungkinkan Anda membuat taksonomi baru untuk plugin ini jika "
+"Anda tidak ingin menggunakan taksonomi 'Series' standar."
 
 #: inc/settings/tab-taxonomy.php:28
 msgid "Series Taxonomy Slug:"
-msgstr "Slug Taksonomi Seri:"
+msgstr "Taksonomi Series Slug:"
 
 #: inc/settings/tab-taxonomy.php:31
 msgid "This text will be part of the series base URL."
-msgstr "Teks ini akan menjadi bagian dari URL dasar seri."
+msgstr "Teks ini akan menjadi bagian dari URL dasar series."
 
 #: inc/settings/tab-taxonomy.php:36
 msgid "Series Taxonomy:"
-msgstr "Taksonomi Seri:"
+msgstr "Taksonomi Series:"
 
 #: inc/settings/tab-taxonomy.php:40
 msgid ""
 "To create a new taxonomy, enter the new name and click the \"Update "
 "Options\" button."
 msgstr ""
-"Untuk membuat taksonomi baru, masukkan nama baru dan klik tombol \"Perbarui "
-"Opsi\"."
+"Untuk membuat taksonomi baru, masukkan nama baru dan klik tombol 'Perbarui "
+"Opsi'."
 
 #: inc/settings/tab-taxonomy.php:47
 msgid "Migrate Terms"
@@ -2618,25 +2631,23 @@ msgstr "Upgrade ke Pro"
 
 #: includes-core/PPSeriesCoreAdmin.php:58
 msgid "Need PublishPress Series Support?"
-msgstr "Butuh Dukungan PublishPress Series?"
+msgstr "Butuh support untuk PublishPress Series"
 
 #: includes-core/PPSeriesCoreAdmin.php:63
 msgid "If you need help or have a new feature request, let us know."
-msgstr ""
-"Jika Anda memerlukan bantuan atau memiliki permintaan fitur baru, beri tahu "
-"kami."
+msgstr "Jika kamu butuh bantuan atau meminta fitur baru, beri tahu kami."
 
 #: includes-core/PPSeriesCoreAdmin.php:65
 msgid "Request Support"
-msgstr "Minta Dukungan"
+msgstr "Minta bantuan"
 
 #: includes-core/PPSeriesCoreAdmin.php:74
 msgid "Detailed documentation is also available on the plugin website."
-msgstr "Dokumentasi rinci juga tersedia di situs web plugin."
+msgstr "Dokumentasi lebih lengkap juga tersedia di website plugin."
 
 #: includes-core/PPSeriesCoreAdmin.php:76
 msgid "View Knowledge Base"
-msgstr "Lihat Basis Pengetahuan"
+msgstr "Lihat Pengetahuan Dasar"
 
 #: orgSeries-admin.php:67
 msgid "An error occured"
@@ -2645,12 +2656,14 @@ msgstr "Terjadi kesalahan"
 #: orgSeries-admin.php:70
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
-msgstr "%1$s seri yang dimigrasi ke taksonomi baru"
+msgstr "%1$s series dimigrasi ke taksonomi baru"
 
 #: orgSeries-admin.php:175
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr "Jika Anda suka %s, silakan tinggalkan kami penilaian %s. Terima kasih!"
+msgstr ""
+"Jika Anda menyukai %s, mohon pertimbangkan meninggalkan %s rating. Terima "
+"kasih!"
 
 #: orgSeries-admin.php:186
 msgid "About PublishPress Series"
@@ -2678,46 +2691,46 @@ msgstr "Kontak"
 
 #: orgSeries-admin.php:219
 msgid "Sorry but you don't have permission to add series"
-msgstr "Maaf, tetapi Anda tidak memiliki izin untuk menambahkan seri"
+msgstr "Maaf, anda tidak memiliki izin untuk menambah series"
 
 #: orgSeries-admin.php:230
 msgid "The name you picked isn't sanitizing correctly. Try something different."
-msgstr "Nama yang Anda pilih tidak disanitasi dengan benar. Coba yang berbeda."
+msgstr "Nama yang Anda pilih tidak tersanitasi dengan benar. Coba yang lain."
 
 #: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
-msgstr "Hmm... sepertinya sudah ada seri dengan nama itu. Coba yang lain"
+msgstr "Hmm... sepertinya sudah ada series dengan nama itu. Coba nama yang lain"
 
 #: orgSeries-admin.php:359
 msgid "Not part of a series"
-msgstr "Bukan bagian dari seri"
+msgstr "Bukan bagian dari series"
 
 #: orgSeries-admin.php:421
 msgid "Search series"
-msgstr "Cari seri"
+msgstr "Cari series"
 
 #: orgSeries-admin.php:436
 msgid "Series Part:"
-msgstr "Bagian Seri:"
+msgstr "Bagian Series:"
 
 #: orgSeries-admin.php:443
 msgid "Post title in widget:"
-msgstr "Judul pos di widget:"
+msgstr "Judul artikel di widget:"
 
 #: orgSeries-admin.php:445
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr ""
-"Judul singkat dari pos ini yang akan digunakan di widget Seri. Biarkan "
-"kosong untuk menggunakan judul lengkap."
+"Judul pendek untuk artikel ini akan digunakan di widget Series. Biarkan "
+"kosong untuk menggunakan judul penuh."
 
 #: orgSeries-admin.php:519
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Tidak ada nomor bagian)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak Ada Nomor Bagian)"
 
 #: orgSeries-admin.php:521
 #, php-format
@@ -2727,32 +2740,32 @@ msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Bagian %1$s dari %2$s)"
 #: orgSeries-admin.php:525
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak ada nomor bagian)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak Ada Nomor Bagian)"
 
 #: orgSeries-admin.php:531
 #: orgSeries-setup.php:270
 msgid "No Series"
-msgstr "Tidak Ada Seri"
+msgstr "Tidak ada Series"
 
 #: orgSeries-admin.php:552
 msgid "View all series"
-msgstr "Lihat semua seri"
+msgstr "Lihat semua series"
 
 #: orgSeries-admin.php:561
 msgid "Manage All Series"
-msgstr "Kelola Semua Seri"
+msgstr "Kelola semua Series"
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
-msgstr "Urutan Istilah"
+msgstr "Susunan Term"
 
 #: orgSeries-manage.php:67
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
-"Untuk memindahkan item, seret dan jatuhkan baris dengan \"mengklik dan "
-"menahan\" di mana saja dan memindahkannya ke posisi barunya."
+"Untuk mengatur ulang posisi suatu item, seret-lepas baris dengan 'klik dan "
+"tahan' di mana saja, lalu pindahkan ke posisi baru."
 
 #: orgSeries-manage.php:196, fuzzy
 msgid "ID"
@@ -2763,53 +2776,52 @@ msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
-"Istilah biasanya diurutkan secara alfabetis, tetapi Anda dapat memilih "
-"urutan sendiri dengan memasukkan angka (1 untuk yang pertama, dll.) di "
-"bidang ini."
+"Biasanya, Term diurutkan secara alfabetis, tetapi Anda dapat memilih urutan "
+"sendiri dengan memasukkan angka (1 untuk yang pertama, dst.) di ruas ini."
 
 #: orgSeries-manage.php:240
 msgid "Current series icon:"
-msgstr "Ikon seri saat ini:"
+msgstr "Ikon series saat ini:"
 
 #: orgSeries-manage.php:246
 msgid "No icon currently"
-msgstr "Tidak ada ikon saat ini"
+msgstr "Saat ini tidak ada ikon"
 
 #: orgSeries-manage.php:256
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
-"Hapus gambar? (catatan: tidak akan ada gambar yang terkait dengan seri ini "
-"jika Anda memilih ini)"
+"Hapus gambar? (catatan: tidak akan ada gambar yang terkait dengan series "
+"ini jika Anda memilih ini)"
 
 #: orgSeries-manage.php:261
 msgid "Series Icon Upload:"
-msgstr "Unggah Ikon Seri:"
+msgstr "Unggah Ikon Series:"
 
 #: orgSeries-manage.php:265
 msgid "Upload an image for the series."
-msgstr "Unggah gambar untuk seri."
+msgstr "Unggah gambar untuk series."
 
 #: orgSeries-manage.php:280
 msgid "Invalid form data"
-msgstr "Data formulir tidak valid"
+msgstr "Data formulir tidak valid."
 
 #: orgSeries-manage.php:290
 msgid "Invalid nonce, reload and try again"
-msgstr "Nonce tidak valid, muat ulang dan coba lagi"
+msgstr "Nonce tidak sah, muat ulang dan coba lagi"
 
 #: orgSeries-manage.php:299
 msgid "Invalid taxonomy"
-msgstr "Taksonomi tidak valid"
+msgstr "Taksonomi tidak sah"
 
 #: orgSeries-manage.php:305
 msgid "Not enough permission"
-msgstr "Izin tidak cukup"
+msgstr "Izin belum terpenuhi"
 
 #: orgSeries-manage.php:309
 msgid "Updated successfully"
-msgstr "Diperbarui dengan sukses"
+msgstr "Berhasil diperbarui"
 
 #: orgSeries-options.php:43
 #: orgSeries-options.php:64
@@ -2820,7 +2832,7 @@ msgstr "Pengaturan"
 
 #: orgSeries-options.php:54
 msgid "PublishPress Series Options"
-msgstr "Opsi PublishPress Series"
+msgstr "Pengaturan PublishPress Series"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"
@@ -2832,48 +2844,48 @@ msgstr "Metabox"
 
 #: orgSeries-options.php:150
 msgid "Advanced"
-msgstr "Lanjutkan"
+msgstr "Lanjutan"
 
 #: orgSeries-setup.php:209
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr "Pilih \"Bukan bagian dari seri\" untuk menghapus data seri dari postingan"
+msgstr "Pilih \"Bukan bagian dari series\" untuk menghapus series dari artikel"
 
 #: orgSeries-setup.php:268
 msgid "&larr; Go to Series"
-msgstr "&larr; Pergi ke Seri"
+msgstr "&larr; Pergi ke Series"
 
 #: orgSeries-setup.php:269
 msgid "View Series"
-msgstr "Lihat Seri"
+msgstr "Lihat Series"
 
 #: orgSeries-setup.php:271
 msgid "Series List"
-msgstr "Daftar Seri"
+msgstr "Daftar Series"
 
 #: orgSeries-setup.php:272
 msgid "Series Link"
-msgstr "Tautan Seri"
+msgstr "Tautan Series"
 
 #: orgSeries-setup.php:273
 msgid "A link to a Series"
-msgstr "Tautan ke Seri"
+msgstr "Tautan ke Series"
 
 #: orgSeries-setup.php:327
 msgid "Series Navigation"
-msgstr "Navigasi Seri"
+msgstr "Navigasi Series"
 
-#: orgSeries-setup.php:858
+#: orgSeries-setup.php:858, fuzzy
 msgid "Series: "
-msgstr "Seri: "
+msgstr "Series: "
 
 #: orgSeries-setup.php:860
 msgid "Posts from the series: "
-msgstr "Postingan dari seri: "
+msgstr "Artikel dari series: "
 
 #: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:693, fuzzy
 msgid "Series:"
-msgstr "Seri:"
+msgstr "Series:"
 
 #: orgSeries-taxonomy.php:666
 msgid "Part:"
@@ -2881,25 +2893,25 @@ msgstr "Bagian:"
 
 #: orgSeries-template-tags.php:264
 msgid "All the Series I've Written"
-msgstr "Semua Seri yang Telah Saya Tulis"
+msgstr "Semua Series yang sudah saya tulis"
 
 #: orgSeries-template-tags.php:268
 #: orgSeries-template-tags.php:277
-#, php-format
+#, fuzzy, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr "<a href=\"%s\" title=\"%s\">Seri</a>"
+msgstr "<a href=\"%s\" title=\"%s\">Series</a>"
 
 #: orgSeries-utility.php:410
 msgid "Auto/None"
-msgstr "Otomatis/Tidak ada"
+msgstr "Otomatis/Kosong"
 
 #: orgSeries-widgets.php:12
 msgid "Use this to control the output of the latest series widget"
-msgstr "Gunakan ini untuk mengontrol output dari widget seri terbaru"
+msgstr "Gunakan kontrol ini untuk memunculkan widget series terbaru"
 
 #: orgSeries-widgets.php:20
 msgid "Most Recent Series"
-msgstr "Seri Terbaru"
+msgstr "Series Paling Baru"
 
 #: orgSeries-widgets.php:73
 #: orgSeries-widgets.php:269
@@ -2913,32 +2925,32 @@ msgid ""
 "href=\"%s\">Latest Series</a> area."
 msgstr ""
 "Tata letak dan konten widget ini dapat disesuaikan melalui area <a "
-"href=\"%s\">Seri Terbaru</a>."
+"href=\"%s\">Series Terbaru</a>."
 
 #: orgSeries-widgets.php:82
 msgid "Hide series with no posts?"
-msgstr "Sembunyikan seri tanpa pos?"
+msgstr "Sembunyikan series jika tidak ada artikel?"
 
 #: orgSeries-widgets.php:85
 #: orgSeries-widgets.php:295
 msgid "Order by:"
-msgstr "Urutkan berdasarkan:"
+msgstr "Urut berdasarkan:"
 
 #: orgSeries-widgets.php:87
 msgid "Number of posts in Series"
-msgstr "Jumlah pos dalam Seri"
+msgstr "Jumlah artikel dalam Series"
 
 #: orgSeries-widgets.php:88
 msgid "Name of Series"
-msgstr "Nama Seri"
+msgstr "Nama Series"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:89, fuzzy
 msgid "Series Slug"
-msgstr "Slug Seri"
+msgstr "Series Slug"
 
 #: orgSeries-widgets.php:90
 msgid "When Series was Created"
-msgstr "Saat Seri Dibuat"
+msgstr "Ketika Series dibuat"
 
 #: orgSeries-widgets.php:91
 msgid "Random"
@@ -2946,11 +2958,11 @@ msgstr "Acak"
 
 #: orgSeries-widgets.php:95
 msgid "Number of series to display:"
-msgstr "Jumlah seri yang ditampilkan:"
+msgstr "Jumlah series yang ditampilkan:"
 
 #: orgSeries-widgets.php:99
 msgid "Display Order: "
-msgstr "Urutan Tampilan: "
+msgstr "Tampilan Susunan: "
 
 #: orgSeries-widgets.php:100, fuzzy
 msgid "ASC: "
@@ -2962,23 +2974,23 @@ msgstr "DESC: "
 
 #: orgSeries-widgets.php:111
 msgid "Use this to display the Series Table of contents"
-msgstr "Gunakan ini untuk menampilkan Daftar Isi Seri"
+msgstr "Gunakan ini untuk menampilkan konten tabel Series"
 
 #: orgSeries-widgets.php:178
 msgid "Select Series"
-msgstr "Pilih Seri"
+msgstr "Pilih Series"
 
 #: orgSeries-widgets.php:234
 msgid "Other posts in series:"
-msgstr "Pos lain dalam seri:"
+msgstr "Artikel lain di series:"
 
 #: orgSeries-widgets.php:274
 msgid "Show Series Table Of Content"
-msgstr "Tampilkan Daftar Isi Seri"
+msgstr "Tampilkan daftar isi Series"
 
 #: orgSeries-widgets.php:279
 msgid "Show Series Table Of Content as:"
-msgstr "Tampilkan Daftar Isi Seri sebagai:"
+msgstr "Tampilkan daftar isi Series sebagai:"
 
 #: orgSeries-widgets.php:280, fuzzy
 msgid "Dropdown:"
@@ -2990,11 +3002,11 @@ msgstr "Daftar:"
 
 #: orgSeries-widgets.php:285
 msgid "Show post count:"
-msgstr "Tampilkan jumlah pos:"
+msgstr "Tunjukkan jumlah pos:"
 
 #: orgSeries-widgets.php:290
 msgid "Hide empty series:"
-msgstr "Sembunyikan seri kosong:"
+msgstr "Sembunyikan series yang kosong:"
 
 #: orgSeries-widgets.php:299
 msgid "name"
@@ -3010,7 +3022,7 @@ msgstr "slug"
 
 #: orgSeries-widgets.php:302
 msgid "series id"
-msgstr "id seri"
+msgstr "Series id"
 
 #: orgSeries-widgets.php:315
 msgid "Order:"
@@ -3018,15 +3030,15 @@ msgstr "Urutan:"
 
 #: orgSeries-widgets.php:333
 msgid "Exclude series:"
-msgstr "Kecualikan seri:"
+msgstr "Kecualikan series:"
 
 #: orgSeries-widgets.php:348
 msgid "Include series:"
-msgstr "Sertakan seri:"
+msgstr "Sertakan series:"
 
 #: orgSeries-widgets.php:363
 msgid "Number of Series:"
-msgstr "Jumlah Seri:"
+msgstr "Nomor Series:"
 
 #: orgSeries-widgets.php:368, fuzzy
 msgid "Offset:"
@@ -3037,36 +3049,36 @@ msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
-"Anda dapat memilih offset untuk jumlah seri (berguna untuk paging). Tidak "
-"ada offset jika dibiarkan kosong"
+"Anda dapat memilih offset untuk jumlah series (berguna untuk penomoran "
+"halaman). Tidak ada offset jika dibiarkan kosong."
 
 #: orgSeries-widgets.php:374
 msgid "Search:"
-msgstr "Cari:"
+msgstr "Pencarian:"
 
 #: orgSeries-widgets.php:376
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr ""
-"Anda dapat mengembalikan seri yang cocok dengan string pencarian ini (cocok "
-"dengan nama seri)"
+"Anda dapat mengembalikan semua series yang sesuai dengan string pencarian "
+"ini (dipadankan dengan nama-nama series)."
 
 #: orgSeries-widgets.php:380
 msgid "Show other posts in the current series:"
-msgstr "Tampilkan pos lain dalam seri saat ini:"
+msgstr "Tampilkan artikel lain dalam series ini:"
 
 #: orgSeries-widgets.php:397
 msgid "Current series"
-msgstr "Seri saat ini"
+msgstr "Series saat ini"
 
 #: orgSeries-widgets.php:416
 msgid "Series widget title:"
-msgstr "Judul widget seri:"
+msgstr "Judul widget series:"
 
 #: orgSeries-widgets.php:418
 msgid "This text will display above other posts in this series."
-msgstr "Teks ini akan ditampilkan di atas pos lain dalam seri ini."
+msgstr "Teks ini akan ditampilkan di atas posting lain dalam series ini."
 
 #: orgSeries.php:164
 msgid "<strong>This plugin can be deleted.</strong>"
@@ -3075,7 +3087,7 @@ msgstr "<strong>Plugin ini dapat dihapus.</strong>"
 #: src/application/Container.php:160
 #, php-format
 msgid "The %1$s already has a parameter indexed with the name: %2$s."
-msgstr "%1$s sudah memiliki parameter yang diindeks dengan nama: %2$s."
+msgstr "%1$s sudah mempunyai indeks parameter dengan nama: %2$s."
 
 #: src/application/Root.php:139
 #, php-format
@@ -3085,12 +3097,12 @@ msgstr "Metode %1$s hanya dapat digunakan untuk mendaftarkan anak dari %2$s."
 #: src/domain/exceptions/EntityNotFoundException.php:30
 #, php-format
 msgid "Unable to retrieve an instance of %1$s. Not found."
-msgstr "Tidak dapat mengambil instance dari %1$s. Tidak ditemukan."
+msgstr "Tidak dapat mengambil instansi %1$s. Tidak ditemukan."
 
 #: src/domain/exceptions/InvalidEntityException.php:29
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
-msgstr "%1$s bukan entitas yang valid (diharapkan: %2$s)."
+msgstr "%1$s bukanlah entitas yang valid (diharapkan: %2$s)."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
@@ -3099,8 +3111,8 @@ msgid ""
 "permissions. Please ensure that the following path is correct and verify "
 "that the file permissions are correct:%2$s %3$s"
 msgstr ""
-"File \"%1$s\" hilang atau tidak dapat dibaca karena izin. Harap pastikan "
-"bahwa jalur berikut benar dan verifikasi bahwa izin file sudah benar:%2$s "
+"Berkas \"%1$s\" entah hilang atau tidak dapat dibaca karena izin. Pastikan "
+"bahwa jalur berikut benar dan verifikasi bahwa izin berkasnya benar:%2$s "
 "%3$s"
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
@@ -3119,8 +3131,8 @@ msgid ""
 "The provided object fully qualified class name (%1$s) must implement the "
 "%2$s interface."
 msgstr ""
-"Nama kelas lengkap objek yang diberikan (%1$s) harus mengimplementasikan "
-"antarmuka %2$s."
+"Nama kelas lengkap (%1$s) yang disediakan harus mengimplementasikan "
+"antarmuka (%2$s)."
 
 #: src/domain/model/FileLocation.php:50
 #, php-format
@@ -3129,12 +3141,14 @@ msgstr "Jalur file yang diberikan (%s) tidak dapat dibaca."
 
 #: src/domain/model/LicenseKeyRepository.php:131
 msgid "An error occurred, please try again."
-msgstr "Terjadi kesalahan, harap coba lagi."
+msgstr "Terjadi eror, mohon mencoba kembali."
 
 #: src/domain/model/RouteIdentifier.php:51
 #, php-format
 msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr "Nilai yang masuk untuk %1$s diharapkan menjadi closure. Itu tidak."
+msgstr ""
+"Nilai yang masuk untuk %1$s diharapkan berupa penutup. Namun, itu bukan "
+"penutup."
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:122
 #: src/views/admin/templates/license_key_form.template.php:31
@@ -3148,11 +3162,11 @@ msgstr "Aktifkan Lisensi"
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:241
 msgid "License Key successfully activated."
-msgstr "Kunci Lisensi berhasil diaktifkan."
+msgstr "Kunci lisensi berhasil diaktifkan."
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:242
 msgid "License Key successfully deactivated."
-msgstr "Kunci Lisensi berhasil dinonaktifkan."
+msgstr "Kunci lisensi berhasil dinonaktifkan."
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
@@ -3160,8 +3174,8 @@ msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
 "can only be used to push values to this data element when it is an array."
 msgstr ""
-"Nilai untuk %1$s sudah diatur dan itu bukan array. Metode %2$s hanya dapat "
-"digunakan untuk mendorong nilai ke elemen data ini ketika itu adalah array."
+"Nilai untuk %1$s sudah diatur dan bukan array. Metode %2$s hanya dapat "
+"digunakan untuk menambahkan nilai ke elemen data ini jika itu adalah array."
 
 #: src/domain/services/AssetRegistry.php:271
 #, php-format
@@ -3171,8 +3185,8 @@ msgid ""
 "%3$s method to push your value to the array."
 msgstr ""
 "Nilai untuk %1$s sudah ada dalam properti %2$s. Penggantian tidak "
-"diperbolehkan. Karena nilai data ini adalah array, Anda mungkin ingin "
-"menggunakan metode %3$s untuk mendorong nilai Anda ke dalam array."
+"diizinkan. Karena nilai data ini adalah array, Anda mungkin ingin "
+"menggunakan metode %3$s untuk menambahkan nilai Anda ke dalam array."
 
 #: src/domain/services/AssetRegistry.php:283
 #, php-format
@@ -3180,9 +3194,9 @@ msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed.  Consider attaching your value to a different key"
 msgstr ""
-"Nilai untuk %1$s sudah ada di properti %2$s. Penggantian tidak "
-"diperbolehkan. Pertimbangkan untuk melampirkan nilai Anda ke kunci yang "
-"berbeda"
+"Nilai untuk %1$s sudah ada dalam properti %2$s. Penggantian tidak "
+"diizinkan. Pertimbangkan untuk menghubungkan nilai Anda ke kunci yang "
+"berbeda."
 
 #: src/domain/services/AssetRegistry.php:408
 #, php-format
@@ -3190,20 +3204,20 @@ msgid ""
 "The namespace for this manifest file has already been registered, choose a "
 "namespace other than %s"
 msgstr ""
-"Namespace untuk file manifest ini sudah terdaftar, pilih namespace lain "
-"selain %s"
+"Namespace untuk berkas manifest ini sudah terdaftar. Pilih namespace selain "
+"%s"
 
 #: src/domain/services/AssetRegistry.php:419
 #, php-format
 msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 msgstr ""
-"Nilai yang diberikan untuk %1$s bukanlah url yang valid. Url yang diberikan "
+"Nilai yang disediakan untuk %1$s bukan URL yang valid. URL yang diberikan "
 "adalah: %2$s"
 
 #: src/views/admin/templates/license_key_form.template.php:16
 #, php-format
 msgid "License Key for %1$s"
-msgstr "Kunci Lisensi untuk %1$s"
+msgstr "Kunci lisensi untu %1$s"
 
 #: src/views/admin/templates/license_key_form.template.php:19
 msgid "Enter your license key: "
@@ -3212,29 +3226,29 @@ msgstr "Masukkan kunci lisensi Anda: "
 #: addons/grouping/legacy-includes.php:278
 msgctxt "taxonomy general name"
 msgid "Series Categories"
-msgstr "Kategori Seri"
+msgstr "Kategori series"
 
 #: inc/settings/settings-validation.php:58
 #: orgSeries-setup.php:257
 msgctxt "taxonomy general name"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: addons/grouping/legacy-includes.php:279
 msgctxt "taxonomy singular name"
 msgid "Series Category"
-msgstr "Kategori Seri"
+msgstr "Kategori series"
 
 #: inc/settings/settings-validation.php:59
 #: orgSeries-setup.php:258
 msgctxt "taxonomy singular name"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: addons/grouping/legacy-includes.php:670
 msgctxt "series grouping column header"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: addons/post-list-box/includes/class-post-type.php:27
 #, fuzzy, php-format
@@ -3257,12 +3271,12 @@ msgstr "%2$s"
 #: orgSeries-admin.php:478
 msgctxt "series meta box title"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-admin.php:491
 msgctxt "posts list column header"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-admin.php:571
 msgctxt "dashboard count label"
@@ -3273,33 +3287,31 @@ msgstr[0] "Seri"
 #: orgSeries-options.php:55
 msgctxt "top-level admin menu label"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-setup.php:266
 msgctxt "taxonomy menu name"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-setup.php:321
 #: orgSeries-setup.php:322
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr ""
-"Entri ini adalah bagian %series_part% dari %total_posts_in_series% dalam "
-"seri "
+msgstr "Entri ini bagian %series_part% dari %total_posts_in_series% dalam series "
 
 #: orgSeries-taxonomy.php:381
 msgctxt "series list title"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-widgets.php:233
 msgctxt "widget title default"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
 
 #: orgSeries-widgets.php:386
 msgctxt "widget section label"
 msgid "Series"
-msgstr "Seri"
+msgstr "Serial"
