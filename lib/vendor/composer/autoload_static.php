@@ -17,14 +17,14 @@ class ComposerStaticInitPublishPressSeries
     );
 
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'PublishPress\\WordPressEDDLicense\\' => 33,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PublishPress\\WordPressEDDLicense\\' => 
+        'PublishPress\\WordPressEDDLicense\\' =>
         array (
             0 => __DIR__ . '/..' . '/publishpress/wordpress-edd-license/src/classes',
         ),
