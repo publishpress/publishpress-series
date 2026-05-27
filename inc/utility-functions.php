@@ -106,7 +106,7 @@ if (!function_exists('pp_series_upgrade_function')) {
                 //create table for series icons
                 $sql = "CREATE TABLE $table_name (
                 term_id INT NOT NULL,
-                icon VARCHAR(100) NOT NULL,
+                icon ΤΕΧΤ NOT NULL,
                 PRIMARY KEY  (term_id)
             )";
                 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -118,7 +118,34 @@ if (!function_exists('pp_series_upgrade_function')) {
             update_option('pp_series_2_11_1_upgraded', true);
         }
 
-
+        /**
+        * Upgrade icon column from VARCHAR(100) to TEXT
+        */
+        if (!get_option('pp_series_3_1_3_upgraded')) {
+                $table_name = $wpdb->prefix . "orgseriesicons";
+                 // Ensure table exists
+                 if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+                     $column = $wpdb->get_row(
+                         $wpdb->prepare(
+                             "SHOW COLUMNS FROM `$table_name` LIKE %s",
+                             'icon' )
+                     );
+                     
+                     // Upgrade old installs
+                     if ($column && isset($column->Type)) {
+                         if (
+                             stripos($column->Type, 'varchar(100)') !== false ||
+                             stripos($column->Type, 'varchar(255)') !== false
+                         ) {
+                             $wpdb->query(
+                                 "ALTER TABLE `$table_name`
+                                 MODIFY `icon` TEXT NOT NULL"
+                             );
+                         }
+                     }
+                 }
+            update_option('pp_series_3_1_3_upgraded', true);
+        }
     }
 }
 
