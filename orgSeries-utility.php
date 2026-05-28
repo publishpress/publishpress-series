@@ -417,9 +417,7 @@ function ppseries_get_series_list() {
 }
 
 function ppseries_get_series_slug() {
-    global $orgseries;
-
-	$series_slug = get_option('pp_series_taxonomy_slug');
+    $series_slug = get_option('pp_series_taxonomy_slug');
 
     $series_slug = (!empty(trim($series_slug))) ? $series_slug : 'series';
 
