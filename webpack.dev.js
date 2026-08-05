@@ -1,23 +1,20 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const AssetsPlugin = require('assets-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 let common = require('./webpack.common.js');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 common.forEach((config, index) => {
     if (common[index].configName === 'base') {
         common[index].plugins = [
-            new CleanWebpackPlugin(['assets/dist']),
-            new ExtractTextPlugin('os-[name].[contenthash].dist.css'),
-            new webpack.NamedModulesPlugin(),
-            new webpack.optimize.CommonsChunkPlugin({
-                name: 'runner',
-                minChunks: Infinity,
+            new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: 'os-[name].[contenthash].dist.css',
             }),
         ]
     }
     common[index] = merge(config, {
+        mode: 'development',
         devtool:'inline-source-map',
         plugins: [
             new AssetsPlugin({
