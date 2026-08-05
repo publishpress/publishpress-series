@@ -1,6 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const combineLoaders = require('webpack-combine-loaders');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const osassets = './assets/src/';
 /** see below for multiple configurations.
@@ -12,7 +11,8 @@ module.exports = [
         configName: 'os-common',
         entry: {
             'common' : [
-                'babel-polyfill',
+                'core-js/stable',
+                'regenerator-runtime/runtime',
                 osassets + 'os-common.js'
             ]
         },
@@ -27,6 +27,7 @@ module.exports = [
         output: {
             filename: 'osjs.[chunkhash].dist.js',
             path: path.resolve(__dirname, 'assets/dist'),
+            publicPath: '',
             library: ['osjs'],
             libraryTarget: 'this'
         },
@@ -50,6 +51,7 @@ module.exports = [
         output: {
             filename: 'os-[name].[chunkhash].dist.js',
             path: path.resolve(__dirname, 'assets/dist'),
+            publicPath: '',
             library: ['osAdminGlobal'],
             libraryTarget: 'this'
         },
@@ -72,7 +74,8 @@ module.exports = [
         },
         output: {
             filename: '[name].[chunkhash].dist.js',
-            path: path.resolve(__dirname, 'assets/dist')
+            path: path.resolve(__dirname, 'assets/dist'),
+            publicPath: ''
         },
         module: {
             rules: [
@@ -83,36 +86,32 @@ module.exports = [
                 },
                 {
                     test: /\.css$/,
-                    loader: ExtractTextPlugin.extract(
-                        combineLoaders([
-                            {
-                                loader: 'css-loader',
-                                query: {
-                                    modules: true,
-                                    localIdentName: '[local]',
-                                },
-                                //can't use minimize because cssnano (the
-                                // dependency) doesn't parser the browserlist
-                                // extension in package.json correctly, there's
-                                // a pending update for it but css-loader
-                                // doesn't have the latest yet.
-                                // options: {
-                                //     minimize: true
-                                // }
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                localIdentName: '[local]',
                             },
-                            {
-                                loader: 'postcss-loader',
-                                options: {
-                                    plugins: function() {
-                                        return [autoprefixer];
-                                    },
-                                    sourceMap: true,
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                postcssOptions: {
+                                    plugins: [autoprefixer()],
                                 },
+                                sourceMap: true,
                             },
-                        ])
-                    )
+                        },
+                    ]
                 },
             ]
+        },
+        optimization: {
+            runtimeChunk: {
+                name: 'runner',
+            },
         },
         watchOptions: {
             poll: 1000,
