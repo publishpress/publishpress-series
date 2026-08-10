@@ -102,11 +102,12 @@ if (!function_exists('pp_series_upgrade_function')) {
 
         if (!get_option('pp_series_2_11_1_upgraded')) {
             $table_name = $wpdb->prefix . "orgseriesicons";
-            if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+            $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name;
+            if (!$table_exists) {
                 //create table for series icons
                 $sql = "CREATE TABLE $table_name (
                 term_id INT NOT NULL,
-                icon ΤΕΧΤ NOT NULL,
+                icon TEXT NOT NULL,
                 PRIMARY KEY  (term_id)
             )";
                 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -114,37 +115,49 @@ if (!function_exists('pp_series_upgrade_function')) {
                 add_option('series_icon_path', '');
                 add_option('series_icon_url', '');
                 add_option('series_icon_filetypes', 'jpg gif jpeg png');
+
+                $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name;
             }
-            update_option('pp_series_2_11_1_upgraded', true);
+
+            if ($table_exists) {
+                update_option('pp_series_2_11_1_upgraded', true);
+            }
         }
 
         /**
-        * Upgrade icon column from VARCHAR(100) to TEXT
-        */
+         * Upgrade icon column from VARCHAR(100) to TEXT.
+         *
+         * dbDelta() handles both new tables and existing tables. The option is
+         * only set after verifying that the column has the new type, so a
+         * failed database operation can be retried on the next admin request.
+         */
         if (!get_option('pp_series_3_1_3_upgraded')) {
-                $table_name = $wpdb->prefix . "orgseriesicons";
-                 // Ensure table exists
-                 if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-                     $column = $wpdb->get_row(
-                         $wpdb->prepare(
-                             "SHOW COLUMNS FROM `$table_name` LIKE %s",
-                             'icon' )
-                     );
-                     
-                     // Upgrade old installs
-                     if ($column && isset($column->Type)) {
-                         if (
-                             stripos($column->Type, 'varchar(100)') !== false ||
-                             stripos($column->Type, 'varchar(255)') !== false
-                         ) {
-                             $wpdb->query(
-                                 "ALTER TABLE `$table_name`
-                                 MODIFY `icon` TEXT NOT NULL"
-                             );
-                         }
-                     }
-                 }
-            update_option('pp_series_3_1_3_upgraded', true);
+            $table_name = $wpdb->prefix . "orgseriesicons";
+
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            $sql = "CREATE TABLE $table_name (
+                term_id INT NOT NULL,
+                icon TEXT NOT NULL,
+                PRIMARY KEY  (term_id)
+            )";
+            dbDelta($sql);
+
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
+                $column = $wpdb->get_row(
+                    $wpdb->prepare(
+                        "SHOW COLUMNS FROM `$table_name` LIKE %s",
+                        'icon'
+                    )
+                );
+
+                if (
+                    $column
+                    && isset($column->Type)
+                    && in_array(strtolower($column->Type), array('text', 'mediumtext', 'longtext'), true)
+                ) {
+                    update_option('pp_series_3_1_3_upgraded', true);
+                }
+            }
         }
     }
 }
