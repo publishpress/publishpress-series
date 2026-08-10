@@ -87,12 +87,58 @@ function seriesicons_write($series, $icon) {
     }
 
 	if ($wpdb->get_var( $wpdb->prepare("SELECT term_id FROM `$tablename` WHERE term_id=%d", $series) ) ) {
-		$wpdb->query( $wpdb->prepare("UPDATE `$tablename` SET icon=%s WHERE term_id=%d", $icon, $series) );
+		$result = $wpdb->update( $tablename, array('icon' => $icon), array('term_id' => $series), array('%s'), array('%d') );
 	} else {
-        $wpdb->insert($tablename, array('icon' => $icon, 'term_id' => $series), array('%s','%d'));
+        $result = $wpdb->insert($tablename, array('icon' => $icon, 'term_id' => $series), array('%s','%d'));
 	}
+
+	/**
+	 * $wpdb::update() returns 0 when the stored value is already the same, which
+	 * is not a failure. Only false means the query itself did not run.
+	 */
+	if ( false === $result ) {
+		seriesicons_write_error( $wpdb->last_error );
+		return false;
+	}
+
 	return true;
 }
+
+/**
+* Record a failed series icon write so that seriesicons_write_error_notice() can report it.
+* @param string $db_error The error message reported by $wpdb.
+*/
+function seriesicons_write_error($db_error = '') {
+	if ( ! function_exists('set_transient') || ! is_admin() ) {
+		return;
+	}
+
+	set_transient( 'pp_series_icon_write_error_' . get_current_user_id(), (string) $db_error, 5 * MINUTE_IN_SECONDS );
+}
+
+/**
+* Tell the user that the series icon was not saved, instead of failing silently.
+*/
+function seriesicons_write_error_notice() {
+	$transient_key = 'pp_series_icon_write_error_' . get_current_user_id();
+	$db_error = get_transient( $transient_key );
+
+	if ( false === $db_error ) {
+		return;
+	}
+
+	delete_transient( $transient_key );
+
+	$message = __('PublishPress Series could not save the series icon. The icon was not changed.', 'organize-series');
+
+	if ( '' !== $db_error ) {
+		/* translators: %s: the error message reported by the database. */
+		$message .= ' ' . sprintf( __('Database error: %s', 'organize-series'), $db_error );
+	}
+
+	printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html( $message ) );
+}
+add_action( 'admin_notices', 'seriesicons_write_error_notice' );
 
 /**
 * Database delete function to remove the series icon/series relationship from the database.
@@ -106,7 +152,8 @@ function seriesicons_delete($series) {
 
 	if ( empty($series)  || '' == $series  )	return false;
 
-	$wpdb->query( $wpdb->prepare("DELETE FROM $tablename WHERE term_id=%d", $series) );
-	return true;
+	$result = $wpdb->delete( $tablename, array('term_id' => $series), array('%d') );
+
+	return false !== $result;
 }
 ?>
