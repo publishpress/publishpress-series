@@ -146,9 +146,7 @@ function wp_delete_series($series_ID, $taxonomy_id) {
 
 function wp_insert_series($series_id, $taxonomy_id) {
 	global $_POST, $wpdb;
-	$series_icon_loc = '';
 
-	extract($_POST, EXTR_SKIP);
 	$series_icon = isset($_POST['series_icon_loc']) ? sanitize_text_field($_POST['series_icon_loc']) : null;
 
 	if ( isset($series_icon) || $series_icon != '' ) {
@@ -166,7 +164,8 @@ function wp_insert_series($series_id, $taxonomy_id) {
 
 function wp_update_series($series_id, $taxonomy_id) {
 	global $_POST, $wpdb;
-	extract($_POST, EXTR_SKIP);
+	$series_icon_loc = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : '';
+	$delete_image = isset($_POST['delete_image']) ? $_POST['delete_image'] : false;
 	if ( empty($series_icon_loc) ) $series_icon_loc = '';
 	if ( empty($delete_image) ) $delete_image = false;
 

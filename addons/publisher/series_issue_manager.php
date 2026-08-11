@@ -221,12 +221,11 @@ if (!function_exists('series_issue_set_publish_status')) {
     function series_issue_set_publish_status($series_id, $taxonomy_id)
     {
         global $_POST;
-        extract($_POST, EXTR_SKIP);
+        $series_publish = isset($_POST['series_publish']) && is_scalar($_POST['series_publish'])
+            ? sanitize_text_field(wp_unslash($_POST['series_publish']))
+            : null;
         //If "Unpublish" is selected, put series Id into Unpublished array so that new posts in this
         //Series are not accidentally published
-        if (!isset($series_publish)) {
-            $series_publish = null;
-        }
         if ($series_publish == 'unpublish') {
             $unpublished = get_option('im_unpublished_series');
 

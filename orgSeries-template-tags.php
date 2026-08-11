@@ -832,7 +832,7 @@ function latest_series($display = true, $args = '')
 	$defaults = array('orderby' => 'post_modified', 'order' => 'ASC', 'hide_empty' => true, 'number' => '5');
 	$args = wp_parse_args($args, $defaults);
 	$args['number'] = absint($args['number']);
-	extract($args, EXTR_SKIP);
+	$number = $args['number'];
 	$settings = $orgseries->settings;
 	$count = $number;
 
