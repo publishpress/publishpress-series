@@ -40,7 +40,7 @@
     }
 
     // -------------------------------------------------------------
-    //   Token sidebar: only show when the custom layout is selected
+    //   Token sidebar: only show when "Custom Template" is selected
     // -------------------------------------------------------------
     function updateTokenSidebar() {
       var $sidebar = $('#ppseries-token-sidebar');
@@ -50,7 +50,7 @@
       var $activeSelect = $('.ppseries-settings-tab-content:not(.ppseries-hide-content) .ppseries-layout-select');
 
       if ($activeSelect.length) {
-        // An empty value represents the custom layout.
+        // "Custom Template" = empty value
         var isCustom = $activeSelect.val() === '';
         if (isCustom) {
           $sidebar.show();
@@ -133,7 +133,7 @@
           $select.append(
             $('<option></option>')
               .val('')
-              .text(settings.customTemplateLabel || '')
+              .text(settings.customTemplateLabel || 'Custom Template')
           );
 
           $.each(response.data, function(i, item) {
