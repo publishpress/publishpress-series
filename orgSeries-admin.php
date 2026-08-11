@@ -151,6 +151,7 @@ function orgSeries_admin_assets()
 		wp_localize_script( 'pps-admin-js', 'ppseriesSettings', [
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'nonce'   => wp_create_nonce( 'ppseries_settings_nonce' ),
+			'customTemplateLabel' => __( 'Custom Template', 'organize-series' ),
 			'saved'   => [
 				'series_post_list_box_selection'  => isset( $org_opt['series_post_list_box_selection'] ) ? (int) $org_opt['series_post_list_box_selection'] : $default_post_list_box_selection,
 				'series_post_details_selection'   => isset( $org_opt['series_post_details_selection'] ) ? (int) $org_opt['series_post_details_selection'] : 0,
