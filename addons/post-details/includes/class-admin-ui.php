@@ -269,7 +269,7 @@ class PPS_Series_Post_Details_Admin_UI
                 <div class="pps-category-separator">
                     <h4 class="category-title"><?php echo esc_html($args['label']); ?></h4>
                     <?php if ($pro_locked): ?>
-                        <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
+                        <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer" style="padding: 1px 10px;">PRO</a>
                         <span class="tooltip-text">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                             <i></i>
@@ -354,7 +354,7 @@ class PPS_Series_Post_Details_Admin_UI
 
                 // If PRO-locked, end wrapper
                 if ($pro_locked): ?>
-                    <span class="ppseries-pro-badge">PRO</span>
+                    <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
                     <span class="tooltip-text">
                         <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                         <i></i>
