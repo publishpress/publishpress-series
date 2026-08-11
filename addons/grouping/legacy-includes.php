@@ -824,7 +824,7 @@ function orgseries_group_inline_edit($column_name, $type, $taxonomy) {
 
 function wp_insert_series_group($series_id, $taxonomy_id) {
     global $_POST;
-    extract($_POST, EXTR_SKIP);
+    $tax_input = isset($_POST['tax_input']) ? (array) $_POST['tax_input'] : array();
     if ( !empty($tax_input['series_group']) )
         $terms = os_stringarray_to_intarray($tax_input['series_group']);
 
@@ -843,7 +843,7 @@ function wp_insert_series_group($series_id, $taxonomy_id) {
 function wp_update_series_group($series_id, $taxonomy_id) {
     global $_POST;
 
-    extract($_POST, EXTR_SKIP);
+    $tax_input = isset($_POST['tax_input']) ? (array) $_POST['tax_input'] : array();
 
     $tax_input['series_group'] = !isset( $tax_input['series_group'] ) ? array() : $tax_input['series_group'];
 
@@ -854,8 +854,6 @@ function wp_update_series_group($series_id, $taxonomy_id) {
 }
 
 function wp_delete_series_group($series_id, $taxonomy_id) {
-    global $_POST;
-    extract($_POST, EXTR_SKIP);
     $id = orgseries_group_id( (int) $series_id );
     wp_delete_post($id,true);
     //TODO check, do we need wp_delete_post_term_relationship here?

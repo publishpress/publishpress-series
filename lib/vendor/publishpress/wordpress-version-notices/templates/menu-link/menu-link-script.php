@@ -1,6 +1,6 @@
 <script type="application/javascript">
     jQuery(function ($) {
-        var linksMap = JSON.parse('<?php echo json_encode($convertedUrlsMap); ?>'),
+        var linksMap = JSON.parse('<?php echo json_encode($context['convertedUrlsMap']); ?>'),
             urlData = null;
 
         // Remove the domain and admin folder from the URL to match the menu's url.

@@ -15,7 +15,10 @@ class orgSeries_widget_latestseries extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		global $orgseries;
-		extract( $args, EXTR_SKIP );
+		$before_widget = isset($args['before_widget']) ? $args['before_widget'] : '';
+		$before_title = isset($args['before_title']) ? $args['before_title'] : '';
+		$after_title = isset($args['after_title']) ? $args['after_title'] : '';
+		$after_widget = isset($args['after_widget']) ? $args['after_widget'] : '';
 
 		$title = isset($instance['title']) ? $instance['title'] : __('Most Recent Series', 'organize-series');
 		$orderby = isset($instance['orderby']) ? $instance['orderby'] : 'name';
@@ -114,7 +117,10 @@ class orgSeries_widget_seriestoc extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		global $orgseries, $wp_query;
-		extract( $args, EXTR_SKIP );
+		$before_widget = isset($args['before_widget']) ? $args['before_widget'] : '';
+		$before_title = isset($args['before_title']) ? $args['before_title'] : '';
+		$after_title = isset($args['after_title']) ? $args['after_title'] : '';
+		$after_widget = isset($args['after_widget']) ? $args['after_widget'] : '';
 		$show_count = isset($instance['show-count']) ? (int)$instance['show-count'] : 0;
 		$hide_empty = isset($instance['hide-empty']) ? (int)$instance['hide-empty'] : 0;
 		$showpostlist = isset($instance['postlistdisplay-toggle']) ? $instance['postlistdisplay-toggle'] : 0;

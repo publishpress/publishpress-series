@@ -65,9 +65,12 @@ class TemplateLoader implements TemplateLoaderInterface
             ob_start();
         }
 
-        extract($context);
+        $renderTemplate = static function ($path, $templateContext) {
+            $context = $templateContext;
+            require $path;
+        };
 
-        require $templatePath;
+        $renderTemplate($templatePath, $context);
 
         if ($return) {
             return ob_get_clean();
