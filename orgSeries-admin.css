@@ -385,6 +385,7 @@ input #seriesadd {
     margin-left: 5px;
     text-transform: uppercase;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 /* End Pro feature overlay styles */

@@ -426,7 +426,7 @@ class PPS_Post_List_Box_Admin_UI {
                             <span class="item"><?php echo esc_html($args['label']); ?></span>
                             <?php if ($key === 'layout' && !pp_series_is_pro_active()) : ?>
                                 <span class="ppseries-pro-lock" >
-                                    <span class="ppseries-pro-badge" style="padding: 1px 10px;">PRO</span>
+                                    <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer" style="padding: 1px 10px;">PRO</a>
                                     <span class="tooltip-text">
                                         <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                                         <i></i>
@@ -710,7 +710,7 @@ class PPS_Post_List_Box_Admin_UI {
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($pro_locked) : ?>
-                        <span class="ppseries-pro-badge">PRO</span>
+                        <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
                         <span class="tooltip-text">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                             <i></i>

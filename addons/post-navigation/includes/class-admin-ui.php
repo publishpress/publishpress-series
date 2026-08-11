@@ -437,7 +437,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                 }
 
                 if ($pro_locked) : ?>
-                        <span class="ppseries-pro-badge">PRO</span>
+                        <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
                         <span class="tooltip-text">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                             <i></i>
