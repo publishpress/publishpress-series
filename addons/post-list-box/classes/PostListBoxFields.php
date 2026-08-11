@@ -101,6 +101,7 @@ class PostListBoxFields
                 'tab' => 'box',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 1,
+                'description' => __('Display the title above the post list', 'organize-series'),
             ],
             'title_type' => [
                 'label' => __('Box Title Type', 'organize-series'),
@@ -153,6 +154,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'h3',
+                'description' => __('Choose the HTML tag used for the box title', 'organize-series'),
                 'depends_on' => 'title_show',
                 'depends_value' => '1',
             ],
@@ -162,6 +164,7 @@ class PostListBoxFields
                 'tab' => 'box',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#333333',
+                'description' => __('Choose the color of the box title', 'organize-series'),
                 'depends_on' => 'title_show',
                 'depends_value' => '1',
             ],
@@ -173,6 +176,7 @@ class PostListBoxFields
                 'max' => 72,
                 'sanitize' => 'absint',
                 'default' => 24,
+                'description' => __('Set the font size of the box title in pixels', 'organize-series'),
                 'depends_on' => 'title_show',
                 'depends_value' => '1',
             ],
@@ -193,6 +197,7 @@ class PostListBoxFields
                 'tab' => 'box',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#f9f9f9',
+                'description' => __('Choose the background color for the post list box', 'organize-series'),
             ],
             'border_color' => [
                 'label' => __('Border Color', 'organize-series'),
@@ -200,6 +205,7 @@ class PostListBoxFields
                 'tab' => 'box',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#e5e5e5',
+                'description' => __('Choose the border color for the post list box', 'organize-series'),
             ],
             'border_width' => [
                 'label' => __('Border Width (px)', 'organize-series'),
@@ -209,6 +215,7 @@ class PostListBoxFields
                 'max' => 20,
                 'sanitize' => 'absint',
                 'default' => 1,
+                'description' => __('Set the border width for the post list box in pixels', 'organize-series'),
             ],
             'border_radius' => [
                 'label' => __('Border Radius (px)', 'organize-series'),
@@ -218,6 +225,7 @@ class PostListBoxFields
                 'max' => 50,
                 'sanitize' => 'absint',
                 'default' => 4,
+                'description' => __('Set the border radius for the post list box in pixels', 'organize-series'),
             ],
             'padding' => [
                 'label' => __('Padding (px)', 'organize-series'),
@@ -227,6 +235,7 @@ class PostListBoxFields
                 'max' => 100,
                 'sanitize' => 'absint',
                 'default' => 20,
+                'description' => __('Set the inner spacing of the post list box in pixels', 'organize-series'),
             ],
         ];
     }
@@ -245,6 +254,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 1,
+                'description' => __('Display post titles in the series list', 'organize-series'),
             ],
             'show_series_order_number' => [
                 'label' => __('Series Order Number', 'organize-series'),
@@ -276,6 +286,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#0073aa',
+                'description' => __('Choose the color of post titles', 'organize-series'),
                 'depends_on' => 'show_post_titles',
                 'depends_value' => '1',
             ],
@@ -287,6 +298,7 @@ class PostListBoxFields
                 'max' => 36,
                 'sanitize' => 'absint',
                 'default' => 16,
+                'description' => __('Set the font size of post titles in pixels', 'organize-series'),
                 'depends_on' => 'show_post_titles',
                 'depends_value' => '1',
             ],
@@ -296,6 +308,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 0,
+                'description' => __('Display the excerpt for each post', 'organize-series'),
                 'pro_only' => true,
             ],
             'excerpt_length' => [
@@ -306,6 +319,7 @@ class PostListBoxFields
                 'max' => 500,
                 'sanitize' => 'absint',
                 'default' => 55,
+                'description' => __('Set the maximum excerpt length in words', 'organize-series'),
                 'depends_on' => 'show_post_excerpt',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -316,6 +330,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#666666',
+                'description' => __('Choose the color of post excerpts', 'organize-series'),
                 'depends_on' => 'show_post_excerpt',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -326,6 +341,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 0,
+                'description' => __('Display a summary generated from each post', 'organize-series'),
                 'pro_only' => true,
             ],
             'summary_length' => [
@@ -336,6 +352,7 @@ class PostListBoxFields
                 'max' => 500,
                 'sanitize' => 'absint',
                 'default' => 55,
+                'description' => __('Set the maximum summary length in words', 'organize-series'),
                 'depends_on' => 'show_post_summary',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -346,6 +363,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#666666',
+                'description' => __('Choose the color of post summaries', 'organize-series'),
                 'depends_on' => 'show_post_summary',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -356,6 +374,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 0,
+                'description' => __('Display the author of each post', 'organize-series'),
                 'pro_only' => true,
             ],
             'post_author_color' => [
@@ -364,6 +383,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#666666',
+                'description' => __('Choose the color of post authors', 'organize-series'),
                 'depends_on' => 'show_post_author',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -374,6 +394,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 1,
+                'description' => __('Display the date of each post', 'organize-series'),
                 'pro_only' => true,
             ],
             'post_date_color' => [
@@ -382,6 +403,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#666666',
+                'description' => __('Choose the color of post dates', 'organize-series'),
                 'depends_on' => 'show_post_date',
                 'depends_value' => '1',
                 'pro_only' => true,
@@ -403,6 +425,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_text_field',
                 'default' => 1,
+                'description' => __('Display the featured image for each post', 'organize-series'),
             ],
             'thumbnail_width' => [
                 'label' => __('Featured Image Width (px)', 'organize-series'),
@@ -458,6 +481,7 @@ class PostListBoxFields
                 'max' => 100,
                 'sanitize' => 'absint',
                 'default' => 15,
+                'description' => __('Set the inner spacing for each post item in pixels', 'organize-series'),
             ],
             'item_border_width' => [
                 'label' => __('Post Border Width (px)', 'organize-series'),
@@ -467,6 +491,7 @@ class PostListBoxFields
                 'max' => 20,
                 'sanitize' => 'absint',
                 'default' => 1,
+                'description' => __('Set the border width for each post item in pixels', 'organize-series'),
             ],
             'item_border_color' => [
                 'label' => __('Post Border Color', 'organize-series'),
@@ -474,6 +499,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#e5e5e5',
+                'description' => __('Choose the border color for each post item', 'organize-series'),
             ],
             'post_list_background_color' => [
                 'label' => __('Post Background Color', 'organize-series'),
@@ -504,6 +530,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'list',
+                'description' => __('Choose the layout style for the post list', 'organize-series'),
                 'pro_only' => true,
             ],
             'columns' => [
@@ -518,6 +545,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'absint',
                 'default' => '3',
+                'description' => __('Choose the number of columns in the grid layout', 'organize-series'),
                 'data-depends-on' => 'layout_style',
                 'data-depends-value' => 'grid',
                 'pro_only' => true,
@@ -533,6 +561,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'series_order',
+                'description' => __('Choose the field used to sort posts', 'organize-series'),
                 'pro_only' => true,
             ],
             'order' => [
@@ -545,6 +574,7 @@ class PostListBoxFields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default' => 'ASC',
+                'description' => __('Choose the direction in which posts are sorted', 'organize-series'),
                 'pro_only' => true,
             ],
             'gap_between_items' => [
@@ -555,6 +585,7 @@ class PostListBoxFields
                 'max' => 50,
                 'sanitize' => 'absint',
                 'default' => 10,
+                'description' => __('Set the space between post items in pixels', 'organize-series'),
                 'pro_only' => true,
             ],
             'post_list_position' => [
@@ -605,6 +636,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#fff3cd',
+                'description' => __('Choose the background color for the current post', 'organize-series'),
             ],
             'current_post_border_color' => [
                 'label' => __('Current Post Border Color', 'organize-series'),
@@ -612,6 +644,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#ffeaa7',
+                'description' => __('Choose the border color for the current post', 'organize-series'),
             ],
             'current_post_text_color' => [
                 'label' => __('Current Post Text Color', 'organize-series'),
@@ -619,6 +652,7 @@ class PostListBoxFields
                 'tab' => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default' => '#856404',
+                'description' => __('Choose the text color for the current post', 'organize-series'),
             ],
         ];
     }
