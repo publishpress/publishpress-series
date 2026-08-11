@@ -50,7 +50,7 @@
       var $activeSelect = $('.ppseries-settings-tab-content:not(.ppseries-hide-content) .ppseries-layout-select');
 
       if ($activeSelect.length) {
-        // Custom Template = empty value
+        // "Custom Template" = empty value
         var isCustom = $activeSelect.val() === '';
         if (isCustom) {
           $sidebar.show();
@@ -130,7 +130,11 @@
           if (!response.success) return;
 
           $select.empty();
-          $select.append('<option value="">Custom Template</option>');
+          $select.append(
+            $('<option></option>')
+              .val('')
+              .text(settings.customTemplateLabel || 'Custom Template')
+          );
 
           $.each(response.data, function(i, item) {
             var $opt = $('<option></option>')
