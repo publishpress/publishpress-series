@@ -18,7 +18,13 @@ class PPSeriesCoreAdmin {
                                         ['base' => 'term',      'id' => 'edit-series', 'taxonomy' => ppseries_get_series_slug() ],
                                         ['base' => 'edit-tags', 'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
                                         ['base' => 'term',      'id' => 'edit-series_group', 'taxonomy' => 'series_group' ],
-                                        ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ]
+                                        ['base' => 'posts_page_manage-issues',      'id' => 'posts_page_manage-issues' ],
+                                        ['base' => 'edit', 'id' => 'edit-pps_post_list_box', 'post_type' => 'pps_post_list_box'],
+                                        ['base' => 'post', 'id' => 'pps_post_list_box', 'post_type' => 'pps_post_list_box'],
+                                        ['base' => 'edit', 'id' => 'edit-pps_post_details', 'post_type' => 'pps_post_details'],
+                                        ['base' => 'post', 'id' => 'pps_post_details', 'post_type' => 'pps_post_details'],
+                                        ['base' => 'edit', 'id' => 'edit-pps_post_navigation', 'post_type' => 'pps_post_navigation'],
+                                        ['base' => 'post', 'id' => 'pps_post_navigation', 'post_type' => 'pps_post_navigation']
                                     ]
                                 ];
 
