@@ -155,6 +155,7 @@
 .pps-post-list-boxes-editor-table input[type=number],
 .pps-post-list-boxes-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-post-list-boxes-editor-table textarea {

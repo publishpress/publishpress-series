@@ -718,12 +718,9 @@ class PPS_Post_List_Box_Admin_UI {
                     </div>
                 <?php endif; ?>
                 <?php if (isset($args['description']) && !empty($args['description'])) : ?>
-                        <?php if($args['type'] !== 'checkbox') : ?>
-                            <br />
-                        <?php endif; ?>
-                        <span class="field-description description">
-                            <?php echo $args['description']; ?>
-                        </span>
+                    <p class="field-description description">
+                        <?php echo $args['description']; ?>
+                    </p>
                 <?php endif; ?>
             </td>
         </tr>

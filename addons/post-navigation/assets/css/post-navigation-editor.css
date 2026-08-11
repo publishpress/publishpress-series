@@ -73,6 +73,7 @@
 .pps-series-post-navigation-editor-table input[type=number],
 .pps-series-post-navigation-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-series-post-navigation-editor-table textarea {

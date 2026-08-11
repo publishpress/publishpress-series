@@ -153,6 +153,7 @@
 .pps-series-post-details-editor-table input[type=number],
 .pps-series-post-details-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-series-post-details-editor-table textarea {

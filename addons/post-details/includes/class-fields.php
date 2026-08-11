@@ -168,6 +168,7 @@ class PPS_Series_Post_Details_Fields
                 'tab'      => 'styling',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#1d2327',
+                'description' => __('Choose the color of text in the meta box', 'organize-series'),
             ],
             'link_color' => [
                 'label'    => __('Link Color', 'organize-series'),
@@ -175,6 +176,7 @@ class PPS_Series_Post_Details_Fields
                 'tab'      => 'styling',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#1a5aff',
+                'description' => __('Choose the color of links in the meta box', 'organize-series'),
             ],
             'background_separator' => [
                 'type'  => 'category_separator',
@@ -227,6 +229,7 @@ class PPS_Series_Post_Details_Fields
                 'max'      => 10,
                 'sanitize' => 'absint',
                 'default'  => 1,
+                'description' => __('Set the border width in pixels', 'organize-series'),
             ],
             'border_radius' => [
                 'label'    => __('Border Radius (px)', 'organize-series'),
@@ -236,6 +239,7 @@ class PPS_Series_Post_Details_Fields
                 'max'      => 60,
                 'sanitize' => 'absint',
                 'default'  => 6,
+                'description' => __('Set the border radius in pixels', 'organize-series'),
             ],
             'border_color' => [
                 'label'    => __('Border Color', 'organize-series'),
@@ -243,6 +247,7 @@ class PPS_Series_Post_Details_Fields
                 'tab'      => 'styling',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#c7d7f5',
+                'description' => __('Choose the border color', 'organize-series'),
             ],
         ];
     }
