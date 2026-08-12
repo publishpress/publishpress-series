@@ -17,6 +17,9 @@ function orgseries_option_page() {
 		<div class="icon32" id="icon-options-general"><br /></div>
 		<h2><?php esc_html_e('PublishPress Series Plugin Options', 'organize-series'); ?></h2>
 	<?php
+	do_action('publishpress_series_settings_after_title');
+	?>
+	<?php
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $org_update_message;
 	update_option('orgseries_update_message','');

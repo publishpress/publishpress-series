@@ -55,7 +55,3 @@
 .ppseries-welcome-panel .ppseries-welcome-dismiss:focus {
     color: #d63638;
 }
-
-.ppseries-welcome-highlight {
-    box-shadow: 0 0 0 2px #655997;
-}

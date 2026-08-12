@@ -2,9 +2,8 @@
 /**
  * Welcome experience for PublishPress Series.
  *
- * After activation the user goes to the Series screen. A welcome panel on that
- * screen shows the first steps: create a series, read the documentation and
- * open the settings.
+ * After activation the user goes to the Series settings page. A welcome panel
+ * on that page shows the first steps: create a series, read the documentation.
  *
  * @package Publishpress Series
  */
@@ -18,29 +17,23 @@ define('PPSERIES_WELCOME_DISMISSED_META', 'ppseries_welcome_panel_dismissed');
 
 add_action('admin_init', 'ppseries_welcome_redirect');
 add_action('admin_enqueue_scripts', 'ppseries_welcome_assets');
-add_action('admin_notices', 'ppseries_welcome_panel');
+add_action('publishpress_series_settings_after_title', 'ppseries_welcome_panel');
 add_action('wp_ajax_ppseries_dismiss_welcome_panel', 'ppseries_dismiss_welcome_panel');
 
 /**
- * Tell if the current screen is the Series taxonomy list screen.
+ * Tell if the current screen is the Series settings page.
  *
  * @return bool
  */
-function ppseries_is_series_list_screen()
+function ppseries_is_series_settings_screen()
 {
-    global $pagenow;
+    $page = isset($_GET['page']) ? sanitize_key(wp_unslash($_GET['page'])) : '';
 
-    if ('edit-tags.php' !== $pagenow) {
-        return false;
-    }
-
-    $taxonomy = isset($_GET['taxonomy']) ? sanitize_key(wp_unslash($_GET['taxonomy'])) : '';
-
-    return $taxonomy === ppseries_get_series_slug();
+    return 'orgseries_options_page' === $page;
 }
 
 /**
- * Send the user to the Series screen one time after activation.
+ * Send the user to the Series settings page one time after activation.
  */
 function ppseries_welcome_redirect()
 {
@@ -59,7 +52,7 @@ function ppseries_welcome_redirect()
         return;
     }
 
-    wp_safe_redirect(admin_url('edit-tags.php?taxonomy=' . ppseries_get_series_slug()));
+    wp_safe_redirect(ppseries_series_settings_page());
     exit;
 }
 
@@ -68,7 +61,7 @@ function ppseries_welcome_redirect()
  */
 function ppseries_welcome_assets()
 {
-    if (!ppseries_is_series_list_screen() || !ppseries_welcome_panel_is_visible()) {
+    if (!ppseries_is_series_settings_screen() || !ppseries_welcome_panel_is_visible()) {
         return;
     }
 
@@ -127,24 +120,24 @@ function ppseries_welcome_series_count()
 }
 
 /**
- * Show the welcome panel on the Series screen.
+ * Show the welcome panel on the Series settings page.
  */
 function ppseries_welcome_panel()
 {
-    if (!ppseries_is_series_list_screen() || !ppseries_welcome_panel_is_visible()) {
+    if (!ppseries_welcome_panel_is_visible()) {
         return;
     }
 
-    $has_series   = ppseries_welcome_series_count() > 0;
-    $settings_url = ppseries_series_settings_page();
+    $has_series = ppseries_welcome_series_count() > 0;
+    $series_url = admin_url('edit-tags.php?taxonomy=' . ppseries_get_series_slug());
 
     $title = $has_series
         ? esc_html__('Welcome to PublishPress Series', 'organize-series')
         : esc_html__('Welcome! Create your first series', 'organize-series');
 
     $description = $has_series
-        ? esc_html__('A series groups your posts together and shows your readers the reading order. Use the form on this screen to add another series, or change how your series look in the settings.', 'organize-series')
-        : esc_html__('A series groups your posts together and shows your readers the reading order. Add a name in the form on this screen to create your first series, then add posts to it.', 'organize-series');
+        ? esc_html__('A series groups your posts together and shows your readers the reading order. Use the settings on this page to change how your series look, or go to the Series screen to add more series.', 'organize-series')
+        : esc_html__('A series groups your posts together and shows your readers the reading order. Start with the Series screen to create your first series, then add posts to it.', 'organize-series');
 
     ?>
     <div class="ppseries-welcome-panel">
@@ -157,16 +150,12 @@ function ppseries_welcome_panel()
             <p class="ppseries-welcome-text"><?php echo $description; ?></p>
 
             <div class="ppseries-welcome-actions">
-                <button type="button" class="button button-primary ppseries-welcome-add">
+                <a class="button button-primary" href="<?php echo esc_url($series_url); ?>">
                     <?php
                     echo $has_series
-                        ? esc_html__('Add New Series', 'organize-series')
+                        ? esc_html__('Manage Your Series', 'organize-series')
                         : esc_html__('Create Your First Series', 'organize-series');
                     ?>
-                </button>
-
-                <a class="button" href="<?php echo esc_url($settings_url); ?>">
-                    <?php esc_html_e('Series Settings', 'organize-series'); ?>
                 </a>
 
                 <a class="button" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer">
