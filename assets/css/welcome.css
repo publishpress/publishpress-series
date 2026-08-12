@@ -1,6 +1,8 @@
 .ppseries-welcome-panel {
     position: relative;
-    margin: 15px 0 20px;
+    /* The Screen Options and Help tabs float right. Stay below them. */
+    clear: both;
+    margin: 15px 20px 20px 0;
     padding: 24px 60px 24px 24px;
     background: #fff;
     border: 1px solid #c3c4c7;
