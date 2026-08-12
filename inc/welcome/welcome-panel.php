@@ -101,7 +101,8 @@ function ppseries_welcome_panel_is_visible()
         return false;
     }
 
-    return true;
+    // The panel is an empty state. It stops when the site has series.
+    return ppseries_welcome_series_count() < 1;
 }
 
 /**
@@ -128,16 +129,7 @@ function ppseries_welcome_panel()
         return;
     }
 
-    $has_series = ppseries_welcome_series_count() > 0;
     $series_url = admin_url('edit-tags.php?taxonomy=' . ppseries_get_series_slug());
-
-    $title = $has_series
-        ? esc_html__('Welcome to PublishPress Series', 'organize-series')
-        : esc_html__('Welcome! Create your first series', 'organize-series');
-
-    $description = $has_series
-        ? esc_html__('A series groups your posts together and shows your readers the reading order. Use the settings on this page to change how your series look, or go to the Series screen to add more series.', 'organize-series')
-        : esc_html__('A series groups your posts together and shows your readers the reading order. Start with the Series screen to create your first series, then add posts to it.', 'organize-series');
 
     ?>
     <div class="ppseries-welcome-panel">
@@ -146,16 +138,16 @@ function ppseries_welcome_panel()
         </button>
 
         <div class="ppseries-welcome-content">
-            <h2 class="ppseries-welcome-title"><?php echo $title; ?></h2>
-            <p class="ppseries-welcome-text"><?php echo $description; ?></p>
+            <h2 class="ppseries-welcome-title">
+                <?php esc_html_e('Welcome! Create your first series', 'organize-series'); ?>
+            </h2>
+            <p class="ppseries-welcome-text">
+                <?php esc_html_e('A series groups your posts together and shows your readers the reading order. Start with the Series screen to create your first series, then add posts to it.', 'organize-series'); ?>
+            </p>
 
             <div class="ppseries-welcome-actions">
                 <a class="button button-primary" href="<?php echo esc_url($series_url); ?>">
-                    <?php
-                    echo $has_series
-                        ? esc_html__('Manage Your Series', 'organize-series')
-                        : esc_html__('Create Your First Series', 'organize-series');
-                    ?>
+                    <?php esc_html_e('Create Your First Series', 'organize-series'); ?>
                 </a>
 
                 <a class="button" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer">
