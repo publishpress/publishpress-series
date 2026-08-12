@@ -678,20 +678,27 @@ function series_group_sortable_columns($sortable) {
 
 function select_series_group_filter($taxonomy) {
     //TODO: would be much better if WordPress provided a way of simply adding this in via a do_action.  But for the time being we'll add this as a hidden form after the table and use jQuery to move it to the top of the table after page load.
-    if ( !empty($_GET['ser_grp']) ) $group_id = (int) $_GET['ser_grp'];
-    if ( empty($group_id) ) $group_id = -1;
+    $group_id = !empty($_GET['ser_grp']) ? absint($_GET['ser_grp']) : 0;
     $dropdown_args = array(
         'show_option_all' => 'View all Series Categories',
         'selected' => $group_id,
         'taxonomy' => 'series_group',
         'name' => 'ser_grp',
-        'hide_empty' => false
+        'hide_empty' => false,
+        'echo' => false,
+        'hide_if_empty' => true,
     );
+
+    $dropdown = wp_dropdown_categories($dropdown_args);
+    if (empty($dropdown)) {
+        return;
+    }
+
     ?>
     <div style="display:none;">
         <form id="series_group_filter" style="float:right" action method="get">
-            <input type="hidden" name="taxonomy" value="series" />
-            <?php wp_dropdown_categories($dropdown_args); ?>
+            <input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy); ?>" />
+            <?php echo $dropdown; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <input type="submit" name="group_filter" id="filter-query-submit" class="button-secondary" value="Filter">
         </form>
     </div>
