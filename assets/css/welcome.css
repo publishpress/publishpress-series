@@ -1,49 +1,32 @@
-.ppseries-welcome-panel {
+/* Thank-you notice */
+.ppseries-welcome-greeting {
     position: relative;
-    margin: 15px 0 20px;
-    padding: 24px 60px 24px 24px;
+    margin: 15px 0;
+    padding: 18px 50px;
     background: #fff;
-    border: 1px solid #c3c4c7;
+    border: 1px solid #e0e0e0;
     border-left: 4px solid #655997;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    border-radius: 4px;
+    text-align: center;
 }
 
-.ppseries-welcome-panel .ppseries-welcome-title {
-    margin: 0 0 8px;
-    font-size: 20px;
-    line-height: 1.3;
+.ppseries-welcome-greeting .ppseries-welcome-greeting-title {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d2327;
 }
 
-.ppseries-welcome-panel .ppseries-welcome-text {
-    margin: 0 0 16px;
-    max-width: 800px;
-    font-size: 14px;
-    color: #50575e;
+.ppseries-welcome-greeting .ppseries-welcome-greeting-text {
+    margin: 0;
+    font-size: 13px;
+    color: #646970;
 }
 
-.ppseries-welcome-panel .ppseries-welcome-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-}
-
-.ppseries-welcome-panel .ppseries-welcome-upgrade {
-    margin-left: 6px;
-    font-weight: 600;
-    color: #655997;
-    text-decoration: none;
-}
-
-.ppseries-welcome-panel .ppseries-welcome-upgrade:hover,
-.ppseries-welcome-panel .ppseries-welcome-upgrade:focus {
-    text-decoration: underline;
-}
-
-.ppseries-welcome-panel .ppseries-welcome-dismiss {
+.ppseries-welcome-greeting .ppseries-welcome-dismiss {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     padding: 0;
     background: none;
     border: 0;
@@ -51,7 +34,258 @@
     cursor: pointer;
 }
 
-.ppseries-welcome-panel .ppseries-welcome-dismiss:hover,
-.ppseries-welcome-panel .ppseries-welcome-dismiss:focus {
+.ppseries-welcome-greeting .ppseries-welcome-dismiss:hover,
+.ppseries-welcome-greeting .ppseries-welcome-dismiss:focus {
     color: #d63638;
+}
+
+/* Get-started panel */
+.ppseries-welcome-panel {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #faf9f7;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-intro {
+    flex: 1 1 340px;
+    padding: 40px;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-eyebrow {
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #655997;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-title {
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 38px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #1d2327;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-text {
+    margin: 0 0 24px;
+    max-width: 420px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #50575e;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-button {
+    display: inline-block;
+    padding: 12px 26px;
+    background: #655997;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(101, 89, 151, .25);
+}
+
+.ppseries-welcome-panel .ppseries-welcome-button:hover,
+.ppseries-welcome-panel .ppseries-welcome-button:focus {
+    background: #544a80;
+    color: #fff;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-pills li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 7px 14px;
+    background: #fff;
+    border: 1px solid #e6e2dc;
+    border-radius: 999px;
+    font-size: 12px;
+    color: #3c434a;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-pills .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #655997;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-links {
+    margin: 24px 0 0;
+    font-size: 13px;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-links a {
+    margin-right: 18px;
+    color: #655997;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-links a:hover,
+.ppseries-welcome-panel .ppseries-welcome-links a:focus {
+    text-decoration: underline;
+}
+
+/* Preview side */
+.ppseries-welcome-panel .ppseries-welcome-preview {
+    flex: 1 1 380px;
+    padding: 30px;
+    background: #f1ede7;
+}
+
+.ppseries-welcome-panel .ppseries-preview-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.ppseries-welcome-panel .ppseries-preview-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #8c8579;
+}
+
+.ppseries-welcome-panel .ppseries-preview-tabs {
+    display: flex;
+    padding: 3px;
+    background: #fff;
+    border-radius: 999px;
+}
+
+.ppseries-welcome-panel .ppseries-preview-tab {
+    padding: 6px 14px;
+    background: none;
+    border: 0;
+    border-radius: 999px;
+    font-size: 12px;
+    color: #50575e;
+    cursor: pointer;
+}
+
+.ppseries-welcome-panel .ppseries-preview-tab.is-active {
+    background: #1d2327;
+    color: #fff;
+}
+
+.ppseries-welcome-panel .ppseries-preview-pane {
+    display: none;
+}
+
+.ppseries-welcome-panel .ppseries-preview-pane.is-active {
+    display: block;
+}
+
+.ppseries-welcome-panel .ppseries-preview-card {
+    padding: 22px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+}
+
+.ppseries-welcome-panel .ppseries-preview-card-title {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d2327;
+}
+
+.ppseries-welcome-panel .ppseries-preview-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    color: #50575e;
+}
+
+.ppseries-welcome-panel .ppseries-preview-list li {
+    margin-bottom: 8px;
+}
+
+.ppseries-welcome-panel .ppseries-preview-list li.is-current {
+    font-weight: 700;
+    color: #655997;
+}
+
+.ppseries-welcome-panel .ppseries-preview-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: #f4f2fa;
+    border-left: 3px solid #655997;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #3c434a;
+}
+
+.ppseries-welcome-panel .ppseries-preview-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ppseries-welcome-panel .ppseries-preview-nav-item {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #e6e2dc;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.ppseries-welcome-panel .ppseries-preview-nav-item.is-next {
+    text-align: right;
+}
+
+.ppseries-welcome-panel .ppseries-preview-nav-item small {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8c8579;
+}
+
+.ppseries-welcome-panel .ppseries-preview-lines span {
+    display: block;
+    height: 8px;
+    margin-bottom: 10px;
+    background: #efefef;
+    border-radius: 4px;
+}
+
+.ppseries-welcome-panel .ppseries-preview-lines span.is-short {
+    width: 60%;
+}
+
+@media screen and (max-width: 782px) {
+    .ppseries-welcome-panel .ppseries-welcome-intro,
+    .ppseries-welcome-panel .ppseries-welcome-preview {
+        padding: 24px;
+    }
+
+    .ppseries-welcome-panel .ppseries-welcome-title {
+        font-size: 28px;
+    }
 }
