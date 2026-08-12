@@ -1,0 +1,61 @@
+.ppseries-welcome-panel {
+    position: relative;
+    margin: 15px 0 20px;
+    padding: 24px 60px 24px 24px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-left: 4px solid #655997;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+
+.ppseries-welcome-panel .ppseries-welcome-title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-text {
+    margin: 0 0 16px;
+    max-width: 800px;
+    font-size: 14px;
+    color: #50575e;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-upgrade {
+    margin-left: 6px;
+    font-weight: 600;
+    color: #655997;
+    text-decoration: none;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-upgrade:hover,
+.ppseries-welcome-panel .ppseries-welcome-upgrade:focus {
+    text-decoration: underline;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-dismiss {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: #787c82;
+    cursor: pointer;
+}
+
+.ppseries-welcome-panel .ppseries-welcome-dismiss:hover,
+.ppseries-welcome-panel .ppseries-welcome-dismiss:focus {
+    color: #d63638;
+}
+
+.ppseries-welcome-highlight {
+    box-shadow: 0 0 0 2px #655997;
+}
