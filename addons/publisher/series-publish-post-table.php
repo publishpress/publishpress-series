@@ -153,7 +153,9 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     public static function record_count()
     {
-        return $this->get_table_data()['counts'];
+        $table = new self();
+
+        return $table->get_table_data()['counts'];
     }
 
 
