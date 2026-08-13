@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:22+0000\n"
+"PO-Revision-Date: 2026-08-13 15:27+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: fa_IR\n"
@@ -57,7 +57,7 @@ msgid "Popular Series Categories"
 msgstr "دسته‌های سری محبوب"
 
 #: addons/grouping/legacy-includes.php:282
-#: addons/grouping/legacy-includes.php:786
+#: addons/grouping/legacy-includes.php:793
 msgid "All Series Categories"
 msgstr "تمام دسته‌های سری"
 
@@ -80,10 +80,10 @@ msgstr "دسته سری جدید"
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
 #: addons/grouping/legacy-includes.php:621
-#: addons/grouping/legacy-includes.php:715
-#: addons/grouping/legacy-includes.php:756
-#: addons/grouping/legacy-includes.php:777
-#: addons/grouping/legacy-includes.php:811
+#: addons/grouping/legacy-includes.php:722
+#: addons/grouping/legacy-includes.php:763
+#: addons/grouping/legacy-includes.php:784
+#: addons/grouping/legacy-includes.php:818
 msgid "Series Categories"
 msgstr "دسته‌های سری"
 
@@ -93,7 +93,7 @@ msgid ""
 "plugin."
 msgstr "تمام داده‌های \"دسته‌های سری\" را هنگام حذف افزونه از پایگاه داده حذف کنید."
 
-#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:763
 msgid "Click to toggle"
 msgstr "برای تغییر حالت کلیک کنید"
 
@@ -275,7 +275,7 @@ msgid "Meta Box Position"
 msgstr "محل جعبه متا"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:596
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -283,7 +283,7 @@ msgid "Top"
 msgstr "بالا"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: addons/post-list-box/classes/PostListBoxFields.php:597
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -315,74 +315,94 @@ msgid "Font size for text in the meta box"
 msgstr "اندازه فونت برای متن در جعبه متا"
 
 #: addons/post-details/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-fields.php:453
+#: addons/post-navigation/includes/class-fields.php:456
 msgid "Text Color"
 msgstr "رنگ متن"
 
-#: addons/post-details/includes/class-fields.php:173
+#: addons/post-details/includes/class-fields.php:171
+msgid "Choose the color of text in the meta box"
+msgstr "رنگ متن را در جعبه متا انتخاب کنید"
+
+#: addons/post-details/includes/class-fields.php:174
 msgid "Link Color"
 msgstr "رنگ لینک"
 
-#: addons/post-details/includes/class-fields.php:181
+#: addons/post-details/includes/class-fields.php:179
+msgid "Choose the color of links in the meta box"
+msgstr "رنگ لینک‌ها را در جعبه متا انتخاب کنید"
+
+#: addons/post-details/includes/class-fields.php:183
 msgid "Background"
 msgstr "پس‌زمینه"
 
-#: addons/post-details/includes/class-fields.php:185
-#: addons/post-list-box/classes/PostListBoxFields.php:191
-#: addons/post-navigation/includes/class-fields.php:460
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464
 msgid "Background Color"
 msgstr "رنگ پس‌زمینه"
 
-#: addons/post-details/includes/class-fields.php:190
+#: addons/post-details/includes/class-fields.php:192
 msgid "Background color for the meta box container"
 msgstr "رنگ پس‌زمینه برای جعبه متا"
 
-#: addons/post-details/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:498
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506
 msgid "Spacing"
 msgstr "فاصله"
 
-#: addons/post-details/includes/class-fields.php:198
-#: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510
 msgid "Padding (px)"
 msgstr "پدینگ (پیکسل)"
 
-#: addons/post-details/includes/class-fields.php:205
+#: addons/post-details/includes/class-fields.php:207
 msgid "Padding applied to all sides of the content area"
 msgstr "پدینگ اعمال شده به تمام سمت‌های ناحیه محتوا"
 
-#: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520
 msgid "Margin (px)"
 msgstr "حاشیه (پیکسل)"
 
-#: addons/post-details/includes/class-fields.php:215
+#: addons/post-details/includes/class-fields.php:217
 msgid "Margin applied to all sides of the meta box"
 msgstr "حاشیه اعمال شده به تمام سمت‌های جعبه متا"
 
-#: addons/post-details/includes/class-fields.php:219
-#: addons/post-navigation/includes/class-fields.php:468
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473
 msgid "Border"
 msgstr "مرز"
 
-#: addons/post-details/includes/class-fields.php:223
-#: addons/post-list-box/classes/PostListBoxFields.php:205
-#: addons/post-navigation/includes/class-fields.php:479
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485
 msgid "Border Width (px)"
 msgstr "عرض مرز (پیکسل)"
 
 #: addons/post-details/includes/class-fields.php:232
-#: addons/post-list-box/classes/PostListBoxFields.php:214
-#: addons/post-navigation/includes/class-fields.php:488
+msgid "Set the border width in pixels"
+msgstr "عرض حاشیه را به پیکسل تنظیم کنید"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495
 msgid "Border Radius (px)"
 msgstr "شعاع مرز (پیکسل)"
 
-#: addons/post-details/includes/class-fields.php:241
-#: addons/post-list-box/classes/PostListBoxFields.php:198
-#: addons/post-navigation/includes/class-fields.php:472
+#: addons/post-details/includes/class-fields.php:242
+msgid "Set the border radius in pixels"
+msgstr "شعاع حاشیه را به پیکسل تنظیم کنید"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477
 msgid "Border Color"
 msgstr "رنگ مرز"
+
+#: addons/post-details/includes/class-fields.php:250
+msgid "Choose the border color"
+msgstr "رنگ حاشیه را انتخاب کنید"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
@@ -393,7 +413,7 @@ msgstr "جزئیات پست سری"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413
+#: orgSeries-admin.php:414
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "اضافه کردن جدید"
@@ -495,288 +515,412 @@ msgstr "هایلایت پست فعلی"
 msgid "Show Box Title"
 msgstr "نمایش عنوان جعبه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:106
+#: addons/post-list-box/classes/PostListBoxFields.php:104
+msgid "Display the title above the post list"
+msgstr "عنوان را بالای لیست پست‌ها نمایش دهید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107
 msgid "Box Title Type"
 msgstr "نوع عنوان جعبه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:110
+#: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Use Series Title"
 msgstr "استفاده از عنوان سری"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:111
+#: addons/post-list-box/classes/PostListBoxFields.php:112
 msgid "Custom Title"
 msgstr "عنوان سفارشی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:115
+#: addons/post-list-box/classes/PostListBoxFields.php:116
 msgid "Choose whether to display the series title or a custom title"
 msgstr "انتخاب کنید که آیا عنوان سری یا عنوان سفارشی نمایش داده شود"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:120
+#: addons/post-list-box/classes/PostListBoxFields.php:121
 msgid "Link Box Title to Series"
 msgstr "عنوان جعبه را به سری متصل کنید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:125
+#: addons/post-list-box/classes/PostListBoxFields.php:126
 msgid "Link the box title to the current series archive when using the series title"
 msgstr ""
 "عنوان جعبه را به آرشیو سری فعلی متصل کنید زمانی که از عنوان سری استفاده "
 "می‌شود"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:130
+#: addons/post-list-box/classes/PostListBoxFields.php:131
 msgid "Custom Box Title Text"
 msgstr "متن عنوان جعبه سفارشی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/classes/PostListBoxFields.php:135
 #: addons/post-list-box/includes/class-utilities.php:162
 msgid "Series Posts"
 msgstr "پست‌های سری"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Enter custom title for the post list"
 msgstr "عنوان سفارشی را برای لیست پست وارد کنید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:136
+#: addons/post-list-box/classes/PostListBoxFields.php:137
 msgid "Only used when \"Custom Title\" is selected above"
 msgstr "فقط زمانی استفاده می‌شود که \"عنوان سفارشی\" در بالا انتخاب شده باشد"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:141
+#: addons/post-list-box/classes/PostListBoxFields.php:142
 msgid "Box Title HTML Tag"
 msgstr "تگ HTML عنوان جعبه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:160
+#: addons/post-list-box/classes/PostListBoxFields.php:157
+msgid "Choose the HTML tag used for the box title"
+msgstr "تگ HTML استفاده شده برای عنوان جعبه را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162
 msgid "Box Title Color"
 msgstr "رنگ عنوان جعبه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:169
+#: addons/post-list-box/classes/PostListBoxFields.php:167
+msgid "Choose the color of the box title"
+msgstr "رنگ عنوان جعبه را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172
 msgid "Box Title Font Size (px)"
 msgstr "اندازه قلم عنوان جعبه (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:243
+#: addons/post-list-box/classes/PostListBoxFields.php:179
+msgid "Set the font size of the box title in pixels"
+msgstr "اندازه فونت عنوان جعبه را به پیکسل تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200
+msgid "Choose the background color for the post list box"
+msgstr "رنگ پس‌زمینه برای جعبه لیست پست‌ها را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208
+msgid "Choose the border color for the post list box"
+msgstr "رنگ حاشیه برای جعبه لیست پست‌ها را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218
+msgid "Set the border width for the post list box in pixels"
+msgstr "عرض حاشیه برای جعبه لیست پست‌ها را به پیکسل تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228
+msgid "Set the border radius for the post list box in pixels"
+msgstr "شعاع حاشیه برای جعبه لیست پست‌ها را به پیکسل تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "فاصله داخلی جعبه لیست پست‌ها را به پیکسل تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252
 msgid "Show Post Titles"
 msgstr "عنوان پست‌ها را نشان دهید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:250
+#: addons/post-list-box/classes/PostListBoxFields.php:257
+msgid "Display post titles in the series list"
+msgstr "عنوان پست‌ها را در لیست سری‌ها نمایش دهید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
 msgid "Series Order Number"
 msgstr "شماره ترتیب سری"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:255
+#: addons/post-list-box/classes/PostListBoxFields.php:265
 msgid "Show the series order number next to each post title."
 msgstr "شماره ترتیب سری را در کنار هر عنوان پست نشان دهید."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:260
+#: addons/post-list-box/classes/PostListBoxFields.php:270
 msgid "Series Order Number Position"
 msgstr "موقعیت شماره ترتیب سری"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:264
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Before the title"
 msgstr "قبل از عنوان"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:265
+#: addons/post-list-box/classes/PostListBoxFields.php:275
 msgid "After the title"
 msgstr "بعد از عنوان"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:269
+#: addons/post-list-box/classes/PostListBoxFields.php:279
 msgid "Choose where the order number appears relative to the title."
 msgstr "محل نمایش شماره ترتیب را نسبت به عنوان انتخاب کنید."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:274
+#: addons/post-list-box/classes/PostListBoxFields.php:284
 msgid "Post Title Color"
 msgstr "رنگ عنوان پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:283
+#: addons/post-list-box/classes/PostListBoxFields.php:289
+msgid "Choose the color of post titles"
+msgstr "رنگ عنوان پست‌ها را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Post Title Font Size (px)"
 msgstr "اندازه قلم عنوان پست (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:294
+#: addons/post-list-box/classes/PostListBoxFields.php:301
+msgid "Set the font size of post titles in pixels"
+msgstr "اندازه فونت عنوان پست‌ها را به پیکسل تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306
 msgid "Show Post Excerpt"
 msgstr "خلاصه پست را نشان دهید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:302
+#: addons/post-list-box/classes/PostListBoxFields.php:311
+msgid "Display the excerpt for each post"
+msgstr "خلاصه هر پست را نمایش دهید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315
 msgid "Excerpt Length (words)"
 msgstr "طول گزیده (کلمات)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:314
+#: addons/post-list-box/classes/PostListBoxFields.php:322
+msgid "Set the maximum excerpt length in words"
+msgstr "حداکثر طول خلاصه را به کلمات تنظیم کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328
 msgid "Excerpt Color"
 msgstr "رنگ گزیده"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:324
+#: addons/post-list-box/classes/PostListBoxFields.php:333
+msgid "Choose the color of post excerpts"
+msgstr "رنگ خلاصه‌های پست را انتخاب کنید"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339
 msgid "Show Post Summary"
 msgstr "نمایش خلاصه پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Display a summary generated from each post"
+msgstr "نمایش خلاصه‌ای که از هر پست تولید شده است"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348
 msgid "Summary Length (words)"
 msgstr "طول خلاصه (کلمات)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:344
+#: addons/post-list-box/classes/PostListBoxFields.php:355
+msgid "Set the maximum summary length in words"
+msgstr "تنظیم حداکثر طول خلاصه به تعداد کلمات"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361
 msgid "Summary Color"
 msgstr "رنگ خلاصه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:366
+msgid "Choose the color of post summaries"
+msgstr "انتخاب رنگ خلاصه‌های پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Author"
 msgstr "نمایش نویسنده پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:362
+#: addons/post-list-box/classes/PostListBoxFields.php:377
+msgid "Display the author of each post"
+msgstr "نمایش نویسنده هر پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381
 msgid "Post Author Color"
 msgstr "رنگ نویسنده پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:372
+#: addons/post-list-box/classes/PostListBoxFields.php:386
+msgid "Choose the color of post authors"
+msgstr "انتخاب رنگ نویسندگان پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392
 msgid "Show Post Date"
 msgstr "نمایش تاریخ پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:380
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+msgid "Display the date of each post"
+msgstr "نمایش تاریخ هر پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 msgid "Post Date Color"
 msgstr "رنگ تاریخ پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:401
-#: addons/post-navigation/includes/class-fields.php:169
-#: addons/post-navigation/includes/class-fields.php:284
-#: addons/post-navigation/includes/class-fields.php:412
+#: addons/post-list-box/classes/PostListBoxFields.php:406
+msgid "Choose the color of post dates"
+msgstr "انتخاب رنگ تاریخ‌های پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415
 msgid "Show Featured Image"
 msgstr "نمایش تصویر شاخص"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:408
+#: addons/post-list-box/classes/PostListBoxFields.php:428
+msgid "Display the featured image for each post"
+msgstr "نمایش تصویر شاخص برای هر پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431
 msgid "Featured Image Width (px)"
 msgstr "عرض تصویر شاخص (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:415
-#: addons/post-navigation/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:309
-#: addons/post-navigation/includes/class-fields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
 msgid "Width of the featured image in pixels"
 msgstr "عرض تصویر شاخص به پیکسل"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:420
+#: addons/post-list-box/classes/PostListBoxFields.php:443
 msgid "Featured Image Height (px)"
 msgstr "ارتفاع تصویر شاخص (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:427
-#: addons/post-navigation/includes/class-fields.php:202
-#: addons/post-navigation/includes/class-fields.php:317
-#: addons/post-navigation/includes/class-fields.php:445
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448
 msgid "Height of the featured image in pixels"
 msgstr "ارتفاع تصویر شاخص به پیکسل"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:432
+#: addons/post-list-box/classes/PostListBoxFields.php:455
 msgid "Fallback Featured Image"
 msgstr "تصویر شاخص پیش‌فرض"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:460
 msgid "Image to display when a post does not have a featured image"
 msgstr "تصویری که هنگام عدم وجود تصویر شاخص برای پست نمایش داده می‌شود"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:477
 msgid "Post Padding (px)"
 msgstr "فاصله پست (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Set the inner spacing for each post item in pixels"
+msgstr "تنظیم فاصله داخلی برای هر مورد پست به پیکسل"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
 msgstr "عرض حاشیه پست (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:494
+msgid "Set the border width for each post item in pixels"
+msgstr "تنظیم عرض حاشیه برای هر مورد پست به پیکسل"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
 msgstr "رنگ حاشیه پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:479
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+msgid "Choose the border color for each post item"
+msgstr "انتخاب رنگ حاشیه برای هر مورد پست"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505
 msgid "Post Background Color"
 msgstr "رنگ پس‌زمینه پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Background color for the post list container"
 msgstr "رنگ پس‌زمینه برای ظرف لیست پست‌ها"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:498
+#: addons/post-list-box/classes/PostListBoxFields.php:524
 msgid "Layout Style"
 msgstr "سبک چیدمان"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:528
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "لیست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: addons/post-list-box/classes/PostListBoxFields.php:529
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "شبکه"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:510
+#: addons/post-list-box/classes/PostListBoxFields.php:533
+msgid "Choose the layout style for the post list"
+msgstr "انتخاب سبک طرح برای لیست پست‌ها"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537
 msgid "Columns"
 msgstr "ستون‌ها"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:541
 msgid "2 Columns"
 msgstr "۲ ستون"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:515
+#: addons/post-list-box/classes/PostListBoxFields.php:542
 msgid "3 Columns"
 msgstr "۳ ستون"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 msgid "4 Columns"
 msgstr "۴ ستون"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:517
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "6 Columns"
 msgstr "۶ ستون"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:548
+msgid "Choose the number of columns in the grid layout"
+msgstr "انتخاب تعداد ستون‌ها در طرح شبکه‌ای"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554
 msgid "Order By"
 msgstr "ترتیب بر اساس"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:530
+#: addons/post-list-box/classes/PostListBoxFields.php:558
 msgid "Date"
 msgstr "تاریخ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:559
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "عنوان"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/post-list-box/classes/PostListBoxFields.php:560
 #: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826
-#: orgSeries-admin.php:369
-#: orgSeries-manage.php:195
-#: orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:750
+#: addons/publisher/series_issue_manager.php:825
+#: orgSeries-admin.php:370
+#: orgSeries-manage.php:194
+#: orgSeries-manage.php:203
 msgid "Series Order"
 msgstr "ترتیب سری"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:539
+#: addons/post-list-box/classes/PostListBoxFields.php:564
+msgid "Choose the field used to sort posts"
+msgstr "انتخاب فیلدی که برای مرتب‌سازی پست‌ها استفاده می‌شود"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
 #: orgSeries-manage.php:51
-#: orgSeries-manage.php:227
+#: orgSeries-manage.php:226
 msgid "Order"
 msgstr "ترتیب"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: addons/post-list-box/classes/PostListBoxFields.php:572
 #: inc/settings/tab-legacy.php:106
-#: orgSeries-widgets.php:320
+#: orgSeries-widgets.php:326
 msgid "Ascending"
 msgstr "صعودی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 #: inc/settings/tab-legacy.php:107
-#: orgSeries-widgets.php:319
+#: orgSeries-widgets.php:325
 msgid "Descending"
 msgstr "نزولی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:551
+#: addons/post-list-box/classes/PostListBoxFields.php:577
+msgid "Choose the direction in which posts are sorted"
+msgstr "انتخاب جهتی که پست‌ها در آن مرتب می‌شوند"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581
 msgid "Gap Between Items (px)"
 msgstr "فاصله بین موارد (پیکسل)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:561
+#: addons/post-list-box/classes/PostListBoxFields.php:588
+msgid "Set the space between post items in pixels"
+msgstr "تنظیم فاصله بین موارد پست به پیکسل"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592
 msgid "Post List Box Location"
 msgstr "موقعیت جعبه لیست پست"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:601
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "انتخاب کنید که جعبه لیست پست را در نسبت به محتوا کجا نمایش دهید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:574
+#: addons/post-list-box/classes/PostListBoxFields.php:605
 msgid "Maximum number of items"
 msgstr "حداکثر تعداد موارد"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:611
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -784,25 +928,37 @@ msgstr ""
 "تعداد پست‌های نمایش داده شده در لیست سری را محدود کنید. برای عدم محدودیت، "
 "خالی بگذارید. پیش نمایشی از مدیر محدود به ۴ پست است."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:595
+#: addons/post-list-box/classes/PostListBoxFields.php:626
 msgid "Highlight Current Post"
 msgstr "پست فعلی را هایلایت کنید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:600
+#: addons/post-list-box/classes/PostListBoxFields.php:631
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "پست فعلی را هنگام مشاهده یک پست خاص از سری هایلایت کنید"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:603
+#: addons/post-list-box/classes/PostListBoxFields.php:634
 msgid "Current Post Background Color"
 msgstr "رنگ پس‌زمینه پست فعلی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:610
+#: addons/post-list-box/classes/PostListBoxFields.php:639
+msgid "Choose the background color for the current post"
+msgstr "انتخاب رنگ پس‌زمینه برای پست جاری"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642
 msgid "Current Post Border Color"
 msgstr "رنگ حاشیه پست فعلی"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:617
+#: addons/post-list-box/classes/PostListBoxFields.php:647
+msgid "Choose the border color for the current post"
+msgstr "انتخاب رنگ حاشیه برای پست جاری"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650
 msgid "Current Post Text Color"
 msgstr "رنگ متن پست فعلی"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:655
+msgid "Choose the text color for the current post"
+msgstr "انتخاب رنگ متن برای پست جاری"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
@@ -913,7 +1069,7 @@ msgstr "خطا در بارگذاری پیش‌نمایش."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
+#: orgSeries-manage.php:263
 msgid "Select Image"
 msgstr "انتخاب تصویر"
 
@@ -1070,16 +1226,16 @@ msgstr "خانه مجموعه"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
-#: addons/post-navigation/includes/class-fields.php:144
-#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
 msgstr "قبلی"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
-#: addons/post-navigation/includes/class-fields.php:259
-#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
 msgstr "بعدی"
@@ -1131,334 +1287,386 @@ msgstr "مورد"
 msgid "Include Series Title"
 msgstr "شامل عنوان سری"
 
-#: addons/post-navigation/includes/class-fields.php:96
+#: addons/post-navigation/includes/class-fields.php:94
+msgid "Display the series title above the navigation"
+msgstr "نمایش عنوان سری در بالای ناوبری"
+
+#: addons/post-navigation/includes/class-fields.php:97
 msgid "Link Series Title"
 msgstr "پیوند عنوان سری"
 
-#: addons/post-navigation/includes/class-fields.php:101
+#: addons/post-navigation/includes/class-fields.php:102
 msgid "Link the series title to the series archive page"
 msgstr "عنوان سری را به صفحه آرشیو سری پیوند دهید"
 
-#: addons/post-navigation/includes/class-fields.php:106
+#: addons/post-navigation/includes/class-fields.php:107
 msgid "Series Title Alignment"
 msgstr "تراز عنوان سری"
 
-#: addons/post-navigation/includes/class-fields.php:110
-#: addons/post-navigation/includes/class-fields.php:181
-#: addons/post-navigation/includes/class-fields.php:232
-#: addons/post-navigation/includes/class-fields.php:296
-#: addons/post-navigation/includes/class-fields.php:424
+#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427
 msgid "Left"
 msgstr "چپ"
 
-#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:112
 msgid "Center"
 msgstr "مرکز"
 
-#: addons/post-navigation/includes/class-fields.php:112
-#: addons/post-navigation/includes/class-fields.php:182
-#: addons/post-navigation/includes/class-fields.php:233
-#: addons/post-navigation/includes/class-fields.php:297
-#: addons/post-navigation/includes/class-fields.php:425
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428
 msgid "Right"
 msgstr "راست"
 
-#: addons/post-navigation/includes/class-fields.php:118
+#: addons/post-navigation/includes/class-fields.php:117
+msgid "Choose the alignment of the series title"
+msgstr "چیدمان عنوان مجموعه را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:120
 msgid "Series Title Color"
 msgstr "رنگ عنوان سری"
 
 #: addons/post-navigation/includes/class-fields.php:125
+msgid "Choose the color of the series title"
+msgstr "رنگ عنوان مجموعه را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:128
 msgid "Hide When Single Post"
 msgstr "هنگام پست تکی پنهان‌سازی"
 
-#: addons/post-navigation/includes/class-fields.php:130
+#: addons/post-navigation/includes/class-fields.php:133
 msgid "Do not display navigation if series has only one post"
 msgstr "اگر سری فقط یک پست داشته باشد، ناوبری را نمایش ندهید"
 
-#: addons/post-navigation/includes/class-fields.php:148
+#: addons/post-navigation/includes/class-fields.php:151
 msgid "Previous Navigation Type"
 msgstr "نوع ناوبری قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:152
-#: addons/post-navigation/includes/class-fields.php:267
-#: addons/post-navigation/includes/class-fields.php:382
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385
 msgid "None"
 msgstr "هیچ‌کدام"
 
-#: addons/post-navigation/includes/class-fields.php:153
+#: addons/post-navigation/includes/class-fields.php:156
 msgid "Previous Post Title"
 msgstr "عنوان پست قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:154
-#: addons/post-navigation/includes/class-fields.php:269
-#: addons/post-navigation/includes/class-fields.php:384
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387
 msgid "Custom Label"
 msgstr "برچسب سفارشی"
 
-#: addons/post-navigation/includes/class-fields.php:158
+#: addons/post-navigation/includes/class-fields.php:161
 msgid "Choose how to display the previous navigation"
 msgstr "انتخاب کنید که چگونه ناوبری قبلی را نمایش دهید"
 
-#: addons/post-navigation/includes/class-fields.php:161
+#: addons/post-navigation/includes/class-fields.php:164
 msgid "Previous Label"
 msgstr "برچسب قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:169
 msgid "Custom text for previous post link"
 msgstr "متن سفارشی برای لینک پست قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:174
+#: addons/post-navigation/includes/class-fields.php:177
 msgid "Display featured image for previous post"
 msgstr "نمایش تصویر ویژه برای پست قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:177
-#: addons/post-navigation/includes/class-fields.php:292
-#: addons/post-navigation/includes/class-fields.php:420
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423
 msgid "Image Position"
 msgstr "موقعیت تصویر"
 
-#: addons/post-navigation/includes/class-fields.php:186
+#: addons/post-navigation/includes/class-fields.php:189
 msgid "Position of the featured image relative to the navigation"
 msgstr "موقعیت تصویر ویژه نسبت به ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:189
-#: addons/post-navigation/includes/class-fields.php:304
-#: addons/post-navigation/includes/class-fields.php:432
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435
 msgid "Image Width (px)"
 msgstr "عرض تصویر (پیکسل)"
 
-#: addons/post-navigation/includes/class-fields.php:197
-#: addons/post-navigation/includes/class-fields.php:312
-#: addons/post-navigation/includes/class-fields.php:440
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443
 msgid "Image Height (px)"
 msgstr "ارتفاع تصویر (پیکسل)"
 
-#: addons/post-navigation/includes/class-fields.php:205
-#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323
 msgid "Show Arrow"
 msgstr "نمایش فلش"
 
-#: addons/post-navigation/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:213
 msgid "Display an arrow icon with the previous navigation"
 msgstr "نمایش آیکون فلش با ناوبری قبلی"
 
-#: addons/post-navigation/includes/class-fields.php:213
-#: addons/post-navigation/includes/class-fields.php:328
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331
 msgid "Arrow Type"
 msgstr "نوع فلش"
 
-#: addons/post-navigation/includes/class-fields.php:217
+#: addons/post-navigation/includes/class-fields.php:220
 msgid "Chevron Left (‹)"
 msgstr "فلش چپ (‹)"
 
-#: addons/post-navigation/includes/class-fields.php:218
+#: addons/post-navigation/includes/class-fields.php:221
 msgid "Arrow Left (←)"
 msgstr "فلش چپ (←)"
 
-#: addons/post-navigation/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:222
 msgid "Double Chevron Left («)"
 msgstr "فلش دوگانه چپ («)"
 
-#: addons/post-navigation/includes/class-fields.php:220
+#: addons/post-navigation/includes/class-fields.php:223
 msgid "Triangle Left (◄)"
 msgstr "مثلث چپ (◄)"
 
-#: addons/post-navigation/includes/class-fields.php:221
-#: addons/post-navigation/includes/class-fields.php:336
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339
 msgid "Custom Image"
 msgstr "تصویر سفارشی"
 
-#: addons/post-navigation/includes/class-fields.php:225
-#: addons/post-navigation/includes/class-fields.php:340
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
 msgid "Choose the arrow icon style"
 msgstr "انتخاب سبک آیکون فلش"
 
-#: addons/post-navigation/includes/class-fields.php:228
-#: addons/post-navigation/includes/class-fields.php:343
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346
 msgid "Arrow Position"
 msgstr "موقعیت فلش"
 
-#: addons/post-navigation/includes/class-fields.php:237
+#: addons/post-navigation/includes/class-fields.php:240
 msgid "Position of the arrow relative to the navigation"
 msgstr "موقعیت فلش نسبت به ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:240
-#: addons/post-navigation/includes/class-fields.php:355
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358
 msgid "Arrow Size (px)"
 msgstr "اندازه فلش (پیکسل)"
 
-#: addons/post-navigation/includes/class-fields.php:247
-#: addons/post-navigation/includes/class-fields.php:362
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
 msgid "Size of the arrow icon in pixels (applies to both width and height)"
 msgstr "اندازه آیکون فلش به پیکسل (برای عرض و ارتفاع اعمال می‌شود)"
 
-#: addons/post-navigation/includes/class-fields.php:250
-#: addons/post-navigation/includes/class-fields.php:365
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368
 msgid "Custom Arrow Image"
 msgstr "تصویر سفارشی فلش"
 
-#: addons/post-navigation/includes/class-fields.php:255
-#: addons/post-navigation/includes/class-fields.php:370
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373
 msgid "Select custom arrow image from media library"
 msgstr "انتخاب تصویر سفارشی فلش از کتابخانه رسانه"
 
-#: addons/post-navigation/includes/class-fields.php:263
+#: addons/post-navigation/includes/class-fields.php:266
 msgid "Next Navigation Type"
 msgstr "نوع ناوبری بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:268
+#: addons/post-navigation/includes/class-fields.php:271
 msgid "Next Post Title"
 msgstr "عنوان پست بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:273
+#: addons/post-navigation/includes/class-fields.php:276
 msgid "Choose how to display the next post link"
 msgstr "انتخاب نحوه نمایش لینک پست بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:276
+#: addons/post-navigation/includes/class-fields.php:279
 msgid "Next Label"
 msgstr "برچسب بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:281
+#: addons/post-navigation/includes/class-fields.php:284
 msgid "Custom text for next post link"
 msgstr "متن سفارشی برای لینک پست بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:289
+#: addons/post-navigation/includes/class-fields.php:292
 msgid "Display featured image for next post"
 msgstr "نمایش تصویر برجسته برای پست بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:301
+#: addons/post-navigation/includes/class-fields.php:304
 msgid "Position of the featured image relative to navigation"
 msgstr "موقعیت تصویر برجسته نسبت به ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:325
+#: addons/post-navigation/includes/class-fields.php:328
 msgid "Display an arrow icon with the next navigation"
 msgstr "نمایش آیکون فلش با ناوبری بعدی"
 
-#: addons/post-navigation/includes/class-fields.php:332
+#: addons/post-navigation/includes/class-fields.php:335
 msgid "Chevron Right (›)"
 msgstr "فلش راست (›)"
 
-#: addons/post-navigation/includes/class-fields.php:333
+#: addons/post-navigation/includes/class-fields.php:336
 msgid "Arrow Right (→)"
 msgstr "فلش راست (→)"
 
-#: addons/post-navigation/includes/class-fields.php:334
+#: addons/post-navigation/includes/class-fields.php:337
 msgid "Double Chevron Right (»)"
 msgstr "دو فلش راست (»)"
 
-#: addons/post-navigation/includes/class-fields.php:335
+#: addons/post-navigation/includes/class-fields.php:338
 msgid "Triangle Right (►)"
 msgstr "مثلث راست (►)"
 
-#: addons/post-navigation/includes/class-fields.php:347
+#: addons/post-navigation/includes/class-fields.php:350
 msgid "Left of Text"
 msgstr "چپ متن"
 
-#: addons/post-navigation/includes/class-fields.php:348
+#: addons/post-navigation/includes/class-fields.php:351
 msgid "Right of Text"
 msgstr "راست متن"
 
-#: addons/post-navigation/includes/class-fields.php:352
+#: addons/post-navigation/includes/class-fields.php:355
 msgid "Position of the arrow relative to the link text"
 msgstr "موقعیت فلش نسبت به متن لینک"
 
-#: addons/post-navigation/includes/class-fields.php:374
+#: addons/post-navigation/includes/class-fields.php:377
 msgid "First"
 msgstr "اولین"
 
-#: addons/post-navigation/includes/class-fields.php:378
+#: addons/post-navigation/includes/class-fields.php:381
 msgid "First Navigation Type"
 msgstr "نوع ناوبری اول"
 
-#: addons/post-navigation/includes/class-fields.php:383
+#: addons/post-navigation/includes/class-fields.php:386
 msgid "First Post Title"
 msgstr "عنوان پست اول"
 
-#: addons/post-navigation/includes/class-fields.php:388
+#: addons/post-navigation/includes/class-fields.php:391
 msgid "Choose how to display the first navigation"
 msgstr "انتخاب کنید که چگونه ناوبری اول نمایش داده شود"
 
-#: addons/post-navigation/includes/class-fields.php:391
+#: addons/post-navigation/includes/class-fields.php:394
 msgid "First Label"
 msgstr "برچسب اول"
 
-#: addons/post-navigation/includes/class-fields.php:395
+#: addons/post-navigation/includes/class-fields.php:398
 msgid "Go to First"
 msgstr "برو به اولین"
 
-#: addons/post-navigation/includes/class-fields.php:396
+#: addons/post-navigation/includes/class-fields.php:399
 msgid "Custom text for first navigation"
 msgstr "متن سفارشی برای ناوبری اول"
 
-#: addons/post-navigation/includes/class-fields.php:399
+#: addons/post-navigation/includes/class-fields.php:402
 msgid "First Navigation Position"
 msgstr "موقعیت ناوبری اول"
 
-#: addons/post-navigation/includes/class-fields.php:403
+#: addons/post-navigation/includes/class-fields.php:406
 msgid "Left (First → Previous → Next)"
 msgstr "چپ (اولین → قبلی → بعدی)"
 
-#: addons/post-navigation/includes/class-fields.php:404
+#: addons/post-navigation/includes/class-fields.php:407
 msgid "Center (Previous → First → Next)"
 msgstr "مرکز (قبلی → اولین → بعدی)"
 
-#: addons/post-navigation/includes/class-fields.php:405
+#: addons/post-navigation/includes/class-fields.php:408
 msgid "Right (Previous → Next → First)"
 msgstr "راست (قبلی → بعدی → اولین)"
 
-#: addons/post-navigation/includes/class-fields.php:409
+#: addons/post-navigation/includes/class-fields.php:412
 msgid "Position of the first/series home link in navigation"
 msgstr "موقعیت لینک خانه اول/سری در ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:417
+#: addons/post-navigation/includes/class-fields.php:420
 msgid "Display featured image for first post"
 msgstr "نمایش تصویر برجسته برای پست اول"
 
-#: addons/post-navigation/includes/class-fields.php:429
+#: addons/post-navigation/includes/class-fields.php:432
 msgid "Position of the featured image relative to the link text"
 msgstr "موقعیت تصویر برجسته نسبت به متن لینک"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:452
 msgid "Color"
 msgstr "رنگ"
 
-#: addons/post-navigation/includes/class-fields.php:520
+#: addons/post-navigation/includes/class-fields.php:461
+msgid "Choose the color of navigation link text"
+msgstr "رنگ متن لینک‌های ناوبری را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:469
+msgid "Choose the background color of navigation links"
+msgstr "رنگ پس‌زمینه لینک‌های ناوبری را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:482
+msgid "Choose the border color of navigation links"
+msgstr "رنگ حاشیه لینک‌های ناوبری را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:492
+msgid "Set the border width of navigation links in pixels"
+msgstr "عرض حاشیه لینک‌های ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Set the border radius of navigation links in pixels"
+msgstr "شکل حاشیه لینک‌های ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:517
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "فاصله داخلی اطراف لینک‌های ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "فاصله خارجی اطراف لینک‌های ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:530
 msgid "Gap Between Links (px)"
 msgstr "فاصله بین لینک‌ها (px)"
 
-#: addons/post-navigation/includes/class-fields.php:527
+#: addons/post-navigation/includes/class-fields.php:537
 msgid "Space between navigation links"
 msgstr "فضا بین لینک‌های ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:540
+#: addons/post-navigation/includes/class-fields.php:550
 msgid "Container Style"
 msgstr "سبک کانتینر"
 
-#: addons/post-navigation/includes/class-fields.php:544
+#: addons/post-navigation/includes/class-fields.php:554
 msgid "Container Background Color"
 msgstr "رنگ پس‌زمینه کانتینر"
 
-#: addons/post-navigation/includes/class-fields.php:549
+#: addons/post-navigation/includes/class-fields.php:559
 msgid "Background color for the navigation container"
 msgstr "رنگ پس‌زمینه برای کانتینر ناوبری"
 
-#: addons/post-navigation/includes/class-fields.php:552
+#: addons/post-navigation/includes/class-fields.php:562
 msgid "Container Border Color"
 msgstr "رنگ حاشیه کانتینر"
 
-#: addons/post-navigation/includes/class-fields.php:559
+#: addons/post-navigation/includes/class-fields.php:567
+msgid "Choose the border color of the navigation container"
+msgstr "رنگ حاشیه ظرف ناوبری را انتخاب کنید"
+
+#: addons/post-navigation/includes/class-fields.php:570
 msgid "Container Border Width (px)"
 msgstr "عرض حاشیه کانتینر (px)"
 
-#: addons/post-navigation/includes/class-fields.php:568
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Set the border width of the navigation container in pixels"
+msgstr "عرض حاشیه ظرف ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:580
 msgid "Container Border Radius (px)"
 msgstr "شعاع حاشیه کانتینر (px)"
 
-#: addons/post-navigation/includes/class-fields.php:577
+#: addons/post-navigation/includes/class-fields.php:587
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "شکل حاشیه ظرف ناوبری را به پیکسل تنظیم کنید"
+
+#: addons/post-navigation/includes/class-fields.php:590
 msgid "Container Padding (px)"
 msgstr "ت padding کانتینر (px)"
 
-#: addons/post-navigation/includes/class-fields.php:584
+#: addons/post-navigation/includes/class-fields.php:597
 msgid "Inner spacing for the container"
 msgstr "فضای داخلی برای کانتینر"
 
@@ -1555,7 +1763,7 @@ msgstr "قسمت کنونی"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
+#: addons/publisher/series-publish-post-table.php:272
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -1565,7 +1773,7 @@ msgstr "مشاهده"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
+#: addons/publisher/series-publish-post-table.php:289
 msgid "Trash"
 msgstr "زباله‌دان"
 
@@ -1579,7 +1787,7 @@ msgstr "(در حال حاضر شماره قسمتی ندارد)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
+#: addons/publisher/series-publish-post-table.php:424
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
@@ -1592,16 +1800,16 @@ msgstr "پستی در این سری منتشر نشده است."
 msgid "No Part Number"
 msgstr "بدون شماره قسمت"
 
-#: addons/publisher/series-publish-post-table.php:176
+#: addons/publisher/series-publish-post-table.php:178
 msgid "All Categories"
 msgstr "تمام دسته‌ها"
 
-#: addons/publisher/series-publish-post-table.php:189
+#: addons/publisher/series-publish-post-table.php:191
 msgid "Filter"
 msgstr "فیلتر"
 
 #: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
+#: addons/publisher/series_issue_manager.php:499
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "مدیریت سری‌ها"
@@ -1611,8 +1819,8 @@ msgid "Series"
 msgstr "سری‌ها"
 
 #: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
+#: addons/publisher/series_issue_manager.php:694
+#: addons/publisher/series_issue_manager.php:740
 msgid "Publish Series"
 msgstr "انتشار سری"
 
@@ -1657,65 +1865,65 @@ msgstr ""
 "هنگامی که این گزینه را علامت‌گذاری کنید، تمام پست‌هایی که به این سری اختصاص "
 "می‌دهید تا زمانی که تمام سری را منتشر نکنید، منتشر نشده باقی خواهند ماند."
 
-#: addons/publisher/series_issue_manager.php:290
+#: addons/publisher/series_issue_manager.php:289
 msgid "The posts in your series were successfully unpublished."
 msgstr "پست‌های شما در سری با موفقیت منتشر نشده‌اند."
 
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
+#: addons/publisher/series_issue_manager.php:298
+#: addons/publisher/series_issue_manager.php:415
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "تبریک. ترتیب سری شما با موفقیت به‌روزرسانی شد."
 
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
+#: addons/publisher/series_issue_manager.php:306
+#: addons/publisher/series_issue_manager.php:343
 msgid "Congratulations. Your posts were published successfully."
 msgstr "تبریک. پست‌های شما با موفقیت منتشر شدند."
 
-#: addons/publisher/series_issue_manager.php:316
+#: addons/publisher/series_issue_manager.php:315
 msgid "Post moved to the Trash."
 msgstr "پست به سطل زباله منتقل شد."
 
-#: addons/publisher/series_issue_manager.php:339
+#: addons/publisher/series_issue_manager.php:338
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "تبریک. پست‌های شما با موفقیت زمانبندی شدند."
 
-#: addons/publisher/series_issue_manager.php:499
+#: addons/publisher/series_issue_manager.php:498
 msgid "Manage Series Issues"
 msgstr "مدیریت مشکلات سری"
 
-#: addons/publisher/series_issue_manager.php:528
+#: addons/publisher/series_issue_manager.php:527
 msgid "Number of items per page"
 msgstr "تعداد اقلام در هر صفحه"
 
-#: addons/publisher/series_issue_manager.php:643
+#: addons/publisher/series_issue_manager.php:642
 msgid "Publishing Series:"
 msgstr "انتشار سری:"
 
-#: addons/publisher/series_issue_manager.php:649
+#: addons/publisher/series_issue_manager.php:648
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "نتایج جستجو برای &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:664
+#: addons/publisher/series_issue_manager.php:663
 msgid "Search"
 msgstr "جستجو"
 
-#: addons/publisher/series_issue_manager.php:709
+#: addons/publisher/series_issue_manager.php:708
 msgid "Publication Date/Time:"
 msgstr "تاریخ/زمان انتشار:"
 
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
+#: addons/publisher/series_issue_manager.php:764
+#: addons/publisher/series_issue_manager.php:839
+#: addons/publisher/series_issue_manager.php:938
 msgid "Update Order"
 msgstr "به‌روزرسانی ترتیب"
 
-#: addons/publisher/series_issue_manager.php:792
+#: addons/publisher/series_issue_manager.php:791
 msgid "Series Order:"
 msgstr "ترتیب سری:"
 
-#: addons/publisher/series_issue_manager.php:795
+#: addons/publisher/series_issue_manager.php:794
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
@@ -1723,11 +1931,11 @@ msgstr ""
 "نام‌های پست را به ترتیبی که می‌خواهید در مجموعه قرار بگیرند، از قسمت اول تا "
 "قسمت آخر بکشید."
 
-#: addons/publisher/series_issue_manager.php:867
+#: addons/publisher/series_issue_manager.php:866
 msgid "Unpublished posts in series:"
 msgstr "پست‌های منتشرنشده در مجموعه:"
 
-#: addons/publisher/series_issue_manager.php:870
+#: addons/publisher/series_issue_manager.php:869
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -1735,15 +1943,15 @@ msgstr ""
 "زمانی که این پست‌ها منتشر شوند، پس از آخرین پست فعلی در مجموعه اضافه خواهند "
 "شد."
 
-#: addons/publisher/series_issue_manager.php:901
+#: addons/publisher/series_issue_manager.php:900
 msgid "Unpublished Posts"
 msgstr "پست‌های منتشرنشده"
 
-#: addons/publisher/series_issue_manager.php:915
+#: addons/publisher/series_issue_manager.php:914
 msgid "Publish Unpublished Posts"
 msgstr "انتشار پست‌های منتشرنشده"
 
-#: addons/publisher/series_issue_manager.php:925
+#: addons/publisher/series_issue_manager.php:924
 msgid "Unpublished Series Order"
 msgstr "ترتیب مجموعه منتشرنشده"
 
@@ -2181,7 +2389,7 @@ msgstr "روش ترتیب سری"
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
 #: orgSeries-setup.php:485
-#: orgSeries-widgets.php:112
+#: orgSeries-widgets.php:115
 msgid "Series Table of Contents"
 msgstr "فهرست مطالب سری"
 
@@ -2593,6 +2801,33 @@ msgstr ""
 msgid "Sorry, no results found."
 msgstr "متأسفم، نتیجه‌ای پیدا نشد."
 
+#: inc/welcome/welcome-panel.php:141
+msgid "Dismiss this panel"
+msgstr "این پنل را رد کنید"
+
+#: inc/welcome/welcome-panel.php:147
+msgid "Welcome! Create your first series"
+msgstr "خوش آمدید! مجموعه اول خود را ایجاد کنید"
+
+#: inc/welcome/welcome-panel.php:150
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Use the Add New Series form on this page to create your first "
+"series, then add posts to it."
+msgstr ""
+"یک مجموعه، پست‌های شما را در کنار هم قرار می‌دهد و ترتیب خواندن را به "
+"خوانندگان شما نشان می‌دهد. از فرم افزودن مجموعه جدید در این صفحه برای ایجاد "
+"مجموعه اول خود استفاده کنید، سپس پست‌ها را به آن اضافه کنید."
+
+#: inc/welcome/welcome-panel.php:155
+msgid "View Documentation"
+msgstr "مستندات را مشاهده کنید"
+
+#: inc/welcome/welcome-panel.php:160
+#: includes-core/PPSeriesCoreAdmin.php:41
+msgid "Upgrade to Pro"
+msgstr "ترقی به Pro"
+
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
 msgid ""
@@ -2602,27 +2837,23 @@ msgstr ""
 "شما از PublishPress Series Free استفاده می‌کنید. نسخه Pro ویژگی‌ها و "
 "پشتیبانی بیشتری دارد. %sترقی به Pro%s"
 
-#: includes-core/PPSeriesCoreAdmin.php:35
-msgid "Upgrade to Pro"
-msgstr "ترقی به Pro"
-
-#: includes-core/PPSeriesCoreAdmin.php:58
+#: includes-core/PPSeriesCoreAdmin.php:64
 msgid "Need PublishPress Series Support?"
 msgstr "به پشتیبانی PublishPress Series نیاز دارید؟"
 
-#: includes-core/PPSeriesCoreAdmin.php:63
+#: includes-core/PPSeriesCoreAdmin.php:69
 msgid "If you need help or have a new feature request, let us know."
 msgstr "اگر به کمک نیاز دارید یا درخواست ویژگی جدیدی دارید، به ما اطلاع دهید."
 
-#: includes-core/PPSeriesCoreAdmin.php:65
+#: includes-core/PPSeriesCoreAdmin.php:71
 msgid "Request Support"
 msgstr "درخواست پشتیبانی"
 
-#: includes-core/PPSeriesCoreAdmin.php:74
+#: includes-core/PPSeriesCoreAdmin.php:80
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "مستندات دقیق نیز در وب‌سایت افزونه موجود است."
 
-#: includes-core/PPSeriesCoreAdmin.php:76
+#: includes-core/PPSeriesCoreAdmin.php:82
 msgid "View Knowledge Base"
 msgstr "مشاهده پایگاه دانش"
 
@@ -2635,44 +2866,48 @@ msgstr "یک خطا رخ داد"
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s سری به طبقه‌بندی جدید منتقل شد"
 
-#: orgSeries-admin.php:175
+#: orgSeries-admin.php:154
+msgid "Custom Template"
+msgstr "قالب سفارشی"
+
+#: orgSeries-admin.php:176
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "اگر %s را دوست دارید، لطفاً به ما یک امتیاز %s بدهید. متشکریم!"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:187
 msgid "About PublishPress Series"
 msgstr "درباره سری PublishPress"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:187
 msgid "About"
 msgstr "درباره"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:188
 msgid "PublishPress Series Documentation"
 msgstr "مستندات سری PublishPress"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:188
 msgid "Documentation"
 msgstr "مستندات"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:189
 msgid "Contact the PublishPress team"
 msgstr "با تیم PublishPress تماس بگیرید"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:189
 msgid "Contact"
 msgstr "تماس"
 
-#: orgSeries-admin.php:219
+#: orgSeries-admin.php:220
 msgid "Sorry but you don't have permission to add series"
 msgstr "متأسفیم، اما شما اجازه افزودن سری را ندارید"
 
-#: orgSeries-admin.php:230
+#: orgSeries-admin.php:231
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "نامی که انتخاب کردید به درستی پاک‌سازی نمی‌شود. از نام دیگری استفاده کنید."
 
-#: orgSeries-admin.php:236
+#: orgSeries-admin.php:237
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2680,23 +2915,23 @@ msgstr ""
 "همم... به نظر می‌رسد که قبلاً سری با آن نام وجود دارد. از نام دیگری استفاده "
 "کنید"
 
-#: orgSeries-admin.php:359
+#: orgSeries-admin.php:360
 msgid "Not part of a series"
 msgstr "جزء یک سری نیست"
 
-#: orgSeries-admin.php:421
+#: orgSeries-admin.php:422
 msgid "Search series"
 msgstr "جستجوی سری"
 
-#: orgSeries-admin.php:436
+#: orgSeries-admin.php:437
 msgid "Series Part:"
 msgstr "قسمت سری:"
 
-#: orgSeries-admin.php:443
+#: orgSeries-admin.php:444
 msgid "Post title in widget:"
 msgstr "عنوان پست در ویجت:"
 
-#: orgSeries-admin.php:445
+#: orgSeries-admin.php:446
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2704,33 +2939,47 @@ msgstr ""
 "عنوان کوتاهی از این پست که در ویجت سری استفاده خواهد شد. برای استفاده از "
 "عنوان کامل، خالی بگذارید."
 
-#: orgSeries-admin.php:519
+#: orgSeries-admin.php:520
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (بدون شماره بخش)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:522
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (بخش %1$s از %2$s)"
 
-#: orgSeries-admin.php:525
+#: orgSeries-admin.php:526
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (شماره قطعه ندارد)"
 
-#: orgSeries-admin.php:531
+#: orgSeries-admin.php:532
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "بدون سری"
 
-#: orgSeries-admin.php:552
+#: orgSeries-admin.php:553
 msgid "View all series"
 msgstr "مشاهده تمام سری‌ها"
 
-#: orgSeries-admin.php:561
+#: orgSeries-admin.php:562
 msgid "Manage All Series"
 msgstr "مدیریت تمام سری‌ها"
+
+#: orgSeries-icon.php:132
+msgid ""
+"PublishPress Series could not save the series icon. The icon was not "
+"changed."
+msgstr ""
+"PublishPress Series نتوانست آیکون مجموعه را ذخیره کند. آیکون تغییر نکرده "
+"است."
+
+#: orgSeries-icon.php:136
+#. translators: %s: the error message reported by the database.
+#, php-format
+msgid "Database error: %s"
+msgstr "خطای پایگاه داده: %s"
 
 #: orgSeries-manage.php:66
 msgid "Term Order"
@@ -2744,11 +2993,11 @@ msgstr ""
 "برای جابجایی یک مورد، ردیف را با \"کلیک و نگه‌داشتن\" آن در هر جایی بکشید و "
 "به موقعیت جدید خود منتقل کنید."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:195
 msgid "ID"
 msgstr "شناسه"
 
-#: orgSeries-manage.php:233
+#: orgSeries-manage.php:232
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -2757,15 +3006,15 @@ msgstr ""
 "دلخواه خود را با وارد کردن یک شماره (1 برای اول و غیره) در این فیلد انتخاب "
 "کنید."
 
-#: orgSeries-manage.php:240
+#: orgSeries-manage.php:239
 msgid "Current series icon:"
 msgstr "آیکون سری جاری:"
 
-#: orgSeries-manage.php:246
+#: orgSeries-manage.php:245
 msgid "No icon currently"
 msgstr "در حال حاضر هیچ آیکونی وجود ندارد"
 
-#: orgSeries-manage.php:256
+#: orgSeries-manage.php:255
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -2773,31 +3022,31 @@ msgstr ""
 "آیا می‌خواهید تصویر را حذف کنید؟ (توجه: اگر این گزینه را انتخاب کنید، "
 "تصویری به این سری مرتبط نخواهد بود)"
 
-#: orgSeries-manage.php:261
+#: orgSeries-manage.php:260
 msgid "Series Icon Upload:"
 msgstr "بارگذاری آیکون سری:"
 
-#: orgSeries-manage.php:265
+#: orgSeries-manage.php:264
 msgid "Upload an image for the series."
 msgstr "تصویری برای سری بارگذاری کنید."
 
-#: orgSeries-manage.php:280
+#: orgSeries-manage.php:279
 msgid "Invalid form data"
 msgstr "اطلاعات فرم نامعتبر"
 
-#: orgSeries-manage.php:290
+#: orgSeries-manage.php:289
 msgid "Invalid nonce, reload and try again"
 msgstr "nonce نامعتبر، بارگذاری مجدد و تلاش دوباره"
 
-#: orgSeries-manage.php:299
+#: orgSeries-manage.php:298
 msgid "Invalid taxonomy"
 msgstr "taxnomy نامعتبر"
 
-#: orgSeries-manage.php:305
+#: orgSeries-manage.php:304
 msgid "Not enough permission"
 msgstr "مجوز کافی نیست"
 
-#: orgSeries-manage.php:309
+#: orgSeries-manage.php:308
 msgid "Updated successfully"
 msgstr "با موفقیت به‌روز شد"
 
@@ -2860,12 +3109,12 @@ msgstr "سری: "
 msgid "Posts from the series: "
 msgstr "پست‌های سری: "
 
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:676
+#: orgSeries-taxonomy.php:705
 msgid "Series:"
 msgstr "سری:"
 
-#: orgSeries-taxonomy.php:666
+#: orgSeries-taxonomy.php:678
 msgid "Part:"
 msgstr "قسمت:"
 
@@ -2887,16 +3136,16 @@ msgstr "خودکار/هیچ‌کدام"
 msgid "Use this to control the output of the latest series widget"
 msgstr "از این برای کنترل خروجی ویجت جدیدترین سری استفاده کنید"
 
-#: orgSeries-widgets.php:20
+#: orgSeries-widgets.php:23
 msgid "Most Recent Series"
 msgstr "جدیدترین سری"
 
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
+#: orgSeries-widgets.php:76
+#: orgSeries-widgets.php:275
 msgid "Title:"
 msgstr "عنوان:"
 
-#: orgSeries-widgets.php:79
+#: orgSeries-widgets.php:82
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a "
@@ -2905,124 +3154,124 @@ msgstr ""
 "طرح و محتوای این widget می‌تواند از طریق منطقه <a href=\"%s\">سری‌های "
 "جدیدترین</a> تنظیم شود."
 
-#: orgSeries-widgets.php:82
+#: orgSeries-widgets.php:85
 msgid "Hide series with no posts?"
 msgstr "آیا سری‌هایی که هیچ پستی ندارند را پنهان کنیم؟"
 
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
+#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:301
 msgid "Order by:"
 msgstr "ترتیب بر اساس:"
 
-#: orgSeries-widgets.php:87
+#: orgSeries-widgets.php:90
 msgid "Number of posts in Series"
 msgstr "تعداد پست‌ها در سری"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:91
 msgid "Name of Series"
 msgstr "نام سری"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:92
 msgid "Series Slug"
 msgstr "slug سری"
 
-#: orgSeries-widgets.php:90
+#: orgSeries-widgets.php:93
 msgid "When Series was Created"
 msgstr "زمان ایجاد سری"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:94
 msgid "Random"
 msgstr "تصادفی"
 
-#: orgSeries-widgets.php:95
+#: orgSeries-widgets.php:98
 msgid "Number of series to display:"
 msgstr "تعداد سری‌هایی که باید نمایش داده شوند:"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:102
 msgid "Display Order: "
 msgstr "ترتیب نمایش: "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:103
 msgid "ASC: "
 msgstr "صعودی: "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:104
 msgid "DESC: "
 msgstr "نزولی: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:114
 msgid "Use this to display the Series Table of contents"
 msgstr "از این برای نمایش فهرست مطالب سری استفاده کنید"
 
-#: orgSeries-widgets.php:178
+#: orgSeries-widgets.php:184
 msgid "Select Series"
 msgstr "انتخاب سری"
 
-#: orgSeries-widgets.php:234
+#: orgSeries-widgets.php:240
 msgid "Other posts in series:"
 msgstr "پست‌های دیگر در سری:"
 
-#: orgSeries-widgets.php:274
+#: orgSeries-widgets.php:280
 msgid "Show Series Table Of Content"
 msgstr "نمایش فهرست مطالب سری"
 
-#: orgSeries-widgets.php:279
+#: orgSeries-widgets.php:285
 msgid "Show Series Table Of Content as:"
 msgstr "نمایش فهرست مطالب سری به عنوان:"
 
-#: orgSeries-widgets.php:280
+#: orgSeries-widgets.php:286
 msgid "Dropdown:"
 msgstr "کشویی:"
 
-#: orgSeries-widgets.php:281
+#: orgSeries-widgets.php:287
 msgid "List:"
 msgstr "لیست:"
 
-#: orgSeries-widgets.php:285
+#: orgSeries-widgets.php:291
 msgid "Show post count:"
 msgstr "نمایش تعداد پست‌ها:"
 
-#: orgSeries-widgets.php:290
+#: orgSeries-widgets.php:296
 msgid "Hide empty series:"
 msgstr "سری خالی را پنهان کنید:"
 
-#: orgSeries-widgets.php:299, fuzzy
+#: orgSeries-widgets.php:305, fuzzy
 msgid "name"
 msgstr "name"
 
-#: orgSeries-widgets.php:300, fuzzy
+#: orgSeries-widgets.php:306, fuzzy
 msgid "count"
 msgstr "count"
 
-#: orgSeries-widgets.php:301, fuzzy
+#: orgSeries-widgets.php:307, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:302, fuzzy
+#: orgSeries-widgets.php:308, fuzzy
 msgid "series id"
 msgstr "series id"
 
-#: orgSeries-widgets.php:315
+#: orgSeries-widgets.php:321
 msgid "Order:"
 msgstr "ترتیب:"
 
-#: orgSeries-widgets.php:333
+#: orgSeries-widgets.php:339
 msgid "Exclude series:"
 msgstr "سری‌ها را حذف کنید:"
 
-#: orgSeries-widgets.php:348
+#: orgSeries-widgets.php:354
 msgid "Include series:"
 msgstr "سری‌ها را شامل کنید:"
 
-#: orgSeries-widgets.php:363
+#: orgSeries-widgets.php:369
 msgid "Number of Series:"
 msgstr "تعداد سری‌ها:"
 
-#: orgSeries-widgets.php:368
+#: orgSeries-widgets.php:374
 msgid "Offset:"
 msgstr "افزودن:"
 
-#: orgSeries-widgets.php:370
+#: orgSeries-widgets.php:376
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3030,11 +3279,11 @@ msgstr ""
 "شما می‌توانید افزودن را برای تعداد سری‌ها انتخاب کنید (برای صفحه‌بندی مفید "
 "است). اگر خالی بگذارید، هیچ افزودنی نخواهد بود"
 
-#: orgSeries-widgets.php:374
+#: orgSeries-widgets.php:380
 msgid "Search:"
 msgstr "جستجو:"
 
-#: orgSeries-widgets.php:376
+#: orgSeries-widgets.php:382
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
@@ -3042,19 +3291,19 @@ msgstr ""
 "شما می‌توانید هر سری که با این رشته جستجو مطابقت دارد را بازگردانید (بر "
 "اساس نام سری‌ها مطابقت داده شده است)"
 
-#: orgSeries-widgets.php:380
+#: orgSeries-widgets.php:386
 msgid "Show other posts in the current series:"
 msgstr "نمایش پست‌های دیگر در سری جاری:"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:403
 msgid "Current series"
 msgstr "سری جاری"
 
-#: orgSeries-widgets.php:416
+#: orgSeries-widgets.php:422
 msgid "Series widget title:"
 msgstr "عنوان ویجت سری:"
 
-#: orgSeries-widgets.php:418
+#: orgSeries-widgets.php:424
 msgid "This text will display above other posts in this series."
 msgstr "این متن بالای سایر پست‌ها در این سری نمایش داده می‌شود."
 
@@ -3239,17 +3488,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:478
+#: orgSeries-admin.php:479
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "سری"
 
-#: orgSeries-admin.php:491
+#: orgSeries-admin.php:492
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "سری"
 
-#: orgSeries-admin.php:571
+#: orgSeries-admin.php:572
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -3273,17 +3522,17 @@ msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "این ورودی بخشی از %series_part% از %total_posts_in_series% در سری است "
 
-#: orgSeries-taxonomy.php:381
+#: orgSeries-taxonomy.php:393
 msgctxt "series list title"
 msgid "Series"
 msgstr "سری"
 
-#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:239
 msgctxt "widget title default"
 msgid "Series"
 msgstr "سری"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:392
 msgctxt "widget section label"
 msgid "Series"
 msgstr "سری"
