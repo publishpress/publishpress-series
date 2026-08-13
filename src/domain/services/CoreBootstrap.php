@@ -45,6 +45,9 @@ class CoreBootstrap extends AbstractBootstrap
         require_once Root::coreMeta()->getBasePath() . 'orgSeries-manage.php';
         require_once Root::coreMeta()->getBasePath() . 'inc/debug/plugin_activation_errors.php';
         require_once Root::coreMeta()->getBasePath() . 'inc/review/review-request.php';
+        if (is_admin()) {
+            require_once Root::coreMeta()->getBasePath() . 'inc/welcome/welcome-panel.php';
+        }
         require_once Root::coreMeta()->getBasePath() . 'addons/publisher/series_issue_manager.php';
         require_once Root::coreMeta()->getBasePath() . 'addons/grouping/organize-series-grouping.php';
     }
