@@ -36,9 +36,9 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
         if ( ! $object instanceof $this->class_or_interface_restricted_to ) {
             throw new InvalidEntityException( $object, $this->class_or_interface_restricted_to );
         }
-        $this->attach( $object );
+        $this->offsetSet( $object );
         $this->setIdentifier( $object, $identifier );
-        return $this->contains( $object );
+        return $this->offsetExists( $object );
     }
 
 
@@ -117,7 +117,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @return bool
      */
     public function hasObject( $object ) {
-        return $this->contains( $object );
+        return $this->offsetExists( $object );
     }
 
 
@@ -129,7 +129,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @return bool
      */
     public function remove( $object ) {
-        $this->detach( $object );
+        $this->offsetUnset( $object );
         return true;
     }
 
@@ -198,7 +198,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @return boolean|int|string
      */
     public function indexOf( $object ) {
-        if ( ! $this->contains( $object ) ) {
+        if ( ! $this->offsetExists( $object ) ) {
             return false;
         }
         foreach ( $this as $index => $obj ) {
@@ -258,7 +258,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
         }
         // check to ensure that objects don't already exist in the collection
         foreach ( $objects as $key => $object ) {
-            if ( $this->contains( $object ) ) {
+            if ( $this->offsetExists( $object ) ) {
                 unset( $objects[ $key ] );
             }
         }
@@ -271,16 +271,16 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
         if ( $index < $this->count() ) {
             $remaining = $this->slice( $index, $this->count() - $index );
             foreach ( $remaining as $object ) {
-                $this->detach( $object );
+                $this->offsetUnset( $object );
             }
         }
         // add the new objects we're splicing in
         foreach ( $objects as $object ) {
-            $this->attach( $object );
+            $this->offsetSet( $object );
         }
         // attach the objects we previously detached
         foreach ( $remaining as $object ) {
-            $this->attach( $object );
+            $this->offsetSet( $object );
         }
     }
 
@@ -293,7 +293,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param integer $index
      */
     public function removeAt( $index ) {
-        $this->detach( $this->objectAtIndex( $index ) );
+        $this->offsetUnset( $this->objectAtIndex( $index ) );
     }
 
 
@@ -307,7 +307,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
         while ($this->valid()) {
             $object = $this->current();
             $this->next();
-            $this->detach($object);
+            $this->offsetUnset($object);
         }
     }
 
@@ -322,7 +322,7 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
         while ($this->valid()) {
             $object = $this->current();
             $this->next();
-            $this->detach($object);
+            $this->offsetUnset($object);
             unset($object);
         }
     }

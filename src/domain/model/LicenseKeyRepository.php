@@ -152,7 +152,7 @@ class LicenseKeyRepository {
      */
     private function replaceInCollection($extension_slug, LicenseKey $license_key) {
 	    if ($this->collection->has($extension_slug)) {
-	        $this->collection->detach(
+	        $this->collection->remove(
 	            $this->collection->get($extension_slug)
             );
         }
