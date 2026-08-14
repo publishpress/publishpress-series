@@ -99,6 +99,22 @@ if (!$pp_series_loaded_as_library) {
     }
 }
 
+/*
+ * Register the activation hook at the top level.
+ *
+ * On activation WordPress loads this file after 'plugins_loaded' has fired, so
+ * a hook registered inside a 'plugins_loaded' callback is never registered in
+ * that request. The callback loads its own dependencies for the same reason.
+ */
+if (!defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
+    register_activation_hook(__FILE__, function () {
+        require_once dirname(__FILE__) . '/inc/utility-functions.php';
+        require_once dirname(__FILE__) . '/includes-core/functions.php';
+
+        pp_series_core_activation();
+    });
+}
+
 add_action('plugins_loaded', function() {
     // Check if being loaded as library by Pro
     $loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
@@ -112,11 +128,6 @@ add_action('plugins_loaded', function() {
 
     require_once (dirname(__FILE__) . '/inc/utility-functions.php');
     require_once (dirname(__FILE__) . '/includes-core/functions.php');
-    
-    // Only register activation hook when not loaded as library
-    if (!$loaded_as_library) {
-        register_activation_hook( __FILE__, 'pp_series_core_activation' );
-    }
 
     if (!defined('ORG_SERIES_VERSION')) {
         define('ORG_SERIES_VERSION', '3.1.3'); //the current version of the plugin

@@ -123,11 +123,19 @@ function pp_series_term_admin_head() {
             visibility: hidden;
         }
 
-        /* Hide Description and Series Categories fields on Add New Series form only */
+        /* Hide optional fields on Add New Series form only. WordPress generates the slug from the name. */
         #col-left .form-field.term-description-wrap,
         #col-left .form-field.term-parent-wrap,
+        #col-left .form-field.term-slug-wrap,
         div#side-info-column {
             display: none !important;
+        }
+
+        /* Align the Series list with the first field in the compact add form. */
+        @media screen and (min-width: 783px) {
+            #col-right .col-wrap {
+                margin-top: -10px;
+            }
         }
 
     </style>
