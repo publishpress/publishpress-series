@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-14T13:48:35+00:00\n"
+"POT-Creation-Date: 2026-08-14T15:35:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
@@ -1074,7 +1074,6 @@ msgid "Box Container"
 msgstr ""
 
 #: addons/post-list-box/includes/class-fields.php:29
-#: orgSeries-manage.php:219
 msgid "Post"
 msgstr ""
 
@@ -2876,6 +2875,10 @@ msgstr ""
 msgid "Series not updated."
 msgstr ""
 
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr ""
+
 #: orgSeries-manage.php:221
 msgid "ID"
 msgstr ""
@@ -2897,7 +2900,7 @@ msgid "Delete image? (note: there will not be an image associated with this seri
 msgstr ""
 
 #: orgSeries-manage.php:286
-msgid "Series Featured Image Upload:"
+msgid "Series featured image upload:"
 msgstr ""
 
 #: orgSeries-manage.php:290

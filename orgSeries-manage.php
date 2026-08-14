@@ -216,7 +216,7 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
-	$columns['posts'] = __('Post', 'organize-series');
+	$columns['posts'] = __('Posts', 'organize-series');
 	$columns['series_order'] = __('Series Order', 'organize-series');
 	$columns['series_id'] = __('ID', 'organize-series');
 	return $columns;
@@ -283,7 +283,7 @@ function edit_series_form_fields($series, $taxonomy) {
 			</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><?php _e('Series Featured Image Upload:', 'organize-series') ?></th>
+				<th scope="row"><?php _e('Series featured image upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
 					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
