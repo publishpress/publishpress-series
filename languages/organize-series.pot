@@ -3,39 +3,39 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Series Free 3.1.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-13T15:19:55+00:00\n"
+"POT-Creation-Date: 2026-08-14T02:13:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 
 #. Plugin Name of the plugin
-#: orgSeries.php:3
+#: orgSeries.php
 msgid "PublishPress Series Free"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: orgSeries.php:4
+#: orgSeries.php
 msgid "https://publishpress.com/publishpress-series/"
 msgstr ""
 
 #. Description of the plugin
-#: orgSeries.php:5
+#: orgSeries.php
 msgid "PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
 
 #. Author of the plugin
-#: orgSeries.php:7
+#: orgSeries.php
 msgid "PublishPress"
 msgstr ""
 
 #. Author URI of the plugin
-#: orgSeries.php:8
+#: orgSeries.php
 msgid "https://publishpress.com/"
 msgstr ""
 
@@ -417,7 +417,7 @@ msgstr ""
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr ""
@@ -866,7 +866,7 @@ msgstr ""
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
+#: orgSeries-admin.php:345
 #: orgSeries-manage.php:194
 #: orgSeries-manage.php:203
 msgid "Series Order"
@@ -1964,12 +1964,12 @@ msgid "The following is a legend of the tokens that are available for use in the
 msgstr ""
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
+msgid "This will be replaced with the series featured image for a series."
 msgstr ""
 
 #: inc/settings/settings-page.php:76
 #, php-format
-msgid "Same as %series_icon% except that the series icon will be linked to the series page"
+msgid "Same as %series_icon% except that the series featured image will be linked to the series page"
 msgstr ""
 
 #: inc/settings/settings-page.php:84
@@ -2328,19 +2328,19 @@ msgid "Series Table of Contents Title:"
 msgstr ""
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
+msgid "Series Featured Images"
 msgstr ""
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr ""
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
+msgid "Width for featured image on a post page (in pixels)."
 msgstr ""
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid "Width for featured image if displayed via the latest series template (in pixels)."
 msgstr ""
 
 #: inc/settings/tab-legacy.php:191
@@ -2620,7 +2620,7 @@ msgid "Plugin Template Display Options:"
 msgstr ""
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
+msgid "Show Series Featured Image"
 msgstr ""
 
 #: inc/settings/tab-series-category.php:58
@@ -2713,119 +2713,119 @@ msgstr ""
 msgid "View Knowledge Base"
 msgstr ""
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr ""
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr ""
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr ""
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr ""
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr ""
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr ""
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr ""
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr ""
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr ""
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr ""
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr ""
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid "Hmm... it looks like there is already a series with that name. Try something else"
 msgstr ""
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr ""
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr ""
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr ""
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr ""
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid "A short title of this post that will be used in the Series widget. Leave blank to use the full title."
 msgstr ""
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr ""
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr ""
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr ""
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr ""
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr ""
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr ""
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr ""
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr ""
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -2833,7 +2833,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: orgSeries-icon.php:132
-msgid "PublishPress Series could not save the series icon. The icon was not changed."
+msgid "PublishPress Series could not save the series featured image. The featured image was not changed."
 msgstr ""
 
 #. translators: %s: the error message reported by the database.
@@ -2859,11 +2859,11 @@ msgid "Terms are usually ordered alphabetically, but you can choose your own ord
 msgstr ""
 
 #: orgSeries-manage.php:239
-msgid "Current series icon:"
+msgid "Current series featured image:"
 msgstr ""
 
 #: orgSeries-manage.php:245
-msgid "No icon currently"
+msgid "No featured image currently"
 msgstr ""
 
 #: orgSeries-manage.php:255
@@ -2871,11 +2871,11 @@ msgid "Delete image? (note: there will not be an image associated with this seri
 msgstr ""
 
 #: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
+msgid "Series Featured Image Upload:"
 msgstr ""
 
 #: orgSeries-manage.php:264
-msgid "Upload an image for the series."
+msgid "Upload a featured image for the series."
 msgstr ""
 
 #: orgSeries-manage.php:279

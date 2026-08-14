@@ -33,31 +33,6 @@ add_action('admin_enqueue_scripts', 'orgSeries_admin_assets');
 add_action('in_admin_footer', 'orgSeries_admin_footer');
 
 add_action('wp_ajax_ppseries_pro_migrate_series_by_ajax', 'ppseries_pro_migrate_series_by_ajax');
-add_filter('rest_prepare_taxonomy', 'publishpress_series_remove_gutenberg_series_metabox', 100, 3);
-
-/**
- * Remove series metabox for gutenberg
- *
- * @param object $response
- * @param object $taxonomy
- * @param array $request
- * 
- * @return object $response
- */
-function publishpress_series_remove_gutenberg_series_metabox($response, $taxonomy, $request)
-{
-	$context = !empty($request['context']) ? $request['context'] : 'edit';
-	$taxonomy_name = isset($taxonomy->name) ? $taxonomy->name : false;
-
-	// Context is edit in the editor
-	if ($taxonomy_name === ppseries_get_series_slug() && $context === 'edit') {
-		$data_response = $response->get_data();
-		$data_response['visibility']['show_ui'] = false;
-		$response->set_data($data_response);
-	}
-
-	return $response;
-}
 
 function ppseries_pro_migrate_series_by_ajax()
 {
@@ -476,7 +451,19 @@ function orgseries_add_meta_box()
 	$posttypes = apply_filters( 'orgseries_posttype_support', array( 'post' ) );
 
 	foreach ( $posttypes as $posttype ) {
-			add_meta_box( 'seriesdiv', _x( 'Series', 'series meta box title', 'organize-series' ), 'series_edit_meta_box', $posttype, 'side' );
+		add_meta_box(
+			'seriesdiv',
+			_x( 'Series', 'series meta box title', 'organize-series' ),
+			'series_edit_meta_box',
+			$posttype,
+			'side',
+			'default',
+			array(
+				// Keep this legacy UI available in the classic editor without
+				// disabling Visual Revisions in the block editor.
+				'__back_compat_meta_box' => true,
+			)
+		);
 		remove_meta_box( 'tagsdiv-' . $taxonomy_slug, $posttype, 'side' ); // Removes taxonomy meta box added by WordPress.
 	}
 }

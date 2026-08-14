@@ -65,7 +65,7 @@ function orgseries_option_page() {
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_icon%</strong>
                             <span class="tooltip-text">
-                                <span><?php esc_html_e('This will be replaced with the series icon for a series.', 'organize-series'); ?></span>
+                                <span><?php esc_html_e('This will be replaced with the series featured image for a series.', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
@@ -73,7 +73,7 @@ function orgseries_option_page() {
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_icon_linked%</strong>
                             <span class="tooltip-text">
-                                <span><?php esc_html_e('Same as %series_icon% except that the series icon will be linked to the series page','organize-series'); ?></span>
+                                <span><?php esc_html_e('Same as %series_icon% except that the series featured image will be linked to the series page','organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />

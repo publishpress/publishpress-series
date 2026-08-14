@@ -236,13 +236,13 @@ function edit_series_form_fields($series, $taxonomy) {
 
 			<tr valign="top">
 				<?php if ( $series->term_id != '' ) { ?>
-				<th scope="row"><?php _e('Current series icon:', 'organize-series'); ?></th><?php } ?>
+				<th scope="row"><?php _e('Current series featured image:', 'organize-series'); ?></th><?php } ?>
 				<td>
 					<?php if ($series_icon != '') {
                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							echo $series_icon;
 						} else {
-							echo '<p>'. esc_html__('No icon currently', 'organize-series') .'</p>';
+							echo '<p>'. esc_html__('No featured image currently', 'organize-series') .'</p>';
 						}
 					 ?>
 					<div id="selected-icon"></div>
@@ -257,11 +257,11 @@ function edit_series_form_fields($series, $taxonomy) {
 			</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><?php _e('Series Icon Upload:', 'organize-series') ?></th>
+				<th scope="row"><?php _e('Series Featured Image Upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
 					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
-					<p><?php _e('Upload an image for the series.', 'organize-series'); ?></p>
+					<p><?php _e('Upload a featured image for the series.', 'organize-series'); ?></p>
 					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>
 				</td>
