@@ -5,6 +5,7 @@
 //hook into the edit columns on "manage series" page
 add_filter('manage_edit-'.ppseries_get_series_slug().'_columns', 'manage_series_columns');
 add_filter('manage_'.ppseries_get_series_slug().'_custom_column', 'manage_series_columns_action',1,3);
+add_filter('term_updated_messages', 'ppseries_series_updated_messages');
 add_action(''.ppseries_get_series_slug().'_edit_form_fields','edit_series_form_fields', 10,2);
 //hooking into insert_term, update_term and delete_term
 add_action('created_'.ppseries_get_series_slug().'', 'wp_insert_series', 10, 2);
@@ -143,6 +144,22 @@ function pp_series_term_admin_head() {
     <?php
 }
 
+function ppseries_series_updated_messages($messages) {
+    $taxonomy = ppseries_get_series_slug();
+
+    $messages[$taxonomy] = array(
+        0 => '',
+        1 => __('Series added.', 'organize-series'),
+        2 => __('Series deleted.', 'organize-series'),
+        3 => __('Series updated.', 'organize-series'),
+        4 => __('Series not added.', 'organize-series'),
+        5 => __('Series not updated.', 'organize-series'),
+        6 => __('Series deleted.', 'organize-series'),
+    );
+
+    return $messages;
+}
+
 // note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
 function wp_delete_series($series_ID, $taxonomy_id) {
 	global $wpdb;
@@ -199,6 +216,7 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
+	$columns['posts'] = __('Post', 'organize-series');
 	$columns['series_order'] = __('Series Order', 'organize-series');
 	$columns['series_id'] = __('ID', 'organize-series');
 	return $columns;
