@@ -1998,7 +1998,7 @@ msgstr "Les options de l’extension PublishPress Series ont été mises à jour
 
 #: inc/settings/settings-validation.php:151
 msgid "Permission denied"
-msgstr "Droits refusés"
+msgstr "Droit refusé"
 
 #: inc/settings/settings-validation.php:157
 msgid "PublishPress Series Plugin Options have been RESET"

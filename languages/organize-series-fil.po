@@ -12,25 +12,25 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:28+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"Language: fil\n"
 "|| n % 10 == 6 || n % 10 == 9);: \n"
+"Language: fil\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -42,12 +42,12 @@ msgstr ""
 "mga manunulat ng maikling kwento, mga guro, mga artist ng komiks, o "
 "sinumang sumusulat ng maraming post sa parehong paksa."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -423,7 +423,7 @@ msgstr "Mga Detalye ng Post ng Series"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Magdagdag ng Bago"
@@ -882,9 +882,9 @@ msgstr "Pamagat"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Sunod ng Serye"
 
@@ -893,8 +893,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Pumili ng field na gagamitin upang ayusin ang mga post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226, fuzzy
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252, fuzzy
 msgid "Order"
 msgstr "Order"
 
@@ -1086,7 +1086,7 @@ msgstr "Nagkaroon ng error sa paglo-load ng preview."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Pumili ng Imahe"
 
@@ -2001,17 +2001,17 @@ msgstr ""
 "kapag tumatakbo ang plugin."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Ito ay mapapalitan ng icon ng serye para sa isang serye."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Ito ay papalitan ng tampok na larawan ng serye para sa isang serye."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Katulad ng %series_icon% maliban na ang icon ng serye ay mai-link sa pahina "
-"ng serye"
+"Pareho ng %series_icon% maliban na ang tampok na larawan ng serye ay "
+"mai-link sa pahina ng serye"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2463,22 +2463,26 @@ msgid "Series Table of Contents Title:"
 msgstr "Pamagat ng Talaan ng Nilalaman ng Series:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Mga Icon ng Series"
+msgid "Series Featured Images"
+msgstr "Mga Tampok na Larawan ng Serye"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Lapad para sa icon sa pahina ng talaan ng nilalaman ng series (sa mga pixel)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr ""
+"Lapad para sa tampok na larawan sa pahina ng nilalaman ng serye (sa mga "
+"pixel)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Lapad para sa icon sa isang post na pahina (sa mga pixel)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Lapad para sa tampok na larawan sa pahina ng post (sa mga pixel)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-"Lapad para sa icon kung ipapakita sa pinakabagong series na template (sa "
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
 "pixels)."
+msgstr ""
+"Lapad para sa tampok na larawan kung ipinapakita sa pamamagitan ng "
+"pinakabagong template ng serye (sa mga pixel)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2802,8 +2806,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Mga Opsyon sa Pagpapakita ng Template ng Plugin:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Ipakita ang Icon ng Series"
+msgid "Show Series Featured Image"
+msgstr "Ipakita ang Tampok na Larawan ng Serye"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2868,26 +2872,30 @@ msgstr "Paumanhin, walang natagpuang resulta."
 msgid "Dismiss this panel"
 msgstr "Isara ang panel na ito"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Maligayang pagdating! Gumawa ng iyong unang serye"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Maligayang pagdating sa PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Ang isang serye ay nag-uugnay ng iyong mga post at ipinapakita sa iyong mga "
-"mambabasa ang pagkakasunod-sunod ng pagbabasa. Gamitin ang form na "
-"Magdagdag ng Bagong Serye sa pahinang ito upang lumikha ng iyong unang "
-"serye, pagkatapos ay magdagdag ng mga post dito."
+"Ang isang serye ay nag-u grupo ng iyong mga post at ipinapakita sa iyong "
+"mga mambabasa ang pagkakasunud-sunod ng pagbabasa. Lumikha ng iyong unang "
+"serye gamit ang form sa pahinang ito, pagkatapos ay magdagdag ng mga post "
+"dito."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Lumikha ng isang serye"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Tingnan ang Dokumentasyon"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Mag-upgrade sa Pro"
@@ -2921,81 +2929,81 @@ msgstr "Detalyadong dokumentasyon ay available din sa website ng plugin."
 msgid "View Knowledge Base"
 msgstr "Tingnan ang Knowledge Base"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Nagkaroon ng error"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s serye ay nailipat sa bagong taxonomy"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Pasadyang Template"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Kung gusto mo ang %s, mangyaring iwanan kami ng %s rating. Salamat!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Tungkol sa PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Tungkol"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Dokumentasyon ng PublishPress Series"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokumentasyon"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Makipag-ugnayan sa team ng PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Makipag-ugnayan"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Paumanhin ngunit wala kang pahintulot na magdagdag ng serye"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 "Ang pangalan na pinili mo ay hindi tama ang pag-sanitize. Subukan ang ibang "
 "bagay."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... mukhang mayroon nang serye na may ganung pangalan. Subukan ang iba."
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Hindi bahagi ng isang serye"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Maghanap ng serye"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Bahagi ng Serye:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Pamagat ng post sa widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -3003,41 +3011,41 @@ msgstr ""
 "Isang maikling pamagat ng post na ito na gagamitin sa widget ng Series. "
 "Iwanang blangko upang gamitin ang buong pamagat."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Walang bahagi ng numero)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Bahagi %1$s ng %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Walang Bahagi ng Numero)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Walang Series"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Tingnan ang lahat ng series"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Pamahalaan ang Lahat ng Series"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
-"Hindi nai-save ng PublishPress Series ang icon ng serye. Ang icon ay hindi "
-"nagbago."
+"Hindi ma-save ng PublishPress Series ang tampok na larawan ng serye. Ang "
+"tampok na larawan ay hindi binago."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3045,11 +3053,11 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Error sa database: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Kaayusan ng Termino"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3058,11 +3066,36 @@ msgstr ""
 "\"pag-click at paghawak\" nito kahit saan at ilipat ito sa bagong posisyon "
 "nito."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Nagdagdag ng serye."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Nabura ang serye."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Na-update ang serye."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Hindi nadagdag ang serye."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Hindi na-update ang serye."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Mga Post"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3071,15 +3104,15 @@ msgstr ""
 "mong piliin ang iyong sariling kaayusan sa pamamagitan ng pagpasok ng isang "
 "numero (1 para sa una, atbp.) sa patlang na ito."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Kasalukuyang icon ng series:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Kasalukuyang tampok na larawan ng serye:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Walang icon sa kasalukuyan"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Walang tampok na larawan sa kasalukuyan"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3087,31 +3120,31 @@ msgstr ""
 "Burahin ang larawan? (tandaan: walang larawang maiuugnay sa series na ito "
 "kung pipiliin mo ito)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Pag-upload ng Icon ng Series:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Pag-upload ng tampok na larawan ng serye:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Mag-upload ng larawan para sa series."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Mag-upload ng tampok na larawan para sa serye."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Hindi wastong data ng form"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Hindi wastong nonce, i-reload at subukan muli"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Hindi wastong taxonomy"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Hindi sapat na pahintulot"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Nai-update nang matagumpay"
 
@@ -3374,7 +3407,7 @@ msgstr "Pamagat ng widget ng serye:"
 msgid "This text will display above other posts in this series."
 msgstr "Ang tekstong ito ay ipapakita sa itaas ng iba pang mga post sa seryeng ito."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Maaaring tanggalin ang plugin na ito.</strong>"
 
@@ -3566,17 +3599,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

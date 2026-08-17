@@ -12,23 +12,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: yor\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -40,12 +40,12 @@ msgstr ""
 "awọn oṣere eré, tabi ẹnikẹni ti o kọ ọpọlọpọ awọn ifiweranṣẹ lori akọle "
 "kanna."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -421,7 +421,7 @@ msgstr "Àwọn Alaye Ifiweranṣẹ Series"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Fi Ẹ̀kúnrẹ́rẹ́ Tuntun Kún"
@@ -876,9 +876,9 @@ msgstr "Àkọlé"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Àtòjọ Ẹ̀ka"
 
@@ -887,8 +887,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Yan aaye ti a lo lati paṣẹ awọn ifiweranṣẹ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "ṣẹ́lẹ̀"
 
@@ -1072,7 +1072,7 @@ msgstr "Aṣiṣe nṣiṣẹ awòrán."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Yan Aworan"
 
@@ -1983,15 +1983,17 @@ msgstr ""
 "wọnyi yoo wa ni rọpo pẹlu awọn iye to yẹ nigbati plugin naa ba ṣiṣẹ."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Eyi yoo wa ni rọpo pẹlu aami ẹlẹsẹ fun ẹlẹsẹ kan."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Eyi yoo rọpo pẹlu aworan ti a ṣe afihan fun jara kan."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "Bii %series_icon% ayafi pe aami ẹlẹsẹ yoo jẹ asopọ si oju-iwe ẹlẹsẹ"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr ""
+"Kò yàtọ si %series_icon% ayafi pe aworan ti a ṣe afihan fun jara yoo jẹ "
+"asopọ si oju-iwe jara."
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2428,20 +2430,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Ak标题 Atokọ Akọkọ Ẹ̀ka:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Àwòrán Ẹ̀ka"
+msgid "Series Featured Images"
+msgstr "Aworan Ti A Ṣe Afihan Jara"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Iwọn fun àwòrán lori oju-iwe atokọ ẹ̀ka (ninu awọn piksẹli)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Iwọn fun aworan ti a ṣe afihan lori oju-iwe akojọ jara (ní píksẹlì)."
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Iwọn fun àwòrán lori oju-iwe ifiweranṣẹ (ninu awọn piksẹli)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Iwọn fun aworan ti a ṣe afihan lori oju-iwe ifiweranṣẹ (ní píksẹlì)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Iwọn fun aami ti a ba ṣe afihan nipasẹ awoṣe jara tuntun (ni pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Iwọn fun aworan ti a ṣe afihan ti a ba ṣafihan nipasẹ awoṣe jara tuntun "
+"julọ (ní píksẹlì)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2755,8 +2761,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Awọn aṣayan Ifihan Awoṣe Plugin:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Fihan Aami Jara"
+msgid "Show Series Featured Image"
+msgstr "Fi Aworan Ti A Ṣe Afihan Jara Han"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2820,25 +2826,29 @@ msgstr "E ma binu, ko si awọn esi ti a ri."
 msgid "Dismiss this panel"
 msgstr "Fagilee panẹli yii"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Kaabọ! Ṣẹda jara rẹ akọkọ"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Kaabo si PublishPress Jara"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Jara kan n ṣopọ awọn ifiweranṣẹ rẹ pọ ati fihan awọn oluka rẹ ilana kika. "
-"Lo fọọmu Ṣafikun Jara Tuntun lori oju-iwe yii lati ṣẹda jara rẹ akọkọ, "
-"lẹhinna fi awọn ifiweranṣẹ kun un."
+"Jara kan n ṣopọ awọn ifiweranṣẹ rẹ pọ ati fi aṣẹ kika han awọn oluka rẹ. "
+"Ṣẹda jara rẹ akọkọ pẹlu fọọmu lori oju-iwe yii, lẹhinna fi awọn ifiweranṣẹ "
+"kun un."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Ṣẹda jara kan"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Wo Iwe Itọsọna"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Gbadun si Pro"
@@ -2872,79 +2882,79 @@ msgstr "Iwe afọwọkọ alaye tun wa lori oju opo wẹẹbu amugbooro naa."
 msgid "View Knowledge Base"
 msgstr "Wo Ipilẹ Ọgbọ́n"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Aṣiṣe kan ṣẹlẹ"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s jara ti a gbe lọ si imọ-ẹrọ tuntun"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Àpẹẹrẹ aṣa"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Ti o ba fẹ %s, jọwọ fi %s ìwọn kan silẹ fun wa. O ṣeun!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Nipa PublishPress Jara"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Nipa"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Iwe afọwọkọ PublishPress Jara"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Iwe afọwọkọ"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Kan si ẹgbẹ PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Kan si"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "E ma binu ṣugbọn o ko ni igbanilaaye lati fi jara kun"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Orukọ ti o yan ko ni imukuro ni deede. Gbiyanju nkan miiran."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... o dabi pe jara kan ti wa pẹlu orukọ yẹn. Gbiyanju nkan miiran"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Kii ṣe apakan jara"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Wa jara"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Apakan Jara:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Akole ifiweranṣẹ ninu widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2952,39 +2962,41 @@ msgstr ""
 "Akọle kukuru ti ifiweranṣẹ yii ti a yoo lo ninu widget Series. Fi silẹ silẹ "
 "lati lo akọle pipe."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ko si nọmba apakan)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Apakan %1$s ti %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ko si Nọmba Apakan)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Ko si Series"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Wo gbogbo awọn jara"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Ṣakoso Gbogbo Awọn Jara"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress Jara ko le fipamọ aami jara. Aami naa ko yipada."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Jara kò le fipamọ aworan ti a ṣe afihan jara. Aworan ti a ṣe "
+"afihan ko yipada."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2992,11 +3004,11 @@ msgstr "PublishPress Jara ko le fipamọ aami jara. Aami naa ko yipada."
 msgid "Database error: %s"
 msgstr "Aṣiṣe database: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Ilana Ọrọ"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3004,11 +3016,36 @@ msgstr ""
 "Lati tun ipo nkan kan, fa ati tu ila pẹlu \"titẹ ati mimu\" rẹ ni ibikibi "
 "ki o si gbe e si ipo titun rẹ."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Jara ti ṣafikun."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Jara ti paarẹ."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Jara ti ṣe imudojuiwọn."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Jara ko ti ṣafikun."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Jara ko ti ṣe imudojuiwọn."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Awọn ifiweranṣẹ"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3016,15 +3053,15 @@ msgstr ""
 "Awọn ọrọ nigbagbogbo ni a paṣẹ ni lẹta, ṣugbọn o le yan ilana tirẹ nipa "
 "titẹ nọmba kan (1 fun akọkọ, bbl) ni aaye yii."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Aami jara lọwọlọwọ:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Aworan ti a ṣe afihan jara lọwọlọwọ:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Ko si aami lọwọlọwọ"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Ko si aworan ti a ṣe afihan lọwọlọwọ"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3032,31 +3069,31 @@ msgstr ""
 "Pa aworan? (akọsilẹ: ko si aworan ti o ni nkan ṣe pẹlu jara yii ti o ba yan "
 "eyi)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Gbe aami Jara:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Ikọsẹ aworan ti a ṣe afihan jara:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Gbe aworan kan fun jara naa."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Gbe aworan pataki kalẹ fun jara naa."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Data fọọmu ti ko tọ"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Nonce ti ko tọ, tun gbe e ki o si gbiyanju lẹẹkansi"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Taxonomy ti ko tọ"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Iwe-aṣẹ ti ko to"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Ti a ṣe imudojuiwọn ni aṣeyọri"
 
@@ -3317,7 +3354,7 @@ msgstr "Akọle ẹ̀rọ iṣe jara:"
 msgid "This text will display above other posts in this series."
 msgstr "Àkọsílẹ yìí yóò hàn lórí àwọn àkọsílẹ míì nínú jara yìí."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Àwọn àfikún yìí lè parẹ.</strong>"
 
@@ -3497,19 +3534,19 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 #, fuzzy
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Jara"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 #, fuzzy
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Jara"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 #, fuzzy
 msgctxt "dashboard count label"
 msgid "Series"

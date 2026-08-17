@@ -11,23 +11,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-26T08:40:33+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: nl-NL\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -39,12 +39,12 @@ msgstr ""
 "docenten, striptekenaars, of iedereen die meerdere berichten over hetzelfde "
 "onderwerp schrijft."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -420,7 +420,7 @@ msgstr "Details van de serie bericht"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Nieuw toevoegen"
@@ -877,9 +877,9 @@ msgstr "Titel"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Reeksvolgorde"
 
@@ -888,8 +888,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Kies het veld dat gebruikt wordt om berichten te sorteren"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Volgorde"
 
@@ -1078,7 +1078,7 @@ msgstr "Fout bij het laden van de preview."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
@@ -1993,17 +1993,19 @@ msgstr ""
 "juiste waarden wanneer de plugin draait."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Dit zal worden vervangen door het serie-icoon voor een serie."
+msgid "This will be replaced with the series featured image for a series."
+msgstr ""
+"Dit zal worden vervangen door de serie uitgelichte afbeelding voor een "
+"serie."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Zelfde als %series_icon% behalve dat het serie-icoon zal worden gelinkt aan "
-"de seriepagina"
+"Hetzelfde als %series_icon% behalve dat de serie uitgelichte afbeelding zal "
+"worden gelinkt aan de seriepagina"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2454,22 +2456,26 @@ msgid "Series Table of Contents Title:"
 msgstr "Titel van de Serie Inhoudsopgave:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Serie-icoon"
+msgid "Series Featured Images"
+msgstr "Serie Uitgelichte Afbeeldingen"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Breedte voor icoon op de serie inhoudsopgavepagina (in pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr ""
+"Breedte voor uitgelichte afbeelding op de inhoudsopgave pagina van de serie "
+"(in pixels)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Breedte voor icoon op een berichtenpagina (in pixels)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Breedte voor uitgelichte afbeelding op een berichtenpagina (in pixels)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-"Breedte voor icoon als weergegeven via de nieuwste serietemplate (in "
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
 "pixels)."
+msgstr ""
+"Breedte voor uitgelichte afbeelding als deze wordt weergegeven via de "
+"nieuwste serietemplate (in pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2787,8 +2793,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Weergave-opties voor Plugin Template:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Toon Serie-icoon"
+msgid "Show Series Featured Image"
+msgstr "Toon Serie Uitgelichte Afbeelding"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2852,25 +2858,29 @@ msgstr "Sorry, er zijn geen resultaten gevonden."
 msgid "Dismiss this panel"
 msgstr "Verwijder dit paneel"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Welkom! Maak je eerste serie"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Welkom bij PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Een serie groepeert je berichten en toont je lezers de leesvolgorde. "
-"Gebruik het formulier Nieuwe serie toevoegen op deze pagina om je eerste "
-"serie te maken en voeg er vervolgens berichten aan toe."
+"Een serie groepeert je berichten en toont je lezers de leesvolgorde. Maak "
+"je eerste serie met het formulier op deze pagina, en voeg er vervolgens "
+"berichten aan toe."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Maak een serie"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Bekijk documentatie"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Upgrade naar Pro"
@@ -2906,59 +2916,59 @@ msgstr "Gedetailleerde documentatie is ook beschikbaar op de pluginwebsite."
 msgid "View Knowledge Base"
 msgstr "Bekijk Kennisbank"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Er is een fout opgetreden"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s series gemigreerd naar nieuwe taxonomie"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Aangepaste sjabloon"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Als je %s leuk vindt, laat ons dan een %s beoordeling achter. Bedankt!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Over PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Over"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Series Documentatie"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Neem contact op met het PublishPress-team"
 
-#: orgSeries-admin.php:189, fuzzy
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Sorry, maar je hebt geen toestemming om series toe te voegen"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 "De naam die je hebt gekozen wordt niet correct gesanitized. Probeer iets "
 "anders."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2966,23 +2976,23 @@ msgstr ""
 "Hmm... het lijkt erop dat er al een serie met die naam bestaat. Probeer "
 "iets anders"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Geen deel van een serie"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Zoek series"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Serie Deel:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Berichttitel in widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2990,41 +3000,41 @@ msgstr ""
 "Een korte titel van dit bericht die zal worden gebruikt in de "
 "Series-widget. Laat leeg om de volledige titel te gebruiken."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Geen deelnummer)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Deel %1$s van %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Geen Deelnummer)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Geen Serie"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Bekijk alle series"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Beheer Alle Series"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
-"PublishPress Series kon het serie-icoon niet opslaan. Het icoon is niet "
-"veranderd."
+"PublishPress Series kon de serie uitgelichte afbeelding niet opslaan. De "
+"uitgelichte afbeelding is niet veranderd."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3032,11 +3042,11 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Databasefout: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Term Volgorde"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3045,11 +3055,36 @@ msgstr ""
 "klikken en vast te houden\" op een plek en het naar de nieuwe positie te "
 "verplaatsen."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Serie toegevoegd."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Serie verwijderd."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Serie geüpdatet."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Serie niet toegevoegd."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Serie niet geüpdatet."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Berichten"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3058,15 +3093,15 @@ msgstr ""
 "kunt je eigen volgorde kiezen door een nummer (1 voor eerst, enz.) in dit "
 "veld in te voeren."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Huidig serie icoon:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Huidige serie uitgelichte afbeelding:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Geen icoon momenteel"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Momenteel geen uitgelichte afbeelding"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3074,31 +3109,31 @@ msgstr ""
 "Afbeelding verwijderen? (opmerking: er zal geen afbeelding aan deze serie "
 "zijn gekoppeld als je dit selecteert)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Upload Serie Icoon:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Serie uitgelichte afbeelding upload:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Upload een afbeelding voor de serie."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Upload een uitgelichte afbeelding voor de serie."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Ongeldige formuliergegevens"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Ongeldige nonce, herlaad en probeer het opnieuw"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Ongeldige taxonomie"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Niet genoeg toestemming"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Succesvol bijgewerkt"
 
@@ -3361,7 +3396,7 @@ msgstr "Titel van de serie-widget:"
 msgid "This text will display above other posts in this series."
 msgstr "Deze tekst wordt boven andere berichten in deze serie weergegeven."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Deze plugin kan worden verwijderd.</strong>"
 
@@ -3551,17 +3586,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

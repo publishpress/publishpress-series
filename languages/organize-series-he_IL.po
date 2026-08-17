@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:28+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "% 10 == 0) ? 2 : 3)));\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Language: he_IL\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 ? 0 : (n == 2 ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3)));\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -39,12 +39,12 @@ msgstr ""
 "עיתונים, סופרי סיפורים קצרים, מורים, אמני קומיקס, או כל מי שכותב מספר "
 "פוסטים על אותו נושא."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -414,7 +414,7 @@ msgstr "פרטי פוסט סדרה"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "הוסף חדש"
@@ -867,9 +867,9 @@ msgstr "כותרת"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "סדר סדרות"
 
@@ -878,8 +878,8 @@ msgid "Choose the field used to sort posts"
 msgstr "בחר את השדה שבו נעשה שימוש לסידור הפוסטים"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "סדר"
 
@@ -1076,7 +1076,7 @@ msgstr "שגיאה בטעינת הצפייה המקדימה."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "בחר תמונה"
 
@@ -1982,15 +1982,15 @@ msgstr ""
 "בערכים המתאימים כאשר התוסף פועל."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "זה יוחלף באייקון הסדרה עבור סדרה."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "זה יוחלף בתמונה המוצגת של הסדרה עבור סדרה."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "אותו הדבר כמו %series_icon% מלבד שהאייקון של הסדרה יהיה מקושר לדף הסדרה"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr "כמו %series_icon% חוץ מזה שהתמונה המוצגת של הסדרה תהיה מקושרת לדף הסדרה"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2411,20 +2411,22 @@ msgid "Series Table of Contents Title:"
 msgstr "כותרת תוכן עניינים של סדרות:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "אייקוני סדרות"
+msgid "Series Featured Images"
+msgstr "תמונות מוצגות של סדרות"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "רוחב לאייקון בדף תוכן העניינים של סדרות (בפיקסלים)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "רוחב לתמונה המוצגת בדף תוכן הסדרה (בפיקסלים)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "רוחב לאייקון בדף פוסט (בפיקסלים)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "רוחב לתמונה המוצגת בדף הפוסט (בפיקסלים)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "רוחב לאייקון אם מוצג דרך תבנית הסדרות האחרונות (בפיקסלים)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr "רוחב לתמונה המוצגת אם מוצגת דרך תבנית הסדרה האחרונה (בפיקסלים)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2726,8 +2728,8 @@ msgid "Plugin Template Display Options:"
 msgstr "אפשרויות תצוגת תבנית התוסף:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "הצג אייקון סדרה"
+msgid "Show Series Featured Image"
+msgstr "הצג תמונה מוצגת של סדרה"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2788,25 +2790,28 @@ msgstr "סליחה, לא נמצאו תוצאות."
 msgid "Dismiss this panel"
 msgstr "סגור פנל זה"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "ברוך הבא! צור את הסדרה הראשונה שלך"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "ברוכים הבאים ל-PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"סדרה מקבצת את הפוסטים שלך יחד ומראה לקוראים שלך את סדר הקריאה. השתמש בטופס "
-"הוסף סדרה חדשה בעמוד זה כדי ליצור את הסדרה הראשונה שלך, ואז הוסף פוסטים "
-"אליה."
+"סדרה מקבצת את הפוסטים שלך ומראה לקוראים שלך את סדר קריאה. צור את הסדרה "
+"הראשונה שלך עם הטופס בעמוד זה, ואז הוסף אליה פוסטים."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "צור סדרה"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "ראה תיעוד"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "שדרג לגרסת פרו"
@@ -2840,79 +2845,79 @@ msgstr "תיעוד מפורט זמין גם באתר התוסף."
 msgid "View Knowledge Base"
 msgstr "צפה במאגר הידע"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "אירעה שגיאה"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s סדרות הועברו לקטגוריה חדשה"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "תבנית מותאמת אישית"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "אם אתה אוהב %s, אנא השאר לנו דירוג %s. תודה!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "על סדרות PublishPress"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "אודות"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "תיעוד סדרות PublishPress"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "תיעוד"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "צור קשר עם צוות PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "צור קשר"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "סליחה, אבל אין לך הרשאה להוסיף סדרות"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "השם שבחרת לא מתנקה כראוי. נסה משהו אחר."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "הממ... נראה שכבר יש סדרה עם השם הזה. נסה משהו אחר"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "לא חלק מסדרה"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "חפש סדרות"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "חלק בסדרה:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "כותרת הפוסט בווידג'ט:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2920,39 +2925,41 @@ msgstr ""
 "כותרת קצרה של פוסט זה שתשמש ב-widget של סדרות. השאר ריק כדי להשתמש בכותרת "
 "המלאה."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (ללא מספר חלק)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (חלק %1$s מתוך %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (אין מספר חלק)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "אין סדרות"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "ראה את כל הסדרות"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "נהל את כל הסדרות"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress Series לא הצליח לשמור את אייקון הסדרה. האייקון לא שונה."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series לא הצליח לשמור את התמונה המוצגת של הסדרה. התמונה המוצגת "
+"לא שונתה."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2960,11 +2967,11 @@ msgstr "PublishPress Series לא הצליח לשמור את אייקון הסד�
 msgid "Database error: %s"
 msgstr "שגיאת מסד נתונים: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "סדר מונח"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -2972,11 +2979,36 @@ msgstr ""
 "כדי להזיז פריט, גרור ושחרר את השורה על ידי \"לחיצה והחזקה\" שלה בכל מקום "
 "והזז אותה למיקום החדש שלה."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "סדרה נוספה."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "סדרה נמחקה."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "סדרה עודכנה."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "סדרה לא נוספה."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "סדרה לא עודכנה."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "פוסטים"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -2984,45 +3016,45 @@ msgstr ""
 "תנאים מסודרים בדרך כלל בסדר אלפביתי, אך אתה יכול לבחור את הסדר שלך על ידי "
 "הזנת מספר (1 עבור הראשון, וכו') בשדה זה."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "אייקון סדרה נוכחי:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "התמונה המוצגת הנוכחית של הסדרה:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "אין אייקון כרגע"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "אין תמונה מוצגת כרגע"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "למחוק תמונה? (הערה: לא תהיה תמונה קשורה לסדרה זו אם תבחר באפשרות זו)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "העלאת אייקון סדרה:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "העלאת תמונה מוצגת של סדרה:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "העלא תמונה עבור הסדרה."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "העלה תמונה מוצגת לסדרה."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "נתוני טופס לא חוקיים"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Nonce לא חוקי, טען מחדש ונסה שוב"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "טקסונומיה לא חוקית"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "אין מספיק הרשאות"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "עודכן בהצלחה"
 
@@ -3281,7 +3313,7 @@ msgstr "כותרת ווידג'ט סדרה:"
 msgid "This text will display above other posts in this series."
 msgstr "טקסט זה יוצג מעל פוסטים אחרים בסדרה הזו."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>תוסף זה ניתן למחיקה.</strong>"
 
@@ -3458,17 +3490,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "סדרה"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "סדרה"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

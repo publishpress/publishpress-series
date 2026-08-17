@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -37,12 +37,12 @@ msgstr ""
 "rất lý tưởng cho các tạp chí, báo chí, nhà văn truyện ngắn, giáo viên, họa "
 "sĩ truyện tranh, hoặc bất kỳ ai viết nhiều bài về cùng một chủ đề."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -416,7 +416,7 @@ msgstr "Chi tiết bài viết theo chuỗi"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Thêm mới"
@@ -871,9 +871,9 @@ msgstr "Tiêu đề"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Thứ tự series"
 
@@ -882,8 +882,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Chọn trường được sử dụng để sắp xếp các bài đăng"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Thứ tự"
 
@@ -1067,7 +1067,7 @@ msgstr "Lỗi khi tải xem trước."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Chọn Hình ảnh"
 
@@ -1980,17 +1980,17 @@ msgstr ""
 "khi plugin chạy."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Điều này sẽ được thay thế bằng biểu tượng chuỗi cho một chuỗi."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Điều này sẽ được thay thế bằng hình ảnh nổi bật của chuỗi cho một chuỗi."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Giống như %series_icon% ngoại trừ việc biểu tượng chuỗi sẽ được liên kết "
-"với trang chuỗi"
+"Giống như %series_icon% ngoại trừ việc hình ảnh nổi bật của chuỗi sẽ được "
+"liên kết đến trang chuỗi"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2432,22 +2432,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Tiêu đề Mục lục Series:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Biểu tượng Series"
+msgid "Series Featured Images"
+msgstr "Hình ảnh nổi bật của chuỗi"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Chiều rộng cho biểu tượng trên trang mục lục series (tính bằng pixel)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Chiều rộng cho hình ảnh nổi bật trên trang mục lục chuỗi (tính bằng pixel)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Chiều rộng cho biểu tượng trên trang bài viết (tính bằng pixel)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Chiều rộng cho hình ảnh nổi bật trên trang bài viết (tính bằng pixel)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 msgstr ""
-"Chiều rộng cho biểu tượng nếu hiển thị qua mẫu series mới nhất (tính bằng "
-"pixel)."
+"Chiều rộng cho hình ảnh nổi bật nếu hiển thị qua mẫu chuỗi mới nhất (tính "
+"bằng pixel)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2757,8 +2759,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Tùy chọn hiển thị mẫu Plugin:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Hiển thị biểu tượng Series"
+msgid "Show Series Featured Image"
+msgstr "Hiển thị hình ảnh nổi bật của chuỗi"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2820,25 +2822,29 @@ msgstr "Xin lỗi, không tìm thấy kết quả nào."
 msgid "Dismiss this panel"
 msgstr "Bỏ qua bảng điều khiển này"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Chào mừng! Tạo series đầu tiên của bạn"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Chào mừng đến với PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Một series nhóm các bài viết của bạn lại với nhau và hiển thị cho độc giả "
-"thứ tự đọc. Sử dụng mẫu Thêm Series mới trên trang này để tạo series đầu "
-"tiên của bạn, sau đó thêm bài viết vào đó."
+"Một chuỗi nhóm các bài viết của bạn lại với nhau và cho người đọc thấy thứ "
+"tự đọc. Tạo chuỗi đầu tiên của bạn với biểu mẫu trên trang này, sau đó thêm "
+"bài viết vào đó."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Tạo một chuỗi"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Xem Tài liệu"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Nâng cấp lên Pro"
@@ -2872,79 +2878,79 @@ msgstr "Tài liệu chi tiết cũng có sẵn trên trang web của plugin."
 msgid "View Knowledge Base"
 msgstr "Xem Cơ sở Kiến thức"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Đã xảy ra lỗi"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s chuỗi đã được chuyển sang taxonomy mới"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Mẫu Tùy chỉnh"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Nếu bạn thích %s, vui lòng để lại cho chúng tôi một đánh giá %s. Cảm ơn bạn!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Giới thiệu về PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Giới thiệu"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Tài liệu về PublishPress Series"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Tài liệu"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Liên hệ với đội ngũ PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Liên hệ"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Xin lỗi nhưng bạn không có quyền thêm chuỗi"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Tên bạn chọn không được làm sạch đúng cách. Hãy thử một cái gì đó khác."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... có vẻ như đã có một chuỗi với tên đó. Hãy thử cái khác"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Không thuộc chuỗi nào"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Tìm kiếm chuỗi"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Phần Chuỗi:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Tiêu đề bài viết trong widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2952,39 +2958,41 @@ msgstr ""
 "Một tiêu đề ngắn của bài viết này sẽ được sử dụng trong widget Series. Để "
 "trống để sử dụng tiêu đề đầy đủ."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Không có số phần)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Phần %1$s của %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Không có số phần)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Không có chuỗi"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Xem tất cả các chuỗi"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Quản lý tất cả các chuỗi"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress không thể lưu biểu tượng series. Biểu tượng không bị thay đổi."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series không thể lưu hình ảnh nổi bật của chuỗi. Hình ảnh nổi "
+"bật không bị thay đổi."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2992,11 +3000,11 @@ msgstr "PublishPress không thể lưu biểu tượng series. Biểu tượng k
 msgid "Database error: %s"
 msgstr "Lỗi cơ sở dữ liệu: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Thứ tự thuật ngữ"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3004,11 +3012,36 @@ msgstr ""
 "Để thay đổi vị trí một mục, hãy kéo và thả hàng bằng cách \"nhấp và giữ\" "
 "nó ở bất kỳ đâu và di chuyển đến vị trí mới của nó."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Chuỗi đã được thêm."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Chuỗi đã bị xóa."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Chuỗi đã được cập nhật."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Chuỗi không được thêm."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Chuỗi không được cập nhật."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Bài viết"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3017,15 +3050,15 @@ msgstr ""
 "thể chọn thứ tự của riêng mình bằng cách nhập một số (1 cho đầu tiên, v.v.) "
 "vào trường này."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Biểu tượng chuỗi hiện tại:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Hình ảnh nổi bật của chuỗi hiện tại:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Hiện không có biểu tượng"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Hiện tại không có hình ảnh nổi bật nào"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3033,31 +3066,31 @@ msgstr ""
 "Xóa hình ảnh? (lưu ý: sẽ không có hình ảnh nào liên kết với chuỗi này nếu "
 "bạn chọn điều này)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Tải lên biểu tượng chuỗi:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Tải lên hình ảnh nổi bật của chuỗi:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Tải lên một hình ảnh cho chuỗi."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Tải lên hình ảnh nổi bật cho bộ phim."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Dữ liệu biểu mẫu không hợp lệ"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Nonce không hợp lệ, hãy tải lại và thử lại"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Taxonomy không hợp lệ"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Không đủ quyền"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Cập nhật thành công"
 
@@ -3318,7 +3351,7 @@ msgstr "Tiêu đề widget chuỗi:"
 msgid "This text will display above other posts in this series."
 msgstr "Văn bản này sẽ hiển thị ở trên các bài viết khác trong chuỗi này."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Plugin này có thể bị xóa.</strong>"
 
@@ -3504,17 +3537,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Loạt"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Loạt"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

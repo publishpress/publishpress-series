@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -38,12 +38,12 @@ msgstr ""
 "sanatçıları veya aynı konuda birden fazla gönderi yazan herkes için "
 "idealdir."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -417,7 +417,7 @@ msgstr "Seri Gönderi Ayrıntıları"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Yeni Ekle"
@@ -870,9 +870,9 @@ msgstr "Başlık"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Seri Sırası"
 
@@ -881,8 +881,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Gönderileri sıralamak için kullanılan alanı seç"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Sıra"
 
@@ -1073,7 +1073,7 @@ msgstr "Önizleme yüklenirken hata oluştu."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Resim Seç"
 
@@ -1994,17 +1994,17 @@ msgstr ""
 "değiştirilecektir."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Bu, bir seri için seri simgesi ile değiştirilecektir."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Bu, bir seri için öne çıkan resim ile değiştirilecektir."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"%series_icon% ile aynı, tek fark dizinin simgesinin dizi sayfasına bağlı "
-"olmasıdır."
+"%series_icon% ile aynı, ancak öne çıkan resim seri sayfasına bağlı "
+"olacaktır."
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2445,22 +2445,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Seri İçindekiler Başlığı:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Seri İkonları"
+msgid "Series Featured Images"
+msgstr "Seri Öne Çıkan Resimleri"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Seri içindekiler sayfasındaki ikonun genişliği (piksel cinsinden)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Seri içerik sayfasında öne çıkan resim için genişlik (piksel cinsinden)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Gönderi sayfasındaki ikonun genişliği (piksel cinsinden)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Gönderi sayfasında öne çıkan resim için genişlik (piksel cinsinden)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 msgstr ""
-"En son seri şablonu ile görüntülendiğinde ikonun genişliği (piksel "
-"cinsinden)."
+"Son seri şablonu aracılığıyla görüntülenirse öne çıkan resim için genişlik "
+"(piksel cinsinden)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2771,8 +2773,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Eklenti Şablon Görüntüleme Seçenekleri:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Seri İkonunu Göster"
+msgid "Show Series Featured Image"
+msgstr "Seri Öne Çıkan Resmi Göster"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2836,25 +2838,29 @@ msgstr "Üzgünüz, sonuç bulunamadı."
 msgid "Dismiss this panel"
 msgstr "Bu paneli kapat"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Hoş geldiniz! İlk serinizi oluşturun"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "PublishPress Serilerine Hoşgeldiniz"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Bir seri, gönderilerinizi bir araya getirir ve okuyucularınıza okuma "
-"sırasını gösterir. Bu sayfadaki Yeni Seri Ekle formunu kullanarak ilk "
-"serinizi oluşturun, ardından ona gönderiler ekleyin."
+"Bir seri, gönderilerinizi bir araya toplar ve okuyucularınıza okuma "
+"sırasını gösterir. Bu sayfadaki form ile ilk serinizi oluşturun, ardından "
+"ona gönderi ekleyin."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Bir seri oluştur"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Belgeleri Görüntüle"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Pro'ya Yükselt"
@@ -2888,79 +2894,79 @@ msgstr "Ayrıntılı belgeler ayrıca eklenti web sitesinde mevcuttur."
 msgid "View Knowledge Base"
 msgstr "Bilgi Tabanını Görüntüle"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Bir hata oluştu"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s serisi yeni taxonomy'ye taşındı"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Özel Şablon"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "%s'yi beğendiyseniz, lütfen bize %s puanı bırakın. Teşekkürler!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "PublishPress Serileri Hakkında"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Hakkında"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Serileri Dokümantasyonu"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokümantasyon"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "PublishPress ekibi ile iletişime geçin"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "İletişim"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Üzgünüm ama seri eklemek için izniniz yok"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Seçtiğiniz isim doğru bir şekilde temizlenmiyor. Farklı bir şey deneyin."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... o isimde zaten bir seri var gibi görünüyor. Başka bir şey deneyin"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Bir serinin parçası değil"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Seri ara"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Seri Parçası:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Widget'ta yer alan gönderi başlığı:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2968,41 +2974,41 @@ msgstr ""
 "Bu yazının kısa başlığı, Seri widget'ında kullanılacaktır. Tam başlığı "
 "kullanmak için boş bırakın."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Parça numarası yok)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Parça %1$s %2$s'nın parçası)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Parça Numarası Yok)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Seri Yok"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Tüm serileri görüntüle"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Tüm Serileri Yönet"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
-"PublishPress Serisi, seri simgesini kaydedemedi. Simgede bir değişiklik "
-"yapılmadı."
+"PublishPress Serisi, seri öne çıkan resmini kaydedemedi. Öne çıkan resim "
+"değiştirilmedi."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3010,11 +3016,11 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Veritabanı hatası: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Terim Sırası"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3022,11 +3028,36 @@ msgstr ""
 "Bir öğeyi yeniden konumlandırmak için, satırı herhangi bir yerinde "
 "\"tıklayıp tutarak\" sürükleyin ve yeni konumuna taşıyın."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Seri eklendi."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Seri silindi."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Seri güncellendi."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Seri eklenmedi."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Seri güncellenmedi."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Gönderiler"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3034,15 +3065,15 @@ msgstr ""
 "Terimler genellikle alfabetik sıraya göre sıralanır, ancak bu alana bir "
 "sayı (ilk için 1, vb.) girerek kendi sıralamanızı seçebilirsiniz."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Geçerli seri simgesi:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Mevcut seri öne çıkan resmi:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Şu anda simge yok"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Şu anda öne çıkan resim yok"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3050,31 +3081,31 @@ msgstr ""
 "Resmi silmek istiyor musunuz? (not: bunu seçerseniz, bu seri ile ilişkili "
 "bir resim olmayacaktır)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Seri Simgesi Yükle:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Seri öne çıkan resmi yükleme:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Seri için bir resim yükleyin."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Seri için öne çıkan bir resim yükleyin."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Geçersiz form verisi"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Geçersiz nonce, sayfayı yeniden yükleyin ve tekrar deneyin"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Geçersiz taxonomy"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Yeterli izin yok"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Başarıyla güncellendi"
 
@@ -3337,7 +3368,7 @@ msgstr "Seri widget başlığı:"
 msgid "This text will display above other posts in this series."
 msgstr "Bu metin, bu serideki diğer gönderilerin üzerinde görüntülenecektir."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Bu eklenti silinebilir.</strong>"
 
@@ -3518,17 +3549,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Seri"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Seri"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

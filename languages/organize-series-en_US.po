@@ -3,30 +3,31 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Series Free 3.1.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-13T15:19:55+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:27+0000\n"
+"POT-Creation-Date: 2026-08-14T15:35:48+00:00\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: en-US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -37,12 +38,12 @@ msgstr ""
 "This is ideal for magazines, newspapers, short-story writers, teachers, "
 "comic artists, or anyone who writes multiple posts on the same topic."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -414,7 +415,7 @@ msgstr "Series Post Details"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208, fuzzy
 msgid "Add New"
 msgstr "Add New"
@@ -867,9 +868,9 @@ msgstr "Title"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203, fuzzy
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229, fuzzy
 msgid "Series Order"
 msgstr "Series Order"
 
@@ -878,8 +879,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Choose the field used to sort posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226, fuzzy
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252, fuzzy
 msgid "Order"
 msgstr "Order"
 
@@ -1061,7 +1062,7 @@ msgstr "Error loading preview."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263, fuzzy
+#: orgSeries-manage.php:289, fuzzy
 msgid "Select Image"
 msgstr "Select Image"
 
@@ -1970,17 +1971,17 @@ msgstr ""
 "when the plugin runs."
 
 #: inc/settings/settings-page.php:68, fuzzy
-msgid "This will be replaced with the series icon for a series."
-msgstr "This will be replaced with the series icon for a series."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "This will be replaced with the series featured image for a series."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2416,20 +2417,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Series Table of Contents Title:"
 
 #: inc/settings/tab-legacy.php:168, fuzzy
-msgid "Series Icons"
-msgstr "Series Icons"
+msgid "Series Featured Images"
+msgstr "Series Featured Images"
 
 #: inc/settings/tab-legacy.php:173, fuzzy
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Width for icon on series table of contents page (in pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Width for featured image on series table of contents page (in pixels)"
 
 #: inc/settings/tab-legacy.php:177, fuzzy
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Width for icon on a post page (in pixels)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Width for featured image on a post page (in pixels)."
 
-#: inc/settings/tab-legacy.php:181, fuzzy
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Width for icon if displayed via the latest series template (in pixels)."
+#: inc/settings/tab-legacy.php:181
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13, fuzzy
@@ -2740,8 +2745,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Plugin Template Display Options:"
 
 #: inc/settings/tab-series-category.php:53, fuzzy
-msgid "Show Series Icon"
-msgstr "Show Series Icon"
+msgid "Show Series Featured Image"
+msgstr "Show Series Featured Image"
 
 #: inc/settings/tab-series-category.php:58, fuzzy
 msgid "Show Series Description"
@@ -2805,25 +2810,29 @@ msgstr "Sorry, no results found."
 msgid "Dismiss this panel"
 msgstr "Dismiss this panel"
 
-#: inc/welcome/welcome-panel.php:147, fuzzy
-msgid "Welcome! Create your first series"
-msgstr "Welcome! Create your first series"
+#: inc/welcome/welcome-panel.php:160, fuzzy
+msgid "Welcome to PublishPress Series"
+msgstr "Welcome to PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 
-#: inc/welcome/welcome-panel.php:155, fuzzy
+#: inc/welcome/welcome-panel.php:168, fuzzy
+msgid "Create a series"
+msgstr "Create a series"
+
+#: inc/welcome/welcome-panel.php:172, fuzzy
 msgid "View Documentation"
 msgstr "View Documentation"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41, fuzzy
 msgid "Upgrade to Pro"
 msgstr "Upgrade to Pro"
@@ -2857,57 +2866,57 @@ msgstr "Detailed documentation is also available on the plugin website."
 msgid "View Knowledge Base"
 msgstr "View Knowledge Base"
 
-#: orgSeries-admin.php:67, fuzzy
+#: orgSeries-admin.php:42, fuzzy
 msgid "An error occured"
 msgstr "An error occured"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, fuzzy, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s series migrated to new taxonomy"
 
-#: orgSeries-admin.php:154, fuzzy
+#: orgSeries-admin.php:129, fuzzy
 msgid "Custom Template"
 msgstr "Custom Template"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, fuzzy, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "If you like %s, please leave us a %s rating. Thank you!"
 
-#: orgSeries-admin.php:187, fuzzy
+#: orgSeries-admin.php:162, fuzzy
 msgid "About PublishPress Series"
 msgstr "About PublishPress Series"
 
-#: orgSeries-admin.php:187, fuzzy
+#: orgSeries-admin.php:162, fuzzy
 msgid "About"
 msgstr "About"
 
-#: orgSeries-admin.php:188, fuzzy
+#: orgSeries-admin.php:163, fuzzy
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Series Documentation"
 
-#: orgSeries-admin.php:188, fuzzy
+#: orgSeries-admin.php:163, fuzzy
 msgid "Documentation"
 msgstr "Documentation"
 
-#: orgSeries-admin.php:189, fuzzy
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact the PublishPress team"
 msgstr "Contact the PublishPress team"
 
-#: orgSeries-admin.php:189, fuzzy
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
-#: orgSeries-admin.php:220, fuzzy
+#: orgSeries-admin.php:195, fuzzy
 msgid "Sorry but you don't have permission to add series"
 msgstr "Sorry but you don't have permission to add series"
 
-#: orgSeries-admin.php:231, fuzzy
+#: orgSeries-admin.php:206, fuzzy
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "The name you picked isn't sanitizing correctly. Try something different."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2915,23 +2924,23 @@ msgstr ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 
-#: orgSeries-admin.php:360, fuzzy
+#: orgSeries-admin.php:335, fuzzy
 msgid "Not part of a series"
 msgstr "Not part of a series"
 
-#: orgSeries-admin.php:422, fuzzy
+#: orgSeries-admin.php:397, fuzzy
 msgid "Search series"
 msgstr "Search series"
 
-#: orgSeries-admin.php:437, fuzzy
+#: orgSeries-admin.php:412, fuzzy
 msgid "Series Part:"
 msgstr "Series Part:"
 
-#: orgSeries-admin.php:444, fuzzy
+#: orgSeries-admin.php:419, fuzzy
 msgid "Post title in widget:"
 msgstr "Post title in widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2939,41 +2948,41 @@ msgstr ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, fuzzy, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, fuzzy, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, fuzzy, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270, fuzzy
 msgid "No Series"
 msgstr "No Series"
 
-#: orgSeries-admin.php:553, fuzzy
+#: orgSeries-admin.php:540, fuzzy
 msgid "View all series"
 msgstr "View all series"
 
-#: orgSeries-admin.php:562, fuzzy
+#: orgSeries-admin.php:549, fuzzy
 msgid "Manage All Series"
 msgstr "Manage All Series"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2981,11 +2990,11 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Database error: %s"
 
-#: orgSeries-manage.php:66, fuzzy
+#: orgSeries-manage.php:67, fuzzy
 msgid "Term Order"
 msgstr "Term Order"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -2993,11 +3002,36 @@ msgstr ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152, fuzzy
+msgid "Series added."
+msgstr "Series added."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157, fuzzy
+msgid "Series deleted."
+msgstr "Series deleted."
+
+#: orgSeries-manage.php:154, fuzzy
+msgid "Series updated."
+msgstr "Series updated."
+
+#: orgSeries-manage.php:155, fuzzy
+msgid "Series not added."
+msgstr "Series not added."
+
+#: orgSeries-manage.php:156, fuzzy
+msgid "Series not updated."
+msgstr "Series not updated."
+
+#: orgSeries-manage.php:219, fuzzy
+msgid "Posts"
+msgstr "Posts"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3005,15 +3039,15 @@ msgstr ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 
-#: orgSeries-manage.php:239, fuzzy
-msgid "Current series icon:"
-msgstr "Current series icon:"
+#: orgSeries-manage.php:265, fuzzy
+msgid "Current series featured image:"
+msgstr "Current series featured image:"
 
-#: orgSeries-manage.php:245, fuzzy
-msgid "No icon currently"
-msgstr "No icon currently"
+#: orgSeries-manage.php:271, fuzzy
+msgid "No featured image currently"
+msgstr "No featured image currently"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3021,31 +3055,31 @@ msgstr ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 
-#: orgSeries-manage.php:260, fuzzy
-msgid "Series Icon Upload:"
-msgstr "Series Icon Upload:"
+#: orgSeries-manage.php:286, fuzzy
+msgid "Series featured image upload:"
+msgstr "Series featured image upload:"
 
-#: orgSeries-manage.php:264, fuzzy
-msgid "Upload an image for the series."
-msgstr "Upload an image for the series."
+#: orgSeries-manage.php:290, fuzzy
+msgid "Upload a featured image for the series."
+msgstr "Upload a featured image for the series."
 
-#: orgSeries-manage.php:279, fuzzy
+#: orgSeries-manage.php:305, fuzzy
 msgid "Invalid form data"
 msgstr "Invalid form data"
 
-#: orgSeries-manage.php:289, fuzzy
+#: orgSeries-manage.php:315, fuzzy
 msgid "Invalid nonce, reload and try again"
 msgstr "Invalid nonce, reload and try again"
 
-#: orgSeries-manage.php:298, fuzzy
+#: orgSeries-manage.php:324, fuzzy
 msgid "Invalid taxonomy"
 msgstr "Invalid taxonomy"
 
-#: orgSeries-manage.php:304, fuzzy
+#: orgSeries-manage.php:330, fuzzy
 msgid "Not enough permission"
 msgstr "Not enough permission"
 
-#: orgSeries-manage.php:308, fuzzy
+#: orgSeries-manage.php:334, fuzzy
 msgid "Updated successfully"
 msgstr "Updated successfully"
 
@@ -3306,7 +3340,7 @@ msgstr "Series widget title:"
 msgid "This text will display above other posts in this series."
 msgstr "This text will display above other posts in this series."
 
-#: orgSeries.php:164, fuzzy
+#: orgSeries.php:175, fuzzy
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>This plugin can be deleted.</strong>"
 
@@ -3489,17 +3523,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479, fuzzy
+#: orgSeries-admin.php:456, fuzzy
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Series"
 
-#: orgSeries-admin.php:492, fuzzy
+#: orgSeries-admin.php:479, fuzzy
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Series"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

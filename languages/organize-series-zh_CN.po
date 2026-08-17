@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -36,12 +36,12 @@ msgstr ""
 "PublishPress Series "
 "允许您将内容分组为一个系列。这对于杂志、报纸、短篇小说作者、教师、漫画艺术家或任何在同一主题上写多个帖子的人来说都是理想的。"
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -411,7 +411,7 @@ msgstr "系列文章详情"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "添加新内容"
@@ -864,9 +864,9 @@ msgstr "标题"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "系列顺序"
 
@@ -875,8 +875,8 @@ msgid "Choose the field used to sort posts"
 msgstr "选择用于排序帖子的字段"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "顺序"
 
@@ -1056,7 +1056,7 @@ msgstr "加载预览时出错。"
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "选择图片"
 
@@ -1955,15 +1955,15 @@ msgid ""
 msgstr "以下是可以在自定义模板字段中使用的令牌的图例。这些将在插件运行时被替换为相应的值。"
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "这将被替换为系列的系列图标。"
+msgid "This will be replaced with the series featured image for a series."
+msgstr "这将被替换为系列的特色图像。"
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "与 %series_icon% 相同，除了系列图标将链接到系列页面"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr "与 %series_icon% 相同，不同之处在于系列特色图像将链接到系列页面"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2358,20 +2358,22 @@ msgid "Series Table of Contents Title:"
 msgstr "系列目录标题："
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "系列图标"
+msgid "Series Featured Images"
+msgstr "系列特色图像"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "系列目录页面上图标的宽度（以像素为单位）"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "系列目录页上特色图像的宽度（以像素为单位）"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "帖子页面上图标的宽度（以像素为单位）。"
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "帖子页面上特色图像的宽度（以像素为单位）。"
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "如果通过最新系列模板显示，图标的宽度（以像素为单位）。"
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr "如果通过最新系列模板显示，特色图像的宽度（以像素为单位）。"
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2668,8 +2670,8 @@ msgid "Plugin Template Display Options:"
 msgstr "插件模板显示选项："
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "显示系列图标"
+msgid "Show Series Featured Image"
+msgstr "显示系列特色图像"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2726,22 +2728,26 @@ msgstr "抱歉，未找到结果。"
 msgid "Dismiss this panel"
 msgstr "关闭此面板"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "欢迎！创建您的第一个系列"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "欢迎来到 PublishPress 系列"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
-msgstr "系列将您的帖子分组在一起，并向读者展示阅读顺序。使用此页面上的“添加新系列”表单来创建您的第一个系列，然后将帖子添加到其中。"
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr "一个系列将您的帖子聚集在一起，并向读者展示阅读顺序。使用此页面上的表单创建您的第一个系列，然后将帖子添加到其中。"
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "创建一个系列"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "查看文档"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "升级到专业版"
@@ -2773,117 +2779,117 @@ msgstr "详细文档也可在插件网站上获取。"
 msgid "View Knowledge Base"
 msgstr "查看知识库"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "发生错误"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s 系列已迁移到新 taxonomy"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "自定义模板"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "如果你喜欢 %s，请给我们留下一个 %s 评分。谢谢！"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "关于 PublishPress 系列"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "关于"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress 系列文档"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "文档"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "联系 PublishPress 团队"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "联系"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "抱歉，您没有权限添加系列"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "您选择的名称未正确清理。请尝试其他名称。"
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "嗯……看起来已经有一个同名的系列。试试其他名称"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "不属于任何系列"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "搜索系列"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "系列部分："
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "小部件中的帖子标题："
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr "此帖的短标题将用于系列小部件。留空以使用完整标题。"
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>（无部分编号）"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a>（%2$s 的第 %1$s 部分）"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (无部件编号)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "无系列"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "查看所有系列"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "管理所有系列"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress 系列无法保存系列图标。图标未更改。"
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr "PublishPress 系列无法保存系列特色图像。特色图像未更改。"
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2891,65 +2897,90 @@ msgstr "PublishPress 系列无法保存系列图标。图标未更改。"
 msgid "Database error: %s"
 msgstr "数据库错误：%s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "术语顺序"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr "要重新定位项目，请通过“单击并按住”该行的任何位置进行拖放，将其移动到新位置。"
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "系列已添加。"
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "系列已删除。"
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "系列已更新。"
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "系列未添加。"
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "系列未更新。"
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "帖子"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr "条目通常按字母顺序排列，但您可以通过在此字段中输入一个数字（1为第一，等等）选择自己的顺序。"
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "当前系列图标："
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "当前系列特色图像："
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "当前没有图标"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "当前没有特色图像"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "删除图片？（注意：如果选择此项，则该系列将不再关联任何图片）"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "系列图标上传："
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "系列特色图像上传："
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "上传一个系列的图像。"
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "为系列上传一张特色图片。"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "无效的表单数据"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "无效的 nonce，重新加载并重试"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "无效的 taxonomy"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "权限不足"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "已成功更新"
 
@@ -3204,7 +3235,7 @@ msgstr "系列小部件标题："
 msgid "This text will display above other posts in this series."
 msgstr "此文本将在此系列中的其他帖子上方显示。"
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>此插件可以被删除。</strong>"
 
@@ -3373,17 +3404,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "系列"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "系列"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

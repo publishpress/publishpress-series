@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:26+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : (n >= 2 && n <= 4) ? 1 : 2;\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -37,12 +37,12 @@ msgstr ""
 "časopisy, noviny, autory povídek, učitele, komiksové umělce nebo kohokoliv, "
 "kdo píše více příspěvků na stejné téma."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -416,7 +416,7 @@ msgstr "Podrobnosti o příspěvku série"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Přidat nový"
@@ -869,9 +869,9 @@ msgstr "Název"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Pořadí série"
 
@@ -880,8 +880,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Vybrat pole použité k třídění příspěvků"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Pořadí"
 
@@ -1075,7 +1075,7 @@ msgstr "Chyba při načítání náhledu."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Vybrat obrázek"
 
@@ -1986,17 +1986,17 @@ msgstr ""
 "když plugin poběží."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Toto bude nahrazeno ikonou série pro sérii."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "To bude nahrazeno vybraným obrázkem série pro sérii."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Stejné jako %series_icon%, kromě toho, že ikona série bude odkazovat na "
-"stránku série"
+"Stejné jako %series_icon%, kromě toho, že vybraný obrázek série bude "
+"odkazovat na stránku série"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2438,22 +2438,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Název obsahu série:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Ikony série"
+msgid "Series Featured Images"
+msgstr "Vybrané obrázky série"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Šířka ikony na stránce obsahu série (v pixelech)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Šířka pro vybraný obrázek na stránce obsahu série (v pixelech)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Šířka ikony na stránce příspěvku (v pixelech)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Šířka pro vybraný obrázek na stránce příspěvku (v pixelech)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 msgstr ""
-"Šířka ikony, pokud je zobrazeno prostřednictvím poslední šablony série (v "
-"pixelech)."
+"Šířka pro vybraný obrázek, pokud je zobrazen prostřednictvím nejnovější "
+"šablony série (v pixelech)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2765,8 +2767,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Možnosti zobrazení šablony pluginu:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Zobrazit ikonu série"
+msgid "Show Series Featured Image"
+msgstr "Zobrazit vybraný obrázek série"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2830,25 +2832,29 @@ msgstr "Omlouváme se, žádné výsledky nebyly nalezeny."
 msgid "Dismiss this panel"
 msgstr "Zavřít tuto panel"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Vítejte! Vytvořte svou první sérii"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Vítejte v PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Série seskupuje vaše příspěvky a ukazuje vašim čtenářům pořadí čtení. "
-"Použijte formulář Přidat novou sérii na této stránce k vytvoření první "
-"série a poté k ní přidejte příspěvky."
+"Série sdružuje vaše příspěvky a ukazuje vašim čtenářům pořadí čtení. "
+"Vytvořte svou první sérii pomocí formuláře na této stránce, poté k ní "
+"přidejte příspěvky."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Vytvořit sérii"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Zobrazit dokumentaci"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Přejít na Pro"
@@ -2882,79 +2888,79 @@ msgstr "Podrobná dokumentace je také k dispozici na webových stránkách plug
 msgid "View Knowledge Base"
 msgstr "Zobrazit znalostní bázi"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Došlo k chybě"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s série migrována do nové taxonomy"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Vlastní šablona"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Pokud se vám %s líbí, dejte nám prosím %s hodnocení. Děkujeme!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "O PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "O"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Dokumentace PublishPress Series"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Kontaktujte tým PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Kontakt"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Omlouváme se, ale nemáte oprávnění přidat sérii"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Jméno, které jste vybrali, se neprovádí správně. Zkuste něco jiného."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... vypadá to, že již existuje série s tímto názvem. Zkuste něco jiného"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Není součástí série"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Hledat série"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Část série:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Název příspěvku ve widgetu:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2962,39 +2968,41 @@ msgstr ""
 "Krátký název tohoto příspěvku, který bude použit ve widgetu Série. Nechte "
 "prázdné pro použití celého názvu."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Žádné číslo části)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Část %1$s z %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Žádné číslo dílu)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Žádná série"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Zobrazit všechny série"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Spravovat všechny série"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress Series se nepodařilo uložit ikonu série. Ikona nebyla změněna."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series nemohl uložit vybraný obrázek série. Vybraný obrázek "
+"nebyl změněn."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3002,11 +3010,11 @@ msgstr "PublishPress Series se nepodařilo uložit ikonu série. Ikona nebyla zm
 msgid "Database error: %s"
 msgstr "Chyba databáze: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Pořadí termínů"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3014,11 +3022,36 @@ msgstr ""
 "Chcete-li přesunout položku, přetáhněte řádek tím, že jej \"kliknete a "
 "podržíte\" kdekoli a přesuňte jej na nové místo."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Série byla přidána."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Série byla smazána."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Série byla aktualizována."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Série nebyla přidána."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Série nebyla aktualizována."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Příspěvky"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3026,15 +3059,15 @@ msgstr ""
 "Termíny jsou obvykle seřazeny abecedně, ale můžete si zvolit vlastní pořadí "
 "zadáním čísla (1 pro první atd.) do tohoto pole."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Aktuální ikona série:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Aktuální vybraný obrázek série:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Žádná ikona momentálně"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "V současnosti žádný vybraný obrázek"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3042,31 +3075,31 @@ msgstr ""
 "Smazat obrázek? (pozor: pokud toto vyberete, nebude s touto sérií spojen "
 "žádný obrázek)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Nahrání ikony série:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Nahrání vybraného obrázku série:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Nahrajte obrázek pro sérii."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Nahrajte vybraný obrázek pro sérii."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Neplatná data formuláře"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Neplatný nonce, znovu načtěte a zkuste to znovu"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Neplatná taxonomie"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Nedostatečná oprávnění"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Úspěšně aktualizováno"
 
@@ -3329,7 +3362,7 @@ msgstr "Název widgetu série:"
 msgid "This text will display above other posts in this series."
 msgstr "Tento text se zobrazí nad ostatními příspěvky v této sérii."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Tento plugin lze smazat.</strong>"
 
@@ -3512,17 +3545,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Série"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Série"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

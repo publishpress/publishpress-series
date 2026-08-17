@@ -13,22 +13,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:29+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ja\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -38,12 +38,12 @@ msgstr ""
 "PublishPressシリーズは、コンテンツをシリーズとしてまとめることを可能にします。これは、雑誌、新聞、短編作家、教師、漫画家、または同じトピック"
 "に関する複数の投稿を書くすべての人に最適です。"
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -413,7 +413,7 @@ msgstr "シリーズ投稿の詳細"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "新規追加"
@@ -866,9 +866,9 @@ msgstr "タイトル"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "シリーズ順序"
 
@@ -877,8 +877,8 @@ msgid "Choose the field used to sort posts"
 msgstr "投稿を並べ替えるために使用するフィールドを選択する"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "順序"
 
@@ -1058,7 +1058,7 @@ msgstr "プレビューの読み込み中にエラーが発生しました。"
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "画像を選択"
 
@@ -1958,15 +1958,15 @@ msgid ""
 msgstr "以下はカスタムテンプレートフィールドで使用できるトークンの凡例です。プラグインが実行されると、これらは適切な値に置き換えられます。"
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "これはシリーズのシリーズアイコンに置き換えられます。"
+msgid "This will be replaced with the series featured image for a series."
+msgstr "これはシリーズの特徴的な画像に置き換えられます。"
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "%series_icon% と同じですが、シリーズアイコンはシリーズページにリンクされます"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr "%series_icon% と同じですが、シリーズの特徴的な画像はシリーズページにリンクされます"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2374,20 +2374,22 @@ msgid "Series Table of Contents Title:"
 msgstr "シリーズ目次のタイトル:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "シリーズアイコン"
+msgid "Series Featured Images"
+msgstr "シリーズの特徴的な画像"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "シリーズ目次ページのアイコンの幅（ピクセル単位）"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "シリーズ目次ページの特徴的な画像の幅（ピクセル単位）"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "投稿ページのアイコンの幅（ピクセル単位）。"
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "投稿ページの特徴的な画像の幅（ピクセル単位）。"
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "最新のシリーズテンプレートで表示される場合のアイコンの幅（ピクセル単位）。"
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr "最新のシリーズテンプレートを介して表示される場合の特徴的な画像の幅（ピクセル単位）。"
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2684,8 +2686,8 @@ msgid "Plugin Template Display Options:"
 msgstr "プラグインテンプレート表示オプション："
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "シリーズアイコンを表示"
+msgid "Show Series Featured Image"
+msgstr "シリーズの特徴的な画像を表示"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2744,24 +2746,26 @@ msgstr "申し訳ありませんが、結果は見つかりませんでした。
 msgid "Dismiss this panel"
 msgstr "このパネルを閉じる"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "ようこそ！最初のシリーズを作成してください"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "PublishPressシリーズへようこそ"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
-msgstr ""
-"シリーズはあなたの投稿をまとめ、読者に読み順を示します。このページの「新しいシリーズを追加」フォームを使用して最初のシリーズを作成し、その後投稿を追加し"
-"てください。"
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr "シリーズはあなたの投稿をまとめて、読者に読み順を示します。このページのフォームを使って最初のシリーズを作成し、その後投稿を追加してください。"
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "シリーズを作成"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "ドキュメントを表示"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Proにアップグレード"
@@ -2795,117 +2799,117 @@ msgstr "詳細なドキュメントはプラグインのウェブサイトでも
 msgid "View Knowledge Base"
 msgstr "ナレッジベースを表示"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "エラーが発生しました"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s シリーズが新しい分類法に移行されました"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "カスタムテンプレート"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "%sが気に入った場合は、%sの評価を残してください。ありがとうございます！"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "PublishPressシリーズについて"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "について"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPressシリーズのドキュメント"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "PublishPressチームに連絡する"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "連絡先"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "申し訳ありませんが、シリーズを追加する権限がありません。"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "選択した名前は正しくサニタイズされていません。他の名前を試してください。"
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "うーん... その名前のシリーズはすでに存在するようです。他の名前を試してください。"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "シリーズの一部ではありません"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "シリーズを検索"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "シリーズの部分："
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "ウィジェット内の投稿タイトル："
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr "この投稿の短いタイトルで、シリーズウィジェットで使用されます。完全なタイトルを使用するには空白のままにしてください。"
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> （部品番号なし）"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> （%2$sの部品%1$s）"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  （部品番号なし）"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "シリーズなし"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "すべてのシリーズを表示"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "すべてのシリーズを管理"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPressシリーズはシリーズアイコンを保存できませんでした。アイコンは変更されませんでした。"
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr "PublishPressシリーズはシリーズの特徴的な画像を保存できませんでした。特徴的な画像は変更されませんでした。"
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2913,65 +2917,90 @@ msgstr "PublishPressシリーズはシリーズアイコンを保存できませ
 msgid "Database error: %s"
 msgstr "データベースエラー: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "用語順序"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr "アイテムの位置を変更するには、行を「クリックして保持」しながら新しい位置にドラッグ＆ドロップします。"
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "シリーズが追加されました。"
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "シリーズが削除されました。"
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "シリーズが更新されました。"
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "シリーズは追加されませんでした。"
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "シリーズは更新されませんでした。"
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "投稿"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr "用語は通常アルファベット順に並べられますが、このフィールドに番号（1が最初など）を入力することで自分の順序を選択できます。"
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "現在のシリーズアイコン："
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "現在のシリーズの特徴的な画像："
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "現在アイコンなし"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "現在特徴的な画像はありません"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "画像を削除しますか？（注意：これを選択すると、このシリーズに関連する画像はありません）"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "シリーズアイコンのアップロード："
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "シリーズの特徴的な画像のアップロード："
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "シリーズ用の画像をアップロードします。"
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "シリーズのための特集画像をアップロードしてください。"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "無効なフォームデータ"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "無効なノンス、再読み込みして再試行してください"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "無効なタクソノミー"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "権限が不足しています"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "正常に更新されました"
 
@@ -3226,7 +3255,7 @@ msgstr "シリーズウィジェットのタイトル："
 msgid "This text will display above other posts in this series."
 msgstr "このテキストは、このシリーズの他の投稿の上に表示されます。"
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>このプラグインは削除できます。</strong>"
 
@@ -3401,17 +3430,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

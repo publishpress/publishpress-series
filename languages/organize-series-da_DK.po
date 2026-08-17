@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:26+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: da-DK\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -37,12 +37,12 @@ msgstr ""
 "serie. Dette er ideelt til magasiner, aviser, noveller, lærere, "
 "tegneserietegnere eller enhver, der skriver flere indlæg om det samme emne."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -412,7 +412,7 @@ msgstr "Serie Post Detaljer"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Tilføj Ny"
@@ -865,9 +865,9 @@ msgstr "Titel"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Serieorden"
 
@@ -876,8 +876,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Vælg feltet der bruges til at sortere indlæg"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Orden"
 
@@ -1064,7 +1064,7 @@ msgstr "Fejl ved indlæsning af forhåndsvisning."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Vælg billede"
 
@@ -1975,17 +1975,17 @@ msgstr ""
 "værdier, når plugin'et kører."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Dette vil blive erstattet med serienikonet for en serie."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Dette vil blive erstattet med den fremhævede billede for en serie."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Samt som %series_icon% bortset fra at serienikonet vil være linket til "
-"seriesiden"
+"Samme som %series_icon% bortset fra at den fremhævede billede for serien "
+"vil være linket til seriesiden"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2430,20 +2430,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Serie indholdsfortegnelse titel:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Serie ikoner"
+msgid "Series Featured Images"
+msgstr "Fremhævede billeder for serier"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Bredde for ikon på serien indholdsfortegnelse side (i pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Bredde for fremhævet billede på serien indholdsfortegnelse side (i pixels)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Bredde for ikon på en indlægsside (i pixels)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Bredde for fremhævet billede på en indlægsside (i pixels)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Bredde for ikon, hvis den vises via den seneste serie skabelon (i pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Bredde for fremhævet billede hvis vist via den nyeste serietemplate (i "
+"pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2756,8 +2760,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Plugin Skabelon Visningsmuligheder:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Vis Series Ikon"
+msgid "Show Series Featured Image"
+msgstr "Vis fremhævet billede for serien"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2822,25 +2826,29 @@ msgstr "Beklager, ingen resultater fundet."
 msgid "Dismiss this panel"
 msgstr "Afvis dette panel"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Velkommen! Opret din første serie"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Velkommen til PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"En serie grupperer dine indlæg og viser dine læsere læserækkefølgen. Brug "
-"formularen Tilføj Ny Serie på denne side til at oprette din første serie, "
-"og tilføj derefter indlæg til den."
+"En serie grupperer dine indlæg sammen og viser dine læsere læse "
+"rækkefølgen. Opret din første serie med formularen på denne side, og tilføj "
+"derefter indlæg til den."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Opret en serie"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Se dokumentation"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Opgrader til Pro"
@@ -2876,57 +2884,57 @@ msgstr "Detaljeret dokumentation er også tilgængelig på plugin-webstedet."
 msgid "View Knowledge Base"
 msgstr "Se vidensbasen"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Der opstod en fejl"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s serie migreret til ny taxonomy"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Brugerdefineret skabelon"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Hvis du kan lide %s, så giv os venligst en %s vurdering. Tak!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Om PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Om"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Series Dokumentation"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Kontakt PublishPress-teamet"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Kontakt"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Beklager, men du har ikke tilladelse til at tilføje serier"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Navnet, du valgte, renser ikke korrekt. Prøv noget andet."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2934,23 +2942,23 @@ msgstr ""
 "Hmm... det ser ud til, at der allerede er en serie med det navn. Prøv noget "
 "andet"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Ikke en del af en serie"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Søg serier"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Serie Del:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Indlægstitel i widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2958,39 +2966,41 @@ msgstr ""
 "En kort titel for dette indlæg, der vil blive brugt i Series-widgeten. Lad "
 "det være tomt for at bruge den fulde titel."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ingen delnummer)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Del %1$s af %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ingen delnummer)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Ingen serie"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Se alle serier"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Administrer alle serier"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress Series kunne ikke gemme serienikonet. Ikonet blev ikke ændret."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series kunne ikke gemme den fremhævede billede for serien. Den "
+"fremhævede billede blev ikke ændret."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2998,11 +3008,11 @@ msgstr "PublishPress Series kunne ikke gemme serienikonet. Ikonet blev ikke ænd
 msgid "Database error: %s"
 msgstr "Databasefejl: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Term rækkefølge"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3010,11 +3020,36 @@ msgstr ""
 "For at flytte et element, træk og slip rækken ved at \"klikke og holde\" "
 "den hvor som helst og flytte den til sin nye position."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Serie tilføjet."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Serie slettet."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Serie opdateret."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Serie ikke tilføjet."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Serie ikke opdateret."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Indlæg"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3022,15 +3057,15 @@ msgstr ""
 "Termer er normalt sorteret alfabetisk, men du kan vælge din egen rækkefølge "
 "ved at indtaste et nummer (1 for første, osv.) i dette felt."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Nuværende serieikon:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Nuværende fremhævede billede for serien:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Ingen ikon i øjeblikket"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Ingen fremhævet billede i øjeblikket"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3038,31 +3073,31 @@ msgstr ""
 "Slette billede? (bemærk: der vil ikke være et billede knyttet til denne "
 "serie, hvis du vælger dette)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Upload af serieikon:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Upload af fremhævet billede for serien:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Upload et billede til serien."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Upload et fremhævet billede til serien."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Ugyldige formularoplysninger"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Ugyldig nonce, opdater og prøv igen"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Ugyldig taksonomi"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Ikke nok tilladelse"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Opdateret med succes"
 
@@ -3325,7 +3360,7 @@ msgstr "Seriewidget titel:"
 msgid "This text will display above other posts in this series."
 msgstr "Denne tekst vil blive vist over andre indlæg i denne serie."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Denne plugin kan slettes.</strong>"
 
@@ -3511,17 +3546,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

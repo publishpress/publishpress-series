@@ -13,23 +13,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -39,12 +39,12 @@ msgstr ""
 "퍼블리시프레스 시리즈는 콘텐츠를 시리즈로 그룹화할 수 있게 해줍니다. 이는 잡지, 신문, 단편 소설 작가, 교사, 만화 작가 또는 같은 "
 "주제에 대해 여러 포스트를 작성하는 사람들에게 이상적입니다."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "퍼블리시프레스"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -414,7 +414,7 @@ msgstr "시리즈 게시물 세부정보"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "새로 추가"
@@ -865,9 +865,9 @@ msgstr "제목"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "시리즈 순서"
 
@@ -876,8 +876,8 @@ msgid "Choose the field used to sort posts"
 msgstr "게시물을 정렬하는 데 사용할 필드를 선택합니다"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "주문"
 
@@ -1057,7 +1057,7 @@ msgstr "미리보기 로딩 중 오류가 발생했습니다."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "이미지 선택"
 
@@ -1957,15 +1957,15 @@ msgid ""
 msgstr "다음은 사용자 정의 템플릿 필드에서 사용할 수 있는 토큰의 전설입니다. 플러그인이 실행될 때 적절한 값으로 대체됩니다."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "이것은 시리즈의 시리즈 아이콘으로 대체됩니다."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "이것은 시리즈의 대표 이미지로 교체됩니다."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "%series_icon%과 동일하지만 시리즈 아이콘이 시리즈 페이지에 링크됩니다."
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr "%series_icon%와 동일하지만 시리즈의 대표 이미지가 시리즈 페이지에 링크됩니다."
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2372,20 +2372,22 @@ msgid "Series Table of Contents Title:"
 msgstr "시리즈 목차 제목:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "시리즈 아이콘"
+msgid "Series Featured Images"
+msgstr "시리즈 대표 이미지"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "시리즈 목차 페이지의 아이콘 너비(픽셀 단위)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "목차 페이지에서의 대표 이미지 너비 (픽셀 단위)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "게시물 페이지의 아이콘 너비(픽셀 단위)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "게시물 페이지에서의 대표 이미지 너비 (픽셀 단위)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "아이콘의 너비(최신 시리즈 템플릿을 통해 표시되는 경우, 픽셀 단위)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr "최신 시리즈 템플릿을 통해 표시되는 경우의 대표 이미지 너비 (픽셀 단위)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2684,8 +2686,8 @@ msgid "Plugin Template Display Options:"
 msgstr "플러그인 템플릿 표시 옵션:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "시리즈 아이콘 표시"
+msgid "Show Series Featured Image"
+msgstr "시리즈 대표 이미지 표시"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2742,24 +2744,28 @@ msgstr "죄송합니다. 결과를 찾을 수 없습니다."
 msgid "Dismiss this panel"
 msgstr "이 패널을 닫기"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "환영합니다! 첫 번째 시리즈를 만드세요"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "PublishPress 시리즈에 오신 것을 환영합니다"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"시리즈는 귀하의 게시물을 그룹화하고 독자에게 읽기 순서를 보여줍니다. 이 페이지의 새 시리즈 추가 양식을 사용하여 첫 번째 시리즈를 "
-"만들고, 그 후 게시물을 추가하세요."
+"시리즈는 귀하의 게시물을 그룹화하고 독자에게 읽기 순서를 보여줍니다. 이 페이지의 양식을 사용하여 첫 번째 시리즈를 생성한 다음 "
+"게시물을 추가하세요."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "시리즈 만들기"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "문서 보기"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Pro로 업그레이드"
@@ -2793,117 +2799,117 @@ msgstr "자세한 문서는 플러그인 웹사이트에서도 확인하실 수 
 msgid "View Knowledge Base"
 msgstr "지식 베이스 보기"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "오류가 발생했습니다"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s 시리즈가 새로운 분류법으로 마이그레이션되었습니다"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "사용자 정의 템플릿"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "%s가 마음에 드신다면, %s 평가를 남겨주세요. 감사합니다!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "PublishPress 시리즈 소개"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "소개"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress 시리즈 문서"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "문서"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "PublishPress 팀에 연락하기"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "연락처"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "죄송하지만 시리즈를 추가할 권한이 없습니다"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "선택한 이름이 올바르게 정리되지 않고 있습니다. 다른 것을 시도해 보세요."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "음... 이미 해당 이름의 시리즈가 있는 것 같습니다. 다른 것을 시도해 보세요."
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "시리즈의 일부가 아님"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "시리즈 검색"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "시리즈 부분:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "위젯의 게시물 제목:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr "이 게시물의 짧은 제목으로, 시리즈 위젯에서 사용됩니다. 전체 제목을 사용하려면 비워 두십시오."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (부품 번호 없음)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (부품 %1$s / %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (부품 번호 없음)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "시리즈 없음"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "모든 시리즈 보기"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "모든 시리즈 관리"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress 시리즈가 시리즈 아이콘을 저장할 수 없습니다. 아이콘이 변경되지 않았습니다."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr "PublishPress 시리즈가 시리즈 대표 이미지를 저장할 수 없습니다. 대표 이미지가 변경되지 않았습니다."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -2911,65 +2917,90 @@ msgstr "PublishPress 시리즈가 시리즈 아이콘을 저장할 수 없습니
 msgid "Database error: %s"
 msgstr "데이터베이스 오류: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "용어 순서"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr "항목을 재배치하려면, 행을 \"클릭하고 유지\"한 상태로 아무 곳에서나 드래그하여 새 위치로 이동하십시오."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "시리즈가 추가되었습니다."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "시리즈가 삭제되었습니다."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "시리즈가 업데이트되었습니다."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "시리즈가 추가되지 않았습니다."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "시리즈가 업데이트되지 않았습니다."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "게시물"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr "용어는 일반적으로 알파벳순으로 정렬되지만, 이 필드에 숫자(1은 첫 번째 등)를 입력하여 원하는 순서를 선택할 수 있습니다."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "현재 시리즈 아이콘:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "현재 시리즈 대표 이미지:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "현재 아이콘 없음"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "현재 대표 이미지가 없습니다"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "이미지를 삭제하시겠습니까? (참고: 이 옵션을 선택하면 이 시리즈와 관련된 이미지가 없습니다)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "시리즈 아이콘 업로드:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "시리즈 대표 이미지 업로드:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "시리즈를 위한 이미지를 업로드하십시오."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "시리즈를 위한 대표 이미지를 업로드하세요."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "잘못된 폼 데이터"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "유효하지 않은 nonce, 페이지를 새로 고치고 다시 시도하십시오"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "잘못된 분류"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "권한이 충분하지 않습니다"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "성공적으로 업데이트되었습니다"
 
@@ -3224,7 +3255,7 @@ msgstr "시리즈 위젯 제목:"
 msgid "This text will display above other posts in this series."
 msgstr "이 텍스트는 이 시리즈의 다른 게시물 위에 표시됩니다."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>이 플러그인은 삭제할 수 있습니다.</strong>"
 
@@ -3399,17 +3430,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "시리즈"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "시리즈"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

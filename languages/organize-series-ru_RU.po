@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:30+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -22,17 +22,17 @@ msgstr ""
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -44,12 +44,12 @@ msgstr ""
 "учителей, художников комиксов или всех, кто пишет несколько постов на одну "
 "и ту же тему."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -423,7 +423,7 @@ msgstr "Детали поста серии"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Добавить новое"
@@ -878,9 +878,9 @@ msgstr "Заголовок"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Порядок в Наборе"
 
@@ -889,8 +889,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Выбрать поле, используемое для сортировки постов"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Порядок"
 
@@ -1083,7 +1083,7 @@ msgstr "Ошибка при загрузке предварительного п
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Выбрать изображение"
 
@@ -1997,17 +1997,17 @@ msgstr ""
 "при запуске плагина."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Это будет заменено значком для Набора."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Это будет заменено на изображение обложки серии для серии."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"То же, что и %series_icon%, за исключением того, что значок Набора будет "
-"связан со страницей Набора"
+"То же самое, что и %series_icon%, за исключением того, что изображение "
+"обложки серии будет связано со страницей серии"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2454,22 +2454,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Заголовок списка содержимого Набора:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Иконки серий"
+msgid "Series Featured Images"
+msgstr "Изображения обложки серии"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Ширина значка на странице списка Наборов (в пикселях)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Ширина изображения обложки на странице содержания серии (в пикселях)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Ширина значка на странице записи (в пикселях)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Ширина изображения обложки на странице поста (в пикселях)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 msgstr ""
-"Ширина иконки, отображаемой с помощью шаблона последнего Набора (в "
-"пикселях)."
+"Ширина изображения обложки, если отображается с помощью последнего шаблона "
+"серии (в пикселях)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2783,8 +2785,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Параметры отображения шаблона плагина:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Показать значок серии"
+msgid "Show Series Featured Image"
+msgstr "Показать изображение обложки серии"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2848,25 +2850,29 @@ msgstr "Извините, результатов не найдено."
 msgid "Dismiss this panel"
 msgstr "Закрыть эту панель"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Добро пожаловать! Создайте свою первую серию"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Добро пожаловать в PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Серия объединяет ваши записи и показывает вашим читателям порядок чтения. "
-"Используйте форму \"Добавить новую серию\" на этой странице, чтобы создать "
-"свою первую серию, а затем добавьте в неё записи."
+"Серия объединяет ваши посты и показывает вашим читателям порядок чтения. "
+"Создайте свою первую серию с помощью формы на этой странице, затем добавьте "
+"в нее посты."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Создать серию"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Просмотреть документацию"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Обновить до Pro"
@@ -2902,59 +2908,59 @@ msgstr "Подробная документация также доступна 
 msgid "View Knowledge Base"
 msgstr "Просмотр базы знаний"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Произошла ошибка"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s Наборов перенесено в новую таксономию"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Пользовательский шаблон"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Если вам нравится %s, пожалуйста, оставьте нам оценку %s. Спасибо!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "О PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Детали"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Документация PublishPress Series"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Документация"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Свяжитесь с командой PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Контакты"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Извините, но у вас нет разрешения на добавление Наборов"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 "Выбранное вами название не подходит для правильной очистки. Попробуй "
 "что-нибудь другое."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2962,23 +2968,23 @@ msgstr ""
 "Хм... Выглядит так, будто уже существует Набор с таким названием. "
 "Попробуйте как-нибудь иначе"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Не является частью Набора"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Поиск Набора"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Часть Набора:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Заголовок сообщения в виджете:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2986,41 +2992,41 @@ msgstr ""
 "Краткое название этой записи, которое будет использоваться в виджете. "
 "Оставьте поле пустым, чтобы использовать полное название."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Нет номера части Набора)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Часть %1$s из %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Нет номера части Набора)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Нет Наборов"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Посмотреть все Наборы"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Управлять Наборами"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
-"PublishPress Series не удалось сохранить иконку серии. Иконка не была "
-"изменена."
+"PublishPress Series не удалось сохранить изображение обложки серии. "
+"Изображение обложки не было изменено."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3028,11 +3034,11 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Ошибка базы данных: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Порядок термов"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3040,11 +3046,36 @@ msgstr ""
 "Чтобы изменить положение элемента, перетащите строку, щелкнув и удерживая "
 "ее в любом месте, и переместите ее в новое положение."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Серия добавлена."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Серия удалена."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Серия обновлена."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Серия не добавлена."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Серия не обновлена."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Посты"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3052,15 +3083,15 @@ msgstr ""
 "Термины обычно упорядочиваются в алфавитном порядке, но вы можете выбрать "
 "свой собственный порядок, введя число (1 для первого и т.д.) в это поле."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Иконка текущей серии:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Текущее изображение обложки серии:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Нет текущей иконки"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "В настоящее время нет изображения обложки"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3068,31 +3099,31 @@ msgstr ""
 "Удалить изображение? (примечание: если вы выберете это, изображение, "
 "связанное с этим Набором, не будет отображаться)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Загрузка иконки Набора:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Загрузка изображения обложки серии:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Загрузите изображение для Набора."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Загрузите изображение для серии."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Неверные данные формы"
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Недопустимый одноразовый номер, перезагрузите и повторите попытку"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Некорректная таксономия"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Недостаточно разрешения"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Успешно обновлено"
 
@@ -3353,7 +3384,7 @@ msgstr "Заголовок виджета Series:"
 msgid "This text will display above other posts in this series."
 msgstr "Этот текст будет отображаться над другими записями в этом Наборе."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Этот плагин может быть удален.</strong>"
 
@@ -3541,17 +3572,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Наборы"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Наборы"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"

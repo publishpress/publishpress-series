@@ -13,23 +13,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-08-13 15:29+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: id-ID\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -40,12 +40,12 @@ msgstr ""
 "series. Ini ideal untuk majalah, surat kabar, penulis cerpen, guru, seniman "
 "komik, atau siapa pun yang menulis beberapa posting tentang topik yang sama."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -421,7 +421,7 @@ msgstr "Detail Post Seri"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:414
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Tambah Baru"
@@ -874,9 +874,9 @@ msgstr "Title"
 #: addons/publisher/series_im_admin_main.php:8
 #: addons/publisher/series_issue_manager.php:750
 #: addons/publisher/series_issue_manager.php:825
-#: orgSeries-admin.php:370
-#: orgSeries-manage.php:194
-#: orgSeries-manage.php:203
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Susunan series"
 
@@ -885,8 +885,8 @@ msgid "Choose the field used to sort posts"
 msgstr "Pilih bidang yang digunakan untuk mengurutkan pos"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:226
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Urutan"
 
@@ -1070,7 +1070,7 @@ msgstr "Kesalahan memuat prabaca."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:263
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Pilih Gambar"
 
@@ -1981,17 +1981,17 @@ msgstr ""
 "plugin dijalankan."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Ini akan digantikan dengan ikon series untuk series."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Ini akan digantikan dengan gambar unggulan seri untuk sebuah seri."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"\"Sama seperti %series_icon%, kecuali bahwa ikon series akan dihubungkan ke "
-"halaman series"
+"Sama seperti %series_icon% kecuali bahwa gambar unggulan seri akan "
+"terhubung ke halaman seri"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2438,20 +2438,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Judul daftar isi Series:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Ikon Seri"
+msgid "Series Featured Images"
+msgstr "Gambar Unggulan Seri"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Lebar ikon pada halaman Daftar Isi Series (dalam piksel)."
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Lebar untuk gambar unggulan di halaman daftar isi seri (dalam piksel)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Lebar ikon pada halaman artikel (dalam piksel)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Lebar untuk gambar unggulan di halaman pos (dalam piksel)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Lebar ikon jika ditampilkan melalui templat series terbaru (dalam piksel)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Lebar untuk gambar unggulan jika ditampilkan melalui template seri terbaru "
+"(dalam piksel)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2763,8 +2767,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Opsi Tampilan Template Plugin:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Tampilkan Ikon Seri"
+msgid "Show Series Featured Image"
+msgstr "Tampilkan Gambar Unggulan Seri"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2828,25 +2832,29 @@ msgstr "Maaf, tidak ada hasil yang ditemukan."
 msgid "Dismiss this panel"
 msgstr "Tutup panel ini"
 
-#: inc/welcome/welcome-panel.php:147
-msgid "Welcome! Create your first series"
-msgstr "Selamat datang! Buat seri pertama Anda"
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Selamat datang di PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:150
+#: inc/welcome/welcome-panel.php:163
 msgid ""
 "A series groups your posts together and shows your readers the reading "
-"order. Use the Add New Series form on this page to create your first "
-"series, then add posts to it."
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
-"Sebuah seri mengelompokkan pos Anda dan menunjukkan urutan bacaan kepada "
-"pembaca Anda. Gunakan formulir Tambah Seri Baru di halaman ini untuk "
-"membuat seri pertama Anda, lalu tambahkan pos ke dalamnya."
+"Sebuah seri mengelompokkan pos Anda bersama dan menunjukkan kepada pembaca "
+"urutan bacaan. Buat seri pertama Anda dengan formulir di halaman ini, lalu "
+"tambahkan pos ke dalamnya."
 
-#: inc/welcome/welcome-panel.php:155
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Buat sebuah seri"
+
+#: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
 msgstr "Lihat Dokumentasi"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
 msgid "Upgrade to Pro"
 msgstr "Upgrade ke Pro"
@@ -2880,81 +2888,81 @@ msgstr "Dokumentasi lebih lengkap juga tersedia di website plugin."
 msgid "View Knowledge Base"
 msgstr "Lihat Pengetahuan Dasar"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Terjadi kesalahan"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s series dimigrasi ke taksonomi baru"
 
-#: orgSeries-admin.php:154
+#: orgSeries-admin.php:129
 msgid "Custom Template"
 msgstr "Template Kustom"
 
-#: orgSeries-admin.php:176
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr ""
 "Jika Anda menyukai %s, mohon pertimbangkan meninggalkan %s rating. Terima "
 "kasih!"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Tentang PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Tentang"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "Dokumentasi PublishPress Series"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokumentasi"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Hubungi tim PublishPress"
 
-#: orgSeries-admin.php:189
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Kontak"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Maaf, anda tidak memiliki izin untuk menambah series"
 
-#: orgSeries-admin.php:231
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Nama yang Anda pilih tidak tersanitasi dengan benar. Coba yang lain."
 
-#: orgSeries-admin.php:237
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... sepertinya sudah ada series dengan nama itu. Coba nama yang lain"
 
-#: orgSeries-admin.php:360
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Bukan bagian dari series"
 
-#: orgSeries-admin.php:422
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Cari series"
 
-#: orgSeries-admin.php:437
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Bagian Series:"
 
-#: orgSeries-admin.php:444
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Judul artikel di widget:"
 
-#: orgSeries-admin.php:446
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2962,39 +2970,41 @@ msgstr ""
 "Judul pendek untuk artikel ini akan digunakan di widget Series. Biarkan "
 "kosong untuk menggunakan judul penuh."
 
-#: orgSeries-admin.php:520
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak Ada Nomor Bagian)"
 
-#: orgSeries-admin.php:522
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Bagian %1$s dari %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Tidak Ada Nomor Bagian)"
 
-#: orgSeries-admin.php:532
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Tidak ada Series"
 
-#: orgSeries-admin.php:553
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Lihat semua series"
 
-#: orgSeries-admin.php:562
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Kelola semua Series"
 
 #: orgSeries-icon.php:132
 msgid ""
-"PublishPress Series could not save the series icon. The icon was not "
-"changed."
-msgstr "PublishPress Series tidak dapat menyimpan ikon seri. Ikon tidak diubah."
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series tidak dapat menyimpan gambar unggulan seri. Gambar "
+"unggulan tidak diubah."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
@@ -3002,11 +3012,11 @@ msgstr "PublishPress Series tidak dapat menyimpan ikon seri. Ikon tidak diubah."
 msgid "Database error: %s"
 msgstr "Kesalahan database: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Susunan Term"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3014,11 +3024,36 @@ msgstr ""
 "Untuk mengatur ulang posisi suatu item, seret-lepas baris dengan 'klik dan "
 "tahan' di mana saja, lalu pindahkan ke posisi baru."
 
-#: orgSeries-manage.php:195, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Seri ditambahkan."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Seri dihapus."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Seri diperbarui."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Seri tidak ditambahkan."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Seri tidak diperbarui."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Pos"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:232
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3026,15 +3061,15 @@ msgstr ""
 "Biasanya, Term diurutkan secara alfabetis, tetapi Anda dapat memilih urutan "
 "sendiri dengan memasukkan angka (1 untuk yang pertama, dst.) di ruas ini."
 
-#: orgSeries-manage.php:239
-msgid "Current series icon:"
-msgstr "Ikon series saat ini:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Gambar unggulan seri saat ini:"
 
-#: orgSeries-manage.php:245
-msgid "No icon currently"
-msgstr "Saat ini tidak ada ikon"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Tidak ada gambar unggulan saat ini"
 
-#: orgSeries-manage.php:255
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3042,31 +3077,31 @@ msgstr ""
 "Hapus gambar? (catatan: tidak akan ada gambar yang terkait dengan series "
 "ini jika Anda memilih ini)"
 
-#: orgSeries-manage.php:260
-msgid "Series Icon Upload:"
-msgstr "Unggah Ikon Series:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Unggah gambar unggulan seri:"
 
-#: orgSeries-manage.php:264
-msgid "Upload an image for the series."
-msgstr "Unggah gambar untuk series."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Unggah gambar unggulan untuk seri."
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Data formulir tidak valid."
 
-#: orgSeries-manage.php:289
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Nonce tidak sah, muat ulang dan coba lagi"
 
-#: orgSeries-manage.php:298
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Taksonomi tidak sah"
 
-#: orgSeries-manage.php:304
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Izin belum terpenuhi"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Berhasil diperbarui"
 
@@ -3327,7 +3362,7 @@ msgstr "Judul widget series:"
 msgid "This text will display above other posts in this series."
 msgstr "Teks ini akan ditampilkan di atas posting lain dalam series ini."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Plugin ini dapat dihapus.</strong>"
 
@@ -3515,17 +3550,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:479
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serial"
 
-#: orgSeries-admin.php:492
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serial"
 
-#: orgSeries-admin.php:572
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
