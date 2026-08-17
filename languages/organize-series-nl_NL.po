@@ -11,23 +11,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-26T08:40:33+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:22+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: nl-NL\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -39,12 +39,12 @@ msgstr ""
 "docenten, striptekenaars, of iedereen die meerdere berichten over hetzelfde "
 "onderwerp schrijft."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -58,7 +58,7 @@ msgid "Popular Series Categories"
 msgstr "Populaire Series Categorieën"
 
 #: addons/grouping/legacy-includes.php:282
-#: addons/grouping/legacy-includes.php:786
+#: addons/grouping/legacy-includes.php:793
 msgid "All Series Categories"
 msgstr "Alle Series Categorieën"
 
@@ -81,10 +81,10 @@ msgstr "Nieuwe Series Categorie"
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
 #: addons/grouping/legacy-includes.php:621
-#: addons/grouping/legacy-includes.php:715
-#: addons/grouping/legacy-includes.php:756
-#: addons/grouping/legacy-includes.php:777
-#: addons/grouping/legacy-includes.php:811
+#: addons/grouping/legacy-includes.php:722
+#: addons/grouping/legacy-includes.php:763
+#: addons/grouping/legacy-includes.php:784
+#: addons/grouping/legacy-includes.php:818
 msgid "Series Categories"
 msgstr "Series Categorieën"
 
@@ -96,7 +96,7 @@ msgstr ""
 "Verwijder alle \"Series Categorieën\" gegevens uit de database bij het "
 "verwijderen van de plugin."
 
-#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:763
 msgid "Click to toggle"
 msgstr "Klik om te schakelen"
 
@@ -280,7 +280,7 @@ msgid "Meta Box Position"
 msgstr "Meta Box Positie"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:596
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27
@@ -288,7 +288,7 @@ msgid "Top"
 msgstr "Boven"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: addons/post-list-box/classes/PostListBoxFields.php:597
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -322,74 +322,94 @@ msgid "Font size for text in the meta box"
 msgstr "Lettergrootte voor tekst in de meta box"
 
 #: addons/post-details/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-fields.php:453
+#: addons/post-navigation/includes/class-fields.php:456
 msgid "Text Color"
 msgstr "Tekstkleur"
 
-#: addons/post-details/includes/class-fields.php:173
+#: addons/post-details/includes/class-fields.php:171
+msgid "Choose the color of text in the meta box"
+msgstr "Kies de kleur van de tekst in de meta box"
+
+#: addons/post-details/includes/class-fields.php:174
 msgid "Link Color"
 msgstr "Linkkleur"
 
-#: addons/post-details/includes/class-fields.php:181
+#: addons/post-details/includes/class-fields.php:179
+msgid "Choose the color of links in the meta box"
+msgstr "Kies de kleur van de links in de meta box"
+
+#: addons/post-details/includes/class-fields.php:183
 msgid "Background"
 msgstr "Achtergrond"
 
-#: addons/post-details/includes/class-fields.php:185
-#: addons/post-list-box/classes/PostListBoxFields.php:191
-#: addons/post-navigation/includes/class-fields.php:460
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464
 msgid "Background Color"
 msgstr "Achtergrondkleur"
 
-#: addons/post-details/includes/class-fields.php:190
+#: addons/post-details/includes/class-fields.php:192
 msgid "Background color for the meta box container"
 msgstr "Achtergrondkleur voor de meta box container"
 
-#: addons/post-details/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:498
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506
 msgid "Spacing"
 msgstr "Ruimte"
 
-#: addons/post-details/includes/class-fields.php:198
-#: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502, fuzzy
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510, fuzzy
 msgid "Padding (px)"
 msgstr "Padding (px)"
 
-#: addons/post-details/includes/class-fields.php:205
+#: addons/post-details/includes/class-fields.php:207
 msgid "Padding applied to all sides of the content area"
 msgstr "Padding toegepast op alle zijden van het inhoudsgebied"
 
-#: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520
 msgid "Margin (px)"
 msgstr "Marge (px)"
 
-#: addons/post-details/includes/class-fields.php:215
+#: addons/post-details/includes/class-fields.php:217
 msgid "Margin applied to all sides of the meta box"
 msgstr "Marge toegepast op alle zijden van de meta box"
 
-#: addons/post-details/includes/class-fields.php:219
-#: addons/post-navigation/includes/class-fields.php:468
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473
 msgid "Border"
 msgstr "Rand"
 
-#: addons/post-details/includes/class-fields.php:223
-#: addons/post-list-box/classes/PostListBoxFields.php:205
-#: addons/post-navigation/includes/class-fields.php:479
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485
 msgid "Border Width (px)"
 msgstr "Randbreedte (px)"
 
 #: addons/post-details/includes/class-fields.php:232
-#: addons/post-list-box/classes/PostListBoxFields.php:214
-#: addons/post-navigation/includes/class-fields.php:488
+msgid "Set the border width in pixels"
+msgstr "Stel de randdikte in pixels in"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495
 msgid "Border Radius (px)"
 msgstr "Randstraal (px)"
 
-#: addons/post-details/includes/class-fields.php:241
-#: addons/post-list-box/classes/PostListBoxFields.php:198
-#: addons/post-navigation/includes/class-fields.php:472
+#: addons/post-details/includes/class-fields.php:242
+msgid "Set the border radius in pixels"
+msgstr "Stel de randradius in pixels in"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477
 msgid "Border Color"
 msgstr "Randkleur"
+
+#: addons/post-details/includes/class-fields.php:250
+msgid "Choose the border color"
+msgstr "Kies de randkleur"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
@@ -400,7 +420,7 @@ msgstr "Details van de serie bericht"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Nieuw toevoegen"
@@ -502,292 +522,416 @@ msgstr "Hightlights Huidige Bericht"
 msgid "Show Box Title"
 msgstr "Toon Box Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:106
+#: addons/post-list-box/classes/PostListBoxFields.php:104
+msgid "Display the title above the post list"
+msgstr "Toon de titel boven de berichtenlijst"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107
 msgid "Box Title Type"
 msgstr "Type Box Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:110
+#: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Use Series Title"
 msgstr "Gebruik Serie Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:111
+#: addons/post-list-box/classes/PostListBoxFields.php:112
 msgid "Custom Title"
 msgstr "Aangepaste Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:115
+#: addons/post-list-box/classes/PostListBoxFields.php:116
 msgid "Choose whether to display the series title or a custom title"
 msgstr "Kies of de serietitel of een aangepaste titel moet worden weergegeven"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:120
+#: addons/post-list-box/classes/PostListBoxFields.php:121
 msgid "Link Box Title to Series"
 msgstr "Koppel Box Titel aan Serie"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:125
+#: addons/post-list-box/classes/PostListBoxFields.php:126
 msgid "Link the box title to the current series archive when using the series title"
 msgstr ""
 "Koppel de box titel aan het huidige serie-archief wanneer de serietitel "
 "wordt gebruikt"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:130
+#: addons/post-list-box/classes/PostListBoxFields.php:131
 msgid "Custom Box Title Text"
 msgstr "Aangepaste Box Titel Tekst"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/classes/PostListBoxFields.php:135
 #: addons/post-list-box/includes/class-utilities.php:162
 msgid "Series Posts"
 msgstr "Serie Berichten"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Enter custom title for the post list"
 msgstr "Voer een aangepaste titel in voor de berichtenlijst"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:136
+#: addons/post-list-box/classes/PostListBoxFields.php:137
 msgid "Only used when \"Custom Title\" is selected above"
 msgstr "Wordt alleen gebruikt wanneer \"Aangepaste Titel\" hierboven is geselecteerd"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:141
+#: addons/post-list-box/classes/PostListBoxFields.php:142
 msgid "Box Title HTML Tag"
 msgstr "Box Titel HTML Tag"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:160
+#: addons/post-list-box/classes/PostListBoxFields.php:157
+msgid "Choose the HTML tag used for the box title"
+msgstr "Kies de HTML-tag die voor de bokstitel wordt gebruikt"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162
 msgid "Box Title Color"
 msgstr "Box Titel Kleur"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:169
+#: addons/post-list-box/classes/PostListBoxFields.php:167
+msgid "Choose the color of the box title"
+msgstr "Kies de kleur van de bokstitel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172
 msgid "Box Title Font Size (px)"
 msgstr "Box Titel Lettergrootte (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:243
+#: addons/post-list-box/classes/PostListBoxFields.php:179
+msgid "Set the font size of the box title in pixels"
+msgstr "Stel de lettergrootte van de bokstitel in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200
+msgid "Choose the background color for the post list box"
+msgstr "Kies de achtergrondkleur voor de berichtenlijstbox"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208
+msgid "Choose the border color for the post list box"
+msgstr "Kies de randkleur voor de berichtenlijstbox"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218
+msgid "Set the border width for the post list box in pixels"
+msgstr "Stel de randdikte voor de berichtenlijstbox in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228
+msgid "Set the border radius for the post list box in pixels"
+msgstr "Stel de randradius voor de berichtenlijstbox in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "Stel de binnenruimte van de berichtenlijstbox in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252
 msgid "Show Post Titles"
 msgstr "Toon Bericht Titels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:250
+#: addons/post-list-box/classes/PostListBoxFields.php:257
+msgid "Display post titles in the series list"
+msgstr "Toon berichttitels in de serieslijst"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
 msgid "Series Order Number"
 msgstr "Serie Volgnummer"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:255
+#: addons/post-list-box/classes/PostListBoxFields.php:265
 msgid "Show the series order number next to each post title."
 msgstr "Toon het serie volgnummer naast elke bericht titel."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:260
+#: addons/post-list-box/classes/PostListBoxFields.php:270
 msgid "Series Order Number Position"
 msgstr "Serie Volgnummer Positie"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:264
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Before the title"
 msgstr "Voor de titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:265
+#: addons/post-list-box/classes/PostListBoxFields.php:275
 msgid "After the title"
 msgstr "Na de titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:269
+#: addons/post-list-box/classes/PostListBoxFields.php:279
 msgid "Choose where the order number appears relative to the title."
 msgstr "Kies waar het volgnummer verschijnt ten opzichte van de titel."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:274
+#: addons/post-list-box/classes/PostListBoxFields.php:284
 msgid "Post Title Color"
 msgstr "Bericht Titel Kleur"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:283
+#: addons/post-list-box/classes/PostListBoxFields.php:289
+msgid "Choose the color of post titles"
+msgstr "Kies de kleur van berichttitels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Post Title Font Size (px)"
 msgstr "Bericht Titel Lettergrootte (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:294
+#: addons/post-list-box/classes/PostListBoxFields.php:301
+msgid "Set the font size of post titles in pixels"
+msgstr "Stel de lettergrootte van berichttitels in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306
 msgid "Show Post Excerpt"
 msgstr "Toon Post Samenvatting"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:302
+#: addons/post-list-box/classes/PostListBoxFields.php:311
+msgid "Display the excerpt for each post"
+msgstr "Toon de samenvatting voor elk bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315
 msgid "Excerpt Length (words)"
 msgstr "Lengte van de samenvatting (woorden)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:314
+#: addons/post-list-box/classes/PostListBoxFields.php:322
+msgid "Set the maximum excerpt length in words"
+msgstr "Stel de maximale lengte van de samenvatting in woorden in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328
 msgid "Excerpt Color"
 msgstr "Kleur van de samenvatting"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:324
+#: addons/post-list-box/classes/PostListBoxFields.php:333
+msgid "Choose the color of post excerpts"
+msgstr "Kies de kleur van berichtsamenvattingen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339
 msgid "Show Post Summary"
 msgstr "Toon Bericht Samenvatting"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Display a summary generated from each post"
+msgstr "Toon een samenvatting gegenereerd uit elk bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348
 msgid "Summary Length (words)"
 msgstr "Lengte van de Samenvatting (woorden)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:344
+#: addons/post-list-box/classes/PostListBoxFields.php:355
+msgid "Set the maximum summary length in words"
+msgstr "Stel de maximale samenvattingslengte in woorden in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361
 msgid "Summary Color"
 msgstr "Kleur van de Samenvatting"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:366
+msgid "Choose the color of post summaries"
+msgstr "Kies de kleur van berichtsamenvattingen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Author"
 msgstr "Toon Post Auteur"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:362
+#: addons/post-list-box/classes/PostListBoxFields.php:377
+msgid "Display the author of each post"
+msgstr "Toon de auteur van elk bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381
 msgid "Post Author Color"
 msgstr "Kleur van de Post Auteur"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:372
+#: addons/post-list-box/classes/PostListBoxFields.php:386
+msgid "Choose the color of post authors"
+msgstr "Kies de kleur van berichtauteurs"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392
 msgid "Show Post Date"
 msgstr "Toon Post Datum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:380
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+msgid "Display the date of each post"
+msgstr "Toon de datum van elk bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 msgid "Post Date Color"
 msgstr "Kleur van de Post Datum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:401
-#: addons/post-navigation/includes/class-fields.php:169
-#: addons/post-navigation/includes/class-fields.php:284
-#: addons/post-navigation/includes/class-fields.php:412
+#: addons/post-list-box/classes/PostListBoxFields.php:406
+msgid "Choose the color of post dates"
+msgstr "Kies de kleur van berichtdata"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415
 msgid "Show Featured Image"
 msgstr "Toon Uitgelichte Afbeelding"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:408
+#: addons/post-list-box/classes/PostListBoxFields.php:428
+msgid "Display the featured image for each post"
+msgstr "Toon de uitgelichte afbeelding voor elk bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431
 msgid "Featured Image Width (px)"
 msgstr "Breedte van de uitgelichte afbeelding (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:415
-#: addons/post-navigation/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:309
-#: addons/post-navigation/includes/class-fields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
 msgid "Width of the featured image in pixels"
 msgstr "Breedte van de uitgelichte afbeelding in pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:420
+#: addons/post-list-box/classes/PostListBoxFields.php:443
 msgid "Featured Image Height (px)"
 msgstr "Hoogte van de uitgelichte afbeelding (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:427
-#: addons/post-navigation/includes/class-fields.php:202
-#: addons/post-navigation/includes/class-fields.php:317
-#: addons/post-navigation/includes/class-fields.php:445
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448
 msgid "Height of the featured image in pixels"
 msgstr "Hoogte van de uitgelichte afbeelding in pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:432
+#: addons/post-list-box/classes/PostListBoxFields.php:455
 msgid "Fallback Featured Image"
 msgstr "Fallback Uitgelichte Afbeelding"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:460
 msgid "Image to display when a post does not have a featured image"
 msgstr ""
 "Afbeelding die wordt weergegeven wanneer een post geen uitgelichte "
 "afbeelding heeft"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:477
 msgid "Post Padding (px)"
 msgstr "Post Opvulling (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Set the inner spacing for each post item in pixels"
+msgstr "Stel de binnenruimte voor elk berichtitem in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
 msgstr "Breedte van de Post Rand (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:494
+msgid "Set the border width for each post item in pixels"
+msgstr "Stel de randdikte voor elk berichtitem in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
 msgstr "Kleur van de Post Rand"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:479
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+msgid "Choose the border color for each post item"
+msgstr "Kies de randkleur voor elk berichtitem"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505
 msgid "Post Background Color"
 msgstr "Kleur van de Post Achtergrond"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Background color for the post list container"
 msgstr "Achtergrondkleur voor de postlijst container"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:498
+#: addons/post-list-box/classes/PostListBoxFields.php:524
 msgid "Layout Style"
 msgstr "Lay-out Stijl"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:528
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Lijst"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: addons/post-list-box/classes/PostListBoxFields.php:529
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "Raster"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:510
+#: addons/post-list-box/classes/PostListBoxFields.php:533
+msgid "Choose the layout style for the post list"
+msgstr "Kies de lay-outstijl voor de berichtenlijst"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537
 msgid "Columns"
 msgstr "Kolommen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:541
 msgid "2 Columns"
 msgstr "2 Kolommen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:515
+#: addons/post-list-box/classes/PostListBoxFields.php:542
 msgid "3 Columns"
 msgstr "3 Kolommen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 msgid "4 Columns"
 msgstr "4 Kolommen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:517
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "6 Columns"
 msgstr "6 Kolommen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:548
+msgid "Choose the number of columns in the grid layout"
+msgstr "Kies het aantal kolommen in de rasterlay-out"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554
 msgid "Order By"
 msgstr "Sorteer Op"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:530
+#: addons/post-list-box/classes/PostListBoxFields.php:558
 msgid "Date"
 msgstr "Datum"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:559
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/post-list-box/classes/PostListBoxFields.php:560
 #: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826
-#: orgSeries-admin.php:369
-#: orgSeries-manage.php:195
-#: orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:750
+#: addons/publisher/series_issue_manager.php:825
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Reeksvolgorde"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:539
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:227
+#: addons/post-list-box/classes/PostListBoxFields.php:564
+msgid "Choose the field used to sort posts"
+msgstr "Kies het veld dat gebruikt wordt om berichten te sorteren"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Volgorde"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: addons/post-list-box/classes/PostListBoxFields.php:572
 #: inc/settings/tab-legacy.php:106
-#: orgSeries-widgets.php:320
+#: orgSeries-widgets.php:326
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 #: inc/settings/tab-legacy.php:107
-#: orgSeries-widgets.php:319
+#: orgSeries-widgets.php:325
 msgid "Descending"
 msgstr "Aflopend"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:551
+#: addons/post-list-box/classes/PostListBoxFields.php:577
+msgid "Choose the direction in which posts are sorted"
+msgstr "Kies de richting waarin berichten worden gesorteerd"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581
 msgid "Gap Between Items (px)"
 msgstr "Afstand Tussen Items (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:561
+#: addons/post-list-box/classes/PostListBoxFields.php:588
+msgid "Set the space between post items in pixels"
+msgstr "Stel de ruimte tussen berichtitems in pixels in"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592
 msgid "Post List Box Location"
 msgstr "Locatie Berichtlijstvak"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:601
 msgid "Choose where to display the post list box in relation to the content"
 msgstr ""
 "Kies waar het berichtlijstvak moet worden weergegeven ten opzichte van de "
 "inhoud"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:574
+#: addons/post-list-box/classes/PostListBoxFields.php:605
 msgid "Maximum number of items"
 msgstr "Maximaal aantal items"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:611
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -795,25 +939,37 @@ msgstr ""
 "Beperk het aantal berichten dat in de serieslijst wordt weergegeven. Laat "
 "leeg voor geen limiet. De admin preview is beperkt tot 4 berichten."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:595
+#: addons/post-list-box/classes/PostListBoxFields.php:626
 msgid "Highlight Current Post"
 msgstr "Huidig Bericht Accentuerend"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:600
+#: addons/post-list-box/classes/PostListBoxFields.php:631
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "Markeer de huidige post bij het bekijken van een specifieke serie post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:603
+#: addons/post-list-box/classes/PostListBoxFields.php:634
 msgid "Current Post Background Color"
 msgstr "Achtergrondkleur van de huidige post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:610
+#: addons/post-list-box/classes/PostListBoxFields.php:639
+msgid "Choose the background color for the current post"
+msgstr "Kies de achtergrondkleur voor het huidige bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642
 msgid "Current Post Border Color"
 msgstr "Randkleur van de huidige post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:617
+#: addons/post-list-box/classes/PostListBoxFields.php:647
+msgid "Choose the border color for the current post"
+msgstr "Kies de randkleur voor het huidige bericht"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650
 msgid "Current Post Text Color"
 msgstr "Tekstkleur van de huidige post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:655
+msgid "Choose the text color for the current post"
+msgstr "Kies de tekstkleur voor het huidige bericht"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
@@ -922,7 +1078,7 @@ msgstr "Fout bij het laden van de preview."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
@@ -1079,16 +1235,16 @@ msgstr "Serie Start"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
-#: addons/post-navigation/includes/class-fields.php:144
-#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
 msgstr "Vorige"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
-#: addons/post-navigation/includes/class-fields.php:259
-#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
 msgstr "Volgende"
@@ -1142,336 +1298,388 @@ msgstr "Item"
 msgid "Include Series Title"
 msgstr "Inclusief Serie Titel"
 
-#: addons/post-navigation/includes/class-fields.php:96
+#: addons/post-navigation/includes/class-fields.php:94
+msgid "Display the series title above the navigation"
+msgstr "Toon de serietitel boven de navigatie"
+
+#: addons/post-navigation/includes/class-fields.php:97
 msgid "Link Series Title"
 msgstr "Link Serie Titel"
 
-#: addons/post-navigation/includes/class-fields.php:101
+#: addons/post-navigation/includes/class-fields.php:102
 msgid "Link the series title to the series archive page"
 msgstr "Link de serietitel naar de serie archiefpagina"
 
-#: addons/post-navigation/includes/class-fields.php:106
+#: addons/post-navigation/includes/class-fields.php:107
 msgid "Series Title Alignment"
 msgstr "Uitlijning Serie Titel"
 
-#: addons/post-navigation/includes/class-fields.php:110
-#: addons/post-navigation/includes/class-fields.php:181
-#: addons/post-navigation/includes/class-fields.php:232
-#: addons/post-navigation/includes/class-fields.php:296
-#: addons/post-navigation/includes/class-fields.php:424
+#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427
 msgid "Left"
 msgstr "Links"
 
-#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:112
 msgid "Center"
 msgstr "Centraal"
 
-#: addons/post-navigation/includes/class-fields.php:112
-#: addons/post-navigation/includes/class-fields.php:182
-#: addons/post-navigation/includes/class-fields.php:233
-#: addons/post-navigation/includes/class-fields.php:297
-#: addons/post-navigation/includes/class-fields.php:425
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428
 msgid "Right"
 msgstr "Rechts"
 
-#: addons/post-navigation/includes/class-fields.php:118
+#: addons/post-navigation/includes/class-fields.php:117
+msgid "Choose the alignment of the series title"
+msgstr "Kies de uitlijning van de serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:120
 msgid "Series Title Color"
 msgstr "Kleur Serie Titel"
 
 #: addons/post-navigation/includes/class-fields.php:125
+msgid "Choose the color of the series title"
+msgstr "Kies de kleur van de serietitel"
+
+#: addons/post-navigation/includes/class-fields.php:128
 msgid "Hide When Single Post"
 msgstr "Verbergen Wanneer Enkel Bericht"
 
-#: addons/post-navigation/includes/class-fields.php:130
+#: addons/post-navigation/includes/class-fields.php:133
 msgid "Do not display navigation if series has only one post"
 msgstr "Toon geen navigatie als de serie slechts één bericht heeft"
 
-#: addons/post-navigation/includes/class-fields.php:148
+#: addons/post-navigation/includes/class-fields.php:151
 msgid "Previous Navigation Type"
 msgstr "Vorige Navigatie Type"
 
-#: addons/post-navigation/includes/class-fields.php:152
-#: addons/post-navigation/includes/class-fields.php:267
-#: addons/post-navigation/includes/class-fields.php:382
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385
 msgid "None"
 msgstr "Geen"
 
-#: addons/post-navigation/includes/class-fields.php:153
+#: addons/post-navigation/includes/class-fields.php:156
 msgid "Previous Post Title"
 msgstr "Titel Vorig Bericht"
 
-#: addons/post-navigation/includes/class-fields.php:154
-#: addons/post-navigation/includes/class-fields.php:269
-#: addons/post-navigation/includes/class-fields.php:384
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387
 msgid "Custom Label"
 msgstr "Aangepaste Label"
 
-#: addons/post-navigation/includes/class-fields.php:158
+#: addons/post-navigation/includes/class-fields.php:161
 msgid "Choose how to display the previous navigation"
 msgstr "Kies hoe de vorige navigatie wordt weergegeven"
 
-#: addons/post-navigation/includes/class-fields.php:161
+#: addons/post-navigation/includes/class-fields.php:164
 msgid "Previous Label"
 msgstr "Vorige Label"
 
-#: addons/post-navigation/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:169
 msgid "Custom text for previous post link"
 msgstr "Aangepaste tekst voor de link naar de vorige post"
 
-#: addons/post-navigation/includes/class-fields.php:174
+#: addons/post-navigation/includes/class-fields.php:177
 msgid "Display featured image for previous post"
 msgstr "Toon uitgelichte afbeelding voor de vorige post"
 
-#: addons/post-navigation/includes/class-fields.php:177
-#: addons/post-navigation/includes/class-fields.php:292
-#: addons/post-navigation/includes/class-fields.php:420
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423
 msgid "Image Position"
 msgstr "Afbeelding positie"
 
-#: addons/post-navigation/includes/class-fields.php:186
+#: addons/post-navigation/includes/class-fields.php:189
 msgid "Position of the featured image relative to the navigation"
 msgstr "Positie van de uitgelichte afbeelding ten opzichte van de navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:189
-#: addons/post-navigation/includes/class-fields.php:304
-#: addons/post-navigation/includes/class-fields.php:432
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435
 msgid "Image Width (px)"
 msgstr "Afbeelding Breedte (px)"
 
-#: addons/post-navigation/includes/class-fields.php:197
-#: addons/post-navigation/includes/class-fields.php:312
-#: addons/post-navigation/includes/class-fields.php:440
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443
 msgid "Image Height (px)"
 msgstr "Afbeelding Hoogte (px)"
 
-#: addons/post-navigation/includes/class-fields.php:205
-#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323
 msgid "Show Arrow"
 msgstr "Toon Pijl"
 
-#: addons/post-navigation/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:213
 msgid "Display an arrow icon with the previous navigation"
 msgstr "Toon een pijlicoon met de vorige navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:213
-#: addons/post-navigation/includes/class-fields.php:328
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331
 msgid "Arrow Type"
 msgstr "Pijl Type"
 
-#: addons/post-navigation/includes/class-fields.php:217
+#: addons/post-navigation/includes/class-fields.php:220
 msgid "Chevron Left (‹)"
 msgstr "Chevron Links (‹)"
 
-#: addons/post-navigation/includes/class-fields.php:218
+#: addons/post-navigation/includes/class-fields.php:221
 msgid "Arrow Left (←)"
 msgstr "Pijl Links (←)"
 
-#: addons/post-navigation/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:222
 msgid "Double Chevron Left («)"
 msgstr "Dubbele Chevron Links («)"
 
-#: addons/post-navigation/includes/class-fields.php:220
+#: addons/post-navigation/includes/class-fields.php:223
 msgid "Triangle Left (◄)"
 msgstr "Driehoek Links (◄)"
 
-#: addons/post-navigation/includes/class-fields.php:221
-#: addons/post-navigation/includes/class-fields.php:336
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339
 msgid "Custom Image"
 msgstr "Aangepaste Afbeelding"
 
-#: addons/post-navigation/includes/class-fields.php:225
-#: addons/post-navigation/includes/class-fields.php:340
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
 msgid "Choose the arrow icon style"
 msgstr "Kies de stijl van het pijlicoon"
 
-#: addons/post-navigation/includes/class-fields.php:228
-#: addons/post-navigation/includes/class-fields.php:343
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346
 msgid "Arrow Position"
 msgstr "Pijl Positie"
 
-#: addons/post-navigation/includes/class-fields.php:237
+#: addons/post-navigation/includes/class-fields.php:240
 msgid "Position of the arrow relative to the navigation"
 msgstr "Positie van de pijl ten opzichte van de navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:240
-#: addons/post-navigation/includes/class-fields.php:355
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358
 msgid "Arrow Size (px)"
 msgstr "Pijl Grootte (px)"
 
-#: addons/post-navigation/includes/class-fields.php:247
-#: addons/post-navigation/includes/class-fields.php:362
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
 msgid "Size of the arrow icon in pixels (applies to both width and height)"
 msgstr ""
 "Grootte van het pijlicoon in pixels (van toepassing op zowel breedte als "
 "hoogte)"
 
-#: addons/post-navigation/includes/class-fields.php:250
-#: addons/post-navigation/includes/class-fields.php:365
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368
 msgid "Custom Arrow Image"
 msgstr "Aangepbeeld Pijlafbeelding"
 
-#: addons/post-navigation/includes/class-fields.php:255
-#: addons/post-navigation/includes/class-fields.php:370
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373
 msgid "Select custom arrow image from media library"
 msgstr "Selecteer aangepbeeld pijlafbeelding uit mediabibliotheek"
 
-#: addons/post-navigation/includes/class-fields.php:263
+#: addons/post-navigation/includes/class-fields.php:266
 msgid "Next Navigation Type"
 msgstr "Volgende Navigatietype"
 
-#: addons/post-navigation/includes/class-fields.php:268
+#: addons/post-navigation/includes/class-fields.php:271
 msgid "Next Post Title"
 msgstr "Titel van de volgende post"
 
-#: addons/post-navigation/includes/class-fields.php:273
+#: addons/post-navigation/includes/class-fields.php:276
 msgid "Choose how to display the next post link"
 msgstr "Kies hoe de link naar de volgende post wordt weergegeven"
 
-#: addons/post-navigation/includes/class-fields.php:276
+#: addons/post-navigation/includes/class-fields.php:279
 msgid "Next Label"
 msgstr "Volgende Label"
 
-#: addons/post-navigation/includes/class-fields.php:281
+#: addons/post-navigation/includes/class-fields.php:284
 msgid "Custom text for next post link"
 msgstr "Aangepaste tekst voor de link naar de volgende post"
 
-#: addons/post-navigation/includes/class-fields.php:289
+#: addons/post-navigation/includes/class-fields.php:292
 msgid "Display featured image for next post"
 msgstr "Toon uitgelichte afbeelding voor de volgende post"
 
-#: addons/post-navigation/includes/class-fields.php:301
+#: addons/post-navigation/includes/class-fields.php:304
 msgid "Position of the featured image relative to navigation"
 msgstr "Positie van de uitgelichte afbeelding ten opzichte van de navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:325
+#: addons/post-navigation/includes/class-fields.php:328
 msgid "Display an arrow icon with the next navigation"
 msgstr "Toon een pijlicoon met de volgende navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:332
+#: addons/post-navigation/includes/class-fields.php:335
 msgid "Chevron Right (›)"
 msgstr "Chevron Rechts (›)"
 
-#: addons/post-navigation/includes/class-fields.php:333
+#: addons/post-navigation/includes/class-fields.php:336
 msgid "Arrow Right (→)"
 msgstr "Pijl Rechts (→)"
 
-#: addons/post-navigation/includes/class-fields.php:334
+#: addons/post-navigation/includes/class-fields.php:337
 msgid "Double Chevron Right (»)"
 msgstr "Dubbele Chevron Rechts (»)"
 
-#: addons/post-navigation/includes/class-fields.php:335
+#: addons/post-navigation/includes/class-fields.php:338
 msgid "Triangle Right (►)"
 msgstr "Driehoek Rechts (►)"
 
-#: addons/post-navigation/includes/class-fields.php:347
+#: addons/post-navigation/includes/class-fields.php:350
 msgid "Left of Text"
 msgstr "Links van Tekst"
 
-#: addons/post-navigation/includes/class-fields.php:348
+#: addons/post-navigation/includes/class-fields.php:351
 msgid "Right of Text"
 msgstr "Rechts van Tekst"
 
-#: addons/post-navigation/includes/class-fields.php:352
+#: addons/post-navigation/includes/class-fields.php:355
 msgid "Position of the arrow relative to the link text"
 msgstr "Positie van de pijl ten opzichte van de linktekst"
 
-#: addons/post-navigation/includes/class-fields.php:374
+#: addons/post-navigation/includes/class-fields.php:377
 msgid "First"
 msgstr "Eerste"
 
-#: addons/post-navigation/includes/class-fields.php:378
+#: addons/post-navigation/includes/class-fields.php:381
 msgid "First Navigation Type"
 msgstr "Eerste Navigatietype"
 
-#: addons/post-navigation/includes/class-fields.php:383
+#: addons/post-navigation/includes/class-fields.php:386
 msgid "First Post Title"
 msgstr "Eerste Bericht Titel"
 
-#: addons/post-navigation/includes/class-fields.php:388
+#: addons/post-navigation/includes/class-fields.php:391
 msgid "Choose how to display the first navigation"
 msgstr "Kies hoe de eerste navigatie weergegeven moet worden"
 
-#: addons/post-navigation/includes/class-fields.php:391
+#: addons/post-navigation/includes/class-fields.php:394
 msgid "First Label"
 msgstr "Eerste Label"
 
-#: addons/post-navigation/includes/class-fields.php:395
+#: addons/post-navigation/includes/class-fields.php:398
 msgid "Go to First"
 msgstr "Ga naar Eerste"
 
-#: addons/post-navigation/includes/class-fields.php:396
+#: addons/post-navigation/includes/class-fields.php:399
 msgid "Custom text for first navigation"
 msgstr "Aangepaste tekst voor eerste navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:399
+#: addons/post-navigation/includes/class-fields.php:402
 msgid "First Navigation Position"
 msgstr "Eerste Navigatie Positie"
 
-#: addons/post-navigation/includes/class-fields.php:403
+#: addons/post-navigation/includes/class-fields.php:406
 msgid "Left (First → Previous → Next)"
 msgstr "Links (Eerste → Vorige → Volgende)"
 
-#: addons/post-navigation/includes/class-fields.php:404
+#: addons/post-navigation/includes/class-fields.php:407
 msgid "Center (Previous → First → Next)"
 msgstr "Centraal (Vorige → Eerste → Volgende)"
 
-#: addons/post-navigation/includes/class-fields.php:405
+#: addons/post-navigation/includes/class-fields.php:408
 msgid "Right (Previous → Next → First)"
 msgstr "Rechts (Vorige → Volgende → Eerste)"
 
-#: addons/post-navigation/includes/class-fields.php:409
+#: addons/post-navigation/includes/class-fields.php:412
 msgid "Position of the first/series home link in navigation"
 msgstr "Positie van de eerste/reeks home link in navigatie"
 
-#: addons/post-navigation/includes/class-fields.php:417
+#: addons/post-navigation/includes/class-fields.php:420
 msgid "Display featured image for first post"
 msgstr "Toon uitgelichte afbeelding voor eerste bericht"
 
-#: addons/post-navigation/includes/class-fields.php:429
+#: addons/post-navigation/includes/class-fields.php:432
 msgid "Position of the featured image relative to the link text"
 msgstr "Positie van de uitgelichte afbeelding ten opzichte van de linktekst"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:452
 msgid "Color"
 msgstr "Kleur"
 
-#: addons/post-navigation/includes/class-fields.php:520
+#: addons/post-navigation/includes/class-fields.php:461
+msgid "Choose the color of navigation link text"
+msgstr "Kies de kleur van de navigatielinktekst"
+
+#: addons/post-navigation/includes/class-fields.php:469
+msgid "Choose the background color of navigation links"
+msgstr "Kies de achtergrondkleur van navigatielinks"
+
+#: addons/post-navigation/includes/class-fields.php:482
+msgid "Choose the border color of navigation links"
+msgstr "Kies de randkleur van navigatielinks"
+
+#: addons/post-navigation/includes/class-fields.php:492
+msgid "Set the border width of navigation links in pixels"
+msgstr "Stel de randdikte van navigatielinks in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Set the border radius of navigation links in pixels"
+msgstr "Stel de randstraal van navigatielinks in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:517
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "Stel de binnenruimte rond navigatielinks in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "Stel de buitenruimte rond navigatielinks in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:530
 msgid "Gap Between Links (px)"
 msgstr "Afstand Tussen Links (px)"
 
-#: addons/post-navigation/includes/class-fields.php:527
+#: addons/post-navigation/includes/class-fields.php:537
 msgid "Space between navigation links"
 msgstr "Ruimte tussen navigatielinks"
 
-#: addons/post-navigation/includes/class-fields.php:540
+#: addons/post-navigation/includes/class-fields.php:550
 msgid "Container Style"
 msgstr "Containerstijl"
 
-#: addons/post-navigation/includes/class-fields.php:544
+#: addons/post-navigation/includes/class-fields.php:554
 msgid "Container Background Color"
 msgstr "Achtergrondkleur van de container"
 
-#: addons/post-navigation/includes/class-fields.php:549
+#: addons/post-navigation/includes/class-fields.php:559
 msgid "Background color for the navigation container"
 msgstr "Achtergrondkleur voor de navigatiecontainer"
 
-#: addons/post-navigation/includes/class-fields.php:552
+#: addons/post-navigation/includes/class-fields.php:562
 msgid "Container Border Color"
 msgstr "Container Randkleur"
 
-#: addons/post-navigation/includes/class-fields.php:559
+#: addons/post-navigation/includes/class-fields.php:567
+msgid "Choose the border color of the navigation container"
+msgstr "Kies de randkleur van de navigatiecontainer"
+
+#: addons/post-navigation/includes/class-fields.php:570
 msgid "Container Border Width (px)"
 msgstr "Container Randbreedte (px)"
 
-#: addons/post-navigation/includes/class-fields.php:568
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Set the border width of the navigation container in pixels"
+msgstr "Stel de randdikte van de navigatiecontainer in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:580
 msgid "Container Border Radius (px)"
 msgstr "Container Randradius (px)"
 
-#: addons/post-navigation/includes/class-fields.php:577
+#: addons/post-navigation/includes/class-fields.php:587
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "Stel de randstraal van de navigatiecontainer in pixels in"
+
+#: addons/post-navigation/includes/class-fields.php:590
 msgid "Container Padding (px)"
 msgstr "Container Opvulling (px)"
 
-#: addons/post-navigation/includes/class-fields.php:584
+#: addons/post-navigation/includes/class-fields.php:597
 msgid "Inner spacing for the container"
 msgstr "Binnenruimte voor de container"
 
@@ -1570,7 +1778,7 @@ msgstr "Huidig Deel"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
+#: addons/publisher/series-publish-post-table.php:272
 msgid "Edit"
 msgstr "Bewerken"
 
@@ -1580,7 +1788,7 @@ msgstr "Weergeven"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
+#: addons/publisher/series-publish-post-table.php:289
 msgid "Trash"
 msgstr "Prullenbak"
 
@@ -1594,7 +1802,7 @@ msgstr "(Heeft momenteel geen Deelnummer)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
+#: addons/publisher/series-publish-post-table.php:424
 msgid "Preview"
 msgstr "Voorbeeld"
 
@@ -1607,16 +1815,16 @@ msgstr "Er zijn geen ongepubliceerde berichten in deze serie."
 msgid "No Part Number"
 msgstr "Geen Deelnummer"
 
-#: addons/publisher/series-publish-post-table.php:176
+#: addons/publisher/series-publish-post-table.php:178
 msgid "All Categories"
 msgstr "Alle Categorieën"
 
-#: addons/publisher/series-publish-post-table.php:189
+#: addons/publisher/series-publish-post-table.php:191
 msgid "Filter"
 msgstr "Filteren"
 
 #: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
+#: addons/publisher/series_issue_manager.php:499
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "Beheer Series"
@@ -1626,8 +1834,8 @@ msgid "Series"
 msgstr "Serie"
 
 #: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
+#: addons/publisher/series_issue_manager.php:694
+#: addons/publisher/series_issue_manager.php:740
 msgid "Publish Series"
 msgstr "Publiceer Serie"
 
@@ -1672,65 +1880,65 @@ msgstr ""
 "Wanneer aangevinkt, blijven alle berichten die je aan deze serie toewijst "
 "on gepubliceerd totdat je de hele serie publiceert."
 
-#: addons/publisher/series_issue_manager.php:290
+#: addons/publisher/series_issue_manager.php:289
 msgid "The posts in your series were successfully unpublished."
 msgstr "De berichten in je serie zijn succesvol on gepubliceerd."
 
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
+#: addons/publisher/series_issue_manager.php:298
+#: addons/publisher/series_issue_manager.php:415
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Gefeliciteerd. Je serie volgorde is succesvol bijgewerkt."
 
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
+#: addons/publisher/series_issue_manager.php:306
+#: addons/publisher/series_issue_manager.php:343
 msgid "Congratulations. Your posts were published successfully."
 msgstr "Gefeliciteerd. Je berichten zijn succesvol gepubliceerd."
 
-#: addons/publisher/series_issue_manager.php:316
+#: addons/publisher/series_issue_manager.php:315
 msgid "Post moved to the Trash."
 msgstr "Bericht verplaatst naar de Prullenbak."
 
-#: addons/publisher/series_issue_manager.php:339
+#: addons/publisher/series_issue_manager.php:338
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "Gefeliciteerd. Je berichten zijn succesvol ingepland."
 
-#: addons/publisher/series_issue_manager.php:499
+#: addons/publisher/series_issue_manager.php:498
 msgid "Manage Series Issues"
 msgstr "Beheer Serieproblemen"
 
-#: addons/publisher/series_issue_manager.php:528
+#: addons/publisher/series_issue_manager.php:527
 msgid "Number of items per page"
 msgstr "Aantal items per pagina"
 
-#: addons/publisher/series_issue_manager.php:643
+#: addons/publisher/series_issue_manager.php:642
 msgid "Publishing Series:"
 msgstr "Publiceren Series:"
 
-#: addons/publisher/series_issue_manager.php:649
+#: addons/publisher/series_issue_manager.php:648
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Zoekresultaten voor &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:664
+#: addons/publisher/series_issue_manager.php:663
 msgid "Search"
 msgstr "Zoeken"
 
-#: addons/publisher/series_issue_manager.php:709
+#: addons/publisher/series_issue_manager.php:708
 msgid "Publication Date/Time:"
 msgstr "Publicatiedatum/tijd:"
 
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
+#: addons/publisher/series_issue_manager.php:764
+#: addons/publisher/series_issue_manager.php:839
+#: addons/publisher/series_issue_manager.php:938
 msgid "Update Order"
 msgstr "Volgorde bijwerken"
 
-#: addons/publisher/series_issue_manager.php:792
+#: addons/publisher/series_issue_manager.php:791
 msgid "Series Order:"
 msgstr "Serievolgorde:"
 
-#: addons/publisher/series_issue_manager.php:795
+#: addons/publisher/series_issue_manager.php:794
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
@@ -1738,11 +1946,11 @@ msgstr ""
 "Sleep de berichtenamen in de volgorde waarin je ze in de serie wilt hebben, "
 "van het eerste deel tot het laatste deel."
 
-#: addons/publisher/series_issue_manager.php:867
+#: addons/publisher/series_issue_manager.php:866
 msgid "Unpublished posts in series:"
 msgstr "Ongepubliceerde berichten in series:"
 
-#: addons/publisher/series_issue_manager.php:870
+#: addons/publisher/series_issue_manager.php:869
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -1750,15 +1958,15 @@ msgstr ""
 "Wanneer deze berichten worden gepubliceerd, worden ze toegevoegd na het "
 "laatste huidige bericht in de serie."
 
-#: addons/publisher/series_issue_manager.php:901
+#: addons/publisher/series_issue_manager.php:900
 msgid "Unpublished Posts"
 msgstr "Niet-gepubliceerde Berichten"
 
-#: addons/publisher/series_issue_manager.php:915
+#: addons/publisher/series_issue_manager.php:914
 msgid "Publish Unpublished Posts"
 msgstr "Publiceer Niet-gepubliceerde Berichten"
 
-#: addons/publisher/series_issue_manager.php:925
+#: addons/publisher/series_issue_manager.php:924
 msgid "Unpublished Series Order"
 msgstr "Volgorde van Niet-gepubliceerde Series"
 
@@ -1785,17 +1993,19 @@ msgstr ""
 "juiste waarden wanneer de plugin draait."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Dit zal worden vervangen door het serie-icoon voor een serie."
+msgid "This will be replaced with the series featured image for a series."
+msgstr ""
+"Dit zal worden vervangen door de serie uitgelichte afbeelding voor een "
+"serie."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Zelfde als %series_icon% behalve dat het serie-icoon zal worden gelinkt aan "
-"de seriepagina"
+"Hetzelfde als %series_icon% behalve dat de serie uitgelichte afbeelding zal "
+"worden gelinkt aan de seriepagina"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2216,7 +2426,7 @@ msgstr "Serie volgorde methode"
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
 #: orgSeries-setup.php:485
-#: orgSeries-widgets.php:112
+#: orgSeries-widgets.php:115
 msgid "Series Table of Contents"
 msgstr "Serie Inhoudsopgave"
 
@@ -2246,22 +2456,26 @@ msgid "Series Table of Contents Title:"
 msgstr "Titel van de Serie Inhoudsopgave:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Serie-icoon"
+msgid "Series Featured Images"
+msgstr "Serie Uitgelichte Afbeeldingen"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Breedte voor icoon op de serie inhoudsopgavepagina (in pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr ""
+"Breedte voor uitgelichte afbeelding op de inhoudsopgave pagina van de serie "
+"(in pixels)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Breedte voor icoon op een berichtenpagina (in pixels)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Breedte voor uitgelichte afbeelding op een berichtenpagina (in pixels)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr ""
-"Breedte voor icoon als weergegeven via de nieuwste serietemplate (in "
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
 "pixels)."
+msgstr ""
+"Breedte voor uitgelichte afbeelding als deze wordt weergegeven via de "
+"nieuwste serietemplate (in pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2579,8 +2793,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Weergave-opties voor Plugin Template:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Toon Serie-icoon"
+msgid "Show Series Featured Image"
+msgstr "Toon Serie Uitgelichte Afbeelding"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2640,6 +2854,37 @@ msgstr ""
 msgid "Sorry, no results found."
 msgstr "Sorry, er zijn geen resultaten gevonden."
 
+#: inc/welcome/welcome-panel.php:141
+msgid "Dismiss this panel"
+msgstr "Verwijder dit paneel"
+
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Welkom bij PublishPress Series"
+
+#: inc/welcome/welcome-panel.php:163
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr ""
+"Een serie groepeert je berichten en toont je lezers de leesvolgorde. Maak "
+"je eerste serie met het formulier op deze pagina, en voeg er vervolgens "
+"berichten aan toe."
+
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Maak een serie"
+
+#: inc/welcome/welcome-panel.php:172
+msgid "View Documentation"
+msgstr "Bekijk documentatie"
+
+#: inc/welcome/welcome-panel.php:177
+#: includes-core/PPSeriesCoreAdmin.php:41
+msgid "Upgrade to Pro"
+msgstr "Upgrade naar Pro"
+
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
 msgid ""
@@ -2649,81 +2894,81 @@ msgstr ""
 "Je gebruikt PublishPress Series Free. De Pro-versie heeft meer functies en "
 "ondersteuning. %sUpgrade naar Pro%s"
 
-#: includes-core/PPSeriesCoreAdmin.php:35
-msgid "Upgrade to Pro"
-msgstr "Upgrade naar Pro"
-
-#: includes-core/PPSeriesCoreAdmin.php:58
+#: includes-core/PPSeriesCoreAdmin.php:64
 msgid "Need PublishPress Series Support?"
 msgstr "Heb je PublishPress Series Ondersteuning nodig?"
 
-#: includes-core/PPSeriesCoreAdmin.php:63
+#: includes-core/PPSeriesCoreAdmin.php:69
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Als je hulp nodig hebt of een nieuwe functieaanvraag hebt, laat het ons "
 "weten."
 
-#: includes-core/PPSeriesCoreAdmin.php:65
+#: includes-core/PPSeriesCoreAdmin.php:71
 msgid "Request Support"
 msgstr "Vraag Ondersteuning aan"
 
-#: includes-core/PPSeriesCoreAdmin.php:74
+#: includes-core/PPSeriesCoreAdmin.php:80
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Gedetailleerde documentatie is ook beschikbaar op de pluginwebsite."
 
-#: includes-core/PPSeriesCoreAdmin.php:76
+#: includes-core/PPSeriesCoreAdmin.php:82
 msgid "View Knowledge Base"
 msgstr "Bekijk Kennisbank"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Er is een fout opgetreden"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s series gemigreerd naar nieuwe taxonomie"
 
-#: orgSeries-admin.php:175
+#: orgSeries-admin.php:129
+msgid "Custom Template"
+msgstr "Aangepaste sjabloon"
+
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Als je %s leuk vindt, laat ons dan een %s beoordeling achter. Bedankt!"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Over PublishPress Series"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Over"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Series Documentatie"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Neem contact op met het PublishPress-team"
 
-#: orgSeries-admin.php:188, fuzzy
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
-#: orgSeries-admin.php:219
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Sorry, maar je hebt geen toestemming om series toe te voegen"
 
-#: orgSeries-admin.php:230
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 "De naam die je hebt gekozen wordt niet correct gesanitized. Probeer iets "
 "anders."
 
-#: orgSeries-admin.php:236
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2731,23 +2976,23 @@ msgstr ""
 "Hmm... het lijkt erop dat er al een serie met die naam bestaat. Probeer "
 "iets anders"
 
-#: orgSeries-admin.php:359
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Geen deel van een serie"
 
-#: orgSeries-admin.php:421
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Zoek series"
 
-#: orgSeries-admin.php:436
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Serie Deel:"
 
-#: orgSeries-admin.php:443
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Berichttitel in widget:"
 
-#: orgSeries-admin.php:445
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2755,39 +3000,53 @@ msgstr ""
 "Een korte titel van dit bericht die zal worden gebruikt in de "
 "Series-widget. Laat leeg om de volledige titel te gebruiken."
 
-#: orgSeries-admin.php:519
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Geen deelnummer)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Deel %1$s van %2$s)"
 
-#: orgSeries-admin.php:525
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Geen Deelnummer)"
 
-#: orgSeries-admin.php:531
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Geen Serie"
 
-#: orgSeries-admin.php:552
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Bekijk alle series"
 
-#: orgSeries-admin.php:561
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Beheer Alle Series"
 
-#: orgSeries-manage.php:66
+#: orgSeries-icon.php:132
+msgid ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series kon de serie uitgelichte afbeelding niet opslaan. De "
+"uitgelichte afbeelding is niet veranderd."
+
+#: orgSeries-icon.php:136
+#. translators: %s: the error message reported by the database.
+#, php-format
+msgid "Database error: %s"
+msgstr "Databasefout: %s"
+
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Term Volgorde"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -2796,11 +3055,36 @@ msgstr ""
 "klikken en vast te houden\" op een plek en het naar de nieuwe positie te "
 "verplaatsen."
 
-#: orgSeries-manage.php:196, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Serie toegevoegd."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Serie verwijderd."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Serie geüpdatet."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Serie niet toegevoegd."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Serie niet geüpdatet."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Berichten"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:233
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -2809,15 +3093,15 @@ msgstr ""
 "kunt je eigen volgorde kiezen door een nummer (1 voor eerst, enz.) in dit "
 "veld in te voeren."
 
-#: orgSeries-manage.php:240
-msgid "Current series icon:"
-msgstr "Huidig serie icoon:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Huidige serie uitgelichte afbeelding:"
 
-#: orgSeries-manage.php:246
-msgid "No icon currently"
-msgstr "Geen icoon momenteel"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Momenteel geen uitgelichte afbeelding"
 
-#: orgSeries-manage.php:256
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -2825,31 +3109,31 @@ msgstr ""
 "Afbeelding verwijderen? (opmerking: er zal geen afbeelding aan deze serie "
 "zijn gekoppeld als je dit selecteert)"
 
-#: orgSeries-manage.php:261
-msgid "Series Icon Upload:"
-msgstr "Upload Serie Icoon:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Serie uitgelichte afbeelding upload:"
 
-#: orgSeries-manage.php:265
-msgid "Upload an image for the series."
-msgstr "Upload een afbeelding voor de serie."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Upload een uitgelichte afbeelding voor de serie."
 
-#: orgSeries-manage.php:280
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Ongeldige formuliergegevens"
 
-#: orgSeries-manage.php:290
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Ongeldige nonce, herlaad en probeer het opnieuw"
 
-#: orgSeries-manage.php:299
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Ongeldige taxonomie"
 
-#: orgSeries-manage.php:305
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Niet genoeg toestemming"
 
-#: orgSeries-manage.php:309
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Succesvol bijgewerkt"
 
@@ -2914,12 +3198,12 @@ msgstr "Serie: "
 msgid "Posts from the series: "
 msgstr "Berichten uit de serie: "
 
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:676
+#: orgSeries-taxonomy.php:705
 msgid "Series:"
 msgstr "Serie:"
 
-#: orgSeries-taxonomy.php:666
+#: orgSeries-taxonomy.php:678
 msgid "Part:"
 msgstr "Deel:"
 
@@ -2941,16 +3225,16 @@ msgstr "Auto/Geen"
 msgid "Use this to control the output of the latest series widget"
 msgstr "Gebruik dit om de output van de laatste series widget te controleren"
 
-#: orgSeries-widgets.php:20
+#: orgSeries-widgets.php:23
 msgid "Most Recent Series"
 msgstr "Meest Recente Series"
 
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
+#: orgSeries-widgets.php:76
+#: orgSeries-widgets.php:275
 msgid "Title:"
 msgstr "Titel:"
 
-#: orgSeries-widgets.php:79
+#: orgSeries-widgets.php:82
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a "
@@ -2959,124 +3243,124 @@ msgstr ""
 "De lay-out en inhoud van deze widget kunnen worden aangepast via het <a "
 "href=\"%s\">Laatste Series</a>-gebied."
 
-#: orgSeries-widgets.php:82
+#: orgSeries-widgets.php:85
 msgid "Hide series with no posts?"
 msgstr "Verberg series zonder berichten?"
 
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
+#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:301
 msgid "Order by:"
 msgstr "Sorteer op:"
 
-#: orgSeries-widgets.php:87
+#: orgSeries-widgets.php:90
 msgid "Number of posts in Series"
 msgstr "Aantal berichten in reeks"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:91
 msgid "Name of Series"
 msgstr "Naam van de reeks"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:92
 msgid "Series Slug"
 msgstr "Reeks slug"
 
-#: orgSeries-widgets.php:90
+#: orgSeries-widgets.php:93
 msgid "When Series was Created"
 msgstr "Wanneer de reeks is gemaakt"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:94
 msgid "Random"
 msgstr "Willekeurig"
 
-#: orgSeries-widgets.php:95
+#: orgSeries-widgets.php:98
 msgid "Number of series to display:"
 msgstr "Aantal reeksen om weer te geven:"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:102
 msgid "Display Order: "
 msgstr "Weergavevolgorde: "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:103
 msgid "ASC: "
 msgstr "Oplopend: "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:104
 msgid "DESC: "
 msgstr "Aflopend: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:114
 msgid "Use this to display the Series Table of contents"
 msgstr "Gebruik dit om de inhoudsopgave van de reeks weer te geven"
 
-#: orgSeries-widgets.php:178
+#: orgSeries-widgets.php:184
 msgid "Select Series"
 msgstr "Selecteer reeks"
 
-#: orgSeries-widgets.php:234
+#: orgSeries-widgets.php:240
 msgid "Other posts in series:"
 msgstr "Andere berichten in de reeks:"
 
-#: orgSeries-widgets.php:274
+#: orgSeries-widgets.php:280
 msgid "Show Series Table Of Content"
 msgstr "Toon inhoudsopgave van de reeks"
 
-#: orgSeries-widgets.php:279
+#: orgSeries-widgets.php:285
 msgid "Show Series Table Of Content as:"
 msgstr "Toon inhoudsopgave van de reeks als:"
 
-#: orgSeries-widgets.php:280, fuzzy
+#: orgSeries-widgets.php:286, fuzzy
 msgid "Dropdown:"
 msgstr "Dropdown:"
 
-#: orgSeries-widgets.php:281
+#: orgSeries-widgets.php:287
 msgid "List:"
 msgstr "Lijst:"
 
-#: orgSeries-widgets.php:285
+#: orgSeries-widgets.php:291
 msgid "Show post count:"
 msgstr "Toon aantal berichten:"
 
-#: orgSeries-widgets.php:290
+#: orgSeries-widgets.php:296
 msgid "Hide empty series:"
 msgstr "Verberg lege reeksen:"
 
-#: orgSeries-widgets.php:299
+#: orgSeries-widgets.php:305
 msgid "name"
 msgstr "naam"
 
-#: orgSeries-widgets.php:300
+#: orgSeries-widgets.php:306
 msgid "count"
 msgstr "aantal"
 
-#: orgSeries-widgets.php:301, fuzzy
+#: orgSeries-widgets.php:307, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:308
 msgid "series id"
 msgstr "serie id"
 
-#: orgSeries-widgets.php:315
+#: orgSeries-widgets.php:321
 msgid "Order:"
 msgstr "Bestelling:"
 
-#: orgSeries-widgets.php:333
+#: orgSeries-widgets.php:339
 msgid "Exclude series:"
 msgstr "Exclusief series:"
 
-#: orgSeries-widgets.php:348
+#: orgSeries-widgets.php:354
 msgid "Include series:"
 msgstr "Inclusief series:"
 
-#: orgSeries-widgets.php:363
+#: orgSeries-widgets.php:369
 msgid "Number of Series:"
 msgstr "Aantal Series:"
 
-#: orgSeries-widgets.php:368, fuzzy
+#: orgSeries-widgets.php:374, fuzzy
 msgid "Offset:"
 msgstr "Offset:"
 
-#: orgSeries-widgets.php:370
+#: orgSeries-widgets.php:376
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3084,11 +3368,11 @@ msgstr ""
 "Je kunt de offset voor het aantal series selecteren (handig voor "
 "paginering). Geen offset als je het leeg laat"
 
-#: orgSeries-widgets.php:374
+#: orgSeries-widgets.php:380
 msgid "Search:"
 msgstr "Zoeken:"
 
-#: orgSeries-widgets.php:376
+#: orgSeries-widgets.php:382
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
@@ -3096,23 +3380,23 @@ msgstr ""
 "Je kunt elke serie retourneren die overeenkomt met deze zoekstring "
 "(vergeleken met serietitels)"
 
-#: orgSeries-widgets.php:380
+#: orgSeries-widgets.php:386
 msgid "Show other posts in the current series:"
 msgstr "Toon andere berichten in de huidige serie:"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:403
 msgid "Current series"
 msgstr "Huidige serie"
 
-#: orgSeries-widgets.php:416
+#: orgSeries-widgets.php:422
 msgid "Series widget title:"
 msgstr "Titel van de serie-widget:"
 
-#: orgSeries-widgets.php:418
+#: orgSeries-widgets.php:424
 msgid "This text will display above other posts in this series."
 msgstr "Deze tekst wordt boven andere berichten in deze serie weergegeven."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Deze plugin kan worden verwijderd.</strong>"
 
@@ -3302,17 +3586,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:478
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:491
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:571
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -3336,17 +3620,17 @@ msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "Deze invoer is deel %series_part% van %total_posts_in_series% in de serie "
 
-#: orgSeries-taxonomy.php:381
+#: orgSeries-taxonomy.php:393
 msgctxt "series list title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:239
 msgctxt "widget title default"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:392
 msgctxt "widget section label"
 msgid "Series"
 msgstr "Serie"

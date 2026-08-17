@@ -153,6 +153,7 @@
 .pps-series-post-details-editor-table input[type=number],
 .pps-series-post-details-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-series-post-details-editor-table textarea {
@@ -494,6 +495,11 @@
 /* Dependent Field Styling */
 tr[data-depends-on] {
     transition: opacity 0.2s ease;
+}
+
+.pps-series-post-details-editor-table tr[data-depends-on] > th,
+.pps-series-post-details-editor-table tr[data-depends-on] > td {
+    padding-left: 30px;
 }
 
 tr[data-depends-on]:not(.dependent-field-visible) {

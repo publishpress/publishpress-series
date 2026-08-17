@@ -4,6 +4,8 @@
 *.tar.gz
 *.zip
 .DS_Store
+.claude
+.kombai
 .babelrc
 .distignore
 .editorconfig
@@ -20,6 +22,8 @@
 .idea
 .php-cs-fixer.cache
 .phpcs.xml
+.phpcs-php-compatibility.xml
+.phpcs-plugin-review.xml
 .phplint-cache
 .phplint.cache
 .phplint.yml

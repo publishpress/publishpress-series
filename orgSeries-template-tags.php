@@ -570,6 +570,18 @@ function series_toc_paginate($prev = "<< ", $next = " >>", $type = '')
  *
  * @return string $result contains the linked post (next OR previous post depending on  $next param)
  */
+function ppseries_get_nav_custom_text($template, $post_id, $series_id)
+{
+	return wp_kses_post(token_replace($template, 'other', $post_id, $series_id));
+}
+
+function ppseries_get_nav_link($link, $title)
+{
+	$title = (string) $title;
+
+	return '<a href="' . esc_url($link) . '" title="' . esc_attr(wp_strip_all_tags($title)) . '">' . $title . '</a>';
+}
+
 function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $display = FALSE, $calc = false)
 {
 	global $post, $orgseries;
@@ -607,18 +619,18 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 	$prev_found = false;
 	foreach ($posts_in_series as $seriespost) {
 		$shorted_series['' . $seriespost['part'] . ''] = $seriespost['id'];
-		$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
-		$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID));
-		$custom_first = isset($settings['series_firstpost_nav_custom_text']) ? esc_html(token_replace($settings['series_firstpost_nav_custom_text'], 'other', $seriespost['id'], $series_ID)) : '';
+		$custom_next = ppseries_get_nav_custom_text($settings['series_nextpost_nav_custom_text'], $seriespost['id'], $series_ID);
+		$custom_prev = ppseries_get_nav_custom_text($settings['series_prevpost_nav_custom_text'], $seriespost['id'], $series_ID);
+		$custom_first = isset($settings['series_firstpost_nav_custom_text']) ? ppseries_get_nav_custom_text($settings['series_firstpost_nav_custom_text'], $seriespost['id'], $series_ID) : '';
 		if ($next && !$first) {
 			if (((int) $seriespost['part'] - $cur_part) === 1) {
 				$next_found = true;
 				if (!empty($custom_next))
 					$title = $custom_next;
 				else
-					$title = get_the_title($seriespost['id']);
+					$title = esc_html(get_the_title($seriespost['id']));
 				$link = get_permalink($seriespost['id']);
-				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				$result .= ppseries_get_nav_link($link, $title);
 			}
 		}
 
@@ -628,9 +640,9 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 				if (!empty($custom_prev))
 					$title = $custom_prev;
 				else
-					$title = get_the_title($seriespost['id']);
+					$title = esc_html(get_the_title($seriespost['id']));
 				$link = get_permalink($seriespost['id']);
-				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				$result .= ppseries_get_nav_link($link, $title);
 			}
 		}
 
@@ -640,10 +652,10 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 				if (!empty($custom_first)) {
 					$title = $custom_first;
 				} else {
-					$title = get_the_title($seriespost['id']);
+					$title = esc_html(get_the_title($seriespost['id']));
 				}
 				$link = get_permalink($seriespost['id']);
-				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				$result .= ppseries_get_nav_link($link, $title);
 			}
 		}
 
@@ -659,14 +671,14 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 			$next_post_part = $next_post_part ? array_shift($next_post_part) : 0;
 			if ((int) $next_post_part > 0) {
 				$next_post_id = $shorted_series[$next_post_part];
-				$custom_next = esc_html(token_replace($settings['series_nextpost_nav_custom_text'], 'other', $next_post_id, $series_ID));
+				$custom_next = ppseries_get_nav_custom_text($settings['series_nextpost_nav_custom_text'], $next_post_id, $series_ID);
 				if (!empty($custom_next)) {
 					$title = $custom_next;
 				} else {
-					$title = get_the_title($next_post_id);
+					$title = esc_html(get_the_title($next_post_id));
 				}
 				$link = get_permalink($next_post_id);
-				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				$result .= ppseries_get_nav_link($link, $title);
 			}
 		}
 
@@ -680,14 +692,14 @@ function wp_series_nav($series_ID, $next = TRUE, $customtext = 'deprecated', $di
 			$prev_post_part = $prev_post_part ? array_shift($prev_post_part) : 0;
 			if ((int) $prev_post_part > 0) {
 				$prev_post_id = $shorted_series[$prev_post_part];
-				$custom_prev = esc_html(token_replace($settings['series_prevpost_nav_custom_text'], 'other', $prev_post_id, $series_ID));
+				$custom_prev = ppseries_get_nav_custom_text($settings['series_prevpost_nav_custom_text'], $prev_post_id, $series_ID);
 				if (!empty($custom_prev)) {
 					$title = $custom_prev;
 				} else {
-					$title = get_the_title($prev_post_id);
+					$title = esc_html(get_the_title($prev_post_id));
 				}
 				$link = get_permalink($prev_post_id);
-				$result .= '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+				$result .= ppseries_get_nav_link($link, $title);
 			}
 		}
 
@@ -820,7 +832,7 @@ function latest_series($display = true, $args = '')
 	$defaults = array('orderby' => 'post_modified', 'order' => 'ASC', 'hide_empty' => true, 'number' => '5');
 	$args = wp_parse_args($args, $defaults);
 	$args['number'] = absint($args['number']);
-	extract($args, EXTR_SKIP);
+	$number = $args['number'];
 	$settings = $orgseries->settings;
 	$count = $number;
 

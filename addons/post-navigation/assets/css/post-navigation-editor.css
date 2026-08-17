@@ -73,6 +73,7 @@
 .pps-series-post-navigation-editor-table input[type=number],
 .pps-series-post-navigation-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-series-post-navigation-editor-table textarea {
@@ -115,6 +116,11 @@
 /* Category separator row styling */
 .category_separator td {
     padding: 0 !important;
+}
+
+.pps-series-post-navigation-editor-table tr[data-depends-on] > th,
+.pps-series-post-navigation-editor-table tr[data-depends-on] > td {
+    padding-left: 30px;
 }
 
 .pps-field-separator {

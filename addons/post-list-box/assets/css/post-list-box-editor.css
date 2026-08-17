@@ -155,6 +155,7 @@
 .pps-post-list-boxes-editor-table input[type=number],
 .pps-post-list-boxes-editor-table select {
     width: 95%;
+    margin-bottom: 6px;
 }
 
 .pps-post-list-boxes-editor-table textarea {
@@ -623,6 +624,11 @@ h4.pps-post-title {
 /* Dependent Field Styling */
 tr[data-depends-on] {
     transition: opacity 0.2s ease;
+}
+
+.pps-post-list-boxes-editor-table tr[data-depends-on] > th,
+.pps-post-list-boxes-editor-table tr[data-depends-on] > td {
+    padding-left: 30px;
 }
 
 tr[data-depends-on]:not(.dependent-field-visible) {

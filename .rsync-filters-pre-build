@@ -1,4 +1,6 @@
 - *.code-workspace
+- .claude
+- .kombai
 - .babelrc
 - .builder-post-rsync-filters-post
 - .builder-rsync-filters
@@ -15,6 +17,8 @@
 - .idea
 - .php-cs-fixer.cache
 - .phpcs.xml
+- .phpcs-php-compatibility.xml
+- .phpcs-plugin-review.xml
 - .phplint-cache
 - .phplint.yml
 - .rsync-filters-post-build

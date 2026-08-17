@@ -4,16 +4,16 @@ Author: publishpress
 Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.2.5
-Tested up to: 6.9
-Stable tag: 3.1.2
+Tested up to: 7.0
+Stable tag: 3.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-PublishPress Series is the publishing plugin that allows you to organize posts into issues or series. This is ideal for magazines, newspapers, writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
+PublishPress Series is the publishing plugin that allows you to organize posts into issues or series. This is perfect for magazines, newspapers, writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 
 == Description ==
 
-[PublishPress Series](https://publishpress.com/series) is a publishing plugin that allows you to organize posts into issues or series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
+[PublishPress Series](https://publishpress.com/series) is a publishing plugin that allows you to organize posts into issues or series. This is perfect for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
 
 Newspapers, magazines and publishers can use PublishPress Series to create issues based on topics or time periods:
 

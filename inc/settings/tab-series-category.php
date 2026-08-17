@@ -50,7 +50,7 @@ function ppseries_series_group_fieldset() {
 				<td>
 					<label>
 						<input type="checkbox" name="<?php echo esc_attr($org_name); ?>[series_group_plugin_show_image]" value="1" <?php checked(1, isset($org_opt['series_group_plugin_show_image']) ? (int) $org_opt['series_group_plugin_show_image'] : 1); ?> />
-						<?php esc_html_e('Show Series Icon', 'organize-series'); ?>
+						<?php esc_html_e('Show Series Featured Image', 'organize-series'); ?>
 					</label>
 					<br />
 					<label>

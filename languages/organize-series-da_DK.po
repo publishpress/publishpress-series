@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-04-29 12:22+0000\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: da-DK\n"
 
-#: orgSeries.php:3
+#: orgSeries.php
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#: orgSeries.php:5
+#: orgSeries.php
 #. Description of the plugin
 msgid ""
 "PublishPress Series allows you to group content together into a series. "
@@ -37,12 +37,12 @@ msgstr ""
 "serie. Dette er ideelt til magasiner, aviser, noveller, lærere, "
 "tegneserietegnere eller enhver, der skriver flere indlæg om det samme emne."
 
-#: orgSeries.php:7
+#: orgSeries.php
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -56,7 +56,7 @@ msgid "Popular Series Categories"
 msgstr "Populære Serien Kategorier"
 
 #: addons/grouping/legacy-includes.php:282
-#: addons/grouping/legacy-includes.php:786
+#: addons/grouping/legacy-includes.php:793
 msgid "All Series Categories"
 msgstr "Alle Serien Kategorier"
 
@@ -79,10 +79,10 @@ msgstr "Ny Serie Kategori"
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
 #: addons/grouping/legacy-includes.php:621
-#: addons/grouping/legacy-includes.php:715
-#: addons/grouping/legacy-includes.php:756
-#: addons/grouping/legacy-includes.php:777
-#: addons/grouping/legacy-includes.php:811
+#: addons/grouping/legacy-includes.php:722
+#: addons/grouping/legacy-includes.php:763
+#: addons/grouping/legacy-includes.php:784
+#: addons/grouping/legacy-includes.php:818
 msgid "Series Categories"
 msgstr "Serie Kategorier"
 
@@ -92,7 +92,7 @@ msgid ""
 "plugin."
 msgstr "Slet alle \"Serie Kategorier\" data fra databasen ved sletning af plugin'et."
 
-#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:763
 msgid "Click to toggle"
 msgstr "Klik for at skifte"
 
@@ -274,7 +274,7 @@ msgid "Meta Box Position"
 msgstr "Meta boks position"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:565
+#: addons/post-list-box/classes/PostListBoxFields.php:596
 #: inc/settings/tab-post-details.php:27
 #: inc/settings/tab-post-list-box.php:27
 #: inc/settings/tab-post-navigation.php:27, fuzzy
@@ -282,7 +282,7 @@ msgid "Top"
 msgstr "Top"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:566
+#: addons/post-list-box/classes/PostListBoxFields.php:597
 #: inc/settings/tab-post-details.php:28
 #: inc/settings/tab-post-list-box.php:28
 #: inc/settings/tab-post-navigation.php:28
@@ -314,74 +314,94 @@ msgid "Font size for text in the meta box"
 msgstr "Skrifttype størrelse for tekst i meta boksen"
 
 #: addons/post-details/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-fields.php:453
+#: addons/post-navigation/includes/class-fields.php:456
 msgid "Text Color"
 msgstr "Tekstfarve"
 
-#: addons/post-details/includes/class-fields.php:173
+#: addons/post-details/includes/class-fields.php:171
+msgid "Choose the color of text in the meta box"
+msgstr "Vælg farven på teksten i metaboksen"
+
+#: addons/post-details/includes/class-fields.php:174
 msgid "Link Color"
 msgstr "Linkfarve"
 
-#: addons/post-details/includes/class-fields.php:181
+#: addons/post-details/includes/class-fields.php:179
+msgid "Choose the color of links in the meta box"
+msgstr "Vælg farven på links i metaboksen"
+
+#: addons/post-details/includes/class-fields.php:183
 msgid "Background"
 msgstr "Baggrund"
 
-#: addons/post-details/includes/class-fields.php:185
-#: addons/post-list-box/classes/PostListBoxFields.php:191
-#: addons/post-navigation/includes/class-fields.php:460
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464
 msgid "Background Color"
 msgstr "Baggrundsfarve"
 
-#: addons/post-details/includes/class-fields.php:190
+#: addons/post-details/includes/class-fields.php:192
 msgid "Background color for the meta box container"
 msgstr "Baggrundsfarve for meta boks containeren"
 
-#: addons/post-details/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:498
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506
 msgid "Spacing"
 msgstr "Afstand"
 
-#: addons/post-details/includes/class-fields.php:198
-#: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510
 msgid "Padding (px)"
 msgstr "Polstring (px)"
 
-#: addons/post-details/includes/class-fields.php:205
+#: addons/post-details/includes/class-fields.php:207
 msgid "Padding applied to all sides of the content area"
 msgstr "Polstring anvendt på alle sider af indholdsområdet"
 
-#: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511, fuzzy
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520, fuzzy
 msgid "Margin (px)"
 msgstr "Margin (px)"
 
-#: addons/post-details/includes/class-fields.php:215
+#: addons/post-details/includes/class-fields.php:217
 msgid "Margin applied to all sides of the meta box"
 msgstr "Margin anvendt på alle sider af meta boksen"
 
-#: addons/post-details/includes/class-fields.php:219
-#: addons/post-navigation/includes/class-fields.php:468
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473
 msgid "Border"
 msgstr "Grænse"
 
-#: addons/post-details/includes/class-fields.php:223
-#: addons/post-list-box/classes/PostListBoxFields.php:205
-#: addons/post-navigation/includes/class-fields.php:479
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485
 msgid "Border Width (px)"
 msgstr "Grænsebredde (px)"
 
 #: addons/post-details/includes/class-fields.php:232
-#: addons/post-list-box/classes/PostListBoxFields.php:214
-#: addons/post-navigation/includes/class-fields.php:488
+msgid "Set the border width in pixels"
+msgstr "Indstil kantens bredde i pixels"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495
 msgid "Border Radius (px)"
 msgstr "Grænseradius (px)"
 
-#: addons/post-details/includes/class-fields.php:241
-#: addons/post-list-box/classes/PostListBoxFields.php:198
-#: addons/post-navigation/includes/class-fields.php:472
+#: addons/post-details/includes/class-fields.php:242
+msgid "Set the border radius in pixels"
+msgstr "Indstil kantens radius i pixels"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477
 msgid "Border Color"
 msgstr "Grænsefarve"
+
+#: addons/post-details/includes/class-fields.php:250
+msgid "Choose the border color"
+msgstr "Vælg kantfarven"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
@@ -392,7 +412,7 @@ msgstr "Serie Post Detaljer"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413
+#: orgSeries-admin.php:389
 #: orgSeries-setup.php:208
 msgid "Add New"
 msgstr "Tilføj Ny"
@@ -494,286 +514,410 @@ msgstr "Fremhæver nuværende indlæg"
 msgid "Show Box Title"
 msgstr "Vis boks titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:106
+#: addons/post-list-box/classes/PostListBoxFields.php:104
+msgid "Display the title above the post list"
+msgstr "Vis titlen over indlægsliste"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107
 msgid "Box Title Type"
 msgstr "Boks Titel Type"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:110
+#: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Use Series Title"
 msgstr "Brug serie titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:111
+#: addons/post-list-box/classes/PostListBoxFields.php:112
 msgid "Custom Title"
 msgstr "Tilpasset titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:115
+#: addons/post-list-box/classes/PostListBoxFields.php:116
 msgid "Choose whether to display the series title or a custom title"
 msgstr "Vælg om serienavnet eller en brugerdefineret titel skal vises"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:120
+#: addons/post-list-box/classes/PostListBoxFields.php:121
 msgid "Link Box Title to Series"
 msgstr "Link boks titel til serien"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:125
+#: addons/post-list-box/classes/PostListBoxFields.php:126
 msgid "Link the box title to the current series archive when using the series title"
 msgstr "Link boks titlen til det nuværende serienarkiv når serienavnet bruges"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:130
+#: addons/post-list-box/classes/PostListBoxFields.php:131
 msgid "Custom Box Title Text"
 msgstr "Brugerdefineret boks titel tekst"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:134
+#: addons/post-list-box/classes/PostListBoxFields.php:135
 #: addons/post-list-box/includes/class-utilities.php:162
 msgid "Series Posts"
 msgstr "Serien indlæg"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Enter custom title for the post list"
 msgstr "Indtast brugerdefineret titel til indlægsliste"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:136
+#: addons/post-list-box/classes/PostListBoxFields.php:137
 msgid "Only used when \"Custom Title\" is selected above"
 msgstr "Kun anvendt når \"Brugerdefineret titel\" er valgt ovenfor"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:141
+#: addons/post-list-box/classes/PostListBoxFields.php:142
 msgid "Box Title HTML Tag"
 msgstr "Boks titel HTML tag"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:160
+#: addons/post-list-box/classes/PostListBoxFields.php:157
+msgid "Choose the HTML tag used for the box title"
+msgstr "Vælg HTML-tagget der bruges til boksens titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162
 msgid "Box Title Color"
 msgstr "Boks titel farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:169
+#: addons/post-list-box/classes/PostListBoxFields.php:167
+msgid "Choose the color of the box title"
+msgstr "Vælg farven på boksens titel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172
 msgid "Box Title Font Size (px)"
 msgstr "Boks titel skrifttype størrelse (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:243
+#: addons/post-list-box/classes/PostListBoxFields.php:179
+msgid "Set the font size of the box title in pixels"
+msgstr "Indstil skrifttypestørrelsen på boksens titel i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200
+msgid "Choose the background color for the post list box"
+msgstr "Vælg baggrundsfarven for indlægslisteboksen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208
+msgid "Choose the border color for the post list box"
+msgstr "Vælg kantfarven for indlægslisteboksen"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218
+msgid "Set the border width for the post list box in pixels"
+msgstr "Indstil kantens bredde for indlægslisteboksen i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228
+msgid "Set the border radius for the post list box in pixels"
+msgstr "Indstil kantens radius for indlægslisteboksen i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "Indstil den indre afstand af indlægslisteboksen i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252
 msgid "Show Post Titles"
 msgstr "Vis indlægstitler"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:250
+#: addons/post-list-box/classes/PostListBoxFields.php:257
+msgid "Display post titles in the series list"
+msgstr "Vis indlægstitler i serien liste"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
 msgid "Series Order Number"
 msgstr "Serien rækkenummer"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:255
+#: addons/post-list-box/classes/PostListBoxFields.php:265
 msgid "Show the series order number next to each post title."
 msgstr "Vis serien rækkenummer ved siden af hver indlægstitel."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:260
+#: addons/post-list-box/classes/PostListBoxFields.php:270
 msgid "Series Order Number Position"
 msgstr "Serien rækkenummer position"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:264
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Before the title"
 msgstr "Før titlen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:265
+#: addons/post-list-box/classes/PostListBoxFields.php:275
 msgid "After the title"
 msgstr "Efter titlen"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:269
+#: addons/post-list-box/classes/PostListBoxFields.php:279
 msgid "Choose where the order number appears relative to the title."
 msgstr "Vælg hvor rækkenummeret vises i forhold til titlen."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:274
+#: addons/post-list-box/classes/PostListBoxFields.php:284
 msgid "Post Title Color"
 msgstr "Indlægstitel farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:283
+#: addons/post-list-box/classes/PostListBoxFields.php:289
+msgid "Choose the color of post titles"
+msgstr "Vælg farven på indlægstitler"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Post Title Font Size (px)"
 msgstr "Indlægstitel skrifttype størrelse (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:294
+#: addons/post-list-box/classes/PostListBoxFields.php:301
+msgid "Set the font size of post titles in pixels"
+msgstr "Indstil skrifttypestørrelsen på indlægstitler i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306
 msgid "Show Post Excerpt"
 msgstr "Vis indlæg uddrag"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:302
+#: addons/post-list-box/classes/PostListBoxFields.php:311
+msgid "Display the excerpt for each post"
+msgstr "Vis uddraget for hvert indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315
 msgid "Excerpt Length (words)"
 msgstr "Uddrag Længde (ord)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:314
+#: addons/post-list-box/classes/PostListBoxFields.php:322
+msgid "Set the maximum excerpt length in words"
+msgstr "Indstil den maksimale længde af uddraget i ord"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328
 msgid "Excerpt Color"
 msgstr "Uddrag Farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:324
+#: addons/post-list-box/classes/PostListBoxFields.php:333
+msgid "Choose the color of post excerpts"
+msgstr "Vælg farven på indlægsuddrag"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339
 msgid "Show Post Summary"
 msgstr "Vis Indlæg Resumé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Display a summary generated from each post"
+msgstr "Vis et resumé genereret fra hvert indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348
 msgid "Summary Length (words)"
 msgstr "Resumé Længde (ord)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:344
+#: addons/post-list-box/classes/PostListBoxFields.php:355
+msgid "Set the maximum summary length in words"
+msgstr "Indstil den maksimale længde af resuméet i ord"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361
 msgid "Summary Color"
 msgstr "Resumé Farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:366
+msgid "Choose the color of post summaries"
+msgstr "Vælg farven på indlægsresuméerne"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Author"
 msgstr "Vis Indlæg Forfatter"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:362
+#: addons/post-list-box/classes/PostListBoxFields.php:377
+msgid "Display the author of each post"
+msgstr "Vis forfatteren af hvert indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381
 msgid "Post Author Color"
 msgstr "Indlæg Forfatter Farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:372
+#: addons/post-list-box/classes/PostListBoxFields.php:386
+msgid "Choose the color of post authors"
+msgstr "Vælg farven på indlægsforfatterne"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392
 msgid "Show Post Date"
 msgstr "Vis Indlæg Dato"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:380
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+msgid "Display the date of each post"
+msgstr "Vis datoen for hvert indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 msgid "Post Date Color"
 msgstr "Indlæg Dato Farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:401
-#: addons/post-navigation/includes/class-fields.php:169
-#: addons/post-navigation/includes/class-fields.php:284
-#: addons/post-navigation/includes/class-fields.php:412
+#: addons/post-list-box/classes/PostListBoxFields.php:406
+msgid "Choose the color of post dates"
+msgstr "Vælg farven på indlægsdatoerne"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415
 msgid "Show Featured Image"
 msgstr "Vis Fremhævet Billede"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:408
+#: addons/post-list-box/classes/PostListBoxFields.php:428
+msgid "Display the featured image for each post"
+msgstr "Vis det fremhævede billede for hvert indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431
 msgid "Featured Image Width (px)"
 msgstr "Fremhævet Billede Bredde (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:415
-#: addons/post-navigation/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:309
-#: addons/post-navigation/includes/class-fields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
 msgid "Width of the featured image in pixels"
 msgstr "Bredden af det fremhævede billede i pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:420
+#: addons/post-list-box/classes/PostListBoxFields.php:443
 msgid "Featured Image Height (px)"
 msgstr "Fremhævet Billede Højde (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:427
-#: addons/post-navigation/includes/class-fields.php:202
-#: addons/post-navigation/includes/class-fields.php:317
-#: addons/post-navigation/includes/class-fields.php:445
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448
 msgid "Height of the featured image in pixels"
 msgstr "Højden af det fremhævede billede i pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:432
+#: addons/post-list-box/classes/PostListBoxFields.php:455
 msgid "Fallback Featured Image"
 msgstr "Fallback Fremhævet Billede"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:460
 msgid "Image to display when a post does not have a featured image"
 msgstr "Billede der vises, når et indlæg ikke har et fremhævet billede"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:477
 msgid "Post Padding (px)"
 msgstr "Indlæg Polstring (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Set the inner spacing for each post item in pixels"
+msgstr "Indstil den indvendige afstand for hvert indlægs element i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
 msgstr "Indlæg Kant Bredde (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:494
+msgid "Set the border width for each post item in pixels"
+msgstr "Indstil grænsebredden for hvert indlægs element i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
 msgstr "Indlæg Kant Farve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:479
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+msgid "Choose the border color for each post item"
+msgstr "Vælg grænsefarven for hvert indlægs element"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505
 msgid "Post Background Color"
 msgstr "Indlæg Baggrundsfarve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Background color for the post list container"
 msgstr "Baggrundsfarve for postliste-containeren"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:498
+#: addons/post-list-box/classes/PostListBoxFields.php:524
 msgid "Layout Style"
 msgstr "Layoutstil"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
+#: addons/post-list-box/classes/PostListBoxFields.php:528
 #: inc/settings/tab-legacy.php:29
 msgid "List"
 msgstr "Liste"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:503
+#: addons/post-list-box/classes/PostListBoxFields.php:529
 #: inc/settings/tab-legacy.php:28
 msgid "Grid"
 msgstr "Gitter"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:510
+#: addons/post-list-box/classes/PostListBoxFields.php:533
+msgid "Choose the layout style for the post list"
+msgstr "Vælg layoutstilen for indlægslisten"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537
 msgid "Columns"
 msgstr "Kolonner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:541
 msgid "2 Columns"
 msgstr "2 Kolonner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:515
+#: addons/post-list-box/classes/PostListBoxFields.php:542
 msgid "3 Columns"
 msgstr "3 Kolonner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 msgid "4 Columns"
 msgstr "4 Kolonner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:517
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "6 Columns"
 msgstr "6 Kolonner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:548
+msgid "Choose the number of columns in the grid layout"
+msgstr "Vælg antallet af kolonner i grid-layoutet"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554
 msgid "Order By"
 msgstr "Orden efter"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:530
+#: addons/post-list-box/classes/PostListBoxFields.php:558
 msgid "Date"
 msgstr "Dato"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:559
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Titel"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/post-list-box/classes/PostListBoxFields.php:560
 #: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826
-#: orgSeries-admin.php:369
-#: orgSeries-manage.php:195
-#: orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:750
+#: addons/publisher/series_issue_manager.php:825
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229
 msgid "Series Order"
 msgstr "Serieorden"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:539
-#: orgSeries-manage.php:51
-#: orgSeries-manage.php:227
+#: addons/post-list-box/classes/PostListBoxFields.php:564
+msgid "Choose the field used to sort posts"
+msgstr "Vælg feltet der bruges til at sortere indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252
 msgid "Order"
 msgstr "Orden"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:543
+#: addons/post-list-box/classes/PostListBoxFields.php:572
 #: inc/settings/tab-legacy.php:106
-#: orgSeries-widgets.php:320
+#: orgSeries-widgets.php:326
 msgid "Ascending"
 msgstr "Stigende"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
+#: addons/post-list-box/classes/PostListBoxFields.php:573
 #: inc/settings/tab-legacy.php:107
-#: orgSeries-widgets.php:319
+#: orgSeries-widgets.php:325
 msgid "Descending"
 msgstr "Faldende"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:551
+#: addons/post-list-box/classes/PostListBoxFields.php:577
+msgid "Choose the direction in which posts are sorted"
+msgstr "Vælg retningen hvori indlæg sorteres"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581
 msgid "Gap Between Items (px)"
 msgstr "Mellemrum mellem emner (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:561
+#: addons/post-list-box/classes/PostListBoxFields.php:588
+msgid "Set the space between post items in pixels"
+msgstr "Indstil pladsen mellem indlægs elementer i pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592
 msgid "Post List Box Location"
 msgstr "Placering af postlisteboks"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:601
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Vælg hvor postlisteboksen skal vises i forhold til indholdet"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:574
+#: addons/post-list-box/classes/PostListBoxFields.php:605
 msgid "Maximum number of items"
 msgstr "Maksimalt antal emner"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:611
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
@@ -781,25 +925,37 @@ msgstr ""
 "Begræns antallet af indlæg vist i serien liste. Lad være tomt for ingen "
 "grænse. Admin forhåndsvisningen er begrænset til 4 indlæg."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:595
+#: addons/post-list-box/classes/PostListBoxFields.php:626
 msgid "Highlight Current Post"
 msgstr "Fremhæv nuværende indlæg"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:600
+#: addons/post-list-box/classes/PostListBoxFields.php:631
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "Fremhæv det nuværende indlæg, når du ser et specifikt serieindlæg"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:603
+#: addons/post-list-box/classes/PostListBoxFields.php:634
 msgid "Current Post Background Color"
 msgstr "Nuværende Indlæg Baggrundsfarve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:610
+#: addons/post-list-box/classes/PostListBoxFields.php:639
+msgid "Choose the background color for the current post"
+msgstr "Vælg baggrundsfarven for det aktuelle indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642
 msgid "Current Post Border Color"
 msgstr "Nuværende Indlæg Kantfarve"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:617
+#: addons/post-list-box/classes/PostListBoxFields.php:647
+msgid "Choose the border color for the current post"
+msgstr "Vælg grænsefarven for det aktuelle indlæg"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650
 msgid "Current Post Text Color"
 msgstr "Nuværende Indlæg Tekstfarve"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:655
+msgid "Choose the text color for the current post"
+msgstr "Vælg tekstfarven for det aktuelle indlæg"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
@@ -908,7 +1064,7 @@ msgstr "Fejl ved indlæsning af forhåndsvisning."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
+#: orgSeries-manage.php:289
 msgid "Select Image"
 msgstr "Vælg billede"
 
@@ -1065,16 +1221,16 @@ msgstr "Seriens startside"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
-#: addons/post-navigation/includes/class-fields.php:144
-#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
 msgstr "Forrige"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
-#: addons/post-navigation/includes/class-fields.php:259
-#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
 msgstr "Næste"
@@ -1128,334 +1284,386 @@ msgstr "Element"
 msgid "Include Series Title"
 msgstr "Inkluder Serie Titel"
 
-#: addons/post-navigation/includes/class-fields.php:96
+#: addons/post-navigation/includes/class-fields.php:94
+msgid "Display the series title above the navigation"
+msgstr "Vis serienavnet over navigationen"
+
+#: addons/post-navigation/includes/class-fields.php:97
 msgid "Link Series Title"
 msgstr "Link Serie Titel"
 
-#: addons/post-navigation/includes/class-fields.php:101
+#: addons/post-navigation/includes/class-fields.php:102
 msgid "Link the series title to the series archive page"
 msgstr "Link seriens titel til seriearkiv siden"
 
-#: addons/post-navigation/includes/class-fields.php:106
+#: addons/post-navigation/includes/class-fields.php:107
 msgid "Series Title Alignment"
 msgstr "Serie Titel Justering"
 
-#: addons/post-navigation/includes/class-fields.php:110
-#: addons/post-navigation/includes/class-fields.php:181
-#: addons/post-navigation/includes/class-fields.php:232
-#: addons/post-navigation/includes/class-fields.php:296
-#: addons/post-navigation/includes/class-fields.php:424
+#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427
 msgid "Left"
 msgstr "Venstre"
 
-#: addons/post-navigation/includes/class-fields.php:111, fuzzy
+#: addons/post-navigation/includes/class-fields.php:112, fuzzy
 msgid "Center"
 msgstr "Center"
 
-#: addons/post-navigation/includes/class-fields.php:112
-#: addons/post-navigation/includes/class-fields.php:182
-#: addons/post-navigation/includes/class-fields.php:233
-#: addons/post-navigation/includes/class-fields.php:297
-#: addons/post-navigation/includes/class-fields.php:425
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428
 msgid "Right"
 msgstr "Højre"
 
-#: addons/post-navigation/includes/class-fields.php:118
+#: addons/post-navigation/includes/class-fields.php:117
+msgid "Choose the alignment of the series title"
+msgstr "Vælg justeringen af serienavnet"
+
+#: addons/post-navigation/includes/class-fields.php:120
 msgid "Series Title Color"
 msgstr "Serie Titel Farve"
 
 #: addons/post-navigation/includes/class-fields.php:125
+msgid "Choose the color of the series title"
+msgstr "Vælg farven på serienavnet"
+
+#: addons/post-navigation/includes/class-fields.php:128
 msgid "Hide When Single Post"
 msgstr "Skjul Når Enkelt Indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:130
+#: addons/post-navigation/includes/class-fields.php:133
 msgid "Do not display navigation if series has only one post"
 msgstr "Vis ikke navigation, hvis serien kun har ét indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:148
+#: addons/post-navigation/includes/class-fields.php:151
 msgid "Previous Navigation Type"
 msgstr "Tidligere Navigations Type"
 
-#: addons/post-navigation/includes/class-fields.php:152
-#: addons/post-navigation/includes/class-fields.php:267
-#: addons/post-navigation/includes/class-fields.php:382
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385
 msgid "None"
 msgstr "Ingen"
 
-#: addons/post-navigation/includes/class-fields.php:153
+#: addons/post-navigation/includes/class-fields.php:156
 msgid "Previous Post Title"
 msgstr "Tidligere indlægstitel"
 
-#: addons/post-navigation/includes/class-fields.php:154
-#: addons/post-navigation/includes/class-fields.php:269
-#: addons/post-navigation/includes/class-fields.php:384
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387
 msgid "Custom Label"
 msgstr "Brugerdefineret etiket"
 
-#: addons/post-navigation/includes/class-fields.php:158
+#: addons/post-navigation/includes/class-fields.php:161
 msgid "Choose how to display the previous navigation"
 msgstr "Vælg hvordan den tidligere navigation skal vises"
 
-#: addons/post-navigation/includes/class-fields.php:161
+#: addons/post-navigation/includes/class-fields.php:164
 msgid "Previous Label"
 msgstr "Tidligere etiket"
 
-#: addons/post-navigation/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:169
 msgid "Custom text for previous post link"
 msgstr "Brugerdefineret tekst til link til tidligere indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:174
+#: addons/post-navigation/includes/class-fields.php:177
 msgid "Display featured image for previous post"
 msgstr "Vis fremhævet billede for tidligere indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:177
-#: addons/post-navigation/includes/class-fields.php:292
-#: addons/post-navigation/includes/class-fields.php:420
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423
 msgid "Image Position"
 msgstr "Billedposition"
 
-#: addons/post-navigation/includes/class-fields.php:186
+#: addons/post-navigation/includes/class-fields.php:189
 msgid "Position of the featured image relative to the navigation"
 msgstr "Position af det fremhævede billede i forhold til navigationen"
 
-#: addons/post-navigation/includes/class-fields.php:189
-#: addons/post-navigation/includes/class-fields.php:304
-#: addons/post-navigation/includes/class-fields.php:432
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435
 msgid "Image Width (px)"
 msgstr "Bredde på billede (px)"
 
-#: addons/post-navigation/includes/class-fields.php:197
-#: addons/post-navigation/includes/class-fields.php:312
-#: addons/post-navigation/includes/class-fields.php:440
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443
 msgid "Image Height (px)"
 msgstr "Højde på billede (px)"
 
-#: addons/post-navigation/includes/class-fields.php:205
-#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323
 msgid "Show Arrow"
 msgstr "Vis pil"
 
-#: addons/post-navigation/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:213
 msgid "Display an arrow icon with the previous navigation"
 msgstr "Vis et pilikon med den tidligere navigation"
 
-#: addons/post-navigation/includes/class-fields.php:213
-#: addons/post-navigation/includes/class-fields.php:328
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331
 msgid "Arrow Type"
 msgstr "Piltype"
 
-#: addons/post-navigation/includes/class-fields.php:217
+#: addons/post-navigation/includes/class-fields.php:220
 msgid "Chevron Left (‹)"
 msgstr "Chevron venstre (‹)"
 
-#: addons/post-navigation/includes/class-fields.php:218
+#: addons/post-navigation/includes/class-fields.php:221
 msgid "Arrow Left (←)"
 msgstr "Pil venstre (←)"
 
-#: addons/post-navigation/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:222
 msgid "Double Chevron Left («)"
 msgstr "Dobbelt chevron venstre («)"
 
-#: addons/post-navigation/includes/class-fields.php:220
+#: addons/post-navigation/includes/class-fields.php:223
 msgid "Triangle Left (◄)"
 msgstr "Trekant venstre (◄)"
 
-#: addons/post-navigation/includes/class-fields.php:221
-#: addons/post-navigation/includes/class-fields.php:336
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339
 msgid "Custom Image"
 msgstr "Brugerdefineret billede"
 
-#: addons/post-navigation/includes/class-fields.php:225
-#: addons/post-navigation/includes/class-fields.php:340
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
 msgid "Choose the arrow icon style"
 msgstr "Vælg pilikon stil"
 
-#: addons/post-navigation/includes/class-fields.php:228
-#: addons/post-navigation/includes/class-fields.php:343
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346
 msgid "Arrow Position"
 msgstr "Pilposition"
 
-#: addons/post-navigation/includes/class-fields.php:237
+#: addons/post-navigation/includes/class-fields.php:240
 msgid "Position of the arrow relative to the navigation"
 msgstr "Pilens position i forhold til navigationen"
 
-#: addons/post-navigation/includes/class-fields.php:240
-#: addons/post-navigation/includes/class-fields.php:355
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358
 msgid "Arrow Size (px)"
 msgstr "Pilestørrelse (px)"
 
-#: addons/post-navigation/includes/class-fields.php:247
-#: addons/post-navigation/includes/class-fields.php:362
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
 msgid "Size of the arrow icon in pixels (applies to both width and height)"
 msgstr "Størrelsen på pilikonet i pixels (gælder både bredde og højde)"
 
-#: addons/post-navigation/includes/class-fields.php:250
-#: addons/post-navigation/includes/class-fields.php:365
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368
 msgid "Custom Arrow Image"
 msgstr "Brugerdefineret pilbillede"
 
-#: addons/post-navigation/includes/class-fields.php:255
-#: addons/post-navigation/includes/class-fields.php:370
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373
 msgid "Select custom arrow image from media library"
 msgstr "Vælg brugerdefineret pilbillede fra mediebiblioteket"
 
-#: addons/post-navigation/includes/class-fields.php:263
+#: addons/post-navigation/includes/class-fields.php:266
 msgid "Next Navigation Type"
 msgstr "Næste navigationstype"
 
-#: addons/post-navigation/includes/class-fields.php:268
+#: addons/post-navigation/includes/class-fields.php:271
 msgid "Next Post Title"
 msgstr "Næste indlægstitel"
 
-#: addons/post-navigation/includes/class-fields.php:273
+#: addons/post-navigation/includes/class-fields.php:276
 msgid "Choose how to display the next post link"
 msgstr "Vælg hvordan næste indlæg-linket skal vises"
 
-#: addons/post-navigation/includes/class-fields.php:276
+#: addons/post-navigation/includes/class-fields.php:279
 msgid "Next Label"
 msgstr "Næste label"
 
-#: addons/post-navigation/includes/class-fields.php:281
+#: addons/post-navigation/includes/class-fields.php:284
 msgid "Custom text for next post link"
 msgstr "Brugerdefineret tekst til næste indlæg-link"
 
-#: addons/post-navigation/includes/class-fields.php:289
+#: addons/post-navigation/includes/class-fields.php:292
 msgid "Display featured image for next post"
 msgstr "Vis udvalgt billede for næste indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:301
+#: addons/post-navigation/includes/class-fields.php:304
 msgid "Position of the featured image relative to navigation"
 msgstr "Position af det udvalgte billede i forhold til navigation"
 
-#: addons/post-navigation/includes/class-fields.php:325
+#: addons/post-navigation/includes/class-fields.php:328
 msgid "Display an arrow icon with the next navigation"
 msgstr "Vis et pilikon sammen med næste navigation"
 
-#: addons/post-navigation/includes/class-fields.php:332
+#: addons/post-navigation/includes/class-fields.php:335
 msgid "Chevron Right (›)"
 msgstr "Chevron højre (›)"
 
-#: addons/post-navigation/includes/class-fields.php:333
+#: addons/post-navigation/includes/class-fields.php:336
 msgid "Arrow Right (→)"
 msgstr "Pil højre (→)"
 
-#: addons/post-navigation/includes/class-fields.php:334
+#: addons/post-navigation/includes/class-fields.php:337
 msgid "Double Chevron Right (»)"
 msgstr "Dobbelt chevron højre (»)"
 
-#: addons/post-navigation/includes/class-fields.php:335
+#: addons/post-navigation/includes/class-fields.php:338
 msgid "Triangle Right (►)"
 msgstr "Trekant højre (►)"
 
-#: addons/post-navigation/includes/class-fields.php:347
+#: addons/post-navigation/includes/class-fields.php:350
 msgid "Left of Text"
 msgstr "Venstre for tekst"
 
-#: addons/post-navigation/includes/class-fields.php:348
+#: addons/post-navigation/includes/class-fields.php:351
 msgid "Right of Text"
 msgstr "Højre for tekst"
 
-#: addons/post-navigation/includes/class-fields.php:352
+#: addons/post-navigation/includes/class-fields.php:355
 msgid "Position of the arrow relative to the link text"
 msgstr "Pilen position i forhold til linkteksten"
 
-#: addons/post-navigation/includes/class-fields.php:374
+#: addons/post-navigation/includes/class-fields.php:377
 msgid "First"
 msgstr "Første"
 
-#: addons/post-navigation/includes/class-fields.php:378
+#: addons/post-navigation/includes/class-fields.php:381
 msgid "First Navigation Type"
 msgstr "Første navigations type"
 
-#: addons/post-navigation/includes/class-fields.php:383
+#: addons/post-navigation/includes/class-fields.php:386
 msgid "First Post Title"
 msgstr "Første indlæg titel"
 
-#: addons/post-navigation/includes/class-fields.php:388
+#: addons/post-navigation/includes/class-fields.php:391
 msgid "Choose how to display the first navigation"
 msgstr "Vælg hvordan første navigation skal vises"
 
-#: addons/post-navigation/includes/class-fields.php:391
+#: addons/post-navigation/includes/class-fields.php:394
 msgid "First Label"
 msgstr "Første etiket"
 
-#: addons/post-navigation/includes/class-fields.php:395
+#: addons/post-navigation/includes/class-fields.php:398
 msgid "Go to First"
 msgstr "Gå til første"
 
-#: addons/post-navigation/includes/class-fields.php:396
+#: addons/post-navigation/includes/class-fields.php:399
 msgid "Custom text for first navigation"
 msgstr "Brugerdefineret tekst for første navigation"
 
-#: addons/post-navigation/includes/class-fields.php:399
+#: addons/post-navigation/includes/class-fields.php:402
 msgid "First Navigation Position"
 msgstr "Første navigationsposition"
 
-#: addons/post-navigation/includes/class-fields.php:403
+#: addons/post-navigation/includes/class-fields.php:406
 msgid "Left (First → Previous → Next)"
 msgstr "Venstre (Første → Forrige → Næste)"
 
-#: addons/post-navigation/includes/class-fields.php:404
+#: addons/post-navigation/includes/class-fields.php:407
 msgid "Center (Previous → First → Next)"
 msgstr "Center (Forrige → Første → Næste)"
 
-#: addons/post-navigation/includes/class-fields.php:405
+#: addons/post-navigation/includes/class-fields.php:408
 msgid "Right (Previous → Next → First)"
 msgstr "Højre (Forrige → Næste → Første)"
 
-#: addons/post-navigation/includes/class-fields.php:409
+#: addons/post-navigation/includes/class-fields.php:412
 msgid "Position of the first/series home link in navigation"
 msgstr "Positionen af hjemme-linket for første/serie i navigation"
 
-#: addons/post-navigation/includes/class-fields.php:417
+#: addons/post-navigation/includes/class-fields.php:420
 msgid "Display featured image for first post"
 msgstr "Vis fremhævet billede for første indlæg"
 
-#: addons/post-navigation/includes/class-fields.php:429
+#: addons/post-navigation/includes/class-fields.php:432
 msgid "Position of the featured image relative to the link text"
 msgstr "Position af det fremhævede billede i forhold til link-teksten"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:452
 msgid "Color"
 msgstr "Farve"
 
-#: addons/post-navigation/includes/class-fields.php:520
+#: addons/post-navigation/includes/class-fields.php:461
+msgid "Choose the color of navigation link text"
+msgstr "Vælg farven på navigationslinktekst"
+
+#: addons/post-navigation/includes/class-fields.php:469
+msgid "Choose the background color of navigation links"
+msgstr "Vælg baggrundsfarven på navigationslinks"
+
+#: addons/post-navigation/includes/class-fields.php:482
+msgid "Choose the border color of navigation links"
+msgstr "Vælg kantfarven på navigationslinks"
+
+#: addons/post-navigation/includes/class-fields.php:492
+msgid "Set the border width of navigation links in pixels"
+msgstr "Indstil kantbredden på navigationslinks i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Set the border radius of navigation links in pixels"
+msgstr "Indstil kantradius på navigationslinks i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:517
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "Indstil den indre afstand omkring navigationslinks i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "Indstil den ydre afstand omkring navigationslinks i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:530
 msgid "Gap Between Links (px)"
 msgstr "Afstand mellem links (px)"
 
-#: addons/post-navigation/includes/class-fields.php:527
+#: addons/post-navigation/includes/class-fields.php:537
 msgid "Space between navigation links"
 msgstr "Plads mellem navigationslinks"
 
-#: addons/post-navigation/includes/class-fields.php:540
+#: addons/post-navigation/includes/class-fields.php:550
 msgid "Container Style"
 msgstr "Container stil"
 
-#: addons/post-navigation/includes/class-fields.php:544
+#: addons/post-navigation/includes/class-fields.php:554
 msgid "Container Background Color"
 msgstr "Container baggrundsfarve"
 
-#: addons/post-navigation/includes/class-fields.php:549
+#: addons/post-navigation/includes/class-fields.php:559
 msgid "Background color for the navigation container"
 msgstr "Baggrundsfarve for navigationscontaineren"
 
-#: addons/post-navigation/includes/class-fields.php:552
+#: addons/post-navigation/includes/class-fields.php:562
 msgid "Container Border Color"
 msgstr "Container kantfarve"
 
-#: addons/post-navigation/includes/class-fields.php:559
+#: addons/post-navigation/includes/class-fields.php:567
+msgid "Choose the border color of the navigation container"
+msgstr "Vælg kantfarven på navigationscontaineren"
+
+#: addons/post-navigation/includes/class-fields.php:570
 msgid "Container Border Width (px)"
 msgstr "Container kantbredde (px)"
 
-#: addons/post-navigation/includes/class-fields.php:568
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Set the border width of the navigation container in pixels"
+msgstr "Indstil kantbredden på navigationscontaineren i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:580
 msgid "Container Border Radius (px)"
 msgstr "Container hjørneradius (px)"
 
-#: addons/post-navigation/includes/class-fields.php:577
+#: addons/post-navigation/includes/class-fields.php:587
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "Indstil kantradius på navigationscontaineren i pixels"
+
+#: addons/post-navigation/includes/class-fields.php:590
 msgid "Container Padding (px)"
 msgstr "Container polstring (px)"
 
-#: addons/post-navigation/includes/class-fields.php:584
+#: addons/post-navigation/includes/class-fields.php:597
 msgid "Inner spacing for the container"
 msgstr "Indvendig afstand for containeren"
 
@@ -1552,7 +1760,7 @@ msgstr "Aktuel del"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
+#: addons/publisher/series-publish-post-table.php:272
 msgid "Edit"
 msgstr "Rediger"
 
@@ -1562,7 +1770,7 @@ msgstr "Vis"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
+#: addons/publisher/series-publish-post-table.php:289
 msgid "Trash"
 msgstr "Papirkurv"
 
@@ -1576,7 +1784,7 @@ msgstr "(Har i øjeblikket ikke noget delnummer)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
+#: addons/publisher/series-publish-post-table.php:424
 msgid "Preview"
 msgstr "Forhåndsvisning"
 
@@ -1589,16 +1797,16 @@ msgstr "Der er ingen upublicerede indlæg i denne serie."
 msgid "No Part Number"
 msgstr "Ingen delnummer"
 
-#: addons/publisher/series-publish-post-table.php:176
+#: addons/publisher/series-publish-post-table.php:178
 msgid "All Categories"
 msgstr "Alle kategorier"
 
-#: addons/publisher/series-publish-post-table.php:189
+#: addons/publisher/series-publish-post-table.php:191
 msgid "Filter"
 msgstr "Filtrer"
 
 #: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
+#: addons/publisher/series_issue_manager.php:499
 #: inc/settings/settings-validation.php:67
 msgid "Manage Series"
 msgstr "Administrer serier"
@@ -1608,8 +1816,8 @@ msgid "Series"
 msgstr "Serier"
 
 #: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
+#: addons/publisher/series_issue_manager.php:694
+#: addons/publisher/series_issue_manager.php:740
 msgid "Publish Series"
 msgstr "Udgiv serie"
 
@@ -1654,65 +1862,65 @@ msgstr ""
 "Når denne indstilling er aktiveret, forbliver alle indlæg, du tildeler "
 "denne serie, ikke offentliggjorte, indtil du offentliggør hele serien."
 
-#: addons/publisher/series_issue_manager.php:290
+#: addons/publisher/series_issue_manager.php:289
 msgid "The posts in your series were successfully unpublished."
 msgstr "Indlæggene i din serie blev succesfuldt gjort ikke offentliggjorte."
 
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
+#: addons/publisher/series_issue_manager.php:298
+#: addons/publisher/series_issue_manager.php:415
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Tillykke. Din serierækkefølge blev opdateret succesfuldt."
 
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
+#: addons/publisher/series_issue_manager.php:306
+#: addons/publisher/series_issue_manager.php:343
 msgid "Congratulations. Your posts were published successfully."
 msgstr "Tillykke. Dine indlæg blev offentliggjort succesfuldt."
 
-#: addons/publisher/series_issue_manager.php:316
+#: addons/publisher/series_issue_manager.php:315
 msgid "Post moved to the Trash."
 msgstr "Indlæg flyttet til papirkurven."
 
-#: addons/publisher/series_issue_manager.php:339
+#: addons/publisher/series_issue_manager.php:338
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "Tillykke. Dine indlæg blev planlagt succesfuldt."
 
-#: addons/publisher/series_issue_manager.php:499
+#: addons/publisher/series_issue_manager.php:498
 msgid "Manage Series Issues"
 msgstr "Administrer serieproblemer"
 
-#: addons/publisher/series_issue_manager.php:528
+#: addons/publisher/series_issue_manager.php:527
 msgid "Number of items per page"
 msgstr "Antal varer pr. side"
 
-#: addons/publisher/series_issue_manager.php:643
+#: addons/publisher/series_issue_manager.php:642
 msgid "Publishing Series:"
 msgstr "Udgiver serier:"
 
-#: addons/publisher/series_issue_manager.php:649
+#: addons/publisher/series_issue_manager.php:648
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Søgeresultater for &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:664
+#: addons/publisher/series_issue_manager.php:663
 msgid "Search"
 msgstr "Søg"
 
-#: addons/publisher/series_issue_manager.php:709
+#: addons/publisher/series_issue_manager.php:708
 msgid "Publication Date/Time:"
 msgstr "Udgivelsesdato/-tid:"
 
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
+#: addons/publisher/series_issue_manager.php:764
+#: addons/publisher/series_issue_manager.php:839
+#: addons/publisher/series_issue_manager.php:938
 msgid "Update Order"
 msgstr "Opdater rækkefølge"
 
-#: addons/publisher/series_issue_manager.php:792
+#: addons/publisher/series_issue_manager.php:791
 msgid "Series Order:"
 msgstr "Serierækkefølge:"
 
-#: addons/publisher/series_issue_manager.php:795
+#: addons/publisher/series_issue_manager.php:794
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
@@ -1720,11 +1928,11 @@ msgstr ""
 "Træk postnavnene ind i den rækkefølge, du ønsker, de skal være i serien, "
 "fra den første del til den sidste del."
 
-#: addons/publisher/series_issue_manager.php:867
+#: addons/publisher/series_issue_manager.php:866
 msgid "Unpublished posts in series:"
 msgstr "Upublicerede indlæg i serien:"
 
-#: addons/publisher/series_issue_manager.php:870
+#: addons/publisher/series_issue_manager.php:869
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -1732,15 +1940,15 @@ msgstr ""
 "Når disse indlæg er offentliggjort, vil de blive tilføjet efter det sidste "
 "aktuelle indlæg i serien."
 
-#: addons/publisher/series_issue_manager.php:901
+#: addons/publisher/series_issue_manager.php:900
 msgid "Unpublished Posts"
 msgstr "Upublicerede indlæg"
 
-#: addons/publisher/series_issue_manager.php:915
+#: addons/publisher/series_issue_manager.php:914
 msgid "Publish Unpublished Posts"
 msgstr "Offentliggør upublicerede indlæg"
 
-#: addons/publisher/series_issue_manager.php:925
+#: addons/publisher/series_issue_manager.php:924
 msgid "Unpublished Series Order"
 msgstr "Upubliceret serien rækkefølge"
 
@@ -1767,17 +1975,17 @@ msgstr ""
 "værdier, når plugin'et kører."
 
 #: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Dette vil blive erstattet med serienikonet for en serie."
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Dette vil blive erstattet med den fremhævede billede for en serie."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
-"Samt som %series_icon% bortset fra at serienikonet vil være linket til "
-"seriesiden"
+"Samme som %series_icon% bortset fra at den fremhævede billede for serien "
+"vil være linket til seriesiden"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -2192,7 +2400,7 @@ msgstr "Serie bestillingsmetode"
 #: inc/settings/tab-legacy.php:215
 #: inc/settings/tab-legacy.php:221
 #: orgSeries-setup.php:485
-#: orgSeries-widgets.php:112
+#: orgSeries-widgets.php:115
 msgid "Series Table of Contents"
 msgstr "Serie indholdsfortegnelse"
 
@@ -2222,20 +2430,24 @@ msgid "Series Table of Contents Title:"
 msgstr "Serie indholdsfortegnelse titel:"
 
 #: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Serie ikoner"
+msgid "Series Featured Images"
+msgstr "Fremhævede billeder for serier"
 
 #: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Bredde for ikon på serien indholdsfortegnelse side (i pixels)"
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Bredde for fremhævet billede på serien indholdsfortegnelse side (i pixels)"
 
 #: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Bredde for ikon på en indlægsside (i pixels)."
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Bredde for fremhævet billede på en indlægsside (i pixels)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Bredde for ikon, hvis den vises via den seneste serie skabelon (i pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Bredde for fremhævet billede hvis vist via den nyeste serietemplate (i "
+"pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2548,8 +2760,8 @@ msgid "Plugin Template Display Options:"
 msgstr "Plugin Skabelon Visningsmuligheder:"
 
 #: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Vis Series Ikon"
+msgid "Show Series Featured Image"
+msgstr "Vis fremhævet billede for serien"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2610,6 +2822,37 @@ msgstr ""
 msgid "Sorry, no results found."
 msgstr "Beklager, ingen resultater fundet."
 
+#: inc/welcome/welcome-panel.php:141
+msgid "Dismiss this panel"
+msgstr "Afvis dette panel"
+
+#: inc/welcome/welcome-panel.php:160
+msgid "Welcome to PublishPress Series"
+msgstr "Velkommen til PublishPress Series"
+
+#: inc/welcome/welcome-panel.php:163
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr ""
+"En serie grupperer dine indlæg sammen og viser dine læsere læse "
+"rækkefølgen. Opret din første serie med formularen på denne side, og tilføj "
+"derefter indlæg til den."
+
+#: inc/welcome/welcome-panel.php:168
+msgid "Create a series"
+msgstr "Opret en serie"
+
+#: inc/welcome/welcome-panel.php:172
+msgid "View Documentation"
+msgstr "Se dokumentation"
+
+#: inc/welcome/welcome-panel.php:177
+#: includes-core/PPSeriesCoreAdmin.php:41
+msgid "Upgrade to Pro"
+msgstr "Opgrader til Pro"
+
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
 msgid ""
@@ -2619,79 +2862,79 @@ msgstr ""
 "Du bruger PublishPress Series Gratis. Pro versionen har flere funktioner og "
 "support. %sOpgrader til Pro%s"
 
-#: includes-core/PPSeriesCoreAdmin.php:35
-msgid "Upgrade to Pro"
-msgstr "Opgrader til Pro"
-
-#: includes-core/PPSeriesCoreAdmin.php:58
+#: includes-core/PPSeriesCoreAdmin.php:64
 msgid "Need PublishPress Series Support?"
 msgstr "Har du brug for PublishPress Series Support?"
 
-#: includes-core/PPSeriesCoreAdmin.php:63
+#: includes-core/PPSeriesCoreAdmin.php:69
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Hvis du har brug for hjælp eller har en ny funktionsanmodning, så lad os "
 "vide det."
 
-#: includes-core/PPSeriesCoreAdmin.php:65
+#: includes-core/PPSeriesCoreAdmin.php:71
 msgid "Request Support"
 msgstr "Anmod om Support"
 
-#: includes-core/PPSeriesCoreAdmin.php:74
+#: includes-core/PPSeriesCoreAdmin.php:80
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Detaljeret dokumentation er også tilgængelig på plugin-webstedet."
 
-#: includes-core/PPSeriesCoreAdmin.php:76
+#: includes-core/PPSeriesCoreAdmin.php:82
 msgid "View Knowledge Base"
 msgstr "Se vidensbasen"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Der opstod en fejl"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:45
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s serie migreret til ny taxonomy"
 
-#: orgSeries-admin.php:175
+#: orgSeries-admin.php:129
+msgid "Custom Template"
+msgstr "Brugerdefineret skabelon"
+
+#: orgSeries-admin.php:151
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Hvis du kan lide %s, så giv os venligst en %s vurdering. Tak!"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162
 msgid "About PublishPress Series"
 msgstr "Om PublishPress Series"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162
 msgid "About"
 msgstr "Om"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163
 msgid "PublishPress Series Documentation"
 msgstr "PublishPress Series Dokumentation"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:164
 msgid "Contact the PublishPress team"
 msgstr "Kontakt PublishPress-teamet"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:164
 msgid "Contact"
 msgstr "Kontakt"
 
-#: orgSeries-admin.php:219
+#: orgSeries-admin.php:195
 msgid "Sorry but you don't have permission to add series"
 msgstr "Beklager, men du har ikke tilladelse til at tilføje serier"
 
-#: orgSeries-admin.php:230
+#: orgSeries-admin.php:206
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Navnet, du valgte, renser ikke korrekt. Prøv noget andet."
 
-#: orgSeries-admin.php:236
+#: orgSeries-admin.php:212
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -2699,23 +2942,23 @@ msgstr ""
 "Hmm... det ser ud til, at der allerede er en serie med det navn. Prøv noget "
 "andet"
 
-#: orgSeries-admin.php:359
+#: orgSeries-admin.php:335
 msgid "Not part of a series"
 msgstr "Ikke en del af en serie"
 
-#: orgSeries-admin.php:421
+#: orgSeries-admin.php:397
 msgid "Search series"
 msgstr "Søg serier"
 
-#: orgSeries-admin.php:436
+#: orgSeries-admin.php:412
 msgid "Series Part:"
 msgstr "Serie Del:"
 
-#: orgSeries-admin.php:443
+#: orgSeries-admin.php:419
 msgid "Post title in widget:"
 msgstr "Indlægstitel i widget:"
 
-#: orgSeries-admin.php:445
+#: orgSeries-admin.php:421
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -2723,39 +2966,53 @@ msgstr ""
 "En kort titel for dette indlæg, der vil blive brugt i Series-widgeten. Lad "
 "det være tomt for at bruge den fulde titel."
 
-#: orgSeries-admin.php:519
+#: orgSeries-admin.php:507
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Ingen delnummer)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:509
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Del %1$s af %2$s)"
 
-#: orgSeries-admin.php:525
+#: orgSeries-admin.php:513
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Ingen delnummer)"
 
-#: orgSeries-admin.php:531
+#: orgSeries-admin.php:519
 #: orgSeries-setup.php:270
 msgid "No Series"
 msgstr "Ingen serie"
 
-#: orgSeries-admin.php:552
+#: orgSeries-admin.php:540
 msgid "View all series"
 msgstr "Se alle serier"
 
-#: orgSeries-admin.php:561
+#: orgSeries-admin.php:549
 msgid "Manage All Series"
 msgstr "Administrer alle serier"
 
-#: orgSeries-manage.php:66
+#: orgSeries-icon.php:132
+msgid ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series kunne ikke gemme den fremhævede billede for serien. Den "
+"fremhævede billede blev ikke ændret."
+
+#: orgSeries-icon.php:136
+#. translators: %s: the error message reported by the database.
+#, php-format
+msgid "Database error: %s"
+msgstr "Databasefejl: %s"
+
+#: orgSeries-manage.php:67
 msgid "Term Order"
 msgstr "Term rækkefølge"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -2763,11 +3020,36 @@ msgstr ""
 "For at flytte et element, træk og slip rækken ved at \"klikke og holde\" "
 "den hvor som helst og flytte den til sin nye position."
 
-#: orgSeries-manage.php:196, fuzzy
+#: orgSeries-manage.php:152
+msgid "Series added."
+msgstr "Serie tilføjet."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157
+msgid "Series deleted."
+msgstr "Serie slettet."
+
+#: orgSeries-manage.php:154
+msgid "Series updated."
+msgstr "Serie opdateret."
+
+#: orgSeries-manage.php:155
+msgid "Series not added."
+msgstr "Serie ikke tilføjet."
+
+#: orgSeries-manage.php:156
+msgid "Series not updated."
+msgstr "Serie ikke opdateret."
+
+#: orgSeries-manage.php:219
+msgid "Posts"
+msgstr "Indlæg"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:233
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -2775,15 +3057,15 @@ msgstr ""
 "Termer er normalt sorteret alfabetisk, men du kan vælge din egen rækkefølge "
 "ved at indtaste et nummer (1 for første, osv.) i dette felt."
 
-#: orgSeries-manage.php:240
-msgid "Current series icon:"
-msgstr "Nuværende serieikon:"
+#: orgSeries-manage.php:265
+msgid "Current series featured image:"
+msgstr "Nuværende fremhævede billede for serien:"
 
-#: orgSeries-manage.php:246
-msgid "No icon currently"
-msgstr "Ingen ikon i øjeblikket"
+#: orgSeries-manage.php:271
+msgid "No featured image currently"
+msgstr "Ingen fremhævet billede i øjeblikket"
 
-#: orgSeries-manage.php:256
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -2791,31 +3073,31 @@ msgstr ""
 "Slette billede? (bemærk: der vil ikke være et billede knyttet til denne "
 "serie, hvis du vælger dette)"
 
-#: orgSeries-manage.php:261
-msgid "Series Icon Upload:"
-msgstr "Upload af serieikon:"
+#: orgSeries-manage.php:286
+msgid "Series featured image upload:"
+msgstr "Upload af fremhævet billede for serien:"
 
-#: orgSeries-manage.php:265
-msgid "Upload an image for the series."
-msgstr "Upload et billede til serien."
+#: orgSeries-manage.php:290
+msgid "Upload a featured image for the series."
+msgstr "Upload et fremhævet billede til serien."
 
-#: orgSeries-manage.php:280
+#: orgSeries-manage.php:305
 msgid "Invalid form data"
 msgstr "Ugyldige formularoplysninger"
 
-#: orgSeries-manage.php:290
+#: orgSeries-manage.php:315
 msgid "Invalid nonce, reload and try again"
 msgstr "Ugyldig nonce, opdater og prøv igen"
 
-#: orgSeries-manage.php:299
+#: orgSeries-manage.php:324
 msgid "Invalid taxonomy"
 msgstr "Ugyldig taksonomi"
 
-#: orgSeries-manage.php:305
+#: orgSeries-manage.php:330
 msgid "Not enough permission"
 msgstr "Ikke nok tilladelse"
 
-#: orgSeries-manage.php:309
+#: orgSeries-manage.php:334
 msgid "Updated successfully"
 msgstr "Opdateret med succes"
 
@@ -2880,12 +3162,12 @@ msgstr "Serie: "
 msgid "Posts from the series: "
 msgstr "Indlæg fra serien: "
 
-#: orgSeries-taxonomy.php:664
-#: orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:676
+#: orgSeries-taxonomy.php:705
 msgid "Series:"
 msgstr "Serie:"
 
-#: orgSeries-taxonomy.php:666
+#: orgSeries-taxonomy.php:678
 msgid "Part:"
 msgstr "Del:"
 
@@ -2907,16 +3189,16 @@ msgstr "Auto/Ingen"
 msgid "Use this to control the output of the latest series widget"
 msgstr "Brug dette til at styre outputtet af den nyeste serie widget"
 
-#: orgSeries-widgets.php:20
+#: orgSeries-widgets.php:23
 msgid "Most Recent Series"
 msgstr "Mest recente serie"
 
-#: orgSeries-widgets.php:73
-#: orgSeries-widgets.php:269
+#: orgSeries-widgets.php:76
+#: orgSeries-widgets.php:275
 msgid "Title:"
 msgstr "Titel:"
 
-#: orgSeries-widgets.php:79
+#: orgSeries-widgets.php:82
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a "
@@ -2925,124 +3207,124 @@ msgstr ""
 "Layoutet og indholdet af denne widget kan justeres via <a "
 "href=\"%s\">Seneste Serier</a> området."
 
-#: orgSeries-widgets.php:82
+#: orgSeries-widgets.php:85
 msgid "Hide series with no posts?"
 msgstr "Skjul serier uden indlæg?"
 
-#: orgSeries-widgets.php:85
-#: orgSeries-widgets.php:295
+#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:301
 msgid "Order by:"
 msgstr "Bestil efter:"
 
-#: orgSeries-widgets.php:87
+#: orgSeries-widgets.php:90
 msgid "Number of posts in Series"
 msgstr "Antal indlæg i Serien"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:91
 msgid "Name of Series"
 msgstr "Navn på Serien"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:92
 msgid "Series Slug"
 msgstr "Seriens Slug"
 
-#: orgSeries-widgets.php:90
+#: orgSeries-widgets.php:93
 msgid "When Series was Created"
 msgstr "Hvornår Serien blev oprettet"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:94
 msgid "Random"
 msgstr "Tilfældig"
 
-#: orgSeries-widgets.php:95
+#: orgSeries-widgets.php:98
 msgid "Number of series to display:"
 msgstr "Antal serier der skal vises:"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:102
 msgid "Display Order: "
 msgstr "Visningsrækkefølge: "
 
-#: orgSeries-widgets.php:100, fuzzy
+#: orgSeries-widgets.php:103, fuzzy
 msgid "ASC: "
 msgstr "ASC: "
 
-#: orgSeries-widgets.php:101, fuzzy
+#: orgSeries-widgets.php:104, fuzzy
 msgid "DESC: "
 msgstr "DESC: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:114
 msgid "Use this to display the Series Table of contents"
 msgstr "Brug dette til at vise Serien Indholdsfortegnelse"
 
-#: orgSeries-widgets.php:178
+#: orgSeries-widgets.php:184
 msgid "Select Series"
 msgstr "Vælg Serie"
 
-#: orgSeries-widgets.php:234
+#: orgSeries-widgets.php:240
 msgid "Other posts in series:"
 msgstr "Andre indlæg i serien:"
 
-#: orgSeries-widgets.php:274
+#: orgSeries-widgets.php:280
 msgid "Show Series Table Of Content"
 msgstr "Vis Serien Indholdsfortegnelse"
 
-#: orgSeries-widgets.php:279
+#: orgSeries-widgets.php:285
 msgid "Show Series Table Of Content as:"
 msgstr "Vis Serien Indholdsfortegnelse som:"
 
-#: orgSeries-widgets.php:280, fuzzy
+#: orgSeries-widgets.php:286, fuzzy
 msgid "Dropdown:"
 msgstr "Dropdown:"
 
-#: orgSeries-widgets.php:281
+#: orgSeries-widgets.php:287
 msgid "List:"
 msgstr "Liste:"
 
-#: orgSeries-widgets.php:285
+#: orgSeries-widgets.php:291
 msgid "Show post count:"
 msgstr "Vis indlægstælling:"
 
-#: orgSeries-widgets.php:290
+#: orgSeries-widgets.php:296
 msgid "Hide empty series:"
 msgstr "Skjul tomme serier:"
 
-#: orgSeries-widgets.php:299, fuzzy
+#: orgSeries-widgets.php:305, fuzzy
 msgid "name"
 msgstr "name"
 
-#: orgSeries-widgets.php:300, fuzzy
+#: orgSeries-widgets.php:306, fuzzy
 msgid "count"
 msgstr "count"
 
-#: orgSeries-widgets.php:301, fuzzy
+#: orgSeries-widgets.php:307, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:302, fuzzy
+#: orgSeries-widgets.php:308, fuzzy
 msgid "series id"
 msgstr "series id"
 
-#: orgSeries-widgets.php:315
+#: orgSeries-widgets.php:321
 msgid "Order:"
 msgstr "Ordre:"
 
-#: orgSeries-widgets.php:333
+#: orgSeries-widgets.php:339
 msgid "Exclude series:"
 msgstr "Ekskluder serier:"
 
-#: orgSeries-widgets.php:348
+#: orgSeries-widgets.php:354
 msgid "Include series:"
 msgstr "Inkluder serier:"
 
-#: orgSeries-widgets.php:363
+#: orgSeries-widgets.php:369
 msgid "Number of Series:"
 msgstr "Antal serier:"
 
-#: orgSeries-widgets.php:368, fuzzy
+#: orgSeries-widgets.php:374, fuzzy
 msgid "Offset:"
 msgstr "Offset:"
 
-#: orgSeries-widgets.php:370
+#: orgSeries-widgets.php:376
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3050,11 +3332,11 @@ msgstr ""
 "Du kan vælge offset for antallet af serier (nyttigt for paging). Ingen "
 "offset hvis venstre blank"
 
-#: orgSeries-widgets.php:374
+#: orgSeries-widgets.php:380
 msgid "Search:"
 msgstr "Søg:"
 
-#: orgSeries-widgets.php:376
+#: orgSeries-widgets.php:382
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
@@ -3062,23 +3344,23 @@ msgstr ""
 "Du kan returnere enhver serie, der matcher denne søgestreng (matchet mod "
 "serienavne)"
 
-#: orgSeries-widgets.php:380
+#: orgSeries-widgets.php:386
 msgid "Show other posts in the current series:"
 msgstr "Vis andre indlæg i den aktuelle serie:"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:403
 msgid "Current series"
 msgstr "Aktuel serie"
 
-#: orgSeries-widgets.php:416
+#: orgSeries-widgets.php:422
 msgid "Series widget title:"
 msgstr "Seriewidget titel:"
 
-#: orgSeries-widgets.php:418
+#: orgSeries-widgets.php:424
 msgid "This text will display above other posts in this series."
 msgstr "Denne tekst vil blive vist over andre indlæg i denne serie."
 
-#: orgSeries.php:164
+#: orgSeries.php:175
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Denne plugin kan slettes.</strong>"
 
@@ -3264,17 +3546,17 @@ msgctxt "custom layout post type menu name"
 msgid "%2$s"
 msgstr "%2$s"
 
-#: orgSeries-admin.php:478
+#: orgSeries-admin.php:456
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:491
+#: orgSeries-admin.php:479
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-admin.php:571
+#: orgSeries-admin.php:559
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -3298,17 +3580,17 @@ msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "Denne post er del %series_part% af %total_posts_in_series% i serien "
 
-#: orgSeries-taxonomy.php:381
+#: orgSeries-taxonomy.php:393
 msgctxt "series list title"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-widgets.php:233
+#: orgSeries-widgets.php:239
 msgctxt "widget title default"
 msgid "Series"
 msgstr "Serie"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:392
 msgctxt "widget section label"
 msgid "Series"
 msgstr "Serie"

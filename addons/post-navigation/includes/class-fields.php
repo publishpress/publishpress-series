@@ -91,6 +91,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'general',
                 'sanitize' => 'absint',
                 'default'  => 0,
+                'description' => __('Display the series title above the navigation', 'organize-series'),
             ],
             'link_series_title' => [
                 'label'    => __('Link Series Title', 'organize-series'),
@@ -113,6 +114,7 @@ class PPS_Series_Post_Navigation_Fields
                 ],
                 'sanitize' => 'sanitize_text_field',
                 'default'  => 'center',
+                'description' => __('Choose the alignment of the series title', 'organize-series'),
             ],
             'series_title_color' => [
                 'label'    => __('Series Title Color', 'organize-series'),
@@ -120,6 +122,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'general',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#2971B1',
+                'description' => __('Choose the color of the series title', 'organize-series'),
             ],
             'hide_when_single_post' => [
                 'label'    => __('Hide When Single Post', 'organize-series'),
@@ -455,6 +458,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#0073aa',
+                'description' => __('Choose the color of navigation link text', 'organize-series'),
             ],
             'link_background_color' => [
                 'label'    => __('Background Color', 'organize-series'),
@@ -462,6 +466,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '',
+                'description' => __('Choose the background color of navigation links', 'organize-series'),
             ],
             'border_separator' => [
                 'type'  => 'category_separator',
@@ -474,6 +479,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'item',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#dddddd',
+                'description' => __('Choose the border color of navigation links', 'organize-series'),
             ],
             'border_width' => [
                 'label'    => __('Border Width (px)', 'organize-series'),
@@ -483,6 +489,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 10,
                 'sanitize' => 'absint',
                 'default'  => 1,
+                'description' => __('Set the border width of navigation links in pixels', 'organize-series'),
             ],
             'border_radius' => [
                 'label'    => __('Border Radius (px)', 'organize-series'),
@@ -492,6 +499,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 60,
                 'sanitize' => 'absint',
                 'default'  => 4,
+                'description' => __('Set the border radius of navigation links in pixels', 'organize-series'),
             ],
             'spacing_separator' => [
                 'type'  => 'category_separator',
@@ -506,6 +514,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 100,
                 'sanitize' => 'absint',
                 'default'  => 8,
+                'description' => __('Set the inner spacing around navigation links in pixels', 'organize-series'),
             ],
             'margin' => [
                 'label'    => __('Margin (px)', 'organize-series'),
@@ -515,6 +524,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 100,
                 'sanitize' => 'absint',
                 'default'  => 0,
+                'description' => __('Set the outer spacing around navigation links in pixels', 'organize-series'),
             ],
             'gap_between_links' => [
                 'label'    => __('Gap Between Links (px)', 'organize-series'),
@@ -554,6 +564,7 @@ class PPS_Series_Post_Navigation_Fields
                 'tab'      => 'layout',
                 'sanitize' => 'sanitize_hex_color',
                 'default'  => '#dddddd',
+                'description' => __('Choose the border color of the navigation container', 'organize-series'),
             ],
             'container_border_width' => [
                 'label'    => __('Container Border Width (px)', 'organize-series'),
@@ -563,6 +574,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 10,
                 'sanitize' => 'absint',
                 'default'  => 0,
+                'description' => __('Set the border width of the navigation container in pixels', 'organize-series'),
             ],
             'container_border_radius' => [
                 'label'    => __('Container Border Radius (px)', 'organize-series'),
@@ -572,6 +584,7 @@ class PPS_Series_Post_Navigation_Fields
                 'max'      => 60,
                 'sanitize' => 'absint',
                 'default'  => 0,
+                'description' => __('Set the border radius of the navigation container in pixels', 'organize-series'),
             ],
             'container_padding' => [
                 'label'    => __('Container Padding (px)', 'organize-series'),

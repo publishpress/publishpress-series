@@ -1,177 +1,172 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Series 3.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: PublishPress Series Free 3.1.3\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/publishpress-series\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-14T15:35:48+00:00\n"
+"PO-Revision-Date: 2026-08-17 11:50+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
+"Language: en-US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: orgSeries.php
 #. Plugin Name of the plugin
-#: orgSeries.php:3
 msgid "PublishPress Series Free"
-msgstr ""
+msgstr "PublishPress Series Free"
 
+#: orgSeries.php, fuzzy
 #. Plugin URI of the plugin
-#: orgSeries.php:4
 msgid "https://publishpress.com/publishpress-series/"
-msgstr ""
+msgstr "https://publishpress.com/publishpress-series/"
 
+#: orgSeries.php
 #. Description of the plugin
-#: orgSeries.php:5
 msgid ""
-"PublishPress Series allows you to group content together into a series. This "
-"is ideal for magazines, newspapers, short-story writers, teachers, comic "
-"artists, or anyone who writes multiple posts on the same topic."
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
 msgstr ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
 
+#: orgSeries.php
 #. Author of the plugin
-#: orgSeries.php:7
 msgid "PublishPress"
-msgstr ""
+msgstr "PublishPress"
 
+#: orgSeries.php, fuzzy
 #. Author URI of the plugin
-#: orgSeries.php:8
 msgid "https://publishpress.com/"
-msgstr ""
+msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:278
-msgctxt "taxonomy general name"
-msgid "Series Categories"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:279
-msgctxt "taxonomy singular name"
-msgid "Series Category"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:280
+#: addons/grouping/legacy-includes.php:280, fuzzy
 msgid "Search Series Categories"
-msgstr ""
+msgstr "Search Series Categories"
 
-#: addons/grouping/legacy-includes.php:281
+#: addons/grouping/legacy-includes.php:281, fuzzy
 msgid "Popular Series Categories"
-msgstr ""
+msgstr "Popular Series Categories"
 
 #: addons/grouping/legacy-includes.php:282
-#: addons/grouping/legacy-includes.php:786
+#: addons/grouping/legacy-includes.php:793, fuzzy
 msgid "All Series Categories"
-msgstr ""
+msgstr "All Series Categories"
 
-#: addons/grouping/legacy-includes.php:283
+#: addons/grouping/legacy-includes.php:283, fuzzy
 msgid "Edit Series Category"
-msgstr ""
+msgstr "Edit Series Category"
 
-#: addons/grouping/legacy-includes.php:284
+#: addons/grouping/legacy-includes.php:284, fuzzy
 msgid "Update Series Category"
-msgstr ""
+msgstr "Update Series Category"
 
-#: addons/grouping/legacy-includes.php:285
+#: addons/grouping/legacy-includes.php:285, fuzzy
 msgid "Add New Series Category"
-msgstr ""
+msgstr "Add New Series Category"
 
-#: addons/grouping/legacy-includes.php:286
+#: addons/grouping/legacy-includes.php:286, fuzzy
 msgid "New Series Category"
-msgstr ""
+msgstr "New Series Category"
 
 #: addons/grouping/legacy-includes.php:287
 #: addons/grouping/legacy-includes.php:549
 #: addons/grouping/legacy-includes.php:621
-#: addons/grouping/legacy-includes.php:715
-#: addons/grouping/legacy-includes.php:756
-#: addons/grouping/legacy-includes.php:777
-#: addons/grouping/legacy-includes.php:811
+#: addons/grouping/legacy-includes.php:722
+#: addons/grouping/legacy-includes.php:763
+#: addons/grouping/legacy-includes.php:784
+#: addons/grouping/legacy-includes.php:818, fuzzy
 msgid "Series Categories"
-msgstr ""
+msgstr "Series Categories"
 
 #: addons/grouping/legacy-includes.php:627
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
 
-#: addons/grouping/legacy-includes.php:670
-msgctxt "series grouping column header"
-msgid "Series"
-msgstr ""
-
-#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:763, fuzzy
 msgid "Click to toggle"
-msgstr ""
+msgstr "Click to toggle"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37, fuzzy
 msgid "Series in this category"
-msgstr ""
+msgstr "Series in this category"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117, fuzzy
 msgid "Sorry, no series were found in this category."
-msgstr ""
+msgstr "Sorry, no series were found in this category."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
 #: addons/post-details/includes/class-fields.php:105
-#: addons/post-details/includes/class-utilities.php:123
+#: addons/post-details/includes/class-utilities.php:123, fuzzy
 msgid "This entry is"
-msgstr ""
+msgstr "This entry is"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
 #: addons/post-details/includes/class-fields.php:113
-#: addons/post-details/includes/class-utilities.php:124
+#: addons/post-details/includes/class-utilities.php:124, fuzzy
 msgid "in the series"
-msgstr ""
+msgstr "in the series"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
-#, php-format
+#, fuzzy, php-format
 msgid "part %1$s of %2$s"
-msgstr ""
+msgstr "part %1$s of %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
 #: addons/post-details/includes/class-utilities.php:268
-#: addons/post-navigation/includes/class-utilities.php:172
+#: addons/post-navigation/includes/class-utilities.php:172, fuzzy
 msgid "Sample Series"
-msgstr ""
+msgstr "Sample Series"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500, fuzzy
 msgid "Sample Post Title"
-msgstr ""
+msgstr "Sample Post Title"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-msgstr ""
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515, fuzzy
 msgid "Previous post link"
-msgstr ""
+msgstr "Previous post link"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516, fuzzy
 msgid "Next post link"
-msgstr ""
+msgstr "Next post link"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517, fuzzy
 msgid "Sample series description."
-msgstr ""
+msgstr "Sample series description."
 
 #: addons/post-details/includes/class-admin-ui.php:31
 #: addons/post-details/includes/class-admin-ui.php:32
-#: inc/settings/tab-post-details.php:11 orgSeries-utility.php:309
+#: inc/settings/tab-post-details.php:11
+#: orgSeries-utility.php:309, fuzzy
 msgid "Post Details"
-msgstr ""
+msgstr "Post Details"
 
-#: addons/post-details/includes/class-admin-ui.php:61
+#: addons/post-details/includes/class-admin-ui.php:61, fuzzy
 msgid "Series Post Details Preview"
-msgstr ""
+msgstr "Series Post Details Preview"
 
-#: addons/post-details/includes/class-admin-ui.php:70
+#: addons/post-details/includes/class-admin-ui.php:70, fuzzy
 msgid "Series Post Details Editor"
-msgstr ""
+msgstr "Series Post Details Editor"
 
 #: addons/post-details/includes/class-admin-ui.php:79
 #: addons/post-details/includes/class-admin-ui.php:158
@@ -180,854 +175,998 @@ msgstr ""
 #: addons/post-navigation/includes/class-admin-ui.php:85
 #: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Shortcode"
-msgstr ""
+msgstr "Shortcode"
 
 #: addons/post-details/includes/class-admin-ui.php:147
 #: addons/post-list-box/includes/class-admin-ui.php:273
-#: addons/post-navigation/includes/class-admin-ui.php:182
+#: addons/post-navigation/includes/class-admin-ui.php:182, fuzzy
 msgid "Use this shortcode:"
-msgstr ""
+msgstr "Use this shortcode:"
 
-#: addons/post-details/includes/class-admin-ui.php:149
-msgid ""
-"Insert into posts or pages to display this Series Post Details manually."
-msgstr ""
+#: addons/post-details/includes/class-admin-ui.php:149, fuzzy
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr "Insert into posts or pages to display this Series Post Details manually."
 
-#: addons/post-details/includes/class-admin-ui.php:157
+#: addons/post-details/includes/class-admin-ui.php:157, fuzzy
 msgid "Default Meta Box"
-msgstr ""
+msgstr "Default Meta Box"
 
 #: addons/post-details/includes/class-admin-ui.php:274
 #: addons/post-details/includes/class-admin-ui.php:359
 #: addons/post-list-box/includes/class-admin-ui.php:431
 #: addons/post-list-box/includes/class-admin-ui.php:715
 #: addons/post-navigation/includes/class-admin-ui.php:442
-#: inc/settings/tab-post-types.php:59 inc/settings/tab-pro-features.php:52
+#: inc/settings/tab-post-types.php:59
+#: inc/settings/tab-pro-features.php:52, fuzzy
 msgid "This feature is available in PublishPress Series Pro"
-msgstr ""
+msgstr "This feature is available in PublishPress Series Pro"
 
 #: addons/post-details/includes/class-ajax.php:32
 #: addons/post-details/includes/class-ajax.php:99
 #: addons/post-details/includes/class-ajax.php:149
 #: addons/post-navigation/includes/class-ajax.php:32
 #: addons/post-navigation/includes/class-ajax.php:167
-#: addons/post-navigation/includes/class-ajax.php:207
+#: addons/post-navigation/includes/class-ajax.php:207, fuzzy
 msgid "Invalid post ID."
-msgstr ""
+msgstr "Invalid post ID."
 
 #: addons/post-details/includes/class-ajax.php:67
-#: addons/post-navigation/includes/class-ajax.php:115
+#: addons/post-navigation/includes/class-ajax.php:115, fuzzy
 msgid "No series available to preview."
-msgstr ""
+msgstr "No series available to preview."
 
 #: addons/post-details/includes/class-ajax.php:122
-#: addons/post-navigation/includes/class-ajax.php:190
+#: addons/post-navigation/includes/class-ajax.php:190, fuzzy
 msgid "Invalid import data."
-msgstr ""
+msgstr "Invalid import data."
 
 #: addons/post-details/includes/class-ajax.php:137
-#: addons/post-navigation/includes/class-ajax.php:195
+#: addons/post-navigation/includes/class-ajax.php:195, fuzzy
 msgid "Settings imported successfully."
-msgstr ""
+msgstr "Settings imported successfully."
 
 #: addons/post-details/includes/class-ajax.php:166
-#: addons/post-navigation/includes/class-ajax.php:213
+#: addons/post-navigation/includes/class-ajax.php:213, fuzzy
 msgid "Settings reset to defaults."
-msgstr ""
+msgstr "Settings reset to defaults."
 
 #: addons/post-details/includes/class-fields.php:30
 #: addons/post-navigation/includes/class-fields.php:30
-#: addons/post-navigation/includes/class-fields.php:85
+#: addons/post-navigation/includes/class-fields.php:85, fuzzy
 msgid "General"
-msgstr ""
+msgstr "General"
 
-#: addons/post-details/includes/class-fields.php:34
+#: addons/post-details/includes/class-fields.php:34, fuzzy
 msgid "Styling"
-msgstr ""
+msgstr "Styling"
 
-#: addons/post-details/includes/class-fields.php:89
+#: addons/post-details/includes/class-fields.php:89, fuzzy
 msgid "Content"
-msgstr ""
+msgstr "Content"
 
-#: addons/post-details/includes/class-fields.php:93
+#: addons/post-details/includes/class-fields.php:93, fuzzy
 msgid "Show Part Number"
-msgstr ""
+msgstr "Show Part Number"
 
-#: addons/post-details/includes/class-fields.php:98
+#: addons/post-details/includes/class-fields.php:98, fuzzy
 msgid "Display \"part X of Y\" in the series text"
-msgstr ""
+msgstr "Display \"part X of Y\" in the series text"
 
-#: addons/post-details/includes/class-fields.php:101
+#: addons/post-details/includes/class-fields.php:101, fuzzy
 msgid "Text Before"
-msgstr ""
+msgstr "Text Before"
 
-#: addons/post-details/includes/class-fields.php:106
+#: addons/post-details/includes/class-fields.php:106, fuzzy
 msgid "Text shown at the beginning"
-msgstr ""
+msgstr "Text shown at the beginning"
 
-#: addons/post-details/includes/class-fields.php:109
+#: addons/post-details/includes/class-fields.php:109, fuzzy
 msgid "Text After"
-msgstr ""
+msgstr "Text After"
 
-#: addons/post-details/includes/class-fields.php:114
+#: addons/post-details/includes/class-fields.php:114, fuzzy
 msgid "Text shown before the series name"
-msgstr ""
+msgstr "Text shown before the series name"
 
-#: addons/post-details/includes/class-fields.php:118
+#: addons/post-details/includes/class-fields.php:118, fuzzy
 msgid "Display"
-msgstr ""
+msgstr "Display"
 
-#: addons/post-details/includes/class-fields.php:122
+#: addons/post-details/includes/class-fields.php:122, fuzzy
 msgid "Meta Box Position"
-msgstr ""
+msgstr "Meta Box Position"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:565
-#: inc/settings/tab-post-details.php:27 inc/settings/tab-post-list-box.php:27
-#: inc/settings/tab-post-navigation.php:27
+#: addons/post-list-box/classes/PostListBoxFields.php:596
+#: inc/settings/tab-post-details.php:27
+#: inc/settings/tab-post-list-box.php:27
+#: inc/settings/tab-post-navigation.php:27, fuzzy
 msgid "Top"
-msgstr ""
+msgstr "Top"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:566
-#: inc/settings/tab-post-details.php:28 inc/settings/tab-post-list-box.php:28
-#: inc/settings/tab-post-navigation.php:28
+#: addons/post-list-box/classes/PostListBoxFields.php:597
+#: inc/settings/tab-post-details.php:28
+#: inc/settings/tab-post-list-box.php:28
+#: inc/settings/tab-post-navigation.php:28, fuzzy
 msgid "Bottom"
-msgstr ""
+msgstr "Bottom"
 
-#: addons/post-details/includes/class-fields.php:131
+#: addons/post-details/includes/class-fields.php:131, fuzzy
 msgid "Choose where to display the meta box in relation to the content"
-msgstr ""
+msgstr "Choose where to display the meta box in relation to the content"
 
-#: addons/post-details/includes/class-fields.php:134
+#: addons/post-details/includes/class-fields.php:134, fuzzy
 msgid "Limit to Single Posts"
-msgstr ""
+msgstr "Limit to Single Posts"
 
-#: addons/post-details/includes/class-fields.php:139
+#: addons/post-details/includes/class-fields.php:139, fuzzy
 msgid "Enable to display meta box only on single post view, not on archives."
-msgstr ""
+msgstr "Enable to display meta box only on single post view, not on archives."
 
-#: addons/post-details/includes/class-fields.php:152
+#: addons/post-details/includes/class-fields.php:152, fuzzy
 msgid "Typography"
-msgstr ""
+msgstr "Typography"
 
-#: addons/post-details/includes/class-fields.php:156
+#: addons/post-details/includes/class-fields.php:156, fuzzy
 msgid "Text Size (px)"
-msgstr ""
+msgstr "Text Size (px)"
 
-#: addons/post-details/includes/class-fields.php:163
+#: addons/post-details/includes/class-fields.php:163, fuzzy
 msgid "Font size for text in the meta box"
-msgstr ""
+msgstr "Font size for text in the meta box"
 
 #: addons/post-details/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-fields.php:453
+#: addons/post-navigation/includes/class-fields.php:456, fuzzy
 msgid "Text Color"
-msgstr ""
+msgstr "Text Color"
 
-#: addons/post-details/includes/class-fields.php:173
+#: addons/post-details/includes/class-fields.php:171, fuzzy
+msgid "Choose the color of text in the meta box"
+msgstr "Choose the color of text in the meta box"
+
+#: addons/post-details/includes/class-fields.php:174, fuzzy
 msgid "Link Color"
-msgstr ""
+msgstr "Link Color"
 
-#: addons/post-details/includes/class-fields.php:181
+#: addons/post-details/includes/class-fields.php:179, fuzzy
+msgid "Choose the color of links in the meta box"
+msgstr "Choose the color of links in the meta box"
+
+#: addons/post-details/includes/class-fields.php:183, fuzzy
 msgid "Background"
-msgstr ""
+msgstr "Background"
 
-#: addons/post-details/includes/class-fields.php:185
-#: addons/post-list-box/classes/PostListBoxFields.php:191
-#: addons/post-navigation/includes/class-fields.php:460
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464, fuzzy
 msgid "Background Color"
-msgstr ""
+msgstr "Background Color"
 
-#: addons/post-details/includes/class-fields.php:190
+#: addons/post-details/includes/class-fields.php:192, fuzzy
 msgid "Background color for the meta box container"
-msgstr ""
+msgstr "Background color for the meta box container"
 
-#: addons/post-details/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:498
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506, fuzzy
 msgid "Spacing"
-msgstr ""
+msgstr "Spacing"
 
-#: addons/post-details/includes/class-fields.php:198
-#: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510, fuzzy
 msgid "Padding (px)"
-msgstr ""
+msgstr "Padding (px)"
 
-#: addons/post-details/includes/class-fields.php:205
+#: addons/post-details/includes/class-fields.php:207, fuzzy
 msgid "Padding applied to all sides of the content area"
-msgstr ""
+msgstr "Padding applied to all sides of the content area"
 
-#: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520, fuzzy
 msgid "Margin (px)"
-msgstr ""
+msgstr "Margin (px)"
 
-#: addons/post-details/includes/class-fields.php:215
+#: addons/post-details/includes/class-fields.php:217, fuzzy
 msgid "Margin applied to all sides of the meta box"
-msgstr ""
+msgstr "Margin applied to all sides of the meta box"
 
-#: addons/post-details/includes/class-fields.php:219
-#: addons/post-navigation/includes/class-fields.php:468
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473, fuzzy
 msgid "Border"
-msgstr ""
+msgstr "Border"
 
-#: addons/post-details/includes/class-fields.php:223
-#: addons/post-list-box/classes/PostListBoxFields.php:205
-#: addons/post-navigation/includes/class-fields.php:479
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485, fuzzy
 msgid "Border Width (px)"
-msgstr ""
+msgstr "Border Width (px)"
 
-#: addons/post-details/includes/class-fields.php:232
-#: addons/post-list-box/classes/PostListBoxFields.php:214
-#: addons/post-navigation/includes/class-fields.php:488
+#: addons/post-details/includes/class-fields.php:232, fuzzy
+msgid "Set the border width in pixels"
+msgstr "Set the border width in pixels"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495, fuzzy
 msgid "Border Radius (px)"
-msgstr ""
+msgstr "Border Radius (px)"
 
-#: addons/post-details/includes/class-fields.php:241
-#: addons/post-list-box/classes/PostListBoxFields.php:198
-#: addons/post-navigation/includes/class-fields.php:472
+#: addons/post-details/includes/class-fields.php:242, fuzzy
+msgid "Set the border radius in pixels"
+msgstr "Set the border radius in pixels"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477, fuzzy
 msgid "Border Color"
-msgstr ""
+msgstr "Border Color"
+
+#: addons/post-details/includes/class-fields.php:250, fuzzy
+msgid "Choose the border color"
+msgstr "Choose the border color"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
 #: addons/post-details/includes/class-post-type.php:28
-#: addons/post-details/includes/class-post-type.php:29
+#: addons/post-details/includes/class-post-type.php:29, fuzzy
 msgid "Series Post Details"
-msgstr ""
+msgstr "Series Post Details"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413 orgSeries-setup.php:208
+#: orgSeries-admin.php:389
+#: orgSeries-setup.php:208, fuzzy
 msgid "Add New"
-msgstr ""
+msgstr "Add New"
 
-#: addons/post-details/includes/class-post-type.php:31
+#: addons/post-details/includes/class-post-type.php:31, fuzzy
 msgid "Add New Series Post Details"
-msgstr ""
+msgstr "Add New Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:32
+#: addons/post-details/includes/class-post-type.php:32, fuzzy
 msgid "New Series Post Details"
-msgstr ""
+msgstr "New Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:33
+#: addons/post-details/includes/class-post-type.php:33, fuzzy
 msgid "Edit Series Post Details"
-msgstr ""
+msgstr "Edit Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:34
+#: addons/post-details/includes/class-post-type.php:34, fuzzy
 msgid "View Series Post Details"
-msgstr ""
+msgstr "View Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:35
+#: addons/post-details/includes/class-post-type.php:35, fuzzy
 msgid "All Series Post Details"
-msgstr ""
+msgstr "All Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:36
+#: addons/post-details/includes/class-post-type.php:36, fuzzy
 msgid "Search Series Post Details"
-msgstr ""
+msgstr "Search Series Post Details"
 
-#: addons/post-details/includes/class-post-type.php:37
+#: addons/post-details/includes/class-post-type.php:37, fuzzy
 msgid "No Series Post Details found."
-msgstr ""
+msgstr "No Series Post Details found."
 
-#: addons/post-details/includes/class-post-type.php:38
+#: addons/post-details/includes/class-post-type.php:38, fuzzy
 msgid "No Series Post Details found in Trash."
-msgstr ""
+msgstr "No Series Post Details found in Trash."
 
-#: addons/post-details/includes/class-preview.php:25
+#: addons/post-details/includes/class-preview.php:25, fuzzy
 msgid "Create a series to preview the post details."
-msgstr ""
+msgstr "Create a series to preview the post details."
 
 #: addons/post-details/includes/class-utilities.php:303
-#, php-format
+#, fuzzy, php-format
 msgid "Sample Series Post %d"
-msgstr ""
+msgstr "Sample Series Post %d"
 
 #: addons/post-details/includes/class-utilities.php:304
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
 "odio vitae vestibulum vestibulum."
 msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
 
-#: addons/post-details/includes/class-utilities.php:305
+#: addons/post-details/includes/class-utilities.php:305, fuzzy
 msgid "Sample excerpt preview content for the series meta box."
-msgstr ""
+msgstr "Sample excerpt preview content for the series meta box."
 
-#: addons/post-details/post-details.php:176
+#: addons/post-details/post-details.php:176, fuzzy
 msgid "Series Post Details #1"
-msgstr ""
+msgstr "Series Post Details #1"
 
-#: addons/post-details/post-details.php:181
+#: addons/post-details/post-details.php:181, fuzzy
 msgid "Series Post Details #2"
-msgstr ""
+msgstr "Series Post Details #2"
 
-#: addons/post-details/post-details.php:186
+#: addons/post-details/post-details.php:186, fuzzy
 msgid "Series Post Details #3"
-msgstr ""
+msgstr "Series Post Details #3"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:34
+#: addons/post-list-box/classes/PostListBoxFields.php:34, fuzzy
 msgid "Box Title"
-msgstr ""
+msgstr "Box Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:42
+#: addons/post-list-box/classes/PostListBoxFields.php:42, fuzzy
 msgid "Box Style"
-msgstr ""
+msgstr "Box Style"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:50
+#: addons/post-list-box/classes/PostListBoxFields.php:50, fuzzy
 msgid "Content Display"
-msgstr ""
+msgstr "Content Display"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:58
+#: addons/post-list-box/classes/PostListBoxFields.php:58, fuzzy
 msgid "Featured Image Settings"
-msgstr ""
+msgstr "Featured Image Settings"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:66
+#: addons/post-list-box/classes/PostListBoxFields.php:66, fuzzy
 msgid "Post Style"
-msgstr ""
+msgstr "Post Style"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:74
+#: addons/post-list-box/classes/PostListBoxFields.php:74, fuzzy
 msgid "Layout Display"
-msgstr ""
+msgstr "Layout Display"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:82
+#: addons/post-list-box/classes/PostListBoxFields.php:82, fuzzy
 msgid "Highlights Current Post"
-msgstr ""
+msgstr "Highlights Current Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:99
+#: addons/post-list-box/classes/PostListBoxFields.php:99, fuzzy
 msgid "Show Box Title"
-msgstr ""
+msgstr "Show Box Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:106
+#: addons/post-list-box/classes/PostListBoxFields.php:104, fuzzy
+msgid "Display the title above the post list"
+msgstr "Display the title above the post list"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107, fuzzy
 msgid "Box Title Type"
-msgstr ""
+msgstr "Box Title Type"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:110
+#: addons/post-list-box/classes/PostListBoxFields.php:111, fuzzy
 msgid "Use Series Title"
-msgstr ""
+msgstr "Use Series Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:111
+#: addons/post-list-box/classes/PostListBoxFields.php:112, fuzzy
 msgid "Custom Title"
-msgstr ""
+msgstr "Custom Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:115
+#: addons/post-list-box/classes/PostListBoxFields.php:116, fuzzy
 msgid "Choose whether to display the series title or a custom title"
-msgstr ""
+msgstr "Choose whether to display the series title or a custom title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:120
+#: addons/post-list-box/classes/PostListBoxFields.php:121, fuzzy
 msgid "Link Box Title to Series"
-msgstr ""
+msgstr "Link Box Title to Series"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:125
-msgid ""
-"Link the box title to the current series archive when using the series title"
-msgstr ""
+#: addons/post-list-box/classes/PostListBoxFields.php:126, fuzzy
+msgid "Link the box title to the current series archive when using the series title"
+msgstr "Link the box title to the current series archive when using the series title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:130
+#: addons/post-list-box/classes/PostListBoxFields.php:131, fuzzy
 msgid "Custom Box Title Text"
-msgstr ""
-
-#: addons/post-list-box/classes/PostListBoxFields.php:134
-#: addons/post-list-box/includes/class-utilities.php:162
-msgid "Series Posts"
-msgstr ""
+msgstr "Custom Box Title Text"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/includes/class-utilities.php:162, fuzzy
+msgid "Series Posts"
+msgstr "Series Posts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136, fuzzy
 msgid "Enter custom title for the post list"
-msgstr ""
+msgstr "Enter custom title for the post list"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:136
+#: addons/post-list-box/classes/PostListBoxFields.php:137, fuzzy
 msgid "Only used when \"Custom Title\" is selected above"
-msgstr ""
+msgstr "Only used when \"Custom Title\" is selected above"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:141
+#: addons/post-list-box/classes/PostListBoxFields.php:142, fuzzy
 msgid "Box Title HTML Tag"
-msgstr ""
+msgstr "Box Title HTML Tag"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:160
+#: addons/post-list-box/classes/PostListBoxFields.php:157, fuzzy
+msgid "Choose the HTML tag used for the box title"
+msgstr "Choose the HTML tag used for the box title"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162, fuzzy
 msgid "Box Title Color"
-msgstr ""
+msgstr "Box Title Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:169
+#: addons/post-list-box/classes/PostListBoxFields.php:167, fuzzy
+msgid "Choose the color of the box title"
+msgstr "Choose the color of the box title"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172, fuzzy
 msgid "Box Title Font Size (px)"
-msgstr ""
+msgstr "Box Title Font Size (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:243
+#: addons/post-list-box/classes/PostListBoxFields.php:179, fuzzy
+msgid "Set the font size of the box title in pixels"
+msgstr "Set the font size of the box title in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200, fuzzy
+msgid "Choose the background color for the post list box"
+msgstr "Choose the background color for the post list box"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208, fuzzy
+msgid "Choose the border color for the post list box"
+msgstr "Choose the border color for the post list box"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218, fuzzy
+msgid "Set the border width for the post list box in pixels"
+msgstr "Set the border width for the post list box in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228, fuzzy
+msgid "Set the border radius for the post list box in pixels"
+msgstr "Set the border radius for the post list box in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238, fuzzy
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "Set the inner spacing of the post list box in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252, fuzzy
 msgid "Show Post Titles"
-msgstr ""
+msgstr "Show Post Titles"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:250
+#: addons/post-list-box/classes/PostListBoxFields.php:257, fuzzy
+msgid "Display post titles in the series list"
+msgstr "Display post titles in the series list"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260, fuzzy
 msgid "Series Order Number"
-msgstr ""
+msgstr "Series Order Number"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:255
+#: addons/post-list-box/classes/PostListBoxFields.php:265, fuzzy
 msgid "Show the series order number next to each post title."
-msgstr ""
+msgstr "Show the series order number next to each post title."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:260
+#: addons/post-list-box/classes/PostListBoxFields.php:270, fuzzy
 msgid "Series Order Number Position"
-msgstr ""
+msgstr "Series Order Number Position"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:264
+#: addons/post-list-box/classes/PostListBoxFields.php:274, fuzzy
 msgid "Before the title"
-msgstr ""
+msgstr "Before the title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:265
+#: addons/post-list-box/classes/PostListBoxFields.php:275, fuzzy
 msgid "After the title"
-msgstr ""
+msgstr "After the title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:269
+#: addons/post-list-box/classes/PostListBoxFields.php:279, fuzzy
 msgid "Choose where the order number appears relative to the title."
-msgstr ""
+msgstr "Choose where the order number appears relative to the title."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:274
+#: addons/post-list-box/classes/PostListBoxFields.php:284, fuzzy
 msgid "Post Title Color"
-msgstr ""
+msgstr "Post Title Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:283
+#: addons/post-list-box/classes/PostListBoxFields.php:289, fuzzy
+msgid "Choose the color of post titles"
+msgstr "Choose the color of post titles"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294, fuzzy
 msgid "Post Title Font Size (px)"
-msgstr ""
+msgstr "Post Title Font Size (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:294
+#: addons/post-list-box/classes/PostListBoxFields.php:301, fuzzy
+msgid "Set the font size of post titles in pixels"
+msgstr "Set the font size of post titles in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306, fuzzy
 msgid "Show Post Excerpt"
-msgstr ""
+msgstr "Show Post Excerpt"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:302
+#: addons/post-list-box/classes/PostListBoxFields.php:311, fuzzy
+msgid "Display the excerpt for each post"
+msgstr "Display the excerpt for each post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315, fuzzy
 msgid "Excerpt Length (words)"
-msgstr ""
+msgstr "Excerpt Length (words)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:314
+#: addons/post-list-box/classes/PostListBoxFields.php:322, fuzzy
+msgid "Set the maximum excerpt length in words"
+msgstr "Set the maximum excerpt length in words"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328, fuzzy
 msgid "Excerpt Color"
-msgstr ""
+msgstr "Excerpt Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:324
+#: addons/post-list-box/classes/PostListBoxFields.php:333, fuzzy
+msgid "Choose the color of post excerpts"
+msgstr "Choose the color of post excerpts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339, fuzzy
 msgid "Show Post Summary"
-msgstr ""
+msgstr "Show Post Summary"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:344, fuzzy
+msgid "Display a summary generated from each post"
+msgstr "Display a summary generated from each post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348, fuzzy
 msgid "Summary Length (words)"
-msgstr ""
+msgstr "Summary Length (words)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:344
+#: addons/post-list-box/classes/PostListBoxFields.php:355, fuzzy
+msgid "Set the maximum summary length in words"
+msgstr "Set the maximum summary length in words"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361, fuzzy
 msgid "Summary Color"
-msgstr ""
+msgstr "Summary Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:366, fuzzy
+msgid "Choose the color of post summaries"
+msgstr "Choose the color of post summaries"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372, fuzzy
 msgid "Show Post Author"
-msgstr ""
+msgstr "Show Post Author"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:362
+#: addons/post-list-box/classes/PostListBoxFields.php:377, fuzzy
+msgid "Display the author of each post"
+msgstr "Display the author of each post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381, fuzzy
 msgid "Post Author Color"
-msgstr ""
+msgstr "Post Author Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:372
+#: addons/post-list-box/classes/PostListBoxFields.php:386, fuzzy
+msgid "Choose the color of post authors"
+msgstr "Choose the color of post authors"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392, fuzzy
 msgid "Show Post Date"
-msgstr ""
+msgstr "Show Post Date"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:380
+#: addons/post-list-box/classes/PostListBoxFields.php:397, fuzzy
+msgid "Display the date of each post"
+msgstr "Display the date of each post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401, fuzzy
 msgid "Post Date Color"
-msgstr ""
+msgstr "Post Date Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:401
-#: addons/post-navigation/includes/class-fields.php:169
-#: addons/post-navigation/includes/class-fields.php:284
-#: addons/post-navigation/includes/class-fields.php:412
+#: addons/post-list-box/classes/PostListBoxFields.php:406, fuzzy
+msgid "Choose the color of post dates"
+msgstr "Choose the color of post dates"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415, fuzzy
 msgid "Show Featured Image"
-msgstr ""
+msgstr "Show Featured Image"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:408
+#: addons/post-list-box/classes/PostListBoxFields.php:428, fuzzy
+msgid "Display the featured image for each post"
+msgstr "Display the featured image for each post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431, fuzzy
 msgid "Featured Image Width (px)"
-msgstr ""
+msgstr "Featured Image Width (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:415
-#: addons/post-navigation/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:309
-#: addons/post-navigation/includes/class-fields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440, fuzzy
 msgid "Width of the featured image in pixels"
-msgstr ""
+msgstr "Width of the featured image in pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:420
+#: addons/post-list-box/classes/PostListBoxFields.php:443, fuzzy
 msgid "Featured Image Height (px)"
-msgstr ""
+msgstr "Featured Image Height (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:427
-#: addons/post-navigation/includes/class-fields.php:202
-#: addons/post-navigation/includes/class-fields.php:317
-#: addons/post-navigation/includes/class-fields.php:445
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448, fuzzy
 msgid "Height of the featured image in pixels"
-msgstr ""
+msgstr "Height of the featured image in pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:432
+#: addons/post-list-box/classes/PostListBoxFields.php:455, fuzzy
 msgid "Fallback Featured Image"
-msgstr ""
+msgstr "Fallback Featured Image"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:460, fuzzy
 msgid "Image to display when a post does not have a featured image"
-msgstr ""
+msgstr "Image to display when a post does not have a featured image"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:477, fuzzy
 msgid "Post Padding (px)"
-msgstr ""
+msgstr "Post Padding (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:484, fuzzy
+msgid "Set the inner spacing for each post item in pixels"
+msgstr "Set the inner spacing for each post item in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487, fuzzy
 msgid "Post Border Width (px)"
-msgstr ""
+msgstr "Post Border Width (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:494, fuzzy
+msgid "Set the border width for each post item in pixels"
+msgstr "Set the border width for each post item in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497, fuzzy
 msgid "Post Border Color"
-msgstr ""
+msgstr "Post Border Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:479
+#: addons/post-list-box/classes/PostListBoxFields.php:502, fuzzy
+msgid "Choose the border color for each post item"
+msgstr "Choose the border color for each post item"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505, fuzzy
 msgid "Post Background Color"
-msgstr ""
+msgstr "Post Background Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:510, fuzzy
 msgid "Background color for the post list container"
-msgstr ""
+msgstr "Background color for the post list container"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:498
+#: addons/post-list-box/classes/PostListBoxFields.php:524, fuzzy
 msgid "Layout Style"
-msgstr ""
+msgstr "Layout Style"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
-#: inc/settings/tab-legacy.php:29
+#: addons/post-list-box/classes/PostListBoxFields.php:528
+#: inc/settings/tab-legacy.php:29, fuzzy
 msgid "List"
-msgstr ""
+msgstr "List"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:503
-#: inc/settings/tab-legacy.php:28
+#: addons/post-list-box/classes/PostListBoxFields.php:529
+#: inc/settings/tab-legacy.php:28, fuzzy
 msgid "Grid"
-msgstr ""
+msgstr "Grid"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:510
+#: addons/post-list-box/classes/PostListBoxFields.php:533, fuzzy
+msgid "Choose the layout style for the post list"
+msgstr "Choose the layout style for the post list"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537, fuzzy
 msgid "Columns"
-msgstr ""
+msgstr "Columns"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:541, fuzzy
 msgid "2 Columns"
-msgstr ""
+msgstr "2 Columns"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:515
+#: addons/post-list-box/classes/PostListBoxFields.php:542, fuzzy
 msgid "3 Columns"
-msgstr ""
+msgstr "3 Columns"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:543, fuzzy
 msgid "4 Columns"
-msgstr ""
+msgstr "4 Columns"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:517
+#: addons/post-list-box/classes/PostListBoxFields.php:544, fuzzy
 msgid "6 Columns"
-msgstr ""
+msgstr "6 Columns"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:548, fuzzy
+msgid "Choose the number of columns in the grid layout"
+msgstr "Choose the number of columns in the grid layout"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554, fuzzy
 msgid "Order By"
-msgstr ""
+msgstr "Order By"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:530
+#: addons/post-list-box/classes/PostListBoxFields.php:558, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:559
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
-#: addons/publisher/series-publish-post-table.php:71
+#: addons/publisher/series-publish-post-table.php:71, fuzzy
 msgid "Title"
-msgstr ""
+msgstr "Title"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/post-list-box/classes/PostListBoxFields.php:560
 #: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826 orgSeries-admin.php:369
-#: orgSeries-manage.php:195 orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:750
+#: addons/publisher/series_issue_manager.php:825
+#: orgSeries-admin.php:345
+#: orgSeries-manage.php:220
+#: orgSeries-manage.php:229, fuzzy
 msgid "Series Order"
-msgstr ""
+msgstr "Series Order"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:539
-#: orgSeries-manage.php:51 orgSeries-manage.php:227
+#: addons/post-list-box/classes/PostListBoxFields.php:564, fuzzy
+msgid "Choose the field used to sort posts"
+msgstr "Choose the field used to sort posts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
+#: orgSeries-manage.php:52
+#: orgSeries-manage.php:252, fuzzy
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:543
-#: inc/settings/tab-legacy.php:106 orgSeries-widgets.php:320
+#: addons/post-list-box/classes/PostListBoxFields.php:572
+#: inc/settings/tab-legacy.php:106
+#: orgSeries-widgets.php:326, fuzzy
 msgid "Ascending"
-msgstr ""
+msgstr "Ascending"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
-#: inc/settings/tab-legacy.php:107 orgSeries-widgets.php:319
+#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: inc/settings/tab-legacy.php:107
+#: orgSeries-widgets.php:325, fuzzy
 msgid "Descending"
-msgstr ""
+msgstr "Descending"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:551
+#: addons/post-list-box/classes/PostListBoxFields.php:577, fuzzy
+msgid "Choose the direction in which posts are sorted"
+msgstr "Choose the direction in which posts are sorted"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581, fuzzy
 msgid "Gap Between Items (px)"
-msgstr ""
+msgstr "Gap Between Items (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:561
+#: addons/post-list-box/classes/PostListBoxFields.php:588, fuzzy
+msgid "Set the space between post items in pixels"
+msgstr "Set the space between post items in pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592, fuzzy
 msgid "Post List Box Location"
-msgstr ""
+msgstr "Post List Box Location"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:601, fuzzy
 msgid "Choose where to display the post list box in relation to the content"
-msgstr ""
+msgstr "Choose where to display the post list box in relation to the content"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:574
+#: addons/post-list-box/classes/PostListBoxFields.php:605, fuzzy
 msgid "Maximum number of items"
-msgstr ""
+msgstr "Maximum number of items"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:611
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
 msgstr ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:595
+#: addons/post-list-box/classes/PostListBoxFields.php:626, fuzzy
 msgid "Highlight Current Post"
-msgstr ""
+msgstr "Highlight Current Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:600
+#: addons/post-list-box/classes/PostListBoxFields.php:631, fuzzy
 msgid "Highlight the current post when viewing a specific series post"
-msgstr ""
+msgstr "Highlight the current post when viewing a specific series post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:603
+#: addons/post-list-box/classes/PostListBoxFields.php:634, fuzzy
 msgid "Current Post Background Color"
-msgstr ""
+msgstr "Current Post Background Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:610
+#: addons/post-list-box/classes/PostListBoxFields.php:639, fuzzy
+msgid "Choose the background color for the current post"
+msgstr "Choose the background color for the current post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642, fuzzy
 msgid "Current Post Border Color"
-msgstr ""
+msgstr "Current Post Border Color"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:617
+#: addons/post-list-box/classes/PostListBoxFields.php:647, fuzzy
+msgid "Choose the border color for the current post"
+msgstr "Choose the border color for the current post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650, fuzzy
 msgid "Current Post Text Color"
-msgstr ""
+msgstr "Current Post Text Color"
 
-#: addons/post-list-box/includes/class-admin-ui.php:54
+#: addons/post-list-box/classes/PostListBoxFields.php:655, fuzzy
+msgid "Choose the text color for the current post"
+msgstr "Choose the text color for the current post"
+
+#: addons/post-list-box/includes/class-admin-ui.php:54, fuzzy
 msgid "Default Post List Box"
-msgstr ""
+msgstr "Default Post List Box"
 
 #: addons/post-list-box/includes/class-admin-ui.php:102
 #: addons/post-list-box/includes/class-admin-ui.php:103
 #: addons/post-list-box/includes/class-admin-ui.php:146
 #: addons/post-list-box/includes/class-post-type.php:24
-#: orgSeries-utility.php:308
+#: orgSeries-utility.php:308, fuzzy
 msgid "Post List Boxes"
-msgstr ""
+msgstr "Post List Boxes"
 
 #: addons/post-list-box/includes/class-admin-ui.php:119
-#: addons/post-list-box/includes/class-admin-ui.php:120
+#: addons/post-list-box/includes/class-admin-ui.php:120, fuzzy
 msgid "Post List Box updated."
-msgstr ""
+msgstr "Post List Box updated."
 
-#: addons/post-list-box/includes/class-admin-ui.php:121
+#: addons/post-list-box/includes/class-admin-ui.php:121, fuzzy
 msgid "Post List Box added."
-msgstr ""
+msgstr "Post List Box added."
 
-#: addons/post-list-box/includes/class-admin-ui.php:122
+#: addons/post-list-box/includes/class-admin-ui.php:122, fuzzy
 msgid "Post List Box saved."
-msgstr ""
+msgstr "Post List Box saved."
 
-#: addons/post-list-box/includes/class-admin-ui.php:123
+#: addons/post-list-box/includes/class-admin-ui.php:123, fuzzy
 msgid "Post List Box submitted."
-msgstr ""
+msgstr "Post List Box submitted."
 
 #: addons/post-list-box/includes/class-admin-ui.php:145
 #: addons/post-list-box/includes/class-post-type.php:23
-#: inc/settings/tab-post-list-box.php:11
+#: inc/settings/tab-post-list-box.php:11, fuzzy
 msgid "Post List Box"
-msgstr ""
+msgstr "Post List Box"
 
 #: addons/post-list-box/includes/class-admin-ui.php:150
 #, php-format
 msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s %2$s updated."
 
 #: addons/post-list-box/includes/class-admin-ui.php:155
 #, php-format
 msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s %2$s not updated, somebody is editing it."
 
 #: addons/post-list-box/includes/class-admin-ui.php:165
 #, php-format
 msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s %2$s permanently deleted."
 
 #: addons/post-list-box/includes/class-admin-ui.php:175
 #, php-format
 msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s %2$s moved to the Trash."
 
 #: addons/post-list-box/includes/class-admin-ui.php:185
 #, php-format
 msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s %2$s restored from the Trash."
 
-#: addons/post-list-box/includes/class-admin-ui.php:208
+#: addons/post-list-box/includes/class-admin-ui.php:208, fuzzy
 msgid "Post List Box Preview"
-msgstr ""
+msgstr "Post List Box Preview"
 
-#: addons/post-list-box/includes/class-admin-ui.php:225
+#: addons/post-list-box/includes/class-admin-ui.php:225, fuzzy
 msgid "Post List Box Editor"
-msgstr ""
+msgstr "Post List Box Editor"
 
-#: addons/post-list-box/includes/class-admin-ui.php:275
+#: addons/post-list-box/includes/class-admin-ui.php:275, fuzzy
 msgid "Insert into posts or pages to display this Post List Box manually."
-msgstr ""
+msgstr "Insert into posts or pages to display this Post List Box manually."
 
 #: addons/post-list-box/includes/class-admin-ui.php:317
-#: addons/post-navigation/includes/class-admin-ui.php:115
+#: addons/post-navigation/includes/class-admin-ui.php:115, fuzzy
 msgid "Select Series to Preview:"
-msgstr ""
+msgstr "Select Series to Preview:"
 
-#: addons/post-list-box/includes/class-admin-ui.php:335
+#: addons/post-list-box/includes/class-admin-ui.php:335, fuzzy
 msgid "No series found. Create a series to see the preview."
-msgstr ""
+msgstr "No series found. Create a series to see the preview."
 
-#: addons/post-list-box/includes/class-admin-ui.php:350
+#: addons/post-list-box/includes/class-admin-ui.php:350, fuzzy
 msgid "No posts found in selected series."
-msgstr ""
+msgstr "No posts found in selected series."
 
 #: addons/post-list-box/includes/class-admin-ui.php:368
-#: addons/post-navigation/post-navigation.php:86
+#: addons/post-navigation/post-navigation.php:86, fuzzy
 msgid "Loading preview..."
-msgstr ""
+msgstr "Loading preview..."
 
 #: addons/post-list-box/includes/class-admin-ui.php:383
-#: addons/post-list-box/includes/class-admin-ui.php:387
+#: addons/post-list-box/includes/class-admin-ui.php:387, fuzzy
 msgid "Error loading preview."
-msgstr ""
+msgstr "Error loading preview."
 
 #: addons/post-list-box/includes/class-admin-ui.php:691
 #: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
+#: orgSeries-manage.php:289, fuzzy
 msgid "Select Image"
-msgstr ""
+msgstr "Select Image"
 
-#: addons/post-list-box/includes/class-admin-ui.php:695
+#: addons/post-list-box/includes/class-admin-ui.php:695, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
-#: addons/post-list-box/includes/class-fields.php:25
+#: addons/post-list-box/includes/class-fields.php:25, fuzzy
 msgid "Box Container"
-msgstr ""
+msgstr "Box Container"
 
-#: addons/post-list-box/includes/class-fields.php:29
+#: addons/post-list-box/includes/class-fields.php:29, fuzzy
 msgid "Post"
-msgstr ""
+msgstr "Post"
 
 #: addons/post-list-box/includes/class-fields.php:33
-#: addons/post-navigation/includes/class-fields.php:38
+#: addons/post-navigation/includes/class-fields.php:38, fuzzy
 msgid "Layout"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:27
-#, php-format
-msgctxt "Post List Box post type name"
-msgid "%2$s"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:28
-#, php-format
-msgctxt "singular post list box post type name"
-msgid "%1$s"
-msgstr ""
+msgstr "Layout"
 
 #: addons/post-list-box/includes/class-post-type.php:33
-#, php-format
+#, fuzzy, php-format
 msgid "New %1s"
-msgstr ""
+msgstr "New %1s"
 
 #: addons/post-list-box/includes/class-post-type.php:34
-#, php-format
+#, fuzzy, php-format
 msgid "Add New %1$s"
-msgstr ""
+msgstr "Add New %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:35
-#, php-format
+#, fuzzy, php-format
 msgid "Edit %1$s"
-msgstr ""
+msgstr "Edit %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:36
-#, php-format
+#, fuzzy, php-format
 msgid "New %1$s"
-msgstr ""
+msgstr "New %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:37
-#, php-format
+#, fuzzy, php-format
 msgid "%2$s"
-msgstr ""
+msgstr "%2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:38
-#, php-format
+#, fuzzy, php-format
 msgid "View %1$s"
-msgstr ""
+msgstr "View %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:39
-#, php-format
+#, fuzzy, php-format
 msgid "Search %2$s"
-msgstr ""
+msgstr "Search %2$s"
 
 #: addons/post-list-box/includes/class-post-type.php:40
-#, php-format
+#, fuzzy, php-format
 msgid "No %2$s found"
-msgstr ""
+msgstr "No %2$s found"
 
 #: addons/post-list-box/includes/class-post-type.php:41
-#, php-format
+#, fuzzy, php-format
 msgid "No %2$s found in Trash"
-msgstr ""
-
-#: addons/post-list-box/includes/class-post-type.php:43
-#, php-format
-msgctxt "custom layout post type menu name"
-msgid "%2$s"
-msgstr ""
+msgstr "No %2$s found in Trash"
 
 #: addons/post-list-box/includes/class-post-type.php:44
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s Image"
-msgstr ""
+msgstr "%1$s Image"
 
 #: addons/post-list-box/includes/class-post-type.php:45
-#, php-format
+#, fuzzy, php-format
 msgid "Set %1$s Image"
-msgstr ""
+msgstr "Set %1$s Image"
 
 #: addons/post-list-box/includes/class-post-type.php:46
-#, php-format
+#, fuzzy, php-format
 msgid "Remove %1$s Image"
-msgstr ""
+msgstr "Remove %1$s Image"
 
 #: addons/post-list-box/includes/class-post-type.php:47
-#, php-format
+#, fuzzy, php-format
 msgid "Use as %1$s Image"
-msgstr ""
+msgstr "Use as %1$s Image"
 
 #: addons/post-list-box/includes/class-post-type.php:48
-#, php-format
+#, fuzzy, php-format
 msgid "Filter %2$s list"
-msgstr ""
+msgstr "Filter %2$s list"
 
 #: addons/post-list-box/includes/class-post-type.php:49
-#, php-format
+#, fuzzy, php-format
 msgid "%2$s list navigation"
-msgstr ""
+msgstr "%2$s list navigation"
 
 #: addons/post-list-box/includes/class-post-type.php:50
-#, php-format
+#, fuzzy, php-format
 msgid "%2$s list"
-msgstr ""
+msgstr "%2$s list"
 
 #: addons/post-list-box/includes/class-preview.php:98
-#, php-format
+#, fuzzy, php-format
 msgid "Sample Post %d"
-msgstr ""
+msgstr "Sample Post %d"
 
 #: addons/post-list-box/includes/class-preview.php:99
 #, php-format
@@ -1036,34 +1175,37 @@ msgid ""
 "amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
 "labore et dolore magna aliqua."
 msgstr ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
 
 #: addons/post-list-box/includes/class-preview.php:100
-#, php-format
+#, fuzzy, php-format
 msgid "This is a sample excerpt for post %d in the series."
-msgstr ""
+msgstr "This is a sample excerpt for post %d in the series."
 
 #: addons/post-list-box/includes/class-preview.php:504
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
-#: addons/publisher/series-publish-post-table.php:72
+#: addons/publisher/series-publish-post-table.php:72, fuzzy
 msgid "Author"
-msgstr ""
+msgstr "Author"
 
-#: addons/post-list-box/post-list-box.php:91
+#: addons/post-list-box/post-list-box.php:91, fuzzy
 msgid "Default List Box"
-msgstr ""
+msgstr "Default List Box"
 
-#: addons/post-list-box/post-list-box.php:95
+#: addons/post-list-box/post-list-box.php:95, fuzzy
 msgid "Grid Style Box"
-msgstr ""
+msgstr "Grid Style Box"
 
-#: addons/post-list-box/post-list-box.php:108
+#: addons/post-list-box/post-list-box.php:108, fuzzy
 msgid "Simple List Box"
-msgstr ""
+msgstr "Simple List Box"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263, fuzzy
 msgid "Navigation hidden (series has only one post)"
-msgstr ""
+msgstr "Navigation hidden (series has only one post)"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:317
 #: addons/post-navigation/classes/PostNavigationRenderer.php:348
@@ -1071,695 +1213,752 @@ msgstr ""
 #: addons/post-navigation/classes/PostNavigationRenderer.php:463
 #: addons/post-navigation/classes/PostNavigationRenderer.php:515
 #: addons/post-navigation/classes/PostNavigationRenderer.php:569
-#: addons/post-navigation/includes/class-utilities.php:62
+#: addons/post-navigation/includes/class-utilities.php:62, fuzzy
 msgid "Series Home"
-msgstr ""
+msgstr "Series Home"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
-#: addons/post-navigation/includes/class-fields.php:144
-#: addons/post-navigation/includes/class-fields.php:165
-#: addons/post-navigation/includes/class-utilities.php:40
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
+#: addons/post-navigation/includes/class-utilities.php:40, fuzzy
 msgid "Previous"
-msgstr ""
+msgstr "Previous"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
-#: addons/post-navigation/includes/class-fields.php:259
-#: addons/post-navigation/includes/class-fields.php:280
-#: addons/post-navigation/includes/class-utilities.php:51
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
+#: addons/post-navigation/includes/class-utilities.php:51, fuzzy
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #: addons/post-navigation/includes/class-admin-ui.php:31
 #: addons/post-navigation/includes/class-admin-ui.php:32
-#: orgSeries-utility.php:310
+#: orgSeries-utility.php:310, fuzzy
 msgid "Post Navigation"
-msgstr ""
+msgstr "Post Navigation"
 
-#: addons/post-navigation/includes/class-admin-ui.php:67
+#: addons/post-navigation/includes/class-admin-ui.php:67, fuzzy
 msgid "Series Post Navigation Preview"
-msgstr ""
+msgstr "Series Post Navigation Preview"
 
-#: addons/post-navigation/includes/class-admin-ui.php:76
+#: addons/post-navigation/includes/class-admin-ui.php:76, fuzzy
 msgid "Series Post Navigation Editor"
-msgstr ""
+msgstr "Series Post Navigation Editor"
 
-#: addons/post-navigation/includes/class-admin-ui.php:124
+#: addons/post-navigation/includes/class-admin-ui.php:124, fuzzy
 msgid "No series found. Create a series to preview the navigation."
-msgstr ""
+msgstr "No series found. Create a series to preview the navigation."
 
-#: addons/post-navigation/includes/class-admin-ui.php:184
-msgid ""
-"Insert into posts or pages to display this Series Post Navigation manually."
-msgstr ""
+#: addons/post-navigation/includes/class-admin-ui.php:184, fuzzy
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr "Insert into posts or pages to display this Series Post Navigation manually."
 
-#: addons/post-navigation/includes/class-admin-ui.php:192
+#: addons/post-navigation/includes/class-admin-ui.php:192, fuzzy
 msgid "Default Navigation"
-msgstr ""
+msgstr "Default Navigation"
 
-#: addons/post-navigation/includes/class-admin-ui.php:414
+#: addons/post-navigation/includes/class-admin-ui.php:414, fuzzy
 msgid "Change Image"
-msgstr ""
+msgstr "Change Image"
 
-#: addons/post-navigation/includes/class-admin-ui.php:422
+#: addons/post-navigation/includes/class-admin-ui.php:422, fuzzy
 msgid "Remove Image"
-msgstr ""
+msgstr "Remove Image"
 
 #: addons/post-navigation/includes/class-ajax.php:122
-#: addons/post-navigation/includes/class-ajax.php:129
+#: addons/post-navigation/includes/class-ajax.php:129, fuzzy
 msgid "No posts found in series to preview."
-msgstr ""
+msgstr "No posts found in series to preview."
 
-#: addons/post-navigation/includes/class-fields.php:34
+#: addons/post-navigation/includes/class-fields.php:34, fuzzy
 msgid "Item"
-msgstr ""
+msgstr "Item"
 
-#: addons/post-navigation/includes/class-fields.php:89
+#: addons/post-navigation/includes/class-fields.php:89, fuzzy
 msgid "Include Series Title"
-msgstr ""
+msgstr "Include Series Title"
 
-#: addons/post-navigation/includes/class-fields.php:96
+#: addons/post-navigation/includes/class-fields.php:94, fuzzy
+msgid "Display the series title above the navigation"
+msgstr "Display the series title above the navigation"
+
+#: addons/post-navigation/includes/class-fields.php:97, fuzzy
 msgid "Link Series Title"
-msgstr ""
+msgstr "Link Series Title"
 
-#: addons/post-navigation/includes/class-fields.php:101
+#: addons/post-navigation/includes/class-fields.php:102, fuzzy
 msgid "Link the series title to the series archive page"
-msgstr ""
+msgstr "Link the series title to the series archive page"
 
-#: addons/post-navigation/includes/class-fields.php:106
+#: addons/post-navigation/includes/class-fields.php:107, fuzzy
 msgid "Series Title Alignment"
-msgstr ""
-
-#: addons/post-navigation/includes/class-fields.php:110
-#: addons/post-navigation/includes/class-fields.php:181
-#: addons/post-navigation/includes/class-fields.php:232
-#: addons/post-navigation/includes/class-fields.php:296
-#: addons/post-navigation/includes/class-fields.php:424
-msgid "Left"
-msgstr ""
+msgstr "Series Title Alignment"
 
 #: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427, fuzzy
+msgid "Left"
+msgstr "Left"
+
+#: addons/post-navigation/includes/class-fields.php:112, fuzzy
 msgid "Center"
-msgstr ""
+msgstr "Center"
 
-#: addons/post-navigation/includes/class-fields.php:112
-#: addons/post-navigation/includes/class-fields.php:182
-#: addons/post-navigation/includes/class-fields.php:233
-#: addons/post-navigation/includes/class-fields.php:297
-#: addons/post-navigation/includes/class-fields.php:425
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428, fuzzy
 msgid "Right"
-msgstr ""
+msgstr "Right"
 
-#: addons/post-navigation/includes/class-fields.php:118
+#: addons/post-navigation/includes/class-fields.php:117, fuzzy
+msgid "Choose the alignment of the series title"
+msgstr "Choose the alignment of the series title"
+
+#: addons/post-navigation/includes/class-fields.php:120, fuzzy
 msgid "Series Title Color"
-msgstr ""
+msgstr "Series Title Color"
 
-#: addons/post-navigation/includes/class-fields.php:125
+#: addons/post-navigation/includes/class-fields.php:125, fuzzy
+msgid "Choose the color of the series title"
+msgstr "Choose the color of the series title"
+
+#: addons/post-navigation/includes/class-fields.php:128, fuzzy
 msgid "Hide When Single Post"
-msgstr ""
+msgstr "Hide When Single Post"
 
-#: addons/post-navigation/includes/class-fields.php:130
+#: addons/post-navigation/includes/class-fields.php:133, fuzzy
 msgid "Do not display navigation if series has only one post"
-msgstr ""
+msgstr "Do not display navigation if series has only one post"
 
-#: addons/post-navigation/includes/class-fields.php:148
+#: addons/post-navigation/includes/class-fields.php:151, fuzzy
 msgid "Previous Navigation Type"
-msgstr ""
+msgstr "Previous Navigation Type"
 
-#: addons/post-navigation/includes/class-fields.php:152
-#: addons/post-navigation/includes/class-fields.php:267
-#: addons/post-navigation/includes/class-fields.php:382
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385, fuzzy
 msgid "None"
-msgstr ""
+msgstr "None"
 
-#: addons/post-navigation/includes/class-fields.php:153
+#: addons/post-navigation/includes/class-fields.php:156, fuzzy
 msgid "Previous Post Title"
-msgstr ""
+msgstr "Previous Post Title"
 
-#: addons/post-navigation/includes/class-fields.php:154
-#: addons/post-navigation/includes/class-fields.php:269
-#: addons/post-navigation/includes/class-fields.php:384
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387, fuzzy
 msgid "Custom Label"
-msgstr ""
+msgstr "Custom Label"
 
-#: addons/post-navigation/includes/class-fields.php:158
+#: addons/post-navigation/includes/class-fields.php:161, fuzzy
 msgid "Choose how to display the previous navigation"
-msgstr ""
+msgstr "Choose how to display the previous navigation"
 
-#: addons/post-navigation/includes/class-fields.php:161
+#: addons/post-navigation/includes/class-fields.php:164, fuzzy
 msgid "Previous Label"
-msgstr ""
+msgstr "Previous Label"
 
-#: addons/post-navigation/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:169, fuzzy
 msgid "Custom text for previous post link"
-msgstr ""
+msgstr "Custom text for previous post link"
 
-#: addons/post-navigation/includes/class-fields.php:174
+#: addons/post-navigation/includes/class-fields.php:177, fuzzy
 msgid "Display featured image for previous post"
-msgstr ""
+msgstr "Display featured image for previous post"
 
-#: addons/post-navigation/includes/class-fields.php:177
-#: addons/post-navigation/includes/class-fields.php:292
-#: addons/post-navigation/includes/class-fields.php:420
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423, fuzzy
 msgid "Image Position"
-msgstr ""
+msgstr "Image Position"
 
-#: addons/post-navigation/includes/class-fields.php:186
+#: addons/post-navigation/includes/class-fields.php:189, fuzzy
 msgid "Position of the featured image relative to the navigation"
-msgstr ""
+msgstr "Position of the featured image relative to the navigation"
 
-#: addons/post-navigation/includes/class-fields.php:189
-#: addons/post-navigation/includes/class-fields.php:304
-#: addons/post-navigation/includes/class-fields.php:432
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435, fuzzy
 msgid "Image Width (px)"
-msgstr ""
+msgstr "Image Width (px)"
 
-#: addons/post-navigation/includes/class-fields.php:197
-#: addons/post-navigation/includes/class-fields.php:312
-#: addons/post-navigation/includes/class-fields.php:440
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443, fuzzy
 msgid "Image Height (px)"
-msgstr ""
+msgstr "Image Height (px)"
 
-#: addons/post-navigation/includes/class-fields.php:205
-#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323, fuzzy
 msgid "Show Arrow"
-msgstr ""
+msgstr "Show Arrow"
 
-#: addons/post-navigation/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:213, fuzzy
 msgid "Display an arrow icon with the previous navigation"
-msgstr ""
+msgstr "Display an arrow icon with the previous navigation"
 
-#: addons/post-navigation/includes/class-fields.php:213
-#: addons/post-navigation/includes/class-fields.php:328
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331, fuzzy
 msgid "Arrow Type"
-msgstr ""
+msgstr "Arrow Type"
 
-#: addons/post-navigation/includes/class-fields.php:217
+#: addons/post-navigation/includes/class-fields.php:220, fuzzy
 msgid "Chevron Left (‹)"
-msgstr ""
+msgstr "Chevron Left (‹)"
 
-#: addons/post-navigation/includes/class-fields.php:218
+#: addons/post-navigation/includes/class-fields.php:221, fuzzy
 msgid "Arrow Left (←)"
-msgstr ""
+msgstr "Arrow Left (←)"
 
-#: addons/post-navigation/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:222, fuzzy
 msgid "Double Chevron Left («)"
-msgstr ""
+msgstr "Double Chevron Left («)"
 
-#: addons/post-navigation/includes/class-fields.php:220
+#: addons/post-navigation/includes/class-fields.php:223, fuzzy
 msgid "Triangle Left (◄)"
-msgstr ""
+msgstr "Triangle Left (◄)"
 
-#: addons/post-navigation/includes/class-fields.php:221
-#: addons/post-navigation/includes/class-fields.php:336
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339, fuzzy
 msgid "Custom Image"
-msgstr ""
-
-#: addons/post-navigation/includes/class-fields.php:225
-#: addons/post-navigation/includes/class-fields.php:340
-msgid "Choose the arrow icon style"
-msgstr ""
+msgstr "Custom Image"
 
 #: addons/post-navigation/includes/class-fields.php:228
-#: addons/post-navigation/includes/class-fields.php:343
+#: addons/post-navigation/includes/class-fields.php:343, fuzzy
+msgid "Choose the arrow icon style"
+msgstr "Choose the arrow icon style"
+
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346, fuzzy
 msgid "Arrow Position"
-msgstr ""
+msgstr "Arrow Position"
 
-#: addons/post-navigation/includes/class-fields.php:237
+#: addons/post-navigation/includes/class-fields.php:240, fuzzy
 msgid "Position of the arrow relative to the navigation"
-msgstr ""
+msgstr "Position of the arrow relative to the navigation"
 
-#: addons/post-navigation/includes/class-fields.php:240
-#: addons/post-navigation/includes/class-fields.php:355
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358, fuzzy
 msgid "Arrow Size (px)"
-msgstr ""
-
-#: addons/post-navigation/includes/class-fields.php:247
-#: addons/post-navigation/includes/class-fields.php:362
-msgid "Size of the arrow icon in pixels (applies to both width and height)"
-msgstr ""
+msgstr "Arrow Size (px)"
 
 #: addons/post-navigation/includes/class-fields.php:250
-#: addons/post-navigation/includes/class-fields.php:365
+#: addons/post-navigation/includes/class-fields.php:365, fuzzy
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr "Size of the arrow icon in pixels (applies to both width and height)"
+
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368, fuzzy
 msgid "Custom Arrow Image"
-msgstr ""
+msgstr "Custom Arrow Image"
 
-#: addons/post-navigation/includes/class-fields.php:255
-#: addons/post-navigation/includes/class-fields.php:370
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373, fuzzy
 msgid "Select custom arrow image from media library"
-msgstr ""
+msgstr "Select custom arrow image from media library"
 
-#: addons/post-navigation/includes/class-fields.php:263
+#: addons/post-navigation/includes/class-fields.php:266, fuzzy
 msgid "Next Navigation Type"
-msgstr ""
+msgstr "Next Navigation Type"
 
-#: addons/post-navigation/includes/class-fields.php:268
+#: addons/post-navigation/includes/class-fields.php:271, fuzzy
 msgid "Next Post Title"
-msgstr ""
+msgstr "Next Post Title"
 
-#: addons/post-navigation/includes/class-fields.php:273
+#: addons/post-navigation/includes/class-fields.php:276, fuzzy
 msgid "Choose how to display the next post link"
-msgstr ""
+msgstr "Choose how to display the next post link"
 
-#: addons/post-navigation/includes/class-fields.php:276
+#: addons/post-navigation/includes/class-fields.php:279, fuzzy
 msgid "Next Label"
-msgstr ""
+msgstr "Next Label"
 
-#: addons/post-navigation/includes/class-fields.php:281
+#: addons/post-navigation/includes/class-fields.php:284, fuzzy
 msgid "Custom text for next post link"
-msgstr ""
+msgstr "Custom text for next post link"
 
-#: addons/post-navigation/includes/class-fields.php:289
+#: addons/post-navigation/includes/class-fields.php:292, fuzzy
 msgid "Display featured image for next post"
-msgstr ""
+msgstr "Display featured image for next post"
 
-#: addons/post-navigation/includes/class-fields.php:301
+#: addons/post-navigation/includes/class-fields.php:304, fuzzy
 msgid "Position of the featured image relative to navigation"
-msgstr ""
+msgstr "Position of the featured image relative to navigation"
 
-#: addons/post-navigation/includes/class-fields.php:325
+#: addons/post-navigation/includes/class-fields.php:328, fuzzy
 msgid "Display an arrow icon with the next navigation"
-msgstr ""
+msgstr "Display an arrow icon with the next navigation"
 
-#: addons/post-navigation/includes/class-fields.php:332
+#: addons/post-navigation/includes/class-fields.php:335, fuzzy
 msgid "Chevron Right (›)"
-msgstr ""
+msgstr "Chevron Right (›)"
 
-#: addons/post-navigation/includes/class-fields.php:333
+#: addons/post-navigation/includes/class-fields.php:336, fuzzy
 msgid "Arrow Right (→)"
-msgstr ""
+msgstr "Arrow Right (→)"
 
-#: addons/post-navigation/includes/class-fields.php:334
+#: addons/post-navigation/includes/class-fields.php:337, fuzzy
 msgid "Double Chevron Right (»)"
-msgstr ""
+msgstr "Double Chevron Right (»)"
 
-#: addons/post-navigation/includes/class-fields.php:335
+#: addons/post-navigation/includes/class-fields.php:338, fuzzy
 msgid "Triangle Right (►)"
-msgstr ""
+msgstr "Triangle Right (►)"
 
-#: addons/post-navigation/includes/class-fields.php:347
+#: addons/post-navigation/includes/class-fields.php:350, fuzzy
 msgid "Left of Text"
-msgstr ""
+msgstr "Left of Text"
 
-#: addons/post-navigation/includes/class-fields.php:348
+#: addons/post-navigation/includes/class-fields.php:351, fuzzy
 msgid "Right of Text"
-msgstr ""
+msgstr "Right of Text"
 
-#: addons/post-navigation/includes/class-fields.php:352
+#: addons/post-navigation/includes/class-fields.php:355, fuzzy
 msgid "Position of the arrow relative to the link text"
-msgstr ""
+msgstr "Position of the arrow relative to the link text"
 
-#: addons/post-navigation/includes/class-fields.php:374
+#: addons/post-navigation/includes/class-fields.php:377, fuzzy
 msgid "First"
-msgstr ""
+msgstr "First"
 
-#: addons/post-navigation/includes/class-fields.php:378
+#: addons/post-navigation/includes/class-fields.php:381, fuzzy
 msgid "First Navigation Type"
-msgstr ""
+msgstr "First Navigation Type"
 
-#: addons/post-navigation/includes/class-fields.php:383
+#: addons/post-navigation/includes/class-fields.php:386, fuzzy
 msgid "First Post Title"
-msgstr ""
+msgstr "First Post Title"
 
-#: addons/post-navigation/includes/class-fields.php:388
+#: addons/post-navigation/includes/class-fields.php:391, fuzzy
 msgid "Choose how to display the first navigation"
-msgstr ""
+msgstr "Choose how to display the first navigation"
 
-#: addons/post-navigation/includes/class-fields.php:391
+#: addons/post-navigation/includes/class-fields.php:394, fuzzy
 msgid "First Label"
-msgstr ""
+msgstr "First Label"
 
-#: addons/post-navigation/includes/class-fields.php:395
+#: addons/post-navigation/includes/class-fields.php:398, fuzzy
 msgid "Go to First"
-msgstr ""
+msgstr "Go to First"
 
-#: addons/post-navigation/includes/class-fields.php:396
+#: addons/post-navigation/includes/class-fields.php:399, fuzzy
 msgid "Custom text for first navigation"
-msgstr ""
+msgstr "Custom text for first navigation"
 
-#: addons/post-navigation/includes/class-fields.php:399
+#: addons/post-navigation/includes/class-fields.php:402, fuzzy
 msgid "First Navigation Position"
-msgstr ""
+msgstr "First Navigation Position"
 
-#: addons/post-navigation/includes/class-fields.php:403
+#: addons/post-navigation/includes/class-fields.php:406, fuzzy
 msgid "Left (First → Previous → Next)"
-msgstr ""
+msgstr "Left (First → Previous → Next)"
 
-#: addons/post-navigation/includes/class-fields.php:404
+#: addons/post-navigation/includes/class-fields.php:407, fuzzy
 msgid "Center (Previous → First → Next)"
-msgstr ""
+msgstr "Center (Previous → First → Next)"
 
-#: addons/post-navigation/includes/class-fields.php:405
+#: addons/post-navigation/includes/class-fields.php:408, fuzzy
 msgid "Right (Previous → Next → First)"
-msgstr ""
+msgstr "Right (Previous → Next → First)"
 
-#: addons/post-navigation/includes/class-fields.php:409
+#: addons/post-navigation/includes/class-fields.php:412, fuzzy
 msgid "Position of the first/series home link in navigation"
-msgstr ""
+msgstr "Position of the first/series home link in navigation"
 
-#: addons/post-navigation/includes/class-fields.php:417
+#: addons/post-navigation/includes/class-fields.php:420, fuzzy
 msgid "Display featured image for first post"
-msgstr ""
+msgstr "Display featured image for first post"
 
-#: addons/post-navigation/includes/class-fields.php:429
+#: addons/post-navigation/includes/class-fields.php:432, fuzzy
 msgid "Position of the featured image relative to the link text"
-msgstr ""
+msgstr "Position of the featured image relative to the link text"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:452, fuzzy
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
-#: addons/post-navigation/includes/class-fields.php:520
+#: addons/post-navigation/includes/class-fields.php:461, fuzzy
+msgid "Choose the color of navigation link text"
+msgstr "Choose the color of navigation link text"
+
+#: addons/post-navigation/includes/class-fields.php:469, fuzzy
+msgid "Choose the background color of navigation links"
+msgstr "Choose the background color of navigation links"
+
+#: addons/post-navigation/includes/class-fields.php:482, fuzzy
+msgid "Choose the border color of navigation links"
+msgstr "Choose the border color of navigation links"
+
+#: addons/post-navigation/includes/class-fields.php:492, fuzzy
+msgid "Set the border width of navigation links in pixels"
+msgstr "Set the border width of navigation links in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:502, fuzzy
+msgid "Set the border radius of navigation links in pixels"
+msgstr "Set the border radius of navigation links in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:517, fuzzy
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "Set the inner spacing around navigation links in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:527, fuzzy
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "Set the outer spacing around navigation links in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:530, fuzzy
 msgid "Gap Between Links (px)"
-msgstr ""
+msgstr "Gap Between Links (px)"
 
-#: addons/post-navigation/includes/class-fields.php:527
+#: addons/post-navigation/includes/class-fields.php:537, fuzzy
 msgid "Space between navigation links"
-msgstr ""
+msgstr "Space between navigation links"
 
-#: addons/post-navigation/includes/class-fields.php:540
+#: addons/post-navigation/includes/class-fields.php:550, fuzzy
 msgid "Container Style"
-msgstr ""
+msgstr "Container Style"
 
-#: addons/post-navigation/includes/class-fields.php:544
+#: addons/post-navigation/includes/class-fields.php:554, fuzzy
 msgid "Container Background Color"
-msgstr ""
+msgstr "Container Background Color"
 
-#: addons/post-navigation/includes/class-fields.php:549
+#: addons/post-navigation/includes/class-fields.php:559, fuzzy
 msgid "Background color for the navigation container"
-msgstr ""
+msgstr "Background color for the navigation container"
 
-#: addons/post-navigation/includes/class-fields.php:552
+#: addons/post-navigation/includes/class-fields.php:562, fuzzy
 msgid "Container Border Color"
-msgstr ""
+msgstr "Container Border Color"
 
-#: addons/post-navigation/includes/class-fields.php:559
+#: addons/post-navigation/includes/class-fields.php:567, fuzzy
+msgid "Choose the border color of the navigation container"
+msgstr "Choose the border color of the navigation container"
+
+#: addons/post-navigation/includes/class-fields.php:570, fuzzy
 msgid "Container Border Width (px)"
-msgstr ""
+msgstr "Container Border Width (px)"
 
-#: addons/post-navigation/includes/class-fields.php:568
+#: addons/post-navigation/includes/class-fields.php:577, fuzzy
+msgid "Set the border width of the navigation container in pixels"
+msgstr "Set the border width of the navigation container in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:580, fuzzy
 msgid "Container Border Radius (px)"
-msgstr ""
+msgstr "Container Border Radius (px)"
 
-#: addons/post-navigation/includes/class-fields.php:577
+#: addons/post-navigation/includes/class-fields.php:587, fuzzy
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "Set the border radius of the navigation container in pixels"
+
+#: addons/post-navigation/includes/class-fields.php:590, fuzzy
 msgid "Container Padding (px)"
-msgstr ""
+msgstr "Container Padding (px)"
 
-#: addons/post-navigation/includes/class-fields.php:584
+#: addons/post-navigation/includes/class-fields.php:597, fuzzy
 msgid "Inner spacing for the container"
-msgstr ""
+msgstr "Inner spacing for the container"
 
 #: addons/post-navigation/includes/class-post-type.php:26
 #: addons/post-navigation/includes/class-post-type.php:27
 #: addons/post-navigation/includes/class-post-type.php:28
-#: addons/post-navigation/includes/class-post-type.php:29
+#: addons/post-navigation/includes/class-post-type.php:29, fuzzy
 msgid "Series Post Navigation"
-msgstr ""
+msgstr "Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:31
+#: addons/post-navigation/includes/class-post-type.php:31, fuzzy
 msgid "Add New Series Post Navigation"
-msgstr ""
+msgstr "Add New Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:32
+#: addons/post-navigation/includes/class-post-type.php:32, fuzzy
 msgid "New Series Post Navigation"
-msgstr ""
+msgstr "New Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:33
+#: addons/post-navigation/includes/class-post-type.php:33, fuzzy
 msgid "Edit Series Post Navigation"
-msgstr ""
+msgstr "Edit Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:34
+#: addons/post-navigation/includes/class-post-type.php:34, fuzzy
 msgid "View Series Post Navigation"
-msgstr ""
+msgstr "View Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:35
+#: addons/post-navigation/includes/class-post-type.php:35, fuzzy
 msgid "All Series Post Navigation"
-msgstr ""
+msgstr "All Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:36
+#: addons/post-navigation/includes/class-post-type.php:36, fuzzy
 msgid "Search Series Post Navigation"
-msgstr ""
+msgstr "Search Series Post Navigation"
 
-#: addons/post-navigation/includes/class-post-type.php:37
+#: addons/post-navigation/includes/class-post-type.php:37, fuzzy
 msgid "No Series Post Navigation found."
-msgstr ""
+msgstr "No Series Post Navigation found."
 
-#: addons/post-navigation/includes/class-post-type.php:38
+#: addons/post-navigation/includes/class-post-type.php:38, fuzzy
 msgid "No Series Post Navigation found in Trash."
-msgstr ""
+msgstr "No Series Post Navigation found in Trash."
 
-#: addons/post-navigation/includes/class-preview.php:37
+#: addons/post-navigation/includes/class-preview.php:37, fuzzy
 msgid "Create a series to preview the navigation."
-msgstr ""
+msgstr "Create a series to preview the navigation."
 
 #: addons/post-navigation/includes/class-preview.php:45
-#: addons/post-navigation/includes/class-preview.php:57
+#: addons/post-navigation/includes/class-preview.php:57, fuzzy
 msgid "Create posts in a series to preview the navigation."
-msgstr ""
+msgstr "Create posts in a series to preview the navigation."
 
-#: addons/post-navigation/includes/class-utilities.php:174
+#: addons/post-navigation/includes/class-utilities.php:174, fuzzy
 msgid "Sample series for preview purposes"
-msgstr ""
+msgstr "Sample series for preview purposes"
 
-#: addons/post-navigation/post-navigation.php:87
+#: addons/post-navigation/post-navigation.php:87, fuzzy
 msgid "Error updating preview."
-msgstr ""
+msgstr "Error updating preview."
 
-#: addons/post-navigation/post-navigation.php:211
+#: addons/post-navigation/post-navigation.php:211, fuzzy
 msgid "Simple Navigation"
-msgstr ""
+msgstr "Simple Navigation"
 
-#: addons/post-navigation/post-navigation.php:216
+#: addons/post-navigation/post-navigation.php:216, fuzzy
 msgid "Button Navigation"
-msgstr ""
+msgstr "Button Navigation"
 
-#: addons/post-navigation/post-navigation.php:221
+#: addons/post-navigation/post-navigation.php:221, fuzzy
 msgid "Image Navigation"
-msgstr ""
+msgstr "Image Navigation"
 
 #: addons/publisher/series-part-post-table.php:63
 #: addons/publisher/series-pending-post-table.php:65
-#: addons/publisher/series-publish-post-table.php:73
+#: addons/publisher/series-publish-post-table.php:73, fuzzy
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
-#: addons/publisher/series-publish-post-table.php:74
+#: addons/publisher/series-publish-post-table.php:74, fuzzy
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: addons/publisher/series-part-post-table.php:65
 #: addons/publisher/series-pending-post-table.php:67
-#: addons/publisher/series-publish-post-table.php:75
+#: addons/publisher/series-publish-post-table.php:75, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: addons/publisher/series-part-post-table.php:66
-#: addons/publisher/series-pending-post-table.php:68
+#: addons/publisher/series-pending-post-table.php:68, fuzzy
 msgid "Current Part"
-msgstr ""
+msgstr "Current Part"
 
 #: addons/publisher/series-part-post-table.php:140
 #: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
+#: addons/publisher/series-publish-post-table.php:272, fuzzy
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
-#: addons/publisher/series-part-post-table.php:146
+#: addons/publisher/series-part-post-table.php:146, fuzzy
 msgid "View"
-msgstr ""
+msgstr "View"
 
 #: addons/publisher/series-part-post-table.php:163
 #: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
+#: addons/publisher/series-publish-post-table.php:289, fuzzy
 msgid "Trash"
-msgstr ""
+msgstr "Trash"
 
-#: addons/publisher/series-part-post-table.php:190
+#: addons/publisher/series-part-post-table.php:190, fuzzy
 msgid "There are no published posts in this series."
-msgstr ""
+msgstr "There are no published posts in this series."
 
-#: addons/publisher/series-part-post-table.php:309
+#: addons/publisher/series-part-post-table.php:309, fuzzy
 msgid "(Currently has no Part number)"
-msgstr ""
+msgstr "(Currently has no Part number)"
 
 #: addons/publisher/series-pending-post-table.php:153
 #: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
+#: addons/publisher/series-publish-post-table.php:424, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 #: addons/publisher/series-pending-post-table.php:197
-#: addons/publisher/series-publish-post-table.php:46
+#: addons/publisher/series-publish-post-table.php:46, fuzzy
 msgid "There are no unpublished posts in this series."
-msgstr ""
+msgstr "There are no unpublished posts in this series."
 
-#: addons/publisher/series-pending-post-table.php:312
+#: addons/publisher/series-pending-post-table.php:312, fuzzy
 msgid "No Part Number"
-msgstr ""
+msgstr "No Part Number"
 
-#: addons/publisher/series-publish-post-table.php:176
+#: addons/publisher/series-publish-post-table.php:178, fuzzy
 msgid "All Categories"
-msgstr ""
+msgstr "All Categories"
 
-#: addons/publisher/series-publish-post-table.php:189
+#: addons/publisher/series-publish-post-table.php:191, fuzzy
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
-#: inc/settings/settings-validation.php:67
+#: addons/publisher/series_issue_manager.php:499
+#: inc/settings/settings-validation.php:67, fuzzy
 msgid "Manage Series"
-msgstr ""
+msgstr "Manage Series"
 
-#: addons/publisher/series_im_admin_main.php:7
+#: addons/publisher/series_im_admin_main.php:7, fuzzy
 msgid "Series"
-msgstr ""
+msgstr "Series"
 
 #: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
+#: addons/publisher/series_issue_manager.php:694
+#: addons/publisher/series_issue_manager.php:740, fuzzy
 msgid "Publish Series"
-msgstr ""
+msgstr "Publish Series"
 
-#: addons/publisher/series_im_admin_main.php:10
+#: addons/publisher/series_im_admin_main.php:10, fuzzy
 msgid "Front View"
-msgstr ""
+msgstr "Front View"
 
 #: addons/publisher/series_im_admin_main.php:17
-#, php-format
+#, fuzzy, php-format
 msgid "Edit the status of %1$s"
-msgstr ""
+msgstr "Edit the status of %1$s"
 
-#: addons/publisher/series_im_admin_main.php:19
+#: addons/publisher/series_im_admin_main.php:19, fuzzy
 msgid "Series order"
-msgstr ""
+msgstr "Series order"
 
-#: addons/publisher/series_im_admin_main.php:22
+#: addons/publisher/series_im_admin_main.php:22, fuzzy
 msgid "Publish or schedule posts"
-msgstr ""
+msgstr "Publish or schedule posts"
 
-#: addons/publisher/series_im_admin_main.php:25
+#: addons/publisher/series_im_admin_main.php:25, fuzzy
 msgid "View series in frontend"
-msgstr ""
+msgstr "View series in frontend"
 
-#: addons/publisher/series_im_admin_main.php:34
+#: addons/publisher/series_im_admin_main.php:34, fuzzy
 msgid "You have no series available."
-msgstr ""
+msgstr "You have no series available."
 
-#: addons/publisher/series_im_admin_main.php:34
+#: addons/publisher/series_im_admin_main.php:34, fuzzy
 msgid "Add new Series."
-msgstr ""
+msgstr "Add new Series."
 
-#: addons/publisher/series_issue_manager.php:209
+#: addons/publisher/series_issue_manager.php:209, fuzzy
 msgid "Create as unpublished:"
-msgstr ""
+msgstr "Create as unpublished:"
 
 #: addons/publisher/series_issue_manager.php:212
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
 
-#: addons/publisher/series_issue_manager.php:290
+#: addons/publisher/series_issue_manager.php:289, fuzzy
 msgid "The posts in your series were successfully unpublished."
-msgstr ""
+msgstr "The posts in your series were successfully unpublished."
 
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
+#: addons/publisher/series_issue_manager.php:298
+#: addons/publisher/series_issue_manager.php:415, fuzzy
 msgid "Congratulations. Your series order was updated successfully."
-msgstr ""
+msgstr "Congratulations. Your series order was updated successfully."
 
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
+#: addons/publisher/series_issue_manager.php:306
+#: addons/publisher/series_issue_manager.php:343, fuzzy
 msgid "Congratulations. Your posts were published successfully."
-msgstr ""
+msgstr "Congratulations. Your posts were published successfully."
 
-#: addons/publisher/series_issue_manager.php:316
+#: addons/publisher/series_issue_manager.php:315, fuzzy
 msgid "Post moved to the Trash."
-msgstr ""
+msgstr "Post moved to the Trash."
 
-#: addons/publisher/series_issue_manager.php:339
+#: addons/publisher/series_issue_manager.php:338, fuzzy
 msgid "Congratulations. Your posts were scheduled successfully."
-msgstr ""
+msgstr "Congratulations. Your posts were scheduled successfully."
 
-#: addons/publisher/series_issue_manager.php:499
+#: addons/publisher/series_issue_manager.php:498, fuzzy
 msgid "Manage Series Issues"
-msgstr ""
+msgstr "Manage Series Issues"
 
-#: addons/publisher/series_issue_manager.php:528
+#: addons/publisher/series_issue_manager.php:527, fuzzy
 msgid "Number of items per page"
-msgstr ""
+msgstr "Number of items per page"
 
-#: addons/publisher/series_issue_manager.php:643
+#: addons/publisher/series_issue_manager.php:642, fuzzy
 msgid "Publishing Series:"
-msgstr ""
+msgstr "Publishing Series:"
 
+#: addons/publisher/series_issue_manager.php:648
 #. translators: %s: search keywords
-#: addons/publisher/series_issue_manager.php:649
-#, php-format
+#, fuzzy, php-format
 msgid "Search results for &#8220;%s&#8221;"
-msgstr ""
+msgstr "Search results for &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:664
+#: addons/publisher/series_issue_manager.php:663, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
-#: addons/publisher/series_issue_manager.php:709
+#: addons/publisher/series_issue_manager.php:708, fuzzy
 msgid "Publication Date/Time:"
-msgstr ""
+msgstr "Publication Date/Time:"
 
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
+#: addons/publisher/series_issue_manager.php:764
+#: addons/publisher/series_issue_manager.php:839
+#: addons/publisher/series_issue_manager.php:938, fuzzy
 msgid "Update Order"
-msgstr ""
+msgstr "Update Order"
 
-#: addons/publisher/series_issue_manager.php:792
+#: addons/publisher/series_issue_manager.php:791, fuzzy
 msgid "Series Order:"
-msgstr ""
+msgstr "Series Order:"
 
-#: addons/publisher/series_issue_manager.php:795
+#: addons/publisher/series_issue_manager.php:794
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
 
-#: addons/publisher/series_issue_manager.php:867
+#: addons/publisher/series_issue_manager.php:866, fuzzy
 msgid "Unpublished posts in series:"
-msgstr ""
+msgstr "Unpublished posts in series:"
 
-#: addons/publisher/series_issue_manager.php:870
+#: addons/publisher/series_issue_manager.php:869
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
 msgstr ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
 
-#: addons/publisher/series_issue_manager.php:901
+#: addons/publisher/series_issue_manager.php:900, fuzzy
 msgid "Unpublished Posts"
-msgstr ""
+msgstr "Unpublished Posts"
 
-#: addons/publisher/series_issue_manager.php:915
+#: addons/publisher/series_issue_manager.php:914, fuzzy
 msgid "Publish Unpublished Posts"
-msgstr ""
+msgstr "Publish Unpublished Posts"
 
-#: addons/publisher/series_issue_manager.php:925
+#: addons/publisher/series_issue_manager.php:924, fuzzy
 msgid "Unpublished Series Order"
-msgstr ""
+msgstr "Unpublished Series Order"
 
-#: inc/settings/settings-page.php:18
+#: inc/settings/settings-page.php:18, fuzzy
 msgid "PublishPress Series Plugin Options"
-msgstr ""
+msgstr "PublishPress Series Plugin Options"
 
-#: inc/settings/settings-page.php:52
+#: inc/settings/settings-page.php:52, fuzzy
 msgid "Allowed Html"
-msgstr ""
+msgstr "Allowed Html"
 
-#: inc/settings/settings-page.php:61
+#: inc/settings/settings-page.php:61, fuzzy
 msgid "Overview"
-msgstr ""
+msgstr "Overview"
 
 #: inc/settings/settings-page.php:63
 msgid ""
@@ -1767,17 +1966,22 @@ msgid ""
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
 msgstr ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
 
-#: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr ""
+#: inc/settings/settings-page.php:68, fuzzy
+msgid "This will be replaced with the series featured image for a series."
+msgstr "This will be replaced with the series featured image for a series."
 
 #: inc/settings/settings-page.php:76
 #, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 msgstr ""
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
 
 #: inc/settings/settings-page.php:84
 msgid ""
@@ -1785,48 +1989,58 @@ msgid ""
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
 msgstr ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
 
-#: inc/settings/settings-page.php:92
+#: inc/settings/settings-page.php:92, fuzzy
 msgid "This will be replaced with the title of a series"
-msgstr ""
+msgstr "This will be replaced with the title of a series"
 
 #: inc/settings/settings-page.php:100
-#, php-format
-msgid ""
-"Same as %series_title% except that it will also be linked to the series page"
-msgstr ""
+#, fuzzy, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr "Same as %series_title% except that it will also be linked to the series page"
 
 #: inc/settings/settings-page.php:108
 msgid ""
-"Is the location token for where the contents of the post list post templates "
-"will appear."
+"Is the location token for where the contents of the post list post "
+"templates will appear."
 msgstr ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
 
 #: inc/settings/settings-page.php:116
 msgid ""
-"Is the location token for where the contents of the post list post templates "
-"will appear and use provided widget post short title."
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
 msgstr ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
 
-#: inc/settings/settings-page.php:124
+#: inc/settings/settings-page.php:124, fuzzy
 msgid "Will be replaced with the post title of a post in the series"
-msgstr ""
+msgstr "Will be replaced with the post title of a post in the series"
 
 #: inc/settings/settings-page.php:132
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
 
-#: inc/settings/settings-page.php:140
+#: inc/settings/settings-page.php:140, fuzzy
 msgid "Will be replaced with the post title short of a post in the series"
-msgstr ""
+msgstr "Will be replaced with the post title short of a post in the series"
 
 #: inc/settings/settings-page.php:148
 msgid ""
-"Will be replaced with the post title short of a post in the series linked to "
-"the page view of that post."
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
 msgstr ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
 
 #: inc/settings/settings-page.php:156
 msgid ""
@@ -1835,6 +2049,10 @@ msgid ""
 "Navigation Text' field. If that field is empty then the text will be the "
 "title of the post"
 msgstr ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
 
 #: inc/settings/settings-page.php:164
 msgid ""
@@ -1842,188 +2060,205 @@ msgid ""
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
 msgstr ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
 
 #: inc/settings/settings-page.php:172
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
-"text will be whatever is included in the 'Custom First Post Navigation Text' "
-"field. If that field is empty then the text will be the title of the post"
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
 msgstr ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
 
 #: inc/settings/settings-page.php:179
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
 
-#: inc/settings/settings-page.php:187
+#: inc/settings/settings-page.php:187, fuzzy
 msgid "Will display what part of a series the post is"
-msgstr ""
+msgstr "Will display what part of a series the post is"
 
-#: inc/settings/settings-page.php:195
+#: inc/settings/settings-page.php:195, fuzzy
 msgid "Will display the total number of posts in a series"
-msgstr ""
+msgstr "Will display the total number of posts in a series"
 
-#: inc/settings/settings-page.php:203
+#: inc/settings/settings-page.php:203, fuzzy
 msgid "Will display the description for the series"
-msgstr ""
+msgstr "Will display the description for the series"
 
-#: inc/settings/settings-page.php:213
+#: inc/settings/settings-page.php:213, fuzzy
 msgid "Will output the slug of the series"
-msgstr ""
+msgstr "Will output the slug of the series"
 
-#: inc/settings/settings-page.php:221
+#: inc/settings/settings-page.php:221, fuzzy
 msgid "Will output the ID of the series"
-msgstr ""
+msgstr "Will output the ID of the series"
 
-#: inc/settings/settings-page.php:229
+#: inc/settings/settings-page.php:229, fuzzy
 msgid "Will output the author of the post"
-msgstr ""
+msgstr "Will output the author of the post"
 
-#: inc/settings/settings-page.php:237
+#: inc/settings/settings-page.php:237, fuzzy
 msgid "If the post has a feature-image then that image will be displayed"
-msgstr ""
+msgstr "If the post has a feature-image then that image will be displayed"
 
-#: inc/settings/settings-page.php:245
+#: inc/settings/settings-page.php:245, fuzzy
 msgid "The date that a post was published"
-msgstr ""
+msgstr "The date that a post was published"
 
-#: inc/settings/settings-page.php:253
-msgid ""
-"Will be replaced with the unpublished post title of a post in the series"
-msgstr ""
+#: inc/settings/settings-page.php:253, fuzzy
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "Will be replaced with the unpublished post title of a post in the series"
 
-#: inc/settings/settings-page.php:261
-msgid ""
-"Will display the total number of published and unpublished posts in a series"
-msgstr ""
+#: inc/settings/settings-page.php:261, fuzzy
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "Will display the total number of published and unpublished posts in a series"
 
-#: inc/settings/settings-page.php:304
+#: inc/settings/settings-page.php:304, fuzzy
 msgid "Update Options"
-msgstr ""
+msgstr "Update Options"
 
 #: inc/settings/settings-page.php:308
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
 msgstr ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
 
-#: inc/settings/settings-page.php:309
+#: inc/settings/settings-page.php:309, fuzzy
 msgid "No"
-msgstr ""
+msgstr "No"
 
-#: inc/settings/settings-page.php:310
+#: inc/settings/settings-page.php:310, fuzzy
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
-#: inc/settings/settings-upgrade.php:22 inc/settings/settings-upgrade.php:44
+#: inc/settings/settings-upgrade.php:22
+#: inc/settings/settings-upgrade.php:44, fuzzy
 msgid "Please update your PublishPress Series data"
-msgstr ""
+msgstr "Please update your PublishPress Series data"
 
-#: inc/settings/settings-upgrade.php:24 inc/settings/settings-upgrade.php:45
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:45
 msgid ""
 "We have made changes to how series are stored and this requires a small "
 "update. This improves support for the Multiple Series feature, and resolves "
 "some issues with the order of posts. Please click this button to upgrade."
 msgstr ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
 
-#: inc/settings/settings-upgrade.php:25 inc/settings/settings-upgrade.php:46
+#: inc/settings/settings-upgrade.php:25
+#: inc/settings/settings-upgrade.php:46, fuzzy
 msgid "Update Series data"
-msgstr ""
+msgstr "Update Series data"
 
-#: inc/settings/settings-upgrade.php:92
+#: inc/settings/settings-upgrade.php:92, fuzzy
 msgid "Series upgrade completed."
-msgstr ""
+msgstr "Series upgrade completed."
 
 #: inc/settings/settings-upgrade.php:174
-#, php-format
+#, fuzzy, php-format
 msgid "Series order sync completed. %d posts updated."
-msgstr ""
+msgstr "Series order sync completed. %d posts updated."
 
-#: inc/settings/settings-validation.php:58 orgSeries-setup.php:257
-msgctxt "taxonomy general name"
-msgid "Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:59 orgSeries-setup.php:258
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr ""
-
-#: inc/settings/settings-validation.php:60 orgSeries-setup.php:259
+#: inc/settings/settings-validation.php:60
+#: orgSeries-setup.php:259, fuzzy
 msgid "Search Series"
-msgstr ""
+msgstr "Search Series"
 
-#: inc/settings/settings-validation.php:61 orgSeries-setup.php:260
+#: inc/settings/settings-validation.php:61
+#: orgSeries-setup.php:260, fuzzy
 msgid "Popular Series"
-msgstr ""
+msgstr "Popular Series"
 
-#: inc/settings/settings-validation.php:62 orgSeries-setup.php:261
-#: orgSeries-setup.php:315
+#: inc/settings/settings-validation.php:62
+#: orgSeries-setup.php:261
+#: orgSeries-setup.php:315, fuzzy
 msgid "All Series"
-msgstr ""
+msgstr "All Series"
 
-#: inc/settings/settings-validation.php:63 orgSeries-setup.php:262
+#: inc/settings/settings-validation.php:63
+#: orgSeries-setup.php:262, fuzzy
 msgid "Edit Series"
-msgstr ""
+msgstr "Edit Series"
 
-#: inc/settings/settings-validation.php:64 orgSeries-setup.php:263
+#: inc/settings/settings-validation.php:64
+#: orgSeries-setup.php:263, fuzzy
 msgid "Update Series"
-msgstr ""
+msgstr "Update Series"
 
-#: inc/settings/settings-validation.php:65 orgSeries-setup.php:264
+#: inc/settings/settings-validation.php:65
+#: orgSeries-setup.php:264, fuzzy
 msgid "Add New Series"
-msgstr ""
+msgstr "Add New Series"
 
-#: inc/settings/settings-validation.php:66 orgSeries-setup.php:265
+#: inc/settings/settings-validation.php:66
+#: orgSeries-setup.php:265, fuzzy
 msgid "New Series Name"
-msgstr ""
+msgstr "New Series Name"
 
-#: inc/settings/settings-validation.php:68 orgSeries-setup.php:267
+#: inc/settings/settings-validation.php:68
+#: orgSeries-setup.php:267, fuzzy
 msgid "No series found"
-msgstr ""
+msgstr "No series found"
 
 #: inc/settings/settings-validation.php:121
-#, php-format
-msgid ""
-"%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
-msgstr ""
+#, fuzzy, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
 
-#: inc/settings/settings-validation.php:135
+#: inc/settings/settings-validation.php:135, fuzzy
 msgid "PublishPress Series Plugin Options have been updated"
-msgstr ""
+msgstr "PublishPress Series Plugin Options have been updated"
 
-#: inc/settings/settings-validation.php:151
+#: inc/settings/settings-validation.php:151, fuzzy
 msgid "Permission denied"
-msgstr ""
+msgstr "Permission denied"
 
-#: inc/settings/settings-validation.php:157
+#: inc/settings/settings-validation.php:157, fuzzy
 msgid "PublishPress Series Plugin Options have been RESET"
-msgstr ""
+msgstr "PublishPress Series Plugin Options have been RESET"
 
 #: inc/settings/tab-advanced.php:16
 msgid ""
 "Please change these settings carefully as they make significant changes to "
 "PublishPress Series."
 msgstr ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
 
-#: inc/settings/tab-advanced.php:34
+#: inc/settings/tab-advanced.php:34, fuzzy
 msgid "Series Settings"
-msgstr ""
+msgstr "Series Settings"
 
 #: inc/settings/tab-advanced.php:40
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
 msgstr ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
 
-#: inc/settings/tab-advanced.php:47
+#: inc/settings/tab-advanced.php:47, fuzzy
 msgid "Series Upgrade"
-msgstr ""
+msgstr "Series Upgrade"
 
-#: inc/settings/tab-advanced.php:52
+#: inc/settings/tab-advanced.php:52, fuzzy
 msgid "Run Upgrade Task"
-msgstr ""
+msgstr "Run Upgrade Task"
 
 #: inc/settings/tab-advanced.php:56
 msgid ""
@@ -2031,83 +2266,90 @@ msgid ""
 "stored. You can run the upgrade task here if you're having issues with "
 "series parts."
 msgstr ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
 
-#: inc/settings/tab-advanced.php:65
+#: inc/settings/tab-advanced.php:65, fuzzy
 msgid "Sync Series Order to Menu Order"
-msgstr ""
+msgstr "Sync Series Order to Menu Order"
 
-#: inc/settings/tab-advanced.php:70
+#: inc/settings/tab-advanced.php:70, fuzzy
 msgid "Sync to Menu Order"
-msgstr ""
+msgstr "Sync to Menu Order"
 
 #: inc/settings/tab-advanced.php:74
 msgid ""
-"This will sync all series part numbers to WordPress menu_order field. Useful "
-"for themes/page builders that can only sort by menu order (Page Attributes: "
-"Order). This allows you to use native WordPress ordering instead of custom "
-"fields."
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
 msgstr ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
 
-#: inc/settings/tab-advanced.php:83
+#: inc/settings/tab-advanced.php:83, fuzzy
 msgid "Reset settings"
-msgstr ""
+msgstr "Reset settings"
 
-#: inc/settings/tab-advanced.php:86
+#: inc/settings/tab-advanced.php:86, fuzzy
 msgid "Reset options to default"
-msgstr ""
+msgstr "Reset options to default"
 
-#: inc/settings/tab-legacy.php:12 orgSeries-options.php:144
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:144, fuzzy
 msgid "Legacy"
-msgstr ""
+msgstr "Legacy"
 
-#: inc/settings/tab-legacy.php:13
+#: inc/settings/tab-legacy.php:13, fuzzy
 msgid "Legacy Settings"
-msgstr ""
+msgstr "Legacy Settings"
 
-#: inc/settings/tab-legacy.php:27
+#: inc/settings/tab-legacy.php:27, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
-#: inc/settings/tab-legacy.php:36
+#: inc/settings/tab-legacy.php:36, fuzzy
 msgid "CSS Styles"
-msgstr ""
+msgstr "CSS Styles"
 
-#: inc/settings/tab-legacy.php:41
+#: inc/settings/tab-legacy.php:41, fuzzy
 msgid "Use PublishPress Series CSS styles?"
-msgstr ""
+msgstr "Use PublishPress Series CSS styles?"
 
-#: inc/settings/tab-legacy.php:45
+#: inc/settings/tab-legacy.php:45, fuzzy
 msgid "Style options"
-msgstr ""
+msgstr "Style options"
 
-#: inc/settings/tab-legacy.php:47
+#: inc/settings/tab-legacy.php:47, fuzzy
 msgid "Use default style"
-msgstr ""
+msgstr "Use default style"
 
-#: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:48, fuzzy
 msgid "Use box style"
-msgstr ""
+msgstr "Use box style"
 
-#: inc/settings/tab-legacy.php:49
+#: inc/settings/tab-legacy.php:49, fuzzy
 msgid "Use dark style"
-msgstr ""
+msgstr "Use dark style"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:50, fuzzy
 msgid "Use light style"
-msgstr ""
+msgstr "Use light style"
 
-#: inc/settings/tab-legacy.php:60
+#: inc/settings/tab-legacy.php:60, fuzzy
 msgid "Series Overview"
-msgstr ""
+msgstr "Series Overview"
 
-#: inc/settings/tab-legacy.php:62
-msgid ""
-"Choose the design for the taxonomy page where a single Series is displayed."
-msgstr ""
+#: inc/settings/tab-legacy.php:62, fuzzy
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "Choose the design for the taxonomy page where a single Series is displayed."
 
-#: inc/settings/tab-legacy.php:66
+#: inc/settings/tab-legacy.php:66, fuzzy
 msgid "Layout:"
-msgstr ""
+msgstr "Layout:"
 
 #: inc/settings/tab-legacy.php:82
 #, php-format
@@ -2116,40 +2358,46 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
 "details on how to customize these designs</a>."
 msgstr ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
+"details on how to customize these designs</a>."
 
-#: inc/settings/tab-legacy.php:91 inc/settings/tab-series-category.php:66
+#: inc/settings/tab-legacy.php:91
+#: inc/settings/tab-series-category.php:66, fuzzy
 msgid "Columns:"
-msgstr ""
+msgstr "Columns:"
 
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:97, fuzzy
 msgid "Order series by:"
-msgstr ""
+msgstr "Order series by:"
 
-#: inc/settings/tab-legacy.php:99
+#: inc/settings/tab-legacy.php:99, fuzzy
 msgid "Series part"
-msgstr ""
+msgstr "Series part"
 
-#: inc/settings/tab-legacy.php:100
+#: inc/settings/tab-legacy.php:100, fuzzy
 msgid "Order by date"
-msgstr ""
+msgstr "Order by date"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:104, fuzzy
 msgid "Series order method"
-msgstr ""
+msgstr "Series order method"
 
-#: inc/settings/tab-legacy.php:117 inc/settings/tab-legacy.php:215
-#: inc/settings/tab-legacy.php:221 orgSeries-setup.php:485
-#: orgSeries-widgets.php:112
+#: inc/settings/tab-legacy.php:117
+#: inc/settings/tab-legacy.php:215
+#: inc/settings/tab-legacy.php:221
+#: orgSeries-setup.php:485
+#: orgSeries-widgets.php:115, fuzzy
 msgid "Series Table of Contents"
-msgstr ""
+msgstr "Series Table of Contents"
 
-#: inc/settings/tab-legacy.php:122
+#: inc/settings/tab-legacy.php:122, fuzzy
 msgid "Series Table of Contents URL:"
-msgstr ""
+msgstr "Series Table of Contents URL:"
 
-#: inc/settings/tab-legacy.php:125
+#: inc/settings/tab-legacy.php:125, fuzzy
 msgid "view page"
-msgstr ""
+msgstr "view page"
 
 #: inc/settings/tab-legacy.php:134
 #, php-format
@@ -2157,302 +2405,330 @@ msgid ""
 "You must %1s update your permalink structure %2s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
+"You must %1s update your permalink structure %2s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
 
-#: inc/settings/tab-legacy.php:154
+#: inc/settings/tab-legacy.php:154, fuzzy
 msgid "Series Per Page:"
-msgstr ""
+msgstr "Series Per Page:"
 
-#: inc/settings/tab-legacy.php:158
+#: inc/settings/tab-legacy.php:158, fuzzy
 msgid "Series Table of Contents Title:"
-msgstr ""
+msgstr "Series Table of Contents Title:"
 
-#: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr ""
+#: inc/settings/tab-legacy.php:168, fuzzy
+msgid "Series Featured Images"
+msgstr "Series Featured Images"
 
-#: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr ""
+#: inc/settings/tab-legacy.php:173, fuzzy
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "Width for featured image on series table of contents page (in pixels)"
 
-#: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr ""
+#: inc/settings/tab-legacy.php:177, fuzzy
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "Width for featured image on a post page (in pixels)."
 
 #: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 msgstr ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
 
-#: inc/settings/tab-legacy.php:191 orgSeries-widgets.php:13
+#: inc/settings/tab-legacy.php:191
+#: orgSeries-widgets.php:13, fuzzy
 msgid "Latest Series"
-msgstr ""
+msgstr "Latest Series"
 
-#: inc/settings/tab-legacy.php:193
+#: inc/settings/tab-legacy.php:193, fuzzy
 msgid "This display is used by the \"Latest Series\" widget."
-msgstr ""
+msgstr "This display is used by the \"Latest Series\" widget."
 
-#: inc/settings/tab-legacy.php:197
+#: inc/settings/tab-legacy.php:197, fuzzy
 msgid "Latest Series (tags before):"
-msgstr ""
+msgstr "Latest Series (tags before):"
 
-#: inc/settings/tab-legacy.php:201
+#: inc/settings/tab-legacy.php:201, fuzzy
 msgid "Latest Series (inner tags):"
-msgstr ""
+msgstr "Latest Series (inner tags):"
 
-#: inc/settings/tab-legacy.php:205
+#: inc/settings/tab-legacy.php:205, fuzzy
 msgid "Latest Series (tags after):"
-msgstr ""
+msgstr "Latest Series (tags after):"
 
 #: inc/settings/tab-legacy.php:217
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
 
 #: inc/settings/tab-legacy.php:224
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
-"for this display, go the \"Display\" tab and then \"Series Table of Contents "
-"URL\"."
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
 msgstr ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
 
 #: inc/settings/tab-metabox.php:16
 msgid ""
-"These settings allow you to customize the metabox on the post editing screen."
+"These settings allow you to customize the metabox on the post editing "
+"screen."
 msgstr ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
 
-#: inc/settings/tab-metabox.php:26
+#: inc/settings/tab-metabox.php:26, fuzzy
 msgid "Default Series Order"
-msgstr ""
+msgstr "Default Series Order"
 
-#: inc/settings/tab-metabox.php:27
+#: inc/settings/tab-metabox.php:27, fuzzy
 msgid "Alphabetical A-Z"
-msgstr ""
+msgstr "Alphabetical A-Z"
 
-#: inc/settings/tab-metabox.php:28
+#: inc/settings/tab-metabox.php:28, fuzzy
 msgid "Alphabetical Z-A"
-msgstr ""
+msgstr "Alphabetical Z-A"
 
-#: inc/settings/tab-metabox.php:34
+#: inc/settings/tab-metabox.php:34, fuzzy
 msgid "Show \"Add New\""
-msgstr ""
+msgstr "Show \"Add New\""
 
-#: inc/settings/tab-metabox.php:38
+#: inc/settings/tab-metabox.php:38, fuzzy
 msgid "Show \"Post title in widget\""
-msgstr ""
+msgstr "Show \"Post title in widget\""
 
-#: inc/settings/tab-metabox.php:42
+#: inc/settings/tab-metabox.php:42, fuzzy
 msgid "Metabox Series Order"
-msgstr ""
+msgstr "Metabox Series Order"
 
-#: inc/settings/tab-post-details.php:12
+#: inc/settings/tab-post-details.php:12, fuzzy
 msgid "Post Details Settings"
-msgstr ""
+msgstr "Post Details Settings"
 
-#: inc/settings/tab-post-details.php:16
+#: inc/settings/tab-post-details.php:16, fuzzy
 msgid "Configure the Series Post Details display shown on posts in a series."
-msgstr ""
+msgstr "Configure the Series Post Details display shown on posts in a series."
 
-#: inc/settings/tab-post-details.php:26 inc/settings/tab-post-list-box.php:26
-#: inc/settings/tab-post-navigation.php:26
+#: inc/settings/tab-post-details.php:26
+#: inc/settings/tab-post-list-box.php:26
+#: inc/settings/tab-post-navigation.php:26, fuzzy
 msgid "As in Template"
-msgstr ""
+msgstr "As in Template"
 
-#: inc/settings/tab-post-details.php:36
+#: inc/settings/tab-post-details.php:36, fuzzy
 msgid "Display Series Post Details?"
-msgstr ""
+msgstr "Display Series Post Details?"
 
-#: inc/settings/tab-post-details.php:41
+#: inc/settings/tab-post-details.php:41, fuzzy
 msgid "Post Details Selection"
-msgstr ""
+msgstr "Post Details Selection"
 
-#: inc/settings/tab-post-details.php:43 inc/settings/tab-post-navigation.php:43
+#: inc/settings/tab-post-details.php:43
+#: inc/settings/tab-post-navigation.php:43, fuzzy
 msgid "Edit this layout"
-msgstr ""
+msgstr "Edit this layout"
 
-#: inc/settings/tab-post-details.php:44 inc/settings/tab-post-list-box.php:44
-#: inc/settings/tab-post-navigation.php:44
+#: inc/settings/tab-post-details.php:44
+#: inc/settings/tab-post-list-box.php:44
+#: inc/settings/tab-post-navigation.php:44, fuzzy
 msgid "Loading…"
-msgstr ""
+msgstr "Loading…"
 
-#: inc/settings/tab-post-details.php:51
+#: inc/settings/tab-post-details.php:51, fuzzy
 msgid "Post Details Position"
-msgstr ""
+msgstr "Post Details Position"
 
-#: inc/settings/tab-post-details.php:66
+#: inc/settings/tab-post-details.php:66, fuzzy
 msgid "Series Meta Template"
-msgstr ""
+msgstr "Series Meta Template"
 
-#: inc/settings/tab-post-details.php:71
+#: inc/settings/tab-post-details.php:71, fuzzy
 msgid "Series Meta (with excerpts)"
-msgstr ""
+msgstr "Series Meta (with excerpts)"
 
-#: inc/settings/tab-post-details.php:76
+#: inc/settings/tab-post-details.php:76, fuzzy
 msgid "Limit to single page only"
-msgstr ""
+msgstr "Limit to single page only"
 
 #: inc/settings/tab-post-details.php:79
 msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
 msgstr ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
 
-#: inc/settings/tab-post-list-box.php:12
+#: inc/settings/tab-post-list-box.php:12, fuzzy
 msgid "Post List Box Settings"
-msgstr ""
+msgstr "Post List Box Settings"
 
-#: inc/settings/tab-post-list-box.php:16
+#: inc/settings/tab-post-list-box.php:16, fuzzy
 msgid "Configure the Post List Box that displays all posts in a series."
-msgstr ""
+msgstr "Configure the Post List Box that displays all posts in a series."
 
-#: inc/settings/tab-post-list-box.php:36
+#: inc/settings/tab-post-list-box.php:36, fuzzy
 msgid "Display Post List Boxes?"
-msgstr ""
+msgstr "Display Post List Boxes?"
 
-#: inc/settings/tab-post-list-box.php:41
+#: inc/settings/tab-post-list-box.php:41, fuzzy
 msgid "Post List Boxes Selection"
-msgstr ""
+msgstr "Post List Boxes Selection"
 
-#: inc/settings/tab-post-list-box.php:43
+#: inc/settings/tab-post-list-box.php:43, fuzzy
 msgid "Edit this box"
-msgstr ""
+msgstr "Edit this box"
 
-#: inc/settings/tab-post-list-box.php:51
+#: inc/settings/tab-post-list-box.php:51, fuzzy
 msgid "Post List Box Position"
-msgstr ""
+msgstr "Post List Box Position"
 
-#: inc/settings/tab-post-list-box.php:66
-msgid "Series Post List Template"
-msgstr ""
+#: inc/settings/tab-post-list-box.php:66, fuzzy
+msgid "Post List Box Template"
+msgstr "Post List Box Template"
 
-#: inc/settings/tab-post-list-box.php:70
+#: inc/settings/tab-post-list-box.php:70, fuzzy
 msgid "Post Title (Linked Post)"
-msgstr ""
+msgstr "Post Title (Linked Post)"
 
-#: inc/settings/tab-post-list-box.php:75
+#: inc/settings/tab-post-list-box.php:75, fuzzy
 msgid "Post Title (Current Post)"
-msgstr ""
+msgstr "Post Title (Current Post)"
 
-#: inc/settings/tab-post-navigation.php:11
+#: inc/settings/tab-post-navigation.php:11, fuzzy
 msgid "Navigation"
-msgstr ""
+msgstr "Navigation"
 
-#: inc/settings/tab-post-navigation.php:12
+#: inc/settings/tab-post-navigation.php:12, fuzzy
 msgid "Navigation Settings"
-msgstr ""
+msgstr "Navigation Settings"
 
-#: inc/settings/tab-post-navigation.php:16
+#: inc/settings/tab-post-navigation.php:16, fuzzy
 msgid "Configure the Series Navigation display shown on posts in a series."
-msgstr ""
+msgstr "Configure the Series Navigation display shown on posts in a series."
 
-#: inc/settings/tab-post-navigation.php:36
+#: inc/settings/tab-post-navigation.php:36, fuzzy
 msgid "Display Series Navigation?"
-msgstr ""
+msgstr "Display Series Navigation?"
 
-#: inc/settings/tab-post-navigation.php:41
+#: inc/settings/tab-post-navigation.php:41, fuzzy
 msgid "Navigation Selection"
-msgstr ""
+msgstr "Navigation Selection"
 
-#: inc/settings/tab-post-navigation.php:51
+#: inc/settings/tab-post-navigation.php:51, fuzzy
 msgid "Navigation Position"
-msgstr ""
+msgstr "Navigation Position"
 
-#: inc/settings/tab-post-navigation.php:66
+#: inc/settings/tab-post-navigation.php:66, fuzzy
 msgid "Navigation Template"
-msgstr ""
+msgstr "Navigation Template"
 
-#: inc/settings/tab-post-navigation.php:71
+#: inc/settings/tab-post-navigation.php:71, fuzzy
 msgid "Next Post Text"
-msgstr ""
+msgstr "Next Post Text"
 
-#: inc/settings/tab-post-navigation.php:76
+#: inc/settings/tab-post-navigation.php:76, fuzzy
 msgid "Previous Post Text"
-msgstr ""
+msgstr "Previous Post Text"
 
-#: inc/settings/tab-post-navigation.php:81
+#: inc/settings/tab-post-navigation.php:81, fuzzy
 msgid "First Post Text"
-msgstr ""
+msgstr "First Post Text"
 
-#: inc/settings/tab-post-types.php:10 orgSeries-options.php:138
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:138, fuzzy
 msgid "Post Types"
-msgstr ""
+msgstr "Post Types"
 
-#: inc/settings/tab-post-types.php:11 inc/settings/tab-pro-features.php:27
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:27, fuzzy
 msgid "Custom Post Type Support"
-msgstr ""
+msgstr "Custom Post Type Support"
 
-#: inc/settings/tab-post-types.php:18
+#: inc/settings/tab-post-types.php:18, fuzzy
 msgid "Enable PublishPress Series for custom post types."
-msgstr ""
+msgstr "Enable PublishPress Series for custom post types."
 
-#: inc/settings/tab-pro-features.php:10 inc/settings/tab-pro-features.php:11
-#: orgSeries-options.php:147
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:147, fuzzy
 msgid "Pro Features"
-msgstr ""
+msgstr "Pro Features"
 
 #: inc/settings/tab-pro-features.php:18
 msgid ""
 "These settings allow you enable or disable features in PublishPress Series "
 "Pro."
 msgstr ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
 
-#: inc/settings/tab-pro-features.php:27
+#: inc/settings/tab-pro-features.php:27, fuzzy
 msgid "Allow custom post types to be used with PublishPress Series."
-msgstr ""
+msgstr "Allow custom post types to be used with PublishPress Series."
 
-#: inc/settings/tab-pro-features.php:28
+#: inc/settings/tab-pro-features.php:28, fuzzy
 msgid "Shortcodes"
-msgstr ""
+msgstr "Shortcodes"
 
-#: inc/settings/tab-pro-features.php:28
+#: inc/settings/tab-pro-features.php:28, fuzzy
 msgid "Provides shortcodes to display series information."
-msgstr ""
+msgstr "Provides shortcodes to display series information."
 
-#: inc/settings/tab-pro-features.php:29
+#: inc/settings/tab-pro-features.php:29, fuzzy
 msgid "Extra Tokens"
-msgstr ""
+msgstr "Extra Tokens"
 
-#: inc/settings/tab-pro-features.php:29
+#: inc/settings/tab-pro-features.php:29, fuzzy
 msgid "Provides extra tokens to customize the output of series information."
-msgstr ""
+msgstr "Provides extra tokens to customize the output of series information."
 
-#: inc/settings/tab-pro-features.php:30
+#: inc/settings/tab-pro-features.php:30, fuzzy
 msgid "Multiple Series"
-msgstr ""
+msgstr "Multiple Series"
 
-#: inc/settings/tab-pro-features.php:30
+#: inc/settings/tab-pro-features.php:30, fuzzy
 msgid "Allows authors to add posts to more than one series."
-msgstr ""
+msgstr "Allows authors to add posts to more than one series."
 
 #: inc/settings/tab-series-category.php:8
-#: inc/settings/tab-series-category.php:9 orgSeries-options.php:142
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:142, fuzzy
 msgid "Series Category"
-msgstr ""
+msgstr "Series Category"
 
-#: inc/settings/tab-series-category.php:13
+#: inc/settings/tab-series-category.php:13, fuzzy
 msgid "Settings for Series Categories archive URL and display behavior."
-msgstr ""
+msgstr "Settings for Series Categories archive URL and display behavior."
 
-#: inc/settings/tab-series-category.php:26
+#: inc/settings/tab-series-category.php:26, fuzzy
 msgid "Series Categories URL Base:"
-msgstr ""
+msgstr "Series Categories URL Base:"
 
 #: inc/settings/tab-series-category.php:30
 msgid ""
 "This text will be used in Series Categories archive URLs. If you change it, "
 "old URLs will be redirected to the new base."
 msgstr ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
 
-#: inc/settings/tab-series-category.php:36
+#: inc/settings/tab-series-category.php:36, fuzzy
 msgid "Series Categories Archive Template:"
-msgstr ""
+msgstr "Series Categories Archive Template:"
 
-#: inc/settings/tab-series-category.php:39
+#: inc/settings/tab-series-category.php:39, fuzzy
 msgid "Use template from Theme"
-msgstr ""
+msgstr "Use template from Theme"
 
-#: inc/settings/tab-series-category.php:40
+#: inc/settings/tab-series-category.php:40, fuzzy
 msgid "Use template from Plugin"
-msgstr ""
+msgstr "Use template from Plugin"
 
 #: inc/settings/tab-series-category.php:43
 msgid ""
@@ -2460,54 +2736,61 @@ msgid ""
 "uses PublishPress Series fallback design when your theme does not provide "
 "taxonomy-series_group.php."
 msgstr ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
 
-#: inc/settings/tab-series-category.php:49
+#: inc/settings/tab-series-category.php:49, fuzzy
 msgid "Plugin Template Display Options:"
-msgstr ""
+msgstr "Plugin Template Display Options:"
 
-#: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr ""
+#: inc/settings/tab-series-category.php:53, fuzzy
+msgid "Show Series Featured Image"
+msgstr "Show Series Featured Image"
 
-#: inc/settings/tab-series-category.php:58
+#: inc/settings/tab-series-category.php:58, fuzzy
 msgid "Show Series Description"
-msgstr ""
+msgstr "Show Series Description"
 
-#: inc/settings/tab-series-category.php:63
+#: inc/settings/tab-series-category.php:63, fuzzy
 msgid "Show Posts in each Series as list items"
-msgstr ""
+msgstr "Show Posts in each Series as list items"
 
 #: inc/settings/tab-taxonomy.php:16
 msgid ""
 "This feature allows you to create a new taxonomy for this plugin to use if "
 "you don't want to use the default \"Series\" taxonomy."
 msgstr ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
 
-#: inc/settings/tab-taxonomy.php:28
+#: inc/settings/tab-taxonomy.php:28, fuzzy
 msgid "Series Taxonomy Slug:"
-msgstr ""
+msgstr "Series Taxonomy Slug:"
 
-#: inc/settings/tab-taxonomy.php:31
+#: inc/settings/tab-taxonomy.php:31, fuzzy
 msgid "This text will be part of the series base URL."
-msgstr ""
+msgstr "This text will be part of the series base URL."
 
-#: inc/settings/tab-taxonomy.php:36
+#: inc/settings/tab-taxonomy.php:36, fuzzy
 msgid "Series Taxonomy:"
-msgstr ""
+msgstr "Series Taxonomy:"
 
 #: inc/settings/tab-taxonomy.php:40
 msgid ""
 "To create a new taxonomy, enter the new name and click the \"Update "
 "Options\" button."
 msgstr ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
 
-#: inc/settings/tab-taxonomy.php:47
+#: inc/settings/tab-taxonomy.php:47, fuzzy
 msgid "Migrate Terms"
-msgstr ""
+msgstr "Migrate Terms"
 
-#: inc/settings/tab-taxonomy.php:53
+#: inc/settings/tab-taxonomy.php:53, fuzzy
 msgid "Automatically migrate existing series terms to the new taxonomy"
-msgstr ""
+msgstr "Automatically migrate existing series terms to the new taxonomy"
 
 #: inc/settings/tab-taxonomy.php:56
 msgid ""
@@ -2515,540 +2798,591 @@ msgid ""
 "taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
 "slug will be changed."
 msgstr ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
 
-#: inc/templates/taxonomy-series.php:70
+#: inc/templates/taxonomy-series.php:70, fuzzy
 msgid "Sorry, no results found."
+msgstr "Sorry, no results found."
+
+#: inc/welcome/welcome-panel.php:141, fuzzy
+msgid "Dismiss this panel"
+msgstr "Dismiss this panel"
+
+#: inc/welcome/welcome-panel.php:160, fuzzy
+msgid "Welcome to PublishPress Series"
+msgstr "Welcome to PublishPress Series"
+
+#: inc/welcome/welcome-panel.php:163
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
 msgstr ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+
+#: inc/welcome/welcome-panel.php:168, fuzzy
+msgid "Create a series"
+msgstr "Create a series"
+
+#: inc/welcome/welcome-panel.php:172, fuzzy
+msgid "View Documentation"
+msgstr "View Documentation"
+
+#: inc/welcome/welcome-panel.php:177
+#: includes-core/PPSeriesCoreAdmin.php:41, fuzzy
+msgid "Upgrade to Pro"
+msgstr "Upgrade to Pro"
 
 #: includes-core/PPSeriesCoreAdmin.php:13
 #, php-format
 msgid ""
-"You're using PublishPress Series Free. The Pro version has more features and "
-"support. %sUpgrade to Pro%s"
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
 msgstr ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %sUpgrade to Pro%s"
 
-#: includes-core/PPSeriesCoreAdmin.php:35
-msgid "Upgrade to Pro"
-msgstr ""
-
-#: includes-core/PPSeriesCoreAdmin.php:58
+#: includes-core/PPSeriesCoreAdmin.php:64, fuzzy
 msgid "Need PublishPress Series Support?"
-msgstr ""
+msgstr "Need PublishPress Series Support?"
 
-#: includes-core/PPSeriesCoreAdmin.php:63
+#: includes-core/PPSeriesCoreAdmin.php:69, fuzzy
 msgid "If you need help or have a new feature request, let us know."
-msgstr ""
+msgstr "If you need help or have a new feature request, let us know."
 
-#: includes-core/PPSeriesCoreAdmin.php:65
+#: includes-core/PPSeriesCoreAdmin.php:71, fuzzy
 msgid "Request Support"
-msgstr ""
+msgstr "Request Support"
 
-#: includes-core/PPSeriesCoreAdmin.php:74
+#: includes-core/PPSeriesCoreAdmin.php:80, fuzzy
 msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
+msgstr "Detailed documentation is also available on the plugin website."
 
-#: includes-core/PPSeriesCoreAdmin.php:76
+#: includes-core/PPSeriesCoreAdmin.php:82, fuzzy
 msgid "View Knowledge Base"
-msgstr ""
+msgstr "View Knowledge Base"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42, fuzzy
 msgid "An error occured"
-msgstr ""
+msgstr "An error occured"
 
-#: orgSeries-admin.php:70
-#, php-format
+#: orgSeries-admin.php:45
+#, fuzzy, php-format
 msgid "%1$s series migrated to new taxonomy"
-msgstr ""
+msgstr "%1$s series migrated to new taxonomy"
 
-#: orgSeries-admin.php:175
-#, php-format
+#: orgSeries-admin.php:129, fuzzy
+msgid "Custom Template"
+msgstr "Custom Template"
+
+#: orgSeries-admin.php:151
+#, fuzzy, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr ""
+msgstr "If you like %s, please leave us a %s rating. Thank you!"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162, fuzzy
 msgid "About PublishPress Series"
-msgstr ""
+msgstr "About PublishPress Series"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:162, fuzzy
 msgid "About"
-msgstr ""
+msgstr "About"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163, fuzzy
 msgid "PublishPress Series Documentation"
-msgstr ""
+msgstr "PublishPress Series Documentation"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:163, fuzzy
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact the PublishPress team"
-msgstr ""
+msgstr "Contact the PublishPress team"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:164, fuzzy
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
-#: orgSeries-admin.php:219
+#: orgSeries-admin.php:195, fuzzy
 msgid "Sorry but you don't have permission to add series"
-msgstr ""
+msgstr "Sorry but you don't have permission to add series"
 
-#: orgSeries-admin.php:230
+#: orgSeries-admin.php:206, fuzzy
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr "The name you picked isn't sanitizing correctly. Try something different."
+
+#: orgSeries-admin.php:212
 msgid ""
-"The name you picked isn't sanitizing correctly. Try something different."
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
 msgstr ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
 
-#: orgSeries-admin.php:236
-msgid ""
-"Hmm... it looks like there is already a series with that name. Try something "
-"else"
-msgstr ""
-
-#: orgSeries-admin.php:359
+#: orgSeries-admin.php:335, fuzzy
 msgid "Not part of a series"
-msgstr ""
+msgstr "Not part of a series"
+
+#: orgSeries-admin.php:397, fuzzy
+msgid "Search series"
+msgstr "Search series"
+
+#: orgSeries-admin.php:412, fuzzy
+msgid "Series Part:"
+msgstr "Series Part:"
+
+#: orgSeries-admin.php:419, fuzzy
+msgid "Post title in widget:"
+msgstr "Post title in widget:"
 
 #: orgSeries-admin.php:421
-msgid "Search series"
-msgstr ""
-
-#: orgSeries-admin.php:436
-msgid "Series Part:"
-msgstr ""
-
-#: orgSeries-admin.php:443
-msgid "Post title in widget:"
-msgstr ""
-
-#: orgSeries-admin.php:445
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
 
-#: orgSeries-admin.php:478
-msgctxt "series meta box title"
-msgid "Series"
-msgstr ""
+#: orgSeries-admin.php:507
+#, fuzzy, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 
-#: orgSeries-admin.php:491
-msgctxt "posts list column header"
-msgid "Series"
-msgstr ""
+#: orgSeries-admin.php:509
+#, fuzzy, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+
+#: orgSeries-admin.php:513
+#, fuzzy, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 
 #: orgSeries-admin.php:519
-#, php-format
-msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
-msgstr ""
-
-#: orgSeries-admin.php:521
-#, php-format
-msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
-msgstr ""
-
-#: orgSeries-admin.php:525
-#, php-format
-msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
-msgstr ""
-
-#: orgSeries-admin.php:531 orgSeries-setup.php:270
+#: orgSeries-setup.php:270, fuzzy
 msgid "No Series"
-msgstr ""
+msgstr "No Series"
 
-#: orgSeries-admin.php:552
+#: orgSeries-admin.php:540, fuzzy
 msgid "View all series"
-msgstr ""
+msgstr "View all series"
 
-#: orgSeries-admin.php:561
+#: orgSeries-admin.php:549, fuzzy
 msgid "Manage All Series"
+msgstr "Manage All Series"
+
+#: orgSeries-icon.php:132
+msgid ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 msgstr ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
 
-#: orgSeries-admin.php:571
-msgctxt "dashboard count label"
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] ""
-msgstr[1] ""
+#: orgSeries-icon.php:136
+#. translators: %s: the error message reported by the database.
+#, fuzzy, php-format
+msgid "Database error: %s"
+msgstr "Database error: %s"
 
-#: orgSeries-manage.php:66
+#: orgSeries-manage.php:67, fuzzy
 msgid "Term Order"
-msgstr ""
+msgstr "Term Order"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:68
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:152, fuzzy
+msgid "Series added."
+msgstr "Series added."
+
+#: orgSeries-manage.php:153
+#: orgSeries-manage.php:157, fuzzy
+msgid "Series deleted."
+msgstr "Series deleted."
+
+#: orgSeries-manage.php:154, fuzzy
+msgid "Series updated."
+msgstr "Series updated."
+
+#: orgSeries-manage.php:155, fuzzy
+msgid "Series not added."
+msgstr "Series not added."
+
+#: orgSeries-manage.php:156, fuzzy
+msgid "Series not updated."
+msgstr "Series not updated."
+
+#: orgSeries-manage.php:219, fuzzy
+msgid "Posts"
+msgstr "Posts"
+
+#: orgSeries-manage.php:221, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#: orgSeries-manage.php:233
+#: orgSeries-manage.php:258
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
 
-#: orgSeries-manage.php:240
-msgid "Current series icon:"
-msgstr ""
+#: orgSeries-manage.php:265, fuzzy
+msgid "Current series featured image:"
+msgstr "Current series featured image:"
 
-#: orgSeries-manage.php:246
-msgid "No icon currently"
-msgstr ""
+#: orgSeries-manage.php:271, fuzzy
+msgid "No featured image currently"
+msgstr "No featured image currently"
 
-#: orgSeries-manage.php:256
+#: orgSeries-manage.php:281
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
 
-#: orgSeries-manage.php:261
-msgid "Series Icon Upload:"
-msgstr ""
+#: orgSeries-manage.php:286, fuzzy
+msgid "Series featured image upload:"
+msgstr "Series featured image upload:"
 
-#: orgSeries-manage.php:265
-msgid "Upload an image for the series."
-msgstr ""
+#: orgSeries-manage.php:290, fuzzy
+msgid "Upload a featured image for the series."
+msgstr "Upload a featured image for the series."
 
-#: orgSeries-manage.php:280
+#: orgSeries-manage.php:305, fuzzy
 msgid "Invalid form data"
-msgstr ""
+msgstr "Invalid form data"
 
-#: orgSeries-manage.php:290
+#: orgSeries-manage.php:315, fuzzy
 msgid "Invalid nonce, reload and try again"
-msgstr ""
+msgstr "Invalid nonce, reload and try again"
 
-#: orgSeries-manage.php:299
+#: orgSeries-manage.php:324, fuzzy
 msgid "Invalid taxonomy"
-msgstr ""
+msgstr "Invalid taxonomy"
 
-#: orgSeries-manage.php:305
+#: orgSeries-manage.php:330, fuzzy
 msgid "Not enough permission"
-msgstr ""
+msgstr "Not enough permission"
 
-#: orgSeries-manage.php:309
+#: orgSeries-manage.php:334, fuzzy
 msgid "Updated successfully"
-msgstr ""
+msgstr "Updated successfully"
 
-#: orgSeries-options.php:43 orgSeries-options.php:64 orgSeries-options.php:65
-#: orgSeries-setup.php:872
+#: orgSeries-options.php:43
+#: orgSeries-options.php:64
+#: orgSeries-options.php:65
+#: orgSeries-setup.php:872, fuzzy
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
-#: orgSeries-options.php:54
+#: orgSeries-options.php:54, fuzzy
 msgid "PublishPress Series Options"
-msgstr ""
-
-#: orgSeries-options.php:55
-msgctxt "top-level admin menu label"
-msgid "Series"
-msgstr ""
+msgstr "PublishPress Series Options"
 
 #: orgSeries-options.php:141
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomy"
 
-#: orgSeries-options.php:143
+#: orgSeries-options.php:143, fuzzy
 msgid "Metabox"
-msgstr ""
+msgstr "Metabox"
 
-#: orgSeries-options.php:150
+#: orgSeries-options.php:150, fuzzy
 msgid "Advanced"
-msgstr ""
+msgstr "Advanced"
 
-#: orgSeries-setup.php:209
+#: orgSeries-setup.php:209, fuzzy
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr ""
+msgstr "Select \"Not part of a series\" to remove any series data from post"
 
-#: orgSeries-setup.php:266
-msgctxt "taxonomy menu name"
-msgid "Series"
-msgstr ""
-
-#: orgSeries-setup.php:268
+#: orgSeries-setup.php:268, fuzzy
 msgid "&larr; Go to Series"
-msgstr ""
+msgstr "&larr; Go to Series"
 
-#: orgSeries-setup.php:269
+#: orgSeries-setup.php:269, fuzzy
 msgid "View Series"
-msgstr ""
+msgstr "View Series"
 
-#: orgSeries-setup.php:271
+#: orgSeries-setup.php:271, fuzzy
 msgid "Series List"
-msgstr ""
+msgstr "Series List"
 
-#: orgSeries-setup.php:272
+#: orgSeries-setup.php:272, fuzzy
 msgid "Series Link"
-msgstr ""
+msgstr "Series Link"
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:273, fuzzy
 msgid "A link to a Series"
-msgstr ""
+msgstr "A link to a Series"
 
-#: orgSeries-setup.php:321 orgSeries-setup.php:322
-#, php-format
-msgctxt "leave the %tokens% as is when translating"
-msgid ""
-"This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr ""
-
-#: orgSeries-setup.php:327
+#: orgSeries-setup.php:327, fuzzy
 msgid "Series Navigation"
-msgstr ""
+msgstr "Series Navigation"
 
-#: orgSeries-setup.php:858
+#: orgSeries-setup.php:858, fuzzy
 msgid "Series: "
-msgstr ""
+msgstr "Series: "
 
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:860, fuzzy
 msgid "Posts from the series: "
-msgstr ""
+msgstr "Posts from the series: "
 
-#: orgSeries-taxonomy.php:381
-msgctxt "series list title"
-msgid "Series"
-msgstr ""
-
-#: orgSeries-taxonomy.php:664 orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:676
+#: orgSeries-taxonomy.php:705, fuzzy
 msgid "Series:"
-msgstr ""
+msgstr "Series:"
 
-#: orgSeries-taxonomy.php:666
+#: orgSeries-taxonomy.php:678, fuzzy
 msgid "Part:"
-msgstr ""
+msgstr "Part:"
 
-#: orgSeries-template-tags.php:264
+#: orgSeries-template-tags.php:264, fuzzy
 msgid "All the Series I've Written"
-msgstr ""
+msgstr "All the Series I've Written"
 
-#: orgSeries-template-tags.php:268 orgSeries-template-tags.php:277
-#, php-format
+#: orgSeries-template-tags.php:268
+#: orgSeries-template-tags.php:277
+#, fuzzy, php-format
 msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr ""
+msgstr "<a href=\"%s\" title=\"%s\">Series</a>"
 
-#: orgSeries-utility.php:410
+#: orgSeries-utility.php:410, fuzzy
 msgid "Auto/None"
-msgstr ""
+msgstr "Auto/None"
 
-#: orgSeries-widgets.php:12
+#: orgSeries-widgets.php:12, fuzzy
 msgid "Use this to control the output of the latest series widget"
-msgstr ""
+msgstr "Use this to control the output of the latest series widget"
 
-#: orgSeries-widgets.php:20
+#: orgSeries-widgets.php:23, fuzzy
 msgid "Most Recent Series"
-msgstr ""
+msgstr "Most Recent Series"
 
-#: orgSeries-widgets.php:73 orgSeries-widgets.php:269
+#: orgSeries-widgets.php:76
+#: orgSeries-widgets.php:275, fuzzy
 msgid "Title:"
-msgstr ""
+msgstr "Title:"
 
-#: orgSeries-widgets.php:79
+#: orgSeries-widgets.php:82
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a "
 "href=\"%s\">Latest Series</a> area."
 msgstr ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
 
-#: orgSeries-widgets.php:82
+#: orgSeries-widgets.php:85, fuzzy
 msgid "Hide series with no posts?"
-msgstr ""
-
-#: orgSeries-widgets.php:85 orgSeries-widgets.php:295
-msgid "Order by:"
-msgstr ""
-
-#: orgSeries-widgets.php:87
-msgid "Number of posts in Series"
-msgstr ""
+msgstr "Hide series with no posts?"
 
 #: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:301, fuzzy
+msgid "Order by:"
+msgstr "Order by:"
+
+#: orgSeries-widgets.php:90, fuzzy
+msgid "Number of posts in Series"
+msgstr "Number of posts in Series"
+
+#: orgSeries-widgets.php:91, fuzzy
 msgid "Name of Series"
-msgstr ""
+msgstr "Name of Series"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:92, fuzzy
 msgid "Series Slug"
-msgstr ""
+msgstr "Series Slug"
 
-#: orgSeries-widgets.php:90
+#: orgSeries-widgets.php:93, fuzzy
 msgid "When Series was Created"
-msgstr ""
+msgstr "When Series was Created"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:94, fuzzy
 msgid "Random"
-msgstr ""
+msgstr "Random"
 
-#: orgSeries-widgets.php:95
+#: orgSeries-widgets.php:98, fuzzy
 msgid "Number of series to display:"
-msgstr ""
+msgstr "Number of series to display:"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:102, fuzzy
 msgid "Display Order: "
-msgstr ""
+msgstr "Display Order: "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:103, fuzzy
 msgid "ASC: "
-msgstr ""
+msgstr "ASC: "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:104, fuzzy
 msgid "DESC: "
-msgstr ""
+msgstr "DESC: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:114, fuzzy
 msgid "Use this to display the Series Table of contents"
-msgstr ""
+msgstr "Use this to display the Series Table of contents"
 
-#: orgSeries-widgets.php:178
+#: orgSeries-widgets.php:184, fuzzy
 msgid "Select Series"
-msgstr ""
+msgstr "Select Series"
 
-#: orgSeries-widgets.php:233
-msgctxt "widget title default"
-msgid "Series"
-msgstr ""
-
-#: orgSeries-widgets.php:234
+#: orgSeries-widgets.php:240, fuzzy
 msgid "Other posts in series:"
-msgstr ""
+msgstr "Other posts in series:"
 
-#: orgSeries-widgets.php:274
+#: orgSeries-widgets.php:280, fuzzy
 msgid "Show Series Table Of Content"
-msgstr ""
+msgstr "Show Series Table Of Content"
 
-#: orgSeries-widgets.php:279
+#: orgSeries-widgets.php:285, fuzzy
 msgid "Show Series Table Of Content as:"
-msgstr ""
+msgstr "Show Series Table Of Content as:"
 
-#: orgSeries-widgets.php:280
+#: orgSeries-widgets.php:286, fuzzy
 msgid "Dropdown:"
-msgstr ""
+msgstr "Dropdown:"
 
-#: orgSeries-widgets.php:281
+#: orgSeries-widgets.php:287, fuzzy
 msgid "List:"
-msgstr ""
+msgstr "List:"
 
-#: orgSeries-widgets.php:285
+#: orgSeries-widgets.php:291, fuzzy
 msgid "Show post count:"
-msgstr ""
+msgstr "Show post count:"
 
-#: orgSeries-widgets.php:290
+#: orgSeries-widgets.php:296, fuzzy
 msgid "Hide empty series:"
-msgstr ""
+msgstr "Hide empty series:"
 
-#: orgSeries-widgets.php:299
+#: orgSeries-widgets.php:305, fuzzy
 msgid "name"
-msgstr ""
+msgstr "name"
 
-#: orgSeries-widgets.php:300
+#: orgSeries-widgets.php:306, fuzzy
 msgid "count"
-msgstr ""
+msgstr "count"
 
-#: orgSeries-widgets.php:301
+#: orgSeries-widgets.php:307, fuzzy
 msgid "slug"
-msgstr ""
+msgstr "slug"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:308, fuzzy
 msgid "series id"
-msgstr ""
+msgstr "series id"
 
-#: orgSeries-widgets.php:315
+#: orgSeries-widgets.php:321, fuzzy
 msgid "Order:"
-msgstr ""
+msgstr "Order:"
 
-#: orgSeries-widgets.php:333
+#: orgSeries-widgets.php:339, fuzzy
 msgid "Exclude series:"
-msgstr ""
+msgstr "Exclude series:"
 
-#: orgSeries-widgets.php:348
+#: orgSeries-widgets.php:354, fuzzy
 msgid "Include series:"
-msgstr ""
+msgstr "Include series:"
 
-#: orgSeries-widgets.php:363
+#: orgSeries-widgets.php:369, fuzzy
 msgid "Number of Series:"
-msgstr ""
+msgstr "Number of Series:"
 
-#: orgSeries-widgets.php:368
+#: orgSeries-widgets.php:374, fuzzy
 msgid "Offset:"
-msgstr ""
+msgstr "Offset:"
 
-#: orgSeries-widgets.php:370
+#: orgSeries-widgets.php:376
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
 
-#: orgSeries-widgets.php:374
+#: orgSeries-widgets.php:380, fuzzy
 msgid "Search:"
-msgstr ""
+msgstr "Search:"
 
-#: orgSeries-widgets.php:376
+#: orgSeries-widgets.php:382
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr ""
+"You can return any series that match this search string (matched against "
+"series names)"
 
-#: orgSeries-widgets.php:380
+#: orgSeries-widgets.php:386, fuzzy
 msgid "Show other posts in the current series:"
-msgstr ""
+msgstr "Show other posts in the current series:"
 
-#: orgSeries-widgets.php:386
-msgctxt "widget section label"
-msgid "Series"
-msgstr ""
-
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:403, fuzzy
 msgid "Current series"
-msgstr ""
+msgstr "Current series"
 
-#: orgSeries-widgets.php:416
+#: orgSeries-widgets.php:422, fuzzy
 msgid "Series widget title:"
-msgstr ""
+msgstr "Series widget title:"
 
-#: orgSeries-widgets.php:418
+#: orgSeries-widgets.php:424, fuzzy
 msgid "This text will display above other posts in this series."
-msgstr ""
+msgstr "This text will display above other posts in this series."
 
-#: orgSeries.php:164
+#: orgSeries.php:175, fuzzy
 msgid "<strong>This plugin can be deleted.</strong>"
-msgstr ""
+msgstr "<strong>This plugin can be deleted.</strong>"
 
 #: src/application/Container.php:160
-#, php-format
+#, fuzzy, php-format
 msgid "The %1$s already has a parameter indexed with the name: %2$s."
-msgstr ""
+msgstr "The %1$s already has a parameter indexed with the name: %2$s."
 
 #: src/application/Root.php:139
-#, php-format
+#, fuzzy, php-format
 msgid "The %1$s method can only be used to register a child of %2$s."
-msgstr ""
+msgstr "The %1$s method can only be used to register a child of %2$s."
 
 #: src/domain/exceptions/EntityNotFoundException.php:30
-#, php-format
+#, fuzzy, php-format
 msgid "Unable to retrieve an instance of %1$s. Not found."
-msgstr ""
+msgstr "Unable to retrieve an instance of %1$s. Not found."
 
 #: src/domain/exceptions/InvalidEntityException.php:29
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
-msgstr ""
+msgstr "%1$s is not a valid entity (expected: %2$s)."
 
 #: src/domain/exceptions/InvalidFilePathException.php:27
 #, php-format
 msgid ""
-"The \"%1$s\" file is either missing or could not be read due to permissions. "
-"Please ensure that the following path is correct and verify that the file "
-"permissions are correct:%2$s %3$s"
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
 msgstr ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
-#, php-format
+#, fuzzy, php-format
 msgid "%s does not exist or is not reachable."
-msgstr ""
+msgstr "%s does not exist or is not reachable."
 
-#: src/domain/exceptions/NonceFailException.php:18
+#: src/domain/exceptions/NonceFailException.php:18, fuzzy
 msgid "Nonce fail."
-msgstr ""
+msgstr "Nonce fail."
 
 #: src/domain/model/ControllerRoute.php:50
 #: src/domain/model/HasHooksRoute.php:59
@@ -3057,38 +3391,40 @@ msgid ""
 "The provided object fully qualified class name (%1$s) must implement the "
 "%2$s interface."
 msgstr ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
 
 #: src/domain/model/FileLocation.php:50
-#, php-format
+#, fuzzy, php-format
 msgid "The given file path (%s) is not readable."
-msgstr ""
+msgstr "The given file path (%s) is not readable."
 
-#: src/domain/model/LicenseKeyRepository.php:131
+#: src/domain/model/LicenseKeyRepository.php:131, fuzzy
 msgid "An error occurred, please try again."
-msgstr ""
+msgstr "An error occurred, please try again."
 
 #: src/domain/model/RouteIdentifier.php:51
-#, php-format
+#, fuzzy, php-format
 msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr ""
+msgstr "The incoming value for %1$s is expected to be a closure.  It was not."
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:122
-#: src/views/admin/templates/license_key_form.template.php:31
+#: src/views/admin/templates/license_key_form.template.php:31, fuzzy
 msgid "Deactivate License"
-msgstr ""
+msgstr "Deactivate License"
 
 #: src/domain/services/admin/LicenseKeyFormManager.php:123
-#: src/views/admin/templates/license_key_form.template.php:33
+#: src/views/admin/templates/license_key_form.template.php:33, fuzzy
 msgid "Activate License"
-msgstr ""
+msgstr "Activate License"
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:241
+#: src/domain/services/admin/LicenseKeyFormManager.php:241, fuzzy
 msgid "License Key successfully activated."
-msgstr ""
+msgstr "License Key successfully activated."
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:242
+#: src/domain/services/admin/LicenseKeyFormManager.php:242, fuzzy
 msgid "License Key successfully deactivated."
-msgstr ""
+msgstr "License Key successfully deactivated."
 
 #: src/domain/services/AssetRegistry.php:228
 #, php-format
@@ -3096,6 +3432,8 @@ msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
 "can only be used to push values to this data element when it is an array."
 msgstr ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
 
 #: src/domain/services/AssetRegistry.php:271
 #, php-format
@@ -3104,6 +3442,9 @@ msgid ""
 "allowed. Since the value of this data is an array, you may want to use the "
 "%3$s method to push your value to the array."
 msgstr ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
 
 #: src/domain/services/AssetRegistry.php:283
 #, php-format
@@ -3111,6 +3452,8 @@ msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed.  Consider attaching your value to a different key"
 msgstr ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
 
 #: src/domain/services/AssetRegistry.php:408
 #, php-format
@@ -3118,18 +3461,112 @@ msgid ""
 "The namespace for this manifest file has already been registered, choose a "
 "namespace other than %s"
 msgstr ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
 
 #: src/domain/services/AssetRegistry.php:419
-#, php-format
-msgid ""
-"The provided value for %1$s is not a valid url.  The url provided was: %2$s"
-msgstr ""
+#, fuzzy, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
 
 #: src/views/admin/templates/license_key_form.template.php:16
-#, php-format
+#, fuzzy, php-format
 msgid "License Key for %1$s"
-msgstr ""
+msgstr "License Key for %1$s"
 
-#: src/views/admin/templates/license_key_form.template.php:19
+#: src/views/admin/templates/license_key_form.template.php:19, fuzzy
 msgid "Enter your license key: "
-msgstr ""
+msgstr "Enter your license key: "
+
+#: addons/grouping/legacy-includes.php:278, fuzzy
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Series Categories"
+
+#: inc/settings/settings-validation.php:58
+#: orgSeries-setup.php:257, fuzzy
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Series"
+
+#: addons/grouping/legacy-includes.php:279, fuzzy
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Series Category"
+
+#: inc/settings/settings-validation.php:59
+#: orgSeries-setup.php:258, fuzzy
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Series"
+
+#: addons/grouping/legacy-includes.php:670, fuzzy
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Series"
+
+#: addons/post-list-box/includes/class-post-type.php:27
+#, fuzzy, php-format
+msgctxt "Post List Box post type name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: addons/post-list-box/includes/class-post-type.php:28
+#, fuzzy, php-format
+msgctxt "singular post list box post type name"
+msgid "%1$s"
+msgstr "%1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:43
+#, fuzzy, php-format
+msgctxt "custom layout post type menu name"
+msgid "%2$s"
+msgstr "%2$s"
+
+#: orgSeries-admin.php:456, fuzzy
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-admin.php:479, fuzzy
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-admin.php:559
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Series"
+
+#: orgSeries-options.php:55, fuzzy
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-setup.php:266, fuzzy
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-setup.php:321
+#: orgSeries-setup.php:322
+#, fuzzy, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "This entry is part %series_part% of %total_posts_in_series% in the series "
+
+#: orgSeries-taxonomy.php:393, fuzzy
+msgctxt "series list title"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-widgets.php:239, fuzzy
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Series"
+
+#: orgSeries-widgets.php:392, fuzzy
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Series"

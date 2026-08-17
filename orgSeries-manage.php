@@ -5,6 +5,7 @@
 //hook into the edit columns on "manage series" page
 add_filter('manage_edit-'.ppseries_get_series_slug().'_columns', 'manage_series_columns');
 add_filter('manage_'.ppseries_get_series_slug().'_custom_column', 'manage_series_columns_action',1,3);
+add_filter('term_updated_messages', 'ppseries_series_updated_messages');
 add_action(''.ppseries_get_series_slug().'_edit_form_fields','edit_series_form_fields', 10,2);
 //hooking into insert_term, update_term and delete_term
 add_action('created_'.ppseries_get_series_slug().'', 'wp_insert_series', 10, 2);
@@ -123,16 +124,40 @@ function pp_series_term_admin_head() {
             visibility: hidden;
         }
 
-        /* Hide Description and Series Categories fields on Add New Series form only */
+        /* Hide optional fields on Add New Series form only. WordPress generates the slug from the name. */
         #col-left .form-field.term-description-wrap,
         #col-left .form-field.term-parent-wrap,
+        #col-left .form-field.term-slug-wrap,
         div#side-info-column {
             display: none !important;
+        }
+
+        /* Align the Series list with the first field in the compact add form. */
+        @media screen and (min-width: 783px) {
+            #col-right .col-wrap {
+                margin-top: -10px;
+            }
         }
 
     </style>
 
     <?php
+}
+
+function ppseries_series_updated_messages($messages) {
+    $taxonomy = ppseries_get_series_slug();
+
+    $messages[$taxonomy] = array(
+        0 => '',
+        1 => __('Series added.', 'organize-series'),
+        2 => __('Series deleted.', 'organize-series'),
+        3 => __('Series updated.', 'organize-series'),
+        4 => __('Series not added.', 'organize-series'),
+        5 => __('Series not updated.', 'organize-series'),
+        6 => __('Series deleted.', 'organize-series'),
+    );
+
+    return $messages;
 }
 
 // note following function WILL NOT delete the actual image file from the server.  I don't think it's needed at this point.
@@ -146,9 +171,7 @@ function wp_delete_series($series_ID, $taxonomy_id) {
 
 function wp_insert_series($series_id, $taxonomy_id) {
 	global $_POST, $wpdb;
-	$series_icon_loc = '';
 
-	extract($_POST, EXTR_SKIP);
 	$series_icon = isset($_POST['series_icon_loc']) ? sanitize_text_field($_POST['series_icon_loc']) : null;
 
 	if ( isset($series_icon) || $series_icon != '' ) {
@@ -166,7 +189,8 @@ function wp_insert_series($series_id, $taxonomy_id) {
 
 function wp_update_series($series_id, $taxonomy_id) {
 	global $_POST, $wpdb;
-	extract($_POST, EXTR_SKIP);
+	$series_icon_loc = isset($_POST['series_icon_loc']) ? $_POST['series_icon_loc'] : '';
+	$delete_image = isset($_POST['delete_image']) ? $_POST['delete_image'] : false;
 	if ( empty($series_icon_loc) ) $series_icon_loc = '';
 	if ( empty($delete_image) ) $delete_image = false;
 
@@ -192,6 +216,7 @@ function wp_update_series($series_id, $taxonomy_id) {
 
 function manage_series_columns($columns) {
 	global $orgseries, $pagenow;
+	$columns['posts'] = __('Posts', 'organize-series');
 	$columns['series_order'] = __('Series Order', 'organize-series');
 	$columns['series_id'] = __('ID', 'organize-series');
 	return $columns;
@@ -237,13 +262,13 @@ function edit_series_form_fields($series, $taxonomy) {
 
 			<tr valign="top">
 				<?php if ( $series->term_id != '' ) { ?>
-				<th scope="row"><?php _e('Current series icon:', 'organize-series'); ?></th><?php } ?>
+				<th scope="row"><?php _e('Current series featured image:', 'organize-series'); ?></th><?php } ?>
 				<td>
 					<?php if ($series_icon != '') {
                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							echo $series_icon;
 						} else {
-							echo '<p>'. esc_html__('No icon currently', 'organize-series') .'</p>';
+							echo '<p>'. esc_html__('No featured image currently', 'organize-series') .'</p>';
 						}
 					 ?>
 					<div id="selected-icon"></div>
@@ -258,11 +283,11 @@ function edit_series_form_fields($series, $taxonomy) {
 			</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><?php _e('Series Icon Upload:', 'organize-series') ?></th>
+				<th scope="row"><?php _e('Series featured image upload:', 'organize-series') ?></th>
 				<td><label for="series_icon">
 					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
 					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
-					<p><?php _e('Upload an image for the series.', 'organize-series'); ?></p>
+					<p><?php _e('Upload a featured image for the series.', 'organize-series'); ?></p>
 					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
 					</label>
 				</td>

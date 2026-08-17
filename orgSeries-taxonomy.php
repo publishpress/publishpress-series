@@ -220,7 +220,10 @@ function get_series_ordered($args = '')
 	$post_types = apply_filters('orgseries_posttype_support', array('post'));
 	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => $post_types, 'hide_empty' => TRUE);
 	$args = wp_parse_args($args, $defaults);
-	extract($args, EXTR_SKIP);
+	$orderby = $args['orderby'];
+	$order = $args['order'];
+	$postTypes = $args['postTypes'];
+	$hide_empty = $args['hide_empty'];
 
 	$orderby = strtolower($orderby);
 	if ('post_date' == $orderby) {
@@ -305,7 +308,16 @@ function wp_dropdown_series($args)
 	}
 
 	$r['include_last_update_time'] = $r['show_last_update'];
-	extract($r);
+	$show_option_all = $r['show_option_all'];
+	$show_option_none = $r['show_option_none'];
+	$show_option_not_in_series = $r['show_option_not_in_series'];
+	$hierarchical = $r['hierarchical'];
+	$tab_index = $r['tab_index'];
+	$name = $r['name'];
+	$id = $r['id'];
+	$class = $r['class'];
+	$taxonomy = $r['taxonomy'];
+	$echo = $r['echo'];
 
 	$tab_index_attribute = '';
 	if ((int) $tab_index > 0)

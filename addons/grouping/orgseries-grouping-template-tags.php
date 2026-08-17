@@ -115,12 +115,26 @@ function get_series_groups( $args = array() ) {
 		$args['pad_counts'] = false;
 	}
 
-	extract($args, EXTR_SKIP);
+	$orderby = $args['orderby'];
+	$order = $args['order'];
+	$exclude = $args['exclude'];
+	$include = $args['include'];
+	$number = $args['number'];
+	$fields = $args['fields'];
+	$offset = $args['offset'];
+	$exclude_tree = $args['exclude_tree'];
+	$limit = $args['limit'];
+	$parent = $args['parent'];
+	$hierarchical = $args['hierarchical'];
+	$child_of = $args['child_of'];
+	$pad_counts = $args['pad_counts'];
+	$hide_empty = $args['hide_empty'];
+	$taxonomy = $args['taxonomy'];
 
 	if ( $child_of ) {
 		$hierarchy = _get_term_hierarchy('series_group');
 		if ( !isset($hierarchy[$parent]) )
-			return $empty_array;
+			return array();
 	}
 
 
@@ -374,7 +388,17 @@ function get_old_series_groups( $args = array() ) {
 	$args['number'] = absint( $args['number'] );
 	$args['offset'] = absint( $args['offset'] );
 
-	extract($args, EXTR_SKIP);
+	$orderby = $args['orderby'];
+	$order = $args['order'];
+	$exclude = $args['exclude'];
+	$include = $args['include'];
+	$number = $args['number'];
+	$fields = $args['fields'];
+	$offset = $args['offset'];
+	$exclusions = $args['exclusions'];
+	$limit = $args['limit'];
+	$hide_empty = $args['hide_empty'];
+	$taxonomy = $args['taxonomy'];
 
 	$_orderby = strtolower($orderby);
 	if ( empty($_orderby) || 'id' == $_orderby )
