@@ -129,7 +129,7 @@ function seriesicons_write_error_notice() {
 
 	delete_transient( $transient_key );
 
-	$message = __('PublishPress Series could not save the series icon. The icon was not changed.', 'organize-series');
+	$message = __('PublishPress Series could not save the series featured image. The featured image was not changed.', 'organize-series');
 
 	if ( '' !== $db_error ) {
 		/* translators: %s: the error message reported by the database. */

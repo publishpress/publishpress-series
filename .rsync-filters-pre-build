@@ -1,4 +1,6 @@
 - *.code-workspace
+- .claude
+- .kombai
 - .babelrc
 - .builder-post-rsync-filters-post
 - .builder-rsync-filters

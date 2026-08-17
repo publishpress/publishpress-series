@@ -163,22 +163,22 @@ function series_legacy_fieldset() {
 			</div>
 		</div>
 
-		<!-- Series Icons -->
+		<!-- Series Featured Images -->
 		<div class="ppseries-legacy-card postbox">
-			<h3 class="ppseries-legacy-card-header hndle"><span><?php esc_html_e('Series Icons', 'organize-series'); ?></span></h3>
+			<h3 class="ppseries-legacy-card-header hndle"><span><?php esc_html_e('Series Featured Images', 'organize-series'); ?></span></h3>
 			<div class="ppseries-legacy-card-content inside">
 				<table class="form-table ppseries-settings-table">
 					<tbody>
 						<tr valign="top">
-							<th scope="row"><label for="series_icon_width_series_page"><?php esc_html_e('Width for icon on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
+							<th scope="row"><label for="series_icon_width_series_page"><?php esc_html_e('Width for featured image on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
 							<td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo isset($org_opt['series_icon_width_series_page']) ? esc_attr($org_opt['series_icon_width_series_page']) : ''; ?>" /></td>
 						</tr>
 						<tr valign="top">
-							<th scope="row"><label for="series_icon_width_post_page"><?php esc_html_e('Width for icon on a post page (in pixels).', 'organize-series'); ?></label></th>
+							<th scope="row"><label for="series_icon_width_post_page"><?php esc_html_e('Width for featured image on a post page (in pixels).', 'organize-series'); ?></label></th>
 							<td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo isset($org_opt['series_icon_width_post_page']) ? esc_attr($org_opt['series_icon_width_post_page']) : ''; ?>" /></td>
 						</tr>
 						<tr valign="top">
-							<th scope="row"><label for="series_icon_width_latest_series"><?php esc_html_e('Width for icon if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
+							<th scope="row"><label for="series_icon_width_latest_series"><?php esc_html_e('Width for featured image if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
 							<td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo isset($org_opt['series_icon_width_latest_series']) ? esc_attr($org_opt['series_icon_width_latest_series']) : ''; ?>" /></td>
 						</tr>
 					</tbody>

@@ -142,16 +142,33 @@ function ppseries_welcome_panel()
             <span class="dashicons dashicons-no-alt" aria-hidden="true"></span>
         </button>
 
+        <div class="ppseries-welcome-book" aria-hidden="true">
+            <svg viewBox="0 10 140 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <ellipse cx="70" cy="99" rx="52" ry="6" fill="#655997" opacity=".13"/>
+                <path d="M70 26c-12-8-28-11-46-9v66c18-2 34 1 46 9z" fill="#fff" stroke="#655997" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M70 26c12-8 28-11 46-9v66c-18-2-34 1-46 9z" fill="#fff" stroke="#655997" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M70 26v66" stroke="#655997" stroke-width="2.5"/>
+                <g stroke="#655997" stroke-width="3" stroke-linecap="round" opacity=".38">
+                    <path d="M34 40h24M34 51h20M34 62h24M34 73h16"/>
+                    <path d="M82 40h24M82 51h20M82 62h24M82 73h16"/>
+                </g>
+            </svg>
+        </div>
+
         <div class="ppseries-welcome-content">
             <h2 class="ppseries-welcome-title">
-                <?php esc_html_e('Welcome! Create your first series', 'organize-series'); ?>
+                <?php esc_html_e('Welcome to PublishPress Series', 'organize-series'); ?>
             </h2>
             <p class="ppseries-welcome-text">
-                <?php esc_html_e('A series groups your posts together and shows your readers the reading order. Use the Add New Series form on this page to create your first series, then add posts to it.', 'organize-series'); ?>
+                <?php esc_html_e('A series groups your posts together and shows your readers the reading order. Create your first series with the form on this page, then add posts to it.', 'organize-series'); ?>
             </p>
 
             <div class="ppseries-welcome-actions">
-                <a class="button" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer">
+                <button type="button" class="ppseries-welcome-button ppseries-welcome-button-solid ppseries-welcome-start">
+                    <?php esc_html_e('Create a series', 'organize-series'); ?>
+                </button>
+
+                <a class="ppseries-welcome-button ppseries-welcome-button-line" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer">
                     <?php esc_html_e('View Documentation', 'organize-series'); ?>
                 </a>
 
@@ -161,6 +178,21 @@ function ppseries_welcome_panel()
                     </a>
                 <?php endif; ?>
             </div>
+        </div>
+
+        <div class="ppseries-welcome-figure" aria-hidden="true">
+            <span class="ppseries-welcome-figure-row">
+                <span class="ppseries-welcome-figure-index">01</span>
+                <span class="ppseries-welcome-figure-bar"></span>
+            </span>
+            <span class="ppseries-welcome-figure-row">
+                <span class="ppseries-welcome-figure-index">02</span>
+                <span class="ppseries-welcome-figure-bar"></span>
+            </span>
+            <span class="ppseries-welcome-figure-row">
+                <span class="ppseries-welcome-figure-index">03</span>
+                <span class="ppseries-welcome-figure-bar"></span>
+            </span>
         </div>
     </div>
     <?php

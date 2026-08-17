@@ -4,6 +4,8 @@
 *.tar.gz
 *.zip
 .DS_Store
+.claude
+.kombai
 .babelrc
 .distignore
 .editorconfig

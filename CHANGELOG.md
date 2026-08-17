@@ -1,6 +1,24 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.1.3] - 17 Aug, 2026
+
+* Added: Add a welcome panel with the first steps for new users #1170
+* Added: Add a Dependabot triage workflow #1145
+* Changed: Add a description to each setting in the editor #1150
+* Changed: Indent the sub-settings below their parent setting #1149
+* Changed: Link the PRO badges to the Series upgrade page #1148
+* Changed: Replace the use of extract() with explicit variable assignments #1153
+* Changed: Refactor the ppseries_get_series_slug() function #1144 (thanks @lenasterg)
+* Changed: Update the dev-workspace and the GitHub workflows #1133
+* Fixed: Fatal error "Cannot redeclare ppseries_addons_settings_hooks()" #1139
+* Fixed: The category filter is broken on the Add Series screen #1172
+* Fixed: PHP 8.5 deprecation warnings from SplObjectStorage #1163
+* Fixed: The string "Custom Template" is hard-coded and not translatable #1154
+* Fixed: The top banner is missing on three screens in the Free plugin #1147
+* Fixed: Improve the escaping and the sanitization in the series navigation template tags #1141
+* Fixed: The series icon column upgrade fails in the database #1143 (thanks @lenasterg)
+
 [3.1.2] - 29 Apr, 2026
 
 * Added: Add new translation languages #1082
