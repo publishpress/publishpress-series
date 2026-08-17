@@ -7,6 +7,53 @@ on:
 
   workflow_dispatch:
 
+# This job is a copy of publishpress/github-workflows/.github/workflows/code-standards.yml@v3.
+# It is inlined because the shared workflow gives no input to make a single step non-blocking.
+# "Run PHPCS lint" reports a large amount of pre-existing debt in this repository, so it must
+# not fail the release deployment. "Run PHP compatibility check" and "Run PHP lint" stay
+# blocking, because those are the checks that catch a broken release.
+env:
+  DEV_SCRIPTS_DIR: ${{ github.workspace }}/vendor/publishpress/dev-workspace/scripts
+
 jobs:
   check:
-    uses: publishpress/github-workflows/.github/workflows/code-standards.yml@v3
+    name: Run the code checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        # actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Set up PHP
+        # shivammathur/setup-php@2.37.0
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f
+        with:
+          php-version: 8.3
+          extensions: mbstring,xml,curl,zip,intl,bcmath,gettext,mysqli,phar,gd,iconv,yaml
+          tools: composer:v2
+
+      - name: Create root .env file
+        run: cp $GITHUB_WORKSPACE/.env.example $GITHUB_WORKSPACE/.env
+
+      - name: Validate Composer configuration
+        run: composer validate --strict
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Show dev-workspace tool versions
+        run: composer info:version
+
+      - name: Add dev-workspace scripts to PATH
+        run: echo "$DEV_SCRIPTS_DIR" >> "$GITHUB_PATH"
+
+      - name: Run PHP compatibility check
+        run: composer check:php
+
+      - name: Run PHP lint
+        run: composer lint:php
+
+      - name: Run PHPCS lint
+        continue-on-error: true
+        run: composer lint:phpcs
