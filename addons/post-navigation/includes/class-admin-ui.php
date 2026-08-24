@@ -140,7 +140,7 @@ class PPS_Series_Post_Navigation_Admin_UI
         $fields = PPS_Series_Post_Navigation_Fields::get_fields($post);
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings($post->ID, $post->post_status === 'auto-draft');
 
-        echo '<div class="publishpress-series-post-navigation-editor">';
+        echo '<div class="pressshack-admin-wrapper publishpress-series-post-navigation-editor">';
 
         if (! empty($tabs)) {
             echo '<div class="pps-series-post-navigation-editor-tabs"><ul>';
@@ -157,8 +157,8 @@ class PPS_Series_Post_Navigation_Admin_UI
             echo '</ul></div>';
         }
 
-        echo '<div class="pps-series-post-navigation-editor-fields">';
-        echo '<table class="form-table pps-series-post-navigation-editor-table" role="presentation"><tbody>';
+        echo '<div class="pps-series-post-navigation-editor-fields wrapper-column">';
+        echo '<table class="form-table pps-series-post-navigation-editor-table fixed" role="presentation"><tbody>';
         foreach ($fields as $key => $field) {
             $value = isset($settings[$key]) ? $settings[$key] : '';
             $field['key'] = $key;
