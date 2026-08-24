@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Preview rendering helpers for Series Post Details
  */

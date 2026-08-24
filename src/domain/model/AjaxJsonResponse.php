@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\model;
 
 use const FILTER_VALIDATE_BOOLEAN;

@@ -1,9 +1,9 @@
 <?php
+
 namespace OrganizeSeries\domain\exceptions;
 
 use Exception;
 use InvalidArgumentException;
-
 
 /**
  * EntityNotFoundException
@@ -15,7 +15,6 @@ use InvalidArgumentException;
  */
 class EntityNotFoundException extends InvalidArgumentException
 {
-
     /**
      * EntityNotFoundException constructor.
      *
@@ -30,7 +29,7 @@ class EntityNotFoundException extends InvalidArgumentException
             esc_html__(
                 'Unable to retrieve an instance of %1$s. Not found.',
                 'organize-series'
-             )
+            )
         ) . "\n" . $message;
         parent::__construct($message, $code, $previous);
     }

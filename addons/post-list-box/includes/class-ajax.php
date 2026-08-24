@@ -1,17 +1,19 @@
 <?php
+
 /**
  * AJAX Handlers for Post List Box
  */
 
-class PPS_Post_List_Box_AJAX {
-
+class PPS_Post_List_Box_AJAX
+{
     const POST_TYPE_BOXES = 'pps_post_list_box';
     const META_PREFIX = 'pps_post_list_box_';
 
     /**
      * Initialize AJAX handlers
      */
-    public static function init() {
+    public static function init()
+    {
         // AJAX handlers for preview
         add_action('wp_ajax_pps_update_post_list_box_preview', [__CLASS__, 'ajax_update_preview']);
         add_action('wp_ajax_pps_export_post_list_box', [__CLASS__, 'ajax_export_post_list_box']);
@@ -27,9 +29,9 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-        $form_data = isset($_POST['settings']) ? $_POST['settings'] : '';
-        $series_id = isset($_POST['series_id']) ? intval($_POST['series_id']) : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+        $form_data = isset($_POST['settings']) ? sanitize_text_field(wp_unslash($_POST['settings'])) : '';
+        $series_id = isset($_POST['series_id']) ? absint(wp_unslash($_POST['series_id'])) : 0;
 
         if (!$post_id) {
             wp_send_json_error(['message' => 'Invalid post ID']);
@@ -108,7 +110,7 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
 
         if (!$post_id) {
             wp_send_json_error(['message' => 'Invalid post ID']);
@@ -130,8 +132,8 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-        $settings = isset($_POST['settings']) ? $_POST['settings'] : [];
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? map_deep(wp_unslash($_POST['settings']), 'sanitize_text_field') : [];
 
         if (!$post_id || empty($settings)) {
             wp_send_json_error(['message' => 'Invalid data']);
@@ -150,7 +152,7 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
 
         if (!$post_id) {
             wp_send_json_error(['message' => 'Invalid post ID']);

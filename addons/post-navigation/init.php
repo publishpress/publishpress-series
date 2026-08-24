@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post Navigation Module Init
  */

@@ -7,6 +7,7 @@ if (!class_exists('WP_List_Table')) {
 /**
  * Class PPS_Publisher_Post_Pending_Table
  */
+// phpcs:disable WordPress.Security.NonceVerification.Recommended -- WP_List_Table reads sanitized GET values for view state; row action mutations include nonces.
 class PPS_Publisher_Post_Pending_Table extends WP_List_Table
 {
     /**
@@ -141,7 +142,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             ),
             esc_html__('Edit', 'organize-series')
         );
-        
+
         $preview_link = get_preview_post_link($item->ID);
         if (!$preview_link) {
             $preview_link = get_permalink($item->ID);
@@ -385,3 +386,4 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         parent::display();
     }
 }
+// phpcs:enable WordPress.Security.NonceVerification.Recommended

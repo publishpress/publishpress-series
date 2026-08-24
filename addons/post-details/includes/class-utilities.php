@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Utility helpers for Series Post Details module
  */
@@ -254,7 +255,7 @@ class PPS_Series_Post_Details_Utilities
     public static function ensure_sample_series_term()
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        
+
         $terms = get_terms([
             'taxonomy'   => $taxonomy_slug,
             'number'     => 1,
@@ -279,7 +280,7 @@ class PPS_Series_Post_Details_Utilities
     public static function get_sample_series_posts($series_id)
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        
+
         $posts = get_posts([
             'post_type'      => 'post',
             'tax_query'      => [

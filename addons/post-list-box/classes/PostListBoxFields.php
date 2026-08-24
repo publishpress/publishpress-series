@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post List Box Fields class
  * Defines the fields for Post List Box editor

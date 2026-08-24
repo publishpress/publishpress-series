@@ -7,7 +7,6 @@ use Throwable;
 
 class InvalidInterfaceException extends Exception
 {
-
     /**
      * InvalidInterfaceException constructor.
      *
@@ -16,20 +15,20 @@ class InvalidInterfaceException extends Exception
      * @param int            $code
      * @param Throwable|null $previous
      */
-	public function __construct($failing_fqcn = '', $message = '', $code = 0, Throwable $previous = null)
-	{
-		if ($failing_fqcn !== '') {
-			$message  = $message === ''
-				? $message
-				: ' ';
-			$message .= sprintf(
-				esc_html__(
-					'%s does not exist or is not reachable.',
-					'organize-series'
-				),
-				$failing_fqcn
-			);
-		}
-		parent::__construct($message, $code, $previous);
-	}
+    public function __construct($failing_fqcn = '', $message = '', $code = 0, Throwable $previous = null)
+    {
+        if ($failing_fqcn !== '') {
+            $message  = $message === ''
+                ? $message
+                : ' ';
+            $message .= sprintf(
+                esc_html__(
+                    '%s does not exist or is not reachable.',
+                    'organize-series'
+                ),
+                $failing_fqcn
+            );
+        }
+        parent::__construct($message, $code, $previous);
+    }
 }

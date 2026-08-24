@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\services;
 
 use OrganizeSeries\domain\model\AjaxJsonResponse;

@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\interfaces;
 
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;

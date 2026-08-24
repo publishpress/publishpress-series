@@ -1,7 +1,9 @@
 <?php
+
 namespace OrganizeSeries\application;
 
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
+
 use function wp_doing_ajax;
 
 /**
@@ -15,7 +17,6 @@ use function wp_doing_ajax;
  */
 class IncomingRequest
 {
-
     const GET = 'get';
     const POST = 'post';
     const REQUEST = 'request';
@@ -177,7 +178,7 @@ class IncomingRequest
         );
         foreach ($server_keys as $key) {
             if (isset($_SERVER[$key])) {
-                foreach (array_map('trim', explode(',', sanitize_text_field($_SERVER[$key]))) as $ip) {
+                foreach (array_map('trim', explode(',', sanitize_text_field(wp_unslash($_SERVER[$key])))) as $ip) {
                     if ($ip === '127.0.0.1' || filter_var($ip, FILTER_VALIDATE_IP) !== false) {
                         $visitor_ip = $ip;
                     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin UI for Series Post Navigation
  */
@@ -151,7 +152,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                     echo '<span class="dashicons ' . esc_attr($data['icon']) . '"></span> ';
                 }
                 echo esc_html($data['label']);
-                
+
                 echo '</a></li>';
             }
             echo '</ul></div>';
@@ -322,7 +323,7 @@ class PPS_Series_Post_Navigation_Admin_UI
             default:
                 if ($pro_locked) : ?>
                     <div class="ppseries-pro-lock">
-                <?php
+                    <?php
                 endif;
 
                 switch ($args['type']) {
@@ -385,19 +386,19 @@ class PPS_Series_Post_Navigation_Admin_UI
                         $attachment_id = (int) $value;
                         $image_url = '';
                         $has_image = false;
-                        
+
                         if ($attachment_id > 0) {
                             $image_url = wp_get_attachment_image_url($attachment_id, 'thumbnail');
                             $has_image = !empty($image_url);
                         }
-                        
+
                         echo '<div class="pps-media-field-wrapper">';
                         printf(
                             '<input type="hidden" id="%1$s" name="%1$s" value="%2$s" class="pps-media-field-value" />',
                             $key,
                             esc_attr($attachment_id)
                         );
-                        
+
                         echo '<div class="pps-media-preview" style="margin-bottom: 10px;">';
                         if ($has_image) {
                             printf(
@@ -406,14 +407,14 @@ class PPS_Series_Post_Navigation_Admin_UI
                             );
                         }
                         echo '</div>';
-                        
+
                         printf(
                             '<button type="button" class="button pps-media-upload-button" data-field-id="%s"%s>%s</button> ',
                             $key,
                             $pro_locked ? ' disabled="disabled"' : '',
                             $has_image ? __('Change Image', 'organize-series') : __('Select Image', 'organize-series')
                         );
-                        
+
                         if ($has_image) {
                             printf(
                                 '<button type="button" class="button pps-media-remove-button" data-field-id="%s"%s>%s</button>',
@@ -422,7 +423,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                                 __('Remove Image', 'organize-series')
                             );
                         }
-                        
+
                         echo '</div>';
                         break;
 
@@ -443,7 +444,7 @@ class PPS_Series_Post_Navigation_Admin_UI
                             <i></i>
                         </span>
                     </div>
-                <?php
+                    <?php
                 endif;
                 break;
         }

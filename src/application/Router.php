@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\application;
 
 use OrganizeSeries\domain\interfaces\AbstractCollection;
@@ -29,9 +30,8 @@ use OrganizeSeries\domain\model\HasHooksRouteCollection;
  * @author  Darren Ethier
  * @since   1.0.0
  */
-class Router {
-
-
+class Router
+{
     /**
      * @var ControllerRouteCollection
      */
@@ -106,7 +106,8 @@ class Router {
      *
      * @param AbstractCollection $collection
      */
-    private function loadFromCollection(AbstractCollection $collection) {
+    private function loadFromCollection(AbstractCollection $collection)
+    {
         foreach ($collection as $route) {
             if ($route->getRouteIdentifier()->isOnRoute($this->request)) {
                 $route_executor = Root::container()->make($route->getFullyQualifiedClassName());

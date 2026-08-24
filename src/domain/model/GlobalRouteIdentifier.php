@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\model;
 
 /**
@@ -11,9 +12,12 @@ namespace OrganizeSeries\domain\model;
  */
 class GlobalRouteIdentifier extends RouteIdentifier
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(
-            function() { return true; }
+            function () {
+                return true;
+            }
         );
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\services;
 
 use Closure;
@@ -134,7 +135,8 @@ class AssetRegistry
      *
      * @param Closure $callback
      */
-    public function registerOnDemandCallback(Closure $callback){
+    public function registerOnDemandCallback(Closure $callback)
+    {
         $this->on_demand_script_callbacks[] = $callback;
     }
 
@@ -220,7 +222,8 @@ class AssetRegistry
      */
     public function pushData($key, $value)
     {
-        if (isset($this->js_data[$key])
+        if (
+            isset($this->js_data[$key])
             && ! is_array($this->js_data[$key])
         ) {
             throw new InvalidArgumentException(

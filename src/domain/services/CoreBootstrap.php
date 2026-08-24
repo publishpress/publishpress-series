@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\services;
 
 use DomainException;
@@ -15,7 +16,6 @@ use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 
 class CoreBootstrap extends AbstractBootstrap
 {
-
     /**
      * Load legacy.  Eventually we'll put in here the php version check rather than in the main file.
      * @return bool
@@ -79,8 +79,8 @@ class CoreBootstrap extends AbstractBootstrap
                         return $is_admin
                                && ($request->get('page', false) === 'orgseries_options_page'
                                    || $request->hasAjaxActions(
-                                    array('os_license_key_activation', 'os_license_key_deactivation')
-                                )
+                                       array('os_license_key_activation', 'os_license_key_deactivation')
+                                   )
                                );
                     }
                 )

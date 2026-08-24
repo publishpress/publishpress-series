@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\model;
 
 class LicenseKeyAjaxResponse extends AjaxJsonResponse
@@ -33,6 +34,5 @@ class LicenseKeyAjaxResponse extends AjaxJsonResponse
         return '<p>'
             . '<span class="dashicons dashicons-no os-key-inactive"></span>'
             . '</p>';
-
     }
 }

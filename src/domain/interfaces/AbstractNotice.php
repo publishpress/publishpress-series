@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\interfaces;
 
 use const FILTER_VALIDATE_BOOLEAN;
@@ -13,7 +14,6 @@ use const FILTER_VALIDATE_BOOLEAN;
  */
 abstract class AbstractNotice
 {
-
     /**
      * The notice message.
      * @var string
@@ -46,7 +46,8 @@ abstract class AbstractNotice
      * This just returns the original message used on notice creation.
      * @return string
      */
-    public function getMessage() {
+    public function getMessage()
+    {
         $message = $this->message;
         if ($this->data) {
             foreach ($this->data as $key => $value) {

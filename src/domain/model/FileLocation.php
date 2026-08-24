@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
@@ -26,7 +27,8 @@ class FileLocation
      * @param string $file_path
      * @throws InvalidArgumentException
      */
-    public function __construct($file_path) {
+    public function __construct($file_path)
+    {
         $this->setFilePath($file_path);
     }
 

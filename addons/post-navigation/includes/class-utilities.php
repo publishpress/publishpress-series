@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Utilities for Post Navigation
  */
@@ -96,13 +97,13 @@ class PPS_Series_Post_Navigation_Utilities
     public static function get_post_navigation_settings($post_id, $use_default = false)
     {
         $defaults = self::get_default_post_navigation_data($post_id);
-        
+
         if ($use_default) {
             return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }
 
         $meta = get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true);
-        
+
         if (empty($meta)) {
             return apply_filters('pps_series_post_navigation_settings', $defaults, $post_id, $use_default);
         }

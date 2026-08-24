@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Field definitions for Series Post Details editor
  */

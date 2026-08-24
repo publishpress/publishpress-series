@@ -40,11 +40,13 @@ class ControllerRoute implements RouteInterface
      */
     private function setControllerFullyQualifiedClassname(ClassOrInterfaceFullyQualifiedName $controller_fully_qualified_classname)
     {
-        if (! in_array(
-            'OrganizeSeries\domain\interfaces\ControllerInterface',
-            class_implements($controller_fully_qualified_classname->__toString()),
-            true
-        )) {
+        if (
+            ! in_array(
+                'OrganizeSeries\domain\interfaces\ControllerInterface',
+                class_implements($controller_fully_qualified_classname->__toString()),
+                true
+            )
+        ) {
             throw new InvalidArgumentException(
                 sprintf(
                     esc_html__(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom post type registration for Series Post Details
  */

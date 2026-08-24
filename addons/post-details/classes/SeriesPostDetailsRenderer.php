@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Renderer utilities for Series Post Details.
  */
@@ -44,7 +45,7 @@ class SeriesPostDetailsRenderer
         }
 
         $style_url = SERIES_PATH_URL . 'addons/post-details/assets/css/series-post-details-frontend.css';
-        
+
         wp_enqueue_style('pps-series-post-details-frontend', $style_url, [], ORG_SERIES_VERSION);
 
         self::$assets_enqueued = true;
@@ -173,7 +174,7 @@ class SeriesPostDetailsRenderer
 
         // Wrap the meta box content (without %postcontent% inside)
         $output = sprintf('<div%s>%s</div>', $attributes, $content);
-        
+
         $is_shortcode = isset($context['context']) && 'shortcode' === $context['context'];
         if (!$is_shortcode && false === strpos($output, '%postcontent%')) {
             $output .= '%postcontent%';
@@ -260,9 +261,9 @@ class SeriesPostDetailsRenderer
         $text_before = isset($settings['text_before']) ? $settings['text_before'] : __('This entry is', 'organize-series');
         $text_after = isset($settings['text_after']) ? $settings['text_after'] : __('in the series', 'organize-series');
         $show_part = !empty($settings['show_part_number']);
-        
+
         $text_content = esc_html($text_before) . ' ';
-        
+
         if ($show_part) {
             $text_content .= sprintf(
                 esc_html__('part %1$s of %2$s', 'organize-series'),
@@ -270,10 +271,10 @@ class SeriesPostDetailsRenderer
                 $total_posts
             ) . ' ';
         }
-        
+
         $text_content .= esc_html($text_after) . ' ';
         $text_content .= '<a href="#">' . esc_html($series_term->name) . '</a>';
-        
+
         $content_parts[] = '<div class="pps-series-meta-text">' . $text_content . '</div>';
 
         if (empty($content_parts)) {
@@ -309,21 +310,21 @@ class SeriesPostDetailsRenderer
         $text_before = isset($settings['text_before']) ? $settings['text_before'] : __('This entry is', 'organize-series');
         $text_after = isset($settings['text_after']) ? $settings['text_after'] : __('in the series', 'organize-series');
         $show_part = !empty($settings['show_part_number']);
-        
+
         $text_content = esc_html($text_before) . ' ';
-        
+
         if ($show_part && $post_id && $series_id) {
             $series_part = '';
             $total_posts = '';
-            
+
             if (function_exists('wp_series_part')) {
                 $series_part = wp_series_part($post_id, $series_id);
             }
-            
+
             if (function_exists('wp_postlist_count')) {
                 $total_posts = wp_postlist_count($series_id);
             }
-            
+
             if ($series_part && $total_posts) {
                 $text_content .= sprintf(
                     esc_html__('part %1$s of %2$s', 'organize-series'),
@@ -332,14 +333,14 @@ class SeriesPostDetailsRenderer
                 ) . ' ';
             }
         }
-        
+
         $text_content .= esc_html($text_after) . ' ';
         $text_content .= sprintf(
             '<a href="%s">%s</a>',
             esc_url(get_term_link($series_term)),
             esc_html($series_term->name)
         );
-        
+
         $content_parts[] = '<div class="pps-series-meta-text">' . $text_content . '</div>';
 
         if (empty($content_parts)) {
@@ -549,19 +550,19 @@ class SeriesPostDetailsRenderer
         if (! empty($settings['text_color'])) {
             $inner_parts[] = 'color: ' . esc_attr($settings['text_color']) . ';';
         }
-        
+
         // Text size (on inner content)
         if (! empty($settings['text_size'])) {
             $inner_parts[] = 'font-size: ' . (int) $settings['text_size'] . 'px;';
         }
 
         $css = [];
-        
+
         // Apply outer styles to the meta box container
         if (! empty($outer_parts)) {
             $css[] = sprintf('.%1$s { %2$s }', esc_attr($layout_class), implode(' ', $outer_parts));
         }
-        
+
         // Apply inner styles to the content wrapper
         if (! empty($inner_parts)) {
             $css[] = sprintf('.%1$s .pps-series-meta-content { %2$s }', esc_attr($layout_class), implode(' ', $inner_parts));
@@ -625,7 +626,7 @@ class SeriesPostDetailsRenderer
     public static function resolve_series_term($series_attr, $post)
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        
+
         if (! empty($series_attr)) {
             if (is_numeric($series_attr)) {
                 $term = get_term((int) $series_attr, $taxonomy_slug);

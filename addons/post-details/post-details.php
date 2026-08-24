@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Series Post Details module bootstrap
  */
@@ -69,7 +70,7 @@ class PPS_Series_Post_Details
 
         $js_file = __DIR__ . '/assets/js/series-post-details-editor.js';
         $js_version = ORG_SERIES_VERSION . '-' . filemtime($js_file);
-        
+
         wp_enqueue_script(
             'pps-series-post-details-editor',
             $assets_base . 'js/series-post-details-editor.js',
@@ -90,7 +91,7 @@ class PPS_Series_Post_Details
 
         $css_file = __DIR__ . '/assets/css/series-post-details-editor.css';
         $css_version = ORG_SERIES_VERSION . '-' . filemtime($css_file);
-        
+
         wp_enqueue_style(
             'pps-series-post-details-editor',
             $assets_base . 'css/series-post-details-editor.css',
@@ -104,7 +105,7 @@ class PPS_Series_Post_Details
      */
     public function save_post_details_data($post_id)
     {
-        if (empty($_POST[PPS_SERIES_POST_DETAILS_NONCE_FIELD]) || ! wp_verify_nonce(sanitize_key($_POST[PPS_SERIES_POST_DETAILS_NONCE_FIELD]), PPS_SERIES_POST_DETAILS_NONCE)) {
+        if (empty($_POST[PPS_SERIES_POST_DETAILS_NONCE_FIELD]) || ! wp_verify_nonce(sanitize_key(wp_unslash($_POST[PPS_SERIES_POST_DETAILS_NONCE_FIELD])), PPS_SERIES_POST_DETAILS_NONCE)) {
             return;
         }
 
@@ -119,7 +120,7 @@ class PPS_Series_Post_Details
             if (in_array($key, $excluded, true)) {
                 continue;
             }
-            
+
             if (isset($args['type']) && in_array($args['type'], $excluded_types, true)) {
                 continue;
             }
@@ -130,7 +131,7 @@ class PPS_Series_Post_Details
             } elseif (! isset($_POST[$key])) {
                 continue;
             } else {
-                $value = $_POST[$key];
+                $value = wp_unslash($_POST[$key]); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized immediately below with the field's configured callback.
             }
 
             if (isset($args['sanitize'])) {
@@ -140,10 +141,10 @@ class PPS_Series_Post_Details
                     }
                 } else {
                     $sanitize_cb = $args['sanitize'];
-                    $value = is_array($value) ? $value : call_user_func($sanitize_cb, $value);
+                    $value = is_array($value) ? map_deep($value, $sanitize_cb) : call_user_func($sanitize_cb, $value);
                 }
             } else {
-                $value = is_array($value) ? $value : sanitize_text_field($value);
+                $value = is_array($value) ? map_deep($value, 'sanitize_text_field') : sanitize_text_field($value);
             }
 
             $meta[$key] = $value;
@@ -244,7 +245,7 @@ class PPS_Series_Post_Details
     private function get_post_details_2_settings()
     {
         $settings = PPS_Series_Post_Details_Utilities::get_default_series_post_details_data();
-        $settings['show_part_number'] = 0; 
+        $settings['show_part_number'] = 0;
         $settings['background_color'] = '#f7f7f7';
         $settings['text_color'] = '#333333';
         $settings['link_color'] = '#0073aa';

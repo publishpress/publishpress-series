@@ -19,23 +19,23 @@ use PublishPress\Pimple\Container as PimpleContainer;
  */
 class Root
 {
-	/**
-	 * @var Container
-	 */
-	private static $container;
+    /**
+     * @var Container
+     */
+    private static $container;
 
 
     /**
      * @var Meta
      */
-	private static $core_meta;
+    private static $core_meta;
 
 
     /**
      * Whether or not core has been initialized.
      * @var bool
      */
-	private static $initialized = false;
+    private static $initialized = false;
 
 
     /**
@@ -46,7 +46,7 @@ class Root
      * @throws InvalidArgumentException
      * @throws InvalidInterfaceException
      */
-	public static function initialize($file, $version)
+    public static function initialize($file, $version)
     {
         if (! self::$initialized) {
             $core_meta_fqcn = new ClassOrInterfaceFullyQualifiedName(
@@ -84,14 +84,14 @@ class Root
         ClassOrInterfaceFullyQualifiedName $extension_meta_fully_qualified_class_name
     ) {
         $parameter_prefix = md5($extension_meta_fully_qualified_class_name->__toString());
-	    self::container()->registerParameter($parameter_prefix . 'File', $file);
-	    self::container()->registerParameter($parameter_prefix . 'Version', $version);
-	    self::container()->registerDependency(
-	        $extension_meta_fully_qualified_class_name,
+        self::container()->registerParameter($parameter_prefix . 'File', $file);
+        self::container()->registerParameter($parameter_prefix . 'Version', $version);
+        self::container()->registerDependency(
+            $extension_meta_fully_qualified_class_name,
             function ($container) use ($parameter_prefix, $extension_meta_fully_qualified_class_name) {
-	            $class_name = $extension_meta_fully_qualified_class_name->__toString();
-	            return new $class_name(
-	                $container[$parameter_prefix . 'File'],
+                $class_name = $extension_meta_fully_qualified_class_name->__toString();
+                return new $class_name(
+                    $container[$parameter_prefix . 'File'],
                     $container[$parameter_prefix . 'Version']
                 );
             }
@@ -112,14 +112,13 @@ class Root
     /**
      * @return Container
      */
-	public static function container()
-	{
-		if (! self::$container instanceof Container)
-		{
-			self::$container = new Container(new PimpleContainer());
-		}
-		return self::$container;
-	}
+    public static function container()
+    {
+        if (! self::$container instanceof Container) {
+            self::$container = new Container(new PimpleContainer());
+        }
+        return self::$container;
+    }
 
 
     /**
@@ -129,11 +128,10 @@ class Root
      * @param ClassOrInterfaceFullyQualifiedName $bootstrap_class
      * @throws InvalidArgumentException
      */
-	public static function registerAndLoadExtensionBootstrap(ClassOrInterfaceFullyQualifiedName $bootstrap_class)
+    public static function registerAndLoadExtensionBootstrap(ClassOrInterfaceFullyQualifiedName $bootstrap_class)
     {
         $bootstrap_fully_qualified_class_name = $bootstrap_class->__toString();
-        if (! in_array(AbstractBootstrap::class, class_parents($bootstrap_class->__toString()), true))
-        {
+        if (! in_array(AbstractBootstrap::class, class_parents($bootstrap_class->__toString()), true)) {
             throw new InvalidArgumentException(
                 sprintf(
                     esc_html__(
@@ -147,7 +145,7 @@ class Root
         }
         self::container()->registerDependency(
             $bootstrap_class,
-            function($container) use ($bootstrap_fully_qualified_class_name) {
+            function ($container) use ($bootstrap_fully_qualified_class_name) {
                 return new $bootstrap_fully_qualified_class_name(
                     $container[ExtensionsRegistry::class],
                     $container[Router::class],

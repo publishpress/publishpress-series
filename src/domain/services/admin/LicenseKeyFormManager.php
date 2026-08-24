@@ -20,7 +20,6 @@ use OrganizeSeries\domain\model\LicenseKeyRepository;
 use OrganizeSeries\domain\model\SuccessNotice;
 use OrganizeSeries\domain\services\AssetRegistry;
 
-
 /**
  * LicenseKeyFormManager
  * This takes care of generating and processing license key forms.
@@ -31,7 +30,6 @@ use OrganizeSeries\domain\services\AssetRegistry;
  */
 class LicenseKeyFormManager implements HasHooksInterface
 {
-
     /**
      * @var LicenseKeyRepository
      */
@@ -123,14 +121,14 @@ class LicenseKeyFormManager implements HasHooksInterface
                 'activateButtonText' => esc_html__('Activate License', 'organize-series'),
             )
         );
-        $this->asset_registry->registerOnDemandCallback(function(){
-           wp_enqueue_script(
-               'os-admin-settings',
-               $this->asset_registry->getAssetJs(AssetRegistry::ASSET_NAMESPACE, 'admin-settings'),
-               array('osjs-core', 'jquery'),
-               null,
-               true
-           );
+        $this->asset_registry->registerOnDemandCallback(function () {
+            wp_enqueue_script(
+                'os-admin-settings',
+                $this->asset_registry->getAssetJs(AssetRegistry::ASSET_NAMESPACE, 'admin-settings'),
+                array('osjs-core', 'jquery'),
+                null,
+                true
+            );
         });
     }
 

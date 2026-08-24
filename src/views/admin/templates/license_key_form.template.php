@@ -1,6 +1,7 @@
 <?php
 
 use OrganizeSeries\domain\model\LicenseKey;
+
 /**
  * Template for license key forms
  * @var LicenseKey $license_key
@@ -13,7 +14,8 @@ $key = $license_key->getLicenseKey();
     </div>
     <h3>
         <?php printf(
-            esc_html__('License Key for %1$s', 'organize-series'), esc_html($license_key->getItemName())
+            esc_html__('License Key for %1$s', 'organize-series'),
+            esc_html($license_key->getItemName())
         ); ?>
     </h3>
     <label class="description" for="os-license-key-<?php echo esc_attr($extension_slug); ?>"><?php esc_html_e('Enter your license key: ', 'organize-series'); ?></label>
@@ -29,7 +31,7 @@ $key = $license_key->getLicenseKey();
         <?php wp_nonce_field('os_license_key_nonce_' . $extension_slug, 'os_license_key_nonce_' . $extension_slug); ?>
         <?php if ($license_key->getStatus() === 'valid') : ?>
             <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary deactivation-button js-license-submit" name="os_license_key_deactivate" value="<?php esc_attr_e('Deactivate License', 'organize-series'); ?>">
-        <?php else: ?>
+        <?php else : ?>
             <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary activation-button js-license-submit" name="os_license_key_activate" value="<?php esc_attr_e('Activate License', 'organize-series'); ?>">
         <?php endif; ?>
         <span class="spinner"></span>

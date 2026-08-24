@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\interfaces;
 
 use OrganizeSeries\application\Container;
@@ -7,7 +8,6 @@ use OrganizeSeries\domain\services\ExtensionsRegistry;
 
 abstract class AbstractBootstrap
 {
-
     /**
      * @var ExtensionsRegistry
      */

@@ -7,6 +7,7 @@ if (!class_exists('WP_List_Table')) {
 /**
  * Class PPS_Publisher_Post_Part_Table
  */
+// phpcs:disable WordPress.Security.NonceVerification.Recommended -- WP_List_Table reads sanitized GET values for view state; row action mutations include nonces.
 class PPS_Publisher_Post_Part_Table extends WP_List_Table
 {
     /**
@@ -94,12 +95,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                     "relation" => "or",
                     'part_field_sort_value' => array(
                         'key' => $meta_key,
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                     'part_field_sort' => array(
                         'key' => $meta_key,
                         'compare' => 'NOT EXISTS',
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                 ),
                 'orderby' => array(
@@ -249,7 +250,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -271,7 +272,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -385,3 +386,4 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         parent::display();
     }
 }
+// phpcs:enable WordPress.Security.NonceVerification.Recommended

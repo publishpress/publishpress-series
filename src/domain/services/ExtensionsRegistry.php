@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\services;
 
 use OrganizeSeries\application\IncomingRequest;
@@ -107,7 +108,8 @@ class ExtensionsRegistry implements HasHooksInterface
      * @return string
      * @throws InvalidEntityException
      */
-    private function getLicenseKeyForExtension(ExtensionIdentifier $extension) {
+    private function getLicenseKeyForExtension(ExtensionIdentifier $extension)
+    {
         $license_key = $this->license_key_repository->getLicenseKeyByExtension($extension->getSlug());
         return $license_key->getLicenseKey();
     }

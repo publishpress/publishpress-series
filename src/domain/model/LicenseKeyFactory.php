@@ -2,7 +2,6 @@
 
 namespace OrganizeSeries\domain\model;
 
-
 use stdClass;
 
 /**
@@ -15,7 +14,6 @@ use stdClass;
  */
 class LicenseKeyFactory
 {
-
     /**
      * This creates a LicenseKey entity from the given data.
      *
@@ -24,7 +22,8 @@ class LicenseKeyFactory
      * @param ExtensionIdentifier $extension_identifier
      * @return LicenseKey
      */
-	public function create(stdClass $license_data, $key, ExtensionIdentifier $extension_identifier) {
-	    return new LicenseKey($license_data, $key, $extension_identifier);
+    public function create(stdClass $license_data, $key, ExtensionIdentifier $extension_identifier)
+    {
+        return new LicenseKey($license_data, $key, $extension_identifier);
     }
 }

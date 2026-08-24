@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
@@ -49,11 +50,13 @@ class HasHooksRoute implements RouteInterface
      */
     private function setFullyQualifiedClassName($fully_qualified_hooks_class_name)
     {
-        if (! in_array(
-            'OrganizeSeries\domain\interfaces\HasHooksInterface',
-            class_implements($fully_qualified_hooks_class_name->__toString()),
-            true
-        )) {
+        if (
+            ! in_array(
+                'OrganizeSeries\domain\interfaces\HasHooksInterface',
+                class_implements($fully_qualified_hooks_class_name->__toString()),
+                true
+            )
+        ) {
             throw new InvalidArgumentException(
                 sprintf(
                     esc_html__(
@@ -83,5 +86,4 @@ class HasHooksRoute implements RouteInterface
     {
         return $this->route_identifier;
     }
-
 }

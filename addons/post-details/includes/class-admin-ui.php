@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin UI for Series Post Details
  */
@@ -116,7 +117,7 @@ class PPS_Series_Post_Details_Admin_UI
                     echo '<span class="dashicons ' . esc_attr($data['icon']) . '"></span> ';
                 }
                 echo esc_html($data['label']);
-                
+
                 echo '</a></li>';
             }
             echo '</ul></div>';
@@ -268,7 +269,7 @@ class PPS_Series_Post_Details_Admin_UI
                 ?>
                 <div class="pps-category-separator">
                     <h4 class="category-title"><?php echo esc_html($args['label']); ?></h4>
-                    <?php if ($pro_locked): ?>
+                    <?php if ($pro_locked) : ?>
                         <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer" style="padding: 1px 10px;">PRO</a>
                         <span class="tooltip-text">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
@@ -282,7 +283,7 @@ class PPS_Series_Post_Details_Admin_UI
 
             default:
                 // If PRO-locked, start wrapper
-                if ($pro_locked): ?>
+                if ($pro_locked) : ?>
                     <div class="ppseries-pro-lock">
                 <?php endif;
 
@@ -353,7 +354,7 @@ class PPS_Series_Post_Details_Admin_UI
                 }
 
                 // If PRO-locked, end wrapper
-                if ($pro_locked): ?>
+                if ($pro_locked) : ?>
                     <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
                     <span class="tooltip-text">
                         <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>

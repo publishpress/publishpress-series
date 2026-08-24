@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Series Post Details Module Init
  */

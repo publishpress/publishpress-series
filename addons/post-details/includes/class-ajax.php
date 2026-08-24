@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AJAX handlers for Series Post Details editor
  */
@@ -27,12 +28,12 @@ class PPS_Series_Post_Details_Ajax
     {
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
         if (! $post_id) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
-        $form_data = isset($_POST['settings']) ? wp_unslash($_POST['settings']) : '';
+        $form_data = isset($_POST['settings']) ? sanitize_text_field(wp_unslash($_POST['settings'])) : '';
         $parsed_settings = [];
 
         if ($form_data) {
@@ -45,7 +46,7 @@ class PPS_Series_Post_Details_Ajax
         // Get all field definitions to know which fields to process
         $post = get_post($post_id);
         $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
-        
+
         // Merge settings, handling checkboxes properly
         $settings = $base_settings;
         foreach ($fields as $key => $args) {
@@ -53,7 +54,7 @@ class PPS_Series_Post_Details_Ajax
             if (isset($args['type']) && $args['type'] === 'category_separator') {
                 continue;
             }
-            
+
             // Handle checkboxes - if not in parsed settings, it's unchecked
             if (isset($args['type']) && $args['type'] === 'checkbox') {
                 $settings[$key] = isset($parsed_settings[$key]) ? 1 : 0;
@@ -94,7 +95,7 @@ class PPS_Series_Post_Details_Ajax
     {
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
         if (! $post_id) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
@@ -115,8 +116,8 @@ class PPS_Series_Post_Details_Ajax
     {
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? map_deep(wp_unslash($_POST['settings']), 'sanitize_text_field') : [];
 
         if (! $post_id || empty($settings)) {
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
@@ -144,7 +145,7 @@ class PPS_Series_Post_Details_Ajax
     {
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
         if (! $post_id) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
