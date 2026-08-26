@@ -79,6 +79,32 @@
 .ppseries-settings-table select {
     width: 300px;
 }
+
+.ppseries-layouts-group {
+    border-bottom: 1px solid #dcdcde;
+    margin: 0 0 24px;
+    padding: 0 0 20px;
+}
+
+.ppseries-layouts-field:last-child .ppseries-layouts-group {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.ppseries-layouts-group h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+.ppseries-layouts-group > .description {
+    margin: 0 0 12px;
+}
+
+.ppseries-layouts-group .form-table {
+    margin-top: 0;
+}
+
 .ppseries-full-width {
     width: -webkit-fill-available !important;
     width: -moz-available !important;

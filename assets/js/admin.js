@@ -51,8 +51,15 @@
 
       if ($activeSelect.length) {
         // "Custom Template" = empty value
-        var isCustom = $activeSelect.val() === '';
-        if (isCustom) {
+        var hasCustom = false;
+        $activeSelect.each(function() {
+          if ($(this).val() === '') {
+            hasCustom = true;
+            return false;
+          }
+        });
+
+        if (hasCustom) {
           $sidebar.show();
         } else {
           $sidebar.hide();
@@ -236,7 +243,7 @@
     function toggleSeriesPostDetailsTemplateFields() {
       var selectedValue = $('#series_post_details_selection').val();
       var templateRows = $('#series_meta_template_row, #series_meta_excerpt_template_row, #limit_series_meta_to_single_row, #series_metabox_position_row');
-      if (selectedValue && selectedValue !== '') {
+      if (!$('#auto_tag_seriesmeta_toggle').is(':checked') || (selectedValue && selectedValue !== '')) {
         templateRows.hide();
       } else {
         templateRows.show();
@@ -289,10 +296,18 @@
     if (typeof(localStorage) != 'undefined' && localStorage != null) {
         pp_series_activetab = localStorage.getItem("pp_series_activetab");
     }
+    if (
+      pp_series_activetab === '#series_post_list_box_settings' ||
+      pp_series_activetab === '#series_post_details_settings' ||
+      pp_series_activetab === '#series_navigation_settings'
+    ) {
+      pp_series_activetab = '#series_layouts_settings';
+    }
+
     if (pp_series_activetab !== '' && $(pp_series_activetab+'-series-tab').length) {
         $(pp_series_activetab+'-series-tab').trigger('click');
     } else {
-        $('#series_post_list_box_settings-series-tab').trigger('click');
+        $('#series_layouts_settings-series-tab').trigger('click');
     }
 
     // -------------------------------------------------------------
@@ -318,7 +333,7 @@
       var selectedValue = $('#series_post_list_box_selection').val();
       var legacyTemplateSettings = getPostListLegacyTemplateRows();
 
-      if (selectedValue && selectedValue !== '') {
+      if (!$('#auto_tag_toggle').is(':checked') || (selectedValue && selectedValue !== '')) {
         legacyTemplateSettings.hide();
       } else {
         legacyTemplateSettings.show();
@@ -342,7 +357,7 @@
       var selectedValue = $('#series_post_navigation_selection').val();
       var templateRows = $('#series_post_nav_template_row, #series_navigation_box_position_row, #series_nextpost_nav_custom_text_row, #series_prevpost_nav_custom_text_row, #series_firstpost_nav_custom_text_row');
 
-      if (selectedValue && selectedValue !== '') {
+      if (!$('#auto_tag_nav_toggle').is(':checked') || (selectedValue && selectedValue !== '')) {
         templateRows.hide();
       } else {
         templateRows.show();

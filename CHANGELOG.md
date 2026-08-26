@@ -1,6 +1,55 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.2.5] - 26 Aug, 2026
+
+* Changed: Rename the Series List block image toggle to "Show Featured image".
+
+[3.2.4] - 26 Aug, 2026
+
+* Fixed: Make the Series List block order settings override the plugin's manual Series order.
+
+[3.2.3] - 26 Aug, 2026
+
+* Added: Add a Series List block option to display individual Series or Series Categories.
+
+[3.2.2] - 26 Aug, 2026
+
+* Fixed: Update the Series List block preview when changing the order by setting.
+
+[3.2.1] - 26 Aug, 2026
+
+* Changed: Combine Post List Boxes, Post Details, and Post Navigation settings into one Layouts tab.
+
+[3.2.0] - 26 Aug, 2026
+
+* Added: Add a Series List block with query, layout, icon, description, and post count controls.
+
+[3.1.9] - 26 Aug, 2026
+
+* Fixed: Include compiled runtime assets in the plugin test package.
+* Fixed: Avoid deprecated implicit nullable parameters in exception constructors.
+
+[3.1.8] - 26 Aug, 2026
+
+* Added: Show live block examples in the Gutenberg inserter preview panel.
+
+[3.1.7] - 26 Aug, 2026
+
+* Fixed: Avoid a deprecated block category hook warning in WordPress 5.8 and newer.
+
+[3.1.6] - 26 Aug, 2026
+
+* Fixed: Show live previews for the Series feature blocks in the block editor.
+
+[3.1.5] - 26 Aug, 2026
+
+* Fixed: Load the Series Gutenberg blocks when the Free plugin is active alongside Series Pro.
+
+[3.1.4] - 26 Aug, 2026
+
+* Added: Add PublishPress Series Gutenberg blocks for Post List Boxes, Post Details, and Post Navigation.
+
 [3.1.3] - 17 Aug, 2026
 
 * Added: Add a welcome panel with the first steps for new users #1170
