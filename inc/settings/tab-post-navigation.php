@@ -8,8 +8,16 @@
  * @package Publishpress Series
  */
 
-add_settings_section('series_navigation_settings', __('Navigation', 'organize-series'), 'orgseries_navigation_section', 'orgseries_options_page');
-add_settings_field('series_navigation_fieldset', __('Navigation Settings', 'organize-series'), 'series_navigation_fieldset', 'orgseries_options_page', 'series_navigation_settings');
+add_settings_field(
+	'series_navigation_fieldset',
+	__('Navigation Settings', 'organize-series'),
+	'series_navigation_fieldset',
+	'orgseries_options_page',
+	'series_layouts_settings',
+	[
+		'class' => 'ppseries-layouts-field',
+	]
+);
 
 function orgseries_navigation_section() {
 	?>
@@ -28,7 +36,9 @@ function series_navigation_fieldset() {
 		'bottom'  => __('Bottom', 'organize-series'),
 	];
 	?>
-	<div style="line-height:normal;">
+	<div class="ppseries-layouts-group" style="line-height:normal;">
+		<h3><?php esc_html_e('Post Navigation', 'organize-series'); ?></h3>
+		<p class="description"><?php esc_html_e('Configure the Series Navigation display shown on posts in a series.', 'organize-series'); ?></p>
 		<table class="form-table ppseries-settings-table">
 			<tbody>
 
