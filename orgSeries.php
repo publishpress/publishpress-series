@@ -9,7 +9,7 @@
  * Text Domain: organize-series
  * Domain Path: /languages
  * Requires at least: 5.5
- * Requires PHP: 7.2.5
+ * Requires PHP: 7.4.0
  * License: GPLv3
  *
  * Copyright (c) 2022 PublishPress
@@ -56,7 +56,7 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 global $wp_version;
 
-$min_php_version = '7.2.5';
+$min_php_version = '7.4.0';
 $min_wp_version  = '5.5';
 
 $invalid_php_version = version_compare(phpversion(), $min_php_version, '<');
