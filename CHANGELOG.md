@@ -4,6 +4,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [Unreleased]
 
 * Fixed: Allowlist `series_posts_orderby` and `series_posts_order` before they reach series archive ORDER BY (Patchstack 34965)
+* Fixed: Require a nonce, POST, and per-post capability checks for Manage Series publish, unpublish, order, and ignore actions
 
 [3.1.3] - 17 Aug, 2026
 
