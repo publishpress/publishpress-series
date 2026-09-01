@@ -278,19 +278,18 @@ function edit_series_form_fields($series, $taxonomy) {
 			<tr>
 				<th></th>
 				<td>
-				<p style="width: 50%;"><input style="margin-top: 0px;" name="delete_image" id="delete_image" type="checkbox" value="true" />  <?php _e('Delete image? (note: there will not be an image associated with this series if you select this)', 'organize-series'); ?></p>
+					<p style="width: 50%;"><label for="delete_image"><input style="margin-top: 0px;" name="delete_image" id="delete_image" type="checkbox" value="true" />  <?php esc_html_e('Delete image? (note: there will not be an image associated with this series if you select this)', 'organize-series'); ?></label></p>
 				</td>
 			</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><?php _e('Series featured image upload:', 'organize-series') ?></th>
-				<td><label for="series_icon">
-					<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
-					<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
-					<p><?php _e('Upload a featured image for the series.', 'organize-series'); ?></p>
-					<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
-					</label>
-				</td>
+			<th scope="row"><label for="series_icon_loc_display"><?php esc_html_e('Series featured image upload:', 'organize-series'); ?></label></th>
+			<td>
+				<input id="series_icon_loc_display" type="text" size="36" name="series_icon_loc_display" value="" disabled="disabled"/>
+				<input id="upload_image_button" type="button" value="<?php esc_attr_e('Select Image', 'organize-series'); ?>" />
+				<p><?php esc_html_e('Upload a featured image for the series.', 'organize-series'); ?></p>
+				<input id="series_icon_loc" type="hidden" name="series_icon_loc" />
+			</td>
 			</tr>
 	<?php
 } 
