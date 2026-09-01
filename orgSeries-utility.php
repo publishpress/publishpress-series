@@ -335,7 +335,7 @@ function ppseries_do_settings_sections( $page ) {
 
 	foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
 
-		echo '<div id="'. esc_attr($section['id']).'-series-content" class="ppseries-settings-tab-content ppseries-hide-content">';
+		echo '<div id="'. esc_attr($section['id']).'-series-content" class="ppseries-settings-tab-content ppseries-hide-content" role="tabpanel" aria-labelledby="'. esc_attr($section['id']) .'-series-tab" tabindex="0" hidden>';
 		/*if ( $section['title'] ) {
 			echo "<h2>{$section['title']}</h2>\n";
 		}*/

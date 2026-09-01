@@ -22,9 +22,10 @@ function orgseries_option_page() {
 	update_option('orgseries_update_message','');
 	?>
 
-  <h2 class="nav-tab-wrapper ppseries-settings-tab">
+  <nav class="nav-tab-wrapper ppseries-settings-tab" role="tablist" aria-label="<?php esc_attr_e('Series settings', 'organize-series'); ?>">
   <?php
     $settings_tabs = ppseries_admin_settings_tabs();
+    $first_tab = true;
     foreach($settings_tabs as $settings_tab_key => $settings_tab_label){
       /*if(apply_filters('ppseries_settings_'.$settings_tab_key.'_tabbed', false)){
         $tabbled_class = 'series-tab-content';
@@ -33,10 +34,11 @@ function orgseries_option_page() {
       }*/
       $tabbled_class = 'series-tab-content';
       // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-      echo '<a id="'. esc_attr($settings_tab_key) .'-series-tab" class="nav-tab '. esc_attr($tabbled_class) .'" href="#'. $settings_tab_key .'">'.$settings_tab_label.'</a>';
+      echo '<a id="'. esc_attr($settings_tab_key) .'-series-tab" class="nav-tab '. esc_attr($tabbled_class) .'" href="#'. esc_attr($settings_tab_key) .'" role="tab" aria-selected="'. ($first_tab ? 'true' : 'false') .'" aria-controls="'. esc_attr($settings_tab_key) .'-series-content" tabindex="'. ($first_tab ? '0' : '-1') .'">'. esc_html($settings_tab_label) .'</a>';
+      $first_tab = false;
     }
   ?>
-  </h2>
+  </nav>
 
 
 	<div id="poststuff" class="metabox-holder has-right-sidebar ppseries-settings-layout">

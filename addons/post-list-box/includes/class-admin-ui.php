@@ -412,35 +412,40 @@ class PPS_Post_List_Box_Admin_UI {
         $fields = apply_filters('pps_post_list_box_editor_fields', PPS_Post_List_Box_Fields::get_fields($post), $post);
         ?>
         <div class="pressshack-admin-wrapper publishpress-post-list-box-editor">
-            <div class="pps-post-list-box-editor-tabs">
+            <div class="pps-post-list-box-editor-tabs" role="tablist" aria-orientation="vertical" aria-label="<?php esc_attr_e('Post List Box sections', 'organize-series'); ?>">
                 <ul>
                     <?php
                     foreach ($fields_tabs as $key => $args) {
                         $active_tab = ($key === PPS_Post_List_Box_Fields::default_tab()) ? ' active' : ''; ?>
                     <li>
-                        <a data-tab="<?php echo esc_attr($key); ?>"
+                        <a id="pps-post-list-box-tab-<?php echo esc_attr(sanitize_html_class($key)); ?>"
+                            data-tab="<?php echo esc_attr($key); ?>"
                             class="<?php echo esc_attr($active_tab); ?>"
                             href="#"
+                            role="tab"
+                            aria-selected="<?php echo $active_tab ? 'true' : 'false'; ?>"
+                            aria-controls="pps-post-list-box-editor-panel"
+                            tabindex="<?php echo $active_tab ? '0' : '-1'; ?>"
                             >
-                            <span class="<?php echo esc_attr($args['icon']); ?>"></span>
+                            <span class="<?php echo esc_attr($args['icon']); ?>" aria-hidden="true"></span>
                             <span class="item"><?php echo esc_html($args['label']); ?></span>
-                            <?php if ($key === 'layout' && !pp_series_is_pro_active()) : ?>
-                                <span class="ppseries-pro-lock">
-                                    <span class="ppseries-pro-badge">PRO</span>
-                                    <span class="tooltip-text">
-                                        <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
-                                        <i></i>
-                                    </span>
-                                </span>
-                            <?php endif; ?>
                         </a>
+                        <?php if ($key === 'layout' && !pp_series_is_pro_active()) : ?>
+                            <span class="ppseries-pro-lock" >
+                                <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer" style="padding: 1px 10px;">PRO</a>
+                                <span class="tooltip-text">
+                                    <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
+                                    <i></i>
+                                </span>
+                            </span>
+                        <?php endif; ?>
                     </li>
                     <?php
                     } ?>
                 </ul>
             </div>
 
-            <div class="pps-post-list-box-editor-fields wrapper-column">
+            <div id="pps-post-list-box-editor-panel" class="pps-post-list-box-editor-fields wrapper-column" role="tabpanel" aria-labelledby="pps-post-list-box-tab-<?php echo esc_attr(sanitize_html_class(PPS_Post_List_Box_Fields::default_tab())); ?>" tabindex="0">
                 <table class="form-table pps-post-list-boxes-editor-table fixed" role="presentation">
                     <tbody>
                         <?php

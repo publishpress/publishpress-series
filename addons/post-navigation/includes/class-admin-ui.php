@@ -142,13 +142,14 @@ class PPS_Series_Post_Navigation_Admin_UI
 
         echo '<div class="pressshack-admin-wrapper publishpress-series-post-navigation-editor">';
 
-        if (! empty($tabs)) {
-            echo '<div class="pps-series-post-navigation-editor-tabs"><ul>';
-            foreach ($tabs as $key => $data) {
-                $active = $key === PPS_Series_Post_Navigation_Fields::DEFAULT_TAB ? ' active' : '';
-                echo '<li><a href="#" data-tab="' . esc_attr($key) . '"' . $active . '>';
-                if (! empty($data['icon'])) {
-                    echo '<span class="dashicons ' . esc_attr($data['icon']) . '"></span> ';
+		if (! empty($tabs)) {
+			echo '<div class="pps-series-post-navigation-editor-tabs" role="tablist" aria-orientation="vertical" aria-label="' . esc_attr__('Series Post Navigation sections', 'organize-series') . '"><ul>';
+			foreach ($tabs as $key => $data) {
+				$active = $key === PPS_Series_Post_Navigation_Fields::DEFAULT_TAB ? ' active' : '';
+				$tab_id = 'pps-series-post-navigation-tab-' . sanitize_html_class($key);
+				echo '<li><a id="' . esc_attr($tab_id) . '" href="#" data-tab="' . esc_attr($key) . '" role="tab" aria-selected="' . ($active ? 'true' : 'false') . '" aria-controls="pps-series-post-navigation-editor-panel" tabindex="' . ($active ? '0' : '-1') . '"' . $active . '>';
+				if (! empty($data['icon'])) {
+					echo '<span class="dashicons ' . esc_attr($data['icon']) . '" aria-hidden="true"></span> ';
                 }
                 echo esc_html($data['label']);
                 
@@ -157,7 +158,7 @@ class PPS_Series_Post_Navigation_Admin_UI
             echo '</ul></div>';
         }
 
-        echo '<div class="pps-series-post-navigation-editor-fields wrapper-column">';
+		echo '<div id="pps-series-post-navigation-editor-panel" class="pps-series-post-navigation-editor-fields wrapper-column" role="tabpanel" aria-labelledby="pps-series-post-navigation-tab-' . esc_attr(sanitize_html_class(PPS_Series_Post_Navigation_Fields::DEFAULT_TAB)) . '" tabindex="0">';
         echo '<table class="form-table pps-series-post-navigation-editor-table fixed" role="presentation"><tbody>';
         foreach ($fields as $key => $field) {
             $value = isset($settings[$key]) ? $settings[$key] : '';

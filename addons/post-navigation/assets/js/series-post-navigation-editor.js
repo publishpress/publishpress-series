@@ -31,29 +31,60 @@
         }
 
         // Tab switching
-        $('.pps-series-post-navigation-editor-tabs a').on('click', function(e) {
-            e.preventDefault();
-            var tab = $(this).data('tab');
-            
-            // Update active tab
-            $('.pps-series-post-navigation-editor-tabs a').removeClass('active');
-            $(this).addClass('active');
-            
-            // Show/hide fields
+        var $tabs = $('.pps-series-post-navigation-editor-tabs [role="tab"]');
+        var $panel = $('#pps-series-post-navigation-editor-panel');
+
+        function activateTab($tab) {
+            var tab = $tab.data('tab');
+
+            $tabs.removeClass('active').attr({
+                'aria-selected': 'false',
+                'tabindex': '-1'
+            });
+            $tab.addClass('active').attr({
+                'aria-selected': 'true',
+                'tabindex': '0'
+            });
+            $panel.attr('aria-labelledby', $tab.attr('id'));
+
             $('.pps-series-post-navigation-editor-table tr').each(function() {
-                var fieldTab = $(this).data('tab');
-                if (fieldTab === tab) {
+                if ($(this).data('tab') === tab) {
                     $(this).show();
                 } else {
                     $(this).hide();
                 }
             });
 
-            // Re-apply all field visibility rules when returning to tab
             toggleLabelFields();
             toggleFeaturedImageFields();
             toggleArrowFields();
             toggleSeriesTitleFields();
+        }
+
+        $tabs.off('click.ppsSeriesPostNavigation keydown.ppsSeriesPostNavigation');
+        $tabs.on('click.ppsSeriesPostNavigation', function(e) {
+            e.preventDefault();
+            activateTab($(this));
+        });
+
+        $tabs.on('keydown.ppsSeriesPostNavigation', function(e) {
+            var currentIndex = $tabs.index(this);
+            var nextIndex = currentIndex;
+
+            if (e.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % $tabs.length;
+            } else if (e.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+            } else if (e.key === 'Home') {
+                nextIndex = 0;
+            } else if (e.key === 'End') {
+                nextIndex = $tabs.length - 1;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            $tabs.eq(nextIndex).trigger('focus').trigger('click');
         });
 
         // Toggle label field visibility based on dropdown selections
