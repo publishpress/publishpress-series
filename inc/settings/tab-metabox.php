@@ -39,9 +39,11 @@ function series_metabox_core_fieldset() {
                 <td><input name="<?php echo esc_attr($org_name);?>[metabox_show_post_title_in_widget]" value="1" id="metabox_show_post_title_in_widget" type="checkbox" <?php checked('1', isset($org_opt['metabox_show_post_title_in_widget']) ? $org_opt['metabox_show_post_title_in_widget'] : ''); ?> /></td>
             </tr>
 
-			<tr valign="top"><th scope="row"><label for=""><?php esc_html_e('Metabox Series Order', 'organize-series'); ?></label></th>
+			<tr valign="top"><th scope="row"><?php esc_html_e('Metabox Series Order', 'organize-series'); ?></th>
 				<td>
-					<?php foreach ($metabox_series_order_options as $key => $label) : ?>
+					<fieldset>
+						<legend class="screen-reader-text"><?php esc_html_e('Metabox Series Order', 'organize-series'); ?></legend>
+						<?php foreach ($metabox_series_order_options as $key => $label) : ?>
 						<div  style="margin-bottom: 10px;">
 							<label>
 								<input name="<?php echo esc_attr($org_name); ?>[metabox_series_order]" 
@@ -53,8 +55,9 @@ function series_metabox_core_fieldset() {
 								/>
 								<?php echo esc_html($label); ?> 
 							</label>
-						</div>
-					<?php endforeach; ?>
+							</div>
+						<?php endforeach; ?>
+					</fieldset>
 				</td>
 			</tr>
 
