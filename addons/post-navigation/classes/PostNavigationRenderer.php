@@ -260,7 +260,7 @@ class PostNavigationRenderer
 
         // Check if we should hide when single post
         if (!empty($settings['hide_when_single_post']) && $total_posts <= 1) {
-            return '<p style="color: #999; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'organize-series') . '</p>';
+            return '<p style="color: #50575e; font-style: italic;">' . esc_html__('Navigation hidden (series has only one post)', 'organize-series') . '</p>';
         }
 
         $content_parts = [];
