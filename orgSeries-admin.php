@@ -169,7 +169,7 @@ function orgSeries_admin_footer()
 
 				<div class="pp-pressshack-logo">
 					<a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" />
+						<img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" alt="<?php esc_attr_e('PublishPress', 'organize-series'); ?>" />
 					</a>
 				</div>
 			</footer>
@@ -220,6 +220,7 @@ function admin_ajax_series()
 			'id' => $series_id,
 			'html' => "<li id='series-$series_id' class='series-added-indicator'><label for='in-series-$series_id' class='selectit'><input value='$series_id' type='radio' name='post_series' id='in-series-$series_id' checked /><input type='hidden' name='is_series_save' value='1' /> <span class='li-series-name'>$series_name</span></label><span id='new_series_id' class='hidden'>$series_id</span></li>",
 			'new_nonce' => $new_nonce,
+			'message' => __('Series added.', 'organize-series'),
 			'error' => false
 		);
 	}
@@ -387,10 +388,9 @@ function series_edit_meta_box()
 		<div class="tabs-panel">
 			<p id="jaxseries">
 				<span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><label for="newseries" class="screen-reader-text"><?php esc_html_e('New series name', 'organize-series'); ?></label><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden" /><input type="hidden" /></span>
-				<span id="series-ajax-response"></span>
+				<span id="series-ajax-response" role="status" aria-live="polite" aria-atomic="true"></span>
 				<span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
 			</p>
-			<span id="series-ajax-response"></span>
 
 			<?php if (is_array($series_list) && count($series_list) > 1) : ?>
 				<div class="editor-series-search">
