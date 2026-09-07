@@ -60,7 +60,14 @@ function &get_series($args = '')
 		return $series;
 	}
 
-	$series = get_terms(ppseries_get_series_slug(), $args);
+	$series = get_terms(
+		wp_parse_args(
+			$args,
+			array(
+				'taxonomy' => ppseries_get_series_slug(),
+			)
+		)
+	);
 
 	if (is_wp_error($series) || empty($series)) {
 		$series = [];
@@ -221,9 +228,13 @@ function get_series_ordered($args = '')
 	$defaults = array('orderby' => 'term_id', 'order' => 'DESC', 'postTypes' => $post_types, 'hide_empty' => TRUE);
 	$args = wp_parse_args($args, $defaults);
 	$orderby = $args['orderby'];
-	$order = $args['order'];
+	$order = strtoupper($args['order']);
 	$postTypes = $args['postTypes'];
 	$hide_empty = $args['hide_empty'];
+
+	if (! in_array($order, array('ASC', 'DESC'), true)) {
+		$order = 'DESC';
+	}
 
 	$orderby = strtolower($orderby);
 	if ('post_date' == $orderby) {
@@ -253,10 +264,24 @@ function get_series_ordered($args = '')
 		$having = 'HAVING count(tp.id) > 0 ';
 	}
 
-	$postTypes = "'" . implode("','", $postTypes) . "'";
+	$postTypes = array_filter(array_map('sanitize_key', (array) $postTypes));
 
-	$query = "SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status IN ( 'publish', 'private' ) and tp.post_type in ($postTypes) WHERE tt.taxonomy = '" . ppseries_get_series_slug() . "' GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order";
-	$series = $wpdb->get_results($query);
+	if (empty($postTypes)) {
+		$postTypes = array('post');
+	}
+
+	$post_type_placeholders = implode(', ', array_fill(0, count($postTypes), '%s'));
+	$query_values = array_merge($postTypes, array(ppseries_get_series_slug()));
+
+	// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Post type placeholders are generated from a sanitized array; HAVING, ORDER BY, and direction are allowlisted SQL fragments.
+	$series = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT t.term_id, t.name, t.slug FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id LEFT OUTER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id LEFT OUTER JOIN $wpdb->posts AS tp ON tp.ID = tr.object_id and tp.post_status IN ( 'publish', 'private' ) and tp.post_type in ($post_type_placeholders) WHERE tt.taxonomy = %s GROUP BY t.term_id, t.name, t.slug $having ORDER BY $_orderby $order",
+			$query_values
+		)
+	);
+	// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
 	return $series;
 }
 
@@ -328,7 +353,8 @@ function wp_dropdown_series($args)
 	if (isset($r['name'])) {
 		unset($r['name']);
 	}
-	$series = get_terms($taxonomy, $r);
+	$r['taxonomy'] = $taxonomy;
+	$series = get_terms($r);
 	$name = esc_attr($name);
 	$class = esc_attr($class);
 	$id = $id ? esc_attr($id) : $name;
@@ -643,8 +669,19 @@ function delete_series_object_relationship($object_id, $terms)
 	}
 
 	if (!empty($t_ids)) {
-		$in_tt_ids = "'" . implode("', '", $t_ids) . "'";
-		$wpdb->query($wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id));
+		$t_ids = array_map('absint', $t_ids);
+		$in_tt_ids = implode(', ', array_fill(0, count($t_ids), '%d'));
+		$query_values = array_merge(array($object_id), $t_ids);
+
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- IN placeholders are generated from sanitized term taxonomy IDs.
+		$wpdb->query(
+			$wpdb->prepare(
+				"DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)",
+				$query_values
+			)
+		);
+		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
 		wp_update_term_count($t_ids, ppseries_get_series_slug());
 	}
 }
