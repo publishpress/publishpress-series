@@ -20,12 +20,6 @@ class PPS_Post_List_Box_AJAX {
         add_action('wp_ajax_pps_quick_save_post_list_box', [__CLASS__, 'ajax_quick_save_post_list_box']);
     }
 
-    /**
-     * Return the layout post when the current user may edit it.
-     *
-     * @param int $post_id Requested layout ID.
-     * @return WP_Post|null
-     */
     private static function get_editable_post_list_box($post_id)
     {
         $post_id = (int) $post_id;
