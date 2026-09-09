@@ -524,6 +524,10 @@ function ppseries_publisher_admin_init()
     }
 
     $action = isset($_REQUEST['action']) ? sanitize_key(wp_unslash($_REQUEST['action'])) : '';
+    if ($action === 'list' && !current_user_can('manage_publishpress_series')) {
+        ppseries_publisher_die_forbidden();
+    }
+
     $has_posts = !empty($_REQUEST['posts']);
     $mutating = in_array($action, ['publish', 'unpublish', 'ignore'], true)
         || ($action === 'order' && $has_posts)
