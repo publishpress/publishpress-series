@@ -3,6 +3,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]
 
+* Fixed: Require capability checks and allowlist Post List Box `title_html_tag` on `pps_import_post_list_box` (Patchstack 35024)
 * Fixed: Allowlist `series_posts_orderby` and `series_posts_order` before they reach series archive ORDER BY (Patchstack 34965)
 * Fixed: Require a nonce, POST, and per-post capability checks for Manage Series publish, unpublish, order, and ignore actions
 * Fixed: Hide series-wide Publish Series UI from users who cannot `manage_publishpress_series`
