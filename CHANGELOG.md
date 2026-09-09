@@ -3,6 +3,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]
 
+* Fixed: Authorize layout imports and sanitize imported settings (Patchstack 35046)
 * Fixed: Allowlist `series_posts_orderby` and `series_posts_order` before they reach series archive ORDER BY (Patchstack 34965)
 * Fixed: Require a nonce, POST, and per-post capability checks for Manage Series publish, unpublish, order, and ignore actions
 * Fixed: Hide series-wide Publish Series UI from users who cannot `manage_publishpress_series`

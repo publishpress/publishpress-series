@@ -131,14 +131,35 @@ class PPS_Post_List_Box_AJAX {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-        $settings = isset($_POST['settings']) ? $_POST['settings'] : [];
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? wp_unslash($_POST['settings']) : [];
+        $post = get_post($post_id);
 
-        if (!$post_id || empty($settings)) {
+        if (!$post_id || !$post || $post->post_type !== self::POST_TYPE_BOXES || !current_user_can('edit_post', $post_id) || !is_array($settings) || empty($settings)) {
             wp_send_json_error(['message' => 'Invalid data']);
         }
 
-        // Update the settings
-        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $settings);
+        $fields = apply_filters('pps_post_list_box_fields', PPS_Post_List_Box_Fields::get_fields($post), $post);
+        $sanitized_settings = [];
+
+        foreach ($settings as $key => $value) {
+            if (!isset($fields[$key]) || (isset($fields[$key]['type']) && $fields[$key]['type'] === 'category_separator')) {
+                continue;
+            }
+
+            $args = $fields[$key];
+            if (isset($args['sanitize'])) {
+                $sanitizers = is_array($args['sanitize']) ? $args['sanitize'] : [$args['sanitize']];
+                foreach ($sanitizers as $sanitize_cb) {
+                    $value = is_array($value) ? map_deep($value, $sanitize_cb) : call_user_func($sanitize_cb, $value);
+                }
+            } else {
+                $value = is_array($value) ? map_deep($value, 'sanitize_text_field') : sanitize_text_field($value);
+            }
+
+            $sanitized_settings[$key] = $value;
+        }
+
+        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $sanitized_settings);
 
         wp_send_json_success(['message' => 'Settings imported successfully']);
     }

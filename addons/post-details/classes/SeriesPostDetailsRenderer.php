@@ -140,6 +140,7 @@ class SeriesPostDetailsRenderer
             // Fallback to legacy token template
             $content = self::render_template_with_tokens($template, $render_context);
         }
+        $content = wp_kses_post($content);
         if ('' === $content) {
             return '';
         }
@@ -221,6 +222,7 @@ class SeriesPostDetailsRenderer
             $tokens = self::build_preview_tokens($series_term, $post, $series_part, $total_posts);
             $content = strtr($template, $tokens);
         }
+        $content = wp_kses_post($content);
 
         $wrapper_classes = [
             'pps-series-post-details',

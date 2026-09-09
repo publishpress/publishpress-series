@@ -116,11 +116,37 @@ class PPS_Series_Post_Details_Ajax
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? wp_unslash($_POST['settings']) : [];
+        $post = get_post($post_id);
 
-        if (! $post_id || empty($settings)) {
+        if (! $post_id || ! $post || $post->post_type !== PPS_Series_Post_Details_Utilities::POST_TYPE || ! current_user_can('edit_post', $post_id) || empty($settings)) {
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
+
+        $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
+        $fields['meta_template'] = ['sanitize' => 'wp_kses_post'];
+        $fields['meta_excerpt_template'] = ['sanitize' => 'wp_kses_post'];
+        $sanitized_settings = [];
+
+        foreach ($settings as $key => $value) {
+            if (! isset($fields[$key]) || (isset($fields[$key]['type']) && $fields[$key]['type'] === 'category_separator')) {
+                continue;
+            }
+
+            $args = $fields[$key];
+            if (isset($args['sanitize'])) {
+                $sanitizers = is_array($args['sanitize']) ? $args['sanitize'] : [$args['sanitize']];
+                foreach ($sanitizers as $sanitize_cb) {
+                    $value = is_array($value) ? map_deep($value, $sanitize_cb) : call_user_func($sanitize_cb, $value);
+                }
+            } else {
+                $value = is_array($value) ? map_deep($value, 'sanitize_text_field') : sanitize_text_field($value);
+            }
+
+            $sanitized_settings[$key] = $value;
+        }
+
+        $settings = $sanitized_settings;
 
         // Preserve existing Pro-only settings if not provided in import.
         $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
