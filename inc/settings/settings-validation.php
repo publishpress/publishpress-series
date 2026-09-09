@@ -44,6 +44,26 @@ function ppseries_sanitize_int( $input, $key ) {
 }
 
 /**
+ * Allowed series_posts_orderby option values mapped to ORDER BY SQL fragments.
+ */
+function ppseries_series_posts_orderby_sql() {
+	return [
+		'meta_value' => 'orgmeta.meta_value+ 0',
+		'post_date'  => 'post_date',
+	];
+}
+
+/**
+ * Allowed series_posts_order option values mapped to ORDER BY directions.
+ */
+function ppseries_series_posts_order_sql() {
+	return [
+		'ASC'  => 'ASC',
+		'DESC' => 'DESC',
+	];
+}
+
+/**
  * Register a temporary taxonomy for term migration.
  */
 function ppseries_register_temporary_taxonomy() {
@@ -275,8 +295,13 @@ function orgseries_validate( $input ) {
 		$newinput['series_toc_url'] = false;
 	}
 
-	$newinput['series_posts_orderby']      = ppseries_sanitize_text( $input, 'series_posts_orderby', $existing );
-	$newinput['series_posts_order']        = ppseries_sanitize_text( $input, 'series_posts_order', $existing );
+	$orderby = ppseries_sanitize_text( $input, 'series_posts_orderby', $existing );
+	$allowed_orderby = ppseries_series_posts_orderby_sql();
+	$newinput['series_posts_orderby'] = isset( $allowed_orderby[ $orderby ] ) ? $orderby : 'meta_value';
+
+	$order = ppseries_sanitize_text( $input, 'series_posts_order', $existing );
+	$allowed_order = ppseries_series_posts_order_sql();
+	$newinput['series_posts_order'] = isset( $allowed_order[ $order ] ) ? $order : 'ASC';
 	$newinput['series_post_list_limit']    = ppseries_sanitize_text( $input, 'series_post_list_limit', $existing );
 	$newinput['limit_series_meta_to_single'] = ppseries_sanitize_checkbox( $input, 'limit_series_meta_to_single' );
 

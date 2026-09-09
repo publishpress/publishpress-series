@@ -603,17 +603,12 @@ class orgSeries {
 				return $ordering;
 			}
 			$settings = $this->settings;
-			$orderby  = $settings['series_posts_orderby'];
-			if ( $orderby == 'meta_value' ) {
-				$orderby = 'orgmeta.' . $orderby . '+ 0';
-			}
-			$order = $settings['series_posts_order'];
-			if ( ! isset( $orderby ) ) {
-				$orderby = "post_date";
-			}
-			if ( ! isset( $order ) ) {
-				$order = "DESC";
-			}
+			$orderby_sql = ppseries_series_posts_orderby_sql();
+			$order_sql = ppseries_series_posts_order_sql();
+			$orderby_key = isset( $settings['series_posts_orderby'] ) ? $settings['series_posts_orderby'] : 'meta_value';
+			$order_key = isset( $settings['series_posts_order'] ) ? $settings['series_posts_order'] : 'ASC';
+			$orderby = isset( $orderby_sql[ $orderby_key ] ) ? $orderby_sql[ $orderby_key ] : $orderby_sql['meta_value'];
+			$order = isset( $order_sql[ $order_key ] ) ? $order_sql[ $order_key ] : $order_sql['ASC'];
 			$ordering = " $orderby $order ";
 		}
 		return apply_filters('orgseries_sort_series_page_orderby', $ordering);
