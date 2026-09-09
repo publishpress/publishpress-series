@@ -271,7 +271,7 @@ function edit_series_form_fields($series, $taxonomy) {
 							echo '<p>'. esc_html__('No featured image currently', 'organize-series') .'</p>';
 						}
 					 ?>
-					<div id="selected-icon"></div>
+					<div id="selected-icon" role="status" aria-live="polite" aria-atomic="true"></div>
 				</td>
 			</tr>
 			<?php if ( $series_icon != '' ) { ?>

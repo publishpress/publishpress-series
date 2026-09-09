@@ -253,7 +253,7 @@
                     ? attachment.sizes.thumbnail.url 
                     : attachment.url;
                     
-                $preview.html('<img src="' + imageUrl + '" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;" />');
+                $preview.html('<img src="' + imageUrl + '" alt="" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;" />');
                 
                 // Update button text
                 button.text('Change Image');

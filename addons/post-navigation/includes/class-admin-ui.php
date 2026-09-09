@@ -400,9 +400,15 @@ class PPS_Series_Post_Navigation_Admin_UI
                         
                         echo '<div class="pps-media-preview" style="margin-bottom: 10px;">';
                         if ($has_image) {
+                            $image_alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+                            if ('' === $image_alt) {
+                                $image_alt = get_the_title($attachment_id);
+                            }
+
                             printf(
-                                '<img src="%s" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;" />',
-                                esc_url($image_url)
+                                '<img src="%s" alt="%s" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;" />',
+                                esc_url($image_url),
+                                esc_attr($image_alt)
                             );
                         }
                         echo '</div>';
