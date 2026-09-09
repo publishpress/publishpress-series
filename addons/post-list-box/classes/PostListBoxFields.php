@@ -152,7 +152,7 @@ class PostListBoxFields
                     'div' => 'DIV',
                     'p' => 'P',
                 ],
-                'sanitize' => 'sanitize_text_field',
+                'sanitize' => 'PPS_Post_List_Box_Fields::sanitize_title_html_tag',
                 'default' => 'h3',
                 'description' => __('Choose the HTML tag used for the box title', 'organize-series'),
                 'depends_on' => 'title_show',

@@ -21,6 +21,31 @@ class PPS_Post_List_Box_AJAX {
     }
 
     /**
+     * Return the layout post when the current user may edit it.
+     *
+     * @param int $post_id Requested layout ID.
+     * @return WP_Post|null
+     */
+    private static function get_editable_post_list_box($post_id)
+    {
+        $post_id = (int) $post_id;
+        if ($post_id < 1) {
+            return null;
+        }
+
+        $post = get_post($post_id);
+        if (! $post || $post->post_type !== self::POST_TYPE_BOXES) {
+            return null;
+        }
+
+        if (! current_user_can('manage_publishpress_series') || ! current_user_can('edit_post', $post_id)) {
+            return null;
+        }
+
+        return $post;
+    }
+
+    /**
      * AJAX handler for updating preview
      */
     public static function ajax_update_preview()
@@ -31,7 +56,7 @@ class PPS_Post_List_Box_AJAX {
         $form_data = isset($_POST['settings']) ? $_POST['settings'] : '';
         $series_id = isset($_POST['series_id']) ? intval($_POST['series_id']) : 0;
 
-        if (!$post_id) {
+        if (! self::get_editable_post_list_box($post_id)) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
@@ -109,13 +134,13 @@ class PPS_Post_List_Box_AJAX {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        $post = self::get_editable_post_list_box($post_id);
 
-        if (!$post_id) {
+        if (! $post) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
         $settings = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
-        $post = get_post($post_id);
 
         wp_send_json_success([
             'settings' => $settings,
@@ -133,11 +158,14 @@ class PPS_Post_List_Box_AJAX {
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
         $settings = isset($_POST['settings']) ? $_POST['settings'] : [];
 
-        if (!$post_id || empty($settings)) {
+        if (! self::get_editable_post_list_box($post_id) || ! is_array($settings) || empty($settings)) {
             wp_send_json_error(['message' => 'Invalid data']);
         }
 
-        // Update the settings
+        if (array_key_exists('title_html_tag', $settings)) {
+            $settings['title_html_tag'] = PPS_Post_List_Box_Fields::sanitize_title_html_tag($settings['title_html_tag']);
+        }
+
         update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $settings);
 
         wp_send_json_success(['message' => 'Settings imported successfully']);
@@ -152,11 +180,10 @@ class PPS_Post_List_Box_AJAX {
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
 
-        if (!$post_id) {
+        if (! self::get_editable_post_list_box($post_id)) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
-        // Reset to defaults
         $default_settings = PPS_Post_List_Box_Fields::get_default_post_list_box_data();
         update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $default_settings);
 
@@ -170,8 +197,11 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        // This would handle the actual save via the main save functionality
-        // For now, just return success
+        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        if (! self::get_editable_post_list_box($post_id)) {
+            wp_send_json_error(['message' => 'Invalid post ID']);
+        }
+
         wp_send_json_success(['message' => 'Settings saved']);
     }
 }

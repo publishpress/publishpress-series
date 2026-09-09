@@ -231,6 +231,10 @@ class PPS_Post_List_Box
             return;
         }
 
+        if (! current_user_can('manage_publishpress_series') || ! current_user_can('edit_post', $post_id)) {
+            return;
+        }
+
         $post = get_post($post_id);
 
         $fields = apply_filters('pps_post_list_box_fields', PPS_Post_List_Box_Fields::get_fields($post), $post);

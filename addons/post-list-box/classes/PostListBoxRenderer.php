@@ -292,7 +292,9 @@ class PostListBoxRenderer
         <div class="<?php echo esc_attr($wrapper_class); ?>">
             <?php if (!empty($settings['title_show'])) : 
                 $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts);
-                $title_tag = !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+                $title_tag = PPS_Post_List_Box_Fields::sanitize_title_html_tag(
+                    !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3'
+                );
                 $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
                 $series_link = '';
                 if ($link_title_to_series) {

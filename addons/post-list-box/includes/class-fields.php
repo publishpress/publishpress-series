@@ -85,7 +85,47 @@ class PPS_Post_List_Box_Fields {
 
         $editor_data['post_id'] = $post_id;
 
+        if (isset($editor_data['title_html_tag'])) {
+            $editor_data['title_html_tag'] = self::sanitize_title_html_tag($editor_data['title_html_tag']);
+        }
+
         return apply_filters('pps_post_list_box_get_layout_meta_values', $editor_data, $post_id, $use_default);
+    }
+
+    /**
+     * HTML tag names allowed for the box title.
+     *
+     * Matches the Post List Box editor select options.
+     *
+     * @return string[]
+     */
+    public static function get_allowed_title_html_tags()
+    {
+        return ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'p'];
+    }
+
+    /**
+     * Restrict title_html_tag to a fixed set of element names.
+     *
+     * This value is interpolated as an HTML tag name. Text escaping is not
+     * enough in that context, so unknown values fall back to h3.
+     *
+     * @param mixed $tag Raw tag name.
+     * @return string
+     */
+    public static function sanitize_title_html_tag($tag)
+    {
+        if (! is_string($tag)) {
+            return 'h3';
+        }
+
+        $tag = strtolower(trim($tag));
+
+        if (! in_array($tag, self::get_allowed_title_html_tags(), true)) {
+            return 'h3';
+        }
+
+        return $tag;
     }
 
     /**

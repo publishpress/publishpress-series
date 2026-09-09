@@ -381,7 +381,9 @@ class PPS_Post_List_Box_Preview {
         if (!empty($settings['title_show'])) {
             $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts_to_render);
             if (!empty($title_text)) {
-                $title_html_tag = isset($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
+                $title_html_tag = PPS_Post_List_Box_Fields::sanitize_title_html_tag(
+                    isset($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3'
+                );
                 $title_styles = self::get_title_styles($settings);
                 $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
                 $series_link = '';
