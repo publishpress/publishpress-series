@@ -428,6 +428,57 @@ function wp_set_post_series_draft_transition($post)
 	}
 }
 
+function orgseries_set_missing_series_order($object_id, $terms, $tt_ids, $taxonomy)
+{
+    if ($taxonomy !== ppseries_get_series_slug()) {
+        return;
+    }
+
+    if (empty($terms) && empty($tt_ids)) {
+        return;
+    }
+
+    $post_ID = (int) $object_id;
+    if ($post_ID <= 0) {
+        return;
+    }
+
+    $post_status = get_post_status($post_ID);
+    if (!in_array($post_status, array('publish', 'private'), true)) {
+        return;
+    }
+
+    $series_ids = array();
+    foreach ((array) $terms as $term) {
+        if (is_numeric($term)) {
+            $series_ids[] = (int) $term;
+        }
+    }
+
+    if (empty($series_ids)) {
+        $series_ids = wp_get_post_series($post_ID);
+    }
+
+    if (empty($series_ids) || !is_array($series_ids)) {
+        return;
+    }
+
+    foreach ($series_ids as $series_id) {
+        $series_id = (int) $series_id;
+        if ($series_id <= 0) {
+            continue;
+        }
+
+        $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+        $series_part     = get_post_meta($post_ID, $series_part_key, true);
+        if (!empty(trim((string) $series_part))) {
+            continue;
+        }
+
+        set_series_order($series_id, $post_ID, 0, true);
+    }
+}
+
 function series_wp_save_post($post_ID, $post, $update)
 {
 	wp_set_post_series($post, $update, $post_ID);
@@ -822,6 +873,7 @@ add_action('admin_print_scripts-edit.php', 'inline_edit_series_js');
 
 //hook into save post for adding/updating series information to posts
 add_action('save_post', 'series_wp_save_post', 10, 3);
+add_action('set_object_terms', 'orgseries_set_missing_series_order', 10, 4);
 add_action('future_to_publish', 'wp_set_post_series_transition', 10, 1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
