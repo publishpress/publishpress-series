@@ -19,9 +19,9 @@ class PPS_Post_List_Box_Preview {
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
         $query_params = [
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'maximum_items' => 4,
+            'orderby' => !empty($settings['orderby']) ? $settings['orderby'] : 'series_order',
+            'order' => !empty($settings['order']) ? $settings['order'] : 'ASC',
+            'maximum_items' => !empty($settings['maximum_items']) ? (int) $settings['maximum_items'] : 4,
         ];
 
         /**
@@ -33,13 +33,18 @@ class PPS_Post_List_Box_Preview {
          */
         $query_params = apply_filters('pps_post_list_box_preview_query_params', $query_params, $settings, $series_id);
 
-        $orderby = isset($query_params['orderby']) ? $query_params['orderby'] : 'date';
-        $order = isset($query_params['order']) ? strtoupper($query_params['order']) : 'DESC';
+        $orderby = isset($query_params['orderby']) ? $query_params['orderby'] : 'series_order';
+        $order = isset($query_params['order']) ? strtoupper($query_params['order']) : 'ASC';
         $order = $order === 'ASC' ? 'ASC' : 'DESC';
         $maximum_items = isset($query_params['maximum_items']) ? (int) $query_params['maximum_items'] : 4;
+        $maximum_items = $maximum_items > 0 ? $maximum_items : 4;
+        $posts_per_page = $orderby === 'series_order' ? -1 : $maximum_items;
+        $query_orderby = $orderby === 'series_order' ? 'date' : $orderby;
+        $query_order = $orderby === 'series_order' ? 'DESC' : $order;
 
         $query_args = [
             'post_type' => 'post',
+            'post_status' => 'publish',
             'tax_query' => [
                 [
                     'taxonomy' => $taxonomy_slug,
@@ -47,9 +52,9 @@ class PPS_Post_List_Box_Preview {
                     'terms' => $series_id,
                 ],
             ],
-            'posts_per_page' => $maximum_items,
-            'orderby' => $orderby,
-            'order' => $order,
+            'posts_per_page' => $posts_per_page,
+            'orderby' => $query_orderby,
+            'order' => $query_order,
         ];
 
         /**
@@ -63,6 +68,31 @@ class PPS_Post_List_Box_Preview {
         $query_args = apply_filters('pps_post_list_box_preview_query_args', $query_args, $settings, $series_id, $query_params);
 
         $posts = get_posts($query_args);
+
+        if ($orderby === 'series_order' && !empty($posts) && function_exists('get_series_order')) {
+            $post_ids = wp_list_pluck($posts, 'ID');
+            $series_posts = get_series_order($post_ids, 0, $series_id, false, true);
+            $posts = [];
+
+            foreach ($series_posts as $series_post) {
+                if (empty($series_post['id'])) {
+                    continue;
+                }
+
+                $post = get_post((int) $series_post['id']);
+                if ($post) {
+                    $posts[] = $post;
+                }
+            }
+
+            if ($order === 'DESC') {
+                $posts = array_reverse($posts);
+            }
+
+            if ($maximum_items > 0) {
+                $posts = array_slice($posts, 0, $maximum_items);
+            }
+        }
 
         /**
          * Filter retrieved posts for post list box admin preview.

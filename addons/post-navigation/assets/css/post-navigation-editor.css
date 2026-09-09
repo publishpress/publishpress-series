@@ -8,6 +8,12 @@
     background: #fff;
 }
 
+#poststuff #pps_series_post_navigation_editor .inside {
+    background: #f5f6fa;
+    padding: 0;
+    margin-top: 0;
+}
+
 .publishpress-series-post-navigation-editor .pps-series-post-navigation-editor-tabs {
     min-width: 250px;
     margin: 0;
