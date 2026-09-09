@@ -775,11 +775,15 @@ class PPS_Publisher_Admin
 
         $series_ID = isset($_GET['series_ID']) ? absint($_GET['series_ID']) : 0;
         $action = isset($_GET['action']) ? sanitize_key(wp_unslash($_GET['action'])) : '';
+        $can_publish_series = current_user_can('manage_publishpress_series');
 
         if ($series_ID > 0 && in_array($action, ['part', 'order'], true)) {
             $this->ppseries_publisher_part_output($series_ID);
             $this->ppseries_publisher_pending_output($series_ID);
         } elseif ($series_ID > 0 && $action === 'list') {
+            if (!$can_publish_series) {
+                ppseries_publisher_die_forbidden();
+            }
             $this->ppseries_publisher_publish_output($series_ID);
         } else {
             include_once 'series_im_admin_main.php';

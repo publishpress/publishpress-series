@@ -6,7 +6,9 @@
       <tr>
         <th scope="col" class="manage-column column-title column-primary"><?php esc_html_e('Series', 'organize-series'); ?></th>
         <th scope="col" class="manage-column"><?php esc_html_e('Series Order', 'organize-series'); ?></th>
+        <?php if (!empty($can_publish_series)) : ?>
         <th scope="col" class="manage-column"><?php esc_html_e('Publish Series', 'organize-series'); ?></th>
+        <?php endif; ?>
         <th scope="col" class="manage-column"><?php esc_html_e('Front View', 'organize-series'); ?></th>
       </tr>
     </thead>
@@ -18,9 +20,11 @@
         <td><?php
             echo "<a class='im-publish' href='". esc_url(admin_url('edit.php?page=manage-issues&amp;action=part&amp;series_ID='. (int)$ser->term_id.'')) ."'>". esc_html__('Series order', 'organize-series')."</a>";
         ?></td>
+        <?php if (!empty($can_publish_series)) : ?>
         <td><?php
         echo "<a class='im-publish' href='". esc_url(admin_url('edit.php?page=manage-issues&amp;action=list&amp;series_ID='. (int)$ser->term_id.'')) ."'>". esc_html__('Publish or schedule posts', 'organize-series')."</a>";
         ?></td>
+        <?php endif; ?>
         <td><?php
             echo "<a class='im-ignore' href='". esc_url(get_term_link($ser->term_id)) ."'>". esc_html__('View series in frontend','organize-series')."</a>";
         ?></td>
