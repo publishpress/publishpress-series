@@ -152,7 +152,7 @@ function series_legacy_fieldset() {
 						</script>
 						<tr valign="top">
 							<th scope="row"><label for="series_perp_toc"><?php esc_html_e('Series Per Page:', 'organize-series'); ?></label></th>
-							<td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
+							<td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" id="series_perp_toc" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
 						</tr>
 						<tr valign="top">
 							<th scope="row"><label for="series_toc_title"><?php esc_html_e('Series Table of Contents Title:', 'organize-series'); ?></label></th>

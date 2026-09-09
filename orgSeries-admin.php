@@ -386,7 +386,7 @@ function series_edit_meta_box()
 	<div class="series-metadiv">
 		<div class="tabs-panel">
 			<p id="jaxseries">
-				<span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden" /><input type="hidden" /></span>
+				<span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><label for="newseries" class="screen-reader-text"><?php esc_html_e('New series name', 'organize-series'); ?></label><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden" /><input type="hidden" /></span>
 				<span id="series-ajax-response"></span>
 				<span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
 			</p>
@@ -409,18 +409,18 @@ function series_edit_meta_box()
 				$series_part = get_post_meta($id, $part_key, true);
 				?>
 				<span id="seriespart">
-					<strong><?php esc_html_e('Series Part:', 'organize-series'); ?></strong>
+					<label for="series_part"><?php esc_html_e('Series Part:', 'organize-series'); ?></label>
 					<input class="small-text pp-series-part-input" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" />
 				</span>
 			</div>
 
 			<div class="series-metabox-post-title-in-widget" style="<?php echo ($metabox_show_post_title_in_widget === 0) ? 'display: none;' : ''; ?>">
-				<strong>
-					<?php esc_html_e('Post title in widget:', 'organize-series'); ?></strong>
+				<label for="serie_post_shorttitle">
+					<?php esc_html_e('Post title in widget:', 'organize-series'); ?></label>
 				<p id="part-description" class="howto">
 					<?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
 				</p>
-				<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>" />
+				<input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" aria-describedby="part-description" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>" />
 			</div>
 
 			<input type="hidden" name="is_series_save" value="1" />
