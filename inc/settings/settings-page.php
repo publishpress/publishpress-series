@@ -304,11 +304,13 @@ function orgseries_option_page() {
 					<input type="submit" class="button-primary" name="update_orgseries" value="<?php esc_attr_e('Update Options', 'organize-series'); ?>" />
 				</span>
 				</form>
-				<div id="TBcontent" class="reset_dialog" role="dialog" aria-modal="true" aria-labelledby="TBtitle" aria-describedby="TBdescription" tabindex="-1" style="display:none;">
-					<h2 id="TBtitle" class="screen-reader-text"><?php esc_html_e('Reset Series settings', 'organize-series'); ?></h2>
-					<p id="TBdescription"><?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
-					<button type="button" id="TBcancel" class="button"><?php esc_html_e('No', 'organize-series'); ?></button>
-					<button type="button" id="TBsubmit" class="alignright button-primary"><?php esc_html_e('Yes', 'organize-series'); ?></button>
+				<div id="TBcontent" style="display:none;">
+					<div class="reset_dialog" role="dialog" aria-modal="true" aria-labelledby="TBtitle" aria-describedby="TBdescription" tabindex="-1">
+						<h2 id="TBtitle" class="screen-reader-text"><?php esc_html_e('Reset Series settings', 'organize-series'); ?></h2>
+						<p id="TBdescription"><?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
+						<button type="button" id="TBcancel" class="button"><?php esc_html_e('No', 'organize-series'); ?></button>
+						<button type="button" id="TBsubmit" class="alignright button-primary"><?php esc_html_e('Yes', 'organize-series'); ?></button>
+					</div>
 				</div>
 		</div>
 		</div>
