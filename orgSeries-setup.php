@@ -29,6 +29,7 @@ class orgSeries {
 		add_action('publishpress_series_after_init', array($this, 'add_settings'), 10);
 		add_action('publishpress_series_pro_before_init', array($this, 'add_settings'), 10);
 		add_action('init', array($this, 'register_taxonomy'),0);
+		add_action('init', array($this, 'relax_series_description_kses'));
 		add_action('init', array($this, 'pp_series_maybe_initialize_rewrite_rules'), 100);
 		add_action('admin_enqueue_scripts', array($this, 'register_scripts'));
 		add_action('init', array($this, 'maybe_fix_upgrade'));
@@ -292,6 +293,41 @@ class orgSeries {
 		
 		// Hook for Pro after taxonomy is registered
 		do_action('publishpress_series_taxonomy_registered', $taxonomy_name, $object_type, $args);
+	}
+
+	/**
+	 * By default WordPress sanitizes term descriptions with the restricted
+	 * "data" KSES allowlist (the same one used for comments), which strips
+	 * tags like <hr>. Use the post KSES allowlist on the series taxonomy
+	 * only, so authors can use post-level HTML in Series descriptions
+	 * without changing sanitization for other taxonomies.
+	 * Save-time filtering uses wp_filter_post_kses() because
+	 * pre_term_description receives slashed form data.
+	 *
+	 * @link https://github.com/publishpress/publishpress-series/issues/1199
+	 */
+	function relax_series_description_kses() {
+		remove_filter('pre_term_description', 'wp_filter_kses');
+		remove_filter('term_description', 'wp_kses_data');
+
+		add_filter('pre_term_description', array($this, 'series_pre_term_description_kses'), 10, 2);
+		add_filter('term_description', array($this, 'series_term_description_kses'), 10, 4);
+	}
+
+	function series_pre_term_description_kses($description, $taxonomy = '') {
+		if ($taxonomy === ppseries_get_series_slug()) {
+			return wp_filter_post_kses($description);
+		}
+
+		return wp_filter_kses($description);
+	}
+
+	function series_term_description_kses($description, $term_id = 0, $taxonomy = '', $context = '') {
+		if ($taxonomy === ppseries_get_series_slug()) {
+			return wp_kses_post($description);
+		}
+
+		return wp_kses_data($description);
 	}
 
 	function add_settings($reset = false) {
