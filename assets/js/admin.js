@@ -257,19 +257,28 @@
     // -------------------------------------------------------------
     //   Settings tab click
     // -------------------------------------------------------------
-    $(document).on('click', '.ppseries-settings-tab .nav-tab', function (e) {
-      e.preventDefault();
-      var current_content = $(this).attr('href');
-      $('.ppseries-settings-tab .nav-tab').removeClass('nav-tab-active');
+    function activateSettingsTab($tab) {
+      var current_content = $tab.attr('href');
+      var $tabs = $('.ppseries-settings-tab [role="tab"]');
+      var $content = $(current_content + '-series-content');
+
+      $tabs.removeClass('nav-tab-active').attr({
+        'aria-selected': 'false',
+        'tabindex': '-1'
+      });
       $('.ppseries-settings-tab-content').addClass('ppseries-hide-content');
+      $('.ppseries-settings-tab-content[role="tabpanel"]').attr('hidden', true);
       $('input[name="update_orgseries"]').show();
 
       if( current_content === '#series_license_settings'){
         $('input[name="update_orgseries"]').hide();
       }
 
-      $(this).addClass('nav-tab-active');
-      $(current_content+'-series-content').removeClass('ppseries-hide-content');
+      $tab.addClass('nav-tab-active').attr({
+        'aria-selected': 'true',
+        'tabindex': '0'
+      });
+      $content.removeClass('ppseries-hide-content').removeAttr('hidden');
 
       if ($(current_content + '-series-tab').hasClass('series-tab-content'))
       {
@@ -279,6 +288,32 @@
       if (typeof(localStorage) != 'undefined' && localStorage != null) {
           localStorage.setItem("pp_series_activetab", current_content);
       }
+    }
+
+    $(document).on('click', '.ppseries-settings-tab [role="tab"]', function (e) {
+      e.preventDefault();
+      activateSettingsTab($(this));
+    });
+
+    $(document).on('keydown', '.ppseries-settings-tab [role="tab"]', function (e) {
+      var $tabs = $('.ppseries-settings-tab [role="tab"]');
+      var current_index = $tabs.index(this);
+      var next_index = current_index;
+
+      if (e.key === 'ArrowRight') {
+        next_index = (current_index + 1) % $tabs.length;
+      } else if (e.key === 'ArrowLeft') {
+        next_index = (current_index - 1 + $tabs.length) % $tabs.length;
+      } else if (e.key === 'Home') {
+        next_index = 0;
+      } else if (e.key === 'End') {
+        next_index = $tabs.length - 1;
+      } else {
+        return;
+      }
+
+      e.preventDefault();
+      $tabs.eq(next_index).trigger('focus').trigger('click');
 
     });
 
