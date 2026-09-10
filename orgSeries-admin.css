@@ -33,7 +33,7 @@
     text-align: left;
 }
 
-#serieschecklist li label input:checked ~ .selected-series-order {
+#serieschecklist li input:checked ~ .selected-series-order {
     display: inline-block !important;
     margin-left: 5px;
 }

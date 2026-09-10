@@ -79,8 +79,8 @@ function series_legacy_fieldset() {
 										<?php
 										echo sprintf(
 											// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											__('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank">Click here for details on how to customize these designs</a>.', 'organize-series'),
-											'https://publishpress.com/knowledge-base/series-archive-templates/'
+											__('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank" rel="noopener noreferrer">Read the documentation for customizing these designs</a>.', 'organize-series'),
+										esc_url('https://publishpress.com/knowledge-base/series-archive-templates/')
 										);
 										?>
 									</p>

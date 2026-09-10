@@ -35,7 +35,13 @@ if ( !class_exists('PluginUpdateEngineChecker') ):
 			?>
             <div class="notice error">
                 <p>
-                    Publishpress Series Add-on licensing has changed.  This notice only appears by sites affected by this change.  You can read more about the change <a href="http://docs.organizeseries.com/article/77-licensing-changes-in-organize-series">here.</a>
+                    <?php
+                    printf(
+                        /* translators: %s is a link to the licensing change documentation. */
+                        esc_html__('PublishPress Series Add-on licensing has changed. This notice only appears on sites affected by this change. You can %s.', 'organize-series'),
+                        '<a href="' . esc_url('http://docs.organizeseries.com/article/77-licensing-changes-in-organize-series') . '">' . esc_html__('read more about this licensing change', 'organize-series') . '</a>'
+                    );
+                    ?>
                 </p>
                 <p>
                     The new fields for your license keys are found in the sidebar on this page, labelled "Extension Licenses".  This notice will disappear once all of your Publishpress Series add-ons have been updated.

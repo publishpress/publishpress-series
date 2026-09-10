@@ -339,15 +339,14 @@ function write_series_list($series)
 	foreach ((array)$series as $serial) {
 		$series_order_link = admin_url('edit.php?page=manage-issues&action=part&series_ID');
 		$serial_html = '<li id="series-' . esc_attr($serial['series_ID']) . '">
-                    <label for="in-series-' . esc_attr($serial['series_ID']) . '" class="selectit">
                         <input value="' . esc_attr($serial['series_ID']) . '" type="radio" name="post_series" id="in-series-' . esc_attr($serial['series_ID']) . '"' . ($serial['checked'] ? ' checked="checked"' : '') . '/> 
-                        <span class="li-series-name">' . esc_html($serial['ser_name']) . "</span>
-                        <a class='selected-series-order' style='text-decoration: none;display:none;' href='" . admin_url("edit.php?page=manage-issues&action=part&series_ID=" . $serial['series_ID'] . "") . "' target='blank'>
+                        <label for="in-series-' . esc_attr($serial['series_ID']) . '" class="selectit">
+                            <span class="li-series-name">' . esc_html($serial['ser_name']) . "</span>
+                        </label>
+                        <a class='selected-series-order' style='text-decoration: none;display:none;' href='" . admin_url("edit.php?page=manage-issues&action=part&series_ID=" . $serial['series_ID'] . "") . "' target='_blank' rel='noopener noreferrer'>
                              " . __('Series Order', 'organize-series') . "
-                             <span class='dashicons dashicons-external'></span>
+                             <span class='dashicons dashicons-external' aria-hidden='true'></span>
                         </a>
-                        
-                    </label>
                 </li>";
 		if ($serial['checked']) {
 			$checked_series_html .= $serial_html;
