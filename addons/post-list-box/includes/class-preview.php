@@ -154,14 +154,18 @@ class PPS_Post_List_Box_Preview {
     {
         $styles = [];
 
-        if (!empty($settings['background_color'])) {
-            $styles[] = 'background-color: ' . esc_attr($settings['background_color']) . ';';
+        $background_color = !empty($settings['background_color']) ? pps_sanitize_css_color($settings['background_color']) : '';
+        if ($background_color) {
+            $styles[] = 'background-color: ' . $background_color . ';';
         }
 
         if (!empty($settings['border_width']) && intval($settings['border_width']) > 0) {
             $border_width = intval($settings['border_width']) . 'px';
-            $border_color = !empty($settings['border_color']) ? $settings['border_color'] : '#e5e5e5';
-            $styles[] = 'border: ' . $border_width . ' solid ' . esc_attr($border_color) . ';';
+            $border_color = !empty($settings['border_color']) ? pps_sanitize_css_color($settings['border_color']) : '';
+            if (! $border_color) {
+                $border_color = '#e5e5e5';
+            }
+            $styles[] = 'border: ' . $border_width . ' solid ' . $border_color . ';';
         }
 
         if (!empty($settings['border_radius'])) {
@@ -181,8 +185,9 @@ class PPS_Post_List_Box_Preview {
     public static function get_title_styles($settings)
     {
         $styles = [];
-        if (!empty($settings['title_color'])) {
-            $styles[] = 'color: ' . esc_attr($settings['title_color']) . ';';
+        $title_color = !empty($settings['title_color']) ? pps_sanitize_css_color($settings['title_color']) : '';
+        if ($title_color) {
+            $styles[] = 'color: ' . $title_color . ';';
         }
         if (!empty($settings['title_font_size'])) {
             $styles[] = 'font-size: ' . intval($settings['title_font_size']) . 'px;';
@@ -196,8 +201,9 @@ class PPS_Post_List_Box_Preview {
     public static function get_post_title_styles($settings)
     {
         $styles = [];
-        if (!empty($settings['post_title_color'])) {
-            $styles[] = 'color: ' . esc_attr($settings['post_title_color']) . ';';
+        $post_title_color = !empty($settings['post_title_color']) ? pps_sanitize_css_color($settings['post_title_color']) : '';
+        if ($post_title_color) {
+            $styles[] = 'color: ' . $post_title_color . ';';
         }
         if (!empty($settings['post_title_font_size'])) {
             $styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px;';
@@ -211,8 +217,9 @@ class PPS_Post_List_Box_Preview {
     public static function get_excerpt_styles($settings)
     {
         $styles = [];
-        if (!empty($settings['excerpt_color'])) {
-            $styles[] = 'color: ' . esc_attr($settings['excerpt_color']) . ';';
+        $excerpt_color = !empty($settings['excerpt_color']) ? pps_sanitize_css_color($settings['excerpt_color']) : '';
+        if ($excerpt_color) {
+            $styles[] = 'color: ' . $excerpt_color . ';';
         }
         return empty($styles) ? '' : ' style="' . implode(' ', $styles) . '"';
     }
@@ -247,7 +254,9 @@ class PPS_Post_List_Box_Preview {
     {
         $styles = [];
 
-        $layout_style = isset($settings['layout_style']) ? $settings['layout_style'] : 'list';
+        $layout_style = PPS_Post_List_Box_Fields::sanitize_layout_style(
+            isset($settings['layout_style']) ? $settings['layout_style'] : 'list'
+        );
         $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
 
         if ($layout_style === 'grid') {
@@ -274,9 +283,9 @@ class PPS_Post_List_Box_Preview {
     {
         $styles = [];
 
-        // Post list item background color
-        if (!empty($settings['post_list_background_color'])) {
-            $styles[] = 'background-color: ' . esc_attr($settings['post_list_background_color']) . ';';
+        $item_background_color = !empty($settings['post_list_background_color']) ? pps_sanitize_css_color($settings['post_list_background_color']) : '';
+        if ($item_background_color) {
+            $styles[] = 'background-color: ' . $item_background_color . ';';
         }
 
         // Item padding
@@ -287,8 +296,11 @@ class PPS_Post_List_Box_Preview {
         // Item border
         if (!empty($settings['item_border_width']) && $settings['item_border_width'] > 0) {
             $border_width = intval($settings['item_border_width']) . 'px';
-            $border_color = !empty($settings['item_border_color']) ? $settings['item_border_color'] : '#e5e5e5';
-            $styles[] = 'border: ' . $border_width . ' solid ' . esc_attr($border_color) . ';';
+            $border_color = !empty($settings['item_border_color']) ? pps_sanitize_css_color($settings['item_border_color']) : '';
+            if (! $border_color) {
+                $border_color = '#e5e5e5';
+            }
+            $styles[] = 'border: ' . $border_width . ' solid ' . $border_color . ';';
         }
 
         return empty($styles) ? '' : ' style="' . implode(' ', $styles) . '"';
@@ -355,7 +367,9 @@ class PPS_Post_List_Box_Preview {
     {
         ob_start();
 
-        $layout_style = isset($settings['layout_style']) ? $settings['layout_style'] : 'list';
+        $layout_style = PPS_Post_List_Box_Fields::sanitize_layout_style(
+            isset($settings['layout_style']) ? $settings['layout_style'] : 'list'
+        );
 
 
         $wrapper_classes = [
@@ -484,10 +498,14 @@ class PPS_Post_List_Box_Preview {
             
             // Build title styles - current post text color overrides regular post title color
             $title_styles = [];
-            if ($is_current_post && !empty($settings['current_post_text_color'])) {
-                $title_styles[] = 'color: ' . esc_attr($settings['current_post_text_color']);
-            } elseif (!empty($settings['post_title_color'])) {
-                $title_styles[] = 'color: ' . esc_attr($settings['post_title_color']);
+            $current_text = $is_current_post && !empty($settings['current_post_text_color'])
+                ? pps_sanitize_css_color($settings['current_post_text_color'])
+                : '';
+            $post_title_color = !empty($settings['post_title_color']) ? pps_sanitize_css_color($settings['post_title_color']) : '';
+            if ($current_text) {
+                $title_styles[] = 'color: ' . $current_text;
+            } elseif ($post_title_color) {
+                $title_styles[] = 'color: ' . $post_title_color;
             }
             if (!empty($settings['post_title_font_size'])) {
                 $title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px';

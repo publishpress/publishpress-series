@@ -106,8 +106,8 @@ class PPS_Series_Post_Navigation
             return;
         }
 
-        $post = get_post($post_id);
-        if (!$post) {
+        $post = pps_get_editable_layout_post($post_id, PPS_Series_Post_Navigation_Utilities::POST_TYPE);
+        if (! $post) {
             return;
         }
         $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);

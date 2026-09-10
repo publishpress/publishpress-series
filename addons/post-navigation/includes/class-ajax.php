@@ -20,6 +20,11 @@ class PPS_Series_Post_Navigation_Ajax
         add_action('wp_ajax_pps_reset_series_post_navigation', [__CLASS__, 'reset_layout']);
     }
 
+    private static function get_editable_layout($post_id)
+    {
+        return pps_get_editable_layout_post($post_id, PPS_Series_Post_Navigation_Utilities::POST_TYPE);
+    }
+
     /**
      * Build preview output
      */
@@ -28,7 +33,7 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
@@ -163,12 +168,12 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings($post_id);
-        $post      = get_post($post_id);
 
         wp_send_json_success([
             'settings' => $settings,
@@ -186,7 +191,14 @@ class PPS_Series_Post_Navigation_Ajax
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
 
-        if (! $post_id || empty($settings)) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post || empty($settings)) {
+            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
+        }
+
+        $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+        if (empty($settings)) {
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
@@ -203,7 +215,7 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 

@@ -317,3 +317,111 @@ if (!function_exists('publishpress_multi_series_supported')) {
         return !empty(get_option('publishpress_multi_series_supported'));
     }
 }
+
+if (! function_exists('pps_get_editable_layout_post')) {
+    function pps_get_editable_layout_post($post_id, $post_type)
+    {
+        $post_id = (int) $post_id;
+        if ($post_id < 1 || ! is_string($post_type) || $post_type === '') {
+            return null;
+        }
+
+        $post = get_post($post_id);
+        if (! $post || $post->post_type !== $post_type) {
+            return null;
+        }
+
+        if (! current_user_can('manage_publishpress_series') || ! current_user_can('edit_post', $post_id)) {
+            return null;
+        }
+
+        return $post;
+    }
+}
+
+if (! function_exists('pps_sanitize_choice')) {
+    function pps_sanitize_choice($value, array $allowed, $default)
+    {
+        if (! is_scalar($value)) {
+            return $default;
+        }
+
+        $value = (string) $value;
+
+        return in_array($value, $allowed, true) ? $value : $default;
+    }
+}
+
+if (! function_exists('pps_sanitize_css_color')) {
+    function pps_sanitize_css_color($value, $allow_transparent = false)
+    {
+        if ($allow_transparent && $value === 'transparent') {
+            return 'transparent';
+        }
+
+        if (! is_string($value)) {
+            return '';
+        }
+
+        $hex = sanitize_hex_color($value);
+
+        return $hex ? $hex : '';
+    }
+}
+
+if (! function_exists('pps_sanitize_layout_settings')) {
+    function pps_sanitize_layout_settings($settings, $fields)
+    {
+        if (! is_array($settings) || ! is_array($fields)) {
+            return [];
+        }
+
+        $clean = [];
+
+        foreach ($fields as $key => $args) {
+            if (! is_array($args)) {
+                continue;
+            }
+            if (isset($args['type']) && $args['type'] === 'category_separator') {
+                continue;
+            }
+            if (! array_key_exists($key, $settings)) {
+                continue;
+            }
+
+            $value   = $settings[$key];
+            $type    = isset($args['type']) ? $args['type'] : 'text';
+            $default = isset($args['default']) ? $args['default'] : '';
+
+            if ($type === 'select' && ! empty($args['options']) && is_array($args['options'])) {
+                $value = is_scalar($value) ? (string) $value : '';
+                $clean[$key] = array_key_exists($value, $args['options']) ? $value : $default;
+                continue;
+            }
+
+            if ($type === 'color') {
+                $allow_transparent = ($default === 'transparent');
+                $color = pps_sanitize_css_color($value, $allow_transparent);
+                $clean[$key] = $color !== '' ? $color : $default;
+                continue;
+            }
+
+            if (isset($args['sanitize'])) {
+                if (is_array($args['sanitize'])) {
+                    foreach ($args['sanitize'] as $sanitize_cb) {
+                        $value = is_array($value) ? map_deep($value, $sanitize_cb) : call_user_func($sanitize_cb, $value);
+                    }
+                    $clean[$key] = $value;
+                } else {
+                    $sanitize_cb = $args['sanitize'];
+                    $clean[$key] = is_array($value) ? $value : call_user_func($sanitize_cb, $value);
+                }
+                continue;
+            }
+
+            $clean[$key] = is_array($value) ? $value : sanitize_text_field($value);
+        }
+
+        return $clean;
+    }
+}

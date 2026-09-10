@@ -22,21 +22,7 @@ class PPS_Post_List_Box_AJAX {
 
     private static function get_editable_post_list_box($post_id)
     {
-        $post_id = (int) $post_id;
-        if ($post_id < 1) {
-            return null;
-        }
-
-        $post = get_post($post_id);
-        if (! $post || $post->post_type !== self::POST_TYPE_BOXES) {
-            return null;
-        }
-
-        if (! current_user_can('manage_publishpress_series') || ! current_user_can('edit_post', $post_id)) {
-            return null;
-        }
-
-        return $post;
+        return pps_get_editable_layout_post($post_id, self::POST_TYPE_BOXES);
     }
 
     /**
@@ -152,12 +138,15 @@ class PPS_Post_List_Box_AJAX {
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
         $settings = isset($_POST['settings']) ? $_POST['settings'] : [];
 
-        if (! self::get_editable_post_list_box($post_id) || ! is_array($settings) || empty($settings)) {
+        $post = self::get_editable_post_list_box($post_id);
+        if (! $post || ! is_array($settings) || empty($settings)) {
             wp_send_json_error(['message' => 'Invalid data']);
         }
 
-        if (array_key_exists('title_html_tag', $settings)) {
-            $settings['title_html_tag'] = PPS_Post_List_Box_Fields::sanitize_title_html_tag($settings['title_html_tag']);
+        $fields = PPS_Post_List_Box_Fields::get_fields($post);
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+        if (empty($settings)) {
+            wp_send_json_error(['message' => 'Invalid data']);
         }
 
         update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $settings);

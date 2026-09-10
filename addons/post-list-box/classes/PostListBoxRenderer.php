@@ -279,7 +279,9 @@ class PostListBoxRenderer
         }
 
         // Ensure layout_style is properly set
-        $layout_style = !empty($settings['layout_style']) ? $settings['layout_style'] : 'list';
+        $layout_style = PPS_Post_List_Box_Fields::sanitize_layout_style(
+            !empty($settings['layout_style']) ? $settings['layout_style'] : 'list'
+        );
         $wrapper_class = 'pps-post-list-box pps-layout-' . esc_attr($layout_style);
         if (!empty($css_class)) {
             $wrapper_class .= ' ' . $css_class;
@@ -437,13 +439,17 @@ class PostListBoxRenderer
 
         // Container styles
         $container_styles = [];
-        if (!empty($settings['background_color'])) {
-            $container_styles[] = 'background-color: ' . esc_attr($settings['background_color']) . ';';
+        $background_color = !empty($settings['background_color']) ? pps_sanitize_css_color($settings['background_color']) : '';
+        if ($background_color) {
+            $container_styles[] = 'background-color: ' . $background_color . ';';
         }
         if (!empty($settings['border_width']) && $settings['border_width'] > 0) {
             $border_width = intval($settings['border_width']) . 'px';
-            $border_color = !empty($settings['border_color']) ? $settings['border_color'] : '#e5e5e5';
-            $container_styles[] = 'border: ' . $border_width . ' solid ' . esc_attr($border_color) . ';';
+            $border_color = !empty($settings['border_color']) ? pps_sanitize_css_color($settings['border_color']) : '';
+            if (! $border_color) {
+                $border_color = '#e5e5e5';
+            }
+            $container_styles[] = 'border: ' . $border_width . ' solid ' . $border_color . ';';
         }
         if (!empty($settings['border_radius'])) {
             $container_styles[] = 'border-radius: ' . intval($settings['border_radius']) . 'px;';
@@ -457,7 +463,9 @@ class PostListBoxRenderer
         }
 
         // Layout styles based on layout_style setting
-        $layout_style = !empty($settings['layout_style']) ? $settings['layout_style'] : 'list';
+        $layout_style = PPS_Post_List_Box_Fields::sanitize_layout_style(
+            !empty($settings['layout_style']) ? $settings['layout_style'] : 'list'
+        );
         $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
         
         if ($layout_style === 'grid') {
@@ -474,8 +482,9 @@ class PostListBoxRenderer
 
         // Title styles
         $title_styles = [];
-        if (!empty($settings['title_color'])) {
-            $title_styles[] = 'color: ' . esc_attr($settings['title_color']) . ';';
+        $title_color = !empty($settings['title_color']) ? pps_sanitize_css_color($settings['title_color']) : '';
+        if ($title_color) {
+            $title_styles[] = 'color: ' . $title_color . ';';
         }
         if (!empty($settings['title_font_size'])) {
             $title_styles[] = 'font-size: ' . intval($settings['title_font_size']) . 'px;';
@@ -488,8 +497,9 @@ class PostListBoxRenderer
 
         // Post title styles
         $post_title_styles = [];
-        if (!empty($settings['post_title_color'])) {
-            $post_title_styles[] = 'color: ' . esc_attr($settings['post_title_color']) . ';';
+        $post_title_color = !empty($settings['post_title_color']) ? pps_sanitize_css_color($settings['post_title_color']) : '';
+        if ($post_title_color) {
+            $post_title_styles[] = 'color: ' . $post_title_color . ';';
         }
         if (!empty($settings['post_title_font_size'])) {
             $post_title_styles[] = 'font-size: ' . intval($settings['post_title_font_size']) . 'px;';
@@ -511,16 +521,20 @@ class PostListBoxRenderer
 
         // Item styles
         $item_styles = [];
-        if (!empty($settings['post_list_background_color'])) {
-            $item_styles[] = 'background-color: ' . esc_attr($settings['post_list_background_color']) . ';';
+        $item_background_color = !empty($settings['post_list_background_color']) ? pps_sanitize_css_color($settings['post_list_background_color']) : '';
+        if ($item_background_color) {
+            $item_styles[] = 'background-color: ' . $item_background_color . ';';
         }
         if (isset($settings['item_padding']) && $settings['item_padding'] !== '') {
             $item_styles[] = 'padding: ' . intval($settings['item_padding']) . 'px;';
         }
         if (isset($settings['item_border_width']) && $settings['item_border_width'] !== '' && $settings['item_border_width'] >= 0) {
             $border_width = intval($settings['item_border_width']) . 'px';
-            $border_color = !empty($settings['item_border_color']) ? $settings['item_border_color'] : '#e5e5e5';
-            $item_styles[] = 'border: ' . $border_width . ' solid ' . esc_attr($border_color) . ';';
+            $border_color = !empty($settings['item_border_color']) ? pps_sanitize_css_color($settings['item_border_color']) : '';
+            if (! $border_color) {
+                $border_color = '#e5e5e5';
+            }
+            $item_styles[] = 'border: ' . $border_width . ' solid ' . $border_color . ';';
         }
 
         if (!empty($item_styles)) {
@@ -529,16 +543,19 @@ class PostListBoxRenderer
 
         // Current post highlighting
         if (!empty($settings['highlight_current_post'])) {
-            if (!empty($settings['current_post_bg_color'])) {
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { background-color: ' . esc_attr($settings['current_post_bg_color']) . '; }';
+            $current_bg = !empty($settings['current_post_bg_color']) ? pps_sanitize_css_color($settings['current_post_bg_color']) : '';
+            if ($current_bg) {
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { background-color: ' . $current_bg . '; }';
             }
-            if (!empty($settings['current_post_border_color'])) {
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { border-color: ' . esc_attr($settings['current_post_border_color']) . '; }';
+            $current_border = !empty($settings['current_post_border_color']) ? pps_sanitize_css_color($settings['current_post_border_color']) : '';
+            if ($current_border) {
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post { border-color: ' . $current_border . '; }';
             }
-            if (!empty($settings['current_post_text_color'])) {
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
-                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . esc_attr($settings['current_post_text_color']) . ' !important; }';
+            $current_text = !empty($settings['current_post_text_color']) ? pps_sanitize_css_color($settings['current_post_text_color']) : '';
+            if ($current_text) {
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title { color: ' . $current_text . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-title a { color: ' . $current_text . ' !important; }';
+                $css_parts[] = '.' . $css_class . ' .pps-post-item.current-post .pps-post-meta { color: ' . $current_text . ' !important; }';
             }
         }
 

@@ -20,6 +20,11 @@ class PPS_Series_Post_Details_Ajax
         add_action('wp_ajax_pps_reset_series_post_details', [__CLASS__, 'reset_layout']);
     }
 
+    private static function get_editable_layout($post_id)
+    {
+        return pps_get_editable_layout_post($post_id, PPS_Series_Post_Details_Utilities::POST_TYPE);
+    }
+
     /**
      * Build preview output
      */
@@ -28,7 +33,7 @@ class PPS_Series_Post_Details_Ajax
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
@@ -95,12 +100,12 @@ class PPS_Series_Post_Details_Ajax
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $settings = PPS_Series_Post_Details_Utilities::get_post_details_settings($post_id);
-        $post      = get_post($post_id);
 
         wp_send_json_success([
             'settings' => $settings,
@@ -118,11 +123,14 @@ class PPS_Series_Post_Details_Ajax
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
 
-        if (! $post_id || empty($settings)) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post || empty($settings)) {
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
-        // Preserve existing Pro-only settings if not provided in import.
+        $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+
         $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
         if (is_array($existing_meta)) {
             foreach (PPS_Series_Post_Details_Utilities::get_pro_only_keys() as $key) {
@@ -130,6 +138,11 @@ class PPS_Series_Post_Details_Ajax
                     $settings[$key] = $existing_meta[$key];
                 }
             }
+        }
+
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+        if (empty($settings)) {
+            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
         update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $settings);
@@ -145,13 +158,12 @@ class PPS_Series_Post_Details_Ajax
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $defaults = PPS_Series_Post_Details_Utilities::get_default_series_post_details_data($post_id);
 
-        // Preserve existing Pro-only settings on reset.
         $existing_meta = get_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', true);
         if (is_array($existing_meta)) {
             foreach (PPS_Series_Post_Details_Utilities::get_pro_only_keys() as $key) {
@@ -160,6 +172,10 @@ class PPS_Series_Post_Details_Ajax
                 }
             }
         }
+
+        $post = get_post($post_id);
+        $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
+        $defaults = pps_sanitize_layout_settings($defaults, $fields);
 
         update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $defaults);
 

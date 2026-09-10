@@ -528,7 +528,7 @@ class PostListBoxFields
                     'list' => __('List', 'organize-series'),
                     'grid' => __('Grid', 'organize-series'),
                 ],
-                'sanitize' => 'sanitize_text_field',
+                'sanitize' => 'PPS_Post_List_Box_Fields::sanitize_layout_style',
                 'default' => 'list',
                 'description' => __('Choose the layout style for the post list', 'organize-series'),
                 'pro_only' => true,

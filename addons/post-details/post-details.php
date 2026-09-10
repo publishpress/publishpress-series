@@ -108,7 +108,11 @@ class PPS_Series_Post_Details
             return;
         }
 
-        $post = get_post($post_id);
+        $post = pps_get_editable_layout_post($post_id, PPS_Series_Post_Details_Utilities::POST_TYPE);
+        if (! $post) {
+            return;
+        }
+
         $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
         $excluded = ['template_action', 'import_action'];
         $excluded_types = ['category_separator'];
