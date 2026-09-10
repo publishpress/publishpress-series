@@ -266,7 +266,8 @@
         'aria-selected': 'false',
         'tabindex': '-1'
       });
-      $('.ppseries-settings-tab-content').addClass('ppseries-hide-content').attr('hidden', true);
+      $('.ppseries-settings-tab-content').addClass('ppseries-hide-content');
+      $('.ppseries-settings-tab-content[role="tabpanel"]').attr('hidden', true);
       $('input[name="update_orgseries"]').show();
 
       if( current_content === '#series_license_settings'){
