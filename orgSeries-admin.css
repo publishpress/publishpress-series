@@ -369,7 +369,8 @@ input #seriesadd {
     border-top: 5px solid #333;
 }
 
-.ppseries-pro-lock:hover .tooltip-text {
+.ppseries-pro-lock:hover .tooltip-text,
+.ppseries-pro-lock:focus-within .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
