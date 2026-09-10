@@ -3,18 +3,19 @@
  * Post Type Registration for Post List Box
  */
 
-class PPS_Post_List_Box_Post_Type {
-    
+class PPS_Post_List_Box_Post_Type
+{
     const POST_TYPE_BOXES = 'pps_post_list_box';
-    
+
     /**
      * Initialize post type registration
      */
-    public static function init() {
+    public static function init()
+    {
         // Register immediately during the current init cycle to avoid timing issues
         self::register_post_type();
     }
-    
+
     /**
      * Register the post types.
      */

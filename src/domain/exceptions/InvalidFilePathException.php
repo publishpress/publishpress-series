@@ -11,8 +11,8 @@ use InvalidArgumentException;
  * @author        Darren Ethier
  * @since         2.5.9
  */
-class InvalidFilePathException extends InvalidArgumentException {
-
+class InvalidFilePathException extends InvalidArgumentException
+{
     /**
      * InvalidClassException constructor.
      *
@@ -21,19 +21,19 @@ class InvalidFilePathException extends InvalidArgumentException {
      * @param int        $code
      * @param \Exception $previous
      */
-    public function __construct( $file_path, $message = '', $code = 0, \Exception $previous = null ) {
-        if ( empty( $message ) ) {
+    public function __construct($file_path, $message = '', $code = 0, \Exception $previous = null)
+    {
+        if (empty($message)) {
             $message = sprintf(
                 __(
                     'The "%1$s" file is either missing or could not be read due to permissions. Please ensure that the following path is correct and verify that the file permissions are correct:%2$s %3$s',
                     'organize-series'
                 ),
-                basename( $file_path ),
+                basename($file_path),
                 '<br />',
                 $file_path
             );
         }
-        parent::__construct( $message, $code, $previous );
+        parent::__construct($message, $code, $previous);
     }
-
 }

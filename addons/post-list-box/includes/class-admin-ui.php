@@ -3,15 +3,16 @@
  * Admin UI for Post List Box
  */
 
-class PPS_Post_List_Box_Admin_UI {
-
+class PPS_Post_List_Box_Admin_UI
+{
     const POST_TYPE_BOXES = 'pps_post_list_box';
     const META_PREFIX = 'pps_post_list_box_';
 
     /**
      * Initialize admin UI
      */
-    public static function init() {
+    public static function init()
+    {
         add_action('admin_menu', [__CLASS__, 'admin_submenu'], 11);
         add_filter('post_updated_messages', [__CLASS__, 'set_post_update_messages']);
         add_filter('bulk_post_updated_messages', [__CLASS__, 'set_post_bulk_update_messages'], 10, 2);
@@ -66,16 +67,16 @@ class PPS_Post_List_Box_Admin_UI {
     {
         if ($column === 'shortcode') {
             $layout_slug = self::POST_TYPE_BOXES . '_' . $postId;
-        ?>
+            ?>
             <input readonly type="text" class="pps-shortcode-input" value='[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
-        <?php
+            <?php
         } elseif ($column === 'default_post_list_box') {
             // Retrieve selected default Post List Box ID from settings
             $options = get_option('org_series_options');
             $has_selection = is_array($options) && array_key_exists('series_post_list_box_selection', $options);
             $selected_id = $has_selection ? (int) $options['series_post_list_box_selection'] : 0;
 
-            
+
             if (!$has_selection) {
                 $default_id = PPS_Post_List_Box_Utilities::get_default_post_list_box_id();
                 if ($default_id) {
@@ -84,9 +85,9 @@ class PPS_Post_List_Box_Admin_UI {
             }
 
             if ($selected_id > 0 && $selected_id === (int) $postId) :
-            ?>
+                ?>
                 <span style="color: green; margin-left:30px;" class="dashicons dashicons-yes-alt"></span>
-            <?php
+                <?php
             endif;
         }
     }
@@ -255,9 +256,9 @@ class PPS_Post_List_Box_Admin_UI {
     public static function render_layout_slug_metabox(\WP_Post $post)
     {
         $layout_slug = self::POST_TYPE_BOXES . '_' . $post->ID;
-    ?>
+        ?>
         <input type="text" value="<?php echo esc_attr($layout_slug); ?>" readonly />
-    <?php
+        <?php
     }
 
     /**
@@ -269,11 +270,11 @@ class PPS_Post_List_Box_Admin_UI {
     public static function render_shortcode_metabox(\WP_Post $post)
     {
         $layout_slug = self::POST_TYPE_BOXES . '_' . $post->ID;
-    ?>
+        ?>
         <p><label for="pps-post-list-box-shortcode"><?php esc_html_e('Use this shortcode:', 'organize-series'); ?></label></p>
         <textarea readonly>[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]</textarea>
         <p class="description"><?php esc_html_e('Insert into posts or pages to display this Post List Box manually.', 'organize-series'); ?></p>
-    <?php
+        <?php
     }
 
     /**
@@ -306,7 +307,7 @@ class PPS_Post_List_Box_Admin_UI {
         if (!empty($all_series) && !is_wp_error($all_series)) {
             $preview_series_id = $all_series[0]->term_id;
         }
-        
+
         ?>
         <div class="pressshack-admin-wrapper publishpress-post-list-box-editor">
             <div class="preview-section wrapper-column">
@@ -326,22 +327,22 @@ class PPS_Post_List_Box_Admin_UI {
                         </div>
                     <?php endif; ?>
                 </div>
-                
+
                 <div class="pps-post-list-box-preview">
-                    
+
                     <div id="pps-preview-content">
-                        <?php 
+                        <?php
                         if (empty($all_series) || is_wp_error($all_series)) {
                             echo '<p>' . esc_html__('No series found. Create a series to see the preview.', 'organize-series') . '</p>';
                         } else {
                             // Initial preview with first series
                             $layout_slug = self::POST_TYPE_BOXES . '_' . $post->ID;
-                            
+
                             // Load the renderer if not already loaded
                             if (!class_exists('PostListBoxRenderer')) {
                                 require_once __DIR__ . '/classes/PostListBoxRenderer.php';
                             }
-                            
+
                             // Create sample posts for preview
                             $sample_posts = PPS_Post_List_Box_Preview::get_sample_series_posts($preview_series_id, $editor_data);
                             if (!empty($sample_posts)) {
@@ -355,18 +356,18 @@ class PPS_Post_List_Box_Admin_UI {
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             // Store the current selected series to maintain state
             var currentSeriesId = $('#pps-preview-series-select').val();
-            
+
             $('#pps-preview-series-select').on('change', function() {
                 currentSeriesId = $(this).val();
                 var postId = <?php echo esc_js($post->ID); ?>;
-                
+
                 $('#pps-preview-content').html('<p><?php esc_html_e('Loading preview...', 'organize-series'); ?></p>');
-                
+
                 $.ajax({
                     url: ajaxurl,
                     type: 'POST',
@@ -388,13 +389,13 @@ class PPS_Post_List_Box_Admin_UI {
                     }
                 });
             });
-            
+
             // Prevent the series selector from triggering the global preview update
             $('#pps-preview-series-select').on('change input keyup click', function(e) {
                 e.stopPropagation();
             });
         });
-        
+
         </script>
         <?php
     }
@@ -440,7 +441,7 @@ class PPS_Post_List_Box_Admin_UI {
                             </span>
                         <?php endif; ?>
                     </li>
-                    <?php
+                        <?php
                     } ?>
                 </ul>
             </div>
@@ -521,10 +522,10 @@ class PPS_Post_List_Box_Admin_UI {
         }
 
         $tab_style = ($args['tab'] === PPS_Post_List_Box_Fields::default_tab()) ? '' : 'display:none;';
-        
+
         // Check if field is marked as pro_only in field definition
         $pro_locked = !empty($args['pro_only']);
-        
+
         /**
          * Filter whether a field should be Pro-locked.
          * Pro extension returns false to unlock fields.
@@ -534,7 +535,7 @@ class PPS_Post_List_Box_Admin_UI {
          * @param array  $args       The field arguments.
          */
         $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
-        
+
         ob_start();
         $generate_tab_title = false;
         if (in_array($args['type'], ['textarea', 'export_action', 'import_action', 'template_action', 'line_break', 'code_editor', 'category_separator'])) {
@@ -546,7 +547,7 @@ class PPS_Post_List_Box_Admin_UI {
         }
         ?>
         <?php if ($args['group_start'] === true) :
-           ?>
+            ?>
             <tr
                 class="group-title-row <?php echo esc_attr($tab_class); ?>"
                 data-tab="<?php echo esc_attr($args['tab']); ?>"
@@ -606,7 +607,7 @@ class PPS_Post_List_Box_Admin_UI {
                     <?php if ($pro_locked) : ?>
                         <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
                     <?php endif; ?>
-                <?php
+                    <?php
                 elseif ('select' === $args['type']) :
                     ?>
                     <select name="<?php echo esc_attr($key); ?>"
@@ -624,7 +625,7 @@ class PPS_Post_List_Box_Admin_UI {
                     <?php if ($pro_locked) : ?>
                         <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
                     <?php endif; ?>
-                <?php
+                    <?php
                 elseif ('color' === $args['type']) :
                     ?>
                     <input name="<?php echo esc_attr($key); ?>"
@@ -636,7 +637,7 @@ class PPS_Post_List_Box_Admin_UI {
                     <?php if ($pro_locked) : ?>
                         <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
                     <?php endif; ?>
-                <?php
+                    <?php
                 elseif ('textarea' === $args['type']) :
                     ?>
                     <textarea name="<?php echo esc_attr($key); ?>"
@@ -649,7 +650,7 @@ class PPS_Post_List_Box_Admin_UI {
                     <?php if ($pro_locked) : ?>
                         <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($args['value']); ?>" />
                     <?php endif; ?>
-                <?php
+                    <?php
                 elseif ('code_editor' === $args['type']) :
                     ?>
                     <label for="<?php echo esc_attr($key); ?>" class="code-editor-label">
@@ -690,7 +691,8 @@ class PPS_Post_List_Box_Admin_UI {
                                 $image = wp_get_attachment_image_src($args['value'], 'thumbnail');
                                 if ($image) : ?>
                                 <img src="<?php echo esc_url($image[0]); ?>" alt="" style="max-width: 150px; height: auto;" />
-                            <?php endif; endif; ?>
+                                <?php endif;
+                            endif; ?>
                         </div>
                         <button type="button" class="button pps-media-picker-button" data-field-id="<?php echo esc_attr($key); ?>" <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?>>
                             <?php esc_html_e('Select Image', 'organize-series'); ?>
@@ -701,7 +703,7 @@ class PPS_Post_List_Box_Admin_UI {
                             </button>
                         <?php endif; ?>
                     </div>
-                <?php
+                    <?php
                 else : ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"

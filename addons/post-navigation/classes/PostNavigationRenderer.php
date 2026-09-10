@@ -194,7 +194,7 @@ class PostNavigationRenderer
 
         $layout_class_attr = esc_attr($layout_class);
         $series_id_attr = esc_attr($series_id);
-        
+
         $content = str_replace(
             'class="pps-navigation-content"',
             sprintf('class="pps-navigation-content %s" data-series-id="%s"', $layout_class_attr, $series_id_attr),
@@ -230,7 +230,7 @@ class PostNavigationRenderer
         $content = self::render_preview_from_visual_controls($settings, $context);
 
         $layout_class_attr = esc_attr($layout_class);
-        
+
         $content = str_replace(
             'class="pps-navigation-content"',
             sprintf('class="pps-navigation-content pps-post-navigation-preview %s"', $layout_class_attr),
@@ -306,7 +306,7 @@ class PostNavigationRenderer
 
         // Build links based on position
         $first_link_position = isset($settings['first_link_position']) ? $settings['first_link_position'] : 'right';
-        
+
         // First link (left position)
         $first_type = isset($settings['first_link_type']) ? $settings['first_link_type'] : 'none';
         if ($first_type !== 'none' && $first_link_position === 'left') {
@@ -446,7 +446,7 @@ class PostNavigationRenderer
 
         // Navigation links (prev, next, first)
         $nav_links = [];
-        
+
         // Get position setting
         $first_link_position = isset($settings['first_link_position']) ? $settings['first_link_position'] : 'right';
         $first_type = isset($settings['first_link_type']) ? $settings['first_link_type'] : 'none';
@@ -607,11 +607,11 @@ class PostNavigationRenderer
 
         // Build content parts
         $parts = [];
-        
+
         // Get arrow HTML
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
-        
+
         // Get featured image HTML (Pro extension can supply)
         $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
@@ -624,33 +624,33 @@ class PostNavigationRenderer
         } else {
             $image_html = (string) $image_data;
         }
-        
+
         // Assemble content in correct order
         $text_content = '<span class="pps-nav-link-text">' . esc_html($label) . '</span>';
-        
+
         // Add arrow on left if needed
         if ($arrow_html && $arrow_position === 'left') {
             $parts[] = $arrow_html;
         }
-        
+
         // Add image on left if needed
         if ($image_html && $image_position === 'left') {
             $parts[] = $image_html;
         }
-        
+
         // Add text
         $parts[] = $text_content;
-        
+
         // Add image on right if needed
         if ($image_html && $image_position === 'right') {
             $parts[] = $image_html;
         }
-        
+
         // Add arrow on right if needed
         if ($arrow_html && $arrow_position === 'right') {
             $parts[] = $arrow_html;
         }
-        
+
         $link_content = implode('', $parts);
 
         return sprintf('<a%s>%s</a>', $attributes, $link_content);
@@ -674,14 +674,14 @@ class PostNavigationRenderer
 
         $arrow_type = isset($settings[$position . '_arrow_type']) ? $settings[$position . '_arrow_type'] : 'chevron_left';
         $arrow_size = isset($settings[$position . '_arrow_size']) ? (int) $settings[$position . '_arrow_size'] : 16;
-        
+
         // Ensure arrow size is within reasonable bounds
         if ($arrow_size < 8) {
             $arrow_size = 8;
         } elseif ($arrow_size > 64) {
             $arrow_size = 64;
         }
-        
+
         if ($arrow_type === 'custom') {
             $custom_html = apply_filters(
                 'pps_series_post_navigation_custom_arrow_html',
@@ -709,7 +709,7 @@ class PostNavigationRenderer
         if (isset($svg_icons[$arrow_type])) {
             return sprintf($svg_icons[$arrow_type], $arrow_size, $arrow_size);
         }
-        
+
         return '';
     }
 
@@ -744,7 +744,7 @@ class PostNavigationRenderer
         // Get arrow HTML
         $arrow_html = self::get_arrow_html($position, $settings);
         $arrow_position = isset($settings[$position . '_arrow_position']) ? $settings[$position . '_arrow_position'] : 'left';
-        
+
         // Get featured image HTML (Pro extension can supply)
         $image_data = apply_filters('pps_series_post_navigation_featured_image', [], $position, $settings, $post);
         $image_html = '';
@@ -757,7 +757,7 @@ class PostNavigationRenderer
         } else {
             $image_html = (string) $image_data;
         }
-        
+
         // Add arrows and images if needed
         if ($arrow_html || $image_html) {
             $link_html = preg_replace_callback(
@@ -831,7 +831,7 @@ class PostNavigationRenderer
     private static function normalize_nav_link_text($link_html)
     {
         if (! class_exists('DOMDocument')) {
-            $text = trim(strip_tags($link_html));
+            $text = trim(wp_strip_all_tags($link_html));
             // remove arrowlike unicode (double angle quotes etc.)
             return trim(preg_replace('/[«»<>←→⇐⇒]+/', '', $text));
         }
@@ -903,7 +903,7 @@ class PostNavigationRenderer
 
     /**
      * Build navigation links HTML with proper grouping for space-between layout.
-     * Groups all links except the last one together, so the last link (usually Next) 
+     * Groups all links except the last one together, so the last link (usually Next)
      * appears on the right side.
      *
      * @param array  $nav_links Array of link HTML strings.
@@ -917,7 +917,7 @@ class PostNavigationRenderer
         }
 
         $count = count($nav_links);
-        
+
         // If only one link, return it as-is
         if ($count === 1) {
             return $nav_links[0];
@@ -928,12 +928,12 @@ class PostNavigationRenderer
         for ($i = 0; $i < $count - 1; $i++) {
             $left_group[] = $nav_links[$i];
         }
-        
+
         $last_link = $nav_links[$count - 1];
-        
+
         // Build left group without separators
         $left_html = implode(' ', $left_group);
-        
+
         // Wrap left group in a span and add the last link separately
         return '<span class="pps-nav-left-group">' . $left_html . '</span> ' . $last_link;
     }
@@ -1132,7 +1132,7 @@ class PostNavigationRenderer
         }
         $title_styles[] = 'align-self: ' . $title_align_self . ';';
         $title_styles[] = 'text-align: ' . $series_title_alignment . ';';
-        
+
         // Series title color
         if (! empty($settings['series_title_color'])) {
             $title_styles[] = 'color: ' . esc_attr($settings['series_title_color']) . ';';
