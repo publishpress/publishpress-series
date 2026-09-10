@@ -298,9 +298,11 @@ class orgSeries {
 	/**
 	 * By default WordPress sanitizes term descriptions with the restricted
 	 * "data" KSES allowlist (the same one used for comments), which strips
-	 * tags like <hr>. Swap that for wp_kses_post() on the series taxonomy
+	 * tags like <hr>. Use the post KSES allowlist on the series taxonomy
 	 * only, so authors can use post-level HTML in Series descriptions
 	 * without changing sanitization for other taxonomies.
+	 * Save-time filtering uses wp_filter_post_kses() because
+	 * pre_term_description receives slashed form data.
 	 *
 	 * @link https://github.com/publishpress/publishpress-series/issues/1199
 	 */
@@ -314,7 +316,7 @@ class orgSeries {
 
 	function series_pre_term_description_kses($description, $taxonomy = '') {
 		if ($taxonomy === ppseries_get_series_slug()) {
-			return wp_kses_post($description);
+			return wp_filter_post_kses($description);
 		}
 
 		return wp_filter_kses($description);
