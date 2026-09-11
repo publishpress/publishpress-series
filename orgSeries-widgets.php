@@ -82,8 +82,9 @@ class orgSeries_widget_latestseries extends WP_Widget
         </p>
         <p class="ppseries-widget-paragraph">
             <?php
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            printf(__('The layout and content of this widget can be adjusted via the <a href="%s">Latest Series</a> area.', 'organize-series'), esc_url($seriesoptionsurl)); ?>
+            /* translators: %s: URL to the Latest Series settings. */
+            printf(__('The layout and content of this widget can be adjusted via the <a href="%s">Latest Series</a> area.', 'organize-series'), esc_url($seriesoptionsurl)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            ?>
         </p>
         <p class="ppseries-widget-paragraph">
             <label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Hide series with no posts?', 'organize-series'); ?></strong></label>

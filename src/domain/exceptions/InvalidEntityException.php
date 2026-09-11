@@ -25,6 +25,7 @@ class InvalidEntityException extends Exception
                 ? $message
                 : ' ';
             $message .= sprintf(
+                /* translators: 1: Invalid entity class name, 2: Expected entity class name. */
                 esc_html__(
                     '%1$s is not a valid entity (expected: %2$s).',
                     'organize-series'

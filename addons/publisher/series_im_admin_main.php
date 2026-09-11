@@ -16,7 +16,7 @@
     <?php $alt = ' class="alternate"'; ?>
     <?php foreach ($series as $ser) : ?>
       <tr id="<?php echo esc_attr('cat-' . $ser->term_id); ?>"<?php echo $alt;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-        <td class="title column-title column-primary"><strong><a title="<?php echo sprintf(esc_html__('Edit the status of %1$s', 'organize-series'), esc_html($ser->name)); ?>" href="<?php echo esc_url(admin_url('edit-tags.php?action=edit&taxonomy=' . ppseries_get_series_slug() . '&tag_ID=' . (int)$ser->term_id)); ?>"><?php echo esc_html($ser->name); ?></a></strong></td>
+        <td class="title column-title column-primary"><strong><a title="<?php /* translators: %1$s: Series name. */ echo sprintf(esc_html__('Edit the status of %1$s', 'organize-series'), esc_html($ser->name)); ?>" href="<?php echo esc_url(admin_url('edit-tags.php?action=edit&taxonomy=' . ppseries_get_series_slug() . '&tag_ID=' . (int)$ser->term_id)); ?>"><?php echo esc_html($ser->name); ?></a></strong></td>
         <td><?php
             echo "<a class='im-publish' href='" . esc_url(admin_url('edit.php?page=manage-issues&amp;action=part&amp;series_ID=' . (int)$ser->term_id . '')) . "'>" . esc_html__('Series order', 'organize-series') . "</a>";
         ?></td>

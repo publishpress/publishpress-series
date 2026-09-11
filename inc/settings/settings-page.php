@@ -76,7 +76,7 @@ function orgseries_option_page()
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_icon_linked%</strong>
                             <span class="tooltip-text">
-                                <span><?php esc_html_e('Same as %series_icon% except that the series featured image will be linked to the series page', 'organize-series'); ?></span>
+                                <span><?php /* translators: %series_icon%: Template token for the series featured image. */ esc_html_e('Same as %series_icon% except that the series featured image will be linked to the series page', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
@@ -100,7 +100,7 @@ function orgseries_option_page()
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_title_linked%</strong>
                             <span class="tooltip-text">
-                                <span><?php esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></span>
+                                <span><?php /* translators: %series_title%: Template token for the series title. */ esc_html_e('Same as %series_title% except that it will also be linked to the series page', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />

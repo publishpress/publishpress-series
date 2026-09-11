@@ -26,10 +26,12 @@ class EntityNotFoundException extends InvalidArgumentException
     public function __construct($expected_entity, $message = '', $code = 0, $previous = null)
     {
         $message = sprintf(
+            /* translators: %1$s: Expected entity class name. */
             esc_html__(
                 'Unable to retrieve an instance of %1$s. Not found.',
                 'organize-series'
-            )
+            ),
+            $expected_entity
         ) . "\n" . $message;
         parent::__construct($message, $code, $previous);
     }

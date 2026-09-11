@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
-"PO-Revision-Date: 2026-08-17 11:50+0000\n"
+"PO-Revision-Date: 2026-09-11 14:49+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
@@ -330,7 +330,7 @@ msgstr "Cor do texto"
 
 #: addons/post-details/includes/class-fields.php:171
 msgid "Choose the color of text in the meta box"
-msgstr "Escolha a cor do texto na caixa meta"
+msgstr "Escolha a cor do texto na meta box"
 
 #: addons/post-details/includes/class-fields.php:174
 msgid "Link Color"
@@ -338,7 +338,7 @@ msgstr "Cor do link"
 
 #: addons/post-details/includes/class-fields.php:179
 msgid "Choose the color of links in the meta box"
-msgstr "Escolha a cor dos links na caixa meta"
+msgstr "Escolha a cor dos links na meta box"
 
 #: addons/post-details/includes/class-fields.php:183
 msgid "Background"
@@ -528,7 +528,7 @@ msgstr "Mostrar título da caixa"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:104
 msgid "Display the title above the post list"
-msgstr "Exibir o título acima da lista de posts"
+msgstr "Exiba o título acima da lista de posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:107
 msgid "Box Title Type"
@@ -579,7 +579,7 @@ msgstr "Tag HTML do título da caixa"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:157
 msgid "Choose the HTML tag used for the box title"
-msgstr "Escolha a tag HTML usada para o título da caixa"
+msgstr "Escolha a tag HTML usada no título da caixa"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:162
 msgid "Box Title Color"
@@ -599,19 +599,19 @@ msgstr "Defina o tamanho da fonte do título da caixa em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:200
 msgid "Choose the background color for the post list box"
-msgstr "Escolha a cor de fundo para a caixa da lista de posts"
+msgstr "Escolha a cor de fundo da caixa da lista de posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:208
 msgid "Choose the border color for the post list box"
-msgstr "Escolha a cor da borda para a caixa da lista de posts"
+msgstr "Escolha a cor da borda da caixa da lista de posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:218
 msgid "Set the border width for the post list box in pixels"
-msgstr "Defina a largura da borda para a caixa da lista de posts em pixels"
+msgstr "Defina a largura da borda da caixa da lista de posts em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:228
 msgid "Set the border radius for the post list box in pixels"
-msgstr "Defina o raio da borda para a caixa da lista de posts em pixels"
+msgstr "Defina o raio da borda da caixa da lista de posts em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:238
 msgid "Set the inner spacing of the post list box in pixels"
@@ -623,7 +623,7 @@ msgstr "Mostrar títulos dos posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:257
 msgid "Display post titles in the series list"
-msgstr "Exibir títulos de posts na lista de séries"
+msgstr "Exiba os títulos dos posts na lista da série"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:260
 #, fuzzy
@@ -675,7 +675,7 @@ msgstr "Mostrar resumo do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:311
 msgid "Display the excerpt for each post"
-msgstr "Exibir o resumo de cada post"
+msgstr "Exiba o resumo de cada post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:315
 msgid "Excerpt Length (words)"
@@ -699,7 +699,7 @@ msgstr "Mostrar resumo do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:344
 msgid "Display a summary generated from each post"
-msgstr "Exibir um resumo gerado a partir de cada post"
+msgstr "Exiba um resumo gerado a partir de cada post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:348
 msgid "Summary Length (words)"
@@ -707,7 +707,7 @@ msgstr "Comprimento do resumo (palavras)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:355
 msgid "Set the maximum summary length in words"
-msgstr "Definir o comprimento máximo do resumo em palavras"
+msgstr "Defina o comprimento máximo do resumo em palavras"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:361
 msgid "Summary Color"
@@ -715,7 +715,7 @@ msgstr "Cor do resumo"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:366
 msgid "Choose the color of post summaries"
-msgstr "Escolher a cor dos resumos dos posts"
+msgstr "Escolha a cor dos resumos dos posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Author"
@@ -723,7 +723,7 @@ msgstr "Mostrar autor do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:377
 msgid "Display the author of each post"
-msgstr "Exibir o autor de cada post"
+msgstr "Exiba o autor de cada post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:381
 msgid "Post Author Color"
@@ -731,7 +731,7 @@ msgstr "Cor do autor do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:386
 msgid "Choose the color of post authors"
-msgstr "Escolher a cor dos autores dos posts"
+msgstr "Escolha a cor dos autores dos posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:392
 msgid "Show Post Date"
@@ -739,7 +739,7 @@ msgstr "Mostrar data do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:397
 msgid "Display the date of each post"
-msgstr "Exibir a data de cada post"
+msgstr "Exiba a data de cada post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:401
 msgid "Post Date Color"
@@ -747,7 +747,7 @@ msgstr "Cor da data do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:406
 msgid "Choose the color of post dates"
-msgstr "Escolher a cor das datas dos posts"
+msgstr "Escolha a cor das datas dos posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:423
 #: addons/post-navigation/includes/class-fields.php:172
@@ -758,7 +758,7 @@ msgstr "Mostrar imagem destacada"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:428
 msgid "Display the featured image for each post"
-msgstr "Exibir a imagem destacada para cada post"
+msgstr "Exiba a imagem destacada de cada post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:431
 msgid "Featured Image Width (px)"
@@ -796,7 +796,7 @@ msgstr "Preenchimento do post (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "Set the inner spacing for each post item in pixels"
-msgstr "Definir o espaçamento interno para cada item de post em pixels"
+msgstr "Defina o espaçamento interno de cada item do post em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
@@ -804,7 +804,7 @@ msgstr "Largura da borda do post (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:494
 msgid "Set the border width for each post item in pixels"
-msgstr "Definir a largura da borda para cada item de post em pixels"
+msgstr "Defina a largura da borda de cada item do post em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
@@ -812,7 +812,7 @@ msgstr "Cor da borda do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:502
 msgid "Choose the border color for each post item"
-msgstr "Escolher a cor da borda para cada item de post"
+msgstr "Escolha a cor da borda de cada item do post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:505
 msgid "Post Background Color"
@@ -838,7 +838,7 @@ msgstr "Grade"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:533
 msgid "Choose the layout style for the post list"
-msgstr "Escolher o estilo de layout para a lista de posts"
+msgstr "Escolha o estilo do layout da lista de posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:537
 msgid "Columns"
@@ -862,7 +862,7 @@ msgstr "6 colunas"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:548
 msgid "Choose the number of columns in the grid layout"
-msgstr "Escolher o número de colunas no layout em grade"
+msgstr "Escolha o número de colunas no layout em grade"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:554
 msgid "Order By"
@@ -891,7 +891,7 @@ msgstr "Ordem da série"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:564
 msgid "Choose the field used to sort posts"
-msgstr "Escolher o campo usado para classificar os posts"
+msgstr "Escolha o campo a ser usado para ordenar os posts"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:568
 #: orgSeries-manage.php:52
@@ -913,7 +913,7 @@ msgstr "Descendente"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:577
 msgid "Choose the direction in which posts are sorted"
-msgstr "Escolher a direção na qual os posts são classificados"
+msgstr "Escolha a direção em que os posts serão ordenados"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:581
 msgid "Gap Between Items (px)"
@@ -921,7 +921,7 @@ msgstr "Espaçamento entre itens (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:588
 msgid "Set the space between post items in pixels"
-msgstr "Definir o espaço entre os itens de post em pixels"
+msgstr "Defina o espaço entre os itens do post em pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:592
 msgid "Post List Box Location"
@@ -957,7 +957,7 @@ msgstr "Cor de fundo do post atual"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:639
 msgid "Choose the background color for the current post"
-msgstr "Escolher a cor de fundo para o post atual"
+msgstr "Escolha a cor de fundo do post atual"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:642
 msgid "Current Post Border Color"
@@ -965,7 +965,7 @@ msgstr "Cor da borda do post atual"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:647
 msgid "Choose the border color for the current post"
-msgstr "Escolher a cor da borda para o post atual"
+msgstr "Escolha a cor da borda do post atual"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:650
 msgid "Current Post Text Color"
@@ -973,7 +973,7 @@ msgstr "Cor do texto do post atual"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:655
 msgid "Choose the text color for the current post"
-msgstr "Escolher a cor do texto para o post atual"
+msgstr "Escolha a cor do texto do post atual"
 
 #: addons/post-list-box/includes/class-admin-ui.php:54
 msgid "Default Post List Box"
@@ -1307,7 +1307,7 @@ msgstr "Incluir título da série"
 
 #: addons/post-navigation/includes/class-fields.php:94
 msgid "Display the series title above the navigation"
-msgstr "Exibir o título da série acima da navegação"
+msgstr "Exiba o título da série acima da navegação"
 
 #: addons/post-navigation/includes/class-fields.php:97
 msgid "Link Series Title"
@@ -1613,7 +1613,7 @@ msgstr "Cor"
 
 #: addons/post-navigation/includes/class-fields.php:461
 msgid "Choose the color of navigation link text"
-msgstr "Escolha a cor do texto do link de navegação"
+msgstr "Escolha a cor do texto dos links de navegação"
 
 #: addons/post-navigation/includes/class-fields.php:469
 msgid "Choose the background color of navigation links"
@@ -2002,7 +2002,7 @@ msgstr ""
 
 #: inc/settings/settings-page.php:68
 msgid "This will be replaced with the series featured image for a series."
-msgstr "Isso será substituído pela imagem em destaque da série para uma série."
+msgstr "Isso será substituído pela imagem destacada da série."
 
 #: inc/settings/settings-page.php:76
 #, php-format
@@ -2010,7 +2010,7 @@ msgid ""
 "Same as %series_icon% except that the series featured image will be linked "
 "to the series page"
 msgstr ""
-"Igual a %series_icon%, exceto que a imagem em destaque da série estará "
+"O mesmo que %series_icon%, exceto que a imagem destacada da série será "
 "vinculada à página da série"
 
 #: inc/settings/settings-page.php:84
@@ -2458,23 +2458,23 @@ msgstr "Título da tabela de conteúdos da série:"
 
 #: inc/settings/tab-legacy.php:168
 msgid "Series Featured Images"
-msgstr "Imagens em Destaque da Série"
+msgstr "Imagens destacadas da série"
 
 #: inc/settings/tab-legacy.php:173
 msgid "Width for featured image on series table of contents page (in pixels)"
-msgstr "Largura da imagem em destaque na página de índice da série (em pixels)"
+msgstr "Largura da imagem destacada na tabela de conteúdos da série (em pixels)"
 
 #: inc/settings/tab-legacy.php:177
 msgid "Width for featured image on a post page (in pixels)."
-msgstr "Largura da imagem em destaque na página de um post (em pixels)."
+msgstr "Largura da imagem destacada na página de um post (em pixels)."
 
 #: inc/settings/tab-legacy.php:181
 msgid ""
 "Width for featured image if displayed via the latest series template (in "
 "pixels)."
 msgstr ""
-"Largura da imagem em destaque se exibida via o modelo da última série (em "
-"pixels)."
+"Largura da imagem destacada, se exibida pelo modelo da série mais recente "
+"(em pixels)."
 
 #: inc/settings/tab-legacy.php:191
 #: orgSeries-widgets.php:13
@@ -2794,7 +2794,7 @@ msgstr "Opções de exibição do modelo do plugin:"
 
 #: inc/settings/tab-series-category.php:53
 msgid "Show Series Featured Image"
-msgstr "Mostrar Imagem em Destaque da Série"
+msgstr "Mostrar imagem destacada da série"
 
 #: inc/settings/tab-series-category.php:58
 msgid "Show Series Description"
@@ -2856,11 +2856,11 @@ msgstr "Nenhum resultado encontrado."
 
 #: inc/welcome/welcome-panel.php:141
 msgid "Dismiss this panel"
-msgstr "Desfaça este painel"
+msgstr "Dispensar este painel"
 
 #: inc/welcome/welcome-panel.php:160
 msgid "Welcome to PublishPress Series"
-msgstr "Bem-vindo ao PublishPress Series"
+msgstr "Boas-vindas ao PublishPress Series"
 
 #: inc/welcome/welcome-panel.php:163
 msgid ""
@@ -2869,7 +2869,7 @@ msgid ""
 "to it."
 msgstr ""
 "Uma série agrupa seus posts e mostra aos seus leitores a ordem de leitura. "
-"Crie sua primeira série com o formulário nesta página e, em seguida, "
+"Crie sua primeira série, usando o formulário nesta página e, em seguida, "
 "adicione posts a ela."
 
 #: inc/welcome/welcome-panel.php:168
@@ -2878,7 +2878,7 @@ msgstr "Criar uma série"
 
 #: inc/welcome/welcome-panel.php:172
 msgid "View Documentation"
-msgstr "Ver Documentação"
+msgstr "Ver documentação"
 
 #: inc/welcome/welcome-panel.php:177
 #: includes-core/PPSeriesCoreAdmin.php:41
@@ -2925,7 +2925,7 @@ msgstr "%1$s series migradas para a nova taxonomia"
 
 #: orgSeries-admin.php:129
 msgid "Custom Template"
-msgstr "Modelo Personalizado"
+msgstr "Modelo personalizado"
 
 #: orgSeries-admin.php:151
 #, php-format
@@ -3029,14 +3029,14 @@ msgid ""
 "PublishPress Series could not save the series featured image. The featured "
 "image was not changed."
 msgstr ""
-"O PublishPress Series não conseguiu salvar a imagem em destaque da série. A "
-"imagem em destaque não foi alterada."
+"Não foi possível salvar a imagem destacada do PublishPress Series. A imagem "
+"destacada não foi alterada."
 
 #: orgSeries-icon.php:136
 #. translators: %s: the error message reported by the database.
 #, php-format
 msgid "Database error: %s"
-msgstr "Erro de banco de dados: %s"
+msgstr "Erro no banco de dados: %s"
 
 #: orgSeries-manage.php:67
 msgid "Term Order"
@@ -3090,11 +3090,11 @@ msgstr ""
 
 #: orgSeries-manage.php:265
 msgid "Current series featured image:"
-msgstr "Imagem em destaque da série atual:"
+msgstr "Imagem destacada da série atual:"
 
 #: orgSeries-manage.php:271
 msgid "No featured image currently"
-msgstr "Nenhuma imagem em destaque atualmente"
+msgstr "No momento, nenhuma imagem destacada"
 
 #: orgSeries-manage.php:281
 msgid ""
@@ -3106,11 +3106,11 @@ msgstr ""
 
 #: orgSeries-manage.php:286
 msgid "Series featured image upload:"
-msgstr "Upload da imagem em destaque da série:"
+msgstr "Envio da imagem destacada da série:"
 
 #: orgSeries-manage.php:290
 msgid "Upload a featured image for the series."
-msgstr "Faça o upload de uma imagem em destaque para a série."
+msgstr "Envie uma imagem destacada para a série."
 
 #: orgSeries-manage.php:305
 msgid "Invalid form data"

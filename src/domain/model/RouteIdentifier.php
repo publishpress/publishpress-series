@@ -48,6 +48,7 @@ class RouteIdentifier implements RouteIdentifierInterface
         if (! $is_on_route_callback instanceof Closure) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: %1$s: Callback parameter name. */
                     esc_html__(
                         'The incoming value for %1$s is expected to be a closure.  It was not.',
                         'organize-series'

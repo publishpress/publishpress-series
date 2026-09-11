@@ -25,29 +25,40 @@ class PPS_Post_List_Box_Post_Type
         $labelPlural = __('Post List Boxes', 'organize-series');
 
         $postTypeLabels = [
-            'name' => _x('%2$s', 'Post List Box post type name', 'organize-series'),
-            'singular_name' => _x(
-                '%1$s',
-                'singular post list box post type name',
-                'organize-series'
-            ),
-            'add_new' => __('New %1s', 'organize-series'),
+            'name' => $labelPlural,
+            'singular_name' => $labelSingular,
+            /* translators: %1$s: Singular post type label. */
+            'add_new' => __('New %1$s', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'add_new_item' => __('Add New %1$s', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'edit_item' => __('Edit %1$s', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'new_item' => __('New %1$s', 'organize-series'),
-            'all_items' => __('%2$s', 'organize-series'),
+            'all_items' => $labelPlural,
+            /* translators: %1$s: Singular post type label. */
             'view_item' => __('View %1$s', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'search_items' => __('Search %2$s', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'not_found' => __('No %2$s found', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'not_found_in_trash' => __('No %2$s found in Trash', 'organize-series'),
             'parent_item_colon' => '',
-            'menu_name' => _x('%2$s', 'custom layout post type menu name', 'organize-series'),
+            'menu_name' => $labelPlural,
+            /* translators: %1$s: Singular post type label. */
             'featured_image' => __('%1$s Image', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'set_featured_image' => __('Set %1$s Image', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'remove_featured_image' => __('Remove %1$s Image', 'organize-series'),
+            /* translators: %1$s: Singular post type label. */
             'use_featured_image' => __('Use as %1$s Image', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'filter_items_list' => __('Filter %2$s list', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'items_list_navigation' => __('%2$s list navigation', 'organize-series'),
+            /* translators: %2$s: Plural post type label. */
             'items_list' => __('%2$s list', 'organize-series'),
         ];
 

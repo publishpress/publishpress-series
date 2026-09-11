@@ -148,11 +148,13 @@ class PPS_Post_List_Box_Admin_UI
 
         $messages[self::POST_TYPE_BOXES] = [
             'updated' => sprintf(
+                /* translators: 1: Number of post list boxes, 2: Post type label. */
                 _n('%1$s %2$s updated.', '%1$s %2$s updated.', $countsUpdated, 'organize-series'),
                 $countsUpdated,
                 1 === $countsUpdated ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'locked' => sprintf(
+                /* translators: 1: Number of post list boxes, 2: Post type label. */
                 _n(
                     '%1$s %2$s not updated, somebody is editing it.',
                     '%1$s %2$s not updated, somebody is editing them.',
@@ -163,6 +165,7 @@ class PPS_Post_List_Box_Admin_UI
                 1 === $countsLocked ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'deleted' => sprintf(
+                /* translators: 1: Number of post list boxes, 2: Post type label. */
                 _n(
                     '%1$s %2$s permanently deleted.',
                     '%1$s %2$s permanently deleted.',
@@ -173,6 +176,7 @@ class PPS_Post_List_Box_Admin_UI
                 1 === $countsDeleted ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'trashed' => sprintf(
+                /* translators: 1: Number of post list boxes, 2: Post type label. */
                 _n(
                     '%1$s %2$s moved to the Trash.',
                     '%1$s %2$s moved to the Trash.',
@@ -183,6 +187,7 @@ class PPS_Post_List_Box_Admin_UI
                 1 === $countsTrashed ? $postTypeNameSingular : $postTypeNamePlural
             ),
             'untrashed' => sprintf(
+                /* translators: 1: Number of post list boxes, 2: Post type label. */
                 _n(
                     '%1$s %2$s restored from the Trash.',
                     '%1$s %2$s restored from the Trash.',

@@ -125,8 +125,11 @@ class PPS_Post_List_Box_Preview
         for ($i = 1; $i <= 3; $i++) {
             $post = new stdClass();
             $post->ID = 'sample_' . $i;
+            /* translators: %d: Sample post number. */
             $post->post_title = sprintf(__('Sample Post %d', 'organize-series'), $i);
+            /* translators: %d: Sample post number. */
             $post->post_content = sprintf(__('This is sample content for post %d in the series. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'organize-series'), $i);
+            /* translators: %d: Sample post number. */
             $post->post_excerpt = sprintf(__('This is a sample excerpt for post %d in the series.', 'organize-series'), $i);
             $post->post_author = get_current_user_id() ?: 1;
             $post->post_date = wp_date('Y-m-d H:i:s', strtotime('-' . $i . ' days'));

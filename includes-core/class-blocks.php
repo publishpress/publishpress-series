@@ -421,11 +421,13 @@ class Blocks
             if ($show_post_count) {
                 if ($is_series_category) {
                     $count_label = sprintf(
+                        /* translators: %s: Number of series. */
                         \_n('%s series', '%s series', $term_count, 'organize-series'),
                         \number_format_i18n($term_count)
                     );
                 } else {
                     $count_label = sprintf(
+                        /* translators: %s: Number of posts. */
                         \_n('%s post', '%s posts', $term_count, 'organize-series'),
                         \number_format_i18n($term_count)
                     );
@@ -858,6 +860,7 @@ class Blocks
                 'post_date'      => \current_time('mysql'),
                 'post_date_gmt'  => \current_time('mysql', true),
                 'post_content'   => '',
+                /* translators: %d: Sample post number. */
                 'post_title'     => sprintf(\__('Sample Series Post %d', 'organize-series'), $index),
                 'post_excerpt'   => '',
                 'post_status'    => 'publish',

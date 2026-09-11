@@ -335,6 +335,7 @@ class PPS_Series_Post_Details_Utilities
         for ($i = 1; $i <= 3; $i++) {
             $post            = new stdClass();
             $post->ID        = 'sample_' . $i;
+            /* translators: %d: Sample post number. */
             $post->post_title = sprintf(__('Sample Series Post %d', 'organize-series'), $i);
             $post->post_content = __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.', 'organize-series');
             $post->post_excerpt = __('Sample excerpt preview content for the series meta box.', 'organize-series');

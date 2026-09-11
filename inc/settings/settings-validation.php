@@ -151,6 +151,7 @@ function ppseries_maybe_migrate_taxonomy_terms()
     return sprintf(
         '<div class="updated"><p>%s</p></div>',
         sprintf(
+            /* translators: 1: Number of series migrated, 2: Previous taxonomy slug, 3: New taxonomy slug. */
             esc_html__('%1$s series migrated from "%2$s" to "%3$s" taxonomy. Settings updated.', 'organize-series'),
             $count,
             $old_slug,

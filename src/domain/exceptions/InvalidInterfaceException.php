@@ -22,6 +22,7 @@ class InvalidInterfaceException extends Exception
                 ? $message
                 : ' ';
             $message .= sprintf(
+                /* translators: %s: Fully qualified class name. */
                 esc_html__(
                     '%s does not exist or is not reachable.',
                     'organize-series'

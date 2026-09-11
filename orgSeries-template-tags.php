@@ -268,8 +268,8 @@ function get_series_toc($link = true)
     $title = __('All the Series I\'ve Written', 'organize-series');
     if (isset($wp_rewrite) && $wp_rewrite->using_permalinks()) {
         if ($link) {
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), esc_url($url), esc_html($title));
+            /* translators: 1: Series table of contents URL, 2: Link title. */
+            echo sprintf(__('<a href="%1$s" title="%2$s">Series</a>', 'organize-series'), esc_url($url), esc_html($title)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else {
             return $url;
         }
@@ -277,8 +277,8 @@ function get_series_toc($link = true)
         $url = wp_parse_url(get_bloginfo('url'));
         $url = $url['path'] . '/?seriestoc=1';
         if ($link) {
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo sprintf(__('<a href="%s" title="%s">Series</a>', 'organize-series'), esc_url($url), esc_html($title));
+            /* translators: 1: Series table of contents URL, 2: Link title. */
+            echo sprintf(__('<a href="%1$s" title="%2$s">Series</a>', 'organize-series'), esc_url($url), esc_html($title)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else {
             return $url;
         }

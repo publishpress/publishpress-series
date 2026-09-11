@@ -26,6 +26,7 @@ class InvalidFilePathException extends InvalidArgumentException
     {
         if (empty($message)) {
             $message = sprintf(
+                /* translators: 1: File name, 2: HTML line break, 3: Full file path. */
                 __(
                     'The "%1$s" file is either missing or could not be read due to permissions. Please ensure that the following path is correct and verify that the file permissions are correct:%2$s %3$s',
                     'organize-series'

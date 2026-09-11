@@ -265,6 +265,7 @@ class SeriesPostDetailsRenderer
         
         if ($show_part) {
             $text_content .= sprintf(
+                /* translators: 1: Current part number, 2: Total number of posts in the series. */
                 esc_html__('part %1$s of %2$s', 'organize-series'),
                 $series_part,
                 $total_posts
@@ -326,6 +327,7 @@ class SeriesPostDetailsRenderer
             
             if ($series_part && $total_posts) {
                 $text_content .= sprintf(
+                    /* translators: 1: Current part number, 2: Total number of posts in the series. */
                     esc_html__('part %1$s of %2$s', 'organize-series'),
                     $series_part,
                     $total_posts
