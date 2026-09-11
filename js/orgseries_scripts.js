@@ -38,7 +38,7 @@
 			$('#series_icon_loc').val(imgurl);
 			$('#series_icon_loc_display').val(imgurl);
 			tb_remove();
-			var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" />";
+			var view_image_url = "Selected Image:<br /> <img src=\"" + imgurl + "\" width=\"100px\" alt=\"\" />";
 			$('#selected-icon').html(view_image_url)
 	}
 
@@ -90,7 +90,7 @@ $(document).on('click', '#upload_image_button', function (e) {
 				 var attachment = custom_feedback_image_frame.state().get('selection').first().toJSON();
 					 $(upload_input).val(attachment.url);
 					 $(upload_display).val(attachment.url);
-		 			var view_image_url = "Selected Image:<br /> <img src=\"" + attachment.url + "\" width=\"100px\" />";
+					var view_image_url = "Selected Image:<br /> <img src=\"" + attachment.url + "\" width=\"100px\" alt=\"\" />";
 		 			$('#selected-icon').html(view_image_url)
 				 }
 

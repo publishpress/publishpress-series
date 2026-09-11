@@ -33,6 +33,5 @@ class LicenseKeyAjaxResponse extends AjaxJsonResponse
         return '<p>'
             . '<span class="dashicons dashicons-no os-key-inactive"></span>'
             . '</p>';
-
     }
 }

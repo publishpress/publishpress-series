@@ -72,6 +72,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     public function get_table_data()
     {
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
         $meta_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
         $series_posts = [];
@@ -94,12 +95,12 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                     "relation" => "or",
                     'part_field_sort_value' => array(
                         'key' => $meta_key,
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                     'part_field_sort' => array(
                         'key' => $meta_key,
                         'compare' => 'NOT EXISTS',
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                 ),
                 'orderby' => array(
@@ -124,6 +125,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function handle_row_actions($item, $column_name, $primary)
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
 
         $actions['edit'] = sprintf(
@@ -187,7 +189,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     public function no_items()
     {
-        _e('There are no published posts in this series.', 'organize-series');
+        esc_html_e('There are no published posts in this series.', 'organize-series');
     }
 
     /**
@@ -249,7 +251,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -271,7 +273,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -301,6 +303,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
      */
     protected function column_part($item)
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
         $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
         $series_part = get_post_meta($item->ID, $part_key, true);

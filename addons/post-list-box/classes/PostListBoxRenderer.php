@@ -40,7 +40,7 @@ class PostListBoxRenderer
         }
 
         $css_url = SERIES_PATH_URL . 'addons/post-list-box/assets/css/post-list-box-frontend.css';
-        
+
         wp_enqueue_style(
             'pps-post-list-box-frontend',
             $css_url,
@@ -59,7 +59,7 @@ class PostListBoxRenderer
      */
     public static function render_shortcode($atts)
     {
-        
+
         $atts = shortcode_atts([
             'layout' => '',
             'series' => '',
@@ -91,7 +91,7 @@ class PostListBoxRenderer
 
         // Get series ID
         $series_id = null;
-        
+
         // If series parameter is provided, use it
         if (!empty($atts['series'])) {
             $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
@@ -144,7 +144,7 @@ class PostListBoxRenderer
     private static function get_series_posts($series_id, $settings)
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
-        
+
         // Free defaults: series_order, ASC, no limit
         // Pro can override via filter
         $query_params = [
@@ -152,7 +152,7 @@ class PostListBoxRenderer
             'order' => 'ASC',
             'maximum_items' => -1,
         ];
-        
+
         /**
          * Filter query parameters for post list box.
          * Pro uses this to apply orderby, order, and maximum_items settings.
@@ -162,13 +162,12 @@ class PostListBoxRenderer
          * @param int   $series_id    Series term ID.
          */
         $query_params = apply_filters('pps_post_list_box_query_params', $query_params, $settings, $series_id);
-        
+
         $orderby = $query_params['orderby'];
         $order = $query_params['order'];
         $maximum_items = $query_params['maximum_items'];
-        
-        if ($orderby === 'series_order') {
 
+        if ($orderby === 'series_order') {
             $args = [
                 'post_type' => 'post',
                 'post_status' => 'publish',
@@ -180,15 +179,14 @@ class PostListBoxRenderer
                     ],
                 ],
                 'posts_per_page' => $maximum_items,
-                'orderby' => 'date', 
+                'orderby' => 'date',
                 'order' => 'DESC'
             ];
 
             $posts = get_posts($args);
 
             if (!empty($posts)) {
-                
-                $post_ids = array_map(function($post) {
+                $post_ids = array_map(function ($post) {
                     return $post->ID;
                 }, $posts);
 
@@ -290,7 +288,7 @@ class PostListBoxRenderer
 
         ?>
         <div class="<?php echo esc_attr($wrapper_class); ?>">
-            <?php if (!empty($settings['title_show'])) : 
+            <?php if (!empty($settings['title_show'])) :
                 $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts);
                 $title_tag = !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3';
                 $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
@@ -299,7 +297,7 @@ class PostListBoxRenderer
                     $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts);
                 }
                 if (!empty($title_text)) :
-            ?>
+                    ?>
                 <<?php echo esc_html($title_tag); ?> class="pps-post-list-title">
                     <?php if (!empty($series_link)) : ?>
                         <a href="<?php echo esc_url($series_link); ?>">
@@ -309,10 +307,11 @@ class PostListBoxRenderer
                         <?php echo esc_html($title_text); ?>
                     <?php endif; ?>
                 </<?php echo esc_html($title_tag); ?>>
-            <?php endif; endif; ?>
+                <?php endif;
+            endif; ?>
 
             <div class="pps-post-list <?php echo esc_attr($layout_style); ?>">
-                <?php 
+                <?php
                 // Get current post ID for highlighting
                 $current_post_id = get_queried_object_id();
                 if (!$current_post_id && is_singular()) {
@@ -321,16 +320,17 @@ class PostListBoxRenderer
                         $current_post_id = $post->ID;
                     }
                 }
-                
-                foreach ($posts as $index => $post) : setup_postdata($post); 
+
+                foreach ($posts as $index => $post) :
+                    setup_postdata($post);
 
                     $highlighting = PPS_Post_List_Box_Utilities::get_current_post_highlighting($settings, $post, $index, $current_post_id);
-                    
+
                     $post_item_class = 'pps-post-item';
                     if ($highlighting['is_current']) {
                         $post_item_class .= ' current-post';
                     }
-                ?>
+                    ?>
                     <div class="<?php echo esc_attr($post_item_class); ?>">
                         <?php if (!empty($settings['show_post_thumbnail'])) : ?>
                             <div class="pps-post-thumbnail">
@@ -339,7 +339,7 @@ class PostListBoxRenderer
                                         <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                                     </a>
                                 <?php else : ?>
-                                    <?php 
+                                    <?php
                                         /**
                                          * Filter fallback image URL when post has no featured image.
                                          * Pro can use this to provide custom fallback image.
@@ -393,7 +393,8 @@ class PostListBoxRenderer
                             ?>
                         </div>
                     </div>
-                <?php endforeach; wp_reset_postdata(); ?>
+                <?php endforeach;
+                wp_reset_postdata(); ?>
             </div>
         </div>
 
@@ -430,7 +431,7 @@ class PostListBoxRenderer
     private static function generate_dynamic_css($post_id, $settings)
     {
         $css_class = 'pps-post-list-box-' . $post_id;
-        
+
         $css_parts = [];
 
         // Container styles
@@ -457,7 +458,7 @@ class PostListBoxRenderer
         // Layout styles based on layout_style setting
         $layout_style = !empty($settings['layout_style']) ? $settings['layout_style'] : 'list';
         $gap = isset($settings['gap_between_items']) ? intval($settings['gap_between_items']) : 10;
-        
+
         if ($layout_style === 'grid') {
             // Grid layout styles
             $columns = isset($settings['columns']) ? intval($settings['columns']) : 3;
@@ -501,9 +502,9 @@ class PostListBoxRenderer
         // Thumbnail dimensions (basic list layout)
         $thumbnail_width = isset($settings['thumbnail_width']) ? intval($settings['thumbnail_width']) : 150;
         $thumbnail_height = isset($settings['thumbnail_height']) ? intval($settings['thumbnail_height']) : 150;
-        
+
         $css_parts[] = '.' . $css_class . ' .pps-post-thumbnail img { width: ' . $thumbnail_width . 'px; height: ' . $thumbnail_height . 'px; object-fit: cover; object-position: center; }';
-        
+
         // Responsive thumbnail styles for list layout
         $css_parts[] = '@media (max-width: 768px) { .' . $css_class . ' .pps-post-list.list .pps-post-thumbnail img { width: 100%; height: ' . $thumbnail_height . 'px; } }';
 

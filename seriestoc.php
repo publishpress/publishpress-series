@@ -15,28 +15,28 @@
  */
 
 if (pp_series_locate_template(['header.php'])) {
-    get_header(); 
+    get_header();
 } elseif (pp_series_is_block_theme()) {
     pp_series_format_block_theme_header();
 }
 ?>
 
-		<section id="series-primary" class="site-content">
-			<div id="series-content" role="main">
+        <section id="series-primary" class="site-content">
+            <div id="series-content" role="main">
 
-			<?php wp_serieslist_display(); ?>
+            <?php wp_serieslist_display(); ?>
 
-			<div class="stocpagination"> <?php series_toc_paginate(); ?> </div>
-			</div><!-- #content -->
-		</section><!-- #primary -->
+            <div class="stocpagination"> <?php series_toc_paginate(); ?> </div>
+            </div><!-- #content -->
+        </section><!-- #primary -->
 
         <?php
-if(pp_series_locate_template( array( 'sidebar.php' ) )){
-    get_sidebar();
-}
-if (pp_series_locate_template(['footer.php'])) {
-    get_footer(); 
-} elseif (pp_series_is_block_theme()) {
-    pp_series_format_block_theme_footer();
-}
-?>
+        if (pp_series_locate_template(array( 'sidebar.php' ))) {
+            get_sidebar();
+        }
+        if (pp_series_locate_template(['footer.php'])) {
+            get_footer();
+        } elseif (pp_series_is_block_theme()) {
+            pp_series_format_block_theme_footer();
+        }
+        ?>

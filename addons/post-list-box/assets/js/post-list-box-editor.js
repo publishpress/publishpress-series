@@ -6,13 +6,21 @@ jQuery(document).ready(function ($) {
         }
 
         // Tab switching functionality
-        $('.pps-post-list-box-editor-tabs a').on('click', function (e) {
-            e.preventDefault();
+        var $tabs = $('.pps-post-list-box-editor-tabs [role="tab"]');
+        var $panel = $('#pps-post-list-box-editor-panel');
 
-            var tab = $(this).data('tab');
+        function activateTab($tab) {
+            var tab = $tab.data('tab');
 
-            $('.pps-post-list-box-editor-tabs a').removeClass('active');
-            $(this).addClass('active');
+            $tabs.removeClass('active').attr({
+                'aria-selected': 'false',
+                'tabindex': '-1'
+            });
+            $tab.addClass('active').attr({
+                'aria-selected': 'true',
+                'tabindex': '0'
+            });
+            $panel.attr('aria-labelledby', $tab.attr('id'));
 
             $('.pps-boxes-editor-tab-content').hide();
             $('.pps-' + tab + '-tab').show();
@@ -20,10 +28,35 @@ jQuery(document).ready(function ($) {
             // Re-check dependencies after tab switch to ensure proper visibility
             setTimeout(function() {
                 if (typeof handleFieldDependencies !== 'undefined') {
-                    // Trigger dependency check
                     $('.pps-post-list-box-editor-fields input, .pps-post-list-box-editor-fields select').trigger('change');
                 }
             }, 50);
+        }
+
+        $tabs.off('click.ppsPostListBox keydown.ppsPostListBox');
+        $tabs.on('click.ppsPostListBox', function (e) {
+            e.preventDefault();
+            activateTab($(this));
+        });
+
+        $tabs.on('keydown.ppsPostListBox', function (e) {
+            var currentIndex = $tabs.index(this);
+            var nextIndex = currentIndex;
+
+            if (e.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % $tabs.length;
+            } else if (e.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+            } else if (e.key === 'Home') {
+                nextIndex = 0;
+            } else if (e.key === 'End') {
+                nextIndex = $tabs.length - 1;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            $tabs.eq(nextIndex).trigger('focus').trigger('click');
         });
 
         // Color picker initialization

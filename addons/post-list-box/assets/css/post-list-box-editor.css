@@ -171,7 +171,7 @@
 }
 
 .pps-post-list-boxes-editor-table .field-description {
-    color: gray;
+    color: #50575e;
 }
 
 .pps-post-list-boxes-editor-table .post-list-boxes-field-icon {
@@ -272,7 +272,7 @@
     background-color: #eee;
 }
 
-.publishpress-post-list-box-editor .pps-post-list-box-editor-tabs ul li a span {
+.publishpress-post-list-box-editor .pps-post-list-box-editor-tabs ul li a > span {
     margin-right: 0.618em;
 }
 
@@ -280,6 +280,17 @@
     margin-left: 0;
     font-size: 15px;
     vertical-align: sub;
+}
+
+.publishpress-post-list-box-editor .pps-post-list-box-editor-tabs .ppseries-pro-badge {
+    line-height: 1.4;
+    margin-left: 5px;
+    margin-right: 0;
+    padding: 1px 10px;
+}
+
+.publishpress-post-list-box-editor .pps-post-list-box-editor-tabs .tooltip-text {
+    white-space: normal;
 }
 
 .publishpress-post-list-box-editor .preview-section {

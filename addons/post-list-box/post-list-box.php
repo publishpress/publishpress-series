@@ -1,7 +1,7 @@
 <?php
 /**
  * Post List Box Module for PublishPress Series
- * 
+ *
  */
 
 // Include component files
@@ -54,10 +54,10 @@ class PPS_Post_List_Box
     {
         // Initialize post type
         PPS_Post_List_Box_Post_Type::init();
-        
+
         // Initialize admin UI
         PPS_Post_List_Box_Admin_UI::init();
-        
+
         // Initialize AJAX handlers
         PPS_Post_List_Box_AJAX::init();
 
@@ -67,7 +67,7 @@ class PPS_Post_List_Box
 
         // Create default Post List Boxes if they don't exist
         add_action('init', [$this, 'create_default_post_list_boxes'], 10);
-        
+
         // Set default post list box selection in settings
         add_filter('org_series_settings', [$this, 'set_default_post_list_box_selection']);
     }
@@ -189,7 +189,7 @@ class PPS_Post_List_Box
                 $settings['series_post_list_box_selection'] = $default_box_id;
             }
         }
-        
+
         return $settings;
     }
 
@@ -225,9 +225,12 @@ class PPS_Post_List_Box
      *
      * @return void
      */
-    public function save_post_list_box_data($post_id) {
-        if (empty($_POST['post-list-box-editor-nonce'])
-            || !wp_verify_nonce(sanitize_key($_POST['post-list-box-editor-nonce']), 'post-list-box-editor')) {
+    public function save_post_list_box_data($post_id)
+    {
+        if (
+            empty($_POST['post-list-box-editor-nonce'])
+            || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['post-list-box-editor-nonce'])), 'post-list-box-editor')
+        ) {
             return;
         }
 
@@ -238,21 +241,21 @@ class PPS_Post_List_Box
         $existing_meta = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
         $existing_meta = is_array($existing_meta) ? $existing_meta : [];
         $meta_data = [];
-        
+
         foreach ($fields as $key => $args) {
             $pro_locked = !empty($args['pro_only']);
             $pro_locked = apply_filters('pps_post_list_box_field_pro_locked', $pro_locked, $key, $args);
             if ($pro_locked) {
                 if (isset($_POST[$key])) {
                     if (isset($args['sanitize']) && is_array($args['sanitize']) && $_POST[$key] !== '') {
-                        $value = $_POST[$key]; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                        $value = wp_unslash($_POST[$key]); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Field-specific sanitizers run below or through $sanitize.
                         foreach ($args['sanitize'] as $sanitize) {
                             $value = is_array($value) ? map_deep($value, $sanitize) : $sanitize($value);
                         }
                         $meta_data[$key] = $value;
                     } else {
                         $sanitize = isset($args['sanitize']) ? $args['sanitize'] : 'sanitize_text_field';
-                        $meta_data[$key] = (isset($_POST[$key]) && $_POST[$key] !== '') ? $sanitize($_POST[$key]) : '';
+                        $meta_data[$key] = (isset($_POST[$key]) && $_POST[$key] !== '') ? $sanitize(wp_unslash($_POST[$key])) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Field-specific sanitizers run below or through $sanitize.
                     }
                 } elseif (array_key_exists($key, $existing_meta)) {
                     $meta_data[$key] = $existing_meta[$key];
@@ -263,18 +266,18 @@ class PPS_Post_List_Box
                 continue;
             }
             if (isset($args['sanitize']) && is_array($args['sanitize']) && $_POST[$key] !== '') {
-                $value = $_POST[$key]; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                $value = wp_unslash($_POST[$key]); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Field-specific sanitizers run below or through $sanitize.
                 foreach ($args['sanitize'] as $sanitize) {
                     $value = is_array($value) ? map_deep($value, $sanitize) : $sanitize($value);
                 }
                 $meta_data[$key] = $value;
             } else {
                 $sanitize = isset($args['sanitize']) ? $args['sanitize'] : 'sanitize_text_field';
-                $meta_data[$key] = (isset($_POST[$key]) && $_POST[$key] !== '') ? $sanitize($_POST[$key]) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                $meta_data[$key] = (isset($_POST[$key]) && $_POST[$key] !== '') ? $sanitize(wp_unslash($_POST[$key])) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Field-specific sanitizers run below or through $sanitize.
             }
         }
 
-        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $meta_data);
+        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', wp_slash($meta_data));
     }
 
     /**
@@ -286,7 +289,8 @@ class PPS_Post_List_Box
     {
         global $pagenow, $post_type, $post;
 
-        if (! in_array($pagenow, ['post.php', 'post-new.php'])
+        if (
+            ! in_array($pagenow, ['post.php', 'post-new.php'])
             || $post_type !== self::POST_TYPE_BOXES
         ) {
             return;
@@ -330,11 +334,9 @@ class PPS_Post_List_Box
             ORG_SERIES_VERSION
         );
     }
-
-   
 }
 
 // Initialize the module
-add_action('init', function() {
+add_action('init', function () {
     new PPS_Post_List_Box();
 }, 5);

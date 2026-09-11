@@ -5,7 +5,6 @@ use OrganizeSeries\domain\interfaces\AbstractCollection;
 
 class ControllerRouteCollection extends AbstractCollection
 {
-
     public function __construct()
     {
         parent::__construct(

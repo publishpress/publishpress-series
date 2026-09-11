@@ -7,10 +7,10 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Post_List_Box_Fields {
-    
+class PPS_Post_List_Box_Fields
+{
     const META_PREFIX = 'pps_post_list_box_';
-    
+
     /**
      * Get the fields tabs to be rendered in the post list box editor
      *
@@ -75,7 +75,8 @@ class PPS_Post_List_Box_Fields {
      * @param boolean $use_default
      * @return array $editor_data
      */
-    public static function get_post_list_box_layout_meta_values($post_id, $use_default = false) {
+    public static function get_post_list_box_layout_meta_values($post_id, $use_default = false)
+    {
 
         if ($use_default || empty(get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true))) {
             $editor_data = self::get_default_post_list_box_data();
@@ -93,7 +94,8 @@ class PPS_Post_List_Box_Fields {
      *
      * @return array
      */
-    public static function get_default_post_list_box_data() {
+    public static function get_default_post_list_box_data()
+    {
         $defaults = [
             'title_show' => 1,
             'title_link_to_series' => 0,
@@ -150,7 +152,8 @@ class PPS_Post_List_Box_Fields {
      *
      * @return string
      */
-    public static function default_tab() {
+    public static function default_tab()
+    {
         return apply_filters('pps_post_list_box_editor_default_tab', 'box');
     }
 }

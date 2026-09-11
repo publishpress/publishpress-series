@@ -3,8 +3,8 @@
  * Utility Functions for Post List Box
  */
 
-class PPS_Post_List_Box_Utilities {
-
+class PPS_Post_List_Box_Utilities
+{
     const POST_TYPE_BOXES = 'pps_post_list_box';
 
     /**
@@ -65,7 +65,7 @@ class PPS_Post_List_Box_Utilities {
     {
         $is_current_post = false;
         $post_item_styles = [];
-        
+
         if (!empty($settings['highlight_current_post'])) {
             if ($current_post_id && $current_post_id == $post->ID) {
                 // Real current post detection
@@ -74,7 +74,7 @@ class PPS_Post_List_Box_Utilities {
                 // Preview mode: highlight first post when no current post detected
                 $is_current_post = true;
             }
-            
+
             if ($is_current_post) {
                 // Apply custom colors if set
                 if (!empty($settings['current_post_bg_color'])) {
@@ -85,7 +85,7 @@ class PPS_Post_List_Box_Utilities {
                 }
             }
         }
-        
+
         return [
             'is_current' => $is_current_post,
             'styles' => $post_item_styles
@@ -181,7 +181,7 @@ class PPS_Post_List_Box_Utilities {
      * - Supports preview/sample objects without numeric IDs
      * - Strips Gutenberg blocks (when available), shortcodes, and HTML tags
      * - Returns plain text; caller should apply escaping/formatting
-     * 
+     *
      * I can't use get_the_excerpt() because it applies the 'the_excerpt' filter, which causes recursion loop and memory leak.
      *
      * @param int|WP_Post|object $post_or_id Post ID, WP_Post, or sample stdClass
