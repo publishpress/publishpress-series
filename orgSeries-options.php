@@ -116,6 +116,7 @@ function orgseries_options_init()
     register_setting($orgseries_options, $org_opt, 'orgseries_validate');
 
     // Load tab files — each registers its own section + fields
+    require_once dirname(__FILE__) . '/inc/settings/tab-layouts.php';
     require_once dirname(__FILE__) . '/inc/settings/tab-post-list-box.php';
     require_once dirname(__FILE__) . '/inc/settings/tab-post-details.php';
     require_once dirname(__FILE__) . '/inc/settings/tab-post-navigation.php';
@@ -140,6 +141,17 @@ function orgseries_options_init()
 
 function ppseries_filter_admin_settings_tabs($settings_tabs)
 {
+
+    $settings_tabs = [
+        'series_layouts_settings' => esc_html__('Layouts', 'organize-series'),
+    ] + array_diff_key(
+        $settings_tabs,
+        array_flip([
+            'series_post_list_box_settings',
+            'series_post_details_settings',
+            'series_navigation_settings',
+        ])
+    );
 
     if (!pp_series_is_pro_active()) {
         $settings_tabs['series_cpt_settings'] = esc_html__('Post Types', 'organize-series');

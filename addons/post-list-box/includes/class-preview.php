@@ -429,7 +429,7 @@ class PPS_Post_List_Box_Preview
      */
     private static function render_preview_post_item($settings, $post, $index = 0)
     {
-        $item_classes = ['pps-post-list-item'];
+        $item_classes = ['pps-post-item', 'pps-post-list-item'];
 
         // Get highlighting data using the centralized helper
         $highlighting = PPS_Post_List_Box_Utilities::get_current_post_highlighting($settings, $post, $index, null);

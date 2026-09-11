@@ -29,6 +29,11 @@ if (!function_exists('pp_series_free_version_init')) {
             require_once SERIES_PATH . 'addons/post-list-box/init.php';
         }
 
+        // Register the Gutenberg blocks before Pro adds its renderer extensions.
+        if (file_exists(SERIES_PATH . 'includes-core/blocks.php')) {
+            require_once SERIES_PATH . 'includes-core/blocks.php';
+        }
+
         // Skip loading these Free addons when Pro is active (Pro has its own versions)
         if (defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
             return;

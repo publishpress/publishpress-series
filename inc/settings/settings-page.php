@@ -50,7 +50,7 @@ function orgseries_option_page()
             <div id="side-sortables" class="meta-box-sortables ui-sortable">
                 <div id="token-legend" class="postbox_">
 
-                    <div id="ppseries-token-sidebar" class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_legacy_settings-series-sidebar postbox">
+                    <div id="ppseries-token-sidebar" class="ppseries-settings-tab-content series_layouts_settings-series-sidebar series_legacy_settings-series-sidebar postbox">
 
                         <h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
                         <div class="inside">
@@ -286,7 +286,7 @@ function orgseries_option_page()
 
                     </div>
 
-                    <div class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_group_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
+                    <div class="ppseries-settings-tab-content series_layouts_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_group_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
                         <?php do_action('publishpress_series_admin_after_sidebar'); ?>
                     </div>
 

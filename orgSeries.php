@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series Free
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 3.1.3
+ * Version: 3.2.5
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -66,16 +66,22 @@ if ($invalid_php_version || $invalid_wp_version) {
     return;
 }
 
-// Check if being loaded as library by Pro
-$pp_series_loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+// Check whether this file is the copy bundled inside Pro.
+$pp_series_pro_loaded = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+$pp_series_loaded_as_library = $pp_series_pro_loaded
+    && defined('PP_SERIES_PRO_LIB_VENDOR_PATH')
+    && 0 === strpos(
+        wp_normalize_path(__FILE__),
+        trailingslashit(wp_normalize_path(PP_SERIES_PRO_LIB_VENDOR_PATH))
+    );
 
 // Only define vendor path if not already defined (Pro may have defined it)
 if (! defined('PP_SERIES_LIB_VENDOR_PATH')) {
     define('PP_SERIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
 
-// Skip instance protection if loaded as library (Pro handles it)
-if (!$pp_series_loaded_as_library) {
+// Skip instance protection if Pro already loaded it.
+if (!$pp_series_pro_loaded) {
     $instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
     if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
         require_once $instanceProtectionIncPath;
@@ -116,9 +122,8 @@ if (!defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
     });
 }
 
-add_action('plugins_loaded', function () {
-    // Check if being loaded as library by Pro
-    $loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+add_action('plugins_loaded', function () use ($pp_series_loaded_as_library) {
+    $loaded_as_library = $pp_series_loaded_as_library;
 
     if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
         require_once __DIR__ . '/includes-core/Autoloader.php';
@@ -131,7 +136,7 @@ add_action('plugins_loaded', function () {
     require_once(dirname(__FILE__) . '/includes-core/functions.php');
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '3.1.3'); //the current version of the plugin
+        define('ORG_SERIES_VERSION', '3.2.5'); //the current version of the plugin
         define('SERIES_FILE_PATH', __FILE__);
         define('SERIES_PATH_URL', plugins_url('', __FILE__) . '/');
         define('SERIES_LOC', plugins_url('', __FILE__) . '/'); //the uri of the orgSeries files.
@@ -183,6 +188,12 @@ add_action('plugins_loaded', function () {
 
     // If Pro is active as separate plugin, don't initialize Free
     if ($pro_active && !$loaded_as_library) {
+        // The external Free plugin still provides the shared Gutenberg blocks.
+        $blocks_path = __DIR__ . '/includes-core/blocks.php';
+        if (is_file($blocks_path)) {
+            require_once $blocks_path;
+        }
+
         return;
     }
 

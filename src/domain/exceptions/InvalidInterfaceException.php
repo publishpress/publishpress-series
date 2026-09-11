@@ -15,7 +15,7 @@ class InvalidInterfaceException extends Exception
      * @param int            $code
      * @param Throwable|null $previous
      */
-    public function __construct($failing_fqcn = '', $message = '', $code = 0, Throwable $previous = null)
+    public function __construct($failing_fqcn = '', $message = '', $code = 0, ?Throwable $previous = null)
     {
         if ($failing_fqcn !== '') {
             $message  = $message === ''

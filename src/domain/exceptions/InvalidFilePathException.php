@@ -1,4 +1,5 @@
 <?php
+
 namespace OrganizeSeries\domain\exceptions;
 
 use InvalidArgumentException;
@@ -21,7 +22,7 @@ class InvalidFilePathException extends InvalidArgumentException
      * @param int        $code
      * @param \Exception $previous
      */
-    public function __construct($file_path, $message = '', $code = 0, \Exception $previous = null)
+    public function __construct($file_path, $message = '', $code = 0, ?\Exception $previous = null)
     {
         if (empty($message)) {
             $message = sprintf(
