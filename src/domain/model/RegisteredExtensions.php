@@ -15,8 +15,8 @@ use OrganizeSeries\domain\interfaces\AbstractCollection;
  * @author  Darren Ethier
  * @since   1.0.0
  */
-class RegisteredExtensions extends AbstractCollection {
-
+class RegisteredExtensions extends AbstractCollection
+{
     public function __construct()
     {
         parent::__construct(

@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Series Free
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 3.1.3
+ * Version: 3.2.5
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
@@ -20,11 +20,11 @@
  * Copyright (c) 2007, 2011 Darren Ethier
  * ------------------------------------------------------------------------------
  *
- * @package 	publishpress-series
- * @author		PublishPress
+ * @package     publishpress-series
+ * @author      PublishPress
  * @copyright   Copyright (C) 2007, 2011 Darren Ethier; modifications Copyright (C) 2022 PublishPress
- * @license		GNU General Public License version 2
- * @link		https://publishpress.com/
+ * @license     GNU General Public License version 2
+ * @link        https://publishpress.com/
  */
 
 ######################################
@@ -66,16 +66,22 @@ if ($invalid_php_version || $invalid_wp_version) {
     return;
 }
 
-// Check if being loaded as library by Pro
-$pp_series_loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+// Check whether this file is the copy bundled inside Pro.
+$pp_series_pro_loaded = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+$pp_series_loaded_as_library = $pp_series_pro_loaded
+    && defined('PP_SERIES_PRO_LIB_VENDOR_PATH')
+    && 0 === strpos(
+        wp_normalize_path(__FILE__),
+        trailingslashit(wp_normalize_path(PP_SERIES_PRO_LIB_VENDOR_PATH))
+    );
 
 // Only define vendor path if not already defined (Pro may have defined it)
 if (! defined('PP_SERIES_LIB_VENDOR_PATH')) {
     define('PP_SERIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
 
-// Skip instance protection if loaded as library (Pro handles it)
-if (!$pp_series_loaded_as_library) {
+// Skip instance protection if Pro already loaded it.
+if (!$pp_series_pro_loaded) {
     $instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
     if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
         require_once $instanceProtectionIncPath;
@@ -91,7 +97,8 @@ if (!$pp_series_loaded_as_library) {
     }
 
     $autoloadFilePath = PP_SERIES_LIB_VENDOR_PATH . '/autoload.php';
-    if (! class_exists('ComposerAutoloaderInitPublishPressSeries')
+    if (
+        ! class_exists('ComposerAutoloaderInitPublishPressSeries')
         && is_file($autoloadFilePath)
         && is_readable($autoloadFilePath)
     ) {
@@ -115,10 +122,9 @@ if (!defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
     });
 }
 
-add_action('plugins_loaded', function() {
-    // Check if being loaded as library by Pro
-    $loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
-    
+add_action('plugins_loaded', function () use ($pp_series_loaded_as_library) {
+    $loaded_as_library = $pp_series_loaded_as_library;
+
     if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
         require_once __DIR__ . '/includes-core/Autoloader.php';
     }
@@ -126,23 +132,23 @@ add_action('plugins_loaded', function() {
     $autoloader = new PublishPress\OrganizeSeries\Autoloader();
     $autoloader->register();
 
-    require_once (dirname(__FILE__) . '/inc/utility-functions.php');
-    require_once (dirname(__FILE__) . '/includes-core/functions.php');
+    require_once(dirname(__FILE__) . '/inc/utility-functions.php');
+    require_once(dirname(__FILE__) . '/includes-core/functions.php');
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '3.1.3'); //the current version of the plugin
-        define( 'SERIES_FILE_PATH', __FILE__ );
-        define( 'SERIES_PATH_URL', plugins_url('', __FILE__).'/' );
-        define('SERIES_LOC', plugins_url('', __FILE__).'/' ); //the uri of the orgSeries files.
+        define('ORG_SERIES_VERSION', '3.2.5'); //the current version of the plugin
+        define('SERIES_FILE_PATH', __FILE__);
+        define('SERIES_PATH_URL', plugins_url('', __FILE__) . '/');
+        define('SERIES_LOC', plugins_url('', __FILE__) . '/'); //the uri of the orgSeries files.
         define('SERIES_PATH', plugin_dir_path(__FILE__)); //the path of the orgSeries file
         //note 'SERIES_QUERY_VAR' is now defined in orgSeries class.
         define('SERIES_TOC_QUERYVAR', 'series-toc'); //get/post variable name for querying series-toc from WP
-        define('SERIES_SEARCHURL','search'); //local search URL (from mod_rewrite_rules)
+        define('SERIES_SEARCHURL', 'search'); //local search URL (from mod_rewrite_rules)
         define('SERIES_PART_KEY', '_series_part'); //the default key for the Custom Field that distinguishes what part a post is in the series it belongs to. The underscore makes this hidden on edit post/page screens.
         define('SPOST_SHORTTITLE_KEY', '_spost_short_title');
-        define('SERIES_REWRITERULES','1'); //flag to determine if plugin can change WP rewrite rules.
-        define ('PUBLISHPRESS_SERIES_ABSPATH', __DIR__);
-        define('SERIES_DIR' , orgSeries_dir()); //the name of the directory that orgSeries files are located.
+        define('SERIES_REWRITERULES', '1'); //flag to determine if plugin can change WP rewrite rules.
+        define('PUBLISHPRESS_SERIES_ABSPATH', __DIR__);
+        define('SERIES_DIR', orgSeries_dir()); //the name of the directory that orgSeries files are located.
     }
 
     // Skip Pro detection if loaded as library (we ARE the Pro)
@@ -163,26 +169,31 @@ add_action('plugins_loaded', function() {
                 }
             }
         }
-
     }
 
     if ($pro_active) {
         add_filter(
             'plugin_row_meta',
-            function($links, $file)
-            {
+            function ($links, $file) {
                 if ($file == plugin_basename(__FILE__)) {
-                    $links[]= __('<strong>This plugin can be deleted.</strong>', 'organize-series');
+                    $links[] = __('<strong>This plugin can be deleted.</strong>', 'organize-series');
                 }
 
                 return $links;
             },
-            10, 2
+            10,
+            2
         );
     }
 
     // If Pro is active as separate plugin, don't initialize Free
     if ($pro_active && !$loaded_as_library) {
+        // The external Free plugin still provides the shared Gutenberg blocks.
+        $blocks_path = __DIR__ . '/includes-core/blocks.php';
+        if (is_file($blocks_path)) {
+            require_once $blocks_path;
+        }
+
         return;
     }
 
@@ -191,10 +202,10 @@ add_action('plugins_loaded', function() {
         return;
     }
 
-    define ('PPSERIES_FILE', __FILE__ );
-    define ('PPSERIES_PATH', plugin_dir_path(__FILE__));
-    define ('PPSERIES_URL', plugin_dir_url(__FILE__));
-    define ('PPSERIES_BASE_NAME', plugin_basename(__FILE__));
+    define('PPSERIES_FILE', __FILE__);
+    define('PPSERIES_PATH', plugin_dir_path(__FILE__));
+    define('PPSERIES_URL', plugin_dir_url(__FILE__));
+    define('PPSERIES_BASE_NAME', plugin_basename(__FILE__));
 
     //new bootstrapping, eventually this will replace all of the above.
     require PPSERIES_PATH . 'bootstrap.php';

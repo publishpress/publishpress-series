@@ -39,7 +39,7 @@ class Container
     public function __construct(PimpleContainer $pimple)
     {
         $this->container                                   = $pimple;
-        $this->container[AssetRegistry::class]             = function($container) {
+        $this->container[AssetRegistry::class]             = function ($container) {
             return new AssetRegistry();
         };
         $this->container[LicenseKeyCollection::class] = function ($container) {
@@ -83,29 +83,29 @@ class Container
                 $container[NoticeManager::class]
             );
         };
-        $this->container[IncomingRequest::class]           = function($container) {
-            return new IncomingRequest($_GET, $_POST, $_COOKIE);// phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
+        $this->container[IncomingRequest::class]           = function ($container) {
+            return new IncomingRequest($_GET, $_POST, $_COOKIE);// phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE, WordPress.Security.NonceVerification -- Input collection only; route handlers verify nonces before mutations.
         };
-        $this->container[ControllerRouteCollection::class] = function($container) {
+        $this->container[ControllerRouteCollection::class] = function ($container) {
             return new ControllerRouteCollection();
         };
-        $this->container[HasHooksRouteCollection::class]   = function($container) {
+        $this->container[HasHooksRouteCollection::class]   = function ($container) {
             return new HasHooksRouteCollection();
         };
-        $this->container[Router::class] = function($container) {
+        $this->container[Router::class] = function ($container) {
             return new Router(
                 $container[IncomingRequest::class],
                 $container[ControllerRouteCollection::class],
                 $container[HasHooksRouteCollection::class]
             );
         };
-        $this->container[ExtensionsRegistry::class] = function($container) {
+        $this->container[ExtensionsRegistry::class] = function ($container) {
             return new ExtensionsRegistry(
                 $container[RegisteredExtensions::class],
                 $container[LicenseKeyRepository::class]
             );
         };
-        $this->container[CoreBootstrap::class] = function($container) {
+        $this->container[CoreBootstrap::class] = function ($container) {
             return new CoreBootstrap(
                 $container[ExtensionsRegistry::class],
                 $container[Router::class],
@@ -152,7 +152,8 @@ class Container
      * @param bool   $allow_overwrite
      * @throws InvalidArgumentException
      */
-    public function registerParameter($name, $value, $allow_overwrite = false) {
+    public function registerParameter($name, $value, $allow_overwrite = false)
+    {
         //does it exist?
         if ($this->container->offsetExists($name)) {
             throw new InvalidArgumentException(

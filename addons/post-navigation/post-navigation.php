@@ -102,7 +102,7 @@ class PPS_Series_Post_Navigation
      */
     public function save_post_navigation_data($post_id)
     {
-        if (empty($_POST[PPS_SERIES_POST_NAVIGATION_NONCE_FIELD]) || ! wp_verify_nonce(sanitize_key($_POST[PPS_SERIES_POST_NAVIGATION_NONCE_FIELD]), PPS_SERIES_POST_NAVIGATION_NONCE)) {
+        if (empty($_POST[PPS_SERIES_POST_NAVIGATION_NONCE_FIELD]) || ! wp_verify_nonce(sanitize_key(wp_unslash($_POST[PPS_SERIES_POST_NAVIGATION_NONCE_FIELD])), PPS_SERIES_POST_NAVIGATION_NONCE)) {
             return;
         }
 
@@ -148,7 +148,7 @@ class PPS_Series_Post_Navigation
             if (in_array($key, $excluded, true)) {
                 continue;
             }
-            
+
             if (isset($args['type']) && in_array($args['type'], $excluded_types, true)) {
                 continue;
             }
@@ -175,7 +175,7 @@ class PPS_Series_Post_Navigation
             } elseif (! isset($_POST[$key])) {
                 continue;
             } else {
-                $value = $_POST[$key];
+                $value = wp_unslash($_POST[$key]); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Field-specific sanitizers run below or through $sanitize.
             }
 
             if (isset($args['sanitize'])) {
@@ -185,16 +185,16 @@ class PPS_Series_Post_Navigation
                     }
                 } else {
                     $sanitize_cb = $args['sanitize'];
-                    $value = is_array($value) ? $value : call_user_func($sanitize_cb, $value);
+                    $value = is_array($value) ? map_deep($value, $sanitize_cb) : call_user_func($sanitize_cb, $value);
                 }
             } else {
-                $value = is_array($value) ? $value : sanitize_text_field($value);
+                $value = is_array($value) ? map_deep($value, 'sanitize_text_field') : sanitize_text_field($value);
             }
 
             $meta[$key] = $value;
         }
 
-        update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $meta);
+        update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', wp_slash($meta));
     }
 
     /**

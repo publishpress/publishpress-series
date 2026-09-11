@@ -7,53 +7,56 @@
  * @package Publishpress Series
  */
 
-function orgseries_option_page() {
-	global $orgseries, $wp_rewrite;
-	$wp_rewrite->flush_rules();
-	$org_opt = $orgseries->settings;
-	$org_update_message = get_option('orgseries_update_message');
-	?>
-	<div class="wrap">
-		<div class="icon32" id="icon-options-general"><br /></div>
-		<h2><?php esc_html_e('PublishPress Series Plugin Options', 'organize-series'); ?></h2>
-	<?php
+function orgseries_option_page()
+{
+    global $orgseries, $wp_rewrite;
+    $wp_rewrite->flush_rules();
+    $org_opt = $orgseries->settings;
+    $org_update_message = get_option('orgseries_update_message');
+    ?>
+    <div class="wrap">
+        <div class="icon32" id="icon-options-general"><br /></div>
+        <h2><?php esc_html_e('PublishPress Series Plugin Options', 'organize-series'); ?></h2>
+    <?php
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo $org_update_message;
-	update_option('orgseries_update_message','');
-	?>
+    echo $org_update_message;
+    update_option('orgseries_update_message', '');
+    ?>
 
-  <h2 class="nav-tab-wrapper ppseries-settings-tab">
-  <?php
+  <nav class="nav-tab-wrapper ppseries-settings-tab" role="tablist" aria-label="<?php esc_attr_e('Series settings', 'organize-series'); ?>">
+    <?php
     $settings_tabs = ppseries_admin_settings_tabs();
-    foreach($settings_tabs as $settings_tab_key => $settings_tab_label){
+    $first_tab = true;
+    foreach ($settings_tabs as $settings_tab_key => $settings_tab_label) {
       /*if(apply_filters('ppseries_settings_'.$settings_tab_key.'_tabbed', false)){
         $tabbled_class = 'series-tab-content';
       }else{
         $tabbled_class =  !defined('SERIES_PRO_VERSION') ? 'series-tab-content' : '';
       }*/
-      $tabbled_class = 'series-tab-content';
+        $tabbled_class = 'series-tab-content';
       // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-      echo '<a id="'. esc_attr($settings_tab_key) .'-series-tab" class="nav-tab '. esc_attr($tabbled_class) .'" href="#'. $settings_tab_key .'">'.$settings_tab_label.'</a>';
+        echo '<a id="' . esc_attr($settings_tab_key) . '-series-tab" class="nav-tab ' . esc_attr($tabbled_class) . '" href="#' . esc_attr($settings_tab_key) . '" role="tab" aria-selected="' . ($first_tab ? 'true' : 'false') . '" aria-controls="' . esc_attr($settings_tab_key) . '-series-content" tabindex="' . ($first_tab ? '0' : '-1') . '">' . esc_html($settings_tab_label) . '</a>';
+        $first_tab = false;
     }
-  ?>
-  </h2>
+    ?>
+  </nav>
 
 
-	<div id="poststuff" class="metabox-holder has-right-sidebar ppseries-settings-layout">
+    <div id="poststuff" class="metabox-holder has-right-sidebar ppseries-settings-layout">
 
         <div id="side-info-column">
 
-		<div class="inner-sidebar">
-			<div id="side-sortables" class="meta-box-sortables ui-sortable">
+        <div class="inner-sidebar">
+            <div id="side-sortables" class="meta-box-sortables ui-sortable">
                 <div id="token-legend" class="postbox_">
 
-                    <div id="ppseries-token-sidebar" class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_legacy_settings-series-sidebar postbox">
-                            
+                    <div id="ppseries-token-sidebar" class="ppseries-settings-tab-content series_layouts_settings-series-sidebar series_legacy_settings-series-sidebar postbox">
+
                         <h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
                         <div class="inside">
                             <?php $html_list = '<div> <img> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                            echo '<p><code>'. htmlentities ($html_list) .'</code></p>';
+                            echo '<p><code>' . htmlentities($html_list) . '</code></p>';
                             ?>
                         </div>
 
@@ -61,7 +64,7 @@ function orgseries_option_page() {
                     <h3 class="handle"><span><?php esc_html_e('Overview', 'organize-series'); ?></span></h3>
                     <div class="inside">
                         <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_icon%</strong>
                             <span class="tooltip-text">
@@ -69,15 +72,15 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_icon_linked%</strong>
                             <span class="tooltip-text">
-                                <span><?php esc_html_e('Same as %series_icon% except that the series featured image will be linked to the series page','organize-series'); ?></span>
+                                <span><?php esc_html_e('Same as %series_icon% except that the series featured image will be linked to the series page', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_list%</strong>
                             <span class="tooltip-text">
@@ -85,7 +88,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_title%</strong>
                             <span class="tooltip-text">
@@ -93,7 +96,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_title_linked%</strong>
                             <span class="tooltip-text">
@@ -101,7 +104,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title_list%</strong>
                             <span class="tooltip-text">
@@ -109,7 +112,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title_list_short%</strong>
                             <span class="tooltip-text">
@@ -117,7 +120,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title%</strong>
                             <span class="tooltip-text">
@@ -125,7 +128,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title_linked%</strong>
                             <span class="tooltip-text">
@@ -133,7 +136,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title_short%</strong>
                             <span class="tooltip-text">
@@ -141,7 +144,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_title_short_linked%</strong>
                             <span class="tooltip-text">
@@ -149,7 +152,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%previous_post%</strong>
                             <span class="tooltip-text">
@@ -157,7 +160,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%next_post%</strong>
                             <span class="tooltip-text">
@@ -165,7 +168,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%first_post%</strong>
                             <span class="tooltip-text">
@@ -180,7 +183,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_part%</strong>
                             <span class="tooltip-text">
@@ -188,7 +191,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%total_posts_in_series%</strong>
                             <span class="tooltip-text">
@@ -196,7 +199,7 @@ function orgseries_option_page() {
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_description%</strong>
                             <span class="tooltip-text">
@@ -205,58 +208,72 @@ function orgseries_option_page() {
                             </span>
                         </span><br /><br />
 
-						<!-- PRO Features -->
-                        
+                        <!-- PRO Features -->
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_slug%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%series_slug%</strong> <?php   if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                           } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the slug of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_id%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%series_id%</strong> <?php if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                         } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the ID of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_author%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%post_author%</strong> <?php   if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                           } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the author of the post', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_thumbnail%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%post_thumbnail%</strong> <?php    if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                              } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('If the post has a feature-image then that image will be displayed', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_date%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%post_date%</strong> <?php if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                         } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('The date that a post was published', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%unpublished_post_title%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%unpublished_post_title%</strong> <?php    if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                                      } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will be replaced with the unpublished post title of a post in the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
                         </span><br /><br />
-                        
+
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%total_posts_in_series_with_unpub%</strong> <?	if (!pp_series_is_pro_active()) { ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <? } ?>
+                            <strong>%total_posts_in_series_with_unpub%</strong> <?php  if (!pp_series_is_pro_active()) {
+                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
+                                                                                } ?>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will display the total number of published and unpublished posts in a series', 'organize-series'); ?></span>
                                 <i></i>
@@ -269,50 +286,53 @@ function orgseries_option_page() {
 
                     </div>
 
-                    <div class="ppseries-settings-tab-content series_post_list_box_settings-series-sidebar series_post_details_settings-series-sidebar series_navigation_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_group_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
+                    <div class="ppseries-settings-tab-content series_layouts_settings-series-sidebar series_taxonomy_base_settings-series-sidebar series_group_settings-series-sidebar series_metabox_settings-series-sidebar series_legacy_settings-series-sidebar series_uninstall_settings-series-sidebar series_addon_settings-series-sidebar series_license_settings-series-sidebar series_cpt_settings-series-sidebar">
                         <?php do_action('publishpress_series_admin_after_sidebar'); ?>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
 
 
-		</div>
-		<div id="post-body" class="has-sidebar">
-			<div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
-				<form action="options.php" method="post" id="series_options" name="series_options">
-				<?php settings_fields('orgseries_options'); ?>
-				<table class="widefat seriesmanage">
-				<tbody id="the-list">
-				<tr><td>
+        </div>
+        <div id="post-body" class="has-sidebar">
+            <div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
+                <form action="options.php" method="post" id="series_options" name="series_options">
+                <?php settings_fields('orgseries_options'); ?>
+                <table class="widefat seriesmanage">
+                <tbody id="the-list">
+                <tr><td>
 
-					<?php ppseries_do_settings_sections('orgseries_options_page'); ?>
+                    <?php ppseries_do_settings_sections('orgseries_options_page'); ?>
 
-				</td></tr>
-				</tbody>
-				</table>
-				<br />
-				<?php
+                </td></tr>
+                </tbody>
+                </table>
+                <br />
+                <?php
                 wp_nonce_field('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
-				//$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
-				//$script_text = "javascript:return confirm('".$submit_text."')"
-				?>
-				<span class="submit">
-					<input type="hidden" name="org_series_options[updated_output]" value="" />
-					<input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
-					<input type="submit" class="button-primary" name="update_orgseries" value="<?php esc_attr_e('Update Options', 'organize-series'); ?>" />
-				</span>
-				</form>
-				<div id="TBcontent" class="reset_dialog" style="display:none;">
-					<p> <?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
-					<input type="submit" id="TBcancel" class="button" value="<?php esc_attr_e('No', 'organize-series'); ?>" />
-					<input type="submit" id="TBsubmit" class="alignright button-primary" value="<?php esc_attr_e('Yes', 'organize-series'); ?>" />
-				</div>
-		</div>
-		</div>
-	<br class="clear" />
-	</div>
-	</div>
-	<?php
+                //$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
+                //$script_text = "javascript:return confirm('".$submit_text."')"
+                ?>
+                <span class="submit">
+                    <input type="hidden" name="org_series_options[updated_output]" value="" />
+                    <input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
+                    <input type="submit" class="button-primary" name="update_orgseries" value="<?php esc_attr_e('Update Options', 'organize-series'); ?>" />
+                </span>
+                </form>
+                <div id="TBcontent" style="display:none;">
+                    <div class="reset_dialog" role="dialog" aria-modal="true" aria-labelledby="TBtitle" aria-describedby="TBdescription" tabindex="-1">
+                        <h2 id="TBtitle" class="screen-reader-text"><?php esc_html_e('Reset Series settings', 'organize-series'); ?></h2>
+                        <p id="TBdescription"><?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
+                        <button type="button" id="TBcancel" class="button"><?php esc_html_e('No', 'organize-series'); ?></button>
+                        <button type="button" id="TBsubmit" class="alignright button-primary"><?php esc_html_e('Yes', 'organize-series'); ?></button>
+                    </div>
+                </div>
+        </div>
+        </div>
+    <br class="clear" />
+    </div>
+    </div>
+    <?php
 }

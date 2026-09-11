@@ -32,16 +32,17 @@ class PPS_Series_Post_Details_Ajax
     {
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
         if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
-        $form_data = isset($_POST['settings']) ? wp_unslash($_POST['settings']) : '';
+        $form_data = isset($_POST['settings']) && is_string($_POST['settings']) ? wp_unslash($_POST['settings']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Parse serialized form data before sanitizing its fields below.
         $parsed_settings = [];
 
-        if ($form_data) {
+        if (!empty($form_data) && is_string($form_data)) {
             parse_str($form_data, $parsed_settings);
+            $parsed_settings = map_deep($parsed_settings, 'sanitize_text_field');
         }
 
         // Get default settings as base
@@ -50,7 +51,7 @@ class PPS_Series_Post_Details_Ajax
         // Get all field definitions to know which fields to process
         $post = get_post($post_id);
         $fields = apply_filters('pps_series_post_details_fields', PPS_Series_Post_Details_Fields::get_fields($post), $post);
-        
+
         // Merge settings, handling checkboxes properly
         $settings = $base_settings;
         foreach ($fields as $key => $args) {
@@ -58,7 +59,7 @@ class PPS_Series_Post_Details_Ajax
             if (isset($args['type']) && $args['type'] === 'category_separator') {
                 continue;
             }
-            
+
             // Handle checkboxes - if not in parsed settings, it's unchecked
             if (isset($args['type']) && $args['type'] === 'checkbox') {
                 $settings[$key] = isset($parsed_settings[$key]) ? 1 : 0;
@@ -121,7 +122,10 @@ class PPS_Series_Post_Details_Ajax
         check_ajax_referer('series-post-details-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
+        if ($post_id && !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('Permission denied.', 'organize-series')], 403);
+        }
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? map_deep(wp_unslash($_POST['settings']), 'sanitize_text_field') : [];
 
         $post = self::get_editable_layout($post_id);
         if (! $post || empty($settings)) {
@@ -140,12 +144,7 @@ class PPS_Series_Post_Details_Ajax
             }
         }
 
-        $settings = pps_sanitize_layout_settings($settings, $fields);
-        if (empty($settings)) {
-            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
-        }
-
-        update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', $settings);
+        update_post_meta($post_id, PPS_Series_Post_Details_Utilities::META_PREFIX . 'layout_meta_value', wp_slash($settings));
 
         wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
     }

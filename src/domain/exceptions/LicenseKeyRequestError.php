@@ -15,7 +15,6 @@ use Throwable;
  */
 class LicenseKeyRequestError extends Exception
 {
-
     /**
      * LicenseKeyRequestError constructor.
      *
