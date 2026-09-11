@@ -1,15 +1,15 @@
-=== Issues and Series for Newspapers, Magazines, Publishers, Writers  ===
+=== Issues and Series for Newspapers, Magazines, Publishers, Writers ===
 Contributors: publishpress, kevinB, stevejburge, andergmartins, olatechpro, rizaardiyanto
 Author: publishpress
 Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 7.4.0
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 3.2.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-PublishPress Series is the publishing plugin that allows you to organize posts into issues or series. This is perfect for magazines, newspapers, writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
+Organize posts into issues or a series. Ideal for magazines, newspapers, teachers, comic artists, and anyone writing multi-part articles.
 
 == Description ==
 
@@ -32,7 +32,9 @@ When you're writing a post, you can easily add a post to an existing series, or 
 
 When you're writing a post, you can easily add a post to an existing series, or start a new series. You can also add a new post into the middle of an existing series, and the plugin will adjust the order.
 
-It's easy to keep track of what posts have been added to a series. You can also filter the post list by series giving you a quick way to see all the posts you’ve already added to the series.
+It's easy to keep track of what posts have been added to a series. You can also filter the post list by series, giving you a quick way to see all the posts you’ve already added to the series.
+
+Each series can have its own image, so a magazine issue or a story arc can carry cover art rather than being text only.
 
 [Click here to get started with PublishPress Series](https://publishpress.com/knowledge-base/installation-series/).
 
@@ -48,6 +50,8 @@ PublishPress Series allows you to add three different Series displays to your po
 
 The Publish Series feature is available in the Free and Pro versions of PublishPress Series. This feature allows you to quickly manage all posts linked to a Series. You can use this screen to re-order, schedule publish, and unpublish all the posts in a Series.
 
+This matters most for a series written in advance. You can draft every part, set the order once, and then publish them on a schedule rather than remembering to release each one. Unpublishing works the same way, so a series can be pulled back as a unit.
+
 [Click here to see more about Publish Series screen](https://publishpress.com/knowledge-base/usage-publisher/).
 
 ## Blocks and widgets to show your Series information ##
@@ -57,6 +61,8 @@ You can easily create beautiful layouts with PublishPress Series. This is possib
 [Click here to see more about advanced layouts](https://publishpress.com/knowledge-base/blocks-series/).
 
 PublishPress Series plugin provides two widgets you can use to display your series: Series Table of Contents, and Latest Series. Both widgets are packed with features and can be dropped into your theme, or into the Gutenberg editor.
+
+The Series Table of Contents widget lists the parts of a series, which suits a sidebar on a long-running series. The Latest Series widget surfaces recent series instead, which is more useful on a home page where readers are still choosing what to follow.
 
 [Click here to see more about Series widgets](https://publishpress.com/knowledge-base/series-widgets/).
 
@@ -68,7 +74,7 @@ Custom Post Type support is available in the Pro version of PublishPress Series.
 
 ## PublishPress Series Pro: Shortcodes ##
 
-PublishPress Series Shortcodes is a feature in the Pro version of PublishPress Series. This provides a set of WordPress shortcodes that allow you insert series information into posts. There are five shortcodes available:
+PublishPress Series Shortcodes is a feature in the Pro version of PublishPress Series. This provides a set of WordPress shortcodes that let you insert series information anywhere in a post, including `[series_post_list_box]`, `[series_nav]`, `[series_meta]` and `[publishpress_series_categories]`. They are useful when you want series information in a specific place in the content rather than automatically above or below it.
 
 [Click here to see more about Series shortcodes](https://publishpress.com/knowledge-base/overview-shortcodes/).
 
@@ -118,25 +124,65 @@ Bug reports for PublishPress Series are welcomed in our [repository on GitHub](h
 
 == Frequently Asked Questions ==
 
-**What does PublishPress Series do?**
+= What does PublishPress Series do? =
 
-It makes it easier for you to write a series of posts on your blog/website and have them automatically linked together. One of the best ways to build an audience on your blog/website is to write short posts about the same subject over a period of time rather than one long post.  There are numerous SEO benefits to this as well.  PublishPress Series takes the hassle out of managing the serial posts and you can just focus on writing.  Another way of saying this is, PublishPress Series takes the work out of organizing series so that you write more and your readers can EASILY follow along.
+It makes it easier to write a series of posts and have them automatically linked together. One of the best ways to build an audience is to write short posts about the same subject over a period of time, rather than one long post, and there are SEO benefits to that as well. PublishPress Series takes the work out of organizing a series, so you write more and your readers can easily follow along.
 
-**Can I customize the archive page for series?**
+= How do I add a post to a series? =
 
-You sure can! Create a file called `taxonomy-series.php` and copy the code from your themes `archive.php` file and use that as the basis for building out how the series archive page looks.  You'll also want to take a look at all the template tags you can use for series in the `orgSeries-template-tags.php` file.
+While you are writing the post. The Series metabox on the post editing screen lets you add the post to an existing series or start a new one, so you never have to leave the editor to organize a series.
 
-**Can I customize the archive page for a single series??**
+= Can I add a post to the middle of a series? =
 
-Yes. Create a file named `taxonomy-series-{series-slug}.php` file and replace `{series-slug}` with the slug of your series and you'll be good to go!
+Yes. Choose the position you want and the plugin renumbers the rest of the series for you, so inserting a missing part does not mean editing every post that follows it.
 
-**Can I create a page that lists all the series available?**
+= How do I change the order of posts in a series? =
 
-Yes, you can In the `organize-series` folder you'll see a file called `seriestoc.php`.  It's what gets loaded when you go to your series toc url (defaults at \series-toc\ but you can change this on the series options page).  Chances are though it doesn't look great with your theme (the file included just gives you an idea of what you can put in the file). What you want to do is copy this file to your theme folder and then modify it to match your theme structure (see your themes archive page for an example).  You don't need to put any of the WordPress loop code in this file.
+Use the Publish Series screen, which lists every post in a series in one place and lets you reorder them there rather than post by post.
 
-** Does PublishPress Series use the WordPress taxonomy system? **
+= Can I publish or unpublish a whole series at once? =
 
-Yes, Publishpress Series introduces a new taxonomy "series". Thanks to the rich API provided to plugin authors by WordPress, PublishPress Series takes advantage of the WordPress core. 
+Yes, from the Publish Series screen, and it is in the free version. You can schedule the posts in a series to publish over time, or unpublish the whole series together.
+
+= What can I show readers on a post that is part of a series? =
+
+Three things, and you can use any combination of them:
+
+* **Series Post List Box** — all the posts in the series, with the title, featured image, author and publishing date if you want them.
+* **Series Post Details** — where this post sits in the series, reading like "This entry is part 3 of 8 in the series How to Use WordPress".
+* **Series Post Navigation** — previous and next arrows for moving through the series.
+
+= Can I show a series in a block or a widget? =
+
+Yes. Two widgets come with the plugin: Series Table of Contents, which lists the parts of a series, and Latest Series, which shows recent series. Both work in a theme widget area or in the block editor. If you also use PublishPress Blocks, the Content Display block can pull in posts from a chosen series with more layout options.
+
+= Can I give a series its own image? =
+
+Yes. Series are managed on their own screen, where you can add, edit and delete them and upload or select an image for each one.
+
+= Can a post belong to more than one series? =
+
+Not in the free version, where a post belongs to one series. Adding a post to several series is a feature of [PublishPress Series Pro](https://publishpress.com/series).
+
+= Does it work with pages and custom post types? =
+
+The free version works with posts. Pages and custom post types are supported in PublishPress Series Pro, and a Pro series can even mix them — part 1 a post, part 2 a page, part 3 something else.
+
+= Does PublishPress Series use the WordPress taxonomy system? =
+
+Yes. PublishPress Series adds a "series" taxonomy and builds on the WordPress core API, so a series behaves like other taxonomy terms and works with the tools you already use.
+
+= Can I customize the archive page for series? =
+
+You can. Create a file called `taxonomy-series.php`, copy the code from your theme's `archive.php` as a starting point, and build from there. The `orgSeries-template-tags.php` file lists the template tags available for series.
+
+= Can I customize the archive page for a single series? =
+
+Yes. Create a file named `taxonomy-series-{series-slug}.php`, replacing `{series-slug}` with the slug of your series.
+
+= Can I create a page that lists every series? =
+
+Yes. The `organize-series` folder contains `seriestoc.php`, which is loaded at your series table of contents URL — `/series-toc/` by default, and changeable on the series options page. The included file is a starting point rather than a finished design, so copy it into your theme folder and adjust it to match your theme, using your theme's archive page as a guide. You do not need to add any WordPress loop code to it.
 
 == Screenshots ==
 
