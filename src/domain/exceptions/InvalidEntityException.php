@@ -6,7 +6,6 @@ use Exception;
 
 class InvalidEntityException extends Exception
 {
-
     /**
      * InvalidInterfaceException constructor.
      *

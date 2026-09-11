@@ -107,7 +107,7 @@ if (!function_exists('pp_series_upgrade_function')) {
 
         if (!get_option('pp_series_2_11_1_upgraded')) {
             $table_name = $wpdb->prefix . "orgseriesicons";
-            $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name;
+            $table_exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $wpdb->esc_like($table_name))) === $table_name;
             if (!$table_exists) {
                 //create table for series icons
                 $sql = "CREATE TABLE $table_name (
@@ -121,7 +121,7 @@ if (!function_exists('pp_series_upgrade_function')) {
                 add_option('series_icon_url', '');
                 add_option('series_icon_filetypes', 'jpg gif jpeg png');
 
-                $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name;
+                $table_exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $wpdb->esc_like($table_name))) === $table_name;
             }
 
             if ($table_exists) {
@@ -147,10 +147,10 @@ if (!function_exists('pp_series_upgrade_function')) {
             )";
             dbDelta($sql);
 
-            if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
+            if ($wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $wpdb->esc_like($table_name))) === $table_name) {
                 $column = $wpdb->get_row(
                     $wpdb->prepare(
-                        "SHOW COLUMNS FROM `$table_name` LIKE %s",
+                        "SHOW COLUMNS FROM `$table_name` LIKE %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is the WordPress prefix plus a fixed plugin suffix.
                         'icon'
                     )
                 );
@@ -186,17 +186,16 @@ if (!function_exists('pp_series_locate_template')) {
             if (!$template_name) {
                 continue;
             }
-            if (file_exists(STYLESHEETPATH . '/' . $template_name)) {
-                $located = STYLESHEETPATH . '/' . $template_name;
+            if (file_exists(get_stylesheet_directory() . '/' . $template_name)) {
+                $located = get_stylesheet_directory() . '/' . $template_name;
                 break;
-            } elseif (file_exists(TEMPLATEPATH . '/' . $template_name)) {
-                $located = TEMPLATEPATH . '/' . $template_name;
+            } elseif (file_exists(get_template_directory() . '/' . $template_name)) {
+                $located = get_template_directory() . '/' . $template_name;
                 break;
             }
         }
 
         return $located;
-
     }
 }
 

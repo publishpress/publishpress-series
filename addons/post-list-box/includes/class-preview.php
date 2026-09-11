@@ -7,8 +7,8 @@ if (!class_exists('PPS_Post_List_Box_Utilities')) {
     require_once __DIR__ . '/class-utilities.php';
 }
 
-class PPS_Post_List_Box_Preview {
-
+class PPS_Post_List_Box_Preview
+{
     /**
      * Get sample posts for a series
      *
@@ -121,7 +121,7 @@ class PPS_Post_List_Box_Preview {
     {
         // Create sample post objects for preview
         $sample_posts = [];
-        
+
         for ($i = 1; $i <= 3; $i++) {
             $post = new stdClass();
             $post->ID = 'sample_' . $i;
@@ -129,17 +129,17 @@ class PPS_Post_List_Box_Preview {
             $post->post_content = sprintf(__('This is sample content for post %d in the series. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'organize-series'), $i);
             $post->post_excerpt = sprintf(__('This is a sample excerpt for post %d in the series.', 'organize-series'), $i);
             $post->post_author = get_current_user_id() ?: 1;
-            $post->post_date = date('Y-m-d H:i:s', strtotime('-' . $i . ' days'));
+            $post->post_date = wp_date('Y-m-d H:i:s', strtotime('-' . $i . ' days'));
             $post->post_status = 'publish';
             $post->post_type = 'post';
             $post->post_name = 'sample-post-' . $i;
-            
+
             // Mock featured image
             $post->thumbnail_id = 0;
-            
+
             $sample_posts[] = $post;
         }
-        
+
         return $sample_posts;
     }
 
@@ -373,6 +373,7 @@ class PPS_Post_List_Box_Preview {
         } elseif (!empty($settings['post_ids'])) {
             $post_ids = explode(',', $settings['post_ids']);
             $posts_to_render = get_posts(['post__in' => $post_ids, 'post_type' => 'any', 'orderby' => 'post__in']);
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         } elseif (empty($posts) && (isset($_GET['action']) && $_GET['action'] === 'elementor')) {
             $posts_to_render = self::get_sample_posts();
         }
@@ -429,14 +430,14 @@ class PPS_Post_List_Box_Preview {
     private static function render_preview_post_item($settings, $post, $index = 0)
     {
         $item_classes = ['pps-post-item', 'pps-post-list-item'];
-        
+
         // Get highlighting data using the centralized helper
         $highlighting = PPS_Post_List_Box_Utilities::get_current_post_highlighting($settings, $post, $index, null);
-        
+
         if ($highlighting['is_current']) {
             $item_classes[] = 'current-post';
         }
-        
+
         // Combine item styles with highlighting styles
         $item_styles = self::get_item_styles($settings);
         $item_style_array = [];
@@ -446,7 +447,7 @@ class PPS_Post_List_Box_Preview {
         if (!empty($highlighting['styles'])) {
             $item_style_array = array_merge($item_style_array, $highlighting['styles']);
         }
-        
+
         $item_style_attr = !empty($item_style_array) ? ' style="' . implode(' ', $item_style_array) . '"' : '';
         echo '<div class="' . esc_attr(implode(' ', $item_classes)) . '"' . $item_style_attr . '>';
 
@@ -460,7 +461,7 @@ class PPS_Post_List_Box_Preview {
                 echo '</a>';
             } else {
                 $thumbnail_styles = self::get_thumbnail_styles($settings);
-                
+
                 // Check for fallback featured image
                 $fallback_image_id = !empty($settings['fallback_featured_image']) ? intval($settings['fallback_featured_image']) : 0;
                 if ($fallback_image_id > 0) {
@@ -469,7 +470,7 @@ class PPS_Post_List_Box_Preview {
                 } else {
                     $fallback_url = SERIES_PATH_URL . 'addons/post-list-box/assets/images/placeholder.svg';
                 }
-                
+
                 echo '<img src="' . esc_url($fallback_url) . '" alt="' . esc_attr(isset($post->post_title) ? $post->post_title : '') . '" class="pps-post-thumbnail-img" style="' . trim(str_replace(['style="', '"'], '', $thumbnail_styles)) . '" />';
             }
             echo '</div>';
@@ -479,7 +480,7 @@ class PPS_Post_List_Box_Preview {
 
         if (!empty($settings['show_post_titles'])) {
             $is_current_post = in_array('current-post', $item_classes);
-            
+
             // Build title styles - current post text color overrides regular post title color
             $title_styles = [];
             if ($is_current_post && !empty($settings['current_post_text_color'])) {
@@ -536,9 +537,9 @@ class PPS_Post_List_Box_Preview {
                 echo '<span class="pps-post-author"' . $author_styles . '>' . esc_html($author_name) . '</span>';
             }
             if (!empty($settings['show_post_date'])) {
-                $post_date = isset($post->post_date) && is_string($post->post_date) ? $post->post_date : date('Y-m-d H:i:s');
+                $post_date = isset($post->post_date) && is_string($post->post_date) ? $post->post_date : current_time('mysql');
                 $date_styles = self::get_post_date_styles($settings);
-                echo '<span class="pps-post-date"' . $date_styles . '>' . esc_html(date('F j, Y', strtotime($post_date))) . '</span>';
+                echo '<span class="pps-post-date"' . $date_styles . '>' . esc_html(mysql2date('F j, Y', $post_date)) . '</span>';
             }
             echo '</div>';
         }

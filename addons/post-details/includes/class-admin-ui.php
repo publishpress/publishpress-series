@@ -107,23 +107,23 @@ class PPS_Series_Post_Details_Admin_UI
 
         echo '<div class="pressshack-admin-wrapper publishpress-series-post-details-editor">';
 
-		if (! empty($tabs)) {
-			echo '<div class="pps-series-post-details-editor-tabs" role="tablist" aria-orientation="vertical" aria-label="' . esc_attr__('Series Post Details sections', 'organize-series') . '"><ul>';
-			foreach ($tabs as $key => $data) {
-				$active = $key === PPS_Series_Post_Details_Fields::DEFAULT_TAB ? ' active' : '';
-				$tab_id = 'pps-series-post-details-tab-' . sanitize_html_class($key);
-				echo '<li><a id="' . esc_attr($tab_id) . '" href="#" data-tab="' . esc_attr($key) . '" role="tab" aria-selected="' . ($active ? 'true' : 'false') . '" aria-controls="pps-series-post-details-editor-panel" tabindex="' . ($active ? '0' : '-1') . '"' . $active . '>';
-				if (! empty($data['icon'])) {
-					echo '<span class="dashicons ' . esc_attr($data['icon']) . '" aria-hidden="true"></span> ';
+        if (! empty($tabs)) {
+            echo '<div class="pps-series-post-details-editor-tabs" role="tablist" aria-orientation="vertical" aria-label="' . esc_attr__('Series Post Details sections', 'organize-series') . '"><ul>';
+            foreach ($tabs as $key => $data) {
+                $active = $key === PPS_Series_Post_Details_Fields::DEFAULT_TAB ? ' active' : '';
+                $tab_id = 'pps-series-post-details-tab-' . sanitize_html_class($key);
+                echo '<li><a id="' . esc_attr($tab_id) . '" href="#" data-tab="' . esc_attr($key) . '" role="tab" aria-selected="' . ($active ? 'true' : 'false') . '" aria-controls="pps-series-post-details-editor-panel" tabindex="' . ($active ? '0' : '-1') . '"' . $active . '>';
+                if (! empty($data['icon'])) {
+                    echo '<span class="dashicons ' . esc_attr($data['icon']) . '" aria-hidden="true"></span> ';
                 }
                 echo esc_html($data['label']);
-                
+
                 echo '</a></li>';
             }
             echo '</ul></div>';
         }
 
-		echo '<div id="pps-series-post-details-editor-panel" class="pps-series-post-details-editor-fields wrapper-column" role="tabpanel" aria-labelledby="pps-series-post-details-tab-' . esc_attr(sanitize_html_class(PPS_Series_Post_Details_Fields::DEFAULT_TAB)) . '" tabindex="0">';
+        echo '<div id="pps-series-post-details-editor-panel" class="pps-series-post-details-editor-fields wrapper-column" role="tabpanel" aria-labelledby="pps-series-post-details-tab-' . esc_attr(sanitize_html_class(PPS_Series_Post_Details_Fields::DEFAULT_TAB)) . '" tabindex="0">';
         echo '<table class="form-table pps-series-post-details-editor-table fixed" role="presentation"><tbody>';
         foreach ($fields as $key => $field) {
             $value = isset($settings[$key]) ? $settings[$key] : '';
@@ -269,7 +269,7 @@ class PPS_Series_Post_Details_Admin_UI
                 ?>
                 <div class="pps-category-separator">
                     <h4 class="category-title"><?php echo esc_html($args['label']); ?></h4>
-                    <?php if ($pro_locked): ?>
+                    <?php if ($pro_locked) : ?>
                         <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer" style="padding: 1px 10px;">PRO</a>
                         <span class="tooltip-text">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
@@ -283,7 +283,7 @@ class PPS_Series_Post_Details_Admin_UI
 
             default:
                 // If PRO-locked, start wrapper
-                if ($pro_locked): ?>
+                if ($pro_locked) : ?>
                     <div class="ppseries-pro-lock">
                 <?php endif;
 
@@ -354,7 +354,7 @@ class PPS_Series_Post_Details_Admin_UI
                 }
 
                 // If PRO-locked, end wrapper
-                if ($pro_locked): ?>
+                if ($pro_locked) : ?>
                     <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
                     <span class="tooltip-text">
                         <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
