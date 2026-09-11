@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-11T15:14:44+00:00\n"
+"POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
@@ -2857,6 +2857,12 @@ msgstr ""
 #: orgSeries-widgets.php:415
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
+msgstr ""
+
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#: includes-core/PPSeriesCoreAdmin.php:16
+#, php-format
+msgid "You're using PublishPress Series Free. The Pro version has more features and support. %1$sUpgrade to Pro%2$s"
 msgstr ""
 
 #: includes-core/PPSeriesCoreAdmin.php:69

@@ -13,7 +13,7 @@ class PPSeriesCoreAdmin
                         function ($settings) {
                                 $settings['publishpress-series'] = [
                                     /* translators: 1: Opening link tag, 2: Closing link tag. */
-                                    'message'  => esc_html__("You're using PublishPress Series Free. The Pro version has more features and support. %1$sUpgrade to Pro%2$s", 'organize-series'),
+                                    'message'  => esc_html__('You\'re using PublishPress Series Free. The Pro version has more features and support. %1$sUpgrade to Pro%2$s', 'organize-series'),
                                     'link'     => 'https://publishpress.com/links/series-banner',
                                     'screens'  => [
                                         ['base' => 'toplevel_page_orgseries_options_page', 'id'   => 'toplevel_page_orgseries_options_page'],

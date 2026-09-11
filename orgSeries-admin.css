@@ -183,6 +183,7 @@ ul#serieschecklist {
     max-height: 12em;
     overflow: auto;
     padding-bottom: 10px;
+    padding-inline-start: 4px;
 }
 ul#serieschecklist li span.li-series-name {
     padding-left: 0;
