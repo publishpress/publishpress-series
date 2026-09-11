@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-26T08:40:33+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:18+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -3076,6 +3076,16 @@ msgstr "Standaard lay-out"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Huidige serie"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"U gebruikt PublishPress Series Free. De Pro-versie heeft meer functies en "
+"ondersteuning. %1$sUpgrade naar Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

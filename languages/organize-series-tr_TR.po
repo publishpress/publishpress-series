@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:20+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: tr_TR\n"
@@ -3054,6 +3054,16 @@ msgstr "Varsayılan düzen"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Mevcut seri"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"PublishPress Series Free kullanıyorsunuz. Pro versiyonu daha fazla özellik "
+"ve destek sunar. %1$sPro'ya Yükselt%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

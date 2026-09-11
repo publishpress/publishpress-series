@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:18+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -2992,7 +2992,6 @@ msgstr "Tampilkan daftar Seri atau Kategori Seri yang dapat disesuaikan."
 msgid "%s series"
 msgid_plural "%s series"
 msgstr[0] "%s seri"
-msgstr[1] "%s seri"
 
 #: includes-core/class-blocks.php:431
 #. translators: %s: Number of posts.
@@ -3000,7 +2999,6 @@ msgstr[1] "%s seri"
 msgid "%s post"
 msgid_plural "%s posts"
 msgstr[0] "%s pos"
-msgstr[1] "%s pos"
 
 #: includes-core/class-blocks.php:483
 msgid "Editorial Series"
@@ -3048,6 +3046,16 @@ msgstr "Tata letak default"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Series saat ini"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"Anda sedang menggunakan PublishPress Series Free. Versi Pro memiliki lebih "
+"banyak fitur dan dukungan. %1$sUpgrade ke Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

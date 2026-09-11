@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:19+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "&& (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -3054,6 +3054,16 @@ msgstr "Domyślny układ"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Bieżąca seria"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"Używasz PublishPress Series Free. Wersja Pro ma więcej funkcji i wsparcia. "
+"%1$sUlepsz do Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

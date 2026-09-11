@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:21+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: Weblate 5.14.3\n"
 "X-Domain: organize-series\n"
 "Language: yor\n"
@@ -3039,6 +3039,16 @@ msgstr "Àtẹ́lẹwọ́ aiyé"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Ẹ̀ka lọwọlọwọ"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"O n lo PublishPress Series Free. Ẹya Pro ni awọn ẹya diẹ sii ati atilẹyin. "
+"%1$sṢe imudojuiwọn si Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

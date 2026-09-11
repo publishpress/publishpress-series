@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:17+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "Language: fa_IR\n"
@@ -2968,7 +2968,7 @@ msgstr "فهرستی قابل تنظیم از سری‌ها یا دسته‌بن
 msgid "%s series"
 msgid_plural "%s series"
 msgstr[0] "%s سری"
-msgstr[1] "%s سری"
+msgstr[1] ""
 
 #: includes-core/class-blocks.php:431
 #. translators: %s: Number of posts.
@@ -2976,7 +2976,7 @@ msgstr[1] "%s سری"
 msgid "%s post"
 msgid_plural "%s posts"
 msgstr[0] "%s پست"
-msgstr[1] "%s پست"
+msgstr[1] ""
 
 #: includes-core/class-blocks.php:483
 msgid "Editorial Series"
@@ -3024,6 +3024,16 @@ msgstr "چیدمان پیش‌فرض"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "سری جاری"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"شما از PublishPress Series Free استفاده می‌کنید. نسخه Pro ویژگی‌ها و "
+"پشتیبانی بیشتری دارد. %1$sترقی به Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-09-11 15:17+0000\n"
+"PO-Revision-Date: 2026-09-11 17:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: organize-series\n"
 "% 10 == 0) ? 2 : 3)));\n"
@@ -3008,6 +3008,16 @@ msgstr "עיצוב ברירת מחדל"
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "סדרה נוכחית"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"אתה משתמש ב-PublishPress Series Free. גרסת ה-Pro כוללת יותר תכונות ותמיכה. "
+"%1$sשדרג ל-Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"
