@@ -1,62 +1,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unreleased]
+[3.1.4] - 14 Sep, 2026
 
-* Fixed: Require capability, post type, and allowlists on Post List Box, Post Navigation, and Post Details layout AJAX (Patchstack 35024)
-* Fixed: Match Series feature block previews to their frontend layouts in the block editor
-* Fixed: Allowlist `series_posts_orderby` and `series_posts_order` before they reach series archive ORDER BY (Patchstack 34965)
-* Fixed: Require a nonce, POST, and per-post capability checks for Manage Series publish, unpublish, order, and ignore actions
-* Fixed: Hide series-wide Publish Series UI from users who cannot `manage_publishpress_series`
-
-[3.2.5] - 26 Aug, 2026
-
-* Changed: Rename the Series List block image toggle to "Show Featured image".
-
-[3.2.4] - 26 Aug, 2026
-
-* Fixed: Make the Series List block order settings override the plugin's manual Series order.
-
-[3.2.3] - 26 Aug, 2026
-
-* Added: Add a Series List block option to display individual Series or Series Categories.
-
-[3.2.2] - 26 Aug, 2026
-
-* Fixed: Update the Series List block preview when changing the order by setting.
-
-[3.2.1] - 26 Aug, 2026
-
-* Changed: Combine Post List Boxes, Post Details, and Post Navigation settings into one Layouts tab.
-
-[3.2.0] - 26 Aug, 2026
-
-* Added: Add a Series List block with query, layout, icon, description, and post count controls.
-
-[3.1.9] - 26 Aug, 2026
-
-* Fixed: Include compiled runtime assets in the plugin test package.
-* Fixed: Avoid deprecated implicit nullable parameters in exception constructors.
-
-[3.1.8] - 26 Aug, 2026
-
-* Added: Show live block examples in the Gutenberg inserter preview panel.
-
-[3.1.7] - 26 Aug, 2026
-
-* Fixed: Avoid a deprecated block category hook warning in WordPress 5.8 and newer.
-
-[3.1.6] - 26 Aug, 2026
-
-* Fixed: Show live previews for the Series feature blocks in the block editor.
-
-[3.1.5] - 26 Aug, 2026
-
-* Fixed: Load the Series Gutenberg blocks when the Free plugin is active alongside Series Pro.
-
-[3.1.4] - 26 Aug, 2026
-
-* Added: Add PublishPress Series Gutenberg blocks for Post List Boxes, Post Details, and Post Navigation.
+* Added: Add Gutenberg blocks for Post List Boxes, Post Details, Post Navigation, and Series List #1198
+* Changed: Improve the accessibility of Series admin controls, tabs, tooltips, dynamic updates, dialogs, and text contrast #1204 #1205 #1206 #1207 #1208 #1209 #1210
+* Changed: Allow post-level HTML, including `<hr>`, in Series descriptions #1199
+* Changed: Increase the minimum required PHP version to 7.4 #1197
+* Fixed: Assign the correct Series order to new published and private posts #1187
+* Fixed: Correct the Post List Box preview order and layout editor tabs #1189 #1190 #1191
+* Fixed: Correct the footer layout on the Publish or schedule posts screen #1188
+* Fixed: Require authorization and validated input for Series management, layout, upgrade, and sorting requests #1185 #1203 #1216
+* Fixed: Hide series-wide Publish Series controls from unauthorized users #1203
 
 [3.1.3] - 17 Aug, 2026
 
