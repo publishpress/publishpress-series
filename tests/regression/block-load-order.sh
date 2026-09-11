@@ -49,6 +49,45 @@ ppseries_check_order() {
                 exit(1);
             }
         }
+
+        $feature_styles = [
+            "publishpress-series/post-list-box" => [
+                "pps-post-list-box-frontend",
+                "addons/post-list-box/assets/css/post-list-box-frontend.css",
+            ],
+            "publishpress-series/post-details" => [
+                "pps-series-post-details-frontend",
+                "addons/post-details/assets/css/series-post-details-frontend.css",
+            ],
+            "publishpress-series/post-navigation" => [
+                "pps-series-post-navigation-frontend",
+                "addons/post-navigation/assets/css/post-navigation-frontend.css",
+            ],
+        ];
+        do_action("enqueue_block_editor_assets");
+        foreach ($feature_styles as $block_name => [$handle, $path]) {
+            $feature_block = WP_Block_Type_Registry::get_instance()->get_registered($block_name);
+            if (! $feature_block || ! in_array($handle, $feature_block->style_handles, true)) {
+                fwrite(STDERR, "{$block_name} is missing its shared editor/frontend style.\n");
+                exit(1);
+            }
+
+            $actual = isset(wp_styles()->registered[$handle])
+                ? wp_styles()->registered[$handle]->src
+                : "";
+            $expected = plugins_url(
+                $path,
+                WP_PLUGIN_DIR . "/publishpress-series/orgSeries.php"
+            );
+            if ($expected !== $actual) {
+                fwrite(STDERR, "Unexpected {$handle} URL.\nExpected: {$expected}\nActual:   {$actual}\n");
+                exit(1);
+            }
+            if (! wp_style_is($handle, "enqueued")) {
+                fwrite(STDERR, "{$handle} was not enqueued for the block editor.\n");
+                exit(1);
+            }
+        }
     '
 
     printf '%s load order passed.\n' "$ppseries_label"

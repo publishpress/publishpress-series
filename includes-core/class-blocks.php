@@ -96,6 +96,20 @@ class Blocks
             defined('ORG_SERIES_VERSION') ? ORG_SERIES_VERSION : false
         );
 
+        $feature_styles = [
+            'pps-post-list-box-frontend' => 'addons/post-list-box/assets/css/post-list-box-frontend.css',
+            'pps-series-post-details-frontend' => 'addons/post-details/assets/css/series-post-details-frontend.css',
+            'pps-series-post-navigation-frontend' => 'addons/post-navigation/assets/css/post-navigation-frontend.css',
+        ];
+        foreach ($feature_styles as $handle => $path) {
+            \wp_register_style(
+                $handle,
+                \plugins_url($path, $plugin_file),
+                'pps-series-post-navigation-frontend' === $handle ? ['dashicons'] : [],
+                defined('ORG_SERIES_VERSION') ? ORG_SERIES_VERSION : false
+            );
+        }
+
         \wp_localize_script(
             self::SCRIPT_HANDLE,
             'publishPressSeriesBlocks',
@@ -136,18 +150,21 @@ class Blocks
                 'title'       => \__('Post List Boxes', 'organize-series'),
                 'description' => \__('Display a styled list of posts from a Series.', 'organize-series'),
                 'icon'        => 'list-view',
+                'style'       => 'pps-post-list-box-frontend',
                 'render_callback' => [__CLASS__, 'renderPostListBox'],
             ],
             'publishpress-series/post-details' => [
                 'title'       => \__('Post Details', 'organize-series'),
                 'description' => \__('Display the current post details from a Series.', 'organize-series'),
                 'icon'        => 'editor-help',
+                'style'       => 'pps-series-post-details-frontend',
                 'render_callback' => [__CLASS__, 'renderPostDetails'],
             ],
             'publishpress-series/post-navigation' => [
                 'title'       => \__('Post Navigation', 'organize-series'),
                 'description' => \__('Display navigation links for posts in a Series.', 'organize-series'),
                 'icon'        => 'menu',
+                'style'       => 'pps-series-post-navigation-frontend',
                 'render_callback' => [__CLASS__, 'renderPostNavigation'],
             ],
             'publishpress-series/series-list' => [
@@ -219,6 +236,18 @@ class Blocks
     {
         \wp_enqueue_script(self::SCRIPT_HANDLE);
         \wp_enqueue_style(self::STYLE_HANDLE);
+
+        if (is_callable(['PostListBoxRenderer', 'enqueue_frontend_styles'])) {
+            \PostListBoxRenderer::enqueue_frontend_styles();
+        }
+
+        if (is_callable(['SeriesPostDetailsRenderer', 'enqueue_frontend_assets'])) {
+            \SeriesPostDetailsRenderer::enqueue_frontend_assets();
+        }
+
+        if (is_callable(['PostNavigationRenderer', 'enqueue_frontend_assets'])) {
+            \PostNavigationRenderer::enqueue_frontend_assets();
+        }
     }
 
     /**
@@ -590,6 +619,10 @@ class Blocks
                 : '';
         }
 
+        if (self::isEditorPreview()) {
+            return self::renderFeaturePreview($block_name, $layout_id, $series_id);
+        }
+
         if (! $series && $post_id) {
             $series = self::getPostSeriesSlug($post_id);
         }
@@ -603,10 +636,6 @@ class Blocks
         );
 
         $rendered = \do_shortcode($shortcode);
-
-        if (self::isEditorPreview() && self::isRenderedContentEmpty($rendered)) {
-            return self::renderFeaturePreview($block_name, $layout_id, $series_id);
-        }
 
         return $rendered;
     }
@@ -666,20 +695,6 @@ class Blocks
         return defined('REST_REQUEST')
             && REST_REQUEST
             && \current_user_can('edit_posts');
-    }
-
-    /**
-     * Check whether a shortcode returned no visible block markup.
-     *
-     * @param string $rendered Rendered shortcode output.
-     *
-     * @return bool
-     */
-    private static function isRenderedContentEmpty($rendered)
-    {
-        $without_comments = preg_replace('/<!--[\s\S]*?-->/', '', (string) $rendered);
-
-        return '' === trim((string) $without_comments);
     }
 
     /**
