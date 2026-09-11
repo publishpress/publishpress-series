@@ -33,7 +33,7 @@
     text-align: left;
 }
 
-#serieschecklist li label input:checked ~ .selected-series-order {
+#serieschecklist li input:checked ~ .selected-series-order {
     display: inline-block !important;
     margin-left: 5px;
 }
@@ -79,6 +79,32 @@
 .ppseries-settings-table select {
     width: 300px;
 }
+
+.ppseries-layouts-group {
+    border-bottom: 1px solid #dcdcde;
+    margin: 0 0 24px;
+    padding: 0 0 20px;
+}
+
+.ppseries-layouts-field:last-child .ppseries-layouts-group {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.ppseries-layouts-group h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+.ppseries-layouts-group > .description {
+    margin: 0 0 12px;
+}
+
+.ppseries-layouts-group .form-table {
+    margin-top: 0;
+}
+
 .ppseries-full-width {
     width: -webkit-fill-available !important;
     width: -moz-available !important;
@@ -305,7 +331,7 @@ input #seriesadd {
 
 .ppseries-warning {
     border: 1px solid rgb(230, 219, 84);
-    color: #8a8a8a;
+    color: #50575e;
     font-size: 13px;
     padding: 12px 25px;
     background-color: rgb(254, 255, 224);
@@ -369,7 +395,8 @@ input #seriesadd {
     border-top: 5px solid #333;
 }
 
-.ppseries-pro-lock:hover .tooltip-text {
+.ppseries-pro-lock:hover .tooltip-text,
+.ppseries-pro-lock:focus-within .tooltip-text {
     visibility: visible;
     opacity: 1;
 }

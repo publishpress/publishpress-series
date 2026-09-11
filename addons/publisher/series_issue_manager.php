@@ -6,10 +6,24 @@ if (!defined('OS_PUBLISHER_VERSION')) {
 if (!function_exists('series_issue_manager_part')) {
     function series_issue_manager_part($series_ID, $post_IDs)
     {
+        $post_ids = ppseries_publisher_parse_post_ids($post_IDs);
+        if ($post_ids === [] || !ppseries_publisher_user_can_all_posts($post_ids, 'edit_post')) {
+            return;
+        }
 
+        foreach ($post_ids as $post_ID) {
+            if (
+                in_array(get_post_status($post_ID), ['draft', 'future', 'pending'], true)
+                && !current_user_can('publish_post', $post_ID)
+            ) {
+                return;
+            }
+        }
+
+        $post_IDs = implode(',', $post_ids);
 
         //delete all series part
-        foreach (explode(',', $post_IDs) as $post_ID) {
+        foreach ($post_ids as $post_ID) {
             $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
             delete_post_meta($post_ID, $part_key);
             add_post_meta($post_ID, $part_key, '');
@@ -23,7 +37,7 @@ if (!function_exists('series_issue_manager_part')) {
                 wp_update_post(
                     array(
                         'ID' => $post_ID,
-                        'post_date' => date('Y-m-d H:i:s', strtotime(current_time('mysql'))),
+                        'post_date' => current_time('mysql'),
                         'post_date_gmt' => '',
                         'post_status' => 'publish'
                     )
@@ -47,8 +61,13 @@ if (!function_exists('series_issue_manager_part')) {
 if (!function_exists('series_issue_manager_pending_order')) {
     function series_issue_manager_pending_order($series_ID, $post_IDs)
     {
+        $post_ids = ppseries_publisher_parse_post_ids($post_IDs);
+        if ($post_ids === [] || !ppseries_publisher_user_can_all_posts($post_ids, 'edit_post')) {
+            return;
+        }
+
         $current_part = 0;
-        foreach (explode(',', $post_IDs) as $post_ID) {
+        foreach ($post_ids as $post_ID) {
             $current_part++;
             $part_key = apply_filters('orgseries_pending_part_key', '_pending_series_part', $series_ID);
             update_post_meta($post_ID, $part_key, $current_part);
@@ -59,6 +78,10 @@ if (!function_exists('series_issue_manager_pending_order')) {
 if (!function_exists('series_issue_manager_publish')) {
     function series_issue_manager_publish($series_ID, $post_IDs, $pub_time, &$published, &$unpublished)
     {
+        $post_ids = ppseries_publisher_parse_post_ids($post_IDs);
+        if ($post_ids === [] || !ppseries_publisher_user_can_all_posts($post_ids, 'publish_post')) {
+            return;
+        }
 
         // take the series out of the unpublished list
         $key = array_search($series_ID, $unpublished);
@@ -76,37 +99,39 @@ if (!function_exists('series_issue_manager_publish')) {
             // see if we have a valid publication date/time
             $publish_at = strtotime($pub_time['aa'] . '-' . $pub_time['mm'] . '-' . $pub_time['jj'] . ' ' . $pub_time['hh'] . ':' . $pub_time['mn']);
 
-            if (!$publish_at) {
-                $publish_at = strtotime(current_time('mysql'));
-            }
+        if (!$publish_at) {
+            $publish_at = strtotime(current_time('mysql'));
+        }
 
             // $post_IDs should have all pending posts' IDs in the series
             $post_ids_in_series = get_objects_in_term($series_ID, ppseries_get_series_slug());
             $counter = 0;
-            $current_sn = count($post_ids_in_series) - count(explode(',', $post_IDs));
+            $current_sn = count($post_ids_in_series) - count($post_ids);
 
-            foreach (explode(',', $post_IDs) as $post_ID) {
-                $current_sn++;
-                $post_ID = (int) $post_ID;
-                $post = get_post($post_ID);
-                // set the date to about the appropriate time, keeping a small gap so posts stay in order
-                wp_update_post(
-                    array(
-                        'ID' => $post->ID,
-                        'post_date' => date('Y-m-d H:i:s', $publish_at - ($counter + 1)),
-                        'post_date_gmt' => '',
-                        'post_status' => 'publish'
-                    )
-                );
-
-                if ($publish_at > strtotime(current_time('mysql'))) {
-                    // scheduled
-                    publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
-                } else {
-                    publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
-                }
-                $counter++;
+        foreach ($post_ids as $post_ID) {
+            $current_sn++;
+            $post = get_post($post_ID);
+            if (!$post) {
+                return;
             }
+            // set the date to about the appropriate time, keeping a small gap so posts stay in order
+            wp_update_post(
+                array(
+                    'ID' => $post->ID,
+                    'post_date' => gmdate('Y-m-d H:i:s', $publish_at - ($counter + 1)),
+                    'post_date_gmt' => '',
+                    'post_status' => 'publish'
+                )
+            );
+
+            if ($publish_at > strtotime(current_time('mysql'))) {
+                // scheduled
+                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
+            } else {
+                publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
+            }
+            $counter++;
+        }
         }
     }
 }
@@ -114,6 +139,11 @@ if (!function_exists('series_issue_manager_publish')) {
 if (!function_exists('series_issue_manager_unpublish')) {
     function series_issue_manager_unpublish($series_ID, &$published, &$unpublished)
     {
+        $posts = get_objects_in_term($series_ID, ppseries_get_series_slug());
+        if (is_wp_error($posts) || !ppseries_publisher_user_can_all_posts($posts, 'edit_post')) {
+            return;
+        }
+
         // take the series out of the published list
         $key = array_search($series_ID, $published);
         if (false !== $key) {
@@ -128,18 +158,17 @@ if (!function_exists('series_issue_manager_unpublish')) {
             update_option('im_unpublished_series', $unpublished);
 
             // change all published posts in the series to pending
-            $posts = get_objects_in_term($series_ID, 'series');
-            foreach ($posts as $post) {
-                if (!empty(get_post_status($post)) && get_post_status($post) !== 'draft') {
-                    wp_update_post(
-                        array(
-                            'ID' => $post,
-                            'post_status' => 'pending'
-                        )
-                    );
-                    publisher_wp_set_post_series($post, true, $post, $series_ID, true);
-                }
+        foreach ($posts as $post) {
+            if (!empty(get_post_status($post)) && get_post_status($post) !== 'draft') {
+                wp_update_post(
+                    array(
+                        'ID' => $post,
+                        'post_status' => 'pending'
+                    )
+                );
+                publisher_wp_set_post_series($post, true, $post, $series_ID, true);
             }
+        }
         }
     }
 }
@@ -206,10 +235,10 @@ if (!function_exists('series_issue_manager_add_series_form')) {
         $unpublished = get_option('im_unpublished_series'); ?>
         <div class="form-field" style="display:none;">
             <label for="series_publish">
-                <p><?php _e('Create as unpublished:', 'organize-series') ?>
+                <p><?php esc_html_e('Create as unpublished:', 'organize-series') ?>
                     <input style="float:left; width: 20px;" name="series_publish" id="series_publish" type="checkbox" value="unpublish" />
                 </p>
-                <p><?php _e('When checked, all posts you assign to this series will remain unpublished until you publish the entire series.', 'organize-series'); ?>
+                <p><?php esc_html_e('When checked, all posts you assign to this series will remain unpublished until you publish the entire series.', 'organize-series'); ?>
                 </p>
             </label>
         </div><?php
@@ -217,6 +246,7 @@ if (!function_exists('series_issue_manager_add_series_form')) {
 }
 
 
+// phpcs:disable WordPress.Security.NonceVerification.Missing -- WordPress verifies term create/edit requests before these taxonomy hooks.
 if (!function_exists('series_issue_set_publish_status')) {
     function series_issue_set_publish_status($series_id, $taxonomy_id)
     {
@@ -238,6 +268,8 @@ if (!function_exists('series_issue_set_publish_status')) {
         }
     }
 }
+// phpcs:enable WordPress.Security.NonceVerification.Missing
+
 
 
 
@@ -319,129 +351,321 @@ function pps_publisher_delete_success_message_admin_notice()
 
 function pps_publisher_published_success_message_admin_notice()
 {
-    $pub_time['mm'] = isset($_GET['mm']) ? sanitize_text_field($_GET['mm']) : null;
-    $pub_time['jj'] = isset($_GET['jj']) ? sanitize_text_field($_GET['jj']) : null;
-    $pub_time['aa'] = isset($_GET['aa']) ? sanitize_text_field($_GET['aa']) : null;
-    $pub_time['hh'] = isset($_GET['hh']) ? sanitize_text_field($_GET['hh']) : null;
-    $pub_time['mn'] = isset($_GET['mn']) ? sanitize_text_field($_GET['mn']) : null;
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo pps_publisher_admin_notices_helper(
+        esc_html__('Congratulations. Your posts were published successfully.', 'organize-series')
+    );
+}
 
-    // see if we have a valid publication date/time
-    $publish_at = strtotime($pub_time['aa'] . '-' . $pub_time['mm'] . '-' . $pub_time['jj'] . ' ' . $pub_time['hh'] . ':' . $pub_time['mn']);
+function pps_publisher_scheduled_success_message_admin_notice()
+{
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo pps_publisher_admin_notices_helper(
+        esc_html__('Congratulations. Your posts were scheduled successfully.', 'organize-series')
+    );
+}
 
-    if (!$publish_at) {
-        $publish_at = strtotime(current_time('mysql'));
-    }
-
-    if ($publish_at > strtotime(current_time('mysql'))) {
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your posts were scheduled successfully.', 'organize-series')
-        );
+function ppseries_publisher_parse_post_ids($raw)
+{
+    if (is_array($raw)) {
+        $parts = $raw;
     } else {
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        echo pps_publisher_admin_notices_helper(
-            esc_html__('Congratulations. Your posts were published successfully.', 'organize-series')
-        );
+        $parts = explode(',', (string) $raw);
+    }
+
+    $ids = [];
+    foreach ($parts as $part) {
+        $id = absint($part);
+        if ($id > 0) {
+            $ids[] = $id;
+        }
+    }
+
+    return array_values(array_unique($ids));
+}
+
+function ppseries_publisher_user_can_all_posts($post_ids, $capability)
+{
+    foreach (ppseries_publisher_parse_post_ids($post_ids) as $post_id) {
+        if (!current_user_can($capability, $post_id)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function ppseries_publisher_die_forbidden()
+{
+    wp_die(
+        esc_html__('Sorry, you are not allowed to perform this action.', 'organize-series'),
+        '',
+        ['response' => 403]
+    );
+}
+
+function ppseries_publisher_is_post_request()
+{
+    $method = isset($_SERVER['REQUEST_METHOD'])
+        ? strtoupper(sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD'])))
+        : '';
+
+    return $method === 'POST';
+}
+
+function ppseries_publisher_nonce_field()
+{
+    wp_nonce_field('pps-publisher-manage-issues');
+}
+
+function ppseries_publisher_require_manage_series_nonce()
+{
+    check_admin_referer('pps-publisher-manage-issues');
+}
+
+function ppseries_publisher_require_series_admin()
+{
+    if (!current_user_can('manage_publishpress_series')) {
+        ppseries_publisher_die_forbidden();
     }
 }
 
-function pps_publisher_filter_removable_query_args_unpublish(array $args)
+function ppseries_publisher_redirect(array $args = [])
 {
-    return array_merge(
-        $args,
-        [
-            'action',
-            'series_ID',
-        ]
+    $url = add_query_arg(
+        array_merge(
+            [
+                'page' => 'manage-issues',
+            ],
+            $args
+        ),
+        admin_url('edit.php')
     );
+
+    wp_safe_redirect($url);
+    exit;
 }
 
-function pps_publisher_filter_removable_query_args_delete(array $args)
+function pps_publisher_filter_removable_query_args_notice(array $args)
 {
-    return array_merge(
-        $args,
-        [
-            'part_action',
-            'series_post',
-            '_wpnonce',
-        ]
-    );
-}
-
-function pps_publisher_filter_removable_query_args_order(array $args)
-{
-    return array_merge(
-        $args,
-        [
-            'posts',
-            'publish',
-            'subaction',
-            '_wpnonce',
-        ]
-    );
-}
-
-function pps_publisher_filter_removable_query_args_publish(array $args)
-{
-    return array_merge(
-        $args,
-        [
-            'action',
-            'series_ID',
-            'posts',
-            'mm',
-            'jj',
-            'aa',
-            'hh',
-            'mn',
-            'publish'
-        ]
-    );
+    $args[] = 'pps_publisher_notice';
+    return $args;
 }
 
 function ppseries_publisher_admin_init()
 {
-    if (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'unpublish') {
-        add_action('admin_notices', "pps_publisher_unpublished_success_message_admin_notice");
-        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_unpublish');
-    } elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'publish') {
-        add_action('admin_notices', "pps_publisher_published_success_message_admin_notice");
-        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_publish');
-    } elseif (isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'list') {
-        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
-            add_action('admin_notices',  function () {
-                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                echo pps_publisher_admin_notices_helper(
-                    esc_html__('Congratulations. Your series order was updated successfully.', 'organize-series')
-                );
-            });
-        }
-        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_order');
-    } elseif (isset($_GET['posts']) && isset($_GET['page']) && $_GET['page'] === 'manage-issues' && isset($_GET['action']) && $_GET['action'] === 'order') {
-        if (isset($_GET['subaction']) && $_GET['subaction'] === 'published') {
-            add_action('admin_notices', "pps_publisher_order_published_success_message_admin_notice");
-        } else {
-            add_action('admin_notices', "pps_publisher_order_success_message_admin_notice");
-        }
-        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_order');
-    } elseif (
-        isset($_REQUEST['page']) && $_REQUEST['page'] === 'manage-issues'
-        && (
-            isset($_REQUEST['action']) && $_REQUEST['action'] === 'pps-publisher-delete-posts'
-            || isset($_REQUEST['part_action']) && $_REQUEST['part_action'] === 'pps-publisher-delete-posts'
+    if (!isset($_REQUEST['page']) || $_REQUEST['page'] !== 'manage-issues') {
+        return;
+    }
+
+    if (!current_user_can('publish_posts')) {
+        return;
+    }
+
+    $notice = isset($_GET['pps_publisher_notice']) ? sanitize_key(wp_unslash($_GET['pps_publisher_notice'])) : '';
+    $notice_callbacks = [
+        'unpublished' => 'pps_publisher_unpublished_success_message_admin_notice',
+        'published' => 'pps_publisher_published_success_message_admin_notice',
+        'scheduled' => 'pps_publisher_scheduled_success_message_admin_notice',
+        'order' => 'pps_publisher_order_success_message_admin_notice',
+        'order_published' => 'pps_publisher_order_published_success_message_admin_notice',
+        'deleted' => 'pps_publisher_delete_success_message_admin_notice',
+    ];
+
+    if ($notice === 'pending_order') {
+        add_action('admin_notices', function () {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo pps_publisher_admin_notices_helper(
+                esc_html__('Congratulations. Your series order was updated successfully.', 'organize-series')
+            );
+        });
+        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_notice');
+    } elseif (isset($notice_callbacks[$notice])) {
+        add_action('admin_notices', $notice_callbacks[$notice]);
+        add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_notice');
+    }
+
+    if (
+        (
+            (isset($_REQUEST['action']) && $_REQUEST['action'] === 'pps-publisher-delete-posts')
+            || (isset($_REQUEST['part_action']) && $_REQUEST['part_action'] === 'pps-publisher-delete-posts')
         )
         && isset($_REQUEST['series_post'])
         && isset($_REQUEST['_wpnonce'])
     ) {
-        $nonce = sanitize_text_field($_REQUEST['_wpnonce']);
-        $post_ids = is_array($_REQUEST['series_post']) ? array_map('sanitize_text_field', $_REQUEST['series_post']) : (array) sanitize_text_field($_REQUEST['series_post']);
-        if (wp_verify_nonce($nonce, 'bulk-series-parts')) {
-            foreach ($post_ids as $post_id) {
-                wp_trash_post($post_id);
-            }
-            add_action('admin_notices', "pps_publisher_delete_success_message_admin_notice");
-            add_filter('removable_query_args', 'pps_publisher_filter_removable_query_args_delete');
+        $nonce = sanitize_text_field(wp_unslash($_REQUEST['_wpnonce']));
+        if (
+            !wp_verify_nonce($nonce, 'bulk-series-parts')
+            && !wp_verify_nonce($nonce, 'bulk-series-pendings')
+        ) {
+            ppseries_publisher_die_forbidden();
         }
+
+        $raw_series_posts = wp_unslash($_REQUEST['series_post']); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Scalar and array forms are sanitized immediately below.
+        if (is_array($raw_series_posts)) {
+            $raw_series_posts = array_map('sanitize_text_field', $raw_series_posts);
+        } else {
+            $raw_series_posts = sanitize_text_field($raw_series_posts);
+        }
+        $post_ids = ppseries_publisher_parse_post_ids($raw_series_posts);
+        if ($post_ids === [] || !ppseries_publisher_user_can_all_posts($post_ids, 'delete_post')) {
+            ppseries_publisher_die_forbidden();
+        }
+
+        foreach ($post_ids as $post_id) {
+            wp_trash_post($post_id);
+        }
+
+        $series_id = isset($_REQUEST['series_ID']) ? absint($_REQUEST['series_ID']) : 0;
+        $view = (isset($_REQUEST['action']) && $_REQUEST['action'] === 'list') ? 'list' : 'part';
+        $redirect = ['pps_publisher_notice' => 'deleted'];
+        if ($series_id > 0) {
+            $redirect['action'] = $view;
+            $redirect['series_ID'] = $series_id;
+        }
+        ppseries_publisher_redirect($redirect);
+    }
+
+    $action = isset($_REQUEST['action']) ? sanitize_key(wp_unslash($_REQUEST['action'])) : '';
+    if ($action === 'list' && !current_user_can('manage_publishpress_series')) {
+        ppseries_publisher_die_forbidden();
+    }
+
+    $has_posts = !empty($_REQUEST['posts']);
+    $mutating = in_array($action, ['publish', 'unpublish', 'ignore'], true)
+        || ($action === 'order' && $has_posts)
+        || ($action === 'list' && $has_posts);
+
+    if (!$mutating) {
+        return;
+    }
+
+    if (!ppseries_publisher_is_post_request()) {
+        return;
+    }
+
+    ppseries_publisher_require_manage_series_nonce();
+
+    $series_id = isset($_POST['series_ID']) ? absint($_POST['series_ID']) : 0;
+    if ($series_id <= 0) {
+        ppseries_publisher_die_forbidden();
+    }
+
+    $published = get_option('im_published_series');
+    $unpublished = get_option('im_unpublished_series');
+    if (!is_array($published)) {
+        $published = [];
+    }
+    if (!is_array($unpublished)) {
+        $unpublished = [];
+    }
+
+    $raw_posts = isset($_POST['posts']) ? sanitize_text_field(wp_unslash($_POST['posts'])) : '';
+    $post_ids = ppseries_publisher_parse_post_ids($raw_posts);
+
+    switch ($action) {
+        case 'unpublish':
+            ppseries_publisher_require_series_admin();
+            $posts = get_objects_in_term($series_id, ppseries_get_series_slug());
+            if (is_wp_error($posts) || !ppseries_publisher_user_can_all_posts($posts, 'edit_post')) {
+                ppseries_publisher_die_forbidden();
+            }
+            series_issue_manager_unpublish($series_id, $published, $unpublished);
+            ppseries_publisher_redirect(['pps_publisher_notice' => 'unpublished']);
+            break;
+
+        case 'publish':
+            ppseries_publisher_require_series_admin();
+            if ($post_ids === []) {
+                ppseries_publisher_redirect(['action' => 'list', 'series_ID' => $series_id]);
+            }
+            if (!ppseries_publisher_user_can_all_posts($post_ids, 'publish_post')) {
+                ppseries_publisher_die_forbidden();
+            }
+
+            $pub_time = [
+                'mm' => isset($_POST['mm']) ? sanitize_text_field(wp_unslash($_POST['mm'])) : null,
+                'jj' => isset($_POST['jj']) ? sanitize_text_field(wp_unslash($_POST['jj'])) : null,
+                'aa' => isset($_POST['aa']) ? sanitize_text_field(wp_unslash($_POST['aa'])) : null,
+                'hh' => isset($_POST['hh']) ? sanitize_text_field(wp_unslash($_POST['hh'])) : null,
+                'mn' => isset($_POST['mn']) ? sanitize_text_field(wp_unslash($_POST['mn'])) : null,
+            ];
+            $publish_at = strtotime($pub_time['aa'] . '-' . $pub_time['mm'] . '-' . $pub_time['jj'] . ' ' . $pub_time['hh'] . ':' . $pub_time['mn']);
+            $notice_key = ($publish_at && $publish_at > strtotime(current_time('mysql'))) ? 'scheduled' : 'published';
+
+            series_issue_manager_publish($series_id, implode(',', $post_ids), $pub_time, $published, $unpublished);
+            ppseries_publisher_redirect(['pps_publisher_notice' => $notice_key]);
+            break;
+
+        case 'ignore':
+            ppseries_publisher_require_series_admin();
+            $key = array_search($series_id, $published);
+            if (false !== $key) {
+                array_splice($published, $key, 1);
+                update_option('im_published_series', $published);
+            }
+            $key = array_search($series_id, $unpublished);
+            if (false !== $key) {
+                array_splice($unpublished, $key, 1);
+                update_option('im_unpublished_series', $unpublished);
+            }
+            ppseries_publisher_redirect();
+            break;
+
+        case 'order':
+            if ($post_ids === []) {
+                ppseries_publisher_redirect(['action' => 'part', 'series_ID' => $series_id]);
+            }
+            if (!ppseries_publisher_user_can_all_posts($post_ids, 'edit_post')) {
+                ppseries_publisher_die_forbidden();
+            }
+
+            $subaction = isset($_POST['subaction']) ? sanitize_key(wp_unslash($_POST['subaction'])) : '';
+            if ($subaction === 'pending_order') {
+                series_issue_manager_pending_order($series_id, implode(',', $post_ids));
+                ppseries_publisher_redirect([
+                    'action' => 'part',
+                    'series_ID' => $series_id,
+                    'pps_publisher_notice' => 'pending_order',
+                ]);
+            }
+
+            foreach ($post_ids as $post_id) {
+                $status = get_post_status($post_id);
+                if (
+                    in_array($status, ['draft', 'future', 'pending'], true)
+                    && !current_user_can('publish_post', $post_id)
+                ) {
+                    ppseries_publisher_die_forbidden();
+                }
+            }
+
+            series_issue_manager_part($series_id, implode(',', $post_ids));
+            ppseries_publisher_redirect([
+                'action' => 'part',
+                'series_ID' => $series_id,
+                'pps_publisher_notice' => ($subaction === 'published') ? 'order_published' : 'order',
+            ]);
+            break;
+
+        case 'list':
+            if ($post_ids === []) {
+                ppseries_publisher_redirect(['action' => 'list', 'series_ID' => $series_id]);
+            }
+            if (!ppseries_publisher_user_can_all_posts($post_ids, 'edit_post')) {
+                ppseries_publisher_die_forbidden();
+            }
+
+            $subaction = isset($_POST['subaction']) ? sanitize_key(wp_unslash($_POST['subaction'])) : '';
+            if ($subaction === 'pending_order') {
+                series_issue_manager_pending_order($series_id, implode(',', $post_ids));
+            }
+            ppseries_publisher_redirect([
+                'action' => 'list',
+                'series_ID' => $series_id,
+                'pps_publisher_notice' => 'pending_order',
+            ]);
+            break;
     }
 }
 
@@ -521,6 +745,7 @@ class PPS_Publisher_Admin
      */
     public function screen_option()
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (isset($_GET['action']) && $_GET['action'] === 'list') {
             $option = 'per_page';
             $args = [
@@ -532,6 +757,7 @@ class PPS_Publisher_Admin
             $this->series_publish_table = new PPS_Publisher_Post_Publish_Table();
             add_screen_option($option, $args);
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (isset($_GET['action']) && ($_GET['action'] === 'part' || $_GET['action'] === 'order')) {
             include_once 'series-part-post-table.php';
             include_once 'series-pending-post-table.php';
@@ -556,76 +782,20 @@ class PPS_Publisher_Admin
             update_option('im_unpublished_series', $unpublished);
         }
 
-        // See if we have GET parameters
-        $series_ID = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : null;
-        $action = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : null;
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+        $series_ID = isset($_GET['series_ID']) ? absint($_GET['series_ID']) : 0;
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+        $action = isset($_GET['action']) ? sanitize_key(wp_unslash($_GET['action'])) : '';
+        $can_publish_series = current_user_can('manage_publishpress_series');
 
-        if ($series_ID) {
-            $series_ID = (int) $series_ID;
-            switch ($action) {
-                case "part":
-                    $this->ppseries_publisher_part_output($series_ID);
-                    $this->ppseries_publisher_pending_output($series_ID);
-                    break;
-                case "order":
-                    $post_IDs = isset($_GET['posts']) ? sanitize_text_field($_GET['posts']) : null;
-                    if ($post_IDs) {
-                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
-                            series_issue_manager_pending_order($series_ID, $post_IDs);
-                        } else {
-                            series_issue_manager_part($series_ID, $post_IDs);
-                        }
-                    }
-                    $this->ppseries_publisher_part_output($series_ID);
-                    $this->ppseries_publisher_pending_output($series_ID);
-                    break;
-                case "list":
-                    $post_IDs = isset($_GET['posts']) ? sanitize_text_field($_GET['posts']) : null;
-                    if ($post_IDs) {
-                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
-                            series_issue_manager_pending_order($series_ID, $post_IDs);
-                        }
-                    }
-                    $this->ppseries_publisher_publish_output($series_ID);
-                    break;
-                case "publish":
-                    $post_IDs = isset($_GET['posts']) ? sanitize_text_field($_GET['posts']) : null;
-                    $pub_time['mm'] = isset($_GET['mm']) ? sanitize_text_field($_GET['mm']) : null;
-                    $pub_time['jj'] = isset($_GET['jj']) ? sanitize_text_field($_GET['jj']) : null;
-                    $pub_time['aa'] = isset($_GET['aa']) ? sanitize_text_field($_GET['aa']) : null;
-                    $pub_time['hh'] = isset($_GET['hh']) ? sanitize_text_field($_GET['hh']) : null;
-                    $pub_time['mn'] = isset($_GET['mn']) ? sanitize_text_field($_GET['mn']) : null;
-                    if ($post_IDs) {
-                        if (isset($_GET['subaction']) && $_GET['subaction'] === 'pending_order') {
-                            series_issue_manager_pending_order($series_ID, $post_IDs);
-                        } else {
-                            series_issue_manager_publish($series_ID, $post_IDs, $pub_time, $published, $unpublished);
-                        }
-                    }
-                    include_once 'series_im_admin_main.php';
-                    break;
-                case "unpublish":
-                    series_issue_manager_unpublish($series_ID, $published, $unpublished);
-                    include_once 'series_im_admin_main.php';
-                    break;
-                case "ignore":
-                    // stop tracking the series_ID
-                    $key = array_search($series_ID, $published);
-                    if (false !== $key) {
-                        array_splice($published, $key, 1);
-                        update_option('im_published_series', $published);
-                    }
-                    $key = array_search($series_ID, $unpublished);
-                    if (false !== $key) {
-                        array_splice($unpublished, $key, 1);
-                        update_option('im_unpublished_series', $unpublished);
-                    }
-                    include_once 'series_im_admin_main.php';
-                    break;
-                default:
-                    include_once 'series_im_admin_main.php';
-                    break;
+        if ($series_ID > 0 && in_array($action, ['part', 'order'], true)) {
+            $this->ppseries_publisher_part_output($series_ID);
+            $this->ppseries_publisher_pending_output($series_ID);
+        } elseif ($series_ID > 0 && $action === 'list') {
+            if (!$can_publish_series) {
+                ppseries_publisher_die_forbidden();
             }
+            $this->ppseries_publisher_publish_output($series_ID);
         } else {
             include_once 'series_im_admin_main.php';
         }
@@ -643,14 +813,15 @@ class PPS_Publisher_Admin
                 <?php echo esc_html($series->name); ?>
             </h1>
             <?php
-        if (isset($_REQUEST['s']) && $search = esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s'])))) {
-            /* translators: %s: search keywords */
-            printf(' <span class="subtitle">' . esc_html__(
-                'Search results for &#8220;%s&#8221;',
-                'organize-series'
-            ) . '</span>', esc_html($search));
-        }
-        ?>
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            if (isset($_REQUEST['s']) && $search = esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s'])))) {
+                /* translators: %s: search keywords */
+                printf(' <span class="subtitle">' . esc_html__(
+                    'Search results for &#8220;%s&#8221;',
+                    'organize-series'
+                ) . '</span>', esc_html($search));
+            }
+            ?>
             <div id="poststuff">
 
                 <div id="post-body" class="metabox-holder columns-2">
@@ -667,18 +838,24 @@ class PPS_Publisher_Admin
                         <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
                             <?php
 
-                        if (!empty($_REQUEST['orderby'])) {
-                            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
-                        }
-                        if (!empty($_REQUEST['order'])) {
-                            echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
-                        }
-                        if (!empty($_REQUEST['page'])) {
-                            echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
-                        }
-        ?>
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['orderby'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
+                            }
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['order'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['order']))) . '" />';
+                            }
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['page'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) . '" />';
+                            }
+                            ?>
                             <?php $this->series_publish_table->display(); //Display the table
-        ?>
+                            ?>
                         </form>
                         <div class="form-wrap edit-term-notes">
                             <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
@@ -689,12 +866,14 @@ class PPS_Publisher_Admin
                         <div id="side-sortables" class="meta-box-sortables ui-sortable" style="">
 
 
+                        <?php if (current_user_can('manage_publishpress_series')) : ?>
                         <div id="submitdiv" class="postbox">
                                 <div class="postbox-header">
                                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Publish Series', 'organize-series'); ?>
                                     </h2>
                                 </div>
-                                <form id="im_publish_form" method="get" action="edit.php">
+                                <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                                    <?php ppseries_publisher_nonce_field(); ?>
                                     <div class="hidden-fields">
                                         <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                         <input type="hidden" name="action" id="im_publish_action" value="publish" />
@@ -705,7 +884,7 @@ class PPS_Publisher_Admin
                                         <div id="minor-publishing">
                                             <div id="misc-publishing-actions">
                                                 <div class="misc-pub-section misc-pub-section-last" style="margin:0;">
-                                                    <p><?php _e('Publication Date/Time:', 'organize-series'); ?></p>
+                                                    <p><?php esc_html_e('Publication Date/Time:', 'organize-series'); ?></p>
                                                     <div id='timestampdiv'>
                                                         <?php
                                                         global $wp_locale;
@@ -740,17 +919,18 @@ class PPS_Publisher_Admin
                                             <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Publish Series', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_posts').val(im_post_IDs.join(','));" /></div>
                                             <div class="clear"></div>
                                         </div>
+                                    </div>
                                 </form>
-                            </div>
                         </div>
-
+                        <?php endif; ?>
 
                             <div id="submitdiv" class="postbox">
                                 <div class="postbox-header">
                                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Series Order', 'organize-series'); ?>
                                     </h2>
                                 </div>
-                                <form id="im_publish_form" method="get" action="">
+                                <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                                    <?php ppseries_publisher_nonce_field(); ?>
                                     <div class="hidden-fields">
                                         <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                         <input type="hidden" name="action" id="im_publish_action" value="list" />
@@ -764,8 +944,8 @@ class PPS_Publisher_Admin
                                             <div id="publishing-action"><input type="submit" value="<?php esc_attr_e('Update Order', 'organize-series'); ?>" class="button-primary" id="" name="publish" onclick="var im_post_IDs = new Array(); jQuery('.pp-series-publisher-wrap table.series-parts tbody tr').each( function(){im_post_IDs.push(jQuery(this).attr('id').substring(5));});jQuery('.im_publish_posts').val(im_post_IDs.join(','));" /></div>
                                             <div class="clear"></div>
                                         </div>
+                                    </div>
                                 </form>
-                            </div>
 
                     </div>
 
@@ -776,7 +956,7 @@ class PPS_Publisher_Admin
 
         </div>
 
-    <?php
+        <?php
     }
 
 
@@ -791,7 +971,7 @@ class PPS_Publisher_Admin
             <h1><?php esc_html_e('Series Order:', 'organize-series'); ?>
                 <?php echo esc_html($series->name); ?>
             </h1>
-            <p class="description"><?php _e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?>
+            <p class="description"><?php esc_html_e('Drag the post names into the order you want them to be in the series, from the first part to the last part.', 'organize-series'); ?>
             </p>
             <div id="poststuff">
                 <div id="post-body" class="metabox-holder columns-2">
@@ -800,18 +980,24 @@ class PPS_Publisher_Admin
                         <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
                             <?php
 
-                    if (!empty($_REQUEST['orderby'])) {
-                        echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
-                    }
-                    if (!empty($_REQUEST['order'])) {
-                        echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
-                    }
-                    if (!empty($_REQUEST['page'])) {
-                        echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
-                    }
-        ?>
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['orderby'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
+                            }
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['order'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['order']))) . '" />';
+                            }
+                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                            if (!empty($_REQUEST['page'])) {
+                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                                echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) . '" />';
+                            }
+                            ?>
                             <?php $this->series_part_table->display(); //Display the table
-        ?>
+                            ?>
                         </form>
                         <div class="form-wrap edit-term-notes">
                             <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
@@ -825,7 +1011,8 @@ class PPS_Publisher_Admin
                                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Series Order', 'organize-series'); ?>
                                     </h2>
                                 </div>
-                                <form id="im_publish_form" method="get" action="">
+                                <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                                    <?php ppseries_publisher_nonce_field(); ?>
                                     <div class="hidden-fields">
                                         <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                         <input type="hidden" name="action" id="im_publish_action" value="order" />
@@ -855,38 +1042,44 @@ class PPS_Publisher_Admin
         </div><?php
     }
 
-        public function ppseries_publisher_pending_output($series_ID)
-        {
-            $series = get_term($series_ID);
-            $this->series_pending_table->prepare_items();
-            ?>
+    public function ppseries_publisher_pending_output($series_ID)
+    {
+        $series = get_term($series_ID);
+        $this->series_pending_table->prepare_items();
+        ?>
 
     <div class="wrap pp-series-publisher-wrap series-order-pending">
 
         <h1><?php esc_html_e('Unpublished posts in series:', 'organize-series'); ?>
             <?php echo esc_html($series->name); ?>
         </h1>
-        <p class="description"><?php _e('When these posts are published, they will be added after the last current post in the series.', 'organize-series'); ?>
+        <p class="description"><?php esc_html_e('When these posts are published, they will be added after the last current post in the series.', 'organize-series'); ?>
         </p>
         <div id="poststuff">
             <div id="post-body" class="metabox-holder columns-2">
 
                 <div id="post-body-content" style="position: relative;">
                     <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
-                        <?php
+                    <?php
 
-                                    if (!empty($_REQUEST['orderby'])) {
-                                        echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
-                                    }
-                                    if (!empty($_REQUEST['order'])) {
-                                        echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
-                                    }
-                                    if (!empty($_REQUEST['page'])) {
-                                        echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
-                                    }
-            ?>
+                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                    if (!empty($_REQUEST['orderby'])) {
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                        echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
+                    }
+                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                    if (!empty($_REQUEST['order'])) {
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                        echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['order']))) . '" />';
+                    }
+                    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                    if (!empty($_REQUEST['page'])) {
+                        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+                        echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) . '" />';
+                    }
+                    ?>
                         <?php $this->series_pending_table->display(); //Display the table
-            ?>
+                        ?>
                     </form>
                     <div class="form-wrap edit-term-notes">
                         <p><?php esc_html__('Description here.', 'simple-tags') ?></p>
@@ -900,7 +1093,8 @@ class PPS_Publisher_Admin
                                 <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unpublished Posts', 'organize-series'); ?>
                                 </h2>
                             </div>
-                            <form id="im_publish_form" method="get" action="">
+                            <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                            <?php ppseries_publisher_nonce_field(); ?>
                                 <div class="hidden-fields">
                                     <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                     <input type="hidden" name="action" id="im_publish_action" value="order" />
@@ -924,7 +1118,8 @@ class PPS_Publisher_Admin
                                 <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unpublished Series Order', 'organize-series'); ?>
                                 </h2>
                             </div>
-                            <form id="im_publish_form" method="get" action="">
+                            <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                            <?php ppseries_publisher_nonce_field(); ?>
                                 <div class="hidden-fields">
                                     <input type="hidden" name="page" id="im_publish_page" value="manage-issues" />
                                     <input type="hidden" name="action" id="im_publish_action" value="order" />
@@ -952,8 +1147,7 @@ class PPS_Publisher_Admin
         </div>
 
     </div><?php
-        }
-
+    }
 }
 
 function init_pps_publisher()

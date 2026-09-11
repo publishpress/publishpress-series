@@ -50,7 +50,7 @@ $columns = min(4, max(1, $columns));
                             continue;
                         }
                         $series_icon = $show_image ? get_series_icon('series=' . $series_id . '&fit_width=640&fit_height=360&display=0&link=0') : '';
-                        $series_description = term_description($series_id, ppseries_get_series_slug());
+                        $series_description = term_description($series_id);
                         ?>
                         <article class="pp-series-group-card">
                             <?php if ($show_image && !empty($series_icon)) : ?>
@@ -116,11 +116,11 @@ $columns = min(4, max(1, $columns));
             <?php else : ?>
                 <p><?php esc_html_e('Sorry, no series were found in this category.', 'organize-series'); ?></p>
             <?php endif; ?>
-			</div>
+            </div>
     </div>
 </main>
 <?php
-if(pp_series_locate_template( array( 'sidebar.php' ) )){
+if (pp_series_locate_template(array( 'sidebar.php' ))) {
     get_sidebar();
 }
 if (pp_series_locate_template(['footer.php'])) {

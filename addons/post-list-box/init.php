@@ -19,7 +19,7 @@ require_once __DIR__ . '/classes/PostListBoxFields.php';
 require_once __DIR__ . '/classes/PostListBoxRenderer.php';
 
 // Initialize the renderer
-add_action('init', function() {
+add_action('init', function () {
     if (class_exists('PostListBoxRenderer')) {
         PostListBoxRenderer::init();
     }

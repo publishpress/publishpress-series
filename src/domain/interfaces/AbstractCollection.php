@@ -8,10 +8,10 @@ use SplObjectStorage;
 
 class AbstractCollection extends SplObjectStorage implements CollectionInterface
 {
-	/**
-	 * @var string
-	 */
-	private $class_or_interface_restricted_to;
+    /**
+     * @var string
+     */
+    private $class_or_interface_restricted_to;
 
 
     /**
@@ -19,10 +19,10 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      *
      * @param ClassOrInterfaceFullyQualifiedName $class_or_interface_restricted_to
      */
-	public function __construct(ClassOrInterfaceFullyQualifiedName $class_or_interface_restricted_to)
-	{
-		$this->class_or_interface_restricted_to = $class_or_interface_restricted_to->__toString();
-	}
+    public function __construct(ClassOrInterfaceFullyQualifiedName $class_or_interface_restricted_to)
+    {
+        $this->class_or_interface_restricted_to = $class_or_interface_restricted_to->__toString();
+    }
 
     /**
      * Attaches an object to the Collection optionally with the given identifier.
@@ -32,13 +32,14 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @return bool
      * @throws InvalidEntityException
      */
-    public function add( $object, $identifier = null ) {
-        if ( ! $object instanceof $this->class_or_interface_restricted_to ) {
-            throw new InvalidEntityException( $object, $this->class_or_interface_restricted_to );
+    public function add($object, $identifier = null)
+    {
+        if (! $object instanceof $this->class_or_interface_restricted_to) {
+            throw new InvalidEntityException($object, $this->class_or_interface_restricted_to);
         }
-        $this->offsetSet( $object );
-        $this->setIdentifier( $object, $identifier );
-        return $this->offsetExists( $object );
+        $this->offsetSet($object);
+        $this->setIdentifier($object, $identifier);
+        return $this->offsetExists($object);
     }
 
 
@@ -51,12 +52,13 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param  string $identifier
      * @return bool
      */
-    public function setIdentifier( $object, $identifier = null ) {
-        $identifier = ! empty( $identifier ) ? $identifier : spl_object_hash( $object );
+    public function setIdentifier($object, $identifier = null)
+    {
+        $identifier = ! empty($identifier) ? $identifier : spl_object_hash($object);
         $this->rewind();
-        while ( $this->valid() ) {
-            if ( $object === $this->current() ) {
-                $this->setInfo( $identifier );
+        while ($this->valid()) {
+            if ($object === $this->current()) {
+                $this->setInfo($identifier);
                 $this->rewind();
                 return true;
             }
@@ -74,10 +76,11 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param string $identifier
      * @return object
      */
-    public function get( $identifier ) {
+    public function get($identifier)
+    {
         $this->rewind();
-        while ( $this->valid() ) {
-            if ( $identifier === $this->getInfo() ) {
+        while ($this->valid()) {
+            if ($identifier === $this->getInfo()) {
                 $object = $this->current();
                 $this->rewind();
                 return $object;
@@ -96,10 +99,11 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param  string $identifier
      * @return bool
      */
-    public function has( $identifier ) {
+    public function has($identifier)
+    {
         $this->rewind();
-        while ( $this->valid() ) {
-            if ( $identifier === $this->getInfo() ) {
+        while ($this->valid()) {
+            if ($identifier === $this->getInfo()) {
                 $this->rewind();
                 return true;
             }
@@ -116,8 +120,9 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param object $object
      * @return bool
      */
-    public function hasObject( $object ) {
-        return $this->offsetExists( $object );
+    public function hasObject($object)
+    {
+        return $this->offsetExists($object);
     }
 
 
@@ -128,8 +133,9 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param object $object
      * @return bool
      */
-    public function remove( $object ) {
-        $this->offsetUnset( $object );
+    public function remove($object)
+    {
+        $this->offsetUnset($object);
         return true;
     }
 
@@ -141,10 +147,11 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param string $identifier
      * @return boolean
      */
-    public function setCurrent( $identifier ) {
+    public function setCurrent($identifier)
+    {
         $this->rewind();
-        while ( $this->valid() ) {
-            if ( $identifier === $this->getInfo() ) {
+        while ($this->valid()) {
+            if ($identifier === $this->getInfo()) {
                 return true;
             }
             $this->next();
@@ -160,10 +167,11 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param object $object
      * @return boolean
      */
-    public function setCurrentUsingObject( $object ) {
+    public function setCurrentUsingObject($object)
+    {
         $this->rewind();
-        while ( $this->valid() ) {
-            if ( $this->current() === $object ) {
+        while ($this->valid()) {
+            if ($this->current() === $object) {
                 return true;
             }
             $this->next();
@@ -179,13 +187,14 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      *
      * @return object
      */
-    public function previous() {
-        $index = $this->indexOf( $this->current() );
-        if ( $index === 0 ) {
+    public function previous()
+    {
+        $index = $this->indexOf($this->current());
+        if ($index === 0) {
             return $this->current();
         }
         $index--;
-        return $this->objectAtIndex( $index );
+        return $this->objectAtIndex($index);
     }
 
 
@@ -197,12 +206,13 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param object $object
      * @return boolean|int|string
      */
-    public function indexOf( $object ) {
-        if ( ! $this->offsetExists( $object ) ) {
+    public function indexOf($object)
+    {
+        if (! $this->offsetExists($object)) {
             return false;
         }
-        foreach ( $this as $index => $obj ) {
-            if ( $obj === $object ) {
+        foreach ($this as $index => $obj) {
+            if ($obj === $object) {
                 return $index;
             }
         }
@@ -218,8 +228,9 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param boolean|int|string $index
      * @return object
      */
-    public function objectAtIndex( $index ) {
-        $iterator = new LimitIterator( $this, $index, 1 );
+    public function objectAtIndex($index)
+    {
+        $iterator = new LimitIterator($this, $index, 1);
         $iterator->rewind();
         return $iterator->current();
     }
@@ -234,10 +245,11 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param int $length
      * @return array
      */
-    public function slice( $offset, $length ) {
+    public function slice($offset, $length)
+    {
         $slice = array();
-        $iterator = new LimitIterator( $this, $offset, $length );
-        foreach ( $iterator as $object ) {
+        $iterator = new LimitIterator($this, $offset, $length);
+        foreach ($iterator as $object) {
             $slice[] = $object;
         }
         return $slice;
@@ -252,35 +264,36 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @param object[]|object $objects A single object or an array of objects
      * @param int             $index
      */
-    public function insertAt( $objects, $index ) {
-        if ( ! is_array( $objects ) ) {
+    public function insertAt($objects, $index)
+    {
+        if (! is_array($objects)) {
             $objects = array( $objects );
         }
         // check to ensure that objects don't already exist in the collection
-        foreach ( $objects as $key => $object ) {
-            if ( $this->offsetExists( $object ) ) {
-                unset( $objects[ $key ] );
+        foreach ($objects as $key => $object) {
+            if ($this->offsetExists($object)) {
+                unset($objects[ $key ]);
             }
         }
         // do we have any objects left?
-        if ( ! $objects ) {
+        if (! $objects) {
             return;
         }
         // detach any objects at or past this index
         $remaining = array();
-        if ( $index < $this->count() ) {
-            $remaining = $this->slice( $index, $this->count() - $index );
-            foreach ( $remaining as $object ) {
-                $this->offsetUnset( $object );
+        if ($index < $this->count()) {
+            $remaining = $this->slice($index, $this->count() - $index);
+            foreach ($remaining as $object) {
+                $this->offsetUnset($object);
             }
         }
         // add the new objects we're splicing in
-        foreach ( $objects as $object ) {
-            $this->offsetSet( $object );
+        foreach ($objects as $object) {
+            $this->offsetSet($object);
         }
         // attach the objects we previously detached
-        foreach ( $remaining as $object ) {
-            $this->offsetSet( $object );
+        foreach ($remaining as $object) {
+            $this->offsetSet($object);
         }
     }
 
@@ -292,8 +305,9 @@ class AbstractCollection extends SplObjectStorage implements CollectionInterface
      * @see http://stackoverflow.com/a/8736013
      * @param integer $index
      */
-    public function removeAt( $index ) {
-        $this->offsetUnset( $this->objectAtIndex( $index ) );
+    public function removeAt($index)
+    {
+        $this->offsetUnset($this->objectAtIndex($index));
     }
 
 

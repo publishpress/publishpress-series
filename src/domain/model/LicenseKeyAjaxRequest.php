@@ -31,7 +31,8 @@ class LicenseKeyAjaxRequest extends AbstractAjaxRequest
      * Return the nonce action identifier.
      * @return string
      */
-    public function getNonceAction() {
+    public function getNonceAction()
+    {
         return 'os_license_key_nonce_' . $this->extension;
     }
 
