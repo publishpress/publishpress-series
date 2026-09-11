@@ -147,7 +147,6 @@
             createElement(
                 'div',
                 blockProps,
-                createElement('div', { className: 'pps-series-block-editor-label' }, definition.title),
                 preview
             )
         );
