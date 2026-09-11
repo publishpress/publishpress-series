@@ -69,12 +69,9 @@ class Blocks
             return;
         }
 
-        $script_url = defined('PPSERIES_URL')
-            ? PPSERIES_URL . 'assets/js/publishpress-series-blocks.js'
-            : \plugins_url('assets/js/publishpress-series-blocks.js', dirname(__DIR__) . '/orgSeries.php');
-        $style_url = defined('PPSERIES_URL')
-            ? PPSERIES_URL . 'assets/css/publishpress-series-blocks.css'
-            : \plugins_url('assets/css/publishpress-series-blocks.css', dirname(__DIR__) . '/orgSeries.php');
+        $plugin_file = dirname(__DIR__) . '/orgSeries.php';
+        $script_url = \plugins_url('assets/js/publishpress-series-blocks.js', $plugin_file);
+        $style_url = \plugins_url('assets/css/publishpress-series-blocks.css', $plugin_file);
 
         \wp_register_script(
             self::SCRIPT_HANDLE,

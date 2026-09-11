@@ -66,16 +66,22 @@ if ($invalid_php_version || $invalid_wp_version) {
     return;
 }
 
-// Check if being loaded as library by Pro
-$pp_series_loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+// Check whether this file is the copy bundled inside Pro.
+$pp_series_pro_loaded = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+$pp_series_loaded_as_library = $pp_series_pro_loaded
+    && defined('PP_SERIES_PRO_LIB_VENDOR_PATH')
+    && 0 === strpos(
+        wp_normalize_path(__FILE__),
+        trailingslashit(wp_normalize_path(PP_SERIES_PRO_LIB_VENDOR_PATH))
+    );
 
 // Only define vendor path if not already defined (Pro may have defined it)
 if (! defined('PP_SERIES_LIB_VENDOR_PATH')) {
     define('PP_SERIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
 
-// Skip instance protection if loaded as library (Pro handles it)
-if (!$pp_series_loaded_as_library) {
+// Skip instance protection if Pro already loaded it.
+if (!$pp_series_pro_loaded) {
     $instanceProtectionIncPath = PP_SERIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
     if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
         require_once $instanceProtectionIncPath;
@@ -115,9 +121,8 @@ if (!defined('PUBLISHPRESS_SERIES_PRO_LOADED')) {
     });
 }
 
-add_action('plugins_loaded', function() {
-    // Check if being loaded as library by Pro
-    $loaded_as_library = defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+add_action('plugins_loaded', function() use ($pp_series_loaded_as_library) {
+    $loaded_as_library = $pp_series_loaded_as_library;
     
     if (! class_exists('PublishPress\\OrganizeSeries\\Autoloader')) {
         require_once __DIR__ . '/includes-core/Autoloader.php';
