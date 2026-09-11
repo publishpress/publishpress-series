@@ -76,12 +76,13 @@ class PPS_Post_List_Box_Utilities
             }
 
             if ($is_current_post) {
-                // Apply custom colors if set
-                if (!empty($settings['current_post_bg_color'])) {
-                    $post_item_styles[] = 'background-color: ' . esc_attr($settings['current_post_bg_color']) . ';';
+                $current_bg = !empty($settings['current_post_bg_color']) ? pps_sanitize_css_color($settings['current_post_bg_color']) : '';
+                if ($current_bg) {
+                    $post_item_styles[] = 'background-color: ' . $current_bg . ';';
                 }
-                if (!empty($settings['current_post_border_color'])) {
-                    $post_item_styles[] = 'border-color: ' . esc_attr($settings['current_post_border_color']) . ';';
+                $current_border = !empty($settings['current_post_border_color']) ? pps_sanitize_css_color($settings['current_post_border_color']) : '';
+                if ($current_border) {
+                    $post_item_styles[] = 'border-color: ' . $current_border . ';';
                 }
             }
         }

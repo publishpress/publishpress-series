@@ -3,6 +3,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]
 
+* Fixed: Require capability, post type, and allowlists on Post List Box, Post Navigation, and Post Details layout AJAX (Patchstack 35024)
 * Fixed: Match Series feature block previews to their frontend layouts in the block editor
 * Fixed: Allowlist `series_posts_orderby` and `series_posts_order` before they reach series archive ORDER BY (Patchstack 34965)
 * Fixed: Require a nonce, POST, and per-post capability checks for Manage Series publish, unpublish, order, and ignore actions

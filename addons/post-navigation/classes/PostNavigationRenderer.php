@@ -1093,14 +1093,20 @@ class PostNavigationRenderer
 
         // Container background color
         if (! empty($settings['container_background_color']) && $settings['container_background_color'] !== 'transparent') {
-            $content_styles[] = sprintf('background-color: %s;', esc_attr($settings['container_background_color']));
+            $container_bg = pps_sanitize_css_color($settings['container_background_color']);
+            if ($container_bg) {
+                $content_styles[] = sprintf('background-color: %s;', $container_bg);
+            }
         }
 
         // Container border
         $container_border_width = isset($settings['container_border_width']) ? (int) $settings['container_border_width'] : 0;
         if ($container_border_width > 0) {
-            $container_border_color = ! empty($settings['container_border_color']) ? $settings['container_border_color'] : '#dddddd';
-            $content_styles[] = sprintf('border: %dpx solid %s;', $container_border_width, esc_attr($container_border_color));
+            $container_border_color = ! empty($settings['container_border_color']) ? pps_sanitize_css_color($settings['container_border_color']) : '#dddddd';
+            if (! $container_border_color) {
+                $container_border_color = '#dddddd';
+            }
+            $content_styles[] = sprintf('border: %dpx solid %s;', $container_border_width, $container_border_color);
         }
 
         // Container border radius
@@ -1123,19 +1129,24 @@ class PostNavigationRenderer
         $nav_links_styles[] = 'justify-content: space-between;';
 
         // Series title alignment (independent from nav links alignment)
-        $series_title_alignment = isset($settings['series_title_alignment']) ? $settings['series_title_alignment'] : 'center';
-        $title_align_self = 'center';
-        if ($series_title_alignment === 'left') {
-            $title_align_self = 'flex-start';
-        } elseif ($series_title_alignment === 'right') {
-            $title_align_self = 'flex-end';
-        }
-        $title_styles[] = 'align-self: ' . $title_align_self . ';';
-        $title_styles[] = 'text-align: ' . $series_title_alignment . ';';
+        $series_title_alignment = PPS_Series_Post_Navigation_Utilities::sanitize_series_title_alignment(
+            isset($settings['series_title_alignment']) ? $settings['series_title_alignment'] : 'center'
+        );
+        $align_map = [
+            'left'   => ['flex-start', 'left'],
+            'center' => ['center', 'center'],
+            'right'  => ['flex-end', 'right'],
+        ];
+        $align_css = $align_map[$series_title_alignment];
+        $title_styles[] = 'align-self: ' . $align_css[0] . ';';
+        $title_styles[] = 'text-align: ' . $align_css[1] . ';';
 
         // Series title color
         if (! empty($settings['series_title_color'])) {
-            $title_styles[] = 'color: ' . esc_attr($settings['series_title_color']) . ';';
+            $title_color = pps_sanitize_css_color($settings['series_title_color']);
+            if ($title_color) {
+                $title_styles[] = 'color: ' . $title_color . ';';
+            }
         }
 
         if (! empty($content_styles)) {
@@ -1153,19 +1164,28 @@ class PostNavigationRenderer
         // Link styles
         $link_styles = [];
         if (! empty($settings['link_color'])) {
-            $link_styles[] = 'color: ' . esc_attr($settings['link_color']) . ';';
+            $link_color = pps_sanitize_css_color($settings['link_color']);
+            if ($link_color) {
+                $link_styles[] = 'color: ' . $link_color . ';';
+            }
         }
 
         if (! empty($settings['link_background_color']) && $settings['link_background_color'] !== 'transparent') {
-            $link_styles[] = 'background-color: ' . esc_attr($settings['link_background_color']) . ';';
-            $link_styles[] = 'display: inline-flex;';
-            $link_styles[] = 'align-items: center;';
+            $link_bg = pps_sanitize_css_color($settings['link_background_color']);
+            if ($link_bg) {
+                $link_styles[] = 'background-color: ' . $link_bg . ';';
+                $link_styles[] = 'display: inline-flex;';
+                $link_styles[] = 'align-items: center;';
+            }
         }
 
         // Border styles
         $border_width = isset($settings['border_width']) ? (int) $settings['border_width'] : 0;
         if ($border_width > 0) {
-            $border_color = ! empty($settings['border_color']) ? $settings['border_color'] : '#dddddd';
+            $border_color = ! empty($settings['border_color']) ? pps_sanitize_css_color($settings['border_color']) : '#dddddd';
+            if (! $border_color) {
+                $border_color = '#dddddd';
+            }
             $link_styles[] = sprintf('border: %dpx solid %s;', $border_width, esc_attr($border_color));
             if (! in_array('display: inline-flex;', $link_styles, true)) {
                 $link_styles[] = 'display: inline-flex;';

@@ -112,7 +112,7 @@ class PPS_Series_Post_Navigation_Fields
                     'center' => __('Center', 'organize-series'),
                     'right'  => __('Right', 'organize-series'),
                 ],
-                'sanitize' => 'sanitize_text_field',
+                'sanitize' => 'PPS_Series_Post_Navigation_Utilities::sanitize_series_title_alignment',
                 'default'  => 'center',
                 'description' => __('Choose the alignment of the series title', 'organize-series'),
             ],

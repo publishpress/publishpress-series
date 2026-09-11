@@ -234,7 +234,10 @@ class PPS_Post_List_Box
             return;
         }
 
-        $post = get_post($post_id);
+        $post = pps_get_editable_layout_post($post_id, self::POST_TYPE_BOXES);
+        if (! $post) {
+            return;
+        }
 
         $fields = apply_filters('pps_post_list_box_fields', PPS_Post_List_Box_Fields::get_fields($post), $post);
         $excluded_input = ['template_action', 'import_action'];

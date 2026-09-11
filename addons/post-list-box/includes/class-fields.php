@@ -86,7 +86,38 @@ class PPS_Post_List_Box_Fields
 
         $editor_data['post_id'] = $post_id;
 
+        if (isset($editor_data['title_html_tag'])) {
+            $editor_data['title_html_tag'] = self::sanitize_title_html_tag($editor_data['title_html_tag']);
+        }
+        if (isset($editor_data['layout_style'])) {
+            $editor_data['layout_style'] = self::sanitize_layout_style($editor_data['layout_style']);
+        }
+
         return apply_filters('pps_post_list_box_get_layout_meta_values', $editor_data, $post_id, $use_default);
+    }
+
+    public static function get_allowed_title_html_tags()
+    {
+        return ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'p'];
+    }
+
+    public static function sanitize_title_html_tag($tag)
+    {
+        $tag = is_string($tag) ? strtolower(trim($tag)) : '';
+
+        return pps_sanitize_choice($tag, self::get_allowed_title_html_tags(), 'h3');
+    }
+
+    public static function get_allowed_layout_styles()
+    {
+        return ['list', 'grid'];
+    }
+
+    public static function sanitize_layout_style($style)
+    {
+        $style = is_string($style) ? strtolower(trim($style)) : '';
+
+        return pps_sanitize_choice($style, self::get_allowed_layout_styles(), 'list');
     }
 
     /**
