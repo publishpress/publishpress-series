@@ -4,21 +4,26 @@ $settings = $orgseries->settings;
 $delete_series = $settings['kill_on_delete'];
 
 if ($delete_series == 1) {
-    $query = $wpdb->prepare("SELECT term_id FROM $wpdb->term_taxonomy WHERE taxonomy = %s", ppseries_get_series_slug());
-    $series_ids = $wpdb->get_results($query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query prepared above.
-    foreach ($series_ids as $series) {
-        $series = (int) $series->term_id;
+    $taxonomy = ppseries_get_series_slug();
+    $series_ids = get_terms(
+        array(
+            'taxonomy'   => $taxonomy,
+            'hide_empty' => false,
+            'fields'     => 'ids',
+        )
+    );
 
-        $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", $series));
-        $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->term_taxonomy WHERE term_taxonomy_id = %d", $series));
-        $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->terms WHERE term_id = %d", $series));
+    if (! is_wp_error($series_ids)) {
+        foreach ($series_ids as $series) {
+            wp_delete_term((int) $series, $taxonomy);
+        }
     }
 
-    $meta_key = "'%_series_part%'";
+    $meta_key = '%' . $wpdb->esc_like('_series_part') . '%';
     $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $meta_key));
-    $table_name = $wpdb->prefix . "orgseriesicons";
-    $drop_query = "DROP TABLE " . $table_name;
-    $wpdb->query($drop_query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- DDL uses only the WordPress prefix and a fixed table suffix.
+    $table_name = $wpdb->prefix . 'orgseriesicons';
+    // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Plugin-owned table name uses the WordPress database prefix and a static suffix.
+    $wpdb->query('DROP TABLE IF EXISTS ' . $table_name);
     delete_option('org_series_options');
     delete_option('org_series_is_initialized');
     delete_option('org_series_version');

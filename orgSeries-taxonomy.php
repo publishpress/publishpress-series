@@ -66,7 +66,14 @@ function &get_series($args = '')
         return $series;
     }
 
-    $series = get_terms(array_merge($args, array('taxonomy' => ppseries_get_series_slug())));
+    $series = get_terms(
+        wp_parse_args(
+            $args,
+            array(
+                'taxonomy' => ppseries_get_series_slug(),
+            )
+        )
+    );
 
     if (is_wp_error($series) || empty($series)) {
         $series = [];
@@ -263,7 +270,7 @@ function get_series_ordered($args = '')
         $having = 'HAVING count(tp.id) > 0 ';
     }
 
-    $postTypes = array_values((array) $postTypes);
+    $postTypes = array_values(array_filter(array_map('sanitize_key', (array) $postTypes)));
     if (!$postTypes) {
         return array();
     }
@@ -717,6 +724,7 @@ function delete_series_object_relationship($object_id, $terms)
     }
 
     if (!empty($t_ids)) {
+        $t_ids = array_map('absint', $t_ids);
         $in_tt_ids = implode(', ', array_fill(0, count($t_ids), '%d'));
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The IN fragment contains only generated integer placeholders.
         $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", array_merge(array($object_id), $t_ids)));

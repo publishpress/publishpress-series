@@ -18,7 +18,14 @@ function series_get_icons($series)
     global $wpdb;
     $tablename = $wpdb->prefix . 'orgseriesicons';
 
-    $row = $wpdb->get_row($wpdb->prepare("SELECT icon FROM $tablename WHERE term_id=%d", $series)); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is the WordPress prefix plus a fixed plugin suffix.
+    // phpcs:disable WordPress.DB.PreparedSQL.NotPrepared -- Plugin-owned table name uses the WordPress database prefix and a static suffix.
+    $row = $wpdb->get_row(
+        $wpdb->prepare(
+            'SELECT icon FROM ' . $tablename . ' WHERE term_id = %d',
+            $series
+        )
+    );
+    // phpcs:enable WordPress.DB.PreparedSQL.NotPrepared
 
     if ($row) {
         return $row->icon;
@@ -93,7 +100,16 @@ function seriesicons_write($series, $icon)
         return false;
     }
 
-    if ($wpdb->get_var($wpdb->prepare("SELECT term_id FROM `$tablename` WHERE term_id=%d", $series))) { // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is the WordPress prefix plus a fixed plugin suffix.
+    if (
+        // phpcs:disable WordPress.DB.PreparedSQL.NotPrepared -- Plugin-owned table name uses the WordPress database prefix and a static suffix.
+        $wpdb->get_var(
+            $wpdb->prepare(
+                'SELECT term_id FROM ' . $tablename . ' WHERE term_id = %d',
+                $series
+            )
+        )
+        // phpcs:enable WordPress.DB.PreparedSQL.NotPrepared
+    ) {
         $result = $wpdb->update($tablename, array('icon' => $icon), array('term_id' => $series), array('%s'), array('%d'));
     } else {
         $result = $wpdb->insert($tablename, array('icon' => $icon, 'term_id' => $series), array('%s','%d'));
