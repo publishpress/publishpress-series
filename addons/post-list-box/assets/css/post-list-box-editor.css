@@ -282,6 +282,13 @@
     vertical-align: sub;
 }
 
+.publishpress-post-list-box-editor .pps-post-list-box-editor-tabs ul li > .ppseries-pro-lock {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
 .publishpress-post-list-box-editor .pps-post-list-box-editor-tabs .ppseries-pro-badge {
     line-height: 1.4;
     margin-left: 5px;

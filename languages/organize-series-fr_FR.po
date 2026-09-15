@@ -1,110 +1,104 @@
-# Translation of Plugins - Issues and Series for Newspapers, Magazines, Publishers, Writers - Stable (latest release) in French (France)
-# This file is distributed under the same license as the Plugins - Issues and Series for Newspapers, Magazines, Publishers, Writers - Stable (latest release) package.
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
 "Project-Id-Version: Plugins - Issues and Series for Newspapers, Magazines, "
 "Publishers, Writers - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-04-29T12:17:39+00:00\n"
-"PO-Revision-Date: 2026-04-29 15:07+0200\n"
-"Last-Translator: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
+"PO-Revision-Date: 2026-09-15 16:06+0000\n"
 "X-Generator: Poedit 3.7\n"
+"X-Domain: organize-series\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. Plugin Name of the plugin
 #: orgSeries.php:3
+#. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#. Plugin URI of the plugin
 #: orgSeries.php:4
+#. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
 
-#. Description of the plugin
 #: orgSeries.php:5
+#. Description of the plugin
 msgid ""
-"PublishPress Series allows you to group content together into a series. This "
-"is ideal for magazines, newspapers, short-story writers, teachers, comic "
-"artists, or anyone who writes multiple posts on the same topic."
-msgstr "PublishPress Series vous permet de regrouper du contenu dans une série. C’est idéal pour les magazines, les journaux, les auteurs de nouvelles, les enseignants, les dessinateurs de bandes dessinées, ou toute personne qui écrit plusieurs publications sur le même sujet."
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series vous permet de regrouper du contenu dans une série. "
+"C’est idéal pour les magazines, les journaux, les auteurs de nouvelles, les "
+"enseignants, les dessinateurs de bandes dessinées, ou toute personne qui "
+"écrit plusieurs publications sur le même sujet."
 
-#. Author of the plugin
 #: orgSeries.php:7
+#: orgSeries-admin.php:176
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#. Author URI of the plugin
 #: orgSeries.php:8
+#. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:278
-msgctxt "taxonomy general name"
-msgid "Series Categories"
-msgstr "Catégories de la série"
-
-#: addons/grouping/legacy-includes.php:279
-msgctxt "taxonomy singular name"
-msgid "Series Category"
-msgstr "Catégorie de la série"
-
-#: addons/grouping/legacy-includes.php:280
+#: addons/grouping/legacy-includes.php:301
 msgid "Search Series Categories"
 msgstr "Recherche de catégories de séries"
 
-#: addons/grouping/legacy-includes.php:281
+#: addons/grouping/legacy-includes.php:302
 msgid "Popular Series Categories"
 msgstr "Catégories de séries populaires"
 
-#: addons/grouping/legacy-includes.php:282
-#: addons/grouping/legacy-includes.php:786
+#: addons/grouping/legacy-includes.php:303
+#: addons/grouping/legacy-includes.php:857
 msgid "All Series Categories"
 msgstr "Toutes les catégories de séries"
 
-#: addons/grouping/legacy-includes.php:283
+#: addons/grouping/legacy-includes.php:304
 msgid "Edit Series Category"
 msgstr "Modifier la catégorie de la série"
 
-#: addons/grouping/legacy-includes.php:284
+#: addons/grouping/legacy-includes.php:305
 msgid "Update Series Category"
 msgstr "Mettre à jour la catégorie de la série"
 
-#: addons/grouping/legacy-includes.php:285
+#: addons/grouping/legacy-includes.php:306
 msgid "Add New Series Category"
 msgstr "Ajouter une nouvelle catégorie de série"
 
-#: addons/grouping/legacy-includes.php:286
+#: addons/grouping/legacy-includes.php:307
 msgid "New Series Category"
 msgstr "Nouvelle catégorie de séries"
 
-#: addons/grouping/legacy-includes.php:287
-#: addons/grouping/legacy-includes.php:549
-#: addons/grouping/legacy-includes.php:621
-#: addons/grouping/legacy-includes.php:715
-#: addons/grouping/legacy-includes.php:756
-#: addons/grouping/legacy-includes.php:777
-#: addons/grouping/legacy-includes.php:811
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:582
+#: addons/grouping/legacy-includes.php:668
+#: addons/grouping/legacy-includes.php:783
+#: addons/grouping/legacy-includes.php:826
+#: addons/grouping/legacy-includes.php:848
+#: addons/grouping/legacy-includes.php:884
+#: assets/js/publishpress-series-blocks.js:183
 msgid "Series Categories"
 msgstr "Catégories de la série"
 
-#: addons/grouping/legacy-includes.php:627
+#: addons/grouping/legacy-includes.php:674
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
-msgstr "Supprimer toutes les données de las « Catégories de séries » de la base de données lors de a suppression de l’extension."
+msgstr ""
+"Supprimer toutes les données de las « Catégories de séries » de la base de "
+"données lors de a suppression de l’extension."
 
-#: addons/grouping/legacy-includes.php:670
-msgctxt "series grouping column header"
-msgid "Series"
-msgstr "Série"
-
-#: addons/grouping/legacy-includes.php:756
+#: addons/grouping/legacy-includes.php:826
 msgid "Click to toggle"
 msgstr "Cliquez pour permuter"
 
@@ -117,54 +111,59 @@ msgid "Sorry, no series were found in this category."
 msgstr "Désolé, aucune série n’a été trouvée dans cette catégorie."
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:309
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
 #: addons/post-details/includes/class-fields.php:105
-#: addons/post-details/includes/class-utilities.php:123
+#: addons/post-details/includes/class-utilities.php:158
 msgid "This entry is"
 msgstr "Cette publication est"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:311
 #: addons/post-details/includes/class-fields.php:113
-#: addons/post-details/includes/class-utilities.php:124
+#: addons/post-details/includes/class-utilities.php:159
 msgid "in the series"
 msgstr "dans la série"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:268
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:329
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:269
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:331
+#. translators: 1: Current part number, 2: Total number of posts in the series.
 #, php-format
 msgid "part %1$s of %2$s"
 msgstr "partie %1$s de %2$s"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:497
-#: addons/post-details/includes/class-utilities.php:268
-#: addons/post-navigation/includes/class-utilities.php:172
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:499
+#: addons/post-details/includes/class-utilities.php:303
+#: addons/post-navigation/includes/class-utilities.php:187
+#: includes-core/class-blocks.php:829
 msgid "Sample Series"
 msgstr "Exemple de série"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:500
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
 msgid "Sample Post Title"
 msgstr "Exemple de titre de publication"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:515
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
 msgid "Previous post link"
 msgstr "Lien de « Publication précédente »"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:516
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:518
 msgid "Next post link"
 msgstr "Lien vers la publication suivante"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:519
 msgid "Sample series description."
 msgstr "Exemple de description de série."
 
 #: addons/post-details/includes/class-admin-ui.php:31
 #: addons/post-details/includes/class-admin-ui.php:32
-#: inc/settings/tab-post-details.php:11 orgSeries-utility.php:309
+#: inc/settings/tab-post-details.php:42
+#: includes-core/class-blocks.php:157
+#: orgSeries-utility.php:356
+#: assets/js/publishpress-series-blocks.js:37
 msgid "Post Details"
 msgstr "Détails des publications"
 
@@ -177,64 +176,79 @@ msgid "Series Post Details Editor"
 msgstr "Éditeur des détails des publications de séries"
 
 #: addons/post-details/includes/class-admin-ui.php:79
-#: addons/post-details/includes/class-admin-ui.php:158
-#: addons/post-list-box/includes/class-admin-ui.php:55
-#: addons/post-list-box/includes/class-admin-ui.php:242
+#: addons/post-details/includes/class-admin-ui.php:159
+#: addons/post-list-box/includes/class-admin-ui.php:56
+#: addons/post-list-box/includes/class-admin-ui.php:248
 #: addons/post-navigation/includes/class-admin-ui.php:85
-#: addons/post-navigation/includes/class-admin-ui.php:193
+#: addons/post-navigation/includes/class-admin-ui.php:194
 msgid "Shortcode"
 msgstr "Code court"
 
-#: addons/post-details/includes/class-admin-ui.php:147
-#: addons/post-list-box/includes/class-admin-ui.php:273
-#: addons/post-navigation/includes/class-admin-ui.php:182
+#: addons/post-details/includes/class-admin-ui.php:111
+msgid "Series Post Details sections"
+msgstr "Sections des détails de la publication de la série"
+
+#: addons/post-details/includes/class-admin-ui.php:148
+#: addons/post-list-box/includes/class-admin-ui.php:279
+#: addons/post-navigation/includes/class-admin-ui.php:183
 msgid "Use this shortcode:"
 msgstr "Utiliser le code court :"
 
-#: addons/post-details/includes/class-admin-ui.php:149
-msgid ""
-"Insert into posts or pages to display this Series Post Details manually."
-msgstr "Insérer dans les publications ou les pages pour afficher manuellement les détails de cette publication de la série."
+#: addons/post-details/includes/class-admin-ui.php:150
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"Insérer dans les publications ou les pages pour afficher manuellement les "
+"détails de cette publication de la série."
 
-#: addons/post-details/includes/class-admin-ui.php:157
+#: addons/post-details/includes/class-admin-ui.php:158
 msgid "Default Meta Box"
 msgstr "Boîte méta par défaut"
 
-#: addons/post-details/includes/class-admin-ui.php:274
-#: addons/post-details/includes/class-admin-ui.php:359
-#: addons/post-list-box/includes/class-admin-ui.php:431
-#: addons/post-list-box/includes/class-admin-ui.php:715
-#: addons/post-navigation/includes/class-admin-ui.php:442
-#: inc/settings/tab-post-types.php:59 inc/settings/tab-pro-features.php:52
+#: addons/post-details/includes/class-admin-ui.php:275
+#: addons/post-details/includes/class-admin-ui.php:360
+#: addons/post-list-box/includes/class-admin-ui.php:443
+#: addons/post-list-box/includes/class-admin-ui.php:727
+#: addons/post-navigation/includes/class-admin-ui.php:449
+#: inc/settings/tab-post-types.php:61
+#: inc/settings/tab-pro-features.php:54
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "Cette fonctionnalité est disponible dans PublishPress Series Pro"
 
-#: addons/post-details/includes/class-ajax.php:32
-#: addons/post-details/includes/class-ajax.php:99
-#: addons/post-details/includes/class-ajax.php:149
-#: addons/post-navigation/includes/class-ajax.php:32
-#: addons/post-navigation/includes/class-ajax.php:167
-#: addons/post-navigation/includes/class-ajax.php:207
+#: addons/post-details/includes/class-ajax.php:37
+#: addons/post-details/includes/class-ajax.php:106
+#: addons/post-details/includes/class-ajax.php:161
+#: addons/post-navigation/includes/class-ajax.php:37
+#: addons/post-navigation/includes/class-ajax.php:174
+#: addons/post-navigation/includes/class-ajax.php:223
 msgid "Invalid post ID."
 msgstr "ID de publication invalide."
 
-#: addons/post-details/includes/class-ajax.php:67
-#: addons/post-navigation/includes/class-ajax.php:115
+#: addons/post-details/includes/class-ajax.php:73
+#: addons/post-navigation/includes/class-ajax.php:121
 msgid "No series available to preview."
 msgstr "Aucune série disponible pour la prévisualisation."
 
-#: addons/post-details/includes/class-ajax.php:122
-#: addons/post-navigation/includes/class-ajax.php:190
+#: addons/post-details/includes/class-ajax.php:126
+#: addons/post-list-box/includes/class-ajax.php:38
+#: addons/post-list-box/includes/class-ajax.php:146
+#: addons/post-list-box/includes/class-ajax.php:175
+#: addons/post-navigation/includes/class-ajax.php:194
+msgid "Permission denied."
+msgstr "Permission refusée."
+
+#: addons/post-details/includes/class-ajax.php:132
+#: addons/post-navigation/includes/class-ajax.php:200
+#: addons/post-navigation/includes/class-ajax.php:206
 msgid "Invalid import data."
 msgstr "Données de l’importation invalides."
 
-#: addons/post-details/includes/class-ajax.php:137
-#: addons/post-navigation/includes/class-ajax.php:195
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:211
 msgid "Settings imported successfully."
 msgstr "Les réglages ont bien été importés."
 
-#: addons/post-details/includes/class-ajax.php:166
-#: addons/post-navigation/includes/class-ajax.php:213
+#: addons/post-details/includes/class-ajax.php:181
+#: addons/post-navigation/includes/class-ajax.php:229
 msgid "Settings reset to defaults."
 msgstr "Les réglages ont été réinitialisés aux valeurs par défaut."
 
@@ -277,6 +291,7 @@ msgid "Text shown before the series name"
 msgstr "Texte affiché avant le nom de la série"
 
 #: addons/post-details/includes/class-fields.php:118
+#: assets/js/publishpress-series-blocks.js:179
 msgid "Display"
 msgstr "Afficher"
 
@@ -285,16 +300,18 @@ msgid "Meta Box Position"
 msgstr "Position de la boîte méta"
 
 #: addons/post-details/includes/class-fields.php:126
-#: addons/post-list-box/classes/PostListBoxFields.php:565
-#: inc/settings/tab-post-details.php:27 inc/settings/tab-post-list-box.php:27
-#: inc/settings/tab-post-navigation.php:27
+#: addons/post-list-box/classes/PostListBoxFields.php:596
+#: inc/settings/tab-post-details.php:37
+#: inc/settings/tab-post-list-box.php:37
+#: inc/settings/tab-post-navigation.php:37
 msgid "Top"
 msgstr "Haut"
 
 #: addons/post-details/includes/class-fields.php:127
-#: addons/post-list-box/classes/PostListBoxFields.php:566
-#: inc/settings/tab-post-details.php:28 inc/settings/tab-post-list-box.php:28
-#: inc/settings/tab-post-navigation.php:28
+#: addons/post-list-box/classes/PostListBoxFields.php:597
+#: inc/settings/tab-post-details.php:38
+#: inc/settings/tab-post-list-box.php:38
+#: inc/settings/tab-post-navigation.php:38
 msgid "Bottom"
 msgstr "Bas"
 
@@ -308,7 +325,9 @@ msgstr "Limiter à les publications individuelles"
 
 #: addons/post-details/includes/class-fields.php:139
 msgid "Enable to display meta box only on single post view, not on archives."
-msgstr "Activer pour afficher la boîte méta dans la publication individuelle mais non dans les archives."
+msgstr ""
+"Activer pour afficher la boîte méta dans la publication individuelle mais "
+"non dans les archives."
 
 #: addons/post-details/includes/class-fields.php:152
 msgid "Typography"
@@ -323,74 +342,94 @@ msgid "Font size for text in the meta box"
 msgstr "Taille de la police pour le texte de la boîte méta"
 
 #: addons/post-details/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-fields.php:453
+#: addons/post-navigation/includes/class-fields.php:456
 msgid "Text Color"
 msgstr "Couleur du texte"
 
-#: addons/post-details/includes/class-fields.php:173
+#: addons/post-details/includes/class-fields.php:171
+msgid "Choose the color of text in the meta box"
+msgstr "Choisir la couleur du texte de la boîte méta"
+
+#: addons/post-details/includes/class-fields.php:174
 msgid "Link Color"
 msgstr "Couleur du lien"
 
-#: addons/post-details/includes/class-fields.php:181
+#: addons/post-details/includes/class-fields.php:179
+msgid "Choose the color of links in the meta box"
+msgstr "Choisir la couleur des liens de la boîte méta"
+
+#: addons/post-details/includes/class-fields.php:183
 msgid "Background"
 msgstr "Arrière-plan"
 
-#: addons/post-details/includes/class-fields.php:185
-#: addons/post-list-box/classes/PostListBoxFields.php:191
-#: addons/post-navigation/includes/class-fields.php:460
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464
 msgid "Background Color"
 msgstr "Couleur d’arrière-plan"
 
-#: addons/post-details/includes/class-fields.php:190
+#: addons/post-details/includes/class-fields.php:192
 msgid "Background color for the meta box container"
 msgstr "Couleur d’arrière-plan du conteneur de la boîte méta"
 
-#: addons/post-details/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:498
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506
 msgid "Spacing"
 msgstr "Espacement"
 
-#: addons/post-details/includes/class-fields.php:198
-#: addons/post-list-box/classes/PostListBoxFields.php:223
-#: addons/post-navigation/includes/class-fields.php:502
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510
 msgid "Padding (px)"
 msgstr "Marge interne (px)"
 
-#: addons/post-details/includes/class-fields.php:205
+#: addons/post-details/includes/class-fields.php:207
 msgid "Padding applied to all sides of the content area"
 msgstr "Marge interne appliquée à tous les côtés de la zone de contenu"
 
-#: addons/post-details/includes/class-fields.php:208
-#: addons/post-navigation/includes/class-fields.php:511
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520
 msgid "Margin (px)"
 msgstr "Marge (px)"
 
-#: addons/post-details/includes/class-fields.php:215
+#: addons/post-details/includes/class-fields.php:217
 msgid "Margin applied to all sides of the meta box"
 msgstr "Marge appliquée à tous les côtés de la boîte méta"
 
-#: addons/post-details/includes/class-fields.php:219
-#: addons/post-navigation/includes/class-fields.php:468
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473
 msgid "Border"
 msgstr "Bordure"
 
-#: addons/post-details/includes/class-fields.php:223
-#: addons/post-list-box/classes/PostListBoxFields.php:205
-#: addons/post-navigation/includes/class-fields.php:479
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485
 msgid "Border Width (px)"
 msgstr "Épaisseur de la bordure (px)"
 
 #: addons/post-details/includes/class-fields.php:232
-#: addons/post-list-box/classes/PostListBoxFields.php:214
-#: addons/post-navigation/includes/class-fields.php:488
+msgid "Set the border width in pixels"
+msgstr "Définir la largeur de la bordure en pixels"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495
 msgid "Border Radius (px)"
 msgstr "Rayon de la bordure (px)"
 
-#: addons/post-details/includes/class-fields.php:241
-#: addons/post-list-box/classes/PostListBoxFields.php:198
-#: addons/post-navigation/includes/class-fields.php:472
+#: addons/post-details/includes/class-fields.php:242
+msgid "Set the border radius in pixels"
+msgstr "Définir le rayon de la bordure en pixels"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477
 msgid "Border Color"
 msgstr "Couleur de la bordure"
+
+#: addons/post-details/includes/class-fields.php:250
+msgid "Choose the border color"
+msgstr "Choisir la couleur de la bordure"
 
 #: addons/post-details/includes/class-post-type.php:26
 #: addons/post-details/includes/class-post-type.php:27
@@ -401,7 +440,8 @@ msgstr "Détails des publications de séries"
 
 #: addons/post-details/includes/class-post-type.php:30
 #: addons/post-navigation/includes/class-post-type.php:30
-#: orgSeries-admin.php:413 orgSeries-setup.php:208
+#: orgSeries-admin.php:396
+#: orgSeries-setup.php:220
 msgid "Add New"
 msgstr "Ajouter"
 
@@ -441,30 +481,34 @@ msgstr "Aucun détail de publication de série trouvé dans la corbeille."
 msgid "Create a series to preview the post details."
 msgstr "Créer une série pour prévisualiser les détails de la publication."
 
-#: addons/post-details/includes/class-utilities.php:303
+#: addons/post-details/includes/class-utilities.php:339
+#: includes-core/class-blocks.php:864
+#. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Series Post %d"
 msgstr "Exemple de publication %d de série"
 
-#: addons/post-details/includes/class-utilities.php:304
+#: addons/post-details/includes/class-utilities.php:340
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
 "odio vitae vestibulum vestibulum."
-msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
 
-#: addons/post-details/includes/class-utilities.php:305
+#: addons/post-details/includes/class-utilities.php:341
 msgid "Sample excerpt preview content for the series meta box."
 msgstr "Exemple aperçu d’extrait du contenu de la boîte méta de la série."
 
-#: addons/post-details/post-details.php:176
+#: addons/post-details/post-details.php:180
 msgid "Series Post Details #1"
 msgstr "Détails des publications de séries #1"
 
-#: addons/post-details/post-details.php:181
+#: addons/post-details/post-details.php:185
 msgid "Series Post Details #2"
 msgstr "Détails des publications de séries #2"
 
-#: addons/post-details/post-details.php:186
+#: addons/post-details/post-details.php:190
 msgid "Series Post Details #3"
 msgstr "Détails des publications de séries #3"
 
@@ -500,419 +544,590 @@ msgstr "Mettre en évidence la publication actuelle"
 msgid "Show Box Title"
 msgstr "Afficher le titre de la boîte"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:106
+#: addons/post-list-box/classes/PostListBoxFields.php:104
+msgid "Display the title above the post list"
+msgstr "Afficher le titre au-dessus de la liste des publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107
 msgid "Box Title Type"
 msgstr "Type de titre de la boîte"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:110
+#: addons/post-list-box/classes/PostListBoxFields.php:111
 msgid "Use Series Title"
 msgstr "Utiliser le titre de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:111
+#: addons/post-list-box/classes/PostListBoxFields.php:112
 msgid "Custom Title"
 msgstr "Titre personnalisé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:115
+#: addons/post-list-box/classes/PostListBoxFields.php:116
 msgid "Choose whether to display the series title or a custom title"
 msgstr "Choisir s’il faut afficher le titre de la série ou un titre personnalisé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:120
+#: addons/post-list-box/classes/PostListBoxFields.php:121
 msgid "Link Box Title to Series"
 msgstr "Lier le titre de la boîte à la séries"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:125
-msgid ""
-"Link the box title to the current series archive when using the series title"
-msgstr "Lier le titre de la boîte à l’archive de la série actuelle lorsque l’on utilise le titre de la série"
+#: addons/post-list-box/classes/PostListBoxFields.php:126
+msgid "Link the box title to the current series archive when using the series title"
+msgstr ""
+"Lier le titre de la boîte à l’archive de la série actuelle lorsque l’on "
+"utilise le titre de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:130
+#: addons/post-list-box/classes/PostListBoxFields.php:131
 msgid "Custom Box Title Text"
 msgstr "Texte du titre de la boîte personnalisée"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:134
-#: addons/post-list-box/includes/class-utilities.php:162
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/includes/class-utilities.php:163
 msgid "Series Posts"
 msgstr "Publications de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/classes/PostListBoxFields.php:136
 msgid "Enter custom title for the post list"
 msgstr "Saisir le titre personnalisé pour la liste de publications"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:136
+#: addons/post-list-box/classes/PostListBoxFields.php:137
 msgid "Only used when \"Custom Title\" is selected above"
 msgstr "Utilisé uniquement lorsque « Titre personnalisé » est sélectionné ci-dessus"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:141
+#: addons/post-list-box/classes/PostListBoxFields.php:142
 msgid "Box Title HTML Tag"
 msgstr "Balise HTML du titre de la boîte"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:160
+#: addons/post-list-box/classes/PostListBoxFields.php:157
+msgid "Choose the HTML tag used for the box title"
+msgstr "Choisissez la balise HTML utilisée pour le titre de la boîte"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162
 msgid "Box Title Color"
 msgstr "Couleur du titre de la boite"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:169
+#: addons/post-list-box/classes/PostListBoxFields.php:167
+msgid "Choose the color of the box title"
+msgstr "Choisir la couleur du titre de la boîte"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172
 msgid "Box Title Font Size (px)"
 msgstr "Taille de la police du titre de la boîte (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:243
+#: addons/post-list-box/classes/PostListBoxFields.php:179
+msgid "Set the font size of the box title in pixels"
+msgstr "Définissez la taille de la police du titre de la boîte en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200
+msgid "Choose the background color for the post list box"
+msgstr "Choisir la couleur de fond de la boîte liste de publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208
+msgid "Choose the border color for the post list box"
+msgstr "Choisir la couleur de bordure de la boîte liste de publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218
+msgid "Set the border width for the post list box in pixels"
+msgstr ""
+"Définissez la largeur de la bordure pour la boîte de liste des posts en "
+"pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228
+msgid "Set the border radius for the post list box in pixels"
+msgstr "Définissez le rayon de la bordure pour la boîte de liste des posts en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "Définissez l'espacement intérieur de la boîte de liste des posts en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252
 msgid "Show Post Titles"
 msgstr "Afficher le titre de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:250
+#: addons/post-list-box/classes/PostListBoxFields.php:257
+msgid "Display post titles in the series list"
+msgstr "Afficher les titres des publications dans la liste de la série"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
 msgid "Series Order Number"
 msgstr "Numéro d’ordre de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:255
+#: addons/post-list-box/classes/PostListBoxFields.php:265
 msgid "Show the series order number next to each post title."
-msgstr "Afficher le numéro d’ordre de la série à côté de chaque titre de publication."
+msgstr ""
+"Afficher le numéro d’ordre de la série à côté de chaque titre de "
+"publication."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:260
+#: addons/post-list-box/classes/PostListBoxFields.php:270
 msgid "Series Order Number Position"
 msgstr "Position du numéro d’ordre de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:264
+#: addons/post-list-box/classes/PostListBoxFields.php:274
 msgid "Before the title"
 msgstr "Avant le titre"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:265
+#: addons/post-list-box/classes/PostListBoxFields.php:275
 msgid "After the title"
 msgstr "Après le titre"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:269
+#: addons/post-list-box/classes/PostListBoxFields.php:279
 msgid "Choose where the order number appears relative to the title."
 msgstr "Choisir où afficher le numéro d’ordre par rapport au titre."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:274
+#: addons/post-list-box/classes/PostListBoxFields.php:284
 msgid "Post Title Color"
 msgstr "Couleur du titre de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:283
+#: addons/post-list-box/classes/PostListBoxFields.php:289
+msgid "Choose the color of post titles"
+msgstr "Choisir la couleur des titres des publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
 msgid "Post Title Font Size (px)"
 msgstr "Talle de la police du titre de la publication (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:294
+#: addons/post-list-box/classes/PostListBoxFields.php:301
+msgid "Set the font size of post titles in pixels"
+msgstr "Définir la taille de police des titres des publications en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306
 msgid "Show Post Excerpt"
 msgstr "Afficher l’extrait de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:302
+#: addons/post-list-box/classes/PostListBoxFields.php:311
+msgid "Display the excerpt for each post"
+msgstr "Afficher l'extrait de chaque publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315
 msgid "Excerpt Length (words)"
 msgstr "Longueur de l’extrait (mots)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:314
+#: addons/post-list-box/classes/PostListBoxFields.php:322
+msgid "Set the maximum excerpt length in words"
+msgstr "Définissez la longueur maximale de l'extrait en mots"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328
 msgid "Excerpt Color"
 msgstr "Couleur de l’extrait"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:324
+#: addons/post-list-box/classes/PostListBoxFields.php:333
+msgid "Choose the color of post excerpts"
+msgstr "Choisir la couleur des extraits des publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339
 msgid "Show Post Summary"
 msgstr "Afficher le résumé de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:332
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Display a summary generated from each post"
+msgstr "Afficher un résumé généré pour chaque publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348
 msgid "Summary Length (words)"
 msgstr "Longueur du résumé (mots)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:344
+#: addons/post-list-box/classes/PostListBoxFields.php:355
+msgid "Set the maximum summary length in words"
+msgstr "Définir la longueur maximale du résumé en mots"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361
 msgid "Summary Color"
 msgstr "Couleur du résumé"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:354
+#: addons/post-list-box/classes/PostListBoxFields.php:366
+msgid "Choose the color of post summaries"
+msgstr "Choisissez la couleur des résumés de posts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
 msgid "Show Post Author"
 msgstr "Afficher l’auteur/autrice de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:362
+#: addons/post-list-box/classes/PostListBoxFields.php:377
+msgid "Display the author of each post"
+msgstr "Afficher l'auteur de chaque publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381
 msgid "Post Author Color"
 msgstr "Couleur d’auteur/autrice de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:372
+#: addons/post-list-box/classes/PostListBoxFields.php:386
+msgid "Choose the color of post authors"
+msgstr "Choisissez la couleur des auteurs de posts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392
 msgid "Show Post Date"
 msgstr "Afficher la date de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:380
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+msgid "Display the date of each post"
+msgstr "Afficher la date de chaque publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
 msgid "Post Date Color"
 msgstr "Couleur de la date de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:401
-#: addons/post-navigation/includes/class-fields.php:169
-#: addons/post-navigation/includes/class-fields.php:284
-#: addons/post-navigation/includes/class-fields.php:412
+#: addons/post-list-box/classes/PostListBoxFields.php:406
+msgid "Choose the color of post dates"
+msgstr "Choisir la couleur des dates des publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415
 msgid "Show Featured Image"
 msgstr "Afficher limage mise en avant"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:408
+#: addons/post-list-box/classes/PostListBoxFields.php:428
+msgid "Display the featured image for each post"
+msgstr "Afficher l'image mise en avant de chaque publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431
 msgid "Featured Image Width (px)"
 msgstr "Largeur de l’image mise en avant (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:415
-#: addons/post-navigation/includes/class-fields.php:194
-#: addons/post-navigation/includes/class-fields.php:309
-#: addons/post-navigation/includes/class-fields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
 msgid "Width of the featured image in pixels"
 msgstr "Largeur de l’image mise en avant en pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:420
+#: addons/post-list-box/classes/PostListBoxFields.php:443
 msgid "Featured Image Height (px)"
 msgstr "Hauteur de l’image mise en avant (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:427
-#: addons/post-navigation/includes/class-fields.php:202
-#: addons/post-navigation/includes/class-fields.php:317
-#: addons/post-navigation/includes/class-fields.php:445
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448
 msgid "Height of the featured image in pixels"
 msgstr "Hauteur de l’image mise en avant en pixels"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:432
+#: addons/post-list-box/classes/PostListBoxFields.php:455
 msgid "Fallback Featured Image"
 msgstr "Image mise en avant alternative"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:437
+#: addons/post-list-box/classes/PostListBoxFields.php:460
 msgid "Image to display when a post does not have a featured image"
 msgstr "Image à afficher quand une publication n’y a pas d’image mise en avant"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:454
+#: addons/post-list-box/classes/PostListBoxFields.php:477
 msgid "Post Padding (px)"
 msgstr "Marge interne de la publication (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:463
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Set the inner spacing for each post item in pixels"
+msgstr ""
+"Définir l'espacement intérieur de chaque élément de publication "
+"en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
 msgstr "Épaisseur de la bordure de la publication (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:472
+#: addons/post-list-box/classes/PostListBoxFields.php:494
+msgid "Set the border width for each post item in pixels"
+msgstr ""
+"Définir la largeur de bordure de chaque élément de publication en "
+"pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
 msgstr "Couleur de la bordure de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:479
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+msgid "Choose the border color for each post item"
+msgstr "Choisir la couleur de bordure de chaque élément de publication"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505
 msgid "Post Background Color"
 msgstr "Couleur d’arrière-plan de la publication"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:484
+#: addons/post-list-box/classes/PostListBoxFields.php:510
 msgid "Background color for the post list container"
 msgstr "Couleur d’arrière-plan du conteneur de la liste de publications"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:498
+#: addons/post-list-box/classes/PostListBoxFields.php:524
 msgid "Layout Style"
 msgstr "Style de la mise en page"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:502
-#: inc/settings/tab-legacy.php:29
+#: addons/post-list-box/classes/PostListBoxFields.php:528
+#: inc/settings/tab-legacy.php:30
+#: assets/js/publishpress-series-blocks.js:255
 msgid "List"
 msgstr "Liste"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:503
-#: inc/settings/tab-legacy.php:28
+#: addons/post-list-box/classes/PostListBoxFields.php:529
+#: inc/settings/tab-legacy.php:29
+#: assets/js/publishpress-series-blocks.js:254
 msgid "Grid"
 msgstr "Grille"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:510
+#: addons/post-list-box/classes/PostListBoxFields.php:533
+msgid "Choose the layout style for the post list"
+msgstr "Choisir le style de mise en page de la liste de publications"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537
+#: assets/js/publishpress-series-blocks.js:262
 msgid "Columns"
 msgstr "Colonnes"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:514
+#: addons/post-list-box/classes/PostListBoxFields.php:541
 msgid "2 Columns"
 msgstr "2 colonnes"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:515
+#: addons/post-list-box/classes/PostListBoxFields.php:542
 msgid "3 Columns"
 msgstr "3 colonnes"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:516
+#: addons/post-list-box/classes/PostListBoxFields.php:543
 msgid "4 Columns"
 msgstr "4 colonnes"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:517
+#: addons/post-list-box/classes/PostListBoxFields.php:544
 msgid "6 Columns"
 msgstr "6 colonnes"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:526
+#: addons/post-list-box/classes/PostListBoxFields.php:548
+msgid "Choose the number of columns in the grid layout"
+msgstr "Choisissez le nombre de colonnes dans la mise en page en grille"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554
 msgid "Order By"
 msgstr "Trier par"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:530
+#: addons/post-list-box/classes/PostListBoxFields.php:558
 msgid "Date"
 msgstr "Date"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:531
+#: addons/post-list-box/classes/PostListBoxFields.php:559
 #: addons/publisher/series-part-post-table.php:61
 #: addons/publisher/series-pending-post-table.php:63
 #: addons/publisher/series-publish-post-table.php:71
 msgid "Title"
 msgstr "Titre"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:532
+#: addons/post-list-box/classes/PostListBoxFields.php:560
 #: addons/publisher/series_im_admin_main.php:8
-#: addons/publisher/series_issue_manager.php:751
-#: addons/publisher/series_issue_manager.php:826 orgSeries-admin.php:369
-#: orgSeries-manage.php:195 orgSeries-manage.php:204
+#: addons/publisher/series_issue_manager.php:929
+#: addons/publisher/series_issue_manager.php:1011
+#: orgSeries-admin.php:354
+#: orgSeries-manage.php:237
+#: orgSeries-manage.php:247
 msgid "Series Order"
 msgstr "Ordre de la série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:539
-#: orgSeries-manage.php:51 orgSeries-manage.php:227
+#: addons/post-list-box/classes/PostListBoxFields.php:564
+msgid "Choose the field used to sort posts"
+msgstr "Choisissez le champ utilisé pour trier les posts"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
+#: orgSeries-manage.php:56
+#: orgSeries-manage.php:271
 msgid "Order"
 msgstr "Trier"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:543
-#: inc/settings/tab-legacy.php:106 orgSeries-widgets.php:320
+#: addons/post-list-box/classes/PostListBoxFields.php:572
+#: inc/settings/tab-legacy.php:108
+#: orgSeries-widgets.php:338
 msgid "Ascending"
 msgstr "Croissant"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:544
-#: inc/settings/tab-legacy.php:107 orgSeries-widgets.php:319
+#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: inc/settings/tab-legacy.php:109
+#: orgSeries-widgets.php:337
 msgid "Descending"
 msgstr "Décroissant"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:551
+#: addons/post-list-box/classes/PostListBoxFields.php:577
+msgid "Choose the direction in which posts are sorted"
+msgstr "Choisissez la direction dans laquelle les posts sont triés"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581
 msgid "Gap Between Items (px)"
 msgstr "Écart entre les éléments (px)"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:561
+#: addons/post-list-box/classes/PostListBoxFields.php:588
+msgid "Set the space between post items in pixels"
+msgstr "Définissez l'espace entre les éléments de post en pixels"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592
 msgid "Post List Box Location"
 msgstr "Emplacement de la boîte de liste de publications"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:570
+#: addons/post-list-box/classes/PostListBoxFields.php:601
 msgid "Choose where to display the post list box in relation to the content"
 msgstr "Choisir où afficher la liste des publications par rapport au contenu"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:574
+#: addons/post-list-box/classes/PostListBoxFields.php:605
 msgid "Maximum number of items"
 msgstr "Nombre maximal de publications"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:580
+#: addons/post-list-box/classes/PostListBoxFields.php:611
 msgid ""
 "Limit the number of posts shown in the series list. Leave empty for no "
 "limit. The admin preview is limited to 4 posts."
-msgstr "Limiter le nombre de publications affichées dans la liste de la série. Laisser vide pour aucune limite. L’aperçu d’administration est limité à 4 publications."
+msgstr ""
+"Limiter le nombre de publications affichées dans la liste de la série. "
+"Laisser vide pour aucune limite. L’aperçu d’administration est limité à 4 "
+"publications."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:595
+#: addons/post-list-box/classes/PostListBoxFields.php:626
 msgid "Highlight Current Post"
 msgstr "Mettre en évidence la publication actuelle"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:600
+#: addons/post-list-box/classes/PostListBoxFields.php:631
 msgid "Highlight the current post when viewing a specific series post"
-msgstr "Mettre en évidence la publication actuelle lors de la consultation d’une publication spécifique d’une série"
+msgstr ""
+"Mettre en évidence la publication actuelle lors de la consultation d’une "
+"publication spécifique d’une série"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:603
+#: addons/post-list-box/classes/PostListBoxFields.php:634
 msgid "Current Post Background Color"
 msgstr "Couleur d’arrière-plan de la publication actuelle"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:610
+#: addons/post-list-box/classes/PostListBoxFields.php:639
+msgid "Choose the background color for the current post"
+msgstr "Choisir la couleur de fond de la publication actuelle"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642
 msgid "Current Post Border Color"
 msgstr "Couleur de la bordure de la publication actuelle"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:617
+#: addons/post-list-box/classes/PostListBoxFields.php:647
+msgid "Choose the border color for the current post"
+msgstr "Choisissez la couleur de la bordure pour le post actuel"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650
 msgid "Current Post Text Color"
 msgstr "Couleur du texte de la publication actuelle"
 
-#: addons/post-list-box/includes/class-admin-ui.php:54
+#: addons/post-list-box/classes/PostListBoxFields.php:655
+msgid "Choose the text color for the current post"
+msgstr "Choisissez la couleur du texte pour le post actuel"
+
+#: addons/post-list-box/includes/class-admin-ui.php:55
 msgid "Default Post List Box"
 msgstr "Boîte de liste de publications par défaut"
 
-#: addons/post-list-box/includes/class-admin-ui.php:102
 #: addons/post-list-box/includes/class-admin-ui.php:103
-#: addons/post-list-box/includes/class-admin-ui.php:146
-#: addons/post-list-box/includes/class-post-type.php:24
-#: orgSeries-utility.php:308
+#: addons/post-list-box/includes/class-admin-ui.php:104
+#: addons/post-list-box/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-post-type.php:25
+#: inc/settings/tab-post-list-box.php:42
+#: includes-core/class-blocks.php:150
+#: orgSeries-utility.php:355
+#: assets/js/publishpress-series-blocks.js:30
 msgid "Post List Boxes"
 msgstr "Boîtes de liste de publications"
 
-#: addons/post-list-box/includes/class-admin-ui.php:119
 #: addons/post-list-box/includes/class-admin-ui.php:120
+#: addons/post-list-box/includes/class-admin-ui.php:121
 msgid "Post List Box updated."
 msgstr "Boîte de liste de publications mise à jour."
 
-#: addons/post-list-box/includes/class-admin-ui.php:121
+#: addons/post-list-box/includes/class-admin-ui.php:122
 msgid "Post List Box added."
 msgstr "Boîte de liste de publications ajoutée."
 
-#: addons/post-list-box/includes/class-admin-ui.php:122
+#: addons/post-list-box/includes/class-admin-ui.php:123
 msgid "Post List Box saved."
 msgstr "Boîte de liste de publications enregistrée."
 
-#: addons/post-list-box/includes/class-admin-ui.php:123
+#: addons/post-list-box/includes/class-admin-ui.php:124
 msgid "Post List Box submitted."
 msgstr "Boîte de liste de publications envoyée."
 
-#: addons/post-list-box/includes/class-admin-ui.php:145
-#: addons/post-list-box/includes/class-post-type.php:23
-#: inc/settings/tab-post-list-box.php:11
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
 msgid "Post List Box"
 msgstr "Boîte de liste de publications"
 
-#: addons/post-list-box/includes/class-admin-ui.php:150
+#: addons/post-list-box/includes/class-admin-ui.php:152
+#. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
 msgstr[0] "%1$s %2$s mis à jour."
 msgstr[1] "%1$s %2$s mis à jour."
 
-#: addons/post-list-box/includes/class-admin-ui.php:155
+#: addons/post-list-box/includes/class-admin-ui.php:158
+#. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
 msgstr[0] "%1$s %2$s non mis à jour, quelqu’un est en train de le modifier."
 msgstr[1] "%1$s %2$s non mis à jour, quelqu’un est en train de les modifier."
 
-#: addons/post-list-box/includes/class-admin-ui.php:165
+#: addons/post-list-box/includes/class-admin-ui.php:169
+#. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
 msgstr[0] "%1$s %2$s supprimé définitivement."
 msgstr[1] "%1$s %2$s supprimés définitivement."
 
-#: addons/post-list-box/includes/class-admin-ui.php:175
+#: addons/post-list-box/includes/class-admin-ui.php:180
+#. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
 msgstr[0] "%1$s %2$s mis à la corbeille."
 msgstr[1] "%1$s %2$s mis à la corbeille."
 
-#: addons/post-list-box/includes/class-admin-ui.php:185
+#: addons/post-list-box/includes/class-admin-ui.php:191
+#. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
 msgstr[0] "%1$s %2$s restauré depuis la corbeille."
 msgstr[1] "%1$s %2$s restaurés depuis la corbeille."
 
-#: addons/post-list-box/includes/class-admin-ui.php:208
+#: addons/post-list-box/includes/class-admin-ui.php:214
 msgid "Post List Box Preview"
 msgstr "Aperçu de la boîte de liste de publications"
 
-#: addons/post-list-box/includes/class-admin-ui.php:225
+#: addons/post-list-box/includes/class-admin-ui.php:231
 msgid "Post List Box Editor"
 msgstr "Éditeur de boîte de liste de publications"
 
-#: addons/post-list-box/includes/class-admin-ui.php:275
+#: addons/post-list-box/includes/class-admin-ui.php:281
 msgid "Insert into posts or pages to display this Post List Box manually."
-msgstr "Insérer dans les publications ou les pages pour afficher manuellement cette boîte de liste de publications."
+msgstr ""
+"Insérer dans les publications ou les pages pour afficher manuellement cette "
+"boîte de liste de publications."
 
-#: addons/post-list-box/includes/class-admin-ui.php:317
+#: addons/post-list-box/includes/class-admin-ui.php:323
 #: addons/post-navigation/includes/class-admin-ui.php:115
 msgid "Select Series to Preview:"
 msgstr "Sélectionnez la série à prévisualiser :"
 
-#: addons/post-list-box/includes/class-admin-ui.php:335
+#: addons/post-list-box/includes/class-admin-ui.php:341
 msgid "No series found. Create a series to see the preview."
 msgstr "Aucune série trouvée. Créer un série pour voir l’aperçu."
 
-#: addons/post-list-box/includes/class-admin-ui.php:350
+#: addons/post-list-box/includes/class-admin-ui.php:356
 msgid "No posts found in selected series."
 msgstr "Aucune publication trouvée dans la série sélectionnée."
 
-#: addons/post-list-box/includes/class-admin-ui.php:368
+#: addons/post-list-box/includes/class-admin-ui.php:374
 #: addons/post-navigation/post-navigation.php:86
 msgid "Loading preview..."
 msgstr "Chargement de l’aperçu en cours…"
 
-#: addons/post-list-box/includes/class-admin-ui.php:383
-#: addons/post-list-box/includes/class-admin-ui.php:387
+#: addons/post-list-box/includes/class-admin-ui.php:389
+#: addons/post-list-box/includes/class-admin-ui.php:393
 msgid "Error loading preview."
 msgstr "Erreur lors du chargement de l’aperçu."
 
-#: addons/post-list-box/includes/class-admin-ui.php:691
-#: addons/post-navigation/includes/class-admin-ui.php:414
-#: orgSeries-manage.php:264
+#: addons/post-list-box/includes/class-admin-ui.php:421
+msgid "Post List Box sections"
+msgstr "Sections de la boîte liste de publications"
+
+#: addons/post-list-box/includes/class-admin-ui.php:703
+#: addons/post-navigation/includes/class-admin-ui.php:421
+#: orgSeries-manage.php:309
 msgid "Select Image"
 msgstr "Sélectionner l’image"
 
-#: addons/post-list-box/includes/class-admin-ui.php:695
+#: addons/post-list-box/includes/class-admin-ui.php:707
 msgid "Remove"
 msgstr "Retirer"
 
@@ -926,126 +1141,120 @@ msgstr "Publication"
 
 #: addons/post-list-box/includes/class-fields.php:33
 #: addons/post-navigation/includes/class-fields.php:38
+#: assets/js/publishpress-series-blocks.js:130
 msgid "Layout"
 msgstr "Mise en page"
 
-#: addons/post-list-box/includes/class-post-type.php:27
+#: addons/post-list-box/includes/class-post-type.php:31
+#: addons/post-list-box/includes/class-post-type.php:37
+#. translators: %1$s: Singular post type label.
 #, php-format
-msgctxt "Post List Box post type name"
-msgid "%2$s"
-msgstr "%2$s"
-
-#: addons/post-list-box/includes/class-post-type.php:28
-#, php-format
-msgctxt "singular post list box post type name"
-msgid "%1$s"
-msgstr "%1$s"
+msgid "New %1$s"
+msgstr "Nouveau %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:33
-#, php-format
-msgid "New %1s"
-msgstr "Nouveau %1s"
-
-#: addons/post-list-box/includes/class-post-type.php:34
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "Add New %1$s"
 msgstr "Ajouter une nouvelle %1$s"
 
 #: addons/post-list-box/includes/class-post-type.php:35
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "Edit %1$s"
 msgstr "Modifier %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:36
-#, php-format
-msgid "New %1$s"
-msgstr "Nouveau %1$s"
-
-#: addons/post-list-box/includes/class-post-type.php:37
-#, php-format
-msgid "%2$s"
-msgstr "%2$s"
-
-#: addons/post-list-box/includes/class-post-type.php:38
+#: addons/post-list-box/includes/class-post-type.php:40
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "View %1$s"
 msgstr "Voir %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:39
+#: addons/post-list-box/includes/class-post-type.php:42
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "Search %2$s"
 msgstr "Rechercher %2$s"
 
-#: addons/post-list-box/includes/class-post-type.php:40
+#: addons/post-list-box/includes/class-post-type.php:44
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "No %2$s found"
 msgstr "Aucun %2$s trouvé"
 
-#: addons/post-list-box/includes/class-post-type.php:41
+#: addons/post-list-box/includes/class-post-type.php:46
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "No %2$s found in Trash"
 msgstr "Aucun %2$s trouvé dans la corbeille"
 
-#: addons/post-list-box/includes/class-post-type.php:43
-#, php-format
-msgctxt "custom layout post type menu name"
-msgid "%2$s"
-msgstr "%2$s"
-
-#: addons/post-list-box/includes/class-post-type.php:44
+#: addons/post-list-box/includes/class-post-type.php:50
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "%1$s Image"
 msgstr "Image %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:45
+#: addons/post-list-box/includes/class-post-type.php:52
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "Set %1$s Image"
 msgstr "Définir l’image %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:46
+#: addons/post-list-box/includes/class-post-type.php:54
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "Remove %1$s Image"
 msgstr "Retirer l’image %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:47
+#: addons/post-list-box/includes/class-post-type.php:56
+#. translators: %1$s: Singular post type label.
 #, php-format
 msgid "Use as %1$s Image"
 msgstr "Utiliser comme image %1$s"
 
-#: addons/post-list-box/includes/class-post-type.php:48
+#: addons/post-list-box/includes/class-post-type.php:58
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "Filter %2$s list"
 msgstr "Filtrer liste de %2$s"
 
-#: addons/post-list-box/includes/class-post-type.php:49
+#: addons/post-list-box/includes/class-post-type.php:60
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "%2$s list navigation"
 msgstr "Navigation liste de %2$s"
 
-#: addons/post-list-box/includes/class-post-type.php:50
+#: addons/post-list-box/includes/class-post-type.php:62
+#. translators: %2$s: Plural post type label.
 #, php-format
 msgid "%2$s list"
 msgstr "Liste de %2$s"
 
-#: addons/post-list-box/includes/class-preview.php:98
+#: addons/post-list-box/includes/class-preview.php:129
+#. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Post %d"
 msgstr "Exemple de publication %d"
 
-#: addons/post-list-box/includes/class-preview.php:99
+#: addons/post-list-box/includes/class-preview.php:131
+#. translators: %d: Sample post number.
 #, php-format
 msgid ""
 "This is sample content for post %d in the series. Lorem ipsum dolor sit "
 "amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
 "labore et dolore magna aliqua."
-msgstr "Ceci est un exemple de contenu de la publication %d de la série. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+msgstr ""
+"Ceci est un exemple de contenu de la publication %d de la série. Lorem "
+"ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor "
+"incididunt ut labore et dolore magna aliqua."
 
-#: addons/post-list-box/includes/class-preview.php:100
+#: addons/post-list-box/includes/class-preview.php:133
+#. translators: %d: Sample post number.
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Ceci est un exemple d’extrait de la publication %d de la série."
 
-#: addons/post-list-box/includes/class-preview.php:504
+#: addons/post-list-box/includes/class-preview.php:558
 #: addons/publisher/series-part-post-table.php:62
 #: addons/publisher/series-pending-post-table.php:64
 #: addons/publisher/series-publish-post-table.php:72
@@ -1080,23 +1289,26 @@ msgstr "Accueil de la série"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:333
 #: addons/post-navigation/classes/PostNavigationRenderer.php:489
-#: addons/post-navigation/includes/class-fields.php:144
-#: addons/post-navigation/includes/class-fields.php:165
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
 #: addons/post-navigation/includes/class-utilities.php:40
 msgid "Previous"
 msgstr "Précédente"
 
 #: addons/post-navigation/classes/PostNavigationRenderer.php:364
 #: addons/post-navigation/classes/PostNavigationRenderer.php:543
-#: addons/post-navigation/includes/class-fields.php:259
-#: addons/post-navigation/includes/class-fields.php:280
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
 #: addons/post-navigation/includes/class-utilities.php:51
 msgid "Next"
 msgstr "Suivante"
 
 #: addons/post-navigation/includes/class-admin-ui.php:31
 #: addons/post-navigation/includes/class-admin-ui.php:32
-#: orgSeries-utility.php:310
+#: inc/settings/tab-post-navigation.php:42
+#: includes-core/class-blocks.php:164
+#: orgSeries-utility.php:357
+#: assets/js/publishpress-series-blocks.js:44
 msgid "Post Navigation"
 msgstr "Navigation des publications"
 
@@ -1112,25 +1324,30 @@ msgstr "Éditeur de navigation des publications de la série"
 msgid "No series found. Create a series to preview the navigation."
 msgstr "Aucune série trouvée. Créer un série pour l’aperçu de la navigation."
 
-#: addons/post-navigation/includes/class-admin-ui.php:184
-msgid ""
-"Insert into posts or pages to display this Series Post Navigation manually."
-msgstr "Insérer dans les publications ou les pages pour afficher manuellement la navigation de cette publication de la série."
+#: addons/post-navigation/includes/class-admin-ui.php:146
+msgid "Series Post Navigation sections"
+msgstr "Sections de navigation des publications de la série"
 
-#: addons/post-navigation/includes/class-admin-ui.php:192
+#: addons/post-navigation/includes/class-admin-ui.php:185
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"Insérer dans les publications ou les pages pour afficher manuellement la "
+"navigation de cette publication de la série."
+
+#: addons/post-navigation/includes/class-admin-ui.php:193
 msgid "Default Navigation"
 msgstr "Navigation par défaut"
 
-#: addons/post-navigation/includes/class-admin-ui.php:414
+#: addons/post-navigation/includes/class-admin-ui.php:421
 msgid "Change Image"
 msgstr "Modifier l’image"
 
-#: addons/post-navigation/includes/class-admin-ui.php:422
+#: addons/post-navigation/includes/class-admin-ui.php:429
 msgid "Remove Image"
 msgstr "Retirer l’image"
 
-#: addons/post-navigation/includes/class-ajax.php:122
-#: addons/post-navigation/includes/class-ajax.php:129
+#: addons/post-navigation/includes/class-ajax.php:128
+#: addons/post-navigation/includes/class-ajax.php:135
 msgid "No posts found in series to preview."
 msgstr "Aucune publication trouvée dans la série à previsualiser."
 
@@ -1142,334 +1359,388 @@ msgstr "Élément"
 msgid "Include Series Title"
 msgstr "Inclure le titre de la série"
 
-#: addons/post-navigation/includes/class-fields.php:96
+#: addons/post-navigation/includes/class-fields.php:94
+msgid "Display the series title above the navigation"
+msgstr "Afficher le titre de la série au-dessus de la navigation"
+
+#: addons/post-navigation/includes/class-fields.php:97
 msgid "Link Series Title"
 msgstr "Lier le titre à la série"
 
-#: addons/post-navigation/includes/class-fields.php:101
+#: addons/post-navigation/includes/class-fields.php:102
 msgid "Link the series title to the series archive page"
 msgstr "Lier le titre de la série à la page d’archive de la série"
 
-#: addons/post-navigation/includes/class-fields.php:106
+#: addons/post-navigation/includes/class-fields.php:107
 msgid "Series Title Alignment"
 msgstr "Alignement du titre de la série"
 
-#: addons/post-navigation/includes/class-fields.php:110
-#: addons/post-navigation/includes/class-fields.php:181
-#: addons/post-navigation/includes/class-fields.php:232
-#: addons/post-navigation/includes/class-fields.php:296
-#: addons/post-navigation/includes/class-fields.php:424
+#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427
 msgid "Left"
 msgstr "Gauche"
 
-#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:112
 msgid "Center"
 msgstr "Centré"
 
-#: addons/post-navigation/includes/class-fields.php:112
-#: addons/post-navigation/includes/class-fields.php:182
-#: addons/post-navigation/includes/class-fields.php:233
-#: addons/post-navigation/includes/class-fields.php:297
-#: addons/post-navigation/includes/class-fields.php:425
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428
 msgid "Right"
 msgstr "Droite"
 
-#: addons/post-navigation/includes/class-fields.php:118
+#: addons/post-navigation/includes/class-fields.php:117
+msgid "Choose the alignment of the series title"
+msgstr "Choisir l'alignement du titre de la série"
+
+#: addons/post-navigation/includes/class-fields.php:120
 msgid "Series Title Color"
 msgstr "Couleur du titre de la série"
 
 #: addons/post-navigation/includes/class-fields.php:125
+msgid "Choose the color of the series title"
+msgstr "Choisir la couleur du titre de la série"
+
+#: addons/post-navigation/includes/class-fields.php:128
 msgid "Hide When Single Post"
 msgstr "Masquer lorsque la publication est unique"
 
-#: addons/post-navigation/includes/class-fields.php:130
+#: addons/post-navigation/includes/class-fields.php:133
 msgid "Do not display navigation if series has only one post"
 msgstr "Ne pas afficher la navigation si la série a une publication uniquement"
 
-#: addons/post-navigation/includes/class-fields.php:148
+#: addons/post-navigation/includes/class-fields.php:151
 msgid "Previous Navigation Type"
 msgstr "Type de navigation précédente"
 
-#: addons/post-navigation/includes/class-fields.php:152
-#: addons/post-navigation/includes/class-fields.php:267
-#: addons/post-navigation/includes/class-fields.php:382
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385
 msgid "None"
 msgstr "Aucun"
 
-#: addons/post-navigation/includes/class-fields.php:153
+#: addons/post-navigation/includes/class-fields.php:156
 msgid "Previous Post Title"
 msgstr "Titre de « Publication précédente »"
 
-#: addons/post-navigation/includes/class-fields.php:154
-#: addons/post-navigation/includes/class-fields.php:269
-#: addons/post-navigation/includes/class-fields.php:384
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387
 msgid "Custom Label"
 msgstr "Libellé personnalisé"
 
-#: addons/post-navigation/includes/class-fields.php:158
+#: addons/post-navigation/includes/class-fields.php:161
 msgid "Choose how to display the previous navigation"
 msgstr "Choisir comment afficher la navigation précédente"
 
-#: addons/post-navigation/includes/class-fields.php:161
+#: addons/post-navigation/includes/class-fields.php:164
 msgid "Previous Label"
 msgstr "Libellé de « Précédente »"
 
-#: addons/post-navigation/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:169
 msgid "Custom text for previous post link"
 msgstr "Texte personnalisé pour le lien vers la publication précédente"
 
-#: addons/post-navigation/includes/class-fields.php:174
+#: addons/post-navigation/includes/class-fields.php:177
 msgid "Display featured image for previous post"
 msgstr "Afficher l’image mise en avant pour la publication précédente"
 
-#: addons/post-navigation/includes/class-fields.php:177
-#: addons/post-navigation/includes/class-fields.php:292
-#: addons/post-navigation/includes/class-fields.php:420
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423
 msgid "Image Position"
 msgstr "Position des images"
 
-#: addons/post-navigation/includes/class-fields.php:186
+#: addons/post-navigation/includes/class-fields.php:189
 msgid "Position of the featured image relative to the navigation"
 msgstr "Position de la flèche par rapport à la navigation"
 
-#: addons/post-navigation/includes/class-fields.php:189
-#: addons/post-navigation/includes/class-fields.php:304
-#: addons/post-navigation/includes/class-fields.php:432
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435
 msgid "Image Width (px)"
 msgstr "Largeur des images (px)"
 
-#: addons/post-navigation/includes/class-fields.php:197
-#: addons/post-navigation/includes/class-fields.php:312
-#: addons/post-navigation/includes/class-fields.php:440
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443
 msgid "Image Height (px)"
 msgstr "Hauteur des images (px)"
 
-#: addons/post-navigation/includes/class-fields.php:205
-#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323
 msgid "Show Arrow"
 msgstr "Afficher les flèches"
 
-#: addons/post-navigation/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:213
 msgid "Display an arrow icon with the previous navigation"
 msgstr "Afficher une icône flèche avec la navigation précédente"
 
-#: addons/post-navigation/includes/class-fields.php:213
-#: addons/post-navigation/includes/class-fields.php:328
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331
 msgid "Arrow Type"
 msgstr "Type de flèche"
 
-#: addons/post-navigation/includes/class-fields.php:217
+#: addons/post-navigation/includes/class-fields.php:220
 msgid "Chevron Left (‹)"
 msgstr "Chevron gauche (‹)"
 
-#: addons/post-navigation/includes/class-fields.php:218
+#: addons/post-navigation/includes/class-fields.php:221
 msgid "Arrow Left (←)"
 msgstr "Flèche gauche (←)"
 
-#: addons/post-navigation/includes/class-fields.php:219
+#: addons/post-navigation/includes/class-fields.php:222
 msgid "Double Chevron Left («)"
 msgstr "Guillemets caporaux gauches (« )"
 
-#: addons/post-navigation/includes/class-fields.php:220
+#: addons/post-navigation/includes/class-fields.php:223
 msgid "Triangle Left (◄)"
 msgstr "Triangle gauche (◄)"
 
-#: addons/post-navigation/includes/class-fields.php:221
-#: addons/post-navigation/includes/class-fields.php:336
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339
 msgid "Custom Image"
 msgstr "Image personnalisée"
 
-#: addons/post-navigation/includes/class-fields.php:225
-#: addons/post-navigation/includes/class-fields.php:340
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
 msgid "Choose the arrow icon style"
 msgstr "Choisir le style de l’icône flèche"
 
-#: addons/post-navigation/includes/class-fields.php:228
-#: addons/post-navigation/includes/class-fields.php:343
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346
 msgid "Arrow Position"
 msgstr "Position de la flèche"
 
-#: addons/post-navigation/includes/class-fields.php:237
+#: addons/post-navigation/includes/class-fields.php:240
 msgid "Position of the arrow relative to the navigation"
 msgstr "Position de la flèche par rapport à la navigation"
 
-#: addons/post-navigation/includes/class-fields.php:240
-#: addons/post-navigation/includes/class-fields.php:355
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358
 msgid "Arrow Size (px)"
 msgstr "Taille de la flèche"
 
-#: addons/post-navigation/includes/class-fields.php:247
-#: addons/post-navigation/includes/class-fields.php:362
-msgid "Size of the arrow icon in pixels (applies to both width and height)"
-msgstr "Taille de l’icône de flèche en pixels (s’applique autant à la largeur qu’à la hauteur)"
-
 #: addons/post-navigation/includes/class-fields.php:250
 #: addons/post-navigation/includes/class-fields.php:365
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr ""
+"Taille de l’icône de flèche en pixels (s’applique autant à la largeur qu’à "
+"la hauteur)"
+
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368
 msgid "Custom Arrow Image"
 msgstr "Image de flèche personnalisée"
 
-#: addons/post-navigation/includes/class-fields.php:255
-#: addons/post-navigation/includes/class-fields.php:370
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373
 msgid "Select custom arrow image from media library"
 msgstr "Sélectionner l’image de flèche personnalisée de la médiathèque"
 
-#: addons/post-navigation/includes/class-fields.php:263
+#: addons/post-navigation/includes/class-fields.php:266
 msgid "Next Navigation Type"
 msgstr "Type de navigation suivante"
 
-#: addons/post-navigation/includes/class-fields.php:268
+#: addons/post-navigation/includes/class-fields.php:271
 msgid "Next Post Title"
 msgstr "Titre de la publication suivante"
 
-#: addons/post-navigation/includes/class-fields.php:273
+#: addons/post-navigation/includes/class-fields.php:276
 msgid "Choose how to display the next post link"
 msgstr "Choisir comment afficher le lien vers la publication suivante"
 
-#: addons/post-navigation/includes/class-fields.php:276
+#: addons/post-navigation/includes/class-fields.php:279
 msgid "Next Label"
 msgstr "Libellé de « Suivante »"
 
-#: addons/post-navigation/includes/class-fields.php:281
+#: addons/post-navigation/includes/class-fields.php:284
 msgid "Custom text for next post link"
 msgstr "Texte personnalisé pour le lien vers la publication suivante"
 
-#: addons/post-navigation/includes/class-fields.php:289
+#: addons/post-navigation/includes/class-fields.php:292
 msgid "Display featured image for next post"
 msgstr "Afficher l’image mise en avant pour la publication suivante"
 
-#: addons/post-navigation/includes/class-fields.php:301
+#: addons/post-navigation/includes/class-fields.php:304
 msgid "Position of the featured image relative to navigation"
 msgstr "Position de l’image mise en avant par rapport à la navigation"
 
-#: addons/post-navigation/includes/class-fields.php:325
+#: addons/post-navigation/includes/class-fields.php:328
 msgid "Display an arrow icon with the next navigation"
 msgstr "Afficher une icône flèche avec la navigation suivante"
 
-#: addons/post-navigation/includes/class-fields.php:332
+#: addons/post-navigation/includes/class-fields.php:335
 msgid "Chevron Right (›)"
 msgstr "Chevron droite (›)"
 
-#: addons/post-navigation/includes/class-fields.php:333
+#: addons/post-navigation/includes/class-fields.php:336
 msgid "Arrow Right (→)"
 msgstr "Flèche droite (→)"
 
-#: addons/post-navigation/includes/class-fields.php:334
+#: addons/post-navigation/includes/class-fields.php:337
 msgid "Double Chevron Right (»)"
 msgstr "Guillemets caporaux droites ( »)"
 
-#: addons/post-navigation/includes/class-fields.php:335
+#: addons/post-navigation/includes/class-fields.php:338
 msgid "Triangle Right (►)"
 msgstr "Triangle droite (►)"
 
-#: addons/post-navigation/includes/class-fields.php:347
+#: addons/post-navigation/includes/class-fields.php:350
 msgid "Left of Text"
 msgstr "À gauche du texte"
 
-#: addons/post-navigation/includes/class-fields.php:348
+#: addons/post-navigation/includes/class-fields.php:351
 msgid "Right of Text"
 msgstr "À droite du texte"
 
-#: addons/post-navigation/includes/class-fields.php:352
+#: addons/post-navigation/includes/class-fields.php:355
 msgid "Position of the arrow relative to the link text"
 msgstr "Position de la flèche par rapport au texte du lien"
 
-#: addons/post-navigation/includes/class-fields.php:374
+#: addons/post-navigation/includes/class-fields.php:377
 msgid "First"
 msgstr "Première"
 
-#: addons/post-navigation/includes/class-fields.php:378
+#: addons/post-navigation/includes/class-fields.php:381
 msgid "First Navigation Type"
 msgstr "Type de la première navigation"
 
-#: addons/post-navigation/includes/class-fields.php:383
+#: addons/post-navigation/includes/class-fields.php:386
 msgid "First Post Title"
 msgstr "Titre de la première publication"
 
-#: addons/post-navigation/includes/class-fields.php:388
+#: addons/post-navigation/includes/class-fields.php:391
 msgid "Choose how to display the first navigation"
 msgstr "Choisir comment afficher la première navigation"
 
-#: addons/post-navigation/includes/class-fields.php:391
+#: addons/post-navigation/includes/class-fields.php:394
 msgid "First Label"
 msgstr "Libellé de « Premier »"
 
-#: addons/post-navigation/includes/class-fields.php:395
+#: addons/post-navigation/includes/class-fields.php:398
 msgid "Go to First"
 msgstr "Aller à la premiére"
 
-#: addons/post-navigation/includes/class-fields.php:396
+#: addons/post-navigation/includes/class-fields.php:399
 msgid "Custom text for first navigation"
 msgstr "Texte personnalisé pour la première navigation"
 
-#: addons/post-navigation/includes/class-fields.php:399
+#: addons/post-navigation/includes/class-fields.php:402
 msgid "First Navigation Position"
 msgstr "Position de la première navigation"
 
-#: addons/post-navigation/includes/class-fields.php:403
+#: addons/post-navigation/includes/class-fields.php:406
 msgid "Left (First → Previous → Next)"
 msgstr "Gauche (« Première » → « Précédente » → « Suivante »)"
 
-#: addons/post-navigation/includes/class-fields.php:404
+#: addons/post-navigation/includes/class-fields.php:407
 msgid "Center (Previous → First → Next)"
 msgstr "Centré (« Précédente » → « Première » → « Suivante »)"
 
-#: addons/post-navigation/includes/class-fields.php:405
+#: addons/post-navigation/includes/class-fields.php:408
 msgid "Right (Previous → Next → First)"
 msgstr "Droite (« Précédente » → « Suivante » → « Première »)"
 
-#: addons/post-navigation/includes/class-fields.php:409
+#: addons/post-navigation/includes/class-fields.php:412
 msgid "Position of the first/series home link in navigation"
 msgstr "Position du premier lien/page d’accueil de la série dans la navigation"
 
-#: addons/post-navigation/includes/class-fields.php:417
+#: addons/post-navigation/includes/class-fields.php:420
 msgid "Display featured image for first post"
 msgstr "Afficher l’image mise en avant pour la première publication"
 
-#: addons/post-navigation/includes/class-fields.php:429
+#: addons/post-navigation/includes/class-fields.php:432
 msgid "Position of the featured image relative to the link text"
 msgstr "Position de l’image mise en avant par rapport au texte du lien"
 
-#: addons/post-navigation/includes/class-fields.php:449
+#: addons/post-navigation/includes/class-fields.php:452
 msgid "Color"
 msgstr "Couleur"
 
-#: addons/post-navigation/includes/class-fields.php:520
+#: addons/post-navigation/includes/class-fields.php:461
+msgid "Choose the color of navigation link text"
+msgstr "Choisissez la couleur du texte des liens de navigation"
+
+#: addons/post-navigation/includes/class-fields.php:469
+msgid "Choose the background color of navigation links"
+msgstr "Choisir la couleur de fond des liens de navigation"
+
+#: addons/post-navigation/includes/class-fields.php:482
+msgid "Choose the border color of navigation links"
+msgstr "Choisir la couleur de bordure des liens de navigation"
+
+#: addons/post-navigation/includes/class-fields.php:492
+msgid "Set the border width of navigation links in pixels"
+msgstr "Définissez la largeur de la bordure des liens de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Set the border radius of navigation links in pixels"
+msgstr "Définissez le rayon de la bordure des liens de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:517
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "Définissez l'espacement intérieur autour des liens de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "Définissez l'espacement extérieur autour des liens de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:530
 msgid "Gap Between Links (px)"
 msgstr "Écart entre les liens (px)"
 
-#: addons/post-navigation/includes/class-fields.php:527
+#: addons/post-navigation/includes/class-fields.php:537
 msgid "Space between navigation links"
 msgstr "Espacement entre les liens de navigation"
 
-#: addons/post-navigation/includes/class-fields.php:540
+#: addons/post-navigation/includes/class-fields.php:550
 msgid "Container Style"
 msgstr "Style du conteneur"
 
-#: addons/post-navigation/includes/class-fields.php:544
+#: addons/post-navigation/includes/class-fields.php:554
 msgid "Container Background Color"
 msgstr "Couleur d’arrière-plan du conteneur"
 
-#: addons/post-navigation/includes/class-fields.php:549
+#: addons/post-navigation/includes/class-fields.php:559
 msgid "Background color for the navigation container"
 msgstr "Couleur d’arrière-plan du conteneur de la navigation"
 
-#: addons/post-navigation/includes/class-fields.php:552
+#: addons/post-navigation/includes/class-fields.php:562
 msgid "Container Border Color"
 msgstr "Couleur de la bordure du conteneur"
 
-#: addons/post-navigation/includes/class-fields.php:559
+#: addons/post-navigation/includes/class-fields.php:567
+msgid "Choose the border color of the navigation container"
+msgstr "Choisir la couleur de bordure du conteneur de navigation"
+
+#: addons/post-navigation/includes/class-fields.php:570
 msgid "Container Border Width (px)"
 msgstr "Largeur de la bordure du conteneur (px)"
 
-#: addons/post-navigation/includes/class-fields.php:568
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Set the border width of the navigation container in pixels"
+msgstr "Définissez la largeur de la bordure du conteneur de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:580
 msgid "Container Border Radius (px)"
 msgstr "Rayon de la bordure du conteneur (px)"
 
-#: addons/post-navigation/includes/class-fields.php:577
+#: addons/post-navigation/includes/class-fields.php:587
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "Définissez le rayon de bordure du conteneur de navigation en pixels"
+
+#: addons/post-navigation/includes/class-fields.php:590
 msgid "Container Padding (px)"
 msgstr "Marge interne du conteneur (px)"
 
-#: addons/post-navigation/includes/class-fields.php:584
+#: addons/post-navigation/includes/class-fields.php:597
 msgid "Inner spacing for the container"
 msgstr "Espacement intérieur du conteneur"
 
@@ -1521,7 +1792,7 @@ msgstr "Créer une série pour prévisualiser la navigation."
 msgid "Create posts in a series to preview the navigation."
 msgstr "Créer des publications dans une série pour prévisualiser la navigation."
 
-#: addons/post-navigation/includes/class-utilities.php:174
+#: addons/post-navigation/includes/class-utilities.php:189
 msgid "Sample series for preview purposes"
 msgstr "Exemple de série pour fins de prévisualisation"
 
@@ -1564,467 +1835,556 @@ msgstr "État"
 msgid "Current Part"
 msgstr "Pièce actuelle"
 
-#: addons/publisher/series-part-post-table.php:140
-#: addons/publisher/series-pending-post-table.php:142
-#: addons/publisher/series-publish-post-table.php:270
+#: addons/publisher/series-part-post-table.php:142
+#: addons/publisher/series-pending-post-table.php:144
+#: addons/publisher/series-publish-post-table.php:291
 msgid "Edit"
 msgstr "Modifier"
 
-#: addons/publisher/series-part-post-table.php:146
+#: addons/publisher/series-part-post-table.php:148
+#: assets/js/publishpress-series-blocks.js:251
 msgid "View"
 msgstr "Voir"
 
-#: addons/publisher/series-part-post-table.php:163
-#: addons/publisher/series-pending-post-table.php:170
-#: addons/publisher/series-publish-post-table.php:287
+#: addons/publisher/series-part-post-table.php:165
+#: addons/publisher/series-pending-post-table.php:172
+#: addons/publisher/series-publish-post-table.php:308
 msgid "Trash"
 msgstr "Corbeille"
 
-#: addons/publisher/series-part-post-table.php:190
+#: addons/publisher/series-part-post-table.php:192
 msgid "There are no published posts in this series."
 msgstr "Il n’y a aucune publication publiée dans cette série."
 
-#: addons/publisher/series-part-post-table.php:309
+#: addons/publisher/series-part-post-table.php:312
 msgid "(Currently has no Part number)"
 msgstr "(Il n’y a aucun numéro de pièce actuellement)"
 
-#: addons/publisher/series-pending-post-table.php:153
+#: addons/publisher/series-pending-post-table.php:155
 #: addons/publisher/series-publish-post-table.php:76
-#: addons/publisher/series-publish-post-table.php:422
+#: addons/publisher/series-publish-post-table.php:443
 msgid "Preview"
 msgstr "Aperçu"
 
-#: addons/publisher/series-pending-post-table.php:197
+#: addons/publisher/series-pending-post-table.php:199
 #: addons/publisher/series-publish-post-table.php:46
 msgid "There are no unpublished posts in this series."
 msgstr "Il n’y a pas de publications non publiées dans cette série."
 
-#: addons/publisher/series-pending-post-table.php:312
+#: addons/publisher/series-pending-post-table.php:314
 msgid "No Part Number"
 msgstr "Aucun numéro de partie"
 
-#: addons/publisher/series-publish-post-table.php:176
+#: addons/publisher/series-publish-post-table.php:181
 msgid "All Categories"
 msgstr "Toutes les catégories"
 
-#: addons/publisher/series-publish-post-table.php:189
+#: addons/publisher/series-publish-post-table.php:194
 msgid "Filter"
 msgstr "Filtre"
 
 #: addons/publisher/series_im_admin_main.php:2
-#: addons/publisher/series_issue_manager.php:500
-#: inc/settings/settings-validation.php:67
+#: addons/publisher/series_issue_manager.php:723
+#: inc/settings/settings-validation.php:94
 msgid "Manage Series"
 msgstr "Gérer les séries"
 
 #: addons/publisher/series_im_admin_main.php:7
+#: assets/js/publishpress-series-blocks.js:138
 msgid "Series"
 msgstr "Série"
 
-#: addons/publisher/series_im_admin_main.php:9
-#: addons/publisher/series_issue_manager.php:695
-#: addons/publisher/series_issue_manager.php:741
+#: addons/publisher/series_im_admin_main.php:10
+#: addons/publisher/series_issue_manager.php:872
+#: addons/publisher/series_issue_manager.php:919
 msgid "Publish Series"
 msgstr "Publier la série"
 
-#: addons/publisher/series_im_admin_main.php:10
+#: addons/publisher/series_im_admin_main.php:12
 msgid "Front View"
 msgstr "Interface publique"
 
-#: addons/publisher/series_im_admin_main.php:17
+#: addons/publisher/series_im_admin_main.php:19
+#. translators: %1$s: Series name.
 #, php-format
 msgid "Edit the status of %1$s"
 msgstr "Modifier l’état de %1$s"
 
-#: addons/publisher/series_im_admin_main.php:19
+#: addons/publisher/series_im_admin_main.php:21
 msgid "Series order"
 msgstr "Ordre de la série"
 
-#: addons/publisher/series_im_admin_main.php:22
+#: addons/publisher/series_im_admin_main.php:25
 msgid "Publish or schedule posts"
 msgstr "Publier ou planifier des publications"
 
-#: addons/publisher/series_im_admin_main.php:25
+#: addons/publisher/series_im_admin_main.php:29
 msgid "View series in frontend"
 msgstr "Voir les séries dans l’interface publique"
 
-#: addons/publisher/series_im_admin_main.php:34
+#: addons/publisher/series_im_admin_main.php:38
 msgid "You have no series available."
 msgstr "Vous n’avez aucune série disponible."
 
-#: addons/publisher/series_im_admin_main.php:34
+#: addons/publisher/series_im_admin_main.php:38
 msgid "Add new Series."
 msgstr "Ajouter une nouvelle série."
 
-#: addons/publisher/series_issue_manager.php:209
+#: addons/publisher/series_issue_manager.php:238
 msgid "Create as unpublished:"
 msgstr "Créer comme non publiée :"
 
-#: addons/publisher/series_issue_manager.php:212
+#: addons/publisher/series_issue_manager.php:241
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
-msgstr "Si cette case est cochée, toutes les publications que vous attribuez à cette série resteront non publiées jusqu’à ce que vous publiiez la série entière."
+msgstr ""
+"Si cette case est cochée, toutes les publications que vous attribuez à "
+"cette série resteront non publiées jusqu’à ce que vous publiiez la série "
+"entière."
 
-#: addons/publisher/series_issue_manager.php:290
+#: addons/publisher/series_issue_manager.php:321
 msgid "The posts in your series were successfully unpublished."
 msgstr "Les publications de votre série ont bien été dépubliées."
 
-#: addons/publisher/series_issue_manager.php:299
-#: addons/publisher/series_issue_manager.php:416
+#: addons/publisher/series_issue_manager.php:330
+#: addons/publisher/series_issue_manager.php:479
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Félicitations. Votre commande de séries a bien été mise à jour."
 
-#: addons/publisher/series_issue_manager.php:307
-#: addons/publisher/series_issue_manager.php:344
+#: addons/publisher/series_issue_manager.php:338
+#: addons/publisher/series_issue_manager.php:356
 msgid "Congratulations. Your posts were published successfully."
 msgstr "Félicitations. Vos publications ont bien été publiées."
 
-#: addons/publisher/series_issue_manager.php:316
+#: addons/publisher/series_issue_manager.php:347
 msgid "Post moved to the Trash."
 msgstr "La publication a été mise à la corbeille."
 
-#: addons/publisher/series_issue_manager.php:339
+#: addons/publisher/series_issue_manager.php:364
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "Félicitations. Vos publications ont bien été planifiées."
 
-#: addons/publisher/series_issue_manager.php:499
+#: addons/publisher/series_issue_manager.php:401
+msgid "Sorry, you are not allowed to perform this action."
+msgstr "Désolé, vous n'êtes pas autorisé à effectuer cette action."
+
+#: addons/publisher/series_issue_manager.php:722
 msgid "Manage Series Issues"
 msgstr "Gérer les problèmes de séries"
 
-#: addons/publisher/series_issue_manager.php:528
+#: addons/publisher/series_issue_manager.php:752
 msgid "Number of items per page"
 msgstr "Nombre d’éléments par page"
 
-#: addons/publisher/series_issue_manager.php:643
+#: addons/publisher/series_issue_manager.php:812
 msgid "Publishing Series:"
 msgstr "Série de publications :"
 
+#: addons/publisher/series_issue_manager.php:819
 #. translators: %s: search keywords
-#: addons/publisher/series_issue_manager.php:649
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Résultats de la recherche pour &#0171; %s &#187;"
 
-#: addons/publisher/series_issue_manager.php:664
+#: addons/publisher/series_issue_manager.php:834
 msgid "Search"
 msgstr "Rechercher"
 
-#: addons/publisher/series_issue_manager.php:709
+#: addons/publisher/series_issue_manager.php:887
 msgid "Publication Date/Time:"
 msgstr "Date/heure de publication :"
 
-#: addons/publisher/series_issue_manager.php:765
-#: addons/publisher/series_issue_manager.php:840
-#: addons/publisher/series_issue_manager.php:939
+#: addons/publisher/series_issue_manager.php:944
+#: addons/publisher/series_issue_manager.php:1026
+#: addons/publisher/series_issue_manager.php:1133
 msgid "Update Order"
 msgstr "Mettre à jour la commande"
 
-#: addons/publisher/series_issue_manager.php:792
+#: addons/publisher/series_issue_manager.php:971
 msgid "Series Order:"
 msgstr "Ordre de la série :"
 
-#: addons/publisher/series_issue_manager.php:795
+#: addons/publisher/series_issue_manager.php:974
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
-msgstr "Faites glisser les noms des publications dans l’ordre où vous voulez qu’elles soient dans la série, de la première à la dernière partie."
+msgstr ""
+"Faites glisser les noms des publications dans l’ordre où vous voulez "
+"qu’elles soient dans la série, de la première à la dernière partie."
 
-#: addons/publisher/series_issue_manager.php:867
+#: addons/publisher/series_issue_manager.php:1053
 msgid "Unpublished posts in series:"
 msgstr "Publications non publiées dans la série :"
 
-#: addons/publisher/series_issue_manager.php:870
+#: addons/publisher/series_issue_manager.php:1056
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
-msgstr "Lorsque ces publications seront publiées, elles seront ajoutées à la suite de la dernière publication actuelle de la série."
+msgstr ""
+"Lorsque ces publications seront publiées, elles seront ajoutées à la suite "
+"de la dernière publication actuelle de la série."
 
-#: addons/publisher/series_issue_manager.php:901
+#: addons/publisher/series_issue_manager.php:1093
 msgid "Unpublished Posts"
 msgstr "Publications non publiées"
 
-#: addons/publisher/series_issue_manager.php:915
+#: addons/publisher/series_issue_manager.php:1108
 msgid "Publish Unpublished Posts"
 msgstr "Publier les publications non publiées"
 
-#: addons/publisher/series_issue_manager.php:925
+#: addons/publisher/series_issue_manager.php:1118
 msgid "Unpublished Series Order"
 msgstr "Tri de la série non publiée"
 
-#: inc/settings/settings-page.php:18
+#: inc/pue-client.php:42
+#. translators: %s is a link to the licensing change documentation.
+#, php-format
+msgid ""
+"PublishPress Series Add-on licensing has changed. This notice only appears "
+"on sites affected by this change. You can %s."
+msgstr ""
+"La licence de l'extension PublishPress Series a changé. Cet avis n'apparaît "
+"que sur les sites affectés par ce changement. Vous pouvez %s."
+
+#: inc/pue-client.php:43
+msgid "read more about this licensing change"
+msgstr "en savoir plus sur ce changement de licence"
+
+#: inc/settings/settings-page.php:19
 msgid "PublishPress Series Plugin Options"
 msgstr "Options de l’extension PublishPress Series"
 
-#: inc/settings/settings-page.php:52
+#: inc/settings/settings-page.php:26
+msgid "Series settings"
+msgstr "Réglages de la série"
+
+#: inc/settings/settings-page.php:55
 msgid "Allowed Html"
 msgstr "HTML autorisé"
 
-#: inc/settings/settings-page.php:61
+#: inc/settings/settings-page.php:64
 msgid "Overview"
 msgstr "Vue d’ensemble"
 
-#: inc/settings/settings-page.php:63
+#: inc/settings/settings-page.php:66
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
-msgstr "Ce qui suit est une légende des jetons qui sont disponibles pour être utilisés dans les champs de modèles personnalisés. Ils seront remplacés par les valeurs appropriées lors de l’exécution de l’extension."
+msgstr ""
+"Ce qui suit est une légende des jetons qui sont disponibles pour être "
+"utilisés dans les champs de modèles personnalisés. Ils seront remplacés par "
+"les valeurs appropriées lors de l’exécution de l’extension."
 
-#: inc/settings/settings-page.php:68
-msgid "This will be replaced with the series icon for a series."
-msgstr "Elle sera remplacée par l’icône de la série pour une série."
+#: inc/settings/settings-page.php:71
+msgid "This will be replaced with the series featured image for a series."
+msgstr "Ceci sera remplacé par l'image mise en avant d'une série."
 
-#: inc/settings/settings-page.php:76
-#, no-php-format
+#: inc/settings/settings-page.php:79
+#. translators: %series_icon%: Template token for the series featured image.
+#, php-format
 msgid ""
-"Same as %series_icon% except that the series icon will be linked to the "
-"series page"
-msgstr "Identique à %series_icon%, sauf que l’icône de la série sera liée à la page de la série"
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr ""
+"Identique à %series_icon% excepté que l’image mise en avant de la "
+"série sera liée à la page de la série"
 
-#: inc/settings/settings-page.php:84
+#: inc/settings/settings-page.php:87
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
 "template for each series title be also set."
-msgstr "Ce jeton ne doit être utilisé qu’avec le widget orgSeries. Il indique l’endroit où vous souhaitez que la liste des titres de séries soit insérée et exige que le modèle de chaque titre de série soit également défini."
+msgstr ""
+"Ce jeton ne doit être utilisé qu’avec le widget orgSeries. Il indique "
+"l’endroit où vous souhaitez que la liste des titres de séries soit insérée "
+"et exige que le modèle de chaque titre de série soit également défini."
 
-#: inc/settings/settings-page.php:92
+#: inc/settings/settings-page.php:95
 msgid "This will be replaced with the title of a series"
 msgstr "Ceci sera remplacé par le titre d’une série"
 
-#: inc/settings/settings-page.php:100
-#, no-php-format
-msgid ""
-"Same as %series_title% except that it will also be linked to the series page"
-msgstr "Identique à %series_title%, sauf qu’il sera également lié à la page de la série"
+#: inc/settings/settings-page.php:103
+#. translators: %series_title%: Template token for the series title.
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr ""
+"Identique à %series_title% excepté qu’il sera également lié à la "
+"page de la série"
 
-#: inc/settings/settings-page.php:108
+#: inc/settings/settings-page.php:111
 msgid ""
-"Is the location token for where the contents of the post list post templates "
-"will appear."
-msgstr "C’est le jeton d’emplacement pour l’endroit où le contenu des modèles d’affichage de la liste des publications apparaîtra."
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr ""
+"C’est le jeton d’emplacement pour l’endroit où le contenu des modèles "
+"d’affichage de la liste des publications apparaîtra."
 
-#: inc/settings/settings-page.php:116
+#: inc/settings/settings-page.php:119
 msgid ""
-"Is the location token for where the contents of the post list post templates "
-"will appear and use provided widget post short title."
-msgstr "C’est le jeton d’emplacement pour l’endroit où le contenu des modèles de publication de la liste des publications apparaîtra et utilisera le titre court du widget de publication fourni."
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"C’est le jeton d’emplacement pour l’endroit où le contenu des modèles de "
+"publication de la liste des publications apparaîtra et utilisera le titre "
+"court du widget de publication fourni."
 
-#: inc/settings/settings-page.php:124
+#: inc/settings/settings-page.php:127
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "Il sera remplacé par le titre d’un article de la série"
 
-#: inc/settings/settings-page.php:132
+#: inc/settings/settings-page.php:135
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
-msgstr "Il sera remplacé par le titre d’un article de la série lié à la visualisation de la page de cet article."
+msgstr ""
+"Il sera remplacé par le titre d’un article de la série lié à la "
+"visualisation de la page de cet article."
 
-#: inc/settings/settings-page.php:140
+#: inc/settings/settings-page.php:143
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "Sera remplacé par le titre court d’une publication appartenant à la série."
 
-#: inc/settings/settings-page.php:148
+#: inc/settings/settings-page.php:151
 msgid ""
-"Will be replaced with the post title short of a post in the series linked to "
-"the page view of that post."
-msgstr "Il sera remplacé par le titre court d’une publication de les séries liées à la vue de la page de cette publication."
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"Il sera remplacé par le titre court d’une publication de les séries liées à "
+"la vue de la page de cette publication."
 
-#: inc/settings/settings-page.php:156
+#: inc/settings/settings-page.php:159
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
 "Navigation Text' field. If that field is empty then the text will be the "
 "title of the post"
-msgstr "Sera remplacé par le lien de navigation de l’article précédent dans une série. Le texte sera celui qui figure dans le champ « Texte de navigation personnalisé de l’article précédent ». Si ce champ est vide, le texte sera le titre de l’article"
+msgstr ""
+"Sera remplacé par le lien de navigation de l’article précédent dans une "
+"série. Le texte sera celui qui figure dans le champ « Texte de navigation "
+"personnalisé de l’article précédent ». Si ce champ est vide, le texte sera "
+"le titre de l’article"
 
-#: inc/settings/settings-page.php:164
+#: inc/settings/settings-page.php:167
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
 "field. If that field is empty then the text will be the title of the post"
-msgstr "Sera remplacé par le lien de navigation pour la publication suivante de la série. Le texte sera celui qui figure dans le champ « Texte de navigation personnalisé pour la publication suivante ». Si ce champ est vide, le texte sera le titre de la publication"
+msgstr ""
+"Sera remplacé par le lien de navigation pour la publication suivante de la "
+"série. Le texte sera celui qui figure dans le champ « Texte de navigation "
+"personnalisé pour la publication suivante ». Si ce champ est vide, le texte "
+"sera le titre de la publication"
 
-#: inc/settings/settings-page.php:172
+#: inc/settings/settings-page.php:175
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
-"text will be whatever is included in the 'Custom First Post Navigation Text' "
-"field. If that field is empty then the text will be the title of the post"
-msgstr "Sera remplacé par le lien de navigation de la première publication d’une série. Le texte sera celui qui figure dans le champ « Texte de navigation personnalisé de la première publication ». Si ce champ est vide, le texte sera le titre de la publication"
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"Sera remplacé par le lien de navigation de la première publication d’une "
+"série. Le texte sera celui qui figure dans le champ « Texte de navigation "
+"personnalisé de la première publication ». Si ce champ est vide, le texte "
+"sera le titre de la publication"
 
-#: inc/settings/settings-page.php:179
+#: inc/settings/settings-page.php:182
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
-msgstr "Utilisez cette balise avant ou après le reste du code du modèle.  Elle indique où vous souhaitez que le contenu d’une publication soit affiché."
+msgstr ""
+"Utilisez cette balise avant ou après le reste du code du modèle.  Elle "
+"indique où vous souhaitez que le contenu d’une publication soit affiché."
 
-#: inc/settings/settings-page.php:187
+#: inc/settings/settings-page.php:190
 msgid "Will display what part of a series the post is"
 msgstr "Afficher la partie d’une série dans laquelle se trouve la publication"
 
-#: inc/settings/settings-page.php:195
+#: inc/settings/settings-page.php:198
 msgid "Will display the total number of posts in a series"
 msgstr "Affichera le nombre total de publications dans une série"
 
-#: inc/settings/settings-page.php:203
+#: inc/settings/settings-page.php:206
 msgid "Will display the description for the series"
 msgstr "Affichera la description des séries"
 
-#: inc/settings/settings-page.php:213
+#: inc/settings/settings-page.php:218
 msgid "Will output the slug of the series"
 msgstr "Affichera le slug de la série"
 
-#: inc/settings/settings-page.php:221
+#: inc/settings/settings-page.php:228
 msgid "Will output the ID of the series"
 msgstr "Affichera l’ID de la série"
 
-#: inc/settings/settings-page.php:229
+#: inc/settings/settings-page.php:238
 msgid "Will output the author of the post"
 msgstr "Affichera l’auteur/autrice de la publication"
 
-#: inc/settings/settings-page.php:237
+#: inc/settings/settings-page.php:248
 msgid "If the post has a feature-image then that image will be displayed"
 msgstr "Si la publication a une image mise en avant, cette image sera affichée"
 
-#: inc/settings/settings-page.php:245
+#: inc/settings/settings-page.php:258
 msgid "The date that a post was published"
 msgstr "Date de publication d’une publication"
 
-#: inc/settings/settings-page.php:253
-msgid ""
-"Will be replaced with the unpublished post title of a post in the series"
+#: inc/settings/settings-page.php:268
+msgid "Will be replaced with the unpublished post title of a post in the series"
 msgstr "Il sera remplacé par le titre non publié d’une publication de la série"
 
-#: inc/settings/settings-page.php:261
-msgid ""
-"Will display the total number of published and unpublished posts in a series"
-msgstr "Affichera le nombre total de publications publiées et non publiées dans une série"
+#: inc/settings/settings-page.php:278
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr ""
+"Affichera le nombre total de publications publiées et non publiées dans une "
+"série"
 
-#: inc/settings/settings-page.php:304
+#: inc/settings/settings-page.php:321
 msgid "Update Options"
 msgstr "Modifier les options"
 
-#: inc/settings/settings-page.php:308
+#: inc/settings/settings-page.php:326
+msgid "Reset Series settings"
+msgstr "Réinitialiser les réglages de la série"
+
+#: inc/settings/settings-page.php:327
 msgid ""
 "Clicking Yes will reset the options to the defaults and you will lose all "
 "customizations. Or you can click cancel and return."
-msgstr "En cliquant sur Oui, les options seront réinitialisées aux valeurs par défaut et vous perdrez toutes les personnalisations. Vous pouvez aussi cliquer sur Annuler et revenir."
+msgstr ""
+"En cliquant sur Oui, les options seront réinitialisées aux valeurs par "
+"défaut et vous perdrez toutes les personnalisations. Vous pouvez aussi "
+"cliquer sur Annuler et revenir."
 
-#: inc/settings/settings-page.php:309
+#: inc/settings/settings-page.php:328
 msgid "No"
 msgstr "Non"
 
-#: inc/settings/settings-page.php:310
+#: inc/settings/settings-page.php:329
 msgid "Yes"
 msgstr "Oui"
 
-#: inc/settings/settings-upgrade.php:22 inc/settings/settings-upgrade.php:44
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:47
 msgid "Please update your PublishPress Series data"
 msgstr "Veuillez mettre à jour vos données PublishPress Series"
 
-#: inc/settings/settings-upgrade.php:24 inc/settings/settings-upgrade.php:45
+#: inc/settings/settings-upgrade.php:26
+#: inc/settings/settings-upgrade.php:48
 msgid ""
 "We have made changes to how series are stored and this requires a small "
 "update. This improves support for the Multiple Series feature, and resolves "
 "some issues with the order of posts. Please click this button to upgrade."
-msgstr "Nous avons modifié la façon dont les séries sont stockées, ce qui nécessite une petite mise à jour. Cette mise à jour améliore la prise en charge de la fonctionnalité des séries multiples et résout certains problèmes liés au tri des publications. Veuillez cliquer sur ce bouton pour effectuer la mise à jour."
+msgstr ""
+"Nous avons modifié la façon dont les séries sont stockées, ce qui nécessite "
+"une petite mise à jour. Cette mise à jour améliore la prise en charge de la "
+"fonctionnalité des séries multiples et résout certains problèmes liés au "
+"tri des publications. Veuillez cliquer sur ce bouton pour effectuer la mise "
+"à jour."
 
-#: inc/settings/settings-upgrade.php:25 inc/settings/settings-upgrade.php:46
+#: inc/settings/settings-upgrade.php:27
+#: inc/settings/settings-upgrade.php:49
 msgid "Update Series data"
 msgstr "Mettre à jour les données de la série"
 
-#: inc/settings/settings-upgrade.php:92
+#: inc/settings/settings-upgrade.php:96
 msgid "Series upgrade completed."
 msgstr "Mise à niveau de Series terminée."
 
-#: inc/settings/settings-upgrade.php:174
+#: inc/settings/settings-upgrade.php:181
+#. translators: %d: Number of posts updated.
 #, php-format
 msgid "Series order sync completed. %d posts updated."
-msgstr "Synchronisation de l’ordre de la série terminée. %d publications ont été mises à jour."
+msgstr ""
+"Synchronisation de l’ordre de la série terminée. %d publications ont été "
+"mises à jour."
 
-#: inc/settings/settings-validation.php:58 orgSeries-setup.php:257
-msgctxt "taxonomy general name"
-msgid "Series"
-msgstr "Série"
-
-#: inc/settings/settings-validation.php:59 orgSeries-setup.php:258
-msgctxt "taxonomy singular name"
-msgid "Series"
-msgstr "Série"
-
-#: inc/settings/settings-validation.php:60 orgSeries-setup.php:259
+#: inc/settings/settings-validation.php:87
+#: orgSeries-setup.php:273
 msgid "Search Series"
 msgstr "Chercher une Série"
 
-#: inc/settings/settings-validation.php:61 orgSeries-setup.php:260
+#: inc/settings/settings-validation.php:88
+#: orgSeries-setup.php:274
 msgid "Popular Series"
 msgstr "Série populaire"
 
-#: inc/settings/settings-validation.php:62 orgSeries-setup.php:261
-#: orgSeries-setup.php:315
+#: inc/settings/settings-validation.php:89
+#: orgSeries-setup.php:275
+#: orgSeries-setup.php:368
 msgid "All Series"
 msgstr "Toutes les Séries"
 
-#: inc/settings/settings-validation.php:63 orgSeries-setup.php:262
+#: inc/settings/settings-validation.php:90
+#: orgSeries-setup.php:276
 msgid "Edit Series"
 msgstr "Modifier les séries"
 
-#: inc/settings/settings-validation.php:64 orgSeries-setup.php:263
+#: inc/settings/settings-validation.php:91
+#: orgSeries-setup.php:277
 msgid "Update Series"
 msgstr "Mettre à jour les séries"
 
-#: inc/settings/settings-validation.php:65 orgSeries-setup.php:264
+#: inc/settings/settings-validation.php:92
+#: orgSeries-setup.php:278
 msgid "Add New Series"
 msgstr "Ajouter une nouvelle série"
 
-#: inc/settings/settings-validation.php:66 orgSeries-setup.php:265
+#: inc/settings/settings-validation.php:93
+#: orgSeries-setup.php:279
 msgid "New Series Name"
 msgstr "Nouveau nom de série"
 
-#: inc/settings/settings-validation.php:68 orgSeries-setup.php:267
+#: inc/settings/settings-validation.php:95
+#: orgSeries-setup.php:281
 msgid "No series found"
 msgstr "Aucune série trouvée"
 
-#: inc/settings/settings-validation.php:121
+#: inc/settings/settings-validation.php:155
+#. translators: 1: Number of series migrated, 2: Previous taxonomy slug, 3: New taxonomy slug.
 #, php-format
-msgid ""
-"%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
-msgstr "%1$s séries ont été migrées de \"%2$s\" vers la taxonomie \"%3$s\". Les réglages ont été mis à jour."
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s séries ont été migrées de \"%2$s\" vers la taxonomie \"%3$s\". Les "
+"réglages ont été mis à jour."
 
-#: inc/settings/settings-validation.php:135
+#: inc/settings/settings-validation.php:170
 msgid "PublishPress Series Plugin Options have been updated"
 msgstr "Les options de l’extension PublishPress Series ont été mises à jour"
 
-#: inc/settings/settings-validation.php:151
+#: inc/settings/settings-validation.php:187
 msgid "Permission denied"
 msgstr "Droit refusé"
 
-#: inc/settings/settings-validation.php:157
+#: inc/settings/settings-validation.php:193
 msgid "PublishPress Series Plugin Options have been RESET"
 msgstr "Les options de l’extension PublishPress Series ont été réinitialisées"
 
-#: inc/settings/tab-advanced.php:16
+#: inc/settings/tab-advanced.php:17
 msgid ""
 "Please change these settings carefully as they make significant changes to "
 "PublishPress Series."
-msgstr "Veuillez modifier ces réglages avec soin car ils apportent des changements importants à PublishPress Series."
+msgstr ""
+"Veuillez modifier ces réglages avec soin car ils apportent des changements "
+"importants à PublishPress Series."
 
-#: inc/settings/tab-advanced.php:34
+#: inc/settings/tab-advanced.php:36
 msgid "Series Settings"
 msgstr "Réglages de la série"
 
-#: inc/settings/tab-advanced.php:40
+#: inc/settings/tab-advanced.php:42
 msgid ""
 "Delete all PublishPress Series data from the database when deleting this "
 "plugin."
-msgstr "Supprimer toutes les données de PublishPress Series de la base de données lors de la suppression de cette extension."
+msgstr ""
+"Supprimer toutes les données de PublishPress Series de la base de données "
+"lors de la suppression de cette extension."
 
-#: inc/settings/tab-advanced.php:47
+#: inc/settings/tab-advanced.php:49
 msgid "Series Upgrade"
 msgstr "Mise à niveau des séries"
 
-#: inc/settings/tab-advanced.php:52
+#: inc/settings/tab-advanced.php:53
 msgid "Run Upgrade Task"
 msgstr "Exécuter la tâche de mise à niveau"
 
@@ -2033,33 +2393,53 @@ msgid ""
 "In version 2.11.4, PublishPress Series made changes to how series are "
 "stored. You can run the upgrade task here if you're having issues with "
 "series parts."
-msgstr "Dans la version 2.11.4, PublishPress Series a modifié la façon dont les séries sont stockées. Vous pouvez lancer la tâche de mise à niveau ici si vous avez des problèmes avec les parties de séries."
+msgstr ""
+"Dans la version 2.11.4, PublishPress Series a modifié la façon dont les "
+"séries sont stockées. Vous pouvez lancer la tâche de mise à niveau ici si "
+"vous avez des problèmes avec les parties de séries."
 
-#: inc/settings/tab-advanced.php:65
+#: inc/settings/tab-advanced.php:64
 msgid "Sync Series Order to Menu Order"
 msgstr "Synchroniser l’ordre de la série avec l’ordre du menu"
 
-#: inc/settings/tab-advanced.php:70
+#: inc/settings/tab-advanced.php:68
 msgid "Sync to Menu Order"
 msgstr "Synchroniser avec l’ordre du menu"
 
-#: inc/settings/tab-advanced.php:74
+#: inc/settings/tab-advanced.php:71
 msgid ""
-"This will sync all series part numbers to WordPress menu_order field. Useful "
-"for themes/page builders that can only sort by menu order (Page Attributes: "
-"Order). This allows you to use native WordPress ordering instead of custom "
-"fields."
-msgstr "Ceci synchronisera tous les numéros de pièces de la série avec le champ menu_order de WordPress. Utile pour les constructeurs de thèmes/pages qui ne peuvent trier que par ordre de menu (attributs de page : ordre). Cela vous permet d’utiliser l’ordre natif de WordPress au lieu des champs personnalisés."
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"Ceci synchronisera tous les numéros de pièces de la série avec le champ "
+"menu_order de WordPress. Utile pour les constructeurs de thèmes/pages qui "
+"ne peuvent trier que par ordre de menu (attributs de page : ordre). Cela "
+"vous permet d’utiliser l’ordre natif de WordPress au lieu des champs "
+"personnalisés."
 
-#: inc/settings/tab-advanced.php:83
+#: inc/settings/tab-advanced.php:79
 msgid "Reset settings"
 msgstr "Réinitialiser les réglages"
 
-#: inc/settings/tab-advanced.php:86
+#: inc/settings/tab-advanced.php:81
 msgid "Reset options to default"
 msgstr "Réinitialiser les options par défaut"
 
-#: inc/settings/tab-legacy.php:12 orgSeries-options.php:144
+#: inc/settings/tab-layouts.php:11
+#: orgSeries-options.php:146
+msgid "Layouts"
+msgstr "Mises en page"
+
+#: inc/settings/tab-layouts.php:19
+msgid "Configure the layout displays shown on posts in a series."
+msgstr ""
+"Configurer les affichages de mise en page affichés sur les "
+"publications d'une série."
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:163
 msgid "Legacy"
 msgstr "Ancien"
 
@@ -2067,1001 +2447,1235 @@ msgstr "Ancien"
 msgid "Legacy Settings"
 msgstr "Réglages d’origine"
 
-#: inc/settings/tab-legacy.php:27
+#: inc/settings/tab-legacy.php:28
 msgid "Default"
 msgstr "Par défaut"
 
-#: inc/settings/tab-legacy.php:36
+#: inc/settings/tab-legacy.php:37
 msgid "CSS Styles"
 msgstr "Styles CSS"
 
-#: inc/settings/tab-legacy.php:41
+#: inc/settings/tab-legacy.php:42
 msgid "Use PublishPress Series CSS styles?"
 msgstr "Utiliser les styles CSS de PublishPress Series ?"
 
-#: inc/settings/tab-legacy.php:45
+#: inc/settings/tab-legacy.php:46
 msgid "Style options"
 msgstr "Options de style"
 
-#: inc/settings/tab-legacy.php:47
+#: inc/settings/tab-legacy.php:48
 msgid "Use default style"
 msgstr "Utiliser le style par défaut"
 
-#: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:49
 msgid "Use box style"
 msgstr "Utiliser le style de boîte"
 
-#: inc/settings/tab-legacy.php:49
+#: inc/settings/tab-legacy.php:50
 msgid "Use dark style"
 msgstr "Utiliser le style sombre"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:51
 msgid "Use light style"
 msgstr "Utiliser le style clair"
 
-#: inc/settings/tab-legacy.php:60
+#: inc/settings/tab-legacy.php:61
 msgid "Series Overview"
 msgstr "Vue d’ensemble de la série"
 
-#: inc/settings/tab-legacy.php:62
-msgid ""
-"Choose the design for the taxonomy page where a single Series is displayed."
+#: inc/settings/tab-legacy.php:63
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr "Choisir le design de la page de taxonomie où une seule série est affichée."
 
-#: inc/settings/tab-legacy.php:66
+#: inc/settings/tab-legacy.php:67
 msgid "Layout:"
 msgstr "Mise en page :"
 
-#: inc/settings/tab-legacy.php:82
+#: inc/settings/tab-legacy.php:84
+#. translators: %s: URL to the series archive template documentation.
 #, php-format
 msgid ""
 "Choosing a layout different to \"Default\" will override the taxonomy "
-"template from your theme. <a href=\"%s\" target=\"_blank\">Click here for "
-"details on how to customize these designs</a>."
-msgstr "Si vous choisissez une disposition différente de « Par défaut », le modèle de taxonomie de votre thème sera remplacé.<a href=\"%s\" target=\"_blank\">Cliquez ici pour savoir comment personnaliser ces designs</a>."
+"template from your theme. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Read the documentation for customizing these designs</a>."
+msgstr ""
+"Si vous choisissez une disposition différente de « Par défaut », "
+"le modèle de taxonomie de votre thème sera remplacé. <a "
+"href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Lire la "
+"documentation pour personnaliser ces dispositions</a>."
 
-#: inc/settings/tab-legacy.php:91 inc/settings/tab-series-category.php:66
+#: inc/settings/tab-legacy.php:93
+#: inc/settings/tab-series-category.php:68
 msgid "Columns:"
 msgstr "Colonnes :"
 
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:99
 msgid "Order series by:"
 msgstr "Trier les séries par :"
 
-#: inc/settings/tab-legacy.php:99
+#: inc/settings/tab-legacy.php:101
 msgid "Series part"
 msgstr "Partie de la série"
 
-#: inc/settings/tab-legacy.php:100
+#: inc/settings/tab-legacy.php:102
 msgid "Order by date"
 msgstr "Trier par date"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:106
 msgid "Series order method"
 msgstr "Méthode de tri de la série"
 
-#: inc/settings/tab-legacy.php:117 inc/settings/tab-legacy.php:215
-#: inc/settings/tab-legacy.php:221 orgSeries-setup.php:485
-#: orgSeries-widgets.php:112
+#: inc/settings/tab-legacy.php:119
+#: inc/settings/tab-legacy.php:218
+#: inc/settings/tab-legacy.php:224
+#: orgSeries-setup.php:544
+#: orgSeries-widgets.php:121
 msgid "Series Table of Contents"
 msgstr "Table des matières de la série"
 
-#: inc/settings/tab-legacy.php:122
+#: inc/settings/tab-legacy.php:124
 msgid "Series Table of Contents URL:"
 msgstr "URL de la table des matières de la série :"
 
-#: inc/settings/tab-legacy.php:125
+#: inc/settings/tab-legacy.php:127
 msgid "view page"
 msgstr "afficher la page"
 
-#: inc/settings/tab-legacy.php:134
+#: inc/settings/tab-legacy.php:137
+#. translators: 1: Opening link tag, 2: Closing link tag.
 #, php-format
 msgid ""
-"You must %1s update your permalink structure %2s to something other than "
+"You must %1$s update your permalink structure %2$s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
-msgstr "Vous devez %1s mettre à jour votre structure de permalien %2s à autre chose que « Simple » pour que l’URL de la table des matières de la série fonctionne."
+msgstr ""
+"Vous devez %1$s mettre à jour votre structure de permalien %2$s à "
+"autre chose que « Simple » pour que l’URL de la table des "
+"matières de la série fonctionne."
 
-#: inc/settings/tab-legacy.php:154
+#: inc/settings/tab-legacy.php:157
 msgid "Series Per Page:"
 msgstr "Séries par page :"
 
-#: inc/settings/tab-legacy.php:158
+#: inc/settings/tab-legacy.php:161
 msgid "Series Table of Contents Title:"
 msgstr "Titre de la table des matières de la série :"
 
-#: inc/settings/tab-legacy.php:168
-msgid "Series Icons"
-msgstr "Icônes de la série"
+#: inc/settings/tab-legacy.php:171
+msgid "Series Featured Images"
+msgstr "Images mises en avant de la série"
 
-#: inc/settings/tab-legacy.php:173
-msgid "Width for icon on series table of contents page (in pixels)"
-msgstr "Largeur de l’icône sur la page de la table des matières de la série (en pixels)"
+#: inc/settings/tab-legacy.php:176
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr ""
+"Largeur de l'image mise en avant sur la page de sommaire de la "
+"série (en pixels)"
 
-#: inc/settings/tab-legacy.php:177
-msgid "Width for icon on a post page (in pixels)."
-msgstr "Largeur de l’icône sur la page d’un article (en pixels)."
+#: inc/settings/tab-legacy.php:180
+msgid "Width for featured image on a post page (in pixels)."
+msgstr ""
+"Largeur de l'image mise en avant sur la page d'une publication (en "
+"pixels)."
 
-#: inc/settings/tab-legacy.php:181
-msgid "Width for icon if displayed via the latest series template (in pixels)."
-msgstr "Largeur de l’icône si elle est affichée via le modèle de la dernière série (en pixels)."
+#: inc/settings/tab-legacy.php:184
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"Largeur de l’icône si elle est affichée via le modèle de la dernière série "
+"(en pixels)."
 
-#: inc/settings/tab-legacy.php:191 orgSeries-widgets.php:13
+#: inc/settings/tab-legacy.php:194
+#: orgSeries-widgets.php:14
 msgid "Latest Series"
 msgstr "Dernières séries"
 
-#: inc/settings/tab-legacy.php:193
+#: inc/settings/tab-legacy.php:196
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr "Cet affichage est utilisé par le widget « Dernières séries »."
 
-#: inc/settings/tab-legacy.php:197
+#: inc/settings/tab-legacy.php:200
 msgid "Latest Series (tags before):"
 msgstr "Dernières séries (étiquettes avant) :"
 
-#: inc/settings/tab-legacy.php:201
+#: inc/settings/tab-legacy.php:204
 msgid "Latest Series (inner tags):"
 msgstr "Dernières séries (étiquettes intérieures) :"
 
-#: inc/settings/tab-legacy.php:205
+#: inc/settings/tab-legacy.php:208
 msgid "Latest Series (tags after):"
 msgstr "Dernièrer sérier (étiquettes après) :"
 
-#: inc/settings/tab-legacy.php:217
+#: inc/settings/tab-legacy.php:220
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
-msgstr "Cet affichage est utilisé par le widget « Table des matières de la série », le code court et l’URL."
+msgstr ""
+"Cet affichage est utilisé par le widget « Table des matières de la série », "
+"le code court et l’URL."
 
-#: inc/settings/tab-legacy.php:224
+#: inc/settings/tab-legacy.php:227
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
-"for this display, go the \"Display\" tab and then \"Series Table of Contents "
-"URL\"."
-msgstr "Cet affichage est utilisé par la « Table des matières de la série ». Pour trouver l’URL de cet affichage, allez dans l’onglet « Affichage » et ensuite « URL de la table des matières de la série »."
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"Cet affichage est utilisé par la « Table des matières de la série ». Pour "
+"trouver l’URL de cet affichage, allez dans l’onglet « Affichage » et "
+"ensuite « URL de la table des matières de la série »."
 
-#: inc/settings/tab-metabox.php:16
+#: inc/settings/tab-metabox.php:17
 msgid ""
-"These settings allow you to customize the metabox on the post editing screen."
-msgstr "Ces réglages vous permettent de personnaliser la boîte méta sur l’écran de modification de la publication."
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr ""
+"Ces réglages vous permettent de personnaliser la boîte méta sur l’écran de "
+"modification de la publication."
 
-#: inc/settings/tab-metabox.php:26
+#: inc/settings/tab-metabox.php:28
 msgid "Default Series Order"
 msgstr "Tri de la série par défaut"
 
-#: inc/settings/tab-metabox.php:27
+#: inc/settings/tab-metabox.php:29
 msgid "Alphabetical A-Z"
 msgstr "Alphabétique a-z"
 
-#: inc/settings/tab-metabox.php:28
+#: inc/settings/tab-metabox.php:30
 msgid "Alphabetical Z-A"
 msgstr "Alphabétique z-a"
 
-#: inc/settings/tab-metabox.php:34
+#: inc/settings/tab-metabox.php:36
 msgid "Show \"Add New\""
 msgstr "Afficher « Ajouter »"
 
-#: inc/settings/tab-metabox.php:38
+#: inc/settings/tab-metabox.php:40
 msgid "Show \"Post title in widget\""
 msgstr "Afficher « Le titre de la publication dans le widget »."
 
-#: inc/settings/tab-metabox.php:42
+#: inc/settings/tab-metabox.php:44
+#: inc/settings/tab-metabox.php:47
 msgid "Metabox Series Order"
 msgstr "Boîte méta de tri de la série"
 
-#: inc/settings/tab-post-details.php:12
+#: inc/settings/tab-post-details.php:13
 msgid "Post Details Settings"
 msgstr "Réglages des détails des publications"
 
-#: inc/settings/tab-post-details.php:16
+#: inc/settings/tab-post-details.php:25
+#: inc/settings/tab-post-details.php:43
 msgid "Configure the Series Post Details display shown on posts in a series."
-msgstr "Configurer l’affichage des détails des publications de la série qui sont affichés dans les publications d’une série."
+msgstr ""
+"Configurer l’affichage des détails des publications de la série qui sont "
+"affichés dans les publications d’une série."
 
-#: inc/settings/tab-post-details.php:26 inc/settings/tab-post-list-box.php:26
-#: inc/settings/tab-post-navigation.php:26
+#: inc/settings/tab-post-details.php:36
+#: inc/settings/tab-post-list-box.php:36
+#: inc/settings/tab-post-navigation.php:36
 msgid "As in Template"
 msgstr "Comme dans modèle"
 
-#: inc/settings/tab-post-details.php:36
+#: inc/settings/tab-post-details.php:48
 msgid "Display Series Post Details?"
 msgstr "Voulez-vous afficher les détails des publications de la série ?"
 
-#: inc/settings/tab-post-details.php:41
+#: inc/settings/tab-post-details.php:53
 msgid "Post Details Selection"
 msgstr "Sélection des détails de publications"
 
-#: inc/settings/tab-post-details.php:43 inc/settings/tab-post-navigation.php:43
+#: inc/settings/tab-post-details.php:55
+#: inc/settings/tab-post-navigation.php:55
 msgid "Edit this layout"
 msgstr "Modifier cette mise en page"
 
-#: inc/settings/tab-post-details.php:44 inc/settings/tab-post-list-box.php:44
-#: inc/settings/tab-post-navigation.php:44
+#: inc/settings/tab-post-details.php:56
+#: inc/settings/tab-post-list-box.php:56
+#: inc/settings/tab-post-navigation.php:56
 msgid "Loading…"
 msgstr "Chargement en cours…"
 
-#: inc/settings/tab-post-details.php:51
+#: inc/settings/tab-post-details.php:63
 msgid "Post Details Position"
 msgstr "Position des détails des publications"
 
-#: inc/settings/tab-post-details.php:66
+#: inc/settings/tab-post-details.php:78
 msgid "Series Meta Template"
 msgstr "Modèle de méta de la série"
 
-#: inc/settings/tab-post-details.php:71
+#: inc/settings/tab-post-details.php:83
 msgid "Series Meta (with excerpts)"
 msgstr "Méta de la série (avec extraits)"
 
-#: inc/settings/tab-post-details.php:76
+#: inc/settings/tab-post-details.php:88
 msgid "Limit to single page only"
 msgstr "Limiter à une seule page uniquement"
 
-#: inc/settings/tab-post-details.php:79
+#: inc/settings/tab-post-details.php:91
 msgid ""
 "Whether to limit series meta display to single page only or include archive "
 "page."
-msgstr "Si vous voulez limiter l’affichage des métadonnées des séries à une page uniquement ou inclure la page d’archives."
+msgstr ""
+"Si vous voulez limiter l’affichage des métadonnées des séries à une page "
+"uniquement ou inclure la page d’archives."
 
-#: inc/settings/tab-post-list-box.php:12
+#: inc/settings/tab-post-list-box.php:13
 msgid "Post List Box Settings"
 msgstr "Réglages de la boîte de liste de publications"
 
-#: inc/settings/tab-post-list-box.php:16
+#: inc/settings/tab-post-list-box.php:25
+#: inc/settings/tab-post-list-box.php:43
 msgid "Configure the Post List Box that displays all posts in a series."
-msgstr "Configurer la boîte de liste de publications qu’est affichée dans les publications d’une série."
+msgstr ""
+"Configurer la boîte de liste de publications qu’est affichée dans les "
+"publications d’une série."
 
-#: inc/settings/tab-post-list-box.php:36
+#: inc/settings/tab-post-list-box.php:48
 msgid "Display Post List Boxes?"
 msgstr "Voulez-vous afficher la boîte de liste de publications ?"
 
-#: inc/settings/tab-post-list-box.php:41
+#: inc/settings/tab-post-list-box.php:53
 msgid "Post List Boxes Selection"
 msgstr "Sélection des boîtes de liste de publications"
 
-#: inc/settings/tab-post-list-box.php:43
+#: inc/settings/tab-post-list-box.php:55
 msgid "Edit this box"
 msgstr "Modifier cette boîte"
 
-#: inc/settings/tab-post-list-box.php:51
+#: inc/settings/tab-post-list-box.php:63
 msgid "Post List Box Position"
 msgstr "Posiiton de la boîte de liste de publications"
 
-#: inc/settings/tab-post-list-box.php:66
+#: inc/settings/tab-post-list-box.php:78
 msgid "Post List Box Template"
 msgstr "Modèle de la boîte de liste de publications"
 
-#: inc/settings/tab-post-list-box.php:70
+#: inc/settings/tab-post-list-box.php:82
 msgid "Post Title (Linked Post)"
 msgstr "Titre de la publication (publication liée)"
 
-#: inc/settings/tab-post-list-box.php:75
+#: inc/settings/tab-post-list-box.php:87
 msgid "Post Title (Current Post)"
 msgstr "Titre de la publication (publication actuelle)"
 
-#: inc/settings/tab-post-navigation.php:11
-msgid "Navigation"
-msgstr "Navigation"
-
-#: inc/settings/tab-post-navigation.php:12
+#: inc/settings/tab-post-navigation.php:13
 msgid "Navigation Settings"
 msgstr "Réglages de la navigation"
 
-#: inc/settings/tab-post-navigation.php:16
+#: inc/settings/tab-post-navigation.php:25
+#: inc/settings/tab-post-navigation.php:43
 msgid "Configure the Series Navigation display shown on posts in a series."
-msgstr "Configurer la navigation de la série qui est affichée dans les publications d’une série."
+msgstr ""
+"Configurer la navigation de la série qui est affichée dans les publications "
+"d’une série."
 
-#: inc/settings/tab-post-navigation.php:36
+#: inc/settings/tab-post-navigation.php:48
 msgid "Display Series Navigation?"
 msgstr "Voulez-vous afficher la navigation de la série ?"
 
-#: inc/settings/tab-post-navigation.php:41
+#: inc/settings/tab-post-navigation.php:53
 msgid "Navigation Selection"
 msgstr "Sélection de la navigation"
 
-#: inc/settings/tab-post-navigation.php:51
+#: inc/settings/tab-post-navigation.php:63
 msgid "Navigation Position"
 msgstr "Position de la navigation"
 
-#: inc/settings/tab-post-navigation.php:66
+#: inc/settings/tab-post-navigation.php:78
 msgid "Navigation Template"
 msgstr "Modèle de navigation"
 
-#: inc/settings/tab-post-navigation.php:71
+#: inc/settings/tab-post-navigation.php:83
 msgid "Next Post Text"
 msgstr "Texte de la publication suivante"
 
-#: inc/settings/tab-post-navigation.php:76
+#: inc/settings/tab-post-navigation.php:88
 msgid "Previous Post Text"
 msgstr "Texte de publication précédente"
 
-#: inc/settings/tab-post-navigation.php:81
+#: inc/settings/tab-post-navigation.php:93
 msgid "First Post Text"
 msgstr "Texte de la première publication"
 
-#: inc/settings/tab-post-types.php:10 orgSeries-options.php:138
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:157
 msgid "Post Types"
 msgstr "Types de publication"
 
-#: inc/settings/tab-post-types.php:11 inc/settings/tab-pro-features.php:27
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:29
 msgid "Custom Post Type Support"
 msgstr "Prise en charge des types de publication personnalisés"
 
-#: inc/settings/tab-post-types.php:18
+#: inc/settings/tab-post-types.php:19
 msgid "Enable PublishPress Series for custom post types."
 msgstr "Activer PublishPress Series pour les types de publication personnalisés."
 
-#: inc/settings/tab-pro-features.php:10 inc/settings/tab-pro-features.php:11
-#: orgSeries-options.php:147
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:166
 msgid "Pro Features"
 msgstr "Fonctionnalités Pro"
 
-#: inc/settings/tab-pro-features.php:18
+#: inc/settings/tab-pro-features.php:19
 msgid ""
 "These settings allow you enable or disable features in PublishPress Series "
 "Pro."
-msgstr "Ces réglages vous permettent d’activer ou de désactiver certaines fonctionnalités dans PublishPress Series Pro."
+msgstr ""
+"Ces réglages vous permettent d’activer ou de désactiver certaines "
+"fonctionnalités dans PublishPress Series Pro."
 
-#: inc/settings/tab-pro-features.php:27
+#: inc/settings/tab-pro-features.php:29
 msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "Autoriser l’utilisation de types de publication personnalisés avec PublishPress Series."
+msgstr ""
+"Autoriser l’utilisation de types de publication personnalisés avec "
+"PublishPress Series."
 
-#: inc/settings/tab-pro-features.php:28
+#: inc/settings/tab-pro-features.php:30
 msgid "Shortcodes"
 msgstr "Codes courts"
 
-#: inc/settings/tab-pro-features.php:28
+#: inc/settings/tab-pro-features.php:30
 msgid "Provides shortcodes to display series information."
 msgstr "Fournit des codes courts pour afficher les informations de la série."
 
-#: inc/settings/tab-pro-features.php:29
+#: inc/settings/tab-pro-features.php:31
 msgid "Extra Tokens"
 msgstr "Jetons supplémentaires"
 
-#: inc/settings/tab-pro-features.php:29
+#: inc/settings/tab-pro-features.php:31
 msgid "Provides extra tokens to customize the output of series information."
-msgstr "Fournit des jetons supplémentaires pour personnaliser l’affichage des informations sur la série."
+msgstr ""
+"Fournit des jetons supplémentaires pour personnaliser l’affichage des "
+"informations sur la série."
 
-#: inc/settings/tab-pro-features.php:30
+#: inc/settings/tab-pro-features.php:32
 msgid "Multiple Series"
 msgstr "Séries multiples"
 
-#: inc/settings/tab-pro-features.php:30
+#: inc/settings/tab-pro-features.php:32
 msgid "Allows authors to add posts to more than one series."
 msgstr "Permet aux auteurs/autrices d’ajouter des publications à plusieurs séries."
 
 #: inc/settings/tab-series-category.php:8
-#: inc/settings/tab-series-category.php:9 orgSeries-options.php:142
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:161
 msgid "Series Category"
 msgstr "Catégorie de la série"
 
-#: inc/settings/tab-series-category.php:13
+#: inc/settings/tab-series-category.php:14
 msgid "Settings for Series Categories archive URL and display behavior."
-msgstr "Réglages pour l’URL d’archive des catégories de séries et le comportement d’affichage."
+msgstr ""
+"Réglages pour l’URL d’archive des catégories de séries et le comportement "
+"d’affichage."
 
-#: inc/settings/tab-series-category.php:26
+#: inc/settings/tab-series-category.php:28
 msgid "Series Categories URL Base:"
 msgstr "URL de base des catégories de séries :"
 
-#: inc/settings/tab-series-category.php:30
+#: inc/settings/tab-series-category.php:32
 msgid ""
 "This text will be used in Series Categories archive URLs. If you change it, "
 "old URLs will be redirected to the new base."
-msgstr "Ce texte sera utilisé dans les URL d’archives des catégories de séries. Si vous le modifiez, les anciennes URL seront redirigées vers la nouvelle base."
+msgstr ""
+"Ce texte sera utilisé dans les URL d’archives des catégories de séries. Si "
+"vous le modifiez, les anciennes URL seront redirigées vers la nouvelle base."
 
-#: inc/settings/tab-series-category.php:36
+#: inc/settings/tab-series-category.php:38
 msgid "Series Categories Archive Template:"
 msgstr "Modèle d’archive des catégories de séries :"
 
-#: inc/settings/tab-series-category.php:39
+#: inc/settings/tab-series-category.php:41
 msgid "Use template from Theme"
 msgstr "Utiliser le modèle du thème"
 
-#: inc/settings/tab-series-category.php:40
+#: inc/settings/tab-series-category.php:42
 msgid "Use template from Plugin"
 msgstr "Utiliser le modèle de l’extension"
 
-#: inc/settings/tab-series-category.php:43
+#: inc/settings/tab-series-category.php:45
 msgid ""
 "Theme template uses your active theme template hierarchy. Plugin template "
 "uses PublishPress Series fallback design when your theme does not provide "
 "taxonomy-series_group.php."
-msgstr "Le modèle de thème utilise la hiérarchie de modèles de thème active. Le modèle d’extension utilise le design alternative de PublishPress Series lorsque votre thème ne fournit pas taxonomy-series_group.php."
+msgstr ""
+"Le modèle de thème utilise la hiérarchie de modèles de thème active. Le "
+"modèle d’extension utilise le design alternative de PublishPress Series "
+"lorsque votre thème ne fournit pas taxonomy-series_group.php."
 
-#: inc/settings/tab-series-category.php:49
+#: inc/settings/tab-series-category.php:51
 msgid "Plugin Template Display Options:"
 msgstr "Options d’affichage du modèle d’extension :"
 
-#: inc/settings/tab-series-category.php:53
-msgid "Show Series Icon"
-msgstr "Afficher l’icône de la série"
+#: inc/settings/tab-series-category.php:55
+msgid "Show Series Featured Image"
+msgstr "Afficher l'image mise en avant de la série"
 
-#: inc/settings/tab-series-category.php:58
+#: inc/settings/tab-series-category.php:60
 msgid "Show Series Description"
 msgstr "Afficher la description de série"
 
-#: inc/settings/tab-series-category.php:63
+#: inc/settings/tab-series-category.php:65
 msgid "Show Posts in each Series as list items"
 msgstr "Afficher les publications de chaque série comme des éléments de liste"
 
-#: inc/settings/tab-taxonomy.php:16
+#: inc/settings/tab-taxonomy.php:17
 msgid ""
 "This feature allows you to create a new taxonomy for this plugin to use if "
 "you don't want to use the default \"Series\" taxonomy."
-msgstr "Cette fonctionnalité vous permet de créer une nouvelle taxonomie à utiliser par cette extension si vous ne souhaitez pas utiliser la taxonomie « Séries » par défaut."
+msgstr ""
+"Cette fonctionnalité vous permet de créer une nouvelle taxonomie à utiliser "
+"par cette extension si vous ne souhaitez pas utiliser la taxonomie « Séries "
+"» par défaut."
 
-#: inc/settings/tab-taxonomy.php:28
+#: inc/settings/tab-taxonomy.php:30
 msgid "Series Taxonomy Slug:"
 msgstr "Slug de la taxonomie des séries :"
 
-#: inc/settings/tab-taxonomy.php:31
+#: inc/settings/tab-taxonomy.php:33
 msgid "This text will be part of the series base URL."
 msgstr "Ce texte fera partie de l’URL de base de la série."
 
-#: inc/settings/tab-taxonomy.php:36
+#: inc/settings/tab-taxonomy.php:38
 msgid "Series Taxonomy:"
 msgstr "Taxonomie des séries :"
 
-#: inc/settings/tab-taxonomy.php:40
+#: inc/settings/tab-taxonomy.php:42
 msgid ""
 "To create a new taxonomy, enter the new name and click the \"Update "
 "Options\" button."
-msgstr "Pour créer une nouvelle taxonomie, saisissez le nouveau nom et cliquez sur le bouton « Mettre à jour les options »."
+msgstr ""
+"Pour créer une nouvelle taxonomie, saisissez le nouveau nom et cliquez sur "
+"le bouton « Mettre à jour les options »."
 
-#: inc/settings/tab-taxonomy.php:47
+#: inc/settings/tab-taxonomy.php:49
 msgid "Migrate Terms"
 msgstr "Migrer les termes"
 
-#: inc/settings/tab-taxonomy.php:53
+#: inc/settings/tab-taxonomy.php:55
 msgid "Automatically migrate existing series terms to the new taxonomy"
-msgstr "Migrer automatiquement les termes existants de la série vers la nouvelle taxonomie"
+msgstr ""
+"Migrer automatiquement les termes existants de la série vers la nouvelle "
+"taxonomie"
 
-#: inc/settings/tab-taxonomy.php:56
+#: inc/settings/tab-taxonomy.php:58
 msgid ""
 "If checked, all terms from the current taxonomy will be migrated to the new "
 "taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
 "slug will be changed."
-msgstr "Si cette case est cochée, tous les termes de la taxonomie actuelle seront migrés vers la nouvelle taxonomie lorsque vous modifierez le slug de la taxonomie. Si cette case n’est pas cochée, uniquement le slug de la taxonomie sera modifié."
+msgstr ""
+"Si cette case est cochée, tous les termes de la taxonomie actuelle seront "
+"migrés vers la nouvelle taxonomie lorsque vous modifierez le slug de la "
+"taxonomie. Si cette case n’est pas cochée, uniquement le slug de la "
+"taxonomie sera modifié."
 
-#: inc/templates/taxonomy-series.php:70
+#: inc/templates/taxonomy-series.php:69
 msgid "Sorry, no results found."
 msgstr "Désolé, aucun résultat trouvé."
 
-#: includes-core/PPSeriesCoreAdmin.php:13
-#, php-format
-msgid ""
-"You're using PublishPress Series Free. The Pro version has more features and "
-"support. %sUpgrade to Pro%s"
-msgstr "Vous utilisez PublishPress Series Free. La version Pro offre plus de fonctionnalités et de support. %sPasser à la version Pro%s"
+#: inc/welcome/welcome-panel.php:143
+msgid "Dismiss this panel"
+msgstr "Fermer ce panneau"
 
-#: includes-core/PPSeriesCoreAdmin.php:35
+#: inc/welcome/welcome-panel.php:162
+msgid "Welcome to PublishPress Series"
+msgstr "Bienvenue dans PublishPress Series"
+
+#: inc/welcome/welcome-panel.php:165
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr ""
+"Une série regroupe vos publications et montre à vos lecteurs l'ordre de "
+"lecture. Créez votre première série avec le formulaire sur cette page, puis "
+"ajoutez-y des publications."
+
+#: inc/welcome/welcome-panel.php:170
+msgid "Create a series"
+msgstr "Créer une série"
+
+#: inc/welcome/welcome-panel.php:174
+msgid "View Documentation"
+msgstr "Voir la documentation"
+
+#: inc/welcome/welcome-panel.php:179
+#: includes-core/PPSeriesCoreAdmin.php:44
 msgid "Upgrade to Pro"
 msgstr "Passer à la version Pro"
 
-#: includes-core/PPSeriesCoreAdmin.php:58
+#: includes-core/class-blocks.php:55
+msgid "PublishPress Series"
+msgstr "PublishPress Series"
+
+#: includes-core/class-blocks.php:151
+#: assets/js/publishpress-series-blocks.js:31
+msgid "Display a styled list of posts from a Series."
+msgstr "Afficher une liste stylisée de publications d'une série."
+
+#: includes-core/class-blocks.php:158
+#: assets/js/publishpress-series-blocks.js:38
+msgid "Display the current post details from a Series."
+msgstr "Afficher les détails de la publication actuelle d'une série."
+
+#: includes-core/class-blocks.php:165
+#: assets/js/publishpress-series-blocks.js:45
+msgid "Display navigation links for posts in a Series."
+msgstr "Afficher des liens de navigation pour les publications d'une série."
+
+#: includes-core/class-blocks.php:171
+#: orgSeries-setup.php:285
+#: assets/js/publishpress-series-blocks.js:51
+msgid "Series List"
+msgstr "Liste de la série"
+
+#: includes-core/class-blocks.php:172
+#: assets/js/publishpress-series-blocks.js:52
+msgid "Display a customizable list of Series or Series Categories."
+msgstr "Afficher une liste personnalisable de Séries ou de Catégories de Séries."
+
+#: includes-core/class-blocks.php:425
+#. translators: %s: Number of series.
+#, php-format
+msgid "%s series"
+msgid_plural "%s series"
+msgstr[0] "%s série"
+msgstr[1] "%s séries"
+
+#: includes-core/class-blocks.php:431
+#. translators: %s: Number of posts.
+#, php-format
+msgid "%s post"
+msgid_plural "%s posts"
+msgstr[0] "%s publication"
+msgstr[1] "%s publications"
+
+#: includes-core/class-blocks.php:483
+msgid "Editorial Series"
+msgstr "Série éditoriale"
+
+#: includes-core/class-blocks.php:485
+#: includes-core/class-blocks.php:493
+#: includes-core/class-blocks.php:501
+msgid "A sample Series Category description."
+msgstr "Un exemple de description de catégorie de série."
+
+#: includes-core/class-blocks.php:491
+msgid "Magazine Issues"
+msgstr "Numéros de magazine"
+
+#: includes-core/class-blocks.php:499
+msgid "Tutorial Collections"
+msgstr "Collections de tutoriels"
+
+#: includes-core/class-blocks.php:511
+msgid "Alpha Series"
+msgstr "Série Alpha"
+
+#: includes-core/class-blocks.php:513
+#: includes-core/class-blocks.php:521
+#: includes-core/class-blocks.php:529
+msgid "A sample description for this Series."
+msgstr "Un exemple de description pour cette série."
+
+#: includes-core/class-blocks.php:519
+msgid "Bravo Series"
+msgstr "Série Bravo"
+
+#: includes-core/class-blocks.php:527
+msgid "Charlie Series"
+msgstr "Série Charlie"
+
+#: includes-core/class-blocks.php:900
+#: assets/js/publishpress-series-blocks.js:60
+msgid "Default layout"
+msgstr "Mise en page par défaut"
+
+#: includes-core/class-blocks.php:933
+#: orgSeries-widgets.php:415
+#: assets/js/publishpress-series-blocks.js:22
+msgid "Current series"
+msgstr "Séries actives"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"Vous utilisez PublishPress Series Free. La version Pro offre plus de "
+"fonctionnalités et de support. %1$sPasser à la version Pro%2$s"
+
+#: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"
 msgstr "Avez-vous besoin du support de PublishPress Series ?"
 
-#: includes-core/PPSeriesCoreAdmin.php:63
+#: includes-core/PPSeriesCoreAdmin.php:74
 msgid "If you need help or have a new feature request, let us know."
-msgstr "Si vous avez besoin d’aide ou si vous avez une nouvelle demande de fonctionnalité, faites-le nous savoir."
+msgstr ""
+"Si vous avez besoin d’aide ou si vous avez une nouvelle demande de "
+"fonctionnalité, faites-le nous savoir."
 
-#: includes-core/PPSeriesCoreAdmin.php:65
+#: includes-core/PPSeriesCoreAdmin.php:76
 msgid "Request Support"
 msgstr "Demande de support"
 
-#: includes-core/PPSeriesCoreAdmin.php:74
+#: includes-core/PPSeriesCoreAdmin.php:85
 msgid "Detailed documentation is also available on the plugin website."
-msgstr "Une documentation détaillée est également disponible sur le site de l’extension."
+msgstr ""
+"Une documentation détaillée est également disponible sur le site de "
+"l’extension."
 
-#: includes-core/PPSeriesCoreAdmin.php:76
+#: includes-core/PPSeriesCoreAdmin.php:87
 msgid "View Knowledge Base"
 msgstr "Voir la base de connaissances"
 
-#: orgSeries-admin.php:67
+#: orgSeries-admin.php:42
 msgid "An error occured"
 msgstr "Une erreur s’est produite"
 
-#: orgSeries-admin.php:70
+#: orgSeries-admin.php:46
+#. translators: %1$s: Number of series migrated.
 #, php-format
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s séries ont été migrées vers la nouvelle taxonomie"
 
-#: orgSeries-admin.php:175
-#, php-format
-msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr "Si vous appréciez %s, veuillez nous laisser une note de %s. Merci !"
+#: orgSeries-admin.php:132
+msgid "Custom Template"
+msgstr "Modèle personnalisé"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:155
+#. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
+#, php-format
+msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
+msgstr ""
+"Si vous appréciez %1$s, veuillez nous laisser une note de %2$s. "
+"Merci !"
+
+#: orgSeries-admin.php:166
 msgid "About PublishPress Series"
 msgstr "À propos de PublishPress Series"
 
-#: orgSeries-admin.php:186
+#: orgSeries-admin.php:166
 msgid "About"
 msgstr "A propos"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:167
 msgid "PublishPress Series Documentation"
 msgstr "Documentation de PublishPress Series"
 
-#: orgSeries-admin.php:187
+#: orgSeries-admin.php:167
 msgid "Documentation"
 msgstr "Documentation"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:168
 msgid "Contact the PublishPress team"
 msgstr "Contacter l’équipe PublishPress"
 
-#: orgSeries-admin.php:188
+#: orgSeries-admin.php:168
 msgid "Contact"
 msgstr "Contact"
 
-#: orgSeries-admin.php:219
+#: orgSeries-admin.php:199
 msgid "Sorry but you don't have permission to add series"
 msgstr "Désolé, vous n‘avez pas les droits nécessaires pour ajouter des séries"
 
-#: orgSeries-admin.php:230
-msgid ""
-"The name you picked isn't sanitizing correctly. Try something different."
-msgstr "Le nom que vous avez choisi n’est pas normalisé correctement. Essayez quelque chose de différent."
+#: orgSeries-admin.php:211
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr ""
+"Le nom que vous avez choisi n’est pas normalisé correctement. Essayez "
+"quelque chose de différent."
 
-#: orgSeries-admin.php:236
+#: orgSeries-admin.php:218
 msgid ""
-"Hmm... it looks like there is already a series with that name. Try something "
-"else"
-msgstr "Hmm… il semble qu’il existe déjà une série portant ce nom. Essayez un autre nom"
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr ""
+"Hmm… il semble qu’il existe déjà une série portant ce nom. Essayez un autre "
+"nom"
 
-#: orgSeries-admin.php:359
+#: orgSeries-admin.php:229
+#: orgSeries-manage.php:159
+msgid "Series added."
+msgstr "Série ajoutée."
+
+#: orgSeries-admin.php:343
 msgid "Not part of a series"
 msgstr "Ne fait pas partie d’une série"
 
-#: orgSeries-admin.php:421
+#: orgSeries-admin.php:396
+msgid "New series name"
+msgstr "Nouveau nom de série"
+
+#: orgSeries-admin.php:403
 msgid "Search series"
 msgstr "Recherche de série"
 
-#: orgSeries-admin.php:436
+#: orgSeries-admin.php:418
 msgid "Series Part:"
 msgstr "Partie de la série :"
 
-#: orgSeries-admin.php:443
+#: orgSeries-admin.php:425
 msgid "Post title in widget:"
 msgstr "Titre de la publication dans le widget :"
 
-#: orgSeries-admin.php:445
+#: orgSeries-admin.php:427
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
-msgstr "Un titre court de cette publication qui sera utilisé dans le widget Série. Laissez vide pour utiliser le titre complet."
+msgstr ""
+"Un titre court de cette publication qui sera utilisé dans le widget Série. "
+"Laissez vide pour utiliser le titre complet."
 
-#: orgSeries-admin.php:478
-msgctxt "series meta box title"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-admin.php:491
-msgctxt "posts list column header"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-admin.php:519
+#: orgSeries-admin.php:516
+#. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Aucun numéro de partie)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:519
+#. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Partie %1$s de %2$s)"
 
-#: orgSeries-admin.php:525
+#: orgSeries-admin.php:524
+#. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Aucun numéro de partie)"
 
-#: orgSeries-admin.php:531 orgSeries-setup.php:270
+#: orgSeries-admin.php:530
+#: orgSeries-setup.php:284
 msgid "No Series"
 msgstr "Aucune série"
 
-#: orgSeries-admin.php:552
+#: orgSeries-admin.php:554
 msgid "View all series"
 msgstr "Voir toutes les séries"
 
-#: orgSeries-admin.php:561
+#: orgSeries-admin.php:563
 msgid "Manage All Series"
 msgstr "Gérer toutes les séries"
 
-#: orgSeries-admin.php:571
-msgctxt "dashboard count label"
-msgid "Series"
-msgid_plural "Series"
-msgstr[0] "Série"
-msgstr[1] "Séries"
+#: orgSeries-icon.php:157
+msgid ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series n'a pas pu enregistrer l'image mise en avant de la "
+"série. L'image mise en avant n'a pas été changée."
 
-#: orgSeries-manage.php:66
+#: orgSeries-icon.php:161
+#. translators: %s: the error message reported by the database.
+#, php-format
+msgid "Database error: %s"
+msgstr "Erreur de base de données : %s"
+
+#: orgSeries-manage.php:72
 msgid "Term Order"
 msgstr "Ordre de termes"
 
-#: orgSeries-manage.php:67
+#: orgSeries-manage.php:73
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
-msgstr "Pour repositionner un élément, faites glisser la rangée en la « cliquant sans relâcher » n’importe où et déplacez-la vers sa nouvelle position."
+msgstr ""
+"Pour repositionner un élément, faites glisser la rangée en la « cliquant "
+"sans relâcher » n’importe où et déplacez-la vers sa nouvelle position."
 
-#: orgSeries-manage.php:196
+#: orgSeries-manage.php:160
+#: orgSeries-manage.php:164
+msgid "Series deleted."
+msgstr "Série supprimée."
+
+#: orgSeries-manage.php:161
+msgid "Series updated."
+msgstr "Série mise à jour."
+
+#: orgSeries-manage.php:162
+msgid "Series not added."
+msgstr "Série non ajoutée."
+
+#: orgSeries-manage.php:163
+msgid "Series not updated."
+msgstr "Série non mise à jour."
+
+#: orgSeries-manage.php:236
+msgid "Posts"
+msgstr "Publications"
+
+#: orgSeries-manage.php:238
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:233
+#: orgSeries-manage.php:277
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
-msgstr "Les termes sont généralement classés par ordre alphabétique, mais vous pouvez choisir votre propre ordre en saisissant un chiffre (1 pour le premier, etc.) dans ce champ."
+msgstr ""
+"Les termes sont généralement classés par ordre alphabétique, mais vous "
+"pouvez choisir votre propre ordre en saisissant un chiffre (1 pour le "
+"premier, etc.) dans ce champ."
 
-#: orgSeries-manage.php:240
-msgid "Current series icon:"
-msgstr "Icône de la série actuelle :"
+#: orgSeries-manage.php:284
+msgid "Current series featured image:"
+msgstr "Image mise en avant actuelle de la série :"
 
-#: orgSeries-manage.php:246
-msgid "No icon currently"
-msgstr "Aucune icône actuellement"
+#: orgSeries-manage.php:291
+msgid "No featured image currently"
+msgstr "Aucune image mise en avant actuellement"
 
-#: orgSeries-manage.php:256
+#: orgSeries-manage.php:301
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
-msgstr "Supprimer l’image ? (note : il n’y aura pas d’image associée à cette série si vous sélectionnez ceci)"
+msgstr ""
+"Supprimer l’image ? (note : il n’y aura pas d’image associée à cette série "
+"si vous sélectionnez ceci)"
 
-#: orgSeries-manage.php:261
-msgid "Series Icon Upload:"
-msgstr "Téléchargement de l’icône de la série :"
+#: orgSeries-manage.php:306
+msgid "Series featured image upload:"
+msgstr "Téléversement de l'image mise en avant de la série :"
 
-#: orgSeries-manage.php:265
-msgid "Upload an image for the series."
-msgstr "Téléversez une image pour la série."
+#: orgSeries-manage.php:310
+msgid "Upload a featured image for the series."
+msgstr "Téléversez une image mise en avant pour la série."
 
-#: orgSeries-manage.php:280
+#: orgSeries-manage.php:325
 msgid "Invalid form data"
 msgstr "Données de formulaire invalides"
 
-#: orgSeries-manage.php:290
+#: orgSeries-manage.php:335
 msgid "Invalid nonce, reload and try again"
 msgstr "Nonce invalide, rechargez et réessayez"
 
-#: orgSeries-manage.php:299
+#: orgSeries-manage.php:344
 msgid "Invalid taxonomy"
 msgstr "Taxonomie invalide"
 
-#: orgSeries-manage.php:305
+#: orgSeries-manage.php:350
 msgid "Not enough permission"
 msgstr "Pas de droits suffisants"
 
-#: orgSeries-manage.php:309
+#: orgSeries-manage.php:354
 msgid "Updated successfully"
 msgstr "La mise à jour a bien été effectuée"
 
-#: orgSeries-options.php:43 orgSeries-options.php:64 orgSeries-options.php:65
-#: orgSeries-setup.php:872
+#: orgSeries-options.php:46
+#: orgSeries-options.php:68
+#: orgSeries-options.php:69
+#: orgSeries-setup.php:943
 msgid "Settings"
 msgstr "Paramètres de configuration"
 
-#: orgSeries-options.php:54
+#: orgSeries-options.php:58
 msgid "PublishPress Series Options"
 msgstr "Options de PublishPress Series"
 
-#: orgSeries-options.php:55
-msgctxt "top-level admin menu label"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-options.php:141
+#: orgSeries-options.php:160
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: orgSeries-options.php:143
+#: orgSeries-options.php:162
 msgid "Metabox"
 msgstr "Boîte méta"
 
-#: orgSeries-options.php:150
+#: orgSeries-options.php:169
 msgid "Advanced"
 msgstr "Avancé"
 
-#: orgSeries-setup.php:209
+#: orgSeries-setup.php:221
 msgid "Select \"Not part of a series\" to remove any series data from post"
-msgstr "Sélectionner « Ne fait pas partie d’une série » pour supprimer toutes les données de série de la publication"
+msgstr ""
+"Sélectionner « Ne fait pas partie d’une série » pour supprimer toutes les "
+"données de série de la publication"
 
-#: orgSeries-setup.php:266
-msgctxt "taxonomy menu name"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-setup.php:268
+#: orgSeries-setup.php:282
 msgid "&larr; Go to Series"
 msgstr "&larr; Aller à la série"
 
-#: orgSeries-setup.php:269
+#: orgSeries-setup.php:283
 msgid "View Series"
 msgstr "Afficher la série"
 
-#: orgSeries-setup.php:271
-msgid "Series List"
-msgstr "Liste de la série"
-
-#: orgSeries-setup.php:272
+#: orgSeries-setup.php:286
 msgid "Series Link"
 msgstr "Lien de la série"
 
-#: orgSeries-setup.php:273
+#: orgSeries-setup.php:287
 msgid "A link to a Series"
 msgstr "Un lien vers une série"
 
-#: orgSeries-setup.php:321 orgSeries-setup.php:322
-#, no-php-format
-msgctxt "leave the %tokens% as is when translating"
-msgid ""
-"This entry is part %series_part% of %total_posts_in_series% in the series "
-msgstr "Cette publication est la partie %series_part% de %total_posts_in_series% dans la série "
-
-#: orgSeries-setup.php:327
+#: orgSeries-setup.php:382
 msgid "Series Navigation"
 msgstr "Navigation dans la série"
 
-#: orgSeries-setup.php:858
+#: orgSeries-setup.php:925
 msgid "Series: "
 msgstr "Séries : "
 
-#: orgSeries-setup.php:860
+#: orgSeries-setup.php:927
 msgid "Posts from the series: "
 msgstr "Articles de la série : "
 
-#: orgSeries-taxonomy.php:381
-msgctxt "series list title"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-taxonomy.php:664 orgSeries-taxonomy.php:693
+#: orgSeries-taxonomy.php:760
+#: orgSeries-taxonomy.php:789
 msgid "Series:"
 msgstr "Séries :"
 
-#: orgSeries-taxonomy.php:666
+#: orgSeries-taxonomy.php:762
 msgid "Part:"
 msgstr "Partie :"
 
-#: orgSeries-template-tags.php:264
+#: orgSeries-template-tags.php:268
 msgid "All the Series I've Written"
 msgstr "Toutes les séries que j’ai écrites"
 
-#: orgSeries-template-tags.php:268 orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:272
+#: orgSeries-template-tags.php:281
+#. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
-msgid "<a href=\"%s\" title=\"%s\">Series</a>"
-msgstr "<a href=\"%s\" title=\"%s\">Séries</a>"
+msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">Séries</a>"
 
-#: orgSeries-utility.php:410
+#: orgSeries-utility.php:460
 msgid "Auto/None"
 msgstr "Auto/aucune"
 
-#: orgSeries-widgets.php:12
+#: orgSeries-widgets.php:13
 msgid "Use this to control the output of the latest series widget"
 msgstr "Utilisez ceci pour contrôler la sortie du widget de la dernière série"
 
-#: orgSeries-widgets.php:20
+#: orgSeries-widgets.php:25
 msgid "Most Recent Series"
 msgstr "Séries les plus récentes"
 
-#: orgSeries-widgets.php:73 orgSeries-widgets.php:269
+#: orgSeries-widgets.php:80
+#: orgSeries-widgets.php:287
 msgid "Title:"
 msgstr "Titre :"
 
-#: orgSeries-widgets.php:79
+#: orgSeries-widgets.php:86
+#. translators: %s: URL to the Latest Series settings.
 #, php-format
 msgid ""
 "The layout and content of this widget can be adjusted via the <a "
 "href=\"%s\">Latest Series</a> area."
-msgstr "La mise en page et le contenu de ce widget peuvent être réglés via la zone <a href=\"%s\">Dernière série</a>."
+msgstr ""
+"La mise en page et le contenu de ce widget peuvent être réglés via la zone "
+"<a href=\"%s\">Dernière série</a>."
 
-#: orgSeries-widgets.php:82
+#: orgSeries-widgets.php:90
 msgid "Hide series with no posts?"
 msgstr "Voulez-vous masquer les séries qui n’ont pas de publications ?"
 
-#: orgSeries-widgets.php:85 orgSeries-widgets.php:295
+#: orgSeries-widgets.php:93
+#: orgSeries-widgets.php:313
 msgid "Order by:"
 msgstr "Trier par :"
 
-#: orgSeries-widgets.php:87
+#: orgSeries-widgets.php:95
 msgid "Number of posts in Series"
 msgstr "Nombre de publications dans la série"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:96
 msgid "Name of Series"
 msgstr "Nom de la série"
 
-#: orgSeries-widgets.php:89
+#: orgSeries-widgets.php:97
 msgid "Series Slug"
 msgstr "Slug de la série"
 
-#: orgSeries-widgets.php:90
+#: orgSeries-widgets.php:98
 msgid "When Series was Created"
 msgstr "Date de création de la série"
 
-#: orgSeries-widgets.php:91
+#: orgSeries-widgets.php:99
 msgid "Random"
 msgstr "Aléatoire"
 
-#: orgSeries-widgets.php:95
+#: orgSeries-widgets.php:103
 msgid "Number of series to display:"
 msgstr "Nombre de séries à afficher :"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:107
 msgid "Display Order: "
 msgstr "Tri d’affichage : "
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:108
 msgid "ASC: "
 msgstr "ASC : "
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:109
 msgid "DESC: "
 msgstr "DESC : "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:120
 msgid "Use this to display the Series Table of contents"
 msgstr "Utilisez cette option pour afficher la table des matières de la série"
 
-#: orgSeries-widgets.php:178
+#: orgSeries-widgets.php:192
 msgid "Select Series"
 msgstr "Sélectionner la série"
 
-#: orgSeries-widgets.php:233
-msgctxt "widget title default"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-widgets.php:234
+#: orgSeries-widgets.php:252
 msgid "Other posts in series:"
 msgstr "Autres articles de la série :"
 
-#: orgSeries-widgets.php:274
+#: orgSeries-widgets.php:292
 msgid "Show Series Table Of Content"
 msgstr "Afficher la table des matières de la série"
 
-#: orgSeries-widgets.php:279
+#: orgSeries-widgets.php:297
 msgid "Show Series Table Of Content as:"
 msgstr "Afficher la table des matières de la série comme :"
 
-#: orgSeries-widgets.php:280
+#: orgSeries-widgets.php:298
 msgid "Dropdown:"
 msgstr "Menu déroulant :"
 
-#: orgSeries-widgets.php:281
+#: orgSeries-widgets.php:299
 msgid "List:"
 msgstr "Liste :"
 
-#: orgSeries-widgets.php:285
+#: orgSeries-widgets.php:303
 msgid "Show post count:"
 msgstr "Afficher le nombre de publications :"
 
-#: orgSeries-widgets.php:290
+#: orgSeries-widgets.php:308
 msgid "Hide empty series:"
 msgstr "Masquer les séries vides :"
 
-#: orgSeries-widgets.php:299
+#: orgSeries-widgets.php:317
 msgid "name"
 msgstr "nom"
 
-#: orgSeries-widgets.php:300
+#: orgSeries-widgets.php:318
 msgid "count"
 msgstr "compte"
 
-#: orgSeries-widgets.php:301
+#: orgSeries-widgets.php:319
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:320
 msgid "series id"
 msgstr "id de la série"
 
-#: orgSeries-widgets.php:315
+#: orgSeries-widgets.php:333
 msgid "Order:"
 msgstr "Trier :"
 
-#: orgSeries-widgets.php:333
+#: orgSeries-widgets.php:351
 msgid "Exclude series:"
 msgstr "Exclure les séries :"
 
-#: orgSeries-widgets.php:348
+#: orgSeries-widgets.php:366
 msgid "Include series:"
 msgstr "Inclure les séries :"
 
-#: orgSeries-widgets.php:363
+#: orgSeries-widgets.php:381
 msgid "Number of Series:"
 msgstr "Nombre de séries :"
 
-#: orgSeries-widgets.php:368
+#: orgSeries-widgets.php:386
 msgid "Offset:"
 msgstr "Décalage :"
 
-#: orgSeries-widgets.php:370
+#: orgSeries-widgets.php:388
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
-msgstr "Vous pouvez sélectionner le décalage pour le nombre de séries (utile pour la pagination).  Aucun décalage si laissé vide"
+msgstr ""
+"Vous pouvez sélectionner le décalage pour le nombre de séries (utile pour "
+"la pagination).  Aucun décalage si laissé vide"
 
-#: orgSeries-widgets.php:374
+#: orgSeries-widgets.php:392
 msgid "Search:"
 msgstr "Rechercher :"
 
-#: orgSeries-widgets.php:376
+#: orgSeries-widgets.php:394
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
-msgstr "Vous pouvez retourner toutes les séries qui correspondent à cette chaîne de recherche (par rapport aux noms des séries)"
+msgstr ""
+"Vous pouvez retourner toutes les séries qui correspondent à cette chaîne de "
+"recherche (par rapport aux noms des séries)"
 
-#: orgSeries-widgets.php:380
+#: orgSeries-widgets.php:398
 msgid "Show other posts in the current series:"
 msgstr "Afficher les autres publications de la série en cours :"
 
-#: orgSeries-widgets.php:386
-msgctxt "widget section label"
-msgid "Series"
-msgstr "Série"
-
-#: orgSeries-widgets.php:397
-msgid "Current series"
-msgstr "Séries actives"
-
-#: orgSeries-widgets.php:416
+#: orgSeries-widgets.php:433
 msgid "Series widget title:"
 msgstr "Titre du widget de la série :"
 
-#: orgSeries-widgets.php:418
+#: orgSeries-widgets.php:435
 msgid "This text will display above other posts in this series."
 msgstr "Ce texte s’affichera au-dessus des autres publications de cette série."
 
-#: orgSeries.php:164
+#: orgSeries.php:179
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Cette extension peut être supprimée.</strong>"
 
-#: src/application/Container.php:160
+#: src/application/Container.php:162
+#. translators: 1: Container class name, 2: Parameter name.
 #, php-format
 msgid "The %1$s already has a parameter indexed with the name: %2$s."
 msgstr "Le %1$s a déjà un paramètre indexé avec le nom : %2$s."
 
-#: src/application/Root.php:139
+#: src/application/Root.php:138
+#. translators: 1: Method name, 2: Parent class name.
 #, php-format
 msgid "The %1$s method can only be used to register a child of %2$s."
 msgstr "La méthode %1$s ne peut être utilisée que pour inscrire un enfant de %2$s."
 
 #: src/domain/exceptions/EntityNotFoundException.php:30
+#. translators: %1$s: Expected entity class name.
 #, php-format
 msgid "Unable to retrieve an instance of %1$s. Not found."
 msgstr "Impossible de récupérer une instance de %1$s. Non trouvée."
 
 #: src/domain/exceptions/InvalidEntityException.php:29
+#. translators: 1: Invalid entity class name, 2: Expected entity class name.
 #, php-format
 msgid "%1$s is not a valid entity (expected: %2$s)."
 msgstr "%1$s n’est pas une entité valide (attendu : %2$s)."
 
-#: src/domain/exceptions/InvalidFilePathException.php:27
+#: src/domain/exceptions/InvalidFilePathException.php:30
+#. translators: 1: File name, 2: HTML line break, 3: Full file path.
 #, php-format
 msgid ""
-"The \"%1$s\" file is either missing or could not be read due to permissions. "
-"Please ensure that the following path is correct and verify that the file "
-"permissions are correct:%2$s %3$s"
-msgstr "Le fichier « %1$s » est manquant ou n’a pas pu être lu en raison des droits. Veuillez vous assurer que le chemin d’accès suivant est correct et vérifier que les droits du fichier sont corrects : %2$s %3$s"
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"Le fichier « %1$s » est manquant ou n’a pas pu être lu en raison des "
+"droits. Veuillez vous assurer que le chemin d’accès suivant est correct et "
+"vérifier que les droits du fichier sont corrects : %2$s %3$s"
 
 #: src/domain/exceptions/InvalidInterfaceException.php:26
+#. translators: %s: Fully qualified class name.
 #, php-format
 msgid "%s does not exist or is not reachable."
 msgstr "%s n’existe pas ou n’est pas accessible."
 
-#: src/domain/exceptions/NonceFailException.php:18
+#: src/domain/exceptions/NonceFailException.php:19
 msgid "Nonce fail."
 msgstr "Échec du nonce."
 
-#: src/domain/model/ControllerRoute.php:50
-#: src/domain/model/HasHooksRoute.php:59
+#: src/domain/model/ControllerRoute.php:53
+#: src/domain/model/HasHooksRoute.php:61
+#. translators: 1: Controller class name, 2: Required interface name.
 #, php-format
 msgid ""
 "The provided object fully qualified class name (%1$s) must implement the "
 "%2$s interface."
-msgstr "Le nom de classe pleinement qualifié de l’objet fourni (%1$s) doit implémenter l’interface %2$s."
+msgstr ""
+"Le nom de classe pleinement qualifié de l’objet fourni (%1$s) doit "
+"implémenter l’interface %2$s."
 
-#: src/domain/model/FileLocation.php:50
+#: src/domain/model/FileLocation.php:52
+#. translators: %s: File path.
 #, php-format
 msgid "The given file path (%s) is not readable."
 msgstr "Le chemin du fichier donné (%s) n’est pas lisible."
@@ -3070,242 +3684,256 @@ msgstr "Le chemin du fichier donné (%s) n’est pas lisible."
 msgid "An error occurred, please try again."
 msgstr "Une erreur est survenue, veuillez réessayer."
 
-#: src/domain/model/RouteIdentifier.php:51
+#: src/domain/model/RouteIdentifier.php:52
+#. translators: %1$s: Callback parameter name.
 #, php-format
 msgid "The incoming value for %1$s is expected to be a closure.  It was not."
-msgstr "La valeur entrante pour %1$s est censée être une fermeture. Ce n’est pas le cas."
+msgstr ""
+"La valeur entrante pour %1$s est censée être une fermeture. Ce n’est pas le "
+"cas."
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:122
-#: src/views/admin/templates/license_key_form.template.php:31
+#: src/domain/services/admin/LicenseKeyFormManager.php:121
+#: src/views/admin/templates/license_key_form.template.php:33
 msgid "Deactivate License"
 msgstr "Désactiver la licence"
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:123
-#: src/views/admin/templates/license_key_form.template.php:33
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:35
 msgid "Activate License"
 msgstr "Activer la licence"
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:241
+#: src/domain/services/admin/LicenseKeyFormManager.php:240
 msgid "License Key successfully activated."
 msgstr "La clé de licence a bien été désactivé."
 
-#: src/domain/services/admin/LicenseKeyFormManager.php:242
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
 msgid "License Key successfully deactivated."
 msgstr "La clé de licence a bien été désactivé."
 
-#: src/domain/services/AssetRegistry.php:228
+#: src/domain/services/AssetRegistry.php:231
+#. translators: 1: Data key, 2: Method name.
 #, php-format
 msgid ""
 "The value for %1$s is already set and it is not an array. The %2$s method "
 "can only be used to push values to this data element when it is an array."
-msgstr "La valeur de %1$s est déjà définie et il ne s’agit pas d’un tableau. La méthode %2$s ne peut être utilisée pour pousser des valeurs dans cet élément de données que s’il s’agit d’un tableau."
+msgstr ""
+"La valeur de %1$s est déjà définie et il ne s’agit pas d’un tableau. La "
+"méthode %2$s ne peut être utilisée pour pousser des valeurs dans cet "
+"élément de données que s’il s’agit d’un tableau."
 
-#: src/domain/services/AssetRegistry.php:271
+#: src/domain/services/AssetRegistry.php:275
+#. translators: 1: Data key, 2: Class property, 3: Method name.
 #, php-format
 msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed. Since the value of this data is an array, you may want to use the "
 "%3$s method to push your value to the array."
-msgstr "La valeur de %1$s existe déjà dans la propriété %2$s. Les substitutions ne sont pas autorisées. Comme la valeur de cette donnée est un tableau, vous pouvez utiliser la méthode %3$s pour pousser votre valeur dans le tableau."
+msgstr ""
+"La valeur de %1$s existe déjà dans la propriété %2$s. Les substitutions ne "
+"sont pas autorisées. Comme la valeur de cette donnée est un tableau, vous "
+"pouvez utiliser la méthode %3$s pour pousser votre valeur dans le tableau."
 
-#: src/domain/services/AssetRegistry.php:283
+#: src/domain/services/AssetRegistry.php:288
+#. translators: 1: Data key, 2: Class property.
 #, php-format
 msgid ""
 "The value for %1$s already exists in the %2$s property. Overrides are not "
 "allowed.  Consider attaching your value to a different key"
-msgstr "La valeur de %1$s existe déjà dans la propriété %2$s. Les remplacements ne sont pas autorisés.  Pensez à attacher votre valeur à une clé différente"
+msgstr ""
+"La valeur de %1$s existe déjà dans la propriété %2$s. Les remplacements ne "
+"sont pas autorisés.  Pensez à attacher votre valeur à une clé différente"
 
-#: src/domain/services/AssetRegistry.php:408
+#: src/domain/services/AssetRegistry.php:414
+#. translators: %s: Manifest namespace.
 #, php-format
 msgid ""
 "The namespace for this manifest file has already been registered, choose a "
 "namespace other than %s"
-msgstr "L’espace de nom pour ce fichier manifeste a déjà été enregistré, choisissez un espace de nom autre que %s"
+msgstr ""
+"L’espace de nom pour ce fichier manifeste a déjà été enregistré, choisissez "
+"un espace de nom autre que %s"
 
-#: src/domain/services/AssetRegistry.php:419
+#: src/domain/services/AssetRegistry.php:426
+#. translators: 1: URL parameter name, 2: Provided URL.
 #, php-format
-msgid ""
-"The provided value for %1$s is not a valid url.  The url provided was: %2$s"
-msgstr "La valeur fournie pour %1$s n’est pas une URL valide.  L’URL fournie était : %2$s"
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr ""
+"La valeur fournie pour %1$s n’est pas une URL valide.  L’URL fournie était "
+": %2$s"
 
-#: src/views/admin/templates/license_key_form.template.php:16
+#: src/views/admin/templates/license_key_form.template.php:17
+#. translators: %1$s: Product name.
 #, php-format
 msgid "License Key for %1$s"
 msgstr "Clé de licence pour %1$s"
 
-#: src/views/admin/templates/license_key_form.template.php:19
+#: src/views/admin/templates/license_key_form.template.php:21
 msgid "Enter your license key: "
 msgstr "Saisissez votre clé de licence : "
 
-#~ msgid "Series Post List Template"
-#~ msgstr "Modèle de liste de publications de la serie"
+#: assets/js/publishpress-series-blocks.js:126
+msgid "Block settings"
+msgstr "Réglages du bloc"
 
-#~ msgid "[more]"
-#~ msgstr "[more]"
+#: assets/js/publishpress-series-blocks.js:175
+msgid "Query settings"
+msgstr "Réglages de la requête"
 
-#~ msgid "[less]"
-#~ msgstr "[less]"
+#: assets/js/publishpress-series-blocks.js:182
+msgid "Individual Series"
+msgstr "Série individuelle"
 
-#~ msgid "This template is used when no Post List Box is selected above."
-#~ msgstr ""
-#~ "Ce modèle est utilisé lorsqu’aucune liste de publications n’est "
-#~ "sélectionnée ci-dessus."
+#: assets/js/publishpress-series-blocks.js:190
+msgid "Order by"
+msgstr "Trier par"
 
-#~ msgid "Custom Template"
-#~ msgstr "Modèle personnalisé"
+#: assets/js/publishpress-series-blocks.js:193
+msgid "Name: A to Z"
+msgstr "Nom : A à Z"
 
-#~ msgid "Templates"
-#~ msgstr "Modèles"
+#: assets/js/publishpress-series-blocks.js:194
+msgid "Name: Z to A"
+msgstr "Nom : Z à A"
 
-#~ msgid "Icons"
-#~ msgstr "Icônes"
+#: assets/js/publishpress-series-blocks.js:197
+msgid "Series count: High to low"
+msgstr "Nombre de séries : décroissant"
 
-#~ msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
-#~ msgstr "%2$s%1$s, %3$s à les %4$s : %5$s"
+#: assets/js/publishpress-series-blocks.js:198
+msgid "Post count: High to low"
+msgstr "Nombre de publications : décroissant"
 
-#~ msgid "Description here."
-#~ msgstr "Description ici."
+#: assets/js/publishpress-series-blocks.js:203
+msgid "Series count: Low to high"
+msgstr "Nombre de séries : Faible à élevé"
 
-#~ msgid ""
-#~ "This control how and what series meta information is displayed with posts "
-#~ "that are part of a series when the_excerpt is used. "
-#~ msgstr ""
-#~ "Ceci contrôle comment et quelles méta-informations de série sont "
-#~ "affichées avec les publications qui font partie d’une série lorsque "
-#~ "the_excerpt est utilisé."
+#: assets/js/publishpress-series-blocks.js:204
+msgid "Post count: Low to high"
+msgstr "Nombre de publications : Faible à élevé"
 
-#~ msgid "Choose the design for the page where all your Series are displayed."
-#~ msgstr "Choisir le design de la page où sont affichées toutes vos séries."
+#: assets/js/publishpress-series-blocks.js:209
+msgid "Series Category ID: High to low"
+msgstr "ID de catégorie de série : décroissant"
 
-#~ msgid "Display Series Meta?"
-#~ msgstr "Voulez-vous afficher les métadonnées de la série ?"
+#: assets/js/publishpress-series-blocks.js:210
+msgid "Series ID: High to low"
+msgstr "ID de série : décroissant"
 
-#~ msgid "Choose the design for pages that are included in a series."
-#~ msgstr "Choisir le design des pages qui sont incluses dans une série."
+#: assets/js/publishpress-series-blocks.js:215
+msgid "Series Category ID: Low to high"
+msgstr "ID de catégorie de série : croissant"
 
-#~ msgid ""
-#~ "These templates allow you to customize the frontend appearance of "
-#~ "PublishPress Series."
-#~ msgstr ""
-#~ "Ces modèles vous permettent de personnaliser l’apparence de l’interface "
-#~ "publique de PublishPress Series."
+#: assets/js/publishpress-series-blocks.js:216
+msgid "Series ID: Low to high"
+msgstr "ID de série : Faible à élevé"
 
-#~ msgid ""
-#~ "These settings allow you to customize the main frontend screens in "
-#~ "PublishPress Series."
-#~ msgstr ""
-#~ "Ces réglages vous permettent de personnaliser les principaux écrans de "
-#~ "l’interface publique de PublishPress Series."
+#: assets/js/publishpress-series-blocks.js:226
+msgid "Number of items"
+msgstr "Nombre d'éléments"
 
-#~ msgid "First Post"
-#~ msgstr "Première publication"
+#: assets/js/publishpress-series-blocks.js:236
+msgid "Hide empty Series Categories"
+msgstr "Masquer les catégories de série vides"
 
-#~ msgid "Series Post Navigation Location"
-#~ msgstr "Emplacement de navigation des publications de la série"
+#: assets/js/publishpress-series-blocks.js:237
+msgid "Hide empty Series"
+msgstr "Masquer les séries vides"
 
-#~ msgid "Series Metabox Location"
-#~ msgstr "Emplacement de la boîte méta des séries"
+#: assets/js/publishpress-series-blocks.js:247
+msgid "Display settings"
+msgstr "Réglages d'affichage"
 
-#~ msgid "Display on Series Table of Contents screens"
-#~ msgstr "Affichage sur les écrans de table des matières des séries"
+#: assets/js/publishpress-series-blocks.js:271
+msgid "Show Featured image"
+msgstr "Afficher l'image mise en avant"
 
-#~ msgid "Display on single posts in a series"
-#~ msgstr "Afficher sur les publications uniques dans une série"
+#: assets/js/publishpress-series-blocks.js:278
+msgid "Show description"
+msgstr "Afficher la description"
 
-#~ msgid "Previous Post"
-#~ msgstr "Publication précédente"
+#: assets/js/publishpress-series-blocks.js:286
+msgid "Show Series count"
+msgstr "Afficher le nombre de séries"
 
-#~ msgid "Next Post"
-#~ msgstr "Publication suivante"
+#: assets/js/publishpress-series-blocks.js:287
+msgid "Show post count"
+msgstr "Afficher le nombre de publications"
 
-#~ msgid "Series Post Navigation:"
-#~ msgstr "Navigation publications de la série :"
+#: addons/grouping/legacy-includes.php:299
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "Catégories de la série"
 
-#~ msgid "This display is shown at the bottom of all posts in a series."
-#~ msgstr ""
-#~ "Cet affichage est affiché en bas de toutes les publications d’une série."
+#: inc/settings/settings-validation.php:85
+#: orgSeries-setup.php:271
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Series Navigation Box"
-#~ msgstr "Boîte de navigation de la série"
+#: addons/grouping/legacy-includes.php:300
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "Catégorie de la série"
 
-#~ msgid "This display is shown at the top of all posts in a series."
-#~ msgstr ""
-#~ "Cet affichage est affiché en haut de toutes les publications d’une série."
+#: inc/settings/settings-validation.php:86
+#: orgSeries-setup.php:272
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Series Post List Box"
-#~ msgstr "Boîte de la liste des publications de la série"
+#: addons/grouping/legacy-includes.php:723
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Display on Series Overview screens"
-#~ msgstr "Afficher sur les écrans de vue d’ensemble de la série"
+#: orgSeries-admin.php:462
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid ""
-#~ "This section is for the icons that show with your series. Note that you "
-#~ "must use a token for the icon in the \"Templates\" settings."
-#~ msgstr ""
-#~ "Cette section concerne les icônes qui s’affichent avec votre série. Notez "
-#~ "que vous devez utiliser un jeton pour l’icône dans les réglages "
-#~ "« Modèles »."
+#: orgSeries-admin.php:487
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Publishpress Series API: "
-#~ msgstr "Publishpress Series API : "
+#: orgSeries-admin.php:573
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "Série"
+msgstr[1] "Séries"
 
-#~ msgid "Error"
-#~ msgstr "Erreur"
+#: orgSeries-options.php:59
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "You do not have permission to install plugin updates"
-#~ msgstr ""
-#~ "Vous n’avez pas les droits suffisants pour installer les mises à jour de "
-#~ "l’extension."
+#: orgSeries-setup.php:280
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid ""
-#~ "There is a new version of %1$s available. %2$sView version %3$s "
-#~ "details%4$s or %5$supdate now%6$s."
-#~ msgstr ""
-#~ "Une nouvelle version de %1$s est disponible. %2$sVoir les détails%4$s de "
-#~ "la version %3$s ou %5$smettre à jour maintenant%6$s."
+#: orgSeries-setup.php:375
+#: orgSeries-setup.php:377
+#. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr ""
+"Cette publication est la partie %series_part% de %total_posts_in_series% "
+"dans la série "
 
-#~ msgid ""
-#~ "There is a new version of %1$s available. %2$sView version %3$s "
-#~ "details%4$s."
-#~ msgstr ""
-#~ "Une nouvelle version de %1$s est disponible. %2$sVoir les détails%4$s de "
-#~ "la version %3$s."
+#: orgSeries-taxonomy.php:420
+msgctxt "series list title"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Series Meta:"
-#~ msgstr "Méta de la série :"
+#: orgSeries-widgets.php:251
+msgctxt "widget title default"
+msgid "Series"
+msgstr "Série"
 
-#~ msgid "Dismiss"
-#~ msgstr "Ignorer"
-
-#~ msgid ""
-#~ "<p>There is an automatic update for %s available but your api-key is "
-#~ "invalid.  Either you have entered the wrong key on the <a "
-#~ "href=\"admin.php?page=orgseries_options_page\">Publishpress Series "
-#~ "Options</a> page OR you no longer have access to the updates for this "
-#~ "plugin.  Automatic upgrades for single website install's are gained via "
-#~ "the <a href=\"https://publishpress.com/pricing\">Basic Support package</"
-#~ "a>.  Automatic upgrades for multiple website install's are available via "
-#~ "the <a href=\"https://publishpress.com/pricing\">All Addons package or "
-#~ "the Lifetime Membership package.</a></p>"
-#~ msgstr ""
-#~ "<p>Il y a une mise à jour automatique pour %s disponible mais votre clé "
-#~ "api est invalide. Soit vous avez saisi/saisie une mauvaise clé sur la "
-#~ "page <a href=\"admin.php?page=orgseries_options_page\">Options de "
-#~ "Publishpress Series</a> ou vous n’avez aucun accès aux mises à niveau de "
-#~ "cette extension.  Les mises à niveau automatiques pour l’installation "
-#~ "d’un seul site sont obtenues via le forfait <a href=\"https://"
-#~ "publishpress.com/pricing\">Support de base</a>.  Les mises à niveau "
-#~ "automatiques pour l’installation de plusieurs sites sont disponibles via "
-#~ "le forfait <a href=\"https://publishpress.com/pricing\">Tous les modules "
-#~ "complémentaires ou le forfait d’adhésion à vie.</a></p>"
-
-#~ msgid ""
-#~ "<p>There is an automatic update for %s available but your api-key has not "
-#~ "been set.  Please go to the <a href=\"admin.php?"
-#~ "page=orgseries_options_page\">Publishpress Series Options page</a> to set "
-#~ "your api_key for this addon.</p>"
-#~ msgstr ""
-#~ "<p>Il y a une mise à jour automatique pour %s disponible mais votre clé "
-#~ "de l’API n’a pas été définie.  Veuillez aller à la page<a "
-#~ "href=\"admin.php?page=orgseries_options_page\">Options de Publishpress "
-#~ "Series</a> pour définir votre clé de l’API pour ce module.</p>"
+#: orgSeries-widgets.php:404
+msgctxt "widget section label"
+msgid "Series"
+msgstr "Série"
