@@ -42,6 +42,7 @@ function ppseries_pro_migrate_series_by_ajax()
     $response['content'] = '<font color="red">' . __('An error occured', 'organize-series') . '</font>';
 
     $response['status'] = 'success';
+    /* translators: %1$s: Number of series migrated. */
     $response['content'] = sprintf(__('%1$s series migrated to new taxonomy', 'organize-series'), $count);
 
     wp_send_json($response);
@@ -148,9 +149,10 @@ function orgSeries_admin_footer()
                 <div class="pp-rating">
                     <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
                         <?php
-						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         printf(
-                            __('If you like %s, please leave us a %s rating. Thank you!', 'organize-series'),
+                            /* translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons. */
+                            __('If you like %1$s, please leave us a %2$s rating. Thank you!', 'organize-series'),
                             '<strong>PublishPress Series</strong>',
                             '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
                         );
@@ -510,12 +512,15 @@ function orgSeries_custom_column_action($column_name, $id)
 
             if ($series && in_array($post_status, array('publish', 'private'))) {
                 if (empty(trim($series_part))) {
+                    /* translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name. */
                     $column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a> (No part number)', 'organize-series'), esc_url($series_link), esc_attr($series_name), $series_name);
                 } else {
+                    /* translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name. */
                     $column_content .= sprintf(__('<a href="%3$s" title="%4$s">%5$s</a> (Part %1$s of %2$s)', 'organize-series'), esc_html($series_part), esc_html($count), esc_url($series_link), esc_attr($series_name), $series_name);
                 }
                 $column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';
             } else {
+                /* translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name. */
                 $column_content .= sprintf(__('<a href="%1$s" title="%2$s">%3$s</a>  (No Part Number)', 'organize-series'), esc_url($series_link), esc_attr($series_name), $series_name);
 
                 $column_content .= '<div class="hidden" id="inline_series_' . $id . '"><div class="series_inline_edit">' . $seriesid . '</div><div class="series_inline_part">' . $series_part . '</div><div class="series_post_id">' . $id . '</div><div class="series_inline_name">' . $series_name . '</div></div>';

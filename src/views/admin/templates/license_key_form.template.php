@@ -13,6 +13,7 @@ $key = $license_key->getLicenseKey();
     </div>
     <h3>
         <?php printf(
+            /* translators: %1$s: Product name. */
             esc_html__('License Key for %1$s', 'organize-series'),
             esc_html($license_key->getItemName())
         ); ?>

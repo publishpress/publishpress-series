@@ -158,6 +158,7 @@ class Container
         if ($this->container->offsetExists($name)) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: Container class name, 2: Parameter name. */
                     esc_html__(
                         'The %1$s already has a parameter indexed with the name: %2$s.',
                         'organize-series'

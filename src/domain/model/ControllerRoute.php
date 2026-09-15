@@ -49,6 +49,7 @@ class ControllerRoute implements RouteInterface
         ) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: Controller class name, 2: Required interface name. */
                     esc_html__(
                         'The provided object fully qualified class name (%1$s) must implement the %2$s interface.',
                         'organize-series'

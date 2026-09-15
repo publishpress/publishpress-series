@@ -134,6 +134,7 @@ class Root
         if (! in_array(AbstractBootstrap::class, class_parents($bootstrap_class->__toString()), true)) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: Method name, 2: Parent class name. */
                     esc_html__(
                         'The %1$s method can only be used to register a child of %2$s.',
                         'organize-series'

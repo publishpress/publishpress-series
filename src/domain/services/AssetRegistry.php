@@ -227,6 +227,7 @@ class AssetRegistry
         ) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: Data key, 2: Method name. */
                     __(
                         'The value for %1$s is already set and it is not an array. The %2$s method can only be used to push values to this data element when it is an array.',
                         'organize-series'
@@ -270,6 +271,7 @@ class AssetRegistry
             if (is_array($this->js_data[$key])) {
                 throw new InvalidArgumentException(
                     sprintf(
+                        /* translators: 1: Data key, 2: Class property, 3: Method name. */
                         __(
                             'The value for %1$s already exists in the %2$s property. Overrides are not allowed. Since the value of this data is an array, you may want to use the %3$s method to push your value to the array.',
                             'organize-series'
@@ -282,6 +284,7 @@ class AssetRegistry
             }
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: Data key, 2: Class property. */
                     __(
                         'The value for %1$s already exists in the %2$s property. Overrides are not allowed.  Consider attaching your value to a different key',
                         'organize-series'
@@ -407,6 +410,7 @@ class AssetRegistry
         if (isset($this->manifest_data[$namespace])) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: %s: Manifest namespace. */
                     esc_html__(
                         'The namespace for this manifest file has already been registered, choose a namespace other than %s',
                         'organize-series'
@@ -418,6 +422,7 @@ class AssetRegistry
         if (filter_var($url_base, FILTER_VALIDATE_URL) === false) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: 1: URL parameter name, 2: Provided URL. */
                     esc_html__(
                         'The provided value for %1$s is not a valid url.  The url provided was: %2$s',
                         'organize-series'

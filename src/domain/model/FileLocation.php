@@ -48,6 +48,7 @@ class FileLocation
         if (! is_readable($file_path)) {
             throw new InvalidArgumentException(
                 sprintf(
+                    /* translators: %s: File path. */
                     esc_html__('The given file path (%s) is not readable.', 'organize-series'),
                     $file_path
                 )

@@ -80,6 +80,7 @@ function series_legacy_fieldset()
                                         <?php
                                         echo sprintf(
 											// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                            /* translators: %s: URL to the series archive template documentation. */
                                             __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank" rel="noopener noreferrer">Read the documentation for customizing these designs</a>.', 'organize-series'),
                                             esc_url('https://publishpress.com/knowledge-base/series-archive-templates/')
                                         );
@@ -132,7 +133,8 @@ function series_legacy_fieldset()
                                         <p>
                                             <?php
                                             printf(
-                                                esc_html__('You must %1s update your permalink structure %2s to something other than "Plain" for the Series Table of Contents URL to work.', 'organize-series'),
+                                                /* translators: 1: Opening link tag, 2: Closing link tag. */
+                                                esc_html__('You must %1$s update your permalink structure %2$s to something other than "Plain" for the Series Table of Contents URL to work.', 'organize-series'),
                                                 '<a href="' . admin_url('options-permalink.php') . '">',
                                                 '</a>'
                                             );
