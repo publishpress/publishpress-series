@@ -43,7 +43,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     public function no_items()
     {
-        _e('There are no unpublished posts in this series.', 'organize-series');
+        esc_html_e('There are no unpublished posts in this series.', 'organize-series');
     }
 
     /**
@@ -82,6 +82,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     public function get_table_data()
     {
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
         $meta_key = apply_filters('orgseries_pending_part_key', '_pending_series_part', $series_id);
         $series_posts = [];
@@ -107,12 +108,12 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
                     "relation" => "or",
                     'part_field_sort_value' => array(
                         'key' => $meta_key,
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                     'part_field_sort' => array(
                         'key' => $meta_key,
                         'compare' => 'NOT EXISTS',
-                        'type'=> 'NUMERIC'
+                        'type' => 'NUMERIC'
                     ),
                 ),
                 'orderby' => array(
@@ -123,7 +124,8 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             /**
              * Handle category filter
              */
-            if ((!empty($_REQUEST['cat'])) && $category = sanitize_text_field($_REQUEST['cat'])) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            if ((!empty($_REQUEST['cat'])) && $category = sanitize_text_field(wp_unslash($_REQUEST['cat']))) {
                 $arg['tax_query'][] = [
                     'taxonomy' => 'category',
                     'field' => 'slug',
@@ -134,13 +136,14 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
             /**
              * Handle search
              */
-            if ((!empty($_REQUEST['s'])) && $search = sanitize_text_field($_REQUEST['s'])) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            if ((!empty($_REQUEST['s'])) && $search = sanitize_text_field(wp_unslash($_REQUEST['s']))) {
                 $arg['s'] = $search;
             }
 
             $series_query = new WP_Query($arg);
 
-            return ['posts'=> $series_query->posts, 'counts'=> $series_query->found_posts];
+            return ['posts' => $series_query->posts, 'counts' => $series_query->found_posts];
         }
 
         return $series_posts;
@@ -168,13 +171,13 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     {
 
         if ('top' === $which) {
-
-            $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field($_REQUEST['cat']) : '';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            $selected_category = (!empty($_REQUEST['cat'])) ? sanitize_text_field(wp_unslash($_REQUEST['cat'])) : '';
             ?>
             <div class="alignleft actions">
                 <?php
-               wp_dropdown_categories(
-                   array(
+                wp_dropdown_categories(
+                    array(
                        'show_option_all' => __('All Categories', 'organize-series'),
                        'orderby'         => 'name',
                        'order'           => 'ASC',
@@ -185,13 +188,13 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
                        'name'            => 'cat',
                        'taxonomy'        => 'category',
                        'value_field'     => 'slug',
-                   )
-               );
+                    )
+                );
 
-            submit_button(__('Filter', 'organize-series'), '', 'filter_action', false, array( 'id' => 'post-query-submit' ));
-            ?>
+                submit_button(__('Filter', 'organize-series'), '', 'filter_action', false, array( 'id' => 'post-query-submit' ));
+                ?>
             </div>
-        <?php
+            <?php
         }
     }
 
@@ -205,33 +208,48 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     public function search_box($text, $input_id)
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!isset($_REQUEST['s']) && !$this->has_items()) {
             return;
         }
 
         $input_id = $input_id . '-search-input';
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['orderby'])) {
-            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['order'])) {
-            echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field($_REQUEST['order'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['order']))) . '" />';
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['page'])) {
-            echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field($_REQUEST['page'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) . '" />';
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['action'])) {
-            echo '<input type="hidden" name="action" value="' . esc_attr(sanitize_text_field($_REQUEST['action'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="action" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['action']))) . '" />';
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['series_ID'])) {
-            echo '<input type="hidden" name="series_ID" value="' . esc_attr(sanitize_text_field($_REQUEST['series_ID'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="series_ID" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['series_ID']))) . '" />';
         }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['cat'])) {
-            echo '<input type="hidden" name="cat" value="' . esc_attr(sanitize_text_field($_REQUEST['cat'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="cat" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['cat']))) . '" />';
         }
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (!empty($_REQUEST['s'])) {
-            echo '<input type="hidden" name="s" value="' . esc_attr(sanitize_text_field($_REQUEST['s'])) . '" />';
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+            echo '<input type="hidden" name="s" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s']))) . '" />';
         }
 
         echo '<input type="hidden" name="action" value="list" />';
@@ -256,6 +274,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     protected function handle_row_actions($item, $column_name, $primary)
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int)$_GET['series_ID'] : false;
 
         $actions['edit'] = sprintf(
@@ -366,7 +385,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -388,7 +407,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
         if (is_array($terms)) {
             $term_links = [];
             foreach ($terms as $t) {
-                $term_links[] = '<a href="'. get_term_link($t->term_id) .'"> ' . esc_html($t->name) . ' </a>';
+                $term_links[] = '<a href="' . get_term_link($t->term_id) . '"> ' . esc_html($t->name) . ' </a>';
             }
             $term_html = implode(', ', $term_links);
         } else {
@@ -420,7 +439,7 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
     {
         return sprintf(
             '<a href="%1$s">%2$s</a>',
-            esc_url(home_url('?p='.$item->ID.'&preview=true')),
+            esc_url(home_url('?p=' . $item->ID . '&preview=true')),
             esc_html__('Preview', 'organize-series')
         );
     }

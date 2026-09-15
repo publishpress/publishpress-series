@@ -7,10 +7,10 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-class PPS_Post_List_Box_Fields {
-    
+class PPS_Post_List_Box_Fields
+{
     const META_PREFIX = 'pps_post_list_box_';
-    
+
     /**
      * Get the fields tabs to be rendered in the post list box editor
      *
@@ -75,7 +75,8 @@ class PPS_Post_List_Box_Fields {
      * @param boolean $use_default
      * @return array $editor_data
      */
-    public static function get_post_list_box_layout_meta_values($post_id, $use_default = false) {
+    public static function get_post_list_box_layout_meta_values($post_id, $use_default = false)
+    {
 
         if ($use_default || empty(get_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', true))) {
             $editor_data = self::get_default_post_list_box_data();
@@ -85,7 +86,38 @@ class PPS_Post_List_Box_Fields {
 
         $editor_data['post_id'] = $post_id;
 
+        if (isset($editor_data['title_html_tag'])) {
+            $editor_data['title_html_tag'] = self::sanitize_title_html_tag($editor_data['title_html_tag']);
+        }
+        if (isset($editor_data['layout_style'])) {
+            $editor_data['layout_style'] = self::sanitize_layout_style($editor_data['layout_style']);
+        }
+
         return apply_filters('pps_post_list_box_get_layout_meta_values', $editor_data, $post_id, $use_default);
+    }
+
+    public static function get_allowed_title_html_tags()
+    {
+        return ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'p'];
+    }
+
+    public static function sanitize_title_html_tag($tag)
+    {
+        $tag = is_string($tag) ? strtolower(trim($tag)) : '';
+
+        return pps_sanitize_choice($tag, self::get_allowed_title_html_tags(), 'h3');
+    }
+
+    public static function get_allowed_layout_styles()
+    {
+        return ['list', 'grid'];
+    }
+
+    public static function sanitize_layout_style($style)
+    {
+        $style = is_string($style) ? strtolower(trim($style)) : '';
+
+        return pps_sanitize_choice($style, self::get_allowed_layout_styles(), 'list');
     }
 
     /**
@@ -93,7 +125,8 @@ class PPS_Post_List_Box_Fields {
      *
      * @return array
      */
-    public static function get_default_post_list_box_data() {
+    public static function get_default_post_list_box_data()
+    {
         $defaults = [
             'title_show' => 1,
             'title_link_to_series' => 0,
@@ -150,7 +183,8 @@ class PPS_Post_List_Box_Fields {
      *
      * @return string
      */
-    public static function default_tab() {
+    public static function default_tab()
+    {
         return apply_filters('pps_post_list_box_editor_default_tab', 'box');
     }
 }

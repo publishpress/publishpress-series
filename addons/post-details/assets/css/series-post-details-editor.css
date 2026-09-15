@@ -134,6 +134,7 @@
     vertical-align: middle;
 }
 
+#poststuff #pps_series_meta_box_editor .inside,
 #poststuff #pps_series_meta_box_editor_area .inside {
     background: #f5f6fa;
     padding: 0;
@@ -169,7 +170,7 @@
 }
 
 .pps-series-post-details-editor-table .field-description {
-    color: gray;
+    color: #50575e;
 }
 
 .pps-series-post-details-editor-table .series-meta-boxes-field-icon {

@@ -15,18 +15,17 @@ use OrganizeSeries\domain\model\LicenseKey;
  */
 class LicenseKeyForm
 {
-
     /**
      * @var LicenseKey
      */
-	private $license_key;
+    private $license_key;
 
 
     /**
      * The slug for the extension this form belongs to.
      * @var string
      */
-	private $extension_slug;
+    private $extension_slug;
 
 
     /**
@@ -35,11 +34,11 @@ class LicenseKeyForm
      * @param LicenseKey $license_key
      * @param string     $extension_slug
      */
-	public function __construct(LicenseKey $license_key, $extension_slug)
-	{
+    public function __construct(LicenseKey $license_key, $extension_slug)
+    {
         $this->license_key = $license_key;
         $this->extension_slug = $extension_slug;
-	}
+    }
 
 
     /**
@@ -47,7 +46,7 @@ class LicenseKeyForm
      *
      * @throws DomainException
      */
-	public function printForm()
+    public function printForm()
     {
         $license_key = $this->license_key;
         $extension_slug = $this->extension_slug;

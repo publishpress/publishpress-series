@@ -16,9 +16,10 @@ abstract class AbstractAjaxRequest implements AjaxRequestInterface
     }
 
 
-    private function validateNonce($nonce_action) {
-        if (! $this->request->validateNonce($nonce_action, self::NONCE_KEY) ) {
-            throw new NonceFailException;
+    private function validateNonce($nonce_action)
+    {
+        if (! $this->request->validateNonce($nonce_action, self::NONCE_KEY)) {
+            throw new NonceFailException();
         }
     }
 }

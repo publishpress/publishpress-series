@@ -43,7 +43,8 @@ class NoticeManager
      * Returns all notices in a single string
      * @return string
      */
-    public function getAllNotices() {
+    public function getAllNotices()
+    {
         return $this->getCombinedNotices() . $this->getSingleNotices();
     }
 
@@ -54,7 +55,8 @@ class NoticeManager
      * @param AbstractNotice $notice
      * @throws InvalidEntityException
      */
-    public function addSingleNotice(AbstractNotice $notice){
+    public function addSingleNotice(AbstractNotice $notice)
+    {
         $this->single_notices->add($notice);
     }
 
@@ -65,7 +67,8 @@ class NoticeManager
      * @param AbstractNotice $notice
      * @throws InvalidEntityException
      */
-    public function addCombinedNotice(AbstractNotice $notice) {
+    public function addCombinedNotice(AbstractNotice $notice)
+    {
         $this->combined_notices->add($notice);
     }
 
@@ -74,7 +77,8 @@ class NoticeManager
      * Returns all combined notices grouped by notice type as a single string.
      * @return string
      */
-    public function getCombinedNotices() {
+    public function getCombinedNotices()
+    {
         $all_notices = array(
             'error' => array(),
             'success' => array(),
@@ -115,7 +119,8 @@ class NoticeManager
      * Returns all single notices as a single string
      * @return string
      */
-    public function getSingleNotices() {
+    public function getSingleNotices()
+    {
         $single_notices = '';
         /** @var AbstractNotice $notice */
         foreach ($this->single_notices as $notice) {

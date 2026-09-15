@@ -34,6 +34,7 @@ function ppseries_is_series_list_screen()
         return false;
     }
 
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
     $taxonomy = isset($_GET['taxonomy']) ? sanitize_key(wp_unslash($_GET['taxonomy'])) : '';
 
     return $taxonomy === ppseries_get_series_slug();
@@ -51,6 +52,7 @@ function ppseries_welcome_redirect()
     delete_option(PPSERIES_WELCOME_REDIRECT_OPTION);
 
     // Do not interrupt a bulk or a network activation.
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
     if (isset($_GET['activate-multi']) || is_network_admin() || wp_doing_ajax()) {
         return;
     }

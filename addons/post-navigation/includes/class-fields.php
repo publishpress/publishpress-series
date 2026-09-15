@@ -38,7 +38,7 @@ class PPS_Series_Post_Navigation_Fields
                 'label' => __('Layout', 'organize-series'),
                 'icon'  => 'dashicons-editor-table',
             ],
-            
+
         ];
 
         if (! is_array($tabs)) {
@@ -112,7 +112,7 @@ class PPS_Series_Post_Navigation_Fields
                     'center' => __('Center', 'organize-series'),
                     'right'  => __('Right', 'organize-series'),
                 ],
-                'sanitize' => 'sanitize_text_field',
+                'sanitize' => 'PPS_Series_Post_Navigation_Utilities::sanitize_series_title_alignment',
                 'default'  => 'center',
                 'description' => __('Choose the alignment of the series title', 'organize-series'),
             ],
@@ -132,7 +132,7 @@ class PPS_Series_Post_Navigation_Fields
                 'default'  => 1,
                 'description' => __('Do not display navigation if series has only one post', 'organize-series'),
             ],
-            
+
         ];
     }
 
@@ -598,5 +598,4 @@ class PPS_Series_Post_Navigation_Fields
             ],
         ];
     }
-
 }

@@ -15,33 +15,34 @@ use OrganizeSeries\domain\exceptions\InvalidInterfaceException;
  */
 class ClassOrInterfaceFullyQualifiedName
 {
-	/**
-	 * @var string
-	 */
-	private $class_or_interface_fqcn;
-	
-	
-	/**
-	 * ClassOrInterfaceFullyQualifiedName constructor.
-	 *
-	 * @param string $class_or_interface_fqcn
-	 *
-	 * @throws InvalidInterfaceException
-	 */
-	public function __construct($class_or_interface_fqcn)
-	{
-		$class_or_interface_fqcn = (string) $class_or_interface_fqcn;
-		if (! interface_exists($class_or_interface_fqcn) && ! class_exists($class_or_interface_fqcn)) {
-			throw new InvalidInterfaceException($class_or_interface_fqcn);
-		}
-		$this->class_or_interface_fqcn = $class_or_interface_fqcn;
-	}
-	
-	
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return $this->class_or_interface_fqcn;
-	}
+    /**
+     * @var string
+     */
+    private $class_or_interface_fqcn;
+
+
+    /**
+     * ClassOrInterfaceFullyQualifiedName constructor.
+     *
+     * @param string $class_or_interface_fqcn
+     *
+     * @throws InvalidInterfaceException
+     */
+    public function __construct($class_or_interface_fqcn)
+    {
+        $class_or_interface_fqcn = (string) $class_or_interface_fqcn;
+        if (! interface_exists($class_or_interface_fqcn) && ! class_exists($class_or_interface_fqcn)) {
+            throw new InvalidInterfaceException($class_or_interface_fqcn);
+        }
+        $this->class_or_interface_fqcn = $class_or_interface_fqcn;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->class_or_interface_fqcn;
+    }
 }

@@ -44,8 +44,9 @@ jQuery(document).ready( function($) {
 				$('ul#serieschecklist li:first').after(resp.html);
 				$('#series-'+resp.id).animate({backgroundColor: "transparent"}, 3000);
 				$('#add-series-nonce').text(resp.new_nonce);
+				$('#series-ajax-response').text(resp.message || '');
 			} else {
-				$('#series-ajax-response').html(resp.error);
+				$('#series-ajax-response').text(resp.error);
 			}
 		});
 	});

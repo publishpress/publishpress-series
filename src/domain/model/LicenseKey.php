@@ -8,7 +8,6 @@ use stdClass;
 
 class LicenseKey
 {
-
     /**
      * Whether the license key was successfully validated or not.
      * If not then the error property will contain a string indicating the reason why.
@@ -136,7 +135,7 @@ class LicenseKey
      * @param ExtensionIdentifier $extension_identifier  Will be used as the fallback for item names etc if there is no
      *                                                   no info available yet.
      */
-	public function __construct(stdClass $license, $license_key, ExtensionIdentifier $extension_identifier)
+    public function __construct(stdClass $license, $license_key, ExtensionIdentifier $extension_identifier)
     {
         $this->setup($license);
         $this->extension_identifier = $extension_identifier;
@@ -249,7 +248,7 @@ class LicenseKey
             $expires = ! empty($this->expires) && $this->expires !== 'lifetime'
                 ? new DateTime($this->expires)
                 : $this->expires;
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             //basically if its a unix timestamp we don't want to convert it (currently anyways)
             $expires = '';
         }
@@ -330,7 +329,7 @@ class LicenseKey
      */
     public function forStorage()
     {
-        $license = new stdClass;
+        $license = new stdClass();
         foreach (get_class_vars(get_class($this)) as $property => $value) {
             if ($property === 'license_key' || $property === 'extension_identifier') {
                 continue;
@@ -351,4 +350,3 @@ class LicenseKey
         $this->license_key = trim($license_key);
     }
 }
-

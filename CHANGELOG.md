@@ -1,6 +1,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[3.1.4] - 14 Sep, 2026
+
+* Added: Add Gutenberg blocks for Post List Boxes, Post Details, Post Navigation, and Series List #1198
+* Changed: Improve the accessibility of Series admin controls, tabs, tooltips, dynamic updates, dialogs, and text contrast #1204 #1205 #1206 #1207 #1208 #1209 #1210
+* Changed: Allow post-level HTML, including `<hr>`, in Series descriptions #1199
+* Changed: Increase the minimum required PHP version to 7.4 #1197
+* Fixed: Assign the correct Series order to new published and private posts #1187
+* Fixed: Correct the Post List Box preview order and layout editor tabs #1189 #1190 #1191
+* Fixed: Correct the footer layout on the Publish or schedule posts screen #1188
+* Fixed: Require authorization and validated input for Series management, layout, upgrade, and sorting requests #1185 #1203 #1216
+* Fixed: Hide series-wide Publish Series controls from unauthorized users #1203
+
 [3.1.3] - 17 Aug, 2026
 
 * Added: Add a welcome panel with the first steps for new users #1170

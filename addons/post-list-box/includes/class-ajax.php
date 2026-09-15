@@ -3,21 +3,27 @@
  * AJAX Handlers for Post List Box
  */
 
-class PPS_Post_List_Box_AJAX {
-
+class PPS_Post_List_Box_AJAX
+{
     const POST_TYPE_BOXES = 'pps_post_list_box';
     const META_PREFIX = 'pps_post_list_box_';
 
     /**
      * Initialize AJAX handlers
      */
-    public static function init() {
+    public static function init()
+    {
         // AJAX handlers for preview
         add_action('wp_ajax_pps_update_post_list_box_preview', [__CLASS__, 'ajax_update_preview']);
         add_action('wp_ajax_pps_export_post_list_box', [__CLASS__, 'ajax_export_post_list_box']);
         add_action('wp_ajax_pps_import_post_list_box', [__CLASS__, 'ajax_import_post_list_box']);
         add_action('wp_ajax_pps_reset_post_list_box', [__CLASS__, 'ajax_reset_post_list_box']);
         add_action('wp_ajax_pps_quick_save_post_list_box', [__CLASS__, 'ajax_quick_save_post_list_box']);
+    }
+
+    private static function get_editable_post_list_box($post_id)
+    {
+        return pps_get_editable_layout_post($post_id, self::POST_TYPE_BOXES);
     }
 
     /**
@@ -27,18 +33,23 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-        $form_data = isset($_POST['settings']) ? $_POST['settings'] : '';
-        $series_id = isset($_POST['series_id']) ? intval($_POST['series_id']) : 0;
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+        if ($post_id && !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('Permission denied.', 'organize-series')], 403);
+        }
+        $form_data = isset($_POST['settings']) && is_string($_POST['settings']) ? wp_unslash($_POST['settings']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Parse serialized form data before sanitizing its fields below.
+        $series_id = isset($_POST['series_id']) ? absint(wp_unslash($_POST['series_id'])) : 0;
 
-        if (!$post_id) {
+        if (! self::get_editable_post_list_box($post_id)) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
-        // Parse the form data into settings array
+        // Parse the form data into settings array, then sanitize each value.
+        // Do not sanitize the query string before parse_str(); that strips %23 from colors.
         $settings = [];
-        if (!empty($form_data)) {
+        if (!empty($form_data) && is_string($form_data)) {
             parse_str($form_data, $settings);
+            $settings = map_deep($settings, 'sanitize_text_field');
         }
 
         // Base settings from saved meta to preserve locked/pro-only values
@@ -109,13 +120,13 @@ class PPS_Post_List_Box_AJAX {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        $post = self::get_editable_post_list_box($post_id);
 
-        if (!$post_id) {
+        if (! $post) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
         $settings = PPS_Post_List_Box_Fields::get_post_list_box_layout_meta_values($post_id);
-        $post = get_post($post_id);
 
         wp_send_json_success([
             'settings' => $settings,
@@ -131,14 +142,23 @@ class PPS_Post_List_Box_AJAX {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-        $settings = isset($_POST['settings']) ? $_POST['settings'] : [];
+        if ($post_id && !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('Permission denied.', 'organize-series')], 403);
+        }
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? map_deep(wp_unslash($_POST['settings']), 'sanitize_text_field') : [];
 
-        if (!$post_id || empty($settings)) {
+        $post = self::get_editable_post_list_box($post_id);
+        if (! $post || ! is_array($settings) || empty($settings)) {
             wp_send_json_error(['message' => 'Invalid data']);
         }
 
-        // Update the settings
-        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $settings);
+        $fields = PPS_Post_List_Box_Fields::get_fields($post);
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+        if (empty($settings)) {
+            wp_send_json_error(['message' => 'Invalid data']);
+        }
+
+        update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', wp_slash($settings));
 
         wp_send_json_success(['message' => 'Settings imported successfully']);
     }
@@ -151,12 +171,14 @@ class PPS_Post_List_Box_AJAX {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        if ($post_id && !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('Permission denied.', 'organize-series')], 403);
+        }
 
-        if (!$post_id) {
+        if (! self::get_editable_post_list_box($post_id)) {
             wp_send_json_error(['message' => 'Invalid post ID']);
         }
 
-        // Reset to defaults
         $default_settings = PPS_Post_List_Box_Fields::get_default_post_list_box_data();
         update_post_meta($post_id, self::META_PREFIX . 'layout_meta_value', $default_settings);
 
@@ -170,8 +192,11 @@ class PPS_Post_List_Box_AJAX {
     {
         check_ajax_referer('post-list-box-nonce', 'nonce');
 
-        // This would handle the actual save via the main save functionality
-        // For now, just return success
+        $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+        if (! self::get_editable_post_list_box($post_id)) {
+            wp_send_json_error(['message' => 'Invalid post ID']);
+        }
+
         wp_send_json_success(['message' => 'Settings saved']);
     }
 }

@@ -5,11 +5,11 @@ jQuery(document).ready(function($) {
         return false;
     });
 
-    $('input#TBcancel').click(function(){
+    $('#TBcancel').click(function(){
         tb_remove();
     });
 
-    $('input#TBsubmit').click(function(){
+    $('#TBsubmit').click(function(){
 		$('input.reset_option', '#series_options' ).val('1');
         document.series_options.submit();
     });

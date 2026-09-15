@@ -89,7 +89,8 @@ class ExtensionIdentifier
     /**
      * @param string $extension_name
      */
-    private function setExtensionName($extension_name) {
+    private function setExtensionName($extension_name)
+    {
         $this->extension_name = esc_html($extension_name);
     }
 

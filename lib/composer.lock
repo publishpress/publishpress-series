@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a6b3ecdf2b6f61435005fdf65fadfec",
+    "content-hash": "f1522398be520effe71b1d8a7cf988d7",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -342,16 +342,16 @@
         },
         {
             "name": "publishpress/wordpress-edd-license",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-edd-license.git",
-                "reference": "10aa8e209cf7a7e568883ee4c20465aca1f95e67"
+                "reference": "458d118df7d319b42212e26a51a93245a18b7671"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/10aa8e209cf7a7e568883ee4c20465aca1f95e67",
-                "reference": "10aa8e209cf7a7e568883ee4c20465aca1f95e67",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-edd-license/zipball/458d118df7d319b42212e26a51a93245a18b7671",
+                "reference": "458d118df7d319b42212e26a51a93245a18b7671",
                 "shasum": ""
             },
             "require": {
@@ -408,22 +408,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-edd-license/issues",
-                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.5"
+                "source": "https://github.com/publishpress/library-wordpress-edd-license/tree/3.0.6"
             },
-            "time": "2026-03-03T21:50:59+00:00"
+            "time": "2026-05-13T14:49:36+00:00"
         },
         {
             "name": "publishpress/wordpress-reviews",
-            "version": "1.2.0",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-reviews.git",
-                "reference": "6d1cf428aef5fc5f72c9368fbd7ce1f14d956503"
+                "reference": "0a8cd140cdc17088c1910f8db6a6ba8ccc17482d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-reviews/zipball/6d1cf428aef5fc5f72c9368fbd7ce1f14d956503",
-                "reference": "6d1cf428aef5fc5f72c9368fbd7ce1f14d956503",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-reviews/zipball/0a8cd140cdc17088c1910f8db6a6ba8ccc17482d",
+                "reference": "0a8cd140cdc17088c1910f8db6a6ba8ccc17482d",
                 "shasum": ""
             },
             "require": {
@@ -472,22 +472,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-reviews/issues",
-                "source": "https://github.com/publishpress/library-wordpress-reviews/tree/1.2.0"
+                "source": "https://github.com/publishpress/library-wordpress-reviews/tree/1.2.2"
             },
-            "time": "2026-01-12T14:05:27+00:00"
+            "time": "2026-09-11T02:52:42+00:00"
         },
         {
             "name": "publishpress/wordpress-version-notices",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-version-notices.git",
-                "reference": "174b2a35e40dfb7ff0426cc16dc8ed0888be2169"
+                "reference": "95447d36d53e4abec9f9b988755acf1c72353677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/174b2a35e40dfb7ff0426cc16dc8ed0888be2169",
-                "reference": "174b2a35e40dfb7ff0426cc16dc8ed0888be2169",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/95447d36d53e4abec9f9b988755acf1c72353677",
+                "reference": "95447d36d53e4abec9f9b988755acf1c72353677",
                 "shasum": ""
             },
             "require": {
@@ -511,7 +511,7 @@
                 "overtrue/phplint": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.3",
                 "phpstan/phpstan": "^1.10",
-                "publishpress/publishpress-phpcs-standards": "dev-main",
+                "publishpress/publishpress-phpcs-standards": "^1.0",
                 "publishpress/translations": "^1.0.0",
                 "publishpress/version-loader-generator": "^1.0",
                 "squizlabs/php_codesniffer": "^3.8",
@@ -547,9 +547,9 @@
             "description": "Library for displaying version notices for Pro plugins in WordPress.",
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-version-notices/issues",
-                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.2.0"
+                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.2.1"
             },
-            "time": "2025-12-08T23:56:36+00:00"
+            "time": "2026-05-13T15:05:11+00:00"
         }
     ],
     "packages-dev": [],
@@ -559,7 +559,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.5"
+        "php": ">=7.4.0"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"

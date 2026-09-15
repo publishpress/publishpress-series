@@ -7,19 +7,51 @@ jQuery(document).ready(function ($) {
 
 
         // Tab switching functionality
-        $('.pps-series-post-details-editor-tabs a').on('click', function (e) {
-            e.preventDefault();
+        var $tabs = $('.pps-series-post-details-editor-tabs [role="tab"]');
+        var $panel = $('#pps-series-post-details-editor-panel');
 
-            var tab = $(this).data('tab');
+        function activateTab($tab) {
+            var tab = $tab.data('tab');
 
-            $('.pps-series-post-details-editor-tabs a').removeClass('active');
-            $(this).addClass('active');
+            $tabs.removeClass('active').attr({
+                'aria-selected': 'false',
+                'tabindex': '-1'
+            });
+            $tab.addClass('active').attr({
+                'aria-selected': 'true',
+                'tabindex': '0'
+            });
+            $panel.attr('aria-labelledby', $tab.attr('id'));
 
             $('.pps-series-post-details-editor-table tbody tr').hide();
             $('.pps-series-post-details-editor-table tbody tr[data-tab="' + tab + '"]').show();
-            
-
             checkConditionalFields();
+        }
+
+        $tabs.off('click.ppsSeriesPostDetails keydown.ppsSeriesPostDetails');
+        $tabs.on('click.ppsSeriesPostDetails', function (e) {
+            e.preventDefault();
+            activateTab($(this));
+        });
+
+        $tabs.on('keydown.ppsSeriesPostDetails', function (e) {
+            var currentIndex = $tabs.index(this);
+            var nextIndex = currentIndex;
+
+            if (e.key === 'ArrowDown') {
+                nextIndex = (currentIndex + 1) % $tabs.length;
+            } else if (e.key === 'ArrowUp') {
+                nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+            } else if (e.key === 'Home') {
+                nextIndex = 0;
+            } else if (e.key === 'End') {
+                nextIndex = $tabs.length - 1;
+            } else {
+                return;
+            }
+
+            e.preventDefault();
+            $tabs.eq(nextIndex).trigger('focus').trigger('click');
         });
 
         // Conditional field visibility handler

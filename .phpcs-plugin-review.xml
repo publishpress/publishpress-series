@@ -30,4 +30,6 @@
     <exclude-pattern>/vendor/*</exclude-pattern>
 
     <rule ref="vendor/publishpress/publishpress-phpcs-standards/standards/plugin-check-rulesets/plugin-review.xml"/>
+    <exclude-pattern>/\.web/</exclude-pattern>
+    <exclude-pattern>/\.ddev/</exclude-pattern>
 </ruleset>

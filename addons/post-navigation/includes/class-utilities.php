@@ -109,7 +109,22 @@ class PPS_Series_Post_Navigation_Utilities
 
         $settings = (array) $meta;
         $settings = array_merge($defaults, $settings);
+        if (isset($settings['series_title_alignment'])) {
+            $settings['series_title_alignment'] = self::sanitize_series_title_alignment($settings['series_title_alignment']);
+        }
         return apply_filters('pps_series_post_navigation_settings', $settings, $post_id, $use_default);
+    }
+
+    public static function get_allowed_series_title_alignments()
+    {
+        return ['left', 'center', 'right'];
+    }
+
+    public static function sanitize_series_title_alignment($alignment)
+    {
+        $alignment = is_string($alignment) ? strtolower(trim($alignment)) : '';
+
+        return pps_sanitize_choice($alignment, self::get_allowed_series_title_alignments(), 'center');
     }
 
     /**

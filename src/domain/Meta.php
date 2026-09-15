@@ -5,9 +5,8 @@ namespace OrganizeSeries\domain;
 use DomainException;
 use OrganizeSeries\domain\interfaces\AbstractMeta;
 
-class Meta extends AbstractMeta {
-
-
+class Meta extends AbstractMeta
+{
     /**
      * Path to the admin view templates.
      * @return string

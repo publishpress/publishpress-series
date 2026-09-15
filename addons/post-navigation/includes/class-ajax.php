@@ -20,6 +20,11 @@ class PPS_Series_Post_Navigation_Ajax
         add_action('wp_ajax_pps_reset_series_post_navigation', [__CLASS__, 'reset_layout']);
     }
 
+    private static function get_editable_layout($post_id)
+    {
+        return pps_get_editable_layout_post($post_id, PPS_Series_Post_Navigation_Utilities::POST_TYPE);
+    }
+
     /**
      * Build preview output
      */
@@ -27,16 +32,17 @@ class PPS_Series_Post_Navigation_Ajax
     {
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
-        $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        $post_id = isset($_POST['post_id']) ? absint(wp_unslash($_POST['post_id'])) : 0;
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
-        $form_data = isset($_POST['settings']) ? wp_unslash($_POST['settings']) : '';
+        $form_data = isset($_POST['settings']) && is_string($_POST['settings']) ? wp_unslash($_POST['settings']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Parse serialized form data before sanitizing its fields below.
         $parsed_settings = [];
 
-        if ($form_data) {
+        if (!empty($form_data) && is_string($form_data)) {
             parse_str($form_data, $parsed_settings);
+            $parsed_settings = map_deep($parsed_settings, 'sanitize_text_field');
         }
 
         // Get default settings as base
@@ -45,7 +51,7 @@ class PPS_Series_Post_Navigation_Ajax
         // Get all field definitions to know which fields to process
         $post = get_post($post_id);
         $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);
-        
+
         // Determine which fields are pro-locked (disabled inputs don't serialize)
         $pro_locked_fields = [
             'previous_custom_arrow_image',
@@ -87,7 +93,7 @@ class PPS_Series_Post_Navigation_Ajax
             if ($field_pro_locked) {
                 continue;
             }
-            
+
             // Handle checkboxes - if not in parsed settings, it's unchecked
             if (isset($args['type']) && $args['type'] === 'checkbox') {
                 $settings[$key] = isset($parsed_settings[$key]) ? 1 : 0;
@@ -163,12 +169,12 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 
         $settings = PPS_Series_Post_Navigation_Utilities::get_post_navigation_settings($post_id);
-        $post      = get_post($post_id);
 
         wp_send_json_success([
             'settings' => $settings,
@@ -184,13 +190,23 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? $_POST['settings'] : [];
+        if ($post_id && !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('Permission denied.', 'organize-series')], 403);
+        }
+        $settings = isset($_POST['settings']) && is_array($_POST['settings']) ? map_deep(wp_unslash($_POST['settings']), 'sanitize_text_field') : [];
 
-        if (! $post_id || empty($settings)) {
+        $post = self::get_editable_layout($post_id);
+        if (! $post || empty($settings)) {
             wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
         }
 
-        update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', $settings);
+        $fields = apply_filters('pps_series_post_navigation_fields', PPS_Series_Post_Navigation_Fields::get_fields($post), $post);
+        $settings = pps_sanitize_layout_settings($settings, $fields);
+        if (empty($settings)) {
+            wp_send_json_error(['message' => __('Invalid import data.', 'organize-series')]);
+        }
+
+        update_post_meta($post_id, PPS_Series_Post_Navigation_Utilities::META_PREFIX . 'layout_meta_value', wp_slash($settings));
 
         wp_send_json_success(['message' => __('Settings imported successfully.', 'organize-series')]);
     }
@@ -203,7 +219,7 @@ class PPS_Series_Post_Navigation_Ajax
         check_ajax_referer('series-post-navigation-nonce', 'nonce');
 
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
-        if (! $post_id) {
+        if (! self::get_editable_layout($post_id)) {
             wp_send_json_error(['message' => __('Invalid post ID.', 'organize-series')]);
         }
 

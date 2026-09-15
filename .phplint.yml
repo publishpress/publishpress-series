@@ -20,3 +20,5 @@ exclude:
   - languages
   - js
   - scss
+  - .web
+  - .ddev

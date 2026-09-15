@@ -15,8 +15,8 @@ use stdClass;
  * @author  Darren Ethier
  * @since   1.0.0
  */
-class LicenseKeyRepository {
-
+class LicenseKeyRepository
+{
     /**
      * Prefix for the option saving the key.  OS extensions should provide the extension name.
      */
@@ -42,25 +42,25 @@ class LicenseKeyRepository {
 
 
 
-	/**
-	 * @var LicenseKeyCollection
-	 */
-	private $collection;
-	
-	
-	/**
-	 * @var LicenseKeyFactory
-	 */
-	private $factory;
-	
-	
-	public function __construct(
-	    LicenseKeyCollection $collection,
+    /**
+     * @var LicenseKeyCollection
+     */
+    private $collection;
+
+
+    /**
+     * @var LicenseKeyFactory
+     */
+    private $factory;
+
+
+    public function __construct(
+        LicenseKeyCollection $collection,
         LicenseKeyFactory $factory
     ) {
-		$this->collection = $collection;
-		$this->factory = $factory;
-	}
+        $this->collection = $collection;
+        $this->factory = $factory;
+    }
 
 
     /**
@@ -70,7 +70,7 @@ class LicenseKeyRepository {
      * @return LicenseKey
      * @throws InvalidEntityException
      */
-	public function getLicenseKeyByExtension(ExtensionIdentifier $extension_identifier)
+    public function getLicenseKeyByExtension(ExtensionIdentifier $extension_identifier)
     {
         if ($this->collection->has($extension_identifier->getSlug())) {
             return $this->collection->get($extension_identifier->getSlug());
@@ -116,8 +116,8 @@ class LicenseKeyRepository {
             'edd_action' => $action,
             'license'    => $license_key,
             'item_id'    => $extension->getProductId(),
-			'url'        => home_url()
-		);
+            'url'        => home_url()
+        );
 
         // Call the custom API.
         $response = wp_remote_post(
@@ -125,16 +125,16 @@ class LicenseKeyRepository {
             array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params )
         );
         // make sure the response came back okay
-        if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-            $message =  ( is_wp_error( $response ) && ! empty( $response->get_error_message() ) )
+        if (is_wp_error($response) || 200 !== wp_remote_retrieve_response_code($response)) {
+            $message =  ( is_wp_error($response) && ! empty($response->get_error_message()) )
                 ? $response->get_error_message()
-                : esc_html__( 'An error occurred, please try again.', 'organize-series' );
+                : esc_html__('An error occurred, please try again.', 'organize-series');
             throw new LicenseKeyRequestError($message);
         }
         $this->replaceInCollection(
             $extension->getSlug(),
             $this->factory->create(
-                json_decode( wp_remote_retrieve_body( $response ) ),
+                json_decode(wp_remote_retrieve_body($response)),
                 $license_key,
                 $extension
             )
@@ -150,10 +150,11 @@ class LicenseKeyRepository {
      * @param LicenseKey $license_key
      * @throws InvalidEntityException
      */
-    private function replaceInCollection($extension_slug, LicenseKey $license_key) {
-	    if ($this->collection->has($extension_slug)) {
-	        $this->collection->remove(
-	            $this->collection->get($extension_slug)
+    private function replaceInCollection($extension_slug, LicenseKey $license_key)
+    {
+        if ($this->collection->has($extension_slug)) {
+            $this->collection->remove(
+                $this->collection->get($extension_slug)
             );
         }
         $this->collection->add($license_key, $extension_slug);
@@ -193,7 +194,7 @@ class LicenseKeyRepository {
         // we just have to check one of the options because if one is initialized, they both are!
         if (false === get_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug)) {
             add_option(self::OPTION_PREFIX_LICENSE_KEY . $extension_slug, '', '', 'no');
-            add_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_slug, new stdClass, '', 'no');
+            add_option(self::OPTION_PREFIX_LICENSE_KEY_DATA . $extension_slug, new stdClass(), '', 'no');
         }
     }
 }

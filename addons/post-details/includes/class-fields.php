@@ -126,7 +126,7 @@ class PPS_Series_Post_Details_Fields
                     'top'     => __('Top', 'organize-series'),
                     'bottom'  => __('Bottom', 'organize-series'),
                 ],
-                'sanitize' => 'sanitize_text_field',
+                'sanitize' => 'PPS_Series_Post_Details_Utilities::sanitize_metabox_position',
                 'default'  => 'top',
                 'description' => __('Choose where to display the meta box in relation to the content', 'organize-series'),
             ],

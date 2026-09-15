@@ -11,7 +11,7 @@
     "classmap-authoritative": true
   },
   "require": {
-    "php": ">=7.2.5",
+    "php": ">=7.4.0",
     "publishpress/pimple-pimple": "^3.5",
     "publishpress/psr-container": "^2.0",
     "publishpress/wordpress-reviews": "^1.2",

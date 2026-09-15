@@ -7,7 +7,6 @@ use OrganizeSeries\domain\services\ExtensionsRegistry;
 
 abstract class AbstractBootstrap
 {
-
     /**
      * @var ExtensionsRegistry
      */

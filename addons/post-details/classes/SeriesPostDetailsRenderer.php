@@ -150,7 +150,7 @@ class SeriesPostDetailsRenderer
         $layout_class = 'pps-series-post-details-' . $layout_id;
         self::capture_dynamic_css($layout_class, $settings);
 
-        $variant = isset($settings['layout_variant']) ? sanitize_html_class($settings['layout_variant']) : 'classic';
+        $variant = isset($settings['layout_variant']) ? PPS_Series_Post_Details_Utilities::sanitize_layout_variant($settings['layout_variant']) : 'classic';
         $wrapper_classes = [
             'pps-series-post-details',
             'pps-series-post-details-variant-' . $variant,
@@ -205,7 +205,7 @@ class SeriesPostDetailsRenderer
         $post        = isset($context['post']) ? $context['post'] : null;
         $total_posts = isset($context['total_posts']) ? (int) $context['total_posts'] : 3;
         $series_part = isset($context['series_part']) ? (int) $context['series_part'] : 1;
-        $variant     = isset($settings['layout_variant']) ? sanitize_html_class($settings['layout_variant']) : 'classic';
+        $variant     = isset($settings['layout_variant']) ? PPS_Series_Post_Details_Utilities::sanitize_layout_variant($settings['layout_variant']) : 'classic';
 
         // Use unique class for preview dynamic CSS to avoid conflicts with wrapper
         $layout_class = 'pps-series-post-details-preview-inner';
@@ -265,6 +265,7 @@ class SeriesPostDetailsRenderer
         
         if ($show_part) {
             $text_content .= sprintf(
+                /* translators: 1: Current part number, 2: Total number of posts in the series. */
                 esc_html__('part %1$s of %2$s', 'organize-series'),
                 $series_part,
                 $total_posts
@@ -326,6 +327,7 @@ class SeriesPostDetailsRenderer
             
             if ($series_part && $total_posts) {
                 $text_content .= sprintf(
+                    /* translators: 1: Current part number, 2: Total number of posts in the series. */
                     esc_html__('part %1$s of %2$s', 'organize-series'),
                     $series_part,
                     $total_posts
@@ -539,7 +541,10 @@ class SeriesPostDetailsRenderer
 
         // Background color (on outer container)
         if (! empty($settings['background_color'])) {
-            $outer_parts[] = 'background-color: ' . esc_attr($settings['background_color']) . ';';
+            $background_color = pps_sanitize_css_color($settings['background_color']);
+            if ($background_color) {
+                $outer_parts[] = 'background-color: ' . $background_color . ';';
+            }
         }
 
         // Inner content styles (text color, text size)
@@ -547,7 +552,10 @@ class SeriesPostDetailsRenderer
 
         // Text color (on inner content)
         if (! empty($settings['text_color'])) {
-            $inner_parts[] = 'color: ' . esc_attr($settings['text_color']) . ';';
+            $text_color = pps_sanitize_css_color($settings['text_color']);
+            if ($text_color) {
+                $inner_parts[] = 'color: ' . $text_color . ';';
+            }
         }
         
         // Text size (on inner content)
@@ -568,8 +576,10 @@ class SeriesPostDetailsRenderer
         }
 
         if (! empty($settings['link_color'])) {
-            $link_color = esc_attr($settings['link_color']);
-            $css[] = sprintf('.%1$s a, .%1$s a:visited { color: %2$s; }', esc_attr($layout_class), $link_color);
+            $link_color = pps_sanitize_css_color($settings['link_color']);
+            if ($link_color) {
+                $css[] = sprintf('.%1$s a, .%1$s a:visited { color: %2$s; }', esc_attr($layout_class), $link_color);
+            }
         }
 
         $css = apply_filters('pps_series_post_details_css_parts', $css, $layout_class, $settings);

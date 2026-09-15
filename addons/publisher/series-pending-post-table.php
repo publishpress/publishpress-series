@@ -74,6 +74,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
     public function get_table_data()
     {
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : false;
         $meta_key = apply_filters('orgseries_pending_part_key', '_pending_series_part', $series_id);
         $series_posts = [];
@@ -126,6 +127,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
      */
     protected function handle_row_actions($item, $column_name, $primary)
     {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         $series_id = isset($_GET['series_ID']) ? (int) $_GET['series_ID'] : false;
 
         $actions['edit'] = sprintf(
@@ -141,7 +143,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             ),
             esc_html__('Edit', 'organize-series')
         );
-        
+
         $preview_link = get_preview_post_link($item->ID);
         if (!$preview_link) {
             $preview_link = get_permalink($item->ID);
@@ -194,7 +196,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
      */
     public function no_items()
     {
-        _e('There are no unpublished posts in this series.', 'organize-series');
+        esc_html_e('There are no unpublished posts in this series.', 'organize-series');
     }
 
     /**

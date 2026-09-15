@@ -31,3 +31,5 @@
 - .phplint-cache
 - .phplint.cache
 - .phplint.yml
+- .web
+- .ddev
