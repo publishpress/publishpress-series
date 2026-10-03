@@ -646,7 +646,7 @@ function orgseries_manage_grouping_columns()
 function orgseries_grouping_settings_setup()
 {
     //add_settings_field('series_grouping_delete_settings','Series Categories Addon Settings','series_grouping_delete_output', 'orgseries_options_page','series_uninstall_settings');
-    register_setting('orgseries_options', 'org_series_options');
+    register_setting('orgseries_options', 'org_series_options', 'orgseries_validate');
     add_filter('orgseries_options', 'series_grouping_options_validate', 10, 2);
 }
 
@@ -670,7 +670,7 @@ function series_grouping_delete_output()
                 </th>
                 <td>
                     <label>
-                    <input name="<?php echo $org_name; ?>[kill_grouping_on_delete]" id="kill_grouping_on_delete" type="checkbox" value="1" <?php checked('1', $k_on_delete); ?> />
+                    <input name="<?php echo esc_attr($org_name); ?>[kill_grouping_on_delete]" id="kill_grouping_on_delete" type="checkbox" value="1" <?php checked('1', $k_on_delete); ?> />
                     <span class="description"><?php esc_html_e('Delete all "Series Categories" data from the database when deleting the plugin.', 'organize-series'); ?></span>
                     </label>
                 </td>

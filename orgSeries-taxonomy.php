@@ -56,7 +56,7 @@ function &get_series($args = '')
     global $wpdb;
     $series = array();
 
-    $key = md5(serialize($args)); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize -- Hash input only; serialized data is never deserialized.
+    $key = md5((string) wp_json_encode($args));
     if ($cache = wp_cache_get('get_series', ppseries_get_series_slug())) {
         if (isset($cache[$key])) {
             $series = apply_filters('get_series', $cache[$key], $args);

@@ -179,7 +179,7 @@ function publishpress_series_sync_menu_order()
                     printf(
                         /* translators: %d: Number of posts updated. */
                         esc_html__('Series order sync completed. %d posts updated.', 'organize-series'),
-                        $updated_count
+                        absint($updated_count)
                     );
                     ?>
                 </p>
