@@ -68,7 +68,7 @@ class PPS_Post_List_Box_Admin_UI
         if ($column === 'shortcode') {
             $layout_slug = self::POST_TYPE_BOXES . '_' . $postId;
             ?>
-            <input readonly type="text" class="pps-shortcode-input" value='[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly type="text" class="pps-shortcode-input" aria-label="<?php esc_attr_e('Post List Box shortcode', 'organize-series'); ?>" value='[pps_post_list_box layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
         } elseif ($column === 'default_post_list_box') {
             // Retrieve selected default Post List Box ID from settings
@@ -262,7 +262,7 @@ class PPS_Post_List_Box_Admin_UI
     {
         $layout_slug = self::POST_TYPE_BOXES . '_' . $post->ID;
         ?>
-        <input type="text" value="<?php echo esc_attr($layout_slug); ?>" readonly />
+        <input type="text" value="<?php echo esc_attr($layout_slug); ?>" aria-label="<?php esc_attr_e('Post List Box layout slug', 'organize-series'); ?>" readonly />
         <?php
     }
 
@@ -591,6 +591,7 @@ class PPS_Post_List_Box_Admin_UI
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         min="<?php echo esc_attr($args['min']); ?>"
                         max="<?php echo esc_attr($args['max']); ?>"
@@ -606,6 +607,7 @@ class PPS_Post_List_Box_Admin_UI
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         value="1"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>
                         <?php checked($args['value'], 1); ?> />
@@ -637,6 +639,7 @@ class PPS_Post_List_Box_Admin_UI
                         class="pps-editor-color-picker"
                         id="<?php echo esc_attr($key); ?>"
                         type="text"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ''; ?> />
                     <?php if ($pro_locked) : ?>
@@ -690,12 +693,13 @@ class PPS_Post_List_Box_Admin_UI
                             id="<?php echo esc_attr($key); ?>"
                             class="pps-media-picker-input"
                             type="hidden"
+                            aria-label="<?php echo esc_attr($args['label']); ?>"
                             value="<?php echo esc_attr($args['value']); ?>" />
                         <div class="pps-media-preview">
                             <?php if (!empty($args['value'])) :
                                 $image = wp_get_attachment_image_src($args['value'], 'thumbnail');
                                 if ($image) : ?>
-                                <img src="<?php echo esc_url($image[0]); ?>" alt="" style="max-width: 150px; height: auto;" />
+                                <img src="<?php echo esc_url($image[0]); ?>" alt="<?php echo esc_attr($args['label']); ?>" style="max-width: 150px; height: auto;" />
                                 <?php endif;
                             endif; ?>
                         </div>
@@ -713,6 +717,7 @@ class PPS_Post_List_Box_Admin_UI
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         <?php echo $pro_locked ? 'disabled="disabled"' : ((isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''); ?>

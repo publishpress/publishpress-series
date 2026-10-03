@@ -205,7 +205,7 @@ class PPS_Series_Post_Navigation_Admin_UI
         if ('series_nav_shortcode' === $column) {
             $layout_slug = 'pps_nav_' . $post_id;
             ?>
-            <input readonly class="pps-shortcode-input" type="text" value='[pps_post_navigation layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly class="pps-shortcode-input" type="text" aria-label="<?php esc_attr_e('Post Navigation shortcode', 'organize-series'); ?>" value='[pps_post_navigation layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
             return;
         }

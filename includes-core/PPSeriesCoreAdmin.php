@@ -72,9 +72,9 @@ class PPSeriesCoreAdmin
 
                     <div class="inside">
                         <p><?php echo esc_html__('If you need help or have a new feature request, let us know.', 'organize-series'); ?>
-                            <a class="advert-link" href="https://wordpress.org/support/plugin/organize-series/" target="_blank">
+                            <a class="advert-link" href="https://wordpress.org/support/plugin/organize-series/" target="_blank" aria-label="<?php esc_attr_e('Request PublishPress Series support', 'organize-series'); ?>">
                             <?php echo esc_html__('Request Support', 'organize-series'); ?>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                     <path
                                         d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
                                     ></path>
@@ -83,9 +83,9 @@ class PPSeriesCoreAdmin
                         </p>
                         <p>
                         <?php echo esc_html__('Detailed documentation is also available on the plugin website.', 'organize-series'); ?>
-                            <a class="advert-link" href="https://publishpress.com/knowledge-base/start-series/" target="_blank">
+                            <a class="advert-link" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" aria-label="<?php esc_attr_e('View PublishPress Series knowledge base', 'organize-series'); ?>">
                             <?php echo esc_html__('View Knowledge Base', 'organize-series'); ?>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                     <path
                                         d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
                                     ></path>

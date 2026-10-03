@@ -46,7 +46,7 @@ function series_navigation_fieldset()
 
                 <tr valign="top">
                     <th scope="row"><label for="auto_tag_nav_toggle"><?php esc_html_e('Display Series Navigation?', 'organize-series'); ?></label></th>
-                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" value="1" <?php checked('1', isset($org_opt['auto_tag_nav_toggle']) ? $org_opt['auto_tag_nav_toggle'] : ''); ?> /></td>
+                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_nav_toggle]" id="auto_tag_nav_toggle" type="checkbox" aria-label="<?php esc_attr_e('Display Series Navigation?', 'organize-series'); ?>" value="1" <?php checked('1', isset($org_opt['auto_tag_nav_toggle']) ? $org_opt['auto_tag_nav_toggle'] : ''); ?> /></td>
                 </tr>
 
                 <tr valign="top">
@@ -81,17 +81,17 @@ function series_navigation_fieldset()
 
                 <tr valign="top" id="series_nextpost_nav_custom_text_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="series_nextpost_nav_custom_text"><?php esc_html_e('Next Post Text', 'organize-series'); ?></label></th>
-                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width"></td>
+                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_nextpost_nav_custom_text]" id="series_nextpost_nav_custom_text" aria-label="<?php esc_attr_e('Next Post Text', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_nextpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_nextpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width"></td>
                 </tr>
 
                 <tr valign="top" id="series_prevpost_nav_custom_text_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="series_prevpost_nav_custom_text"><?php esc_html_e('Previous Post Text', 'organize-series'); ?></label></th>
-                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width"></td>
+                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_prevpost_nav_custom_text]" id="series_prevpost_nav_custom_text" aria-label="<?php esc_attr_e('Previous Post Text', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_prevpost_nav_custom_text']) ? esc_attr(htmlspecialchars($org_opt['series_prevpost_nav_custom_text'])) : ''; ?>" class="ppseries-full-width"></td>
                 </tr>
 
                 <tr valign="top" id="series_firstpost_nav_custom_text_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="series_firstpost_nav_custom_text"><?php esc_html_e('First Post Text', 'organize-series'); ?></label></th>
-                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width"></td>
+                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_firstpost_nav_custom_text]" id="series_firstpost_nav_custom_text" aria-label="<?php esc_attr_e('First Post Text', 'organize-series'); ?>" value="<?php echo (isset($org_opt['series_firstpost_nav_custom_text'])) ? esc_attr(htmlspecialchars($org_opt['series_firstpost_nav_custom_text'])) : 'Series Home'; ?>" class="ppseries-full-width"></td>
                 </tr>
 
             </tbody>
