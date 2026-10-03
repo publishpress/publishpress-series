@@ -170,12 +170,12 @@ function ppseries_welcome_panel()
                     <?php esc_html_e('Create a series', 'organize-series'); ?>
                 </button>
 
-                <a class="ppseries-welcome-button ppseries-welcome-button-line" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer">
+                <a class="ppseries-welcome-button ppseries-welcome-button-line" href="https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('View PublishPress Series documentation', 'organize-series'); ?>">
                     <?php esc_html_e('View Documentation', 'organize-series'); ?>
                 </a>
 
                 <?php if (!pp_series_is_pro_active()) : ?>
-                    <a class="ppseries-welcome-upgrade" href="https://publishpress.com/links/series-banner" target="_blank" rel="noopener noreferrer">
+                    <a class="ppseries-welcome-upgrade" href="https://publishpress.com/links/series-banner" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Upgrade to PublishPress Series Pro', 'organize-series'); ?>">
                         <?php esc_html_e('Upgrade to Pro', 'organize-series'); ?>
                     </a>
                 <?php endif; ?>

@@ -170,7 +170,7 @@ class PPS_Series_Post_Details_Admin_UI
         if ('series_meta_shortcode' === $column) {
             $layout_slug = 'pps_meta_box_' . $post_id;
             ?>
-            <input readonly class="pps-shortcode-input" type="text" value='[pps_post_details layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly class="pps-shortcode-input" type="text" aria-label="<?php esc_attr_e('Post Details shortcode', 'organize-series'); ?>" value='[pps_post_details layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
             return;
         }

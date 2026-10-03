@@ -40,7 +40,7 @@ function series_legacy_fieldset()
                     <tbody>
                         <tr valign="top">
                             <th scope="row"><label for="custom_css"><?php esc_html_e('Use PublishPress Series CSS styles?', 'organize-series'); ?></label></th>
-                            <td><input name="<?php echo esc_attr($org_name); ?>[custom_css]" id="custom_css" type="checkbox" value="1" <?php checked('1', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /></td>
+                            <td><input name="<?php echo esc_attr($org_name); ?>[custom_css]" id="custom_css" type="checkbox" aria-label="<?php esc_attr_e('Use PublishPress Series CSS styles?', 'organize-series'); ?>" value="1" <?php checked('1', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label><?php esc_html_e('Style options', 'organize-series'); ?></label></th>
@@ -92,7 +92,7 @@ function series_legacy_fieldset()
                         <tr valign="top" class="pps-row-columns"<?php echo (isset($org_opt['series_overview_page_layout']) && $org_opt['series_overview_page_layout'] === 'grid') ? '' : ' style="display:none;"'; ?>>
                             <th scope="row"><label for="series_overview_page_columns"><?php esc_html_e('Columns:', 'organize-series'); ?></label></th>
                             <td>
-                                <input min="1" max="6" name="<?php echo esc_attr($org_name); ?>[series_overview_page_columns]" value="<?php echo (isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" />
+                                <input min="1" max="6" name="<?php echo esc_attr($org_name); ?>[series_overview_page_columns]" value="<?php echo (isset($org_opt['series_overview_page_columns']) ? esc_attr(htmlspecialchars($org_opt['series_overview_page_columns'])) : '1'); ?>" id="series_overview_page_columns" type="number" aria-label="<?php esc_attr_e('Columns', 'organize-series'); ?>" />
                             </td>
                         </tr>
                         <tr valign="top">
@@ -123,7 +123,7 @@ function series_legacy_fieldset()
                         <tr valign="top">
                             <th scope="row"><label for="series_toc_url"><?php esc_html_e('Series Table of Contents URL:', 'organize-series'); ?></label></th>
                             <td>
-                                <span id="toc-home-url"><?php bloginfo('url'); ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
+                                <span id="toc-home-url"><?php bloginfo('url'); ?>/</span><input type="text" name="<?php echo esc_attr($org_name); ?>[series_toc_url]" id="series_toc_url" aria-label="<?php esc_attr_e('Series Table of Contents URL', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_toc_url']) ? esc_attr(htmlspecialchars($org_opt['series_toc_url'])) : ''; ?>" />
                                 <button onclick="gotoTOCUrl(event)" class="button"><?php esc_html_e('view page', 'organize-series'); ?></button>
                                 <?php
                                 global $wp_rewrite;
@@ -155,7 +155,7 @@ function series_legacy_fieldset()
                         </script>
                         <tr valign="top">
                             <th scope="row"><label for="series_perp_toc"><?php esc_html_e('Series Per Page:', 'organize-series'); ?></label></th>
-                            <td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" id="series_perp_toc" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
+                            <td><input type="number" name="<?php echo esc_attr($org_name); ?>[series_perp_toc]" id="series_perp_toc" aria-label="<?php esc_attr_e('Series Per Page', 'organize-series'); ?>" value="<?php echo (int) ($series_perp_toc); ?>" /></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label for="series_toc_title"><?php esc_html_e('Series Table of Contents Title:', 'organize-series'); ?></label></th>
@@ -174,15 +174,15 @@ function series_legacy_fieldset()
                     <tbody>
                         <tr valign="top">
                             <th scope="row"><label for="series_icon_width_series_page"><?php esc_html_e('Width for featured image on series table of contents page (in pixels)', 'organize-series'); ?></label></th>
-                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" value="<?php echo isset($org_opt['series_icon_width_series_page']) ? esc_attr($org_opt['series_icon_width_series_page']) : ''; ?>" /></td>
+                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_series_page]" id="series_icon_width_series_page" type="number" aria-label="<?php esc_attr_e('Width for featured image on series table of contents page', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_icon_width_series_page']) ? esc_attr($org_opt['series_icon_width_series_page']) : ''; ?>" /></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label for="series_icon_width_post_page"><?php esc_html_e('Width for featured image on a post page (in pixels).', 'organize-series'); ?></label></th>
-                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" value="<?php echo isset($org_opt['series_icon_width_post_page']) ? esc_attr($org_opt['series_icon_width_post_page']) : ''; ?>" /></td>
+                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_post_page]" id="series_icon_width_post_page" type="number" aria-label="<?php esc_attr_e('Width for featured image on a post page', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_icon_width_post_page']) ? esc_attr($org_opt['series_icon_width_post_page']) : ''; ?>" /></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label for="series_icon_width_latest_series"><?php esc_html_e('Width for featured image if displayed via the latest series template (in pixels).', 'organize-series'); ?></label></th>
-                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" value="<?php echo isset($org_opt['series_icon_width_latest_series']) ? esc_attr($org_opt['series_icon_width_latest_series']) : ''; ?>" /></td>
+                            <td><input min="1" max="1000000000" name="<?php echo esc_attr($org_name); ?>[series_icon_width_latest_series]" id="series_icon_width_latest_series" type="number" aria-label="<?php esc_attr_e('Width for featured image if displayed via the latest series template', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_icon_width_latest_series']) ? esc_attr($org_opt['series_icon_width_latest_series']) : ''; ?>" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -198,15 +198,15 @@ function series_legacy_fieldset()
                     <tbody>
                         <tr valign="top">
                             <th scope="row"><label for="latest_series_before_template"><?php esc_html_e('Latest Series (tags before):', 'organize-series'); ?></label></th>
-                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_before_template]" id="latest_series_before_template" value="<?php echo isset($org_opt['latest_series_before_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])) : ''; ?>" class="ppseries-full-width"></td>
+                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_before_template]" id="latest_series_before_template" aria-label="<?php esc_attr_e('Latest Series tags before', 'organize-series'); ?>" value="<?php echo isset($org_opt['latest_series_before_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_before_template'])) : ''; ?>" class="ppseries-full-width"></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label for="latest_series_inner_template"><?php esc_html_e('Latest Series (inner tags):', 'organize-series'); ?></label></th>
-                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_inner_template]" id="latest_series_inner_template" value="<?php echo isset($org_opt['latest_series_inner_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])) : ''; ?>" class="ppseries-full-width"></td>
+                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_inner_template]" id="latest_series_inner_template" aria-label="<?php esc_attr_e('Latest Series inner tags', 'organize-series'); ?>" value="<?php echo isset($org_opt['latest_series_inner_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_inner_template'])) : ''; ?>" class="ppseries-full-width"></td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label for="latest_series_after_template"><?php esc_html_e('Latest Series (tags after):', 'organize-series'); ?></label></th>
-                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_after_template]" id="latest_series_after_template" value="<?php echo isset($org_opt['latest_series_after_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])) : ''; ?>" class="ppseries-full-width"></td>
+                            <td><input type="text" name="<?php echo esc_attr($org_name); ?>[latest_series_after_template]" id="latest_series_after_template" aria-label="<?php esc_attr_e('Latest Series tags after', 'organize-series'); ?>" value="<?php echo isset($org_opt['latest_series_after_template']) ? esc_attr(htmlspecialchars($org_opt['latest_series_after_template'])) : ''; ?>" class="ppseries-full-width"></td>
                         </tr>
                     </tbody>
                 </table>

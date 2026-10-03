@@ -19,7 +19,7 @@ $key = $license_key->getLicenseKey();
         ); ?>
     </h3>
     <label class="description" for="os-license-key-<?php echo esc_attr($extension_slug); ?>"><?php esc_html_e('Enter your license key: ', 'organize-series'); ?></label>
-    <input id="os-license-key-<?php echo esc_attr($extension_slug); ?>" type="text" name="os_license_key_<?php echo esc_attr($extension_slug); ?>" class="regular-text" value="<?php echo esc_attr($key); ?>">
+    <input id="os-license-key-<?php echo esc_attr($extension_slug); ?>" type="text" name="os_license_key_<?php echo esc_attr($extension_slug); ?>" class="regular-text" aria-label="<?php esc_attr_e('License key', 'organize-series'); ?>" value="<?php echo esc_attr($key); ?>">
     <div class="os-license-key-meta">
         <?php if (! empty($key) && ! empty($license_key->getExpires())) : ?>
         <p>
@@ -30,9 +30,9 @@ $key = $license_key->getLicenseKey();
     <div class="license-key-submit-button">
         <?php wp_nonce_field('os_license_key_nonce_' . $extension_slug, 'os_license_key_nonce_' . $extension_slug); ?>
         <?php if ($license_key->getStatus() === 'valid') : ?>
-            <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary deactivation-button js-license-submit" name="os_license_key_deactivate" value="<?php esc_attr_e('Deactivate License', 'organize-series'); ?>">
+            <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary deactivation-button js-license-submit" name="os_license_key_deactivate" aria-label="<?php esc_attr_e('Deactivate License', 'organize-series'); ?>" value="<?php esc_attr_e('Deactivate License', 'organize-series'); ?>">
         <?php else : ?>
-            <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary activation-button js-license-submit" name="os_license_key_activate" value="<?php esc_attr_e('Activate License', 'organize-series'); ?>">
+            <input data-extension="<?php echo esc_attr($extension_slug); ?>" type="submit" class="button-secondary activation-button js-license-submit" name="os_license_key_activate" aria-label="<?php esc_attr_e('Activate License', 'organize-series'); ?>" value="<?php esc_attr_e('Activate License', 'organize-series'); ?>">
         <?php endif; ?>
         <span class="spinner"></span>
     </div>
