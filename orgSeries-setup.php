@@ -160,7 +160,7 @@ if (!class_exists('orgSeries')) {
                 }
                 update_option('org_series_version', $this->version);
             } else {
-                add_option("org_series_version", $this->version);
+                add_option('org_series_version', $this->version, '', 'no');
             }/**/
         }
 
