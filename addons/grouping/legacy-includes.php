@@ -143,8 +143,8 @@ function orgseries_upgrade_check()
         if ($is_imported = get_option('orgseries_grouping_import_completed')) { // we know a version 1.5 and earlier was previously installed (before we saved version numbers) - update needed
             upgrade_orgseries_grouping_from_one_five();
         }
-        add_option('orgseries_grouping_version', $orgseries_groups_ver);
-        add_option('orgser_grp_upgrade_' . $orgseries_groups_ver);
+        add_option('orgseries_grouping_version', $orgseries_groups_ver, '', 'no');
+        add_option('orgser_grp_upgrade_' . $orgseries_groups_ver, '', '', 'no');
         return;
     }
 
@@ -573,7 +573,7 @@ function orgseries_grouping_import_existing_series()
             );
             wp_insert_post($post_args);
         }
-        add_option('orgseries_grouping_import_completed', '1');
+        add_option('orgseries_grouping_import_completed', '1', '', 'no');
     }
 }
 

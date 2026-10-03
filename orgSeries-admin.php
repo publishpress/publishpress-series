@@ -557,7 +557,7 @@ function orgSeries_custom_manage_posts_filter()
 function add_series_management_link()
 {
     global $orgseries;
-    $link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
+    $link = admin_url('edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php');
     ?>
     <li>
         <a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Manage All Series', 'organize-series'); ?></a>
@@ -571,7 +571,7 @@ function add_series_to_right_now()
     $num_series = wp_count_terms(ppseries_get_series_slug());
     $num = number_format_i18n($num_series);
     $text = _nx('Series', 'Series', $num_series, 'dashboard count label', 'organize-series');
-    $manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
+    $manage_link = admin_url('edit-tags.php?taxonomy=' . SERIES_QUERYVAR);
     if (current_user_can('manage_publishpress_series')) {
         $series_num = "<a href='" . esc_url($manage_link) . "'>$num</a>";
         $series_text = "<a href='" . esc_url($manage_link) . "'>$text</a>";
