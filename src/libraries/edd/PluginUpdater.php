@@ -45,7 +45,7 @@ class PluginUpdater
         $this->version     = $_api_data['version'];
         $this->wp_override = isset($_api_data['wp_override']) ? (bool) $_api_data['wp_override'] : false;
         $this->beta        = ! empty($this->api_data['beta']) ? true : false;
-        $this->cache_key   = md5(serialize($this->slug . $this->api_data['license'] . $this->beta)); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize -- Hash input only; serialized data is never deserialized.
+        $this->cache_key   = md5((string) wp_json_encode(array( $this->slug, $this->api_data['license'], $this->beta )));
 
         $edd_plugin_data[ $this->slug ] = $this->api_data;
 
@@ -193,7 +193,7 @@ class PluginUpdater
             if (empty($version_info->download_link)) {
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 printf(
-                    __('There is a new version of %1$s available. %2$sView version %3$s details%4$s.', 'easy-digital-downloads'),
+                    esc_html__('There is a new version of %1$s available. %2$sView version %3$s details%4$s.', 'easy-digital-downloads'),
                     esc_html($version_info->name),
                     '<a target="_blank" class="thickbox" href="' . esc_url($changelog_link) . '">',
                     esc_html($version_info->new_version),
@@ -202,7 +202,7 @@ class PluginUpdater
             } else {
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 printf(
-                    __('There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s.', 'easy-digital-downloads'),
+                    esc_html__('There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s.', 'easy-digital-downloads'),
                     esc_html($version_info->name),
                     '<a target="_blank" class="thickbox" href="' . esc_url($changelog_link) . '">',
                     esc_html($version_info->new_version),
@@ -248,7 +248,7 @@ class PluginUpdater
             )
         );
 
-        $cache_key = 'edd_api_request_' . md5(serialize($this->slug . $this->api_data['license'] . $this->beta)); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize -- Hash input only; serialized data is never deserialized.
+        $cache_key = 'edd_api_request_' . md5((string) wp_json_encode(array( $this->slug, $this->api_data['license'], $this->beta )));
 
         // Get the transient where we store the api request for this plugin for 24 hours
         $edd_api_request_transient = $this->get_cached_version_info($cache_key);
