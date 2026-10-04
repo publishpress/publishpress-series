@@ -856,11 +856,35 @@ function edit_orgseries_group_fields($series, $taxonomy)
                                 <ul id="category-tabs" class="category-tabs">
                                     <li class="tabs"><a href="#category-all" tabindex="3"><?php esc_html_e('All Series Categories', 'organize-series'); ?></a></li>
                                 </ul>
+                                <p class="pp-series-category-search-wrap">
+                                    <label class="screen-reader-text" for="pp-series-category-search"><?php esc_html_e('Search Series Categories', 'organize-series'); ?></label>
+                                    <input type="search" id="pp-series-category-search" class="widefat" placeholder="<?php esc_attr_e('Search Series Categories', 'organize-series'); ?>" />
+                                </p>
                                 <div id="category-all" class="tabs-panel">
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
                                         <?php wp_terms_checklist($groupID, array('selected_cats' => $groups, 'taxonomy' => 'series_group' )); ?>
                                     </ul>
                                 </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        var search = document.getElementById('pp-series-category-search');
+                                        var checklist = document.getElementById('categorychecklist');
+
+                                        if (!search || !checklist) {
+                                            return;
+                                        }
+
+                                        search.addEventListener('input', function() {
+                                            var query = search.value.toLowerCase();
+                                            var items = checklist.querySelectorAll('li');
+
+                                            items.forEach(function(item) {
+                                                var label = item.textContent.toLowerCase();
+                                                item.style.display = label.indexOf(query) === -1 ? 'none' : '';
+                                            });
+                                        });
+                                    });
+                                </script>
                             </div>
                         </div>
 
