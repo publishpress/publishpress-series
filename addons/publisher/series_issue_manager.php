@@ -759,10 +759,17 @@ class PPS_Publisher_Admin
         }
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
         if (isset($_GET['action']) && ($_GET['action'] === 'part' || $_GET['action'] === 'order')) {
+            $option = 'per_page';
+            $args = [
+                'label' => esc_html__('Number of items per page', 'organize-series'),
+                'default' => 20,
+                'option' => 'pp_series_part_per_page'
+            ];
             include_once 'series-part-post-table.php';
             include_once 'series-pending-post-table.php';
             $this->series_part_table = new PPS_Publisher_Post_Part_Table();
             $this->series_pending_table = new PPS_Publisher_Post_Pending_Table();
+            add_screen_option($option, $args);
         }
     }
 
@@ -977,25 +984,13 @@ class PPS_Publisher_Admin
                 <div id="post-body" class="metabox-holder columns-2">
 
                     <div id="post-body-content" style="position: relative;">
-                        <form action="<?php echo esc_url(add_query_arg('', '')); ?>" method="post">
+                        <form action="<?php echo esc_url(admin_url('edit.php')); ?>" method="get">
                             <?php
-
-                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                            if (!empty($_REQUEST['orderby'])) {
-                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                                echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
-                            }
-                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                            if (!empty($_REQUEST['order'])) {
-                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                                echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['order']))) . '" />';
-                            }
-                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                            if (!empty($_REQUEST['page'])) {
-                                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
-                                echo '<input type="hidden" name="page" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) . '" />';
-                            }
+                            echo '<input type="hidden" name="page" value="manage-issues" />';
+                            echo '<input type="hidden" name="action" value="part" />';
+                            echo '<input type="hidden" name="series_ID" value="' . esc_attr($series_ID) . '" />';
                             ?>
+                            <?php $this->series_part_table->search_box(__('Search Posts', 'organize-series'), 'series-posts'); ?>
                             <?php $this->series_part_table->display(); //Display the table
                             ?>
                         </form>
