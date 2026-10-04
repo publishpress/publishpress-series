@@ -78,6 +78,8 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         $series_posts = [];
 
         if ($series_id) {
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only table search.
+            $search = isset($_REQUEST['s']) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : '';
             $arg = array(
                 'post_status' => ['publish'],
                 'post_type' => apply_filters('orgseries_posttype_support', array('post')),
@@ -107,8 +109,24 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
                     'part_field_sort' => 'ASC'
                 ),
             );
+
+            if ('' !== $search) {
+                $arg['s'] = $search;
+            }
+
             $series_query = new WP_Query($arg);
             $series_posts = $series_query->posts;
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only table filter.
+            $part_filter = isset($_REQUEST['part_filter']) ? sanitize_key(wp_unslash($_REQUEST['part_filter'])) : '';
+            if (in_array($part_filter, ['has_part', 'missing_part'], true)) {
+                $series_posts = array_values(array_filter($series_posts, function ($post) use ($meta_key, $part_filter) {
+                    $series_part = get_post_meta($post->ID, $meta_key, true);
+                    $has_part = '' !== trim((string) $series_part);
+
+                    return ('has_part' === $part_filter) ? $has_part : ! $has_part;
+                }));
+            }
         }
 
         return $series_posts;
@@ -330,6 +348,32 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
     }
 
     /**
+     * Render filters above the table.
+     *
+     * @param string $which Table navigation position.
+     */
+    protected function extra_tablenav($which)
+    {
+        if ('top' !== $which) {
+            return;
+        }
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only table filter.
+        $selected = isset($_REQUEST['part_filter']) ? sanitize_key(wp_unslash($_REQUEST['part_filter'])) : '';
+        ?>
+        <div class="alignleft actions">
+            <label class="screen-reader-text" for="part-filter"><?php esc_html_e('Filter by part number', 'organize-series'); ?></label>
+            <select name="part_filter" id="part-filter">
+                <option value=""><?php esc_html_e('All part numbers', 'organize-series'); ?></option>
+                <option value="has_part" <?php selected($selected, 'has_part'); ?>><?php esc_html_e('Has part number', 'organize-series'); ?></option>
+                <option value="missing_part" <?php selected($selected, 'missing_part'); ?>><?php esc_html_e('Missing part number', 'organize-series'); ?></option>
+            </select>
+            <?php submit_button(__('Filter', 'organize-series'), '', 'filter_action', false); ?>
+        </div>
+        <?php
+    }
+
+    /**
      * Sets up the items to list.
      */
     public function prepare_items()
@@ -337,7 +381,7 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         /**
          * First, lets decide how many records per page to show
          */
-        $per_page = $this->get_items_per_page(str_replace('-', '_', $this->screen->id . '_per_page'), 999);
+        $per_page = $this->get_items_per_page('pp_series_part_per_page', 20);
 
 
         /**
