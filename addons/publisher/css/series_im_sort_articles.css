@@ -22,6 +22,17 @@
     margin-top: 45px;
 }
 
+.pp-series-order-tools .inside .button {
+    box-sizing: border-box;
+    line-height: 1.4;
+    min-height: 32px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+}
+
 #timestampdiv select {
     max-width: 90px !important;
 }

@@ -1075,7 +1075,7 @@ class PPS_Publisher_Admin
                                 </form>
                             </div>
 
-                            <div id="pp-series-order-tools" class="postbox">
+                            <div id="pp-series-order-tools" class="postbox pp-series-order-tools">
                                 <div class="postbox-header">
                                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Order Tools', 'organize-series'); ?>
                                     </h2>
