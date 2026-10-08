@@ -127,6 +127,33 @@ function reset_series_order_on_trash($postid)
     }
 }
 
+//refresh series counts and ordering when a post status changes without removing relationships.
+function refresh_series_count_on_status_change($new_status, $old_status, $post)
+{
+    if (! $post instanceof WP_Post || $new_status === $old_status) {
+        return;
+    }
+
+    $counted_statuses = array('publish', 'private');
+    if (! in_array($new_status, $counted_statuses, true) && ! in_array($old_status, $counted_statuses, true)) {
+        return;
+    }
+
+    $series = get_the_series($post->ID, false);
+    if (empty($series) || is_wp_error($series)) {
+        return;
+    }
+
+    $series_ids = array();
+    foreach ($series as $ser) {
+        $series_ids[] = (int) $ser->term_id;
+        wp_reset_series_order_meta_cache($post->ID, $ser->term_id);
+    }
+
+    wp_update_term_count_now($series_ids, ppseries_get_series_slug());
+    clean_object_term_cache($post->ID, ppseries_get_series_slug());
+}
+
 //call up series post is associated with -- needed for the post-edit panel specifically.
 function wp_get_post_series($post_id = 0, $args = array())
 {
@@ -910,6 +937,7 @@ add_action('set_object_terms', 'orgseries_set_missing_series_order', 10, 4);
 add_action('future_to_publish', 'wp_set_post_series_transition', 10, 1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
+add_action('transition_post_status', 'refresh_series_count_on_status_change', 10, 3);
 add_action('delete_post', 'delete_series_post_relationship', 1);
 //add_action('trash_post', 'reset_series_order_on_trash', 1);
 //add_action('untrash_post', 'reset_series_order_on_trash', 1);
