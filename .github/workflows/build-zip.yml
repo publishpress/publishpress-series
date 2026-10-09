@@ -1,0 +1,132 @@
+name: Build plugin zip
+permissions:
+  contents: read
+
+# Builds the installable plugin zip (`composer build`) from any branch, tag,
+# commit, or pull request, and attaches it to the run as a downloadable
+# artifact. Use it to hand a customer a hotfix build without building locally.
+#
+# Run it from Actions > Build plugin zip > Run workflow, or add the
+# `build-zip` label to a pull request.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Pull request number, branch, tag, or commit SHA to build. Leave empty to build the branch selected above.
+        required: false
+        type: string
+        default: ''
+
+  pull_request:
+    types: [ labeled ]
+
+concurrency:
+  group: build-zip-${{ github.event.pull_request.number || inputs.ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  DEV_SCRIPTS_DIR: ${{ github.workspace }}/vendor/publishpress/dev-workspace/scripts
+
+jobs:
+  build-zip:
+    name: Build the plugin zip
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'build-zip'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Resolve the ref to build
+        id: target
+        env:
+          INPUT_REF: ${{ inputs.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          ref="${INPUT_REF//[[:space:]]/}"
+          ref="${ref#\#}"
+          if [ -n "$PR_NUMBER" ]; then
+            checkout_ref="$PR_HEAD_SHA"
+            label="pr${PR_NUMBER}"
+          elif [ -z "$ref" ]; then
+            checkout_ref="$GITHUB_REF"
+            label="${GITHUB_REF_NAME}"
+          elif [[ "$ref" =~ ^[0-9]+$ ]]; then
+            checkout_ref="refs/pull/${ref}/head"
+            label="pr${ref}"
+          else
+            checkout_ref="$ref"
+            label="$ref"
+          fi
+          label="$(printf '%s' "$label" | tr -c 'A-Za-z0-9._-' '-')"
+          echo "checkout-ref=$checkout_ref" >> "$GITHUB_OUTPUT"
+          echo "label=$label" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout repository
+        # actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          ref: ${{ steps.target.outputs.checkout-ref }}
+          persist-credentials: false
+
+      - name: Set up PHP
+        # shivammathur/setup-php@2.37.0
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f
+        with:
+          php-version: 8.3
+          extensions: mbstring,xml,curl,zip,intl,bcmath,gettext,mysqli,phar,gd,iconv,yaml
+          tools: composer:v2
+
+      - name: Create root .env file
+        run: cp "$GITHUB_WORKSPACE/.env.example" "$GITHUB_WORKSPACE/.env"
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Add dev-workspace scripts to PATH
+        run: echo "$DEV_SCRIPTS_DIR" >> "$GITHUB_PATH"
+
+      - name: Build plugin package
+        run: composer build
+
+      - name: Name the zip after the ref
+        id: package
+        env:
+          LABEL: ${{ steps.target.outputs.label }}
+        run: |
+          shopt -s nullglob
+          zips=(dist/*.zip)
+          if [ "${#zips[@]}" -ne 1 ]; then
+            echo "::error::Expected one zip in dist/, found ${#zips[@]}."
+            exit 1
+          fi
+          base="$(basename "${zips[0]}" .zip)"
+          zip_name="${base}-${LABEL}-$(git rev-parse --short HEAD).zip"
+          mkdir -p "$RUNNER_TEMP/package"
+          cp "${zips[0]}" "$RUNNER_TEMP/package/${zip_name}"
+          echo "path=$RUNNER_TEMP/package/${zip_name}" >> "$GITHUB_OUTPUT"
+          echo "zip-name=${zip_name}" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the zip
+        id: upload
+        # actions/upload-artifact@v7.0.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          path: ${{ steps.package.outputs.path }}
+          archive: false
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Summarize the build
+        env:
+          ZIP_NAME: ${{ steps.package.outputs.zip-name }}
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+          BUILT_SHA: ${{ steps.package.outputs.sha }}
+          CHECKOUT_REF: ${{ steps.target.outputs.checkout-ref }}
+        run: |
+          {
+            echo "### Plugin zip ready"
+            echo ""
+            echo "Download: [${ZIP_NAME}](${ARTIFACT_URL})"
+            echo ""
+            echo "Built from \`${CHECKOUT_REF}\` at commit \`${BUILT_SHA}\`."
+          } >> "$GITHUB_STEP_SUMMARY"
