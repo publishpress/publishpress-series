@@ -547,6 +547,29 @@ class SeriesPostDetailsRenderer
             }
         }
 
+        $outer_parts[] = sprintf(
+            'margin: %1$dpx %2$dpx %3$dpx %4$dpx;',
+            self::get_spacing_value($settings, 'margin_top', 'margin'),
+            self::get_spacing_value($settings, 'margin_right', 'margin'),
+            self::get_spacing_value($settings, 'margin_bottom', 'margin'),
+            self::get_spacing_value($settings, 'margin_left', 'margin')
+        );
+
+        if (isset($settings['border_width'])) {
+            $outer_parts[] = 'border-width: ' . (int) $settings['border_width'] . 'px;';
+        }
+
+        if (isset($settings['border_radius'])) {
+            $outer_parts[] = 'border-radius: ' . (int) $settings['border_radius'] . 'px;';
+        }
+
+        if (! empty($settings['border_color'])) {
+            $border_color = pps_sanitize_css_color($settings['border_color']);
+            if ($border_color) {
+                $outer_parts[] = 'border-color: ' . $border_color . ';';
+            }
+        }
+
         // Inner content styles (text color, text size)
         $inner_parts = [];
 
@@ -562,6 +585,14 @@ class SeriesPostDetailsRenderer
         if (! empty($settings['text_size'])) {
             $inner_parts[] = 'font-size: ' . (int) $settings['text_size'] . 'px;';
         }
+
+        $inner_parts[] = sprintf(
+            'padding: %1$dpx %2$dpx %3$dpx %4$dpx;',
+            self::get_spacing_value($settings, 'padding_top', 'padding'),
+            self::get_spacing_value($settings, 'padding_right', 'padding'),
+            self::get_spacing_value($settings, 'padding_bottom', 'padding'),
+            self::get_spacing_value($settings, 'padding_left', 'padding')
+        );
 
         $css = [];
         
@@ -590,6 +621,24 @@ class SeriesPostDetailsRenderer
         if (! empty($css)) {
             self::$dynamic_css[$layout_class] = implode("\n", $css);
         }
+    }
+
+    /**
+     * Return a side-specific spacing value, falling back to the legacy all-sides value.
+     *
+     * @param array  $settings Layout settings.
+     * @param string $side_key Side-specific setting key.
+     * @param string $base_key Legacy all-sides setting key.
+     *
+     * @return int
+     */
+    private static function get_spacing_value(array $settings, $side_key, $base_key)
+    {
+        if (isset($settings[$side_key]) && '' !== $settings[$side_key]) {
+            return (int) $settings[$side_key];
+        }
+
+        return isset($settings[$base_key]) ? (int) $settings[$base_key] : 0;
     }
 
     /**
