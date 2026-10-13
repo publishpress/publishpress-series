@@ -747,9 +747,26 @@ if (!class_exists('orgSeries')) {
             return false;
         }
 
+        /**
+         * Confirm automatic Series output is being added to the front-end main post content.
+         *
+         * Some plugins call `the_content` while building generated content such as
+         * tables of contents. Avoid injecting Series boxes into those secondary
+         * filter runs.
+         *
+         * @return bool
+         */
+        private function is_main_content_filter()
+        {
+            return ! is_admin() && in_the_loop() && is_main_query();
+        }
+
         //add series post-list box to a post in that series (on single.php view)
         public function add_series_post_list_box($content)
         {
+            if (! $this->is_main_content_filter()) {
+                return $content;
+            }
 
             /**
             * Filter whether to add series content
@@ -787,6 +804,9 @@ if (!class_exists('orgSeries')) {
         //add series meta information to posts that belong to a series.
         public function add_series_meta($content)
         {
+            if (! $this->is_main_content_filter()) {
+                return $content;
+            }
 
             /**
             * Filter whether to add series content
@@ -843,6 +863,10 @@ if (!class_exists('orgSeries')) {
         //add series meta information to excerpts for posts that belong to a series.
         public function add_series_meta_excerpt($content)
         {
+            if (! $this->is_main_content_filter()) {
+                return $content;
+            }
+
             /**
              * Filter whether to add series content to excerpts
              */
@@ -890,6 +914,10 @@ if (!class_exists('orgSeries')) {
         //add series navigation strip to posts that are part of a series (on single.php view)
         public function series_nav_filter($content)
         {
+            if (! $this->is_main_content_filter()) {
+                return $content;
+            }
+
             if (is_single() || is_page()) {
 
                 /**
