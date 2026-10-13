@@ -46,7 +46,7 @@ function series_post_details_fieldset()
 
                 <tr valign="top">
                     <th scope="row"><label for="auto_tag_seriesmeta_toggle"><?php esc_html_e('Display Series Post Details?', 'organize-series'); ?></label></th>
-                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" value="1" <?php checked('1', isset($org_opt['auto_tag_seriesmeta_toggle']) ? $org_opt['auto_tag_seriesmeta_toggle'] : ''); ?> /></td>
+                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_seriesmeta_toggle]" id="auto_tag_seriesmeta_toggle" type="checkbox" aria-label="<?php esc_attr_e('Display Series Post Details?', 'organize-series'); ?>" value="1" <?php checked('1', isset($org_opt['auto_tag_seriesmeta_toggle']) ? $org_opt['auto_tag_seriesmeta_toggle'] : ''); ?> /></td>
                 </tr>
 
                 <tr valign="top">
@@ -87,7 +87,7 @@ function series_post_details_fieldset()
                 <tr valign="top" id="limit_series_meta_to_single_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Limit to single page only', 'organize-series'); ?></label></th>
                     <td>
-                        <input name="<?php echo esc_attr($org_name); ?>[limit_series_meta_to_single]" value="1" id="limit_series_meta_to_single" type="checkbox" <?php checked('1', isset($org_opt['limit_series_meta_to_single']) ? $org_opt['limit_series_meta_to_single'] : ''); ?> />
+                        <input name="<?php echo esc_attr($org_name); ?>[limit_series_meta_to_single]" value="1" id="limit_series_meta_to_single" type="checkbox" aria-label="<?php esc_attr_e('Limit to single page only', 'organize-series'); ?>" <?php checked('1', isset($org_opt['limit_series_meta_to_single']) ? $org_opt['limit_series_meta_to_single'] : ''); ?> />
                         <span class="description"><?php esc_html_e('Whether to limit series meta display to single page only or include archive page.', 'organize-series'); ?></span>
                     </td>
                 </tr>

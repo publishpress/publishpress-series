@@ -854,7 +854,7 @@ function edit_orgseries_group_fields($series, $taxonomy)
                         <div class="inside">
                             <div id="taxonomy-category" class="categorydiv">
                                 <ul id="category-tabs" class="category-tabs">
-                                    <li class="tabs"><a href="#category-all" tabindex="3"><?php esc_html_e('All Series Categories', 'organize-series'); ?></a></li>
+                                    <li class="tabs"><a href="#category-all"><?php esc_html_e('All Series Categories', 'organize-series'); ?></a></li>
                                 </ul>
                                 <div id="category-all" class="tabs-panel">
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
