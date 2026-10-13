@@ -58,6 +58,37 @@ if (!function_exists('series_issue_manager_part')) {
     }
 }
 
+if (!function_exists('ppseries_publisher_get_series_post_ids_by_date')) {
+    function ppseries_publisher_get_series_post_ids_by_date($series_id, $order = 'ASC')
+    {
+        $order = strtoupper($order) === 'DESC' ? 'DESC' : 'ASC';
+
+        $query = new WP_Query(
+            array(
+                'fields'         => 'ids',
+                'no_found_rows'  => true,
+                'order'          => $order,
+                'orderby'        => array(
+                    'date' => $order,
+                    'ID'   => $order,
+                ),
+                'post_status'    => array( 'publish' ),
+                'post_type'      => apply_filters('orgseries_posttype_support', array( 'post' )),
+                'posts_per_page' => -1,
+                'tax_query'      => array(
+                    array(
+                        'field'    => 'term_id',
+                        'taxonomy' => ppseries_get_series_slug(),
+                        'terms'    => array( absint($series_id) ),
+                    ),
+                ),
+            )
+        );
+
+        return array_map('absint', $query->posts);
+    }
+}
+
 if (!function_exists('series_issue_manager_pending_order')) {
     function series_issue_manager_pending_order($series_ID, $post_IDs)
     {
@@ -532,8 +563,14 @@ function ppseries_publisher_admin_init()
     }
 
     $has_posts = !empty($_REQUEST['posts']);
+    $subaction = isset($_REQUEST['subaction']) ? sanitize_key(wp_unslash($_REQUEST['subaction'])) : '';
+    $has_ordering_tool = (
+        $action === 'order'
+        && in_array($subaction, array( 'date_asc', 'date_desc' ), true)
+    );
     $mutating = in_array($action, ['publish', 'unpublish', 'ignore'], true)
         || ($action === 'order' && $has_posts)
+        || $has_ordering_tool
         || ($action === 'list' && $has_posts);
 
     if (!$mutating) {
@@ -613,6 +650,14 @@ function ppseries_publisher_admin_init()
             break;
 
         case 'order':
+            $subaction = isset($_POST['subaction']) ? sanitize_key(wp_unslash($_POST['subaction'])) : '';
+            if (in_array($subaction, array( 'date_asc', 'date_desc' ), true)) {
+                $post_ids = ppseries_publisher_get_series_post_ids_by_date(
+                    $series_id,
+                    $subaction === 'date_desc' ? 'DESC' : 'ASC'
+                );
+            }
+
             if ($post_ids === []) {
                 ppseries_publisher_redirect(['action' => 'part', 'series_ID' => $series_id]);
             }
@@ -620,7 +665,6 @@ function ppseries_publisher_admin_init()
                 ppseries_publisher_die_forbidden();
             }
 
-            $subaction = isset($_POST['subaction']) ? sanitize_key(wp_unslash($_POST['subaction'])) : '';
             if ($subaction === 'pending_order') {
                 series_issue_manager_pending_order($series_id, implode(',', $post_ids));
                 ppseries_publisher_redirect([
@@ -1029,6 +1073,36 @@ class PPS_Publisher_Admin
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+
+                            <div id="pp-series-order-tools" class="postbox pp-series-order-tools">
+                                <div class="postbox-header">
+                                    <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Order Tools', 'organize-series'); ?>
+                                    </h2>
+                                </div>
+                                <div class="inside">
+                                    <p><?php esc_html_e('Automatically reorder this series by publication date.', 'organize-series'); ?></p>
+                                    <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                                        <?php ppseries_publisher_nonce_field(); ?>
+                                        <input type="hidden" name="page" value="manage-issues" />
+                                        <input type="hidden" name="action" value="order" />
+                                        <input type="hidden" name="subaction" value="date_asc" />
+                                        <input type="hidden" name="series_ID" value="<?php echo esc_attr($series_ID); ?>" />
+                                        <p>
+                                            <input type="submit" value="<?php esc_attr_e('Order by publication date: Oldest first', 'organize-series'); ?>" class="button" />
+                                        </p>
+                                    </form>
+                                    <form method="post" action="<?php echo esc_url(admin_url('edit.php?page=manage-issues')); ?>">
+                                        <?php ppseries_publisher_nonce_field(); ?>
+                                        <input type="hidden" name="page" value="manage-issues" />
+                                        <input type="hidden" name="action" value="order" />
+                                        <input type="hidden" name="subaction" value="date_desc" />
+                                        <input type="hidden" name="series_ID" value="<?php echo esc_attr($series_ID); ?>" />
+                                        <p>
+                                            <input type="submit" value="<?php esc_attr_e('Order by publication date: Newest first', 'organize-series'); ?>" class="button" />
+                                        </p>
+                                    </form>
+                                </div>
                             </div>
 
                         </div>
