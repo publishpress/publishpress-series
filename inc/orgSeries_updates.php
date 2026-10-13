@@ -141,7 +141,7 @@ if (!class_exists('PluginUpdateChecker')) :
         {
             $this->set_domain();
             add_settings_field('orgseries_api_settings', 'Publishpress Series User API', array($this,'orgseries_api_output'), 'orgseries_options_page', 'series_uninstall_settings');
-            register_setting('orgseries_options', 'org_series_options');
+            register_setting('orgseries_options', 'org_series_options', 'orgseries_validate');
             add_filter('orgseries_options', array($this,'orgseries_api_validate'), 10, 2);
         }
 
