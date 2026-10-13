@@ -85,10 +85,10 @@ function series_post_details_fieldset()
                 </tr>
 
                 <tr valign="top" id="limit_series_meta_to_single_row" class="ppseries-custom-template-row">
-                    <th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Limit to single page only', 'organize-series'); ?></label></th>
+                    <th scope="row"><label for="limit_series_meta_to_single"><?php esc_html_e('Hide on archive screens', 'organize-series'); ?></label></th>
                     <td>
                         <input name="<?php echo esc_attr($org_name); ?>[limit_series_meta_to_single]" value="1" id="limit_series_meta_to_single" type="checkbox" <?php checked('1', isset($org_opt['limit_series_meta_to_single']) ? $org_opt['limit_series_meta_to_single'] : ''); ?> />
-                        <span class="description"><?php esc_html_e('Whether to limit series meta display to single page only or include archive page.', 'organize-series'); ?></span>
+                        <span class="description"><?php esc_html_e('Show Series Post Details only on single post screens, not archives or blog listings.', 'organize-series'); ?></span>
                     </td>
                 </tr>
 
