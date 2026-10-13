@@ -117,9 +117,9 @@ if (!function_exists('pp_series_upgrade_function')) {
             )";
                 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
                 dbDelta($sql);
-                add_option('series_icon_path', '');
-                add_option('series_icon_url', '');
-                add_option('series_icon_filetypes', 'jpg gif jpeg png');
+                add_option('series_icon_path', '', '', 'no');
+                add_option('series_icon_url', '', '', 'no');
+                add_option('series_icon_filetypes', 'jpg gif jpeg png', '', 'no');
 
                 $table_exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $wpdb->esc_like($table_name))) === $table_name;
             }
@@ -165,6 +165,27 @@ if (!function_exists('pp_series_upgrade_function')) {
             }
         }
     }
+}
+
+if (!function_exists('pp_series_upgrade_new_multisite_blog')) {
+    /**
+     * Create plugin tables and options when a new multisite blog is added.
+     *
+     * @param WP_Site $new_site New site object.
+     * @return void
+     */
+    function pp_series_upgrade_new_multisite_blog($new_site)
+    {
+        if (!is_multisite() || empty($new_site->blog_id)) {
+            return;
+        }
+
+        switch_to_blog((int) $new_site->blog_id);
+        pp_series_upgrade_function();
+        restore_current_blog();
+    }
+
+    add_action('wp_initialize_site', 'pp_series_upgrade_new_multisite_blog');
 }
 
 if (!function_exists('pp_series_locate_template')) {
