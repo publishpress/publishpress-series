@@ -322,7 +322,14 @@ function orgseries_validate($input)
     $newinput['limit_series_meta_to_single'] = ppseries_sanitize_checkbox($input, 'limit_series_meta_to_single');
 
     /* Advanced */
-    $newinput['kill_on_delete'] = ppseries_sanitize_checkbox($input, 'kill_on_delete');
+    if (is_multisite()) {
+        // Network-wide and Super Admin-only on multisite; never persist a per-site copy.
+        if (is_super_admin()) {
+            update_site_option('pp_series_kill_on_delete', ppseries_sanitize_checkbox($input, 'kill_on_delete'));
+        }
+    } else {
+        $newinput['kill_on_delete'] = ppseries_sanitize_checkbox($input, 'kill_on_delete');
+    }
     $newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim($input['orgseries_api']) : '';
 
     /* Finalize */

@@ -1,7 +1,6 @@
 <?php
-global $wpdb, $orgseries;
-$settings = $orgseries->settings;
-$delete_series = $settings['kill_on_delete'];
+global $wpdb;
+$delete_series = ppseries_get_kill_on_delete();
 
 if ($delete_series == 1) {
     $taxonomy = ppseries_get_series_slug();
