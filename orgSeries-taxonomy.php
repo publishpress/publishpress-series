@@ -56,7 +56,7 @@ function &get_series($args = '')
     global $wpdb;
     $series = array();
 
-    $key = md5(serialize($args)); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize -- Hash input only; serialized data is never deserialized.
+    $key = md5((string) wp_json_encode($args));
     if ($cache = wp_cache_get('get_series', ppseries_get_series_slug())) {
         if (isset($cache[$key])) {
             $series = apply_filters('get_series', $cache[$key], $args);
@@ -760,7 +760,7 @@ function inline_edit_series($column_name, $type)
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
                     <?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
                     <span style="display:none;"><?php esc_html_e('Part:', 'organize-series'); ?></span>
-                    <input style="display:none;" size="3" type="text" name="series_part" class="series_part" />
+          <input style="display:none;" size="3" type="text" name="series_part" class="series_part" aria-label="<?php esc_attr_e('Series Part', 'organize-series'); ?>" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
                     <input type="hidden" name="is_series_save" value="1" />
 

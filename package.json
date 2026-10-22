@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "@wordpress/dom-ready": "^4.52.0",
-    "axios": "^1.19.0",
+    "axios": "^1.20.0",
     "core-js": "^3.50.0",
     "qs": "^6.16.0",
     "regenerator-runtime": "^0.14.1"
