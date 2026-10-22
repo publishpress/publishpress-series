@@ -204,7 +204,6 @@ function ppseries_get_numbered_series_post_ids($series_id, $include_post_id = 0)
             'post_status'            => array_unique($statuses),
             'numberposts'            => -1,
             'orderby'                => array('date' => 'ASC', 'ID' => 'ASC'),
-            'suppress_filters'       => true,
             'update_post_term_cache' => false,
         )
     );
