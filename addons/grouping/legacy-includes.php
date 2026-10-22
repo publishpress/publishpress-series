@@ -573,7 +573,7 @@ function orgseries_grouping_import_existing_series()
             );
             wp_insert_post($post_args);
         }
-        add_option('orgseries_grouping_import_completed', '1', '', 'no');
+        add_option('orgseries_grouping_import_completed', '1', '', 'yes'); // Read on every init, so keep it autoloaded.
     }
 }
 

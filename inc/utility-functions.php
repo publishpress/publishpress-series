@@ -176,7 +176,7 @@ if (!function_exists('pp_series_upgrade_new_multisite_blog')) {
      */
     function pp_series_upgrade_new_multisite_blog($new_site)
     {
-        if (!is_multisite() || empty($new_site->blog_id)) {
+        if (!is_multisite() || empty($new_site->blog_id) || !pp_series_is_network_active()) {
             return;
         }
 
@@ -185,7 +185,36 @@ if (!function_exists('pp_series_upgrade_new_multisite_blog')) {
         restore_current_blog();
     }
 
-    add_action('wp_initialize_site', 'pp_series_upgrade_new_multisite_blog');
+    // Run after core's wp_initialize_site (priority 10) has created the new site's tables.
+    add_action('wp_initialize_site', 'pp_series_upgrade_new_multisite_blog', 20);
+}
+
+if (!function_exists('pp_series_is_network_active')) {
+    /**
+     * Whether the plugin that loaded Series (Free, or Pro bundling it) is network-active.
+     *
+     * A new site only gets Series set up when the plugin runs on every site;
+     * otherwise the plugin's activation hook sets the site up when it is activated there.
+     *
+     * @return bool
+     */
+    function pp_series_is_network_active()
+    {
+        if (!is_multisite() || !defined('SERIES_FILE_PATH')) {
+            return false;
+        }
+
+        $plugin_dir = strtok(plugin_basename(SERIES_FILE_PATH), '/');
+        $network_plugins = (array) get_site_option('active_sitewide_plugins', array());
+
+        foreach (array_keys($network_plugins) as $plugin_file) {
+            if (strtok($plugin_file, '/') === $plugin_dir) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
 if (!function_exists('pp_series_locate_template')) {
