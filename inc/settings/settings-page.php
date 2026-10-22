@@ -54,7 +54,7 @@ function orgseries_option_page()
 
                         <h3 class="handle"><span><?php esc_html_e('Allowed Html', 'organize-series'); ?></span></h3>
                         <div class="inside">
-                            <?php $html_list = '<div> <img> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
+                            <?php $html_list = '<div> <img alt=""> <span> <p> <hr> <br /> <ol> <ul> <li> <fieldset> <legend> <h1> <h2> <h3> <h4> <h5> <h6>';
                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             echo '<p><code>' . htmlentities($html_list) . '</code></p>';
                             ?>
