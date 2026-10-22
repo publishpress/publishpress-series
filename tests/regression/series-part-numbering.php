@@ -164,4 +164,51 @@ series_issue_manager_part($s, implode(',', [$ids['P5'], $ids['P3'], $ids['P1'], 
 ppt_show('dragged P5,P3,P1,P4,P2', $s, $ids);
 ppt_expect('S10 final', $s, $ids, ['P5','P3','P1','P4','P2']);
 
+echo "S11 unpublish from the classic editor / Pro Series box (box posts the part it loaded)\n";
+wp_set_current_user(1);
+$s = ppt_series('S11'); $ids = [];
+for ($i = 1; $i <= 5; $i++) { $ids["P$i"] = ppt_post("S11 P$i", $s, 'publish', $i); }
+$_POST = $_REQUEST = ['post_series' => [$s], 'series_part' => [$s => '3'], 'is_series_save' => 1];
+wp_update_post(['ID' => $ids['P3'], 'post_status' => 'draft']); $_POST = $_REQUEST = [];
+ppt_show('P3 -> draft via editor (box sent 3)', $s, $ids);
+$kept = get_post_meta($ids['P3'], SERIES_PART_KEY . '_' . $s, true) === '' && is_array(get_post_meta($ids['P3'], SERIES_PART_KEY . '_' . $s . '_return', true));
+if (!$kept) { $GLOBALS['pp_fail']++; }
+printf("  %-34s %s\n", 'P3 part cleared, place remembered', $kept ? 'OK' : 'FAIL');
+wp_trash_post($ids['P2']); ppt_show('trash P2', $s, $ids);
+wp_update_post(['ID' => $ids['P3'], 'post_status' => 'publish']); ppt_show('publish P3', $s, $ids);
+ppt_expect('S11 final', $s, $ids, ['P1','P3','P4','P5']);
+$_POST = $_REQUEST = ['post_series' => [$s], 'series_part' => [$s => '3'], 'is_series_save' => 1];
+wp_update_post(['ID' => $ids['P4'], 'post_status' => 'draft']); $_POST = $_REQUEST = [];
+$_POST = $_REQUEST = ['post_series' => [$s], 'series_part' => [$s => '1'], 'is_series_save' => 1];
+wp_update_post(['ID' => $ids['P4'], 'post_title' => 'S11 P4 wants part 1']); $_POST = $_REQUEST = [];
+wp_update_post(['ID' => $ids['P4'], 'post_status' => 'publish']); ppt_show('P4 drafted, part 1 typed, published', $s, $ids);
+ppt_expect('S11 explicit draft part', $s, $ids, ['P4','P1','P3','P5']);
+
+echo "S12 more than 20 posts before the one that left\n";
+$s = ppt_series('S12'); $ids = [];
+for ($i = 1; $i <= 23; $i++) { $ids["P$i"] = ppt_post("S12 P$i", $s, 'publish', $i); }
+wp_update_post(['ID' => $ids['P22'], 'post_status' => 'draft']);
+for ($i = 2; $i <= 21; $i++) { wp_delete_post($ids["P$i"], true); unset($ids["P$i"]); }
+wp_update_post(['ID' => $ids['P22'], 'post_status' => 'publish']); ppt_show('P22 back after P2-P21 deleted', $s, $ids);
+ppt_expect('S12 final', $s, $ids, ['P1','P22','P23']);
+
+echo "S13 series term_id differs from its term_taxonomy_id\n";
+global $wpdb;
+$next = (int) $wpdb->get_var("SELECT MAX(term_taxonomy_id) FROM {$wpdb->term_taxonomy}") + 50;
+$wpdb->query("ALTER TABLE {$wpdb->term_taxonomy} AUTO_INCREMENT = $next");
+$decoy = wp_insert_term('S13 decoy ' . wp_generate_password(4, false), 'category');
+$wpdb->query("ALTER TABLE {$wpdb->terms} AUTO_INCREMENT = " . (int) $decoy['term_taxonomy_id']);
+$s = ppt_series('S13');
+$s_tt = (int) get_term($s, ppseries_get_series_slug())->term_taxonomy_id;
+printf("  %-34s series term_id=%d tt_id=%d, decoy category tt_id=%d\n", 'ids', $s, $s_tt, $decoy['term_taxonomy_id']);
+$d1 = wp_insert_post(['post_title' => 'S13 decoy public', 'post_status' => 'publish', 'post_category' => [$decoy['term_id']]]);
+$d2 = wp_insert_post(['post_title' => 'S13 decoy private', 'post_status' => 'private', 'post_category' => [$decoy['term_id']]]);
+$ids = [];
+for ($i = 1; $i <= 3; $i++) { $ids["P$i"] = ppt_post("S13 P$i", $s, 'publish', $i); }
+wp_update_post(['ID' => $ids['P2'], 'post_status' => 'draft']); ppt_show('P2 -> draft', $s, $ids);
+clean_term_cache($decoy['term_id'], 'category');
+$dc = (int) get_term($decoy['term_id'], 'category')->count;
+if ($dc !== 1) { $GLOBALS['pp_fail']++; }
+printf("  %-34s %d %s\n", 'decoy category count (core: 1)', $dc, $dc === 1 ? 'OK' : 'FAIL (unrelated term recounted)');
+
 echo "\nFAILED CHECKS: {$GLOBALS['pp_fail']}\n";
