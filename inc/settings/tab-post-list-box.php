@@ -46,7 +46,7 @@ function series_post_list_box_fieldset()
 
                 <tr valign="top">
                     <th scope="row"><label for="auto_tag_toggle"><?php esc_html_e('Display Post List Boxes?', 'organize-series'); ?></label></th>
-                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" <?php checked('1', isset($org_opt['auto_tag_toggle']) ? $org_opt['auto_tag_toggle'] : ''); ?> /></td>
+                    <td><input name="<?php echo esc_attr($org_name); ?>[auto_tag_toggle]" value="1" id="auto_tag_toggle" type="checkbox" aria-label="<?php esc_attr_e('Display Post List Boxes?', 'organize-series'); ?>" <?php checked('1', isset($org_opt['auto_tag_toggle']) ? $org_opt['auto_tag_toggle'] : ''); ?> /></td>
                 </tr>
 
                 <tr valign="top">
@@ -80,12 +80,12 @@ function series_post_list_box_fieldset()
                 </tr>
                 <tr valign="top" id="series_post_list_post_linked_post_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="series_post_list_post_template"><?php esc_html_e('Post Title (Linked Post)', 'organize-series'); ?></label></th>
-                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width"></td>
+                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_post_template]" id="series_post_list_post_template" aria-label="<?php esc_attr_e('Post Title Linked Post', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_post_list_post_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_post_template'])) : ''; ?>" class="ppseries-full-width"></td>
                 </tr>
                 <?php do_action('plist_ptitle_template_unpublished'); ?>
                 <tr valign="top" id="series_post_list_currentpost_row" class="ppseries-custom-template-row">
                     <th scope="row"><label for="series_post_list_currentpost_template"><?php esc_html_e('Post Title (Current Post)', 'organize-series'); ?></label></th>
-                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" value="<?php echo isset($org_opt['series_post_list_currentpost_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])) : ''; ?>" class="ppseries-full-width"></td>
+                    <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_post_list_currentpost_template]" id="series_post_list_currentpost_template" aria-label="<?php esc_attr_e('Post Title Current Post', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_post_list_currentpost_template']) ? esc_attr(htmlspecialchars($org_opt['series_post_list_currentpost_template'])) : ''; ?>" class="ppseries-full-width"></td>
                 </tr>
 
             </tbody>
