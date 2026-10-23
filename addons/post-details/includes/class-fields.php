@@ -131,12 +131,12 @@ class PPS_Series_Post_Details_Fields
                 'description' => __('Choose where to display the meta box in relation to the content', 'organize-series'),
             ],
             'limit_to_single' => [
-                'label'    => __('Limit to Single Posts', 'organize-series'),
+                'label'    => __('Hide on archive screens', 'organize-series'),
                 'type'     => 'checkbox',
                 'tab'      => 'general',
                 'sanitize' => 'absint',
                 'default'  => 0,
-                'description' => __('Enable to display meta box only on single post view, not on archives.', 'organize-series'),
+                'description' => __('Show this post details layout only on single post screens, not archives or blog listings.', 'organize-series'),
             ],
         ];
     }

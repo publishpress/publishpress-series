@@ -28,7 +28,7 @@ function series_taxonomy_base_core_fieldset()
         <tbody>
 
             <tr valign="top"><th scope="row"><label for="series_custom_base"><?php esc_html_e('Series Taxonomy Slug:', 'organize-series'); ?></label></th>
-                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
+                <td><input type="text" name="<?php echo esc_attr($org_name); ?>[series_custom_base]" id="series_custom_base" aria-label="<?php esc_attr_e('Series Taxonomy Slug', 'organize-series'); ?>" value="<?php echo isset($org_opt['series_custom_base']) ? esc_attr(htmlspecialchars($org_opt['series_custom_base'])) : ''; ?>" /> <br />
                     <p class="description">
                         <?php esc_html_e('This text will be part of the series base URL.', 'organize-series'); ?>
                     </p>
