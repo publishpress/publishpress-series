@@ -479,3 +479,23 @@ if (! function_exists('pps_sanitize_layout_settings')) {
         return $clean;
     }
 }
+
+if (! function_exists('pps_sanitize_optional_absint')) {
+    /**
+     * Sanitize an optional non-negative integer: an empty value stays empty ("not set").
+     *
+     * Used for per-side spacing overrides, where empty means "use the all-sides value".
+     *
+     * @param mixed $value Raw value.
+     *
+     * @return int|string
+     */
+    function pps_sanitize_optional_absint($value)
+    {
+        if (is_array($value) || '' === trim((string) $value)) {
+            return '';
+        }
+
+        return absint($value);
+    }
+}
