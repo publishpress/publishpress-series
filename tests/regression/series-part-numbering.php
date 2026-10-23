@@ -211,4 +211,20 @@ $dc = (int) get_term($decoy['term_id'], 'category')->count;
 if ($dc !== 1) { $GLOBALS['pp_fail']++; }
 printf("  %-34s %d %s\n", 'decoy category count (core: 1)', $dc, $dc === 1 ? 'OK' : 'FAIL (unrelated term recounted)');
 
+echo "S14 Manage Series: Update Order from a paginated or searched view\n";
+$s = ppt_series('S14'); $ids = [];
+for ($i = 1; $i <= 8; $i++) { $ids["P$i"] = ppt_post("S14 P$i", $s, 'publish', $i); }
+$all = ['P1','P2','P3','P4','P5','P6','P7','P8'];
+series_issue_manager_part($s, implode(',', [$ids['P1'], $ids['P2'], $ids['P3'], $ids['P4']]));
+ppt_show('page 1 saved unchanged', $s, $ids);
+ppt_expect('S14 page 1 no-op', $s, $ids, $all);
+series_issue_manager_part($s, implode(',', [$ids['P5'], $ids['P6'], $ids['P7'], $ids['P8']]));
+ppt_expect('S14 page 2 no-op', $s, $ids, $all);
+series_issue_manager_part($s, implode(',', [$ids['P6'], $ids['P5'], $ids['P8'], $ids['P7']]));
+ppt_show('page 2 dragged P6,P5,P8,P7', $s, $ids);
+ppt_expect('S14 page 2 drag', $s, $ids, ['P1','P2','P3','P4','P6','P5','P8','P7']);
+series_issue_manager_part($s, implode(',', [$ids['P8'], $ids['P2']]));
+ppt_show('search P2,P8 dragged P8 first', $s, $ids);
+ppt_expect('S14 search drag', $s, $ids, ['P1','P8','P3','P4','P6','P5','P2','P7']);
+
 echo "\nFAILED CHECKS: {$GLOBALS['pp_fail']}\n";

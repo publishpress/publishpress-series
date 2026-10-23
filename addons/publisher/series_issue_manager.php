@@ -3,10 +3,72 @@ if (!defined('OS_PUBLISHER_VERSION')) {
     define('OS_PUBLISHER_VERSION', '2.2.5.rc.000');
 }
 
-if (!function_exists('series_issue_manager_part')) {
-    function series_issue_manager_part($series_ID, $post_IDs)
+if (!function_exists('ppseries_publisher_reorder_series_slice')) {
+    /**
+     * Put a reordered subset of a series back into the part slots it already holds.
+     *
+     * The Series Order screen can be paginated, searched or filtered, so the submitted IDs are often only part of the
+     * series. Numbered posts in the subset swap places within their own slots; every other post keeps its part.
+     * A post without a part number is slotted in right after the post shown above it. When nothing is shown above
+     * it, it stays unnumbered unless $number_unnumbered is true, in which case it goes before the first numbered post.
+     *
+     * @param int[] $ordered_ids       Numbered post IDs of the series in part order.
+     * @param int[] $submitted_ids     Post IDs in the order they were submitted.
+     * @param bool  $number_unnumbered Also number posts that have nothing above them.
+     *
+     * @return int[] The new part order.
+     */
+    function ppseries_publisher_reorder_series_slice($ordered_ids, $submitted_ids, $number_unnumbered = false)
     {
-        $post_ids = ppseries_publisher_parse_post_ids($post_IDs);
+        $ordered_ids   = array_values(array_map('intval', $ordered_ids));
+        $submitted_ids = array_values(array_unique(array_map('intval', $submitted_ids)));
+        $numbered_ids  = array_values(array_intersect($submitted_ids, $ordered_ids));
+
+        $slots = [];
+        foreach ($numbered_ids as $post_id) {
+            $slots[] = array_search($post_id, $ordered_ids, true);
+        }
+        sort($slots);
+        foreach ($slots as $index => $slot) {
+            $ordered_ids[$slot] = $numbered_ids[$index];
+        }
+
+        $first_numbered_id = isset($numbered_ids[0]) ? $numbered_ids[0] : 0;
+        $previous_id       = 0;
+        foreach ($submitted_ids as $post_id) {
+            if (in_array($post_id, $ordered_ids, true)) {
+                $previous_id = $post_id;
+                continue;
+            }
+
+            if ($previous_id > 0) {
+                $position = array_search($previous_id, $ordered_ids, true) + 1;
+            } elseif ($number_unnumbered) {
+                $position = $first_numbered_id > 0 ? array_search($first_numbered_id, $ordered_ids, true) : count($ordered_ids);
+            } else {
+                continue;
+            }
+
+            array_splice($ordered_ids, $position, 0, [$post_id]);
+            $previous_id = $post_id;
+        }
+
+        return $ordered_ids;
+    }
+}
+
+if (!function_exists('series_issue_manager_part')) {
+    /**
+     * Save the order of (some of) the posts in a series.
+     *
+     * @param int          $series_ID         Series term ID.
+     * @param string|int[] $post_IDs          Post IDs in their new order.
+     * @param bool         $number_unnumbered Also number posts without a part that have nothing above them.
+     */
+    function series_issue_manager_part($series_ID, $post_IDs, $number_unnumbered = false)
+    {
+        $series_ID = (int) $series_ID;
+        $post_ids  = ppseries_publisher_parse_post_ids($post_IDs);
         if ($post_ids === [] || !ppseries_publisher_user_can_all_posts($post_ids, 'edit_post')) {
             return;
         }
@@ -20,20 +82,15 @@ if (!function_exists('series_issue_manager_part')) {
             }
         }
 
-        $post_IDs = implode(',', $post_ids);
-
-        //delete all series part
-        foreach ($post_ids as $post_ID) {
-            $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
-            delete_post_meta($post_ID, $part_key);
-            add_post_meta($post_ID, $part_key, '');
+        $series_post_ids = get_objects_in_term($series_ID, ppseries_get_series_slug());
+        if (empty($series_post_ids) || is_wp_error($series_post_ids)) {
+            return;
         }
+        $post_ids = array_values(array_intersect($post_ids, array_map('intval', $series_post_ids)));
 
-        // $post_IDs should have all pending posts' IDs in the series
-        $counter = 0;
-        $current_sn = 0;
-        foreach (explode(',', $post_IDs) as $post_ID) {
-            if (in_array(get_post_status($post_ID), ['draft', 'future', 'pending'])) {
+        //publishing numbers the post in each of its series (refresh_series_count_on_status_change).
+        foreach ($post_ids as $post_ID) {
+            if (in_array(get_post_status($post_ID), ['draft', 'future', 'pending'], true)) {
                 wp_update_post(
                     array(
                         'ID' => $post_ID,
@@ -42,18 +99,22 @@ if (!function_exists('series_issue_manager_part')) {
                         'post_status' => 'publish'
                     )
                 );
-                $all_series = wp_get_object_terms($post_IDs, ppseries_get_series_slug(), ['fields' => 'ids']);
-                foreach ($all_series as $all_serie) {
-                    if ((int) $all_serie !== $series_ID) {
-                        set_series_order($all_serie, $post_ID, 0, true);
-                    }
-                }
             }
-            $current_sn++;
-            $post_ID = (int) $post_ID;
-            $post = get_post($post_ID);
-            publisher_wp_set_post_series($post, true, $post_ID, $series_ID, false);
-            $counter++;
+        }
+
+        $part_key    = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_ID);
+        $ordered_ids = ppseries_publisher_reorder_series_slice(
+            ppseries_get_numbered_series_post_ids($series_ID),
+            $post_ids,
+            $number_unnumbered
+        );
+
+        foreach ($ordered_ids as $offset => $series_post_id) {
+            $new_part = $offset + 1;
+            if ((string) get_post_meta($series_post_id, $part_key, true) !== (string) $new_part) {
+                delete_post_meta($series_post_id, $part_key);
+                add_post_meta($series_post_id, $part_key, $new_part);
+            }
         }
     }
 }
@@ -684,7 +745,7 @@ function ppseries_publisher_admin_init()
                 }
             }
 
-            series_issue_manager_part($series_id, implode(',', $post_ids));
+            series_issue_manager_part($series_id, implode(',', $post_ids), in_array($subaction, array( 'date_asc', 'date_desc' ), true));
             ppseries_publisher_redirect([
                 'action' => 'part',
                 'series_ID' => $series_id,
