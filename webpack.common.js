@@ -5,10 +5,17 @@ const osassets = './assets/src/';
 /** see below for multiple configurations.
  */
 /** https://webpack.js.org/configuration/configuration-types/#exporting-multiple-configurations */
+/**
+ * The configs share assets/dist and build-manifest.json, and 'base' cleans that folder.
+ * Run them one at a time ('base' first) so the clean can't delete files that the other
+ * configs already emitted, and each manifest update sees the previous one.
+ */
 
 module.exports = [
     {
         configName: 'os-common',
+        name: 'os-common',
+        dependencies: ['base'],
         entry: {
             'common' : [
                 'core-js/stable',
@@ -34,6 +41,8 @@ module.exports = [
     },
     {
         configName: 'os-admin-global',
+        name: 'os-admin-global',
+        dependencies: ['os-common'],
         entry: {
             'admin-global': [
                 osassets + 'admin-main.js'
@@ -58,6 +67,7 @@ module.exports = [
     },
     {
         configName: 'base',
+        name: 'base',
         entry: {
             'frontend-global': [
                 osassets + 'frontend.js'

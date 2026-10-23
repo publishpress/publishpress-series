@@ -30,7 +30,8 @@
   "scripts": {
     "pre-autoload-dump": "composer dumpautoload --working-dir=./lib",
     "pre-update-cmd": "composer update --working-dir=./lib",
-    "pre-install-cmd": "composer install --working-dir=./lib"
+    "pre-install-cmd": "composer install --working-dir=./lib",
+    "build:assets": "npm run build"
   },
   "extra": {
     "plugin-name": "publishpress-series",
