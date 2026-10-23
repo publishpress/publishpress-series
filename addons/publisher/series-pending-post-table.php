@@ -354,8 +354,10 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         /**
          * Pagination.
          */
-        $current_page = $this->get_pagenum();
+        //this table shares the Series Order screen and its "paged" arg with the published posts table, so it is not paginated.
+        $current_page = 1;
         $total_items = count($data);
+        $per_page = max($per_page, $total_items, 1);
 
 
         /**
