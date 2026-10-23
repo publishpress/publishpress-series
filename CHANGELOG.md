@@ -1,5 +1,28 @@
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+[3.1.5] - 23 Oct, 2026
+
+* Added: Add search, a part number filter and pagination to the Series Order screen #1231
+* Added: Add Order Tools to the Series Order screen to order posts by publication date, oldest or newest first #1236
+* Added: Add a search box to the Series Categories list on the Series edit screen #1233
+* Added: Add top, right, bottom and left padding and margin controls for Post Details #1245
+* Changed: Add the Series boxes after table of contents plugins read the post content, so tables of contents no longer list Series headings or appear inside the Post List Box. Content that other plugins add to the post after the Series boxes (filter priority 13 to 10050) now appears above a Series box placed at the bottom of the post #1242
+* Changed: "Update Order" on the Series Order screen only changes the posts on the current page and leaves posts without a part number unnumbered. Saving without changes no longer renumbers posts #1231
+* Changed: On multisite, only Super Admins can change "Delete all PublishPress Series data" and the setting applies to the whole network #1230
+* Changed: Rename the Post Details archive option to "Hide on archive screens" and explain what it hides #1232
+* Changed: Improve the accessibility of admin fields, links, images and Series featured images #1234 #1250
+* Changed: Set the options autoload values, build admin URLs with admin_url() and set up Series on new multisite sites #1235
+* Changed: Add a workflow that builds the plugin zip from any branch or pull request #1251
+* Changed: Update axios from 1.19.0 to 1.20.0, follow-redirects from 1.16.0 to 1.16.1 and source-map-js from 1.2.1 to 1.2.2, and rebuild the JavaScript files #1252 #1254 #1257
+* Changed: Update postcss-selector-parser from 7.1.4 to 7.1.6 (development) #1253
+* Changed: Update publishpress/pimple-pimple from 3.5.0.10 to 3.5.0.11
+* Fixed: Show the correct series title and link in each Post List Box when a post is in more than one series #1261
+* Fixed: Update the Series post counts and part numbers when a post is published, unpublished or trashed #1244
+* Fixed: The Series widget Include and Exclude options #1243
+* Fixed: Deleting the plugin removes the Series data when "Delete all PublishPress Series data" is on #1230
+* Fixed: Updates to the Series settings made by code no longer fail with "The link you followed has expired" #1259
+* Fixed: Verify TLS certificates in license requests and harden cache keys and output escaping #1237
+* Fixed: A clean JavaScript build no longer drops the admin script from assets/dist
 
 [3.1.4] - 14 Sep, 2026
 

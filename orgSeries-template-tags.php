@@ -1284,18 +1284,21 @@ function get_series_icon($params = '')
 
     $icon = series_get_icons($p['series']);
     $s_name = get_series_name($p['series']);
+    if (empty($s_name)) {
+        $s_name = __('Series featured image', 'organize-series');
+    }
     $file = seriesicons_path() . $icon;
     $url = seriesicons_url() . $icon;
 
     if ($p['link']) {
-        $p['prefix'] .= '<a href="' . get_series_link($p['series']) . '">';
+        $p['prefix'] .= '<a href="' . esc_url(get_series_link($p['series'])) . '" aria-label="' . esc_attr(sprintf(__('View series: %s', 'organize-series'), $s_name)) . '">';
         $p['suffix'] = '</a>' . $p['suffix'];
     }
 
     if (is_file($file)) {
         list($width, $height, $type, $attr) = getimagesize($file);
         list($w, $h) = series_fit_rect($width, $height, $p['fit_width'], $p['fit_height'], $p['expand']);
-        $series_icon = $p['prefix'] . '<img class="' . esc_attr($p['class']) . '" src="' . esc_url($url) . '" width="' . esc_attr($w) . '" height="' . esc_attr($h) . '"  alt="' . esc_attr($icon) . '" />' . $p['suffix'];
+        $series_icon = $p['prefix'] . '<img class="' . esc_attr($p['class']) . '" src="' . esc_url($url) . '" width="' . esc_attr($w) . '" height="' . esc_attr($h) . '"  alt="' . esc_attr($s_name) . '" />' . $p['suffix'];
         if ($p['display'] == 1) {
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             echo $series_icon;
