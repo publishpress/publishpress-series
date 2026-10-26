@@ -7,6 +7,8 @@
 * @since 2.2
 */
 
+defined('ABSPATH') || exit;
+
 if (!class_exists('orgSeries')) {
 
     class orgSeries
@@ -62,6 +64,9 @@ if (!class_exists('orgSeries')) {
 
             //series post-navigation
             add_filter('the_content', array($this, 'series_nav_filter'));
+
+            //put the Series boxes queued above into the content after TOC and other auto-insert plugins have read it (#1242)
+            add_filter('the_content', array($this, 'insert_deferred_series_output'), (int) apply_filters('pp_series_deferred_output_priority', 10050));
 
             //broswer page title
             add_filter('wp_title', array($this, 'add_series_wp_title'));
@@ -160,7 +165,7 @@ if (!class_exists('orgSeries')) {
                 }
                 update_option('org_series_version', $this->version);
             } else {
-                add_option("org_series_version", $this->version);
+                add_option('org_series_version', $this->version, '', 'yes'); // Read on every init, so keep it autoloaded.
             }/**/
         }
 
@@ -747,6 +752,89 @@ if (!class_exists('orgSeries')) {
             return false;
         }
 
+        /**
+         * Series box HTML waiting to be put into the content, keyed by placeholder.
+         *
+         * @var array
+         */
+        private $deferred_series_output = [];
+
+        /**
+         * Queue Series box HTML and return a placeholder to put in the content instead.
+         *
+         * The Series content filters run at their usual priorities (10 and 12), so code that removes
+         * them still works, but they only add an HTML comment there. insert_deferred_series_output()
+         * swaps it for the box after table of contents and other auto-insert plugins have read the
+         * content, so they no longer list the Series box headings or insert themselves inside the
+         * Series box (#1242).
+         *
+         * @param string $html Series box HTML.
+         *
+         * @return string Placeholder, or an empty string for empty HTML.
+         */
+        private function defer_series_output($html)
+        {
+            if ('' === trim((string) $html)) {
+                return '';
+            }
+
+            $placeholder = '<!--pps-series-output:' . count($this->deferred_series_output) . ':' . wp_rand() . '-->';
+            $this->deferred_series_output[$placeholder] = $html;
+
+            return $placeholder;
+        }
+
+        /**
+         * Put a Series template around the content, deferring the template parts.
+         *
+         * @param string $template Series template that may contain %postcontent%.
+         * @param string $content  Post content.
+         * @param string $position top, bottom, or anything else for "where %postcontent% is".
+         *
+         * @return string
+         */
+        private function add_deferred_series_output($template, $content, $position)
+        {
+            if ($position === 'top') {
+                return $this->defer_series_output(str_replace('%postcontent%', '', $template)) . $content;
+            }
+
+            if ($position === 'bottom') {
+                return $content . $this->defer_series_output(str_replace('%postcontent%', '', $template));
+            }
+
+            $parts = explode('%postcontent%', $template, 2);
+            if (count($parts) < 2) {
+                //no %postcontent% in the template: it replaces the content, as before.
+                return $this->defer_series_output($template);
+            }
+
+            return $this->defer_series_output($parts[0]) . $content . $this->defer_series_output($parts[1]);
+        }
+
+        /**
+         * Swap the Series box placeholders for the boxes.
+         *
+         * @param string $content Post content.
+         *
+         * @return string
+         */
+        public function insert_deferred_series_output($content)
+        {
+            if (empty($this->deferred_series_output) || ! is_string($content) || false === strpos($content, '<!--pps-series-output:')) {
+                return $content;
+            }
+
+            foreach ($this->deferred_series_output as $placeholder => $html) {
+                if (false !== strpos($content, $placeholder)) {
+                    $content = str_replace($placeholder, $html, $content);
+                    unset($this->deferred_series_output[$placeholder]);
+                }
+            }
+
+            return $content;
+        }
+
         //add series post-list box to a post in that series (on single.php view)
         public function add_series_post_list_box($content)
         {
@@ -772,12 +860,8 @@ if (!class_exists('orgSeries')) {
                         $position = isset($editor_data['post_list_position']) ? $editor_data['post_list_position'] : 'top';
                     }
 
-                    if ($position === 'top') {
-                        $postlist = str_replace('%postcontent%', '', $postlist);
-                        $content = $postlist . $content;
-                    } elseif ($position === 'bottom') {
-                        $postlist = str_replace('%postcontent%', '', $postlist);
-                        $content = $content . $postlist;
+                    if ($position === 'top' || $position === 'bottom') {
+                        $content = $this->add_deferred_series_output($postlist, $content, $position);
                     }
                 }
             }
@@ -817,16 +901,7 @@ if (!class_exists('orgSeries')) {
                     if ($layout_settings && isset($layout_settings['metabox_position'])) {
                         $position = $layout_settings['metabox_position'];
                     }
-                    if ($position === 'top') {
-                        $series_meta = str_replace('%postcontent%', '', $series_meta);
-                        $content = $series_meta . $content;
-                    } elseif ($position === 'bottom') {
-                        $series_meta = str_replace('%postcontent%', '', $series_meta);
-                        $content = $content . $series_meta;
-                    } else {
-                        $addcontent = $content;
-                        $content = str_replace('%postcontent%', $addcontent, $series_meta);
-                    }
+                    $content = $this->add_deferred_series_output($series_meta, $content, $position);
                 }
             }
             return $content;
@@ -899,16 +974,7 @@ if (!class_exists('orgSeries')) {
 
                 if ($add_series_content && $this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav()) {
                     $position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
-                    if ($position === 'top') {
-                        $series_nav = str_replace('%postcontent%', '', $series_nav);
-                        $content = $series_nav . $content;
-                    } elseif ($position === 'bottom') {
-                        $series_nav = str_replace('%postcontent%', '', $series_nav);
-                        $content = $content . $series_nav;
-                    } else {
-                        $addcontent = $content;
-                        $content = str_replace('%postcontent%', $addcontent, $series_nav);
-                    }
+                    $content = $this->add_deferred_series_output($series_nav, $content, $position);
                 }
             }
             return $content;

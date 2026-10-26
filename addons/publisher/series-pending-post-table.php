@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 if (!class_exists('WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
@@ -208,7 +210,16 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
      */
     protected function column_cb($item)
     {
-        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int) $item->ID);
+        $out = sprintf(
+            '<input type="checkbox" name="%1$s[]" value="%2$s" aria-label="%3$s" />',
+            'series_post',
+            (int) $item->ID,
+            esc_attr(sprintf(
+                /* translators: %s: Post title. */
+                __('Select %s', 'organize-series'),
+                get_the_title($item->ID)
+            ))
+        );
 
         return $out;
     }
@@ -345,8 +356,10 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         /**
          * Pagination.
          */
-        $current_page = $this->get_pagenum();
+        //this table shares the Series Order screen and its "paged" arg with the published posts table, so it is not paginated.
+        $current_page = 1;
         $total_items = count($data);
+        $per_page = max($per_page, $total_items, 1);
 
 
         /**

@@ -3,9 +3,7 @@
  * Field definitions for Series Post Details editor
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Fields
 {
@@ -131,12 +129,12 @@ class PPS_Series_Post_Details_Fields
                 'description' => __('Choose where to display the meta box in relation to the content', 'organize-series'),
             ],
             'limit_to_single' => [
-                'label'    => __('Limit to Single Posts', 'organize-series'),
+                'label'    => __('Hide on archive screens', 'organize-series'),
                 'type'     => 'checkbox',
                 'tab'      => 'general',
                 'sanitize' => 'absint',
                 'default'  => 0,
-                'description' => __('Enable to display meta box only on single post view, not on archives.', 'organize-series'),
+                'description' => __('Show this post details layout only on single post screens, not archives or blog listings.', 'organize-series'),
             ],
         ];
     }
@@ -204,7 +202,51 @@ class PPS_Series_Post_Details_Fields
                 'max'      => 100,
                 'sanitize' => 'absint',
                 'default'  => 20,
-                'description' => __('Padding applied to all sides of the content area', 'organize-series'),
+                'description' => __('Padding applied to all sides of the content area. Set a side below to override it.', 'organize-series'),
+            ],
+            'padding_top' => [
+                'label'    => __('Padding Top (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'padding',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Padding value.', 'organize-series'),
+            ],
+            'padding_right' => [
+                'label'    => __('Padding Right (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'padding',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Padding value.', 'organize-series'),
+            ],
+            'padding_bottom' => [
+                'label'    => __('Padding Bottom (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'padding',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Padding value.', 'organize-series'),
+            ],
+            'padding_left' => [
+                'label'    => __('Padding Left (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'padding',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Padding value.', 'organize-series'),
             ],
             'margin' => [
                 'label'    => __('Margin (px)', 'organize-series'),
@@ -214,7 +256,51 @@ class PPS_Series_Post_Details_Fields
                 'max'      => 100,
                 'sanitize' => 'absint',
                 'default'  => 0,
-                'description' => __('Margin applied to all sides of the meta box', 'organize-series'),
+                'description' => __('Margin applied to all sides of the meta box. Set a side below to override it.', 'organize-series'),
+            ],
+            'margin_top' => [
+                'label'    => __('Margin Top (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'margin',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Margin value.', 'organize-series'),
+            ],
+            'margin_right' => [
+                'label'    => __('Margin Right (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'margin',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Margin value.', 'organize-series'),
+            ],
+            'margin_bottom' => [
+                'label'    => __('Margin Bottom (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'margin',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Margin value.', 'organize-series'),
+            ],
+            'margin_left' => [
+                'label'    => __('Margin Left (px)', 'organize-series'),
+                'type'     => 'number',
+                'tab'      => 'styling',
+                'placeholder_from' => 'margin',
+                'min'      => 0,
+                'max'      => 100,
+                'sanitize' => 'pps_sanitize_optional_absint',
+                'default'  => '',
+                'description' => __('Leave empty to use the Margin value.', 'organize-series'),
             ],
             'border_separator' => [
                 'type'  => 'category_separator',

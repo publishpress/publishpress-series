@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
 * This file contains all the functions that can be used in themes for displaying series_grouping related info
 */
@@ -386,7 +388,7 @@ function get_series_group_list($group_id = array(), $args = array(), $echo = tru
     }
 
     if ($echo) {
-        echo $group_out;
+        echo wp_kses_post($group_out);
     } else {
         return $group_out;
     }

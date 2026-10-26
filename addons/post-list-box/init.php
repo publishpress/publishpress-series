@@ -4,9 +4,7 @@
  * Loads the Post List Box module
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 // Always load utilities (needed by settings page)
 require_once __DIR__ . '/includes/class-utilities.php';

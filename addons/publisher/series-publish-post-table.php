@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 if (!class_exists('WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
@@ -334,7 +336,16 @@ class PPS_Publisher_Post_Publish_Table extends WP_List_Table
      */
     protected function column_cb($item)
     {
-        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"/>', 'series_post', (int)$item->ID);
+        $out = sprintf(
+            '<input type="checkbox" name="%1$s[]" value="%2$s" aria-label="%3$s" />',
+            'series_post',
+            (int) $item->ID,
+            esc_attr(sprintf(
+                /* translators: %s: Post title. */
+                __('Select %s', 'organize-series'),
+                get_the_title($item->ID)
+            ))
+        );
 
         return $out;
     }

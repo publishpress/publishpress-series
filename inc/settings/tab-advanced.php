@@ -7,6 +7,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section('series_uninstall_settings', 'Uninstall', 'orgseries_uninstall_section', 'orgseries_options_page');
 add_settings_field('series_uninstall_core_fieldset', 'Series uninstall', 'series_uninstall_core_fieldset', 'orgseries_options_page', 'series_uninstall_settings');
 
@@ -31,6 +33,7 @@ function series_uninstall_core_fieldset()
 
             <?php do_action('pp_series_advanced_tab_middle'); ?>
 
+            <?php if (! is_multisite() || is_super_admin()) : ?>
             <tr valign="top">
                 <th scope="row"><label for="kill_on_delete">
                         <?php esc_html_e('Series Settings', 'organize-series'); ?>
@@ -38,11 +41,16 @@ function series_uninstall_core_fieldset()
                 </th>
                 <td>
                     <label>
-                        <input name="<?php echo esc_attr($org_name); ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked('1', isset($org_opt['kill_on_delete']) ? $org_opt['kill_on_delete'] : ''); ?> />
+                        <input name="<?php echo esc_attr($org_name); ?>[kill_on_delete]" id="kill_on_delete" type="checkbox" value="1" <?php checked(1, ppseries_get_kill_on_delete()); ?> />
+                        <?php if (is_multisite()) : ?>
+                        <span class="description"><?php esc_html_e('Delete all PublishPress Series data from the database, on every site in the network, when deleting this plugin. This setting applies network-wide and is only visible to Super Admins.', 'organize-series'); ?></span>
+                        <?php else : ?>
                         <span class="description"><?php esc_html_e('Delete all PublishPress Series data from the database when deleting this plugin.', 'organize-series'); ?></span>
+                        <?php endif; ?>
                     </label>
                 </td>
             </tr>
+            <?php endif; ?>
 
             <tr valign="top">
             <th scope="row">

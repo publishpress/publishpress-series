@@ -21,6 +21,8 @@ use OrganizeSeries\domain\model\SuccessNotice;
 use OrganizeSeries\domain\services\AssetRegistry;
 
 
+\defined('ABSPATH') || exit;
+
 /**
  * LicenseKeyFormManager
  * This takes care of generating and processing license key forms.

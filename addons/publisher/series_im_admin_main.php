@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') || exit;
+?>
 <div class="wrap">
   <h2><?php esc_html_e('Manage Series', 'organize-series'); ?></h2>
 

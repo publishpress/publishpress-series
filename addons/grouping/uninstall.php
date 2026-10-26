@@ -1,4 +1,6 @@
 <?php
+defined('ABSPATH') || exit;
+
 global $wpdb, $orgseries;
 $settings = $orgseries->settings;
 $delete_grouping = $settings['kill_grouping_on_delete'];

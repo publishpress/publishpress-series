@@ -7,6 +7,8 @@
  * @package PublishPress
  */
 
+defined('ABSPATH') || exit;
+
 if (pp_series_locate_template(['header.php'])) {
     get_header();
 } elseif (pp_series_is_block_theme()) {

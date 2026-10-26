@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\exceptions;
 use Exception;
 use InvalidArgumentException;
 
+\defined('ABSPATH') || exit;
+
 class NonceFailException extends InvalidArgumentException
 {
     /**

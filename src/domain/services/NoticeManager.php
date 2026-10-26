@@ -11,6 +11,8 @@ use OrganizeSeries\domain\model\SingleNoticeCollection;
 use OrganizeSeries\domain\model\SuccessNotice;
 use OrganizeSeries\domain\model\WarningNotice;
 
+\defined('ABSPATH') || exit;
+
 /**
  * NoticeManager
  * Interface for all notice management/retrieval

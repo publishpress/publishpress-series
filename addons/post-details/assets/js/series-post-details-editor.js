@@ -174,6 +174,12 @@ jQuery(document).ready(function ($) {
             .on('change input keyup', '.pps-series-post-details-editor-table input, .pps-series-post-details-editor-table select, .pps-series-post-details-editor-table textarea', debouncedUpdate)
             .on('change input keyup', '.publishpress-series-post-details-editor :input', debouncedUpdate);
 
+        // Empty side spacing fields fall back to the all-sides value: keep their placeholder in sync.
+        $(document).on('change input keyup', '#padding, #margin', function () {
+            var base = $(this).attr('id');
+            $('input[data-placeholder-from="' + base + '"]').attr('placeholder', $(this).val());
+        });
+
        
 
         // Form validation

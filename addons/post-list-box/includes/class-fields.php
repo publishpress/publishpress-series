@@ -3,9 +3,7 @@
  * Fields Manager for Post List Box
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Post_List_Box_Fields
 {

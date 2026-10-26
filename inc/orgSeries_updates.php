@@ -1,4 +1,6 @@
 <?php
+defined('ABSPATH') || exit;
+
 if (!class_exists('PluginUpdateChecker')) :
 
 /**
@@ -141,7 +143,7 @@ if (!class_exists('PluginUpdateChecker')) :
         {
             $this->set_domain();
             add_settings_field('orgseries_api_settings', 'Publishpress Series User API', array($this,'orgseries_api_output'), 'orgseries_options_page', 'series_uninstall_settings');
-            register_setting('orgseries_options', 'org_series_options');
+            register_setting('orgseries_options', 'org_series_options', 'orgseries_validate');
             add_filter('orgseries_options', array($this,'orgseries_api_validate'), 10, 2);
         }
 
@@ -162,7 +164,7 @@ if (!class_exists('PluginUpdateChecker')) :
             $org_name = 'org_series_options';
             ?>
             <strong><?php esc_html_e('Publishpress Series API: ', $this->lang_domain); ?></strong>
-            <input name="<?php echo esc_attr($org_name); ?>[orgseries_api]" id="orgseries_api" type="text" value="<?php echo esc_attr(trim($org_opt['orgseries_api'])); ?>"  /><br /><br />
+            <input name="<?php echo esc_attr($org_name); ?>[orgseries_api]" id="orgseries_api" type="text" aria-label="<?php esc_attr_e('PublishPress Series API key', 'organize-series'); ?>" value="<?php echo esc_attr(trim($org_opt['orgseries_api'])); ?>"  /><br /><br />
             <?php
         }
 
@@ -306,7 +308,7 @@ if (!class_exists('PluginUpdateChecker')) :
                 //Dismiss code below is obtained from the Gravity Forms Plugin by rocketgenius.com
                 ?>
                     <div class="updated" style="padding:15px; position:relative;" id="orgseries_dashboard_message"><?php echo wp_kses_post($msg); ?>
-                <a href="javascript:void(0);" onclick="OrgSeriesDismissUpgrade();" style='float:right;'><?php esc_html_e("Dismiss") ?></a>
+                <a href="javascript:void(0);" onclick="OrgSeriesDismissUpgrade();" style='float:right;' aria-label="<?php esc_attr_e('Dismiss upgrade notice', 'organize-series'); ?>"><?php esc_html_e('Dismiss', 'organize-series'); ?></a>
             </div>
             <script type="text/javascript">
                 function OrgSeriesDismissUpgrade(){

@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /* This file is for all the Publishpress Series related Term Queries and "template tags".
 
 In most cases, the series functions listed here are just "wrappers" to save having to call the built-in functions for WordPress Custom Taxonomies.
@@ -56,7 +58,7 @@ function &get_series($args = '')
     global $wpdb;
     $series = array();
 
-    $key = md5(serialize($args)); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize -- Hash input only; serialized data is never deserialized.
+    $key = md5((string) wp_json_encode($args));
     if ($cache = wp_cache_get('get_series', ppseries_get_series_slug())) {
         if (isset($cache[$key])) {
             $series = apply_filters('get_series', $cache[$key], $args);
@@ -127,6 +129,343 @@ function reset_series_order_on_trash($postid)
     }
 }
 
+/**
+ * Post statuses whose posts are counted and numbered in a series.
+ *
+ * Matches the statuses counted by _os_update_post_term_count(), so "part X of Y" uses the same set of posts.
+ *
+ * @return string[]
+ */
+function ppseries_series_counted_statuses()
+{
+    return (array) apply_filters('ppseries_series_counted_statuses', array('publish', 'private'));
+}
+
+/**
+ * Whether a post currently counts towards (and is numbered in) a series.
+ *
+ * @param int $post_id Post ID.
+ *
+ * @return bool
+ */
+function ppseries_is_counted_series_post($post_id)
+{
+    $post = get_post((int) $post_id);
+    if (! $post instanceof WP_Post) {
+        return false;
+    }
+
+    return in_array($post->post_status, ppseries_series_counted_statuses(), true)
+        && in_array($post->post_type, (array) apply_filters('orgseries_posttype_support', array('post')), true);
+}
+
+/**
+ * Meta key that remembers where an unpublished post sat in a series.
+ *
+ * Holds array('part' => the part it had, 'previous' => IDs of all the posts before it, nearest first),
+ * saved when it left the counted statuses.
+ *
+ * @param int $series_id Series term ID.
+ *
+ * @return string
+ */
+function ppseries_series_return_key($series_id)
+{
+    return apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id) . '_return';
+}
+
+/**
+ * The place an unpublished post remembers in a series, if any.
+ *
+ * @param int $post_id   Post ID.
+ * @param int $series_id Series term ID.
+ *
+ * @return array|null array('part' => int, 'previous' => int[]) or null.
+ */
+function ppseries_get_series_return($post_id, $series_id)
+{
+    $return = get_post_meta((int) $post_id, ppseries_series_return_key($series_id), true);
+    if (! is_array($return) || ! isset($return['previous']) || ! is_array($return['previous'])) {
+        return null;
+    }
+
+    return array(
+        'part'     => isset($return['part']) ? (int) $return['part'] : 0,
+        'previous' => array_map('intval', $return['previous']),
+    );
+}
+
+/**
+ * IDs of the counted, numbered posts in a series in part order (part, then date, then ID).
+ *
+ * Counted posts without a part number are left out.
+ *
+ * @param int $series_id       Series term ID.
+ * @param int $include_post_id Also include this post (if it has a part) whatever its status.
+ *
+ * @return int[]
+ */
+function ppseries_get_numbered_series_post_ids($series_id, $include_post_id = 0)
+{
+    $series_id       = (int) $series_id;
+    $include_post_id = (int) $include_post_id;
+    $part_key        = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+    $object_ids      = get_objects_in_term($series_id, ppseries_get_series_slug());
+
+    if (empty($object_ids) || is_wp_error($object_ids)) {
+        return array();
+    }
+
+    $statuses = ppseries_series_counted_statuses();
+    if ($include_post_id > 0 && get_post_status($include_post_id)) {
+        $statuses[] = get_post_status($include_post_id);
+    }
+
+    $posts = get_posts(
+        array(
+            'include'                => array_map('intval', $object_ids),
+            'post_type'              => (array) apply_filters('orgseries_posttype_support', array('post')),
+            'post_status'            => array_unique($statuses),
+            'numberposts'            => -1,
+            'orderby'                => array('date' => 'ASC', 'ID' => 'ASC'),
+            'update_post_term_cache' => false,
+        )
+    );
+
+    $numbered = array();
+    foreach ($posts as $index => $series_post) {
+        $series_post_id = (int) $series_post->ID;
+        if ($series_post_id !== $include_post_id && ! in_array($series_post->post_status, ppseries_series_counted_statuses(), true)) {
+            continue;
+        }
+
+        $part = get_post_meta($series_post_id, $part_key, true);
+        if (! is_numeric($part)) {
+            continue;
+        }
+
+        $numbered[] = array(
+            'id'    => $series_post_id,
+            'part'  => (float) $part,
+            'index' => $index,
+        );
+    }
+
+    usort(
+        $numbered,
+        function ($a, $b) {
+            if ($a['part'] === $b['part']) {
+                return $a['index'] - $b['index'];
+            }
+
+            return ($a['part'] < $b['part']) ? -1 : 1;
+        }
+    );
+
+    return array_map('intval', wp_list_pluck($numbered, 'id'));
+}
+
+/**
+ * Add the posts that are away from a series (unpublished, trashed) at the place they remember.
+ *
+ * Used when another post leaves, so the place it remembers also accounts for neighbours that are away
+ * and posts return in their original order whatever order they come back in.
+ *
+ * @param int   $series_id       Series term ID.
+ * @param int[] $ordered_ids     Numbered post IDs in part order.
+ * @param int   $skip_post_id    Post to leave out.
+ *
+ * @return int[]
+ */
+function ppseries_add_returning_series_posts($series_id, $ordered_ids, $skip_post_id = 0)
+{
+    $object_ids = get_objects_in_term((int) $series_id, ppseries_get_series_slug());
+    if (empty($object_ids) || is_wp_error($object_ids)) {
+        return $ordered_ids;
+    }
+
+    $away = array();
+    foreach (array_map('intval', $object_ids) as $object_id) {
+        if ($object_id === (int) $skip_post_id || in_array($object_id, $ordered_ids, true)) {
+            continue;
+        }
+        $return = ppseries_get_series_return($object_id, $series_id);
+        if (null !== $return) {
+            $away[$object_id] = $return['previous'];
+        }
+    }
+
+    //posts can remember other posts that are away, so place them over several passes.
+    while (! empty($away)) {
+        $placed = false;
+        foreach ($away as $away_id => $previous_ids) {
+            $position = empty($previous_ids) ? 0 : false;
+            foreach ($previous_ids as $previous_id) {
+                $previous_index = array_search($previous_id, $ordered_ids, true);
+                if (false !== $previous_index) {
+                    $position = $previous_index + 1;
+                    break;
+                }
+                if (! isset($away[$previous_id])) {
+                    continue;
+                }
+                $position = null; //wait until that post is placed.
+                break;
+            }
+            if (null === $position) {
+                continue;
+            }
+            array_splice($ordered_ids, false === $position ? 0 : $position, 0, array($away_id));
+            unset($away[$away_id]);
+            $placed = true;
+        }
+        if (! $placed) {
+            break;
+        }
+    }
+
+    return $ordered_ids;
+}
+
+/**
+ * Renumber the counted posts of a series so their parts are unique and run 1..n.
+ *
+ * Posts keep their current relative order. Counted posts without a part number are left alone.
+ * Optionally leave one post out and/or slot one post in.
+ *
+ * @param int        $series_id       Series term ID.
+ * @param int        $exclude_post_id Post to leave out of the numbering. Its own part meta is not touched.
+ * @param int        $insert_post_id  Post to slot in.
+ * @param int        $insert_part     Part number to slot $insert_post_id in at. 0 or less appends; values past the end are clamped to the end.
+ * @param int[]|null $insert_after    Post IDs (nearest first) to slot $insert_post_id in after; the first one still in the series wins,
+ *                                    and if none is left the post becomes part 1. Overrides $insert_part when given.
+ *
+ * @return bool
+ */
+function ppseries_normalize_series_parts($series_id, $exclude_post_id = 0, $insert_post_id = 0, $insert_part = 0, $insert_after = null)
+{
+    $series_id       = (int) $series_id;
+    $exclude_post_id = (int) $exclude_post_id;
+    $insert_post_id  = (int) $insert_post_id;
+
+    if ($series_id <= 0) {
+        return false;
+    }
+
+    $part_key    = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+    $ordered_ids = array_values(array_diff(ppseries_get_numbered_series_post_ids($series_id), array($exclude_post_id, $insert_post_id)));
+
+    if ($insert_post_id > 0) {
+        if (is_array($insert_after)) {
+            $position = 1;
+            foreach (array_map('intval', $insert_after) as $previous_post_id) {
+                $previous_index = array_search($previous_post_id, $ordered_ids, true);
+                if (false !== $previous_index) {
+                    $position = $previous_index + 2;
+                    break;
+                }
+            }
+        } else {
+            $position = (int) $insert_part;
+            if ($position <= 0 || $position > count($ordered_ids) + 1) {
+                $position = count($ordered_ids) + 1;
+            }
+        }
+        array_splice($ordered_ids, $position - 1, 0, array($insert_post_id));
+    }
+
+    foreach ($ordered_ids as $offset => $series_post_id) {
+        $new_part = $offset + 1;
+        if ((string) get_post_meta($series_post_id, $part_key, true) !== (string) $new_part) {
+            delete_post_meta($series_post_id, $part_key);
+            add_post_meta($series_post_id, $part_key, $new_part);
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Keep part numbers unique and contiguous when a post enters or leaves the counted statuses.
+ *
+ * - Leaving (publish/private -> draft, pending, future, trash): the post's part is cleared and it remembers
+ *   the posts that came before it; the other posts close the gap.
+ * - Entering (draft, pending, future, trash -> publish/private): the post goes back right after the nearest
+ *   of those posts still in the series (or first if none is left). Posts that never had a place use the part
+ *   set while unpublished, or are appended.
+ * - publish <-> private: nothing changes, both are counted.
+ *
+ * Runs before the {old}_to_{new} hooks, so set_series_order() there finds the post already in place.
+ *
+ * @param string  $new_status New post status.
+ * @param string  $old_status Old post status.
+ * @param WP_Post $post       Post object.
+ */
+function refresh_series_count_on_status_change($new_status, $old_status, $post)
+{
+    if (! $post instanceof WP_Post || $new_status === $old_status) {
+        return;
+    }
+
+    $counted_statuses = ppseries_series_counted_statuses();
+    $was_counted      = in_array($old_status, $counted_statuses, true);
+    $is_counted       = in_array($new_status, $counted_statuses, true);
+
+    if ($was_counted === $is_counted) {
+        return;
+    }
+
+    if (! in_array($post->post_type, (array) apply_filters('orgseries_posttype_support', array('post')), true)) {
+        return;
+    }
+
+    $series_ids = wp_get_post_series($post->ID);
+    if (empty($series_ids) || is_wp_error($series_ids)) {
+        return;
+    }
+
+    $series_ids = array_map('intval', $series_ids);
+    foreach ($series_ids as $series_id) {
+        $part_key   = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+        $return_key = ppseries_series_return_key($series_id);
+
+        if ($is_counted) {
+            $return = ppseries_get_series_return($post->ID, $series_id);
+            delete_post_meta($post->ID, $return_key);
+            ppseries_normalize_series_parts(
+                $series_id,
+                0,
+                $post->ID,
+                (int) get_post_meta($post->ID, $part_key, true),
+                null !== $return ? $return['previous'] : null
+            );
+        } else {
+            $ordered_ids = ppseries_add_returning_series_posts($series_id, ppseries_get_numbered_series_post_ids($series_id, $post->ID), $post->ID);
+            $position    = array_search((int) $post->ID, $ordered_ids, true);
+            if (false !== $position) {
+                //all the posts before it, so it can still find its place after many of them are deleted.
+                update_post_meta(
+                    $post->ID,
+                    $return_key,
+                    array(
+                        'part'     => (int) get_post_meta($post->ID, $part_key, true),
+                        'previous' => array_reverse(array_slice($ordered_ids, 0, $position)),
+                    )
+                );
+                delete_post_meta($post->ID, $part_key);
+            }
+            ppseries_normalize_series_parts($series_id, $post->ID);
+        }
+    }
+
+    //wp_update_term_count_now() takes term_taxonomy IDs, not term IDs. Core recounts on status changes from WP 5.7; this covers 5.5/5.6.
+    $series_tt_ids = wp_get_object_terms($post->ID, ppseries_get_series_slug(), array('fields' => 'tt_ids'));
+    if (! empty($series_tt_ids) && ! is_wp_error($series_tt_ids)) {
+        wp_update_term_count_now(array_map('intval', $series_tt_ids), ppseries_get_series_slug());
+    }
+    clean_object_term_cache($post->ID, ppseries_get_series_slug());
+}
+
 //call up series post is associated with -- needed for the post-edit panel specifically.
 function wp_get_post_series($post_id = 0, $args = array())
 {
@@ -144,30 +483,37 @@ function set_series_order($series_id, $postid = 0, $series_part = 0, $is_publish
         return false; // if post doesn't belong to a series yet.
     }
 
+    $postid = (int) $postid;
     $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
-    //set series as last part
+
     if ((int) $series_part === 0) {
-        if ($is_published) {
-            $series_posts = get_objects_in_term($series_id, ppseries_get_series_slug());
-            $posts_in_series = get_series_order($series_posts, $postid, $series_id);
-
-            $confirm_no_part = get_post_meta($postid, $series_part_key, true);
-            if (!empty($posts_in_series)) {
-                $last_series = end($posts_in_series);
-                $series_part = (int) $last_series['part'] + 1;
-            } else {
-                $series_part = 1;
-            }
-
-            if (!empty($confirm_no_part)) {
-                $series_part = $confirm_no_part;
-            }
-        } else {
+        if (!$is_published) {
             //not published posts part shouldn't be updated
             return false;
         }
+        //keep the part the post already has; a post without one is appended.
+        $series_part = get_post_meta($postid, $series_part_key, true);
     }
 
+    //counted posts are slotted in so the parts in the series stay unique and contiguous.
+    if (ppseries_is_counted_series_post($postid)) {
+        delete_post_meta($postid, ppseries_series_return_key($series_id));
+        return ppseries_normalize_series_parts($series_id, 0, $postid, (int) $series_part);
+    }
+
+    if ((int) $series_part === 0) {
+        return false;
+    }
+
+    //the Series box (classic editor, Pro box in the block editor, quick edit) posts back the part it loaded.
+    //Saving an unpublished post with the part it had when it left is not a new choice: keep its place.
+    $return = ppseries_get_series_return($postid, $series_id);
+    if (null !== $return && $return['part'] > 0 && (int) $series_part === $return['part']) {
+        return true;
+    }
+
+    //a part chosen for an unpublished post wins over the place it remembers.
+    delete_post_meta($postid, ppseries_series_return_key($series_id));
     delete_post_meta($postid, $series_part_key);
     add_post_meta($postid, $series_part_key, $series_part);
     return true;
@@ -180,35 +526,19 @@ function wp_reset_series_order_meta_cache($post_id = 0, $series_id = 0, $reset =
         return false; //post is not a part of a series so no need to waste cycles.
     }
 
-    $post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
-
-    $addvalue = 1;
-
-    $series_posts = get_series_order($post_ids_in_series, $post_id, $series_id, true, false);
     $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
 
     if ($reset) {
-        foreach ($post_ids_in_series as $spost) {
-            if (array_key_exists('object_id', $post_ids_in_series)) {
-                $spost_id = $spost['object_id'];
-            } else {
-                $spost_id = $spost;
-            }
-
+        $post_ids_in_series = get_objects_in_term($series_id, ppseries_get_series_slug());
+        foreach ((array) $post_ids_in_series as $spost) {
+            $spost_id = is_array($spost) && isset($spost['object_id']) ? $spost['object_id'] : $spost;
             delete_post_meta($spost_id, $series_part_key);
         }
         return true;
     }
 
-    foreach ($series_posts as $spost) {
-        $spost_status = get_post($spost['id'])->post_status;
-        $newpart = $addvalue;
-        delete_post_meta($spost['id'], $series_part_key);
-        add_post_meta($spost['id'], $series_part_key, $newpart);
-        $addvalue++;
-    }
-
-    return true;
+    //close the gap left by $post_id (being deleted or removed from the series).
+    return ppseries_normalize_series_parts($series_id, (int) $post_id);
 }
 
 /**
@@ -686,6 +1016,7 @@ function wp_delete_post_series_relationship($id, $ser_id = 0)
     if (!empty($ser_id)) {
         $series_part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $ser_id);
         delete_post_meta($postid, $series_part_key);
+        delete_post_meta($postid, ppseries_series_return_key($ser_id));
         delete_series_object_relationship($postid, $ser_id);
         return wp_reset_series_order_meta_cache($postid, $ser_id);
     }
@@ -760,7 +1091,7 @@ function inline_edit_series($column_name, $type)
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
                     <?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
                     <span style="display:none;"><?php esc_html_e('Part:', 'organize-series'); ?></span>
-                    <input style="display:none;" size="3" type="text" name="series_part" class="series_part" />
+          <input style="display:none;" size="3" type="text" name="series_part" class="series_part" aria-label="<?php esc_attr_e('Series Part', 'organize-series'); ?>" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
                     <input type="hidden" name="is_series_save" value="1" />
 
@@ -910,6 +1241,9 @@ add_action('set_object_terms', 'orgseries_set_missing_series_order', 10, 4);
 add_action('future_to_publish', 'wp_set_post_series_transition', 10, 1);
 add_action('draft_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
 add_action('pending_to_publish', 'wp_set_post_series_draft_transition', 10, 1);
+add_action('transition_post_status', 'refresh_series_count_on_status_change', 10, 3);
+//before_delete_post: wp_delete_post() removes the term relationships before delete_post fires.
+add_action('before_delete_post', 'delete_series_post_relationship', 1);
 add_action('delete_post', 'delete_series_post_relationship', 1);
 //add_action('trash_post', 'reset_series_order_on_trash', 1);
 //add_action('untrash_post', 'reset_series_order_on_trash', 1);

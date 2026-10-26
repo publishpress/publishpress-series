@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\model;
 use OrganizeSeries\domain\interfaces\AbstractCollection;
 use OrganizeSeries\domain\interfaces\AbstractNotice;
 
+\defined('ABSPATH') || exit;
+
 /**
  * CombinedNoticeCollection
  * Collection holding notices that should be combined into one notice when printed.

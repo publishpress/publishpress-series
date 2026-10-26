@@ -3,9 +3,7 @@
  * Utility helpers for Series Post Details module
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Utilities
 {
@@ -55,7 +53,15 @@ class PPS_Series_Post_Details_Utilities
     {
         return [
             'padding',
+            'padding_top',
+            'padding_right',
+            'padding_bottom',
+            'padding_left',
             'margin',
+            'margin_top',
+            'margin_right',
+            'margin_bottom',
+            'margin_left',
             'border_width',
             'border_radius',
             'border_color',
@@ -73,7 +79,15 @@ class PPS_Series_Post_Details_Utilities
     {
         return [
             'padding' => 20,
+            'padding_top' => '',
+            'padding_right' => '',
+            'padding_bottom' => '',
+            'padding_left' => '',
             'margin' => 0,
+            'margin_top' => '',
+            'margin_right' => '',
+            'margin_bottom' => '',
+            'margin_left' => '',
             'border_width' => 1,
             'border_radius' => 6,
             'border_color' => '#c7d7f5',
@@ -162,7 +176,15 @@ class PPS_Series_Post_Details_Utilities
             'metabox_position'           => isset($settings['series_metabox_position']) ? $settings['series_metabox_position'] : 'top',
             'limit_to_single'            => isset($settings['limit_series_meta_to_single']) ? $settings['limit_series_meta_to_single'] : 0,
             'padding'                    => 20,
+            'padding_top'                => '',
+            'padding_right'              => '',
+            'padding_bottom'             => '',
+            'padding_left'               => '',
             'margin'                     => 0,
+            'margin_top'                 => '',
+            'margin_right'               => '',
+            'margin_bottom'              => '',
+            'margin_left'                => '',
             'border_width'               => 1,
             'border_radius'              => 6,
 

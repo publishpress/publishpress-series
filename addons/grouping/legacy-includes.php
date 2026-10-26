@@ -3,6 +3,8 @@
  * Contains all the legacy includes (and hooks) for the plugin.  Eventually this will make its way into the new refactor
  * of the plugin. But while in transition this allows these legacy files to be included as necessary.
  */
+defined('ABSPATH') || exit;
+
 global $pagenow, $checkpage;
 $checkpage = $pagenow;
 global $checkpage;
@@ -143,8 +145,8 @@ function orgseries_upgrade_check()
         if ($is_imported = get_option('orgseries_grouping_import_completed')) { // we know a version 1.5 and earlier was previously installed (before we saved version numbers) - update needed
             upgrade_orgseries_grouping_from_one_five();
         }
-        add_option('orgseries_grouping_version', $orgseries_groups_ver);
-        add_option('orgser_grp_upgrade_' . $orgseries_groups_ver);
+        add_option('orgseries_grouping_version', $orgseries_groups_ver, '', 'no');
+        add_option('orgser_grp_upgrade_' . $orgseries_groups_ver, '', '', 'no');
         return;
     }
 
@@ -573,7 +575,7 @@ function orgseries_grouping_import_existing_series()
             );
             wp_insert_post($post_args);
         }
-        add_option('orgseries_grouping_import_completed', '1');
+        add_option('orgseries_grouping_import_completed', '1', '', 'yes'); // Read on every init, so keep it autoloaded.
     }
 }
 
@@ -646,7 +648,7 @@ function orgseries_manage_grouping_columns()
 function orgseries_grouping_settings_setup()
 {
     //add_settings_field('series_grouping_delete_settings','Series Categories Addon Settings','series_grouping_delete_output', 'orgseries_options_page','series_uninstall_settings');
-    register_setting('orgseries_options', 'org_series_options');
+    register_setting('orgseries_options', 'org_series_options', 'orgseries_validate');
     add_filter('orgseries_options', 'series_grouping_options_validate', 10, 2);
 }
 
@@ -670,7 +672,7 @@ function series_grouping_delete_output()
                 </th>
                 <td>
                     <label>
-                    <input name="<?php echo $org_name; ?>[kill_grouping_on_delete]" id="kill_grouping_on_delete" type="checkbox" value="1" <?php checked('1', $k_on_delete); ?> />
+                    <input name="<?php echo esc_attr($org_name); ?>[kill_grouping_on_delete]" id="kill_grouping_on_delete" type="checkbox" value="1" <?php checked('1', $k_on_delete); ?> />
                     <span class="description"><?php esc_html_e('Delete all "Series Categories" data from the database when deleting the plugin.', 'organize-series'); ?></span>
                     </label>
                 </td>
@@ -854,13 +856,37 @@ function edit_orgseries_group_fields($series, $taxonomy)
                         <div class="inside">
                             <div id="taxonomy-category" class="categorydiv">
                                 <ul id="category-tabs" class="category-tabs">
-                                    <li class="tabs"><a href="#category-all" tabindex="3"><?php esc_html_e('All Series Categories', 'organize-series'); ?></a></li>
+                                    <li class="tabs"><a href="#category-all"><?php esc_html_e('All Series Categories', 'organize-series'); ?></a></li>
                                 </ul>
+                                <p class="pp-series-category-search-wrap">
+                                    <label class="screen-reader-text" for="pp-series-category-search"><?php esc_html_e('Search Series Categories', 'organize-series'); ?></label>
+                                    <input type="search" id="pp-series-category-search" class="widefat" placeholder="<?php esc_attr_e('Search Series Categories', 'organize-series'); ?>" />
+                                </p>
                                 <div id="category-all" class="tabs-panel">
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
                                         <?php wp_terms_checklist($groupID, array('selected_cats' => $groups, 'taxonomy' => 'series_group' )); ?>
                                     </ul>
                                 </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        var search = document.getElementById('pp-series-category-search');
+                                        var checklist = document.getElementById('categorychecklist');
+
+                                        if (!search || !checklist) {
+                                            return;
+                                        }
+
+                                        search.addEventListener('input', function() {
+                                            var query = search.value.toLowerCase();
+                                            var items = checklist.querySelectorAll('li');
+
+                                            items.forEach(function(item) {
+                                                var label = item.textContent.toLowerCase();
+                                                item.style.display = label.indexOf(query) === -1 ? 'none' : '';
+                                            });
+                                        });
+                                    });
+                                </script>
                             </div>
                         </div>
 

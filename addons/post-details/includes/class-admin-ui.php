@@ -3,9 +3,7 @@
  * Admin UI for Series Post Details
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Admin_UI
 {
@@ -129,6 +127,10 @@ class PPS_Series_Post_Details_Admin_UI
             $value = isset($settings[$key]) ? $settings[$key] : '';
             $field['key'] = $key;
             $field['value'] = $value;
+            // Side spacing fields show the all-sides value they fall back to when empty.
+            if (! empty($field['placeholder_from']) && isset($settings[$field['placeholder_from']])) {
+                $field['placeholder'] = $settings[$field['placeholder_from']];
+            }
             self::render_field_row($field);
         }
         echo '</tbody></table>';
@@ -170,7 +172,7 @@ class PPS_Series_Post_Details_Admin_UI
         if ('series_meta_shortcode' === $column) {
             $layout_slug = 'pps_meta_box_' . $post_id;
             ?>
-            <input readonly class="pps-shortcode-input" type="text" value='[pps_post_details layout="<?php echo esc_attr($layout_slug); ?>"]' />
+            <input readonly class="pps-shortcode-input" type="text" aria-label="<?php esc_attr_e('Post Details shortcode', 'organize-series'); ?>" value='[pps_post_details layout="<?php echo esc_attr($layout_slug); ?>"]' />
             <?php
             return;
         }
@@ -333,12 +335,15 @@ class PPS_Series_Post_Details_Admin_UI
                     case 'number':
                         $min_attr = isset($args['min']) ? ' min="' . esc_attr($args['min']) . '"' : '';
                         $max_attr = isset($args['max']) ? ' max="' . esc_attr($args['max']) . '"' : '';
+                        $placeholder_attr = isset($args['placeholder']) && '' !== (string) $args['placeholder'] ? ' placeholder="' . esc_attr($args['placeholder']) . '"' : '';
+                        $placeholder_attr .= ! empty($args['placeholder_from']) ? ' data-placeholder-from="' . esc_attr($args['placeholder_from']) . '"' : '';
                         printf(
-                            '<input type="number" id="%1$s" name="%1$s" value="%2$s" class="small-text"%3$s%4$s%5$s />',
+                            '<input type="number" id="%1$s" name="%1$s" value="%2$s" class="small-text"%3$s%4$s%5$s%6$s />',
                             $key,
                             esc_attr($value),
                             $min_attr,
                             $max_attr,
+                            $placeholder_attr,
                             $pro_locked ? ' disabled="disabled"' : ''
                         );
                         break;

@@ -5,6 +5,8 @@
  */
 
 // Include component files
+defined('ABSPATH') || exit;
+
 require_once __DIR__ . '/includes/class-post-type.php';
 require_once __DIR__ . '/includes/class-fields.php';
 require_once __DIR__ . '/includes/class-preview.php';

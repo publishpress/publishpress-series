@@ -1,4 +1,6 @@
 <?php
+defined('ABSPATH') || exit;
+
 $orgseries_groups_ver = '2.2.7.rc.000';
 global $orgseries_groups_ver;
 

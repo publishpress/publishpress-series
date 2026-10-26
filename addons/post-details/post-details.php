@@ -3,9 +3,7 @@
  * Series Post Details module bootstrap
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 require_once __DIR__ . '/includes/class-utilities.php';
 require_once __DIR__ . '/includes/class-post-type.php';

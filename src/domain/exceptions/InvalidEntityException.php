@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\exceptions;
 
 use Exception;
 
+\defined('ABSPATH') || exit;
+
 class InvalidEntityException extends Exception
 {
     /**

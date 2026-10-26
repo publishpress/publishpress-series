@@ -5,6 +5,8 @@
  */
 
 // Include the necessary classes
+defined('ABSPATH') || exit;
+
 if (!class_exists('PPS_Post_List_Box_Fields')) {
     require_once __DIR__ . '/../includes/class-fields.php';
 }
@@ -131,7 +133,7 @@ class PostListBoxRenderer
         // Enqueue styles only when content is actually rendered
         self::enqueue_frontend_styles();
 
-        return self::render_html($posts, $settings, $atts['class'], $post_id);
+        return self::render_html($posts, $settings, $atts['class'], $post_id, $series_id);
     }
 
     /**
@@ -266,7 +268,7 @@ class PostListBoxRenderer
      * @param string $additional_class Additional CSS classes
      * @return string
      */
-    private static function render_html($posts, $settings, $additional_class = '', $post_id = null)
+    private static function render_html($posts, $settings, $additional_class = '', $post_id = null, $series_id = null)
     {
         ob_start();
 
@@ -291,14 +293,14 @@ class PostListBoxRenderer
         ?>
         <div class="<?php echo esc_attr($wrapper_class); ?>">
             <?php if (!empty($settings['title_show'])) :
-                $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts);
+                $title_text = PPS_Post_List_Box_Utilities::get_title_text($settings, $posts, $series_id);
                 $title_tag = PPS_Post_List_Box_Fields::sanitize_title_html_tag(
                     !empty($settings['title_html_tag']) ? $settings['title_html_tag'] : 'h3'
                 );
                 $link_title_to_series = !empty($settings['title_link_to_series']) && (!isset($settings['title_type']) || $settings['title_type'] === 'series');
                 $series_link = '';
                 if ($link_title_to_series) {
-                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts);
+                    $series_link = PPS_Post_List_Box_Utilities::get_series_link($posts, $series_id);
                 }
                 if (!empty($title_text)) :
                     ?>

@@ -9,6 +9,8 @@
  * @since 2.2
 */
 
+defined('ABSPATH') || exit;
+
 function _usort_series_by_part($a, $b)
 {
     if ($a['part'] > $b['part']) {
@@ -478,4 +480,23 @@ function ppseries_get_series_slug()
 function pp_series_is_pro_active()
 {
     return defined('SERIES_PRO_VERSION') || defined('PUBLISHPRESS_SERIES_PRO_LOADED');
+}
+
+/**
+ * "Delete data on uninstall" is network-wide and Super Admin-only on
+ * multisite (stored via get_site_option()/update_site_option()), since it
+ * affects every site sharing the plugin. On single-site installs it stays
+ * a regular per-site option.
+ *
+ * @link https://wordpress.org/support/topic/multisite-delete-settings-should-be-super-admin-only-and-global/
+ */
+function ppseries_get_kill_on_delete()
+{
+    if (is_multisite()) {
+        return (int) get_site_option('pp_series_kill_on_delete', 0);
+    }
+
+    $settings = get_option('org_series_options', []);
+
+    return isset($settings['kill_on_delete']) ? (int) $settings['kill_on_delete'] : 0;
 }

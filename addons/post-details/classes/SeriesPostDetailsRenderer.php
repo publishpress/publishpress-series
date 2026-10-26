@@ -3,14 +3,20 @@
  * Renderer utilities for Series Post Details.
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 require_once __DIR__ . '/../includes/class-utilities.php';
 
 class SeriesPostDetailsRenderer
 {
+    /**
+     * The dynamic CSS includes the box spacing (per-side margin and padding) and border.
+     *
+     * Pro checks this so it stops adding its own all-sides margin/padding/border rules,
+     * which would override the per-side values.
+     */
+    const OUTPUTS_BOX_STYLES = true;
+
     /**
      * Store dynamic CSS snippets keyed by layout ID.
      *
@@ -536,7 +542,7 @@ class SeriesPostDetailsRenderer
             return;
         }
 
-        // Outer container styles (Free only)
+        // Outer container styles
         $outer_parts = [];
 
         // Background color (on outer container)
@@ -545,6 +551,28 @@ class SeriesPostDetailsRenderer
             if ($background_color) {
                 $outer_parts[] = 'background-color: ' . $background_color . ';';
             }
+        }
+
+        // Spacing and border. Free sites use the static defaults; Pro passes the layout's own values.
+        $outer_parts[] = sprintf(
+            'margin: %1$dpx %2$dpx %3$dpx %4$dpx;',
+            self::get_spacing_value($settings, 'margin_top', 'margin'),
+            self::get_spacing_value($settings, 'margin_right', 'margin'),
+            self::get_spacing_value($settings, 'margin_bottom', 'margin'),
+            self::get_spacing_value($settings, 'margin_left', 'margin')
+        );
+
+        if (isset($settings['border_width'])) {
+            $border_color = ! empty($settings['border_color']) ? pps_sanitize_css_color($settings['border_color']) : '';
+            $outer_parts[] = sprintf(
+                'border: %1$dpx solid %2$s;',
+                (int) $settings['border_width'],
+                $border_color ? $border_color : '#c7d7f5'
+            );
+        }
+
+        if (isset($settings['border_radius'])) {
+            $outer_parts[] = 'border-radius: ' . (int) $settings['border_radius'] . 'px;';
         }
 
         // Inner content styles (text color, text size)
@@ -562,6 +590,14 @@ class SeriesPostDetailsRenderer
         if (! empty($settings['text_size'])) {
             $inner_parts[] = 'font-size: ' . (int) $settings['text_size'] . 'px;';
         }
+
+        $inner_parts[] = sprintf(
+            'padding: %1$dpx %2$dpx %3$dpx %4$dpx;',
+            self::get_spacing_value($settings, 'padding_top', 'padding'),
+            self::get_spacing_value($settings, 'padding_right', 'padding'),
+            self::get_spacing_value($settings, 'padding_bottom', 'padding'),
+            self::get_spacing_value($settings, 'padding_left', 'padding')
+        );
 
         $css = [];
         
@@ -590,6 +626,27 @@ class SeriesPostDetailsRenderer
         if (! empty($css)) {
             self::$dynamic_css[$layout_class] = implode("\n", $css);
         }
+    }
+
+    /**
+     * Return a side's spacing: its own value when set, otherwise the all-sides value.
+     *
+     * Layouts saved before the per-side settings only have the all-sides value, and empty side
+     * fields mean "same as all sides", so both keep rendering the all-sides value.
+     *
+     * @param array  $settings Layout settings.
+     * @param string $side_key Side setting key, e.g. padding_top.
+     * @param string $base_key All-sides setting key, e.g. padding.
+     *
+     * @return int
+     */
+    private static function get_spacing_value(array $settings, $side_key, $base_key)
+    {
+        if (isset($settings[$side_key]) && '' !== $settings[$side_key]) {
+            return (int) $settings[$side_key];
+        }
+
+        return isset($settings[$base_key]) ? (int) $settings[$base_key] : 0;
     }
 
     /**

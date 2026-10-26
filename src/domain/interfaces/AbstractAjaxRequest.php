@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\interfaces;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\exceptions\NonceFailException;
 
+\defined('ABSPATH') || exit;
+
 abstract class AbstractAjaxRequest implements AjaxRequestInterface
 {
     const NONCE_KEY = 'nonce';

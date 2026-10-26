@@ -5,6 +5,8 @@
  * @package Publishpress Series WordPress Plugin
  * @since 2.2
 **/
+defined('ABSPATH') || exit;
+
 class orgSeries_widget_latestseries extends WP_Widget
 {
     public function __construct()
@@ -88,7 +90,7 @@ class orgSeries_widget_latestseries extends WP_Widget
         </p>
         <p class="ppseries-widget-paragraph">
             <label for="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>"><strong><?php esc_html_e('Hide series with no posts?', 'organize-series'); ?></strong></label>
-            <input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide_empty')); ?>" />
+      <input class="checkbox" type="checkbox" <?php checked($hide_empty, true); ?> value = "1" id="<?php echo esc_attr($this->get_field_id('hide_empty')); ?>" name="<?php echo esc_attr($this->get_field_name('hide_empty')); ?>" aria-label="<?php esc_attr_e('Hide series with no posts?', 'organize-series'); ?>" />
             <br />
             <label for="<?php echo esc_attr($this->get_field_id('orderby')); ?>"><strong><?php esc_html_e('Order by:', 'organize-series'); ?></strong></label>
             <select name="<?php echo esc_attr($this->get_field_name('orderby')); ?>" id="<?php echo esc_attr($this->get_field_id('orderby')); ?>" class="widefat">
@@ -152,10 +154,10 @@ class orgSeries_widget_seriestoc extends WP_Widget
         $series_widget_args['hide_empty'] = $hide_empty;
         $series_widget_args['echo'] = false;
         if (count($os_exclude) > 0) {
-            $series_widget_args['exclude'] = join(", ", $os_exclude);
+            $series_widget_args['exclude'] = join(", ", array_map('absint', $os_exclude));
         }
-        if (count($os_exclude) > 0) {
-            $series_widget_args['include'] = join(", ", $os_exclude);
+        if (count($os_include) > 0) {
+            $series_widget_args['include'] = join(", ", array_map('absint', $os_include));
         }
         if ((int)$os_number > 0) {
             $series_widget_args['number'] = $os_number;
@@ -232,13 +234,16 @@ class orgSeries_widget_seriestoc extends WP_Widget
         $instance['series-id'] = (int) $new_instance['series-id'];
 
 
-        $instance['os_orderby'] = $new_instance['os_orderby'];
-        $instance['os_order'] = $new_instance['os_order'];
-        $instance['os_exclude'] = (array)$new_instance['os_exclude'];
-        $instance['os_include'] = (array)$new_instance['os_include'];
-        $instance['os_number'] = $new_instance['os_number'];
-        $instance['os_offset'] = $new_instance['os_offset'];
-        $instance['os_search'] = $new_instance['os_search'];
+        $allowed_orderby = ['name', 'count', 'slug', 'term_id'];
+        $allowed_order   = ['ASC', 'DESC'];
+
+        $instance['os_orderby'] = isset($new_instance['os_orderby']) && in_array($new_instance['os_orderby'], $allowed_orderby, true) ? $new_instance['os_orderby'] : 'term_id';
+        $instance['os_order'] = isset($new_instance['os_order']) && in_array($new_instance['os_order'], $allowed_order, true) ? $new_instance['os_order'] : 'DESC';
+        $instance['os_exclude'] = isset($new_instance['os_exclude']) ? array_map('absint', (array)$new_instance['os_exclude']) : [];
+        $instance['os_include'] = isset($new_instance['os_include']) ? array_map('absint', (array)$new_instance['os_include']) : [];
+        $instance['os_number'] = isset($new_instance['os_number']) ? absint($new_instance['os_number']) : '';
+        $instance['os_offset'] = isset($new_instance['os_offset']) ? absint($new_instance['os_offset']) : '';
+        $instance['os_search'] = isset($new_instance['os_search']) ? sanitize_text_field($new_instance['os_search']) : '';
 
         return $instance;
     }

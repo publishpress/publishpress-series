@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Utility Functions for Post List Box
  */
@@ -94,13 +96,23 @@ class PPS_Post_List_Box_Utilities
     }
 
     /**
-     * Resolve series term from the first post in a list.
+     * Resolve the series term for a post list box.
      *
-     * @param array $posts Posts array.
-     * @return WP_Term|null
+     * @param array            $posts  Posts array.
+     * @param WP_Term|int|null $series Series the box is rendered for, when known.
+     * @return WP_Term|null The given series, else the first post's first series.
      */
-    public static function get_series_term($posts)
+    public static function get_series_term($posts, $series = null)
     {
+        // The box was rendered for a known series: use it. Guessing from the posts picks the wrong
+        // series when the first post belongs to more than one series (Pro multiple series).
+        if (! empty($series)) {
+            $series_term = $series instanceof WP_Term ? $series : get_term((int) $series, get_option('pp_series_taxonomy_slug', 'series'));
+            if ($series_term instanceof WP_Term) {
+                return $series_term;
+            }
+        }
+
         if (empty($posts) || !isset($posts[0]) || !is_object($posts[0]) || empty($posts[0]->ID)) {
             return null;
         }
@@ -120,12 +132,13 @@ class PPS_Post_List_Box_Utilities
     /**
      * Get the series archive link from the first post in a list.
      *
-     * @param array $posts Posts array.
+     * @param array            $posts  Posts array.
+     * @param WP_Term|int|null $series Series the box is rendered for, when known.
      * @return string
      */
-    public static function get_series_link($posts)
+    public static function get_series_link($posts, $series = null)
     {
-        $series_term = self::get_series_term($posts);
+        $series_term = self::get_series_term($posts, $series);
         if (!$series_term) {
             return '';
         }
@@ -143,9 +156,10 @@ class PPS_Post_List_Box_Utilities
      *
      * @param array $settings Layout settings
      * @param array $posts Posts array (used to get series info)
+     * @param WP_Term|int|null $series Series the box is rendered for, when known.
      * @return string
      */
-    public static function get_title_text($settings, $posts)
+    public static function get_title_text($settings, $posts, $series = null)
     {
         $title_type = isset($settings['title_type']) ? $settings['title_type'] : 'series';
 
@@ -153,8 +167,8 @@ class PPS_Post_List_Box_Utilities
             return isset($settings['title_text']) ? $settings['title_text'] : '';
         }
 
-        if (!empty($posts)) {
-            $series_term = self::get_series_term($posts);
+        if (!empty($posts) || !empty($series)) {
+            $series_term = self::get_series_term($posts, $series);
             if ($series_term) {
                 return $series_term->name;
             }

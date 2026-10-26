@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Settings validation and sanitization.
  *
@@ -105,12 +107,42 @@ function ppseries_register_temporary_taxonomy()
 }
 
 /**
+ * Whether the current request is a submission of the Series settings form.
+ *
+ * orgseries_validate() is the sanitize callback for org_series_options, so it
+ * also runs for programmatic update_option() calls (upgrades, migrations, other
+ * plugins). Those requests carry no settings nonce and must not be blocked.
+ * A request counts as a form submission when it posts the settings nonce field,
+ * the org_series_options fields or the orgseries_options option page, so a
+ * forged post without a valid nonce is still rejected.
+ *
+ * @return bool
+ */
+function ppseries_is_settings_form_submission()
+{
+    // phpcs:disable WordPress.Security.NonceVerification.Missing -- Presence checks only; the nonce is verified by the callers.
+    if (empty($_POST)) {
+        return false;
+    }
+
+    return isset($_POST['publishpress_series_settings_nonce_field'])
+        || isset($_POST['org_series_options'])
+        || (isset($_POST['option_page']) && sanitize_key(wp_unslash($_POST['option_page'])) === 'orgseries_options');
+    // phpcs:enable WordPress.Security.NonceVerification.Missing
+}
+
+/**
  * Migrate taxonomy terms from old slug to new slug.
  *
  * @return string Admin notice HTML.
  */
 function ppseries_maybe_migrate_taxonomy_terms()
 {
+    // Migration is a settings form action only; never run it on programmatic updates.
+    if (! ppseries_is_settings_form_submission()) {
+        return ppseries_updated_notice();
+    }
+
     check_admin_referer('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
     if (!current_user_can('manage_publishpress_series')) {
         return ppseries_updated_notice();
@@ -180,15 +212,20 @@ function orgseries_validate($input)
 {
     global $orgseries, $wp_rewrite;
 
-    // --- Security checks ---------------------------------------------------
-    check_admin_referer('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
+    // --- Security checks (settings form submissions only) -------------------
+    // Programmatic update_option() calls are only sanitized below.
+    $is_form_submission = ppseries_is_settings_form_submission();
 
-    if (! current_user_can('manage_publishpress_series')) {
-        wp_die(esc_html__('Permission denied', 'organize-series'));
+    if ($is_form_submission) {
+        check_admin_referer('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
+
+        if (! current_user_can('manage_publishpress_series')) {
+            wp_die(esc_html__('Permission denied', 'organize-series'));
+        }
     }
 
     // --- Reset all options --------------------------------------------------
-    if (isset($input['reset_option']) && $input['reset_option'] == 1) {
+    if ($is_form_submission && isset($input['reset_option']) && $input['reset_option'] == 1) {
         if ($orgseries->add_settings(true)) {
             $notice = '<div class="updated"><p>' . esc_html__('PublishPress Series Plugin Options have been RESET', 'organize-series') . '</p></div>';
             update_option('orgseries_update_message', $notice);
@@ -322,16 +359,35 @@ function orgseries_validate($input)
     $newinput['limit_series_meta_to_single'] = ppseries_sanitize_checkbox($input, 'limit_series_meta_to_single');
 
     /* Advanced */
-    $newinput['kill_on_delete'] = ppseries_sanitize_checkbox($input, 'kill_on_delete');
+    if (is_multisite()) {
+        // Network-wide and Super Admin-only on multisite; never persist a per-site copy.
+        if (is_super_admin() && ($is_form_submission || isset($input['kill_on_delete']))) {
+            update_site_option('pp_series_kill_on_delete', ppseries_sanitize_checkbox($input, 'kill_on_delete'));
+        }
+    } else {
+        $newinput['kill_on_delete'] = ppseries_sanitize_checkbox($input, 'kill_on_delete');
+    }
     $newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim($input['orgseries_api']) : '';
 
     /* Finalize */
-    update_option('pp_series_taxonomy_slug', $newinput['series_taxonomy_slug']);
+    if ($is_form_submission || isset($input['series_taxonomy_slug'])) {
+        update_option('pp_series_taxonomy_slug', $newinput['series_taxonomy_slug']);
+    }
 
     $newinput['last_modified'] = gmdate('D, d M Y H:i:s', time());
     $return_input = apply_filters('orgseries_options', $newinput, $input);
 
-    update_option('orgseries_update_message', $notice);
+    if ($is_form_submission) {
+        update_option('orgseries_update_message', $notice);
+    } elseif (is_array($input) && is_array($return_input)) {
+        // Programmatic update: sanitize the keys the caller passed, keep keys this
+        // callback doesn't know about, and don't fill in form defaults for the rest.
+        $return_input = array_merge(
+            $input,
+            array_intersect_key($return_input, $input),
+            [ 'last_modified' => $newinput['last_modified'] ]
+        );
+    }
     $wp_rewrite->flush_rules();
 
     return $return_input;

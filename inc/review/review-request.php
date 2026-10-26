@@ -2,6 +2,8 @@
 
 use PublishPress\WordPressReviews\ReviewsController;
 
+defined('ABSPATH') || exit;
+
 class SeriesReview
 {
     /**

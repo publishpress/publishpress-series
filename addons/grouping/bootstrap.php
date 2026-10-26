@@ -6,6 +6,8 @@ use OrganizeSeries\GroupingAddon\domain\Meta;
 use OrganizeSeries\GroupingAddon\domain\services\Bootstrap;
 
 
+defined('ABSPATH') || exit;
+
 Root::initializeExtensionMeta(
     __FILE__,
     OS_GROUPING_VERSION,

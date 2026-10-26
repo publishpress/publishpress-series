@@ -7,6 +7,8 @@
  * @since 2.2
  */
 
+defined('ABSPATH') || exit;
+
 global $pagenow, $orgseries;
 
 /**
@@ -147,14 +149,14 @@ function orgSeries_admin_footer()
         <div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
             <footer>
                 <div class="pp-rating">
-                    <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Leave a five-star review for PublishPress Series', 'organize-series'); ?>">
                         <?php
                         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         printf(
                             /* translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons. */
                             __('If you like %1$s, please leave us a %2$s rating. Thank you!', 'organize-series'),
                             '<strong>PublishPress Series</strong>',
-                            '<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+                            '<span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>'
                         );
                         ?>
                     </a>
@@ -166,13 +168,13 @@ function orgSeries_admin_footer()
                         <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series'); ?>"><?php esc_html_e('About', 'organize-series'); ?></a></li>
                         <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series'); ?>"><?php esc_html_e('Documentation', 'organize-series'); ?></a></li>
                         <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series'); ?>"><?php esc_html_e('Contact', 'organize-series'); ?></a></li>
-                        <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter"></span></a></li>
-                        <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow PublishPress on Twitter', 'organize-series'); ?>"><span class="dashicons dashicons-twitter" aria-hidden="true"></span></a></li>
+                        <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow PublishPress on Facebook', 'organize-series'); ?>"><span class="dashicons dashicons-facebook" aria-hidden="true"></span></a></li>
                     </ul>
                 </nav>
 
                 <div class="pp-pressshack-logo">
-                    <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Visit PublishPress', 'organize-series'); ?>">
                         <img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" alt="<?php esc_attr_e('PublishPress', 'organize-series'); ?>" />
                     </a>
                 </div>
@@ -416,7 +418,7 @@ function series_edit_meta_box()
                 ?>
                 <span id="seriespart">
                     <label for="series_part"><?php esc_html_e('Series Part:', 'organize-series'); ?></label>
-                    <input class="small-text pp-series-part-input" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" size="5" value="<?php echo esc_attr($series_part); ?>" />
+                    <input class="small-text pp-series-part-input" type="number" name="series_part[<?php echo $seriesid; ?>]" id="series_part" aria-label="<?php esc_attr_e('Series Part', 'organize-series'); ?>" size="5" value="<?php echo esc_attr($series_part); ?>" />
                 </span>
             </div>
 
@@ -426,7 +428,7 @@ function series_edit_meta_box()
                 <p id="part-description" class="howto">
                     <?php esc_html_e('A short title of this post that will be used in the Series widget. Leave blank to use the full title.', 'organize-series'); ?>
                 </p>
-                <input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" aria-describedby="part-description" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>" />
+                <input type="text" name="serie_post_shorttitle[<?php echo isset($ser_id[0]) ? esc_attr($ser_id[0]) : 0; ?>]" id="serie_post_shorttitle" aria-label="<?php esc_attr_e('Post title in widget', 'organize-series'); ?>" aria-describedby="part-description" size="30" value="<?php echo esc_attr(get_post_meta($id, SPOST_SHORTTITLE_KEY, true)); ?>" />
             </div>
 
             <input type="hidden" name="is_series_save" value="1" />
@@ -557,7 +559,7 @@ function orgSeries_custom_manage_posts_filter()
 function add_series_management_link()
 {
     global $orgseries;
-    $link = get_option('siteurl') . '/wp-admin/edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php';
+    $link = admin_url('edit.php?page=' . SERIES_DIR . '/orgSeries-manage.php');
     ?>
     <li>
         <a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Manage All Series', 'organize-series'); ?></a>
@@ -571,7 +573,7 @@ function add_series_to_right_now()
     $num_series = wp_count_terms(ppseries_get_series_slug());
     $num = number_format_i18n($num_series);
     $text = _nx('Series', 'Series', $num_series, 'dashboard count label', 'organize-series');
-    $manage_link = get_option('siteurl') . '/wp-admin/edit-tags.php?taxonomy=' . SERIES_QUERYVAR;
+    $manage_link = admin_url('edit-tags.php?taxonomy=' . SERIES_QUERYVAR);
     if (current_user_can('manage_publishpress_series')) {
         $series_num = "<a href='" . esc_url($manage_link) . "'>$num</a>";
         $series_text = "<a href='" . esc_url($manage_link) . "'>$text</a>";

@@ -5,6 +5,8 @@ namespace OrganizeSeries\domain\model;
 
 use stdClass;
 
+\defined('ABSPATH') || exit;
+
 /**
  * LicenseKeyFactory
  * For constructing a LicenseKey entity.

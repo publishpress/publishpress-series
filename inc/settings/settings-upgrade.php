@@ -7,6 +7,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 function publishpress_series_upgrade_require_changes()
 {
     // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
@@ -179,7 +181,7 @@ function publishpress_series_sync_menu_order()
                     printf(
                         /* translators: %d: Number of posts updated. */
                         esc_html__('Series order sync completed. %d posts updated.', 'organize-series'),
-                        $updated_count
+                        absint($updated_count)
                     );
                     ?>
                 </p>
