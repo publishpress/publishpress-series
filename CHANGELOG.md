@@ -1,6 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[3.1.5] - 23 Oct, 2026
+[3.1.5] - 27 Oct, 2026
 
 * Added: Add search, a part number filter and pagination to the Series Order screen #1231
 * Added: Add Order Tools to the Series Order screen to order posts by publication date, oldest or newest first #1236
