@@ -8,6 +8,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_field(
     'series_navigation_fieldset',
     __('Navigation Settings', 'organize-series'),

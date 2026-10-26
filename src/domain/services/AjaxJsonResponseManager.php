@@ -5,6 +5,8 @@ use OrganizeSeries\domain\model\AjaxJsonResponse;
 use OrganizeSeries\domain\model\CombinedNoticeCollection;
 use OrganizeSeries\domain\model\SingleNoticeCollection;
 
+\defined('ABSPATH') || exit;
+
 /**
  * AjaxJsonResponseManager
  * Responsible for packaging up consistent json response objects for Publishpress Series

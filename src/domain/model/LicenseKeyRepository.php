@@ -7,6 +7,8 @@ use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\exceptions\LicenseKeyRequestError;
 use stdClass;
 
+\defined('ABSPATH') || exit;
+
 /**
  * LicenseKeyRepository
  * Used to interact with LicenseKey entities/retrieving and persisting to the wp_option.

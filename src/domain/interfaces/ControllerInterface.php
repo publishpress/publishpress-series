@@ -3,6 +3,8 @@ namespace OrganizeSeries\domain\interfaces;
 
 use OrganizeSeries\application\IncomingRequest;
 
+\defined('ABSPATH') || exit;
+
 interface ControllerInterface
 {
     /**

@@ -2,6 +2,8 @@
 
 namespace OrganizeSeries\domain\interfaces;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Interface CollectionInterface
  * Inspired by Event Espresso Collection Interface.

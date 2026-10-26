@@ -22,6 +22,8 @@ use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 use OrganizeSeries\domain\services\AssetRegistry;
 use PublishPress\Pimple\Container as PimpleContainer;
 
+\defined('ABSPATH') || exit;
+
 class Container
 {
     /**

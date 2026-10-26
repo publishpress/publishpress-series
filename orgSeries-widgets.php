@@ -5,6 +5,8 @@
  * @package Publishpress Series WordPress Plugin
  * @since 2.2
 **/
+defined('ABSPATH') || exit;
+
 class orgSeries_widget_latestseries extends WP_Widget
 {
     public function __construct()

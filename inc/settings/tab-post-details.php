@@ -8,6 +8,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_field(
     'series_post_details_fieldset',
     __('Post Details Settings', 'organize-series'),

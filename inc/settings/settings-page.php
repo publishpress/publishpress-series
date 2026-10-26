@@ -7,6 +7,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 function orgseries_option_page()
 {
     global $orgseries, $wp_rewrite;

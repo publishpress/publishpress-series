@@ -2,6 +2,8 @@
 
 namespace PublishPress\OrganizeSeries;
 
+\defined('ABSPATH') || exit;
+
 class Autoloader
 {
     /**

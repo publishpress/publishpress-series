@@ -5,6 +5,8 @@ use InvalidArgumentException;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 use OrganizeSeries\domain\interfaces\RouteInterface;
 
+\defined('ABSPATH') || exit;
+
 class HasHooksRoute implements RouteInterface
 {
     /**

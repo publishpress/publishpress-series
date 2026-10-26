@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Admin UI for Post List Box
  */

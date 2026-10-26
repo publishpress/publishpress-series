@@ -6,6 +6,8 @@ use OrganizeSeries\domain\exceptions\EntityNotFoundException;
 use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\interfaces\AbstractCollection;
 
+\defined('ABSPATH') || exit;
+
 /**
  * RegisteredExtensions
  * Simple collection used to hold all registered extensions for Publishpress Series.

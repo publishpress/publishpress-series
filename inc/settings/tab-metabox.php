@@ -7,6 +7,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section('series_metabox_settings', 'Metabox', 'orgseries_metabox_section', 'orgseries_options_page');
 add_settings_field('series_metabox_core_fieldset', 'Metabox', 'series_metabox_core_fieldset', 'orgseries_options_page', 'series_metabox_settings');
 

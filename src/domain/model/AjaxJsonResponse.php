@@ -3,6 +3,8 @@ namespace OrganizeSeries\domain\model;
 
 use const FILTER_VALIDATE_BOOLEAN;
 
+\defined('ABSPATH') || exit;
+
 /**
  * AjaxJsonResponse
  * Value object for a Ajax Json Response;

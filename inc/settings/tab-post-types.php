@@ -7,6 +7,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section('series_cpt_settings', __('Post Types', 'organize-series'), 'ppseries_cpt_section', 'orgseries_options_page');
 add_settings_field('orgseries_cpt_settings', __('Custom Post Type Support', 'organize-series'), 'series_cpt_settings_display', 'orgseries_options_page', 'series_cpt_settings');
 

@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Settings validation and sanitization.
  *

@@ -7,6 +7,8 @@
 * @since 2.2
 */
 
+defined('ABSPATH') || exit;
+
 if (!class_exists('orgSeries')) {
 
     class orgSeries

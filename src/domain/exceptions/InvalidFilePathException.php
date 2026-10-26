@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\exceptions;
 
 use InvalidArgumentException;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Class InvalidFilePathException
  * thrown when is_readable() returns false for a given filepath

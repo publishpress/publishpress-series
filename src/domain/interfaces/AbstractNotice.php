@@ -3,6 +3,8 @@ namespace OrganizeSeries\domain\interfaces;
 
 use const FILTER_VALIDATE_BOOLEAN;
 
+\defined('ABSPATH') || exit;
+
 /**
  * AbstractNotice
  * Abstract class for notices (child classes might be success, error, attention etc).

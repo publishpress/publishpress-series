@@ -3,9 +3,7 @@
 namespace OrganizeSeries\libraries\edd;
 
 // Exit if accessed directly
-if (! defined('ABSPATH')) {
-    exit;
-}
+\defined('ABSPATH') || exit;
 
 /**
  * Allows plugins to use their own update API.

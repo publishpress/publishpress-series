@@ -5,6 +5,8 @@ use OrganizeSeries\application\Container;
 use OrganizeSeries\application\Router;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 
+\defined('ABSPATH') || exit;
+
 abstract class AbstractBootstrap
 {
     /**

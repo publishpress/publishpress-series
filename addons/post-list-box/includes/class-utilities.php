@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Utility Functions for Post List Box
  */

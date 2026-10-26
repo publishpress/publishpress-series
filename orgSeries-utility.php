@@ -9,6 +9,8 @@
  * @since 2.2
 */
 
+defined('ABSPATH') || exit;
+
 function _usort_series_by_part($a, $b)
 {
     if ($a['part'] > $b['part']) {

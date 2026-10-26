@@ -54,6 +54,8 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+defined('ABSPATH') || exit;
+
 global $wp_version;
 
 $min_php_version = '7.4.0';

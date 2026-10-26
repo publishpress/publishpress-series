@@ -3,9 +3,7 @@
  * Field definitions for Series Post Details editor
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Fields
 {

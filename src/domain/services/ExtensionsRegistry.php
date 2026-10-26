@@ -10,6 +10,8 @@ use OrganizeSeries\domain\model\LicenseKeyRepository;
 use OrganizeSeries\domain\model\RegisteredExtensions;
 use OrganizeSeries\libraries\edd\PluginUpdater;
 
+\defined('ABSPATH') || exit;
+
 /**
  * ExtensionsRegistry
  * Addons should include this in their bootstrap process to register themselves.

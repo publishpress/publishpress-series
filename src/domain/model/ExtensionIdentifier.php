@@ -1,6 +1,8 @@
 <?php
 namespace OrganizeSeries\domain\model;
 
+\defined('ABSPATH') || exit;
+
 /**
  * ExtensionIdentifier
  * Extensions register themselves with OrganizeSeries via this identifier.

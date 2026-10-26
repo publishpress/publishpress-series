@@ -1,4 +1,6 @@
 <?php
+defined('ABSPATH') || exit;
+
 if (!defined('OS_PUBLISHER_VERSION')) {
     define('OS_PUBLISHER_VERSION', '2.2.5.rc.000');
 }

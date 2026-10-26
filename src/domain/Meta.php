@@ -5,6 +5,8 @@ namespace OrganizeSeries\domain;
 use DomainException;
 use OrganizeSeries\domain\interfaces\AbstractMeta;
 
+\defined('ABSPATH') || exit;
+
 class Meta extends AbstractMeta
 {
     /**

@@ -4,6 +4,8 @@ namespace OrganizeSeries\application;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use function wp_doing_ajax;
 
+\defined('ABSPATH') || exit;
+
 /**
  * IncomingRequest
  * Used to pass around data from the incoming request and interface to

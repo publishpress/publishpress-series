@@ -5,6 +5,8 @@ use Exception;
 use InvalidArgumentException;
 
 
+\defined('ABSPATH') || exit;
+
 /**
  * EntityNotFoundException
  * Used when expecting a specific entity and its not found.

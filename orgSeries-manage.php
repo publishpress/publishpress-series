@@ -3,6 +3,8 @@
 */
 
 //hook into the edit columns on "manage series" page
+defined('ABSPATH') || exit;
+
 add_filter('manage_edit-' . ppseries_get_series_slug() . '_columns', 'manage_series_columns');
 add_filter('manage_' . ppseries_get_series_slug() . '_custom_column', 'manage_series_columns_action', 1, 3);
 add_filter('term_updated_messages', 'ppseries_series_updated_messages');

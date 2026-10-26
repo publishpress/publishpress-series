@@ -5,6 +5,8 @@ namespace OrganizeSeries\domain\interfaces;
 use DomainException;
 use Exception;
 
+\defined('ABSPATH') || exit;
+
 /**
  * AbstractMeta
  * The core plugin and add-ons can define a class extending this base for setting up basic meta information that should

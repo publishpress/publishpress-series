@@ -7,6 +7,8 @@ use InvalidArgumentException;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\interfaces\RouteIdentifierInterface;
 
+\defined('ABSPATH') || exit;
+
 class RouteIdentifier implements RouteIdentifierInterface
 {
     /**

@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 if (!function_exists('orgSeries_dir')) {
     /**
      * Nifty function to get the name of the directory orgSeries is installed in.

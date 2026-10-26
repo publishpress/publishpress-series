@@ -5,6 +5,8 @@
  */
 
 // Include the necessary classes
+defined('ABSPATH') || exit;
+
 if (!class_exists('PPS_Post_List_Box_Fields')) {
     require_once __DIR__ . '/../includes/class-fields.php';
 }

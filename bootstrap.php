@@ -5,6 +5,8 @@ use OrganizeSeries\domain\services\CoreBootstrap;
 
 
 //initialize Meta (path registration etc)
+defined('ABSPATH') || exit;
+
 Root::initialize(__FILE__, ORG_SERIES_VERSION);
 //register routes
 Root::container()->make(

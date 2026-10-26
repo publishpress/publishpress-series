@@ -3,6 +3,8 @@ namespace OrganizeSeries\domain\interfaces;
 
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Interface RouteInterface
  * Any route classes should implement this interface.

@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /* This file is for all the Publishpress Series related Term Queries and "template tags".
 
 In most cases, the series functions listed here are just "wrappers" to save having to call the built-in functions for WordPress Custom Taxonomies.

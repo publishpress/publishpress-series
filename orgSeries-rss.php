@@ -2,6 +2,8 @@
 //This file contains all the feed related functions for publishpress series
 
 //add_actions for rss/atom
+defined('ABSPATH') || exit;
+
 add_action('rss2_item', 'the_series_rss');
 add_action('atom_entry', 'the_series_atom');
 add_action('rss2_ns', 'series_ns');

@@ -6,6 +6,8 @@ use DomainException;
 use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\model\LicenseKey;
 
+\defined('ABSPATH') || exit;
+
 /**
  * LicenseKeyForm
  * Used for displaying and processing license key form.

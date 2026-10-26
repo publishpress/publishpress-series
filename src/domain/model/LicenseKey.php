@@ -6,6 +6,8 @@ use DateTime;
 use Exception;
 use stdClass;
 
+\defined('ABSPATH') || exit;
+
 class LicenseKey
 {
     /**

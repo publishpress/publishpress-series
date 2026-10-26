@@ -3,9 +3,7 @@
  * Utility helpers for Series Post Details module
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Utilities
 {
