@@ -13,13 +13,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-09-11 17:08+0000\n"
-"X-Generator: Weblate 5.14.3\n"
+"PO-Revision-Date: 2026-10-26 17:51+0000\n"
+"X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
-">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: ru_RU\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1: 2);\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1: 2;\n"
-"Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
 #: orgSeries.php:3
@@ -27,7 +27,7 @@ msgstr ""
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php:4
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php:8
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"

@@ -6,13 +6,15 @@ msgstr ""
 "Publishers, Writers - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
+"Language-Team: French "
+"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
+"series/fr/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
-"PO-Revision-Date: 2026-09-15 16:06+0000\n"
-"X-Generator: Poedit 3.7\n"
+"PO-Revision-Date: 2026-10-26 17:51+0000\n"
+"X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -142,7 +144,7 @@ msgstr "Exemple de série"
 msgid "Sample Post Title"
 msgstr "Exemple de titre de publication"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
@@ -772,7 +774,7 @@ msgstr "Choisir la couleur des dates des publications"
 #: addons/post-navigation/includes/class-fields.php:287
 #: addons/post-navigation/includes/class-fields.php:415
 msgid "Show Featured Image"
-msgstr "Afficher limage mise en avant"
+msgstr "Afficher l’image mise en avant"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:428
 msgid "Display the featured image for each post"
@@ -814,9 +816,7 @@ msgstr "Marge interne de la publication (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:484
 msgid "Set the inner spacing for each post item in pixels"
-msgstr ""
-"Définir l'espacement intérieur de chaque élément de publication "
-"en pixels"
+msgstr "Définir l'espacement intérieur de chaque élément de publication en pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:487
 msgid "Post Border Width (px)"
@@ -824,9 +824,7 @@ msgstr "Épaisseur de la bordure de la publication (px)"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:494
 msgid "Set the border width for each post item in pixels"
-msgstr ""
-"Définir la largeur de bordure de chaque élément de publication en "
-"pixels"
+msgstr "Définir la largeur de bordure de chaque élément de publication en pixels"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:497
 msgid "Post Border Color"
@@ -893,7 +891,7 @@ msgstr "Choisissez le nombre de colonnes dans la mise en page en grille"
 msgid "Order By"
 msgstr "Trier par"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:558
+#: addons/post-list-box/classes/PostListBoxFields.php:558, fuzzy
 msgid "Date"
 msgstr "Date"
 
@@ -2088,8 +2086,8 @@ msgid ""
 "Same as %series_icon% except that the series featured image will be linked "
 "to the series page"
 msgstr ""
-"Identique à %series_icon% excepté que l’image mise en avant de la "
-"série sera liée à la page de la série"
+"Identique à %series_icon% excepté que l’image mise en avant de la série "
+"sera liée à la page de la série"
 
 #: inc/settings/settings-page.php:87
 msgid ""
@@ -2110,8 +2108,8 @@ msgstr "Ceci sera remplacé par le titre d’une série"
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
-"Identique à %series_title% excepté qu’il sera également lié à la "
-"page de la série"
+"Identique à %series_title%, sauf qu’il sera également lié à la page de la "
+"série"
 
 #: inc/settings/settings-page.php:111
 msgid ""
@@ -2435,8 +2433,8 @@ msgstr "Mises en page"
 #: inc/settings/tab-layouts.php:19
 msgid "Configure the layout displays shown on posts in a series."
 msgstr ""
-"Configurer les affichages de mise en page affichés sur les "
-"publications d'une série."
+"Configurer les affichages de mise en page affichés sur les publications "
+"d'une série."
 
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:163
@@ -2499,10 +2497,10 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
 "noreferrer\">Read the documentation for customizing these designs</a>."
 msgstr ""
-"Si vous choisissez une disposition différente de « Par défaut », "
-"le modèle de taxonomie de votre thème sera remplacé. <a "
-"href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Lire la "
-"documentation pour personnaliser ces dispositions</a>."
+"Si vous choisissez une disposition différente de « Par défaut », le modèle "
+"de taxonomie de votre thème sera remplacé. <a href=\"%s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Lire la documentation pour personnaliser ces "
+"dispositions</a>."
 
 #: inc/settings/tab-legacy.php:93
 #: inc/settings/tab-series-category.php:68
@@ -2548,9 +2546,9 @@ msgid ""
 "You must %1$s update your permalink structure %2$s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"Vous devez %1$s mettre à jour votre structure de permalien %2$s à "
-"autre chose que « Simple » pour que l’URL de la table des "
-"matières de la série fonctionne."
+"Vous devez %1$s mettre à jour votre structure de permalien %2$s à autre "
+"chose que « Simple » pour que l’URL de la table des matières de la série "
+"fonctionne."
 
 #: inc/settings/tab-legacy.php:157
 msgid "Series Per Page:"
@@ -2567,14 +2565,12 @@ msgstr "Images mises en avant de la série"
 #: inc/settings/tab-legacy.php:176
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr ""
-"Largeur de l'image mise en avant sur la page de sommaire de la "
-"série (en pixels)"
+"Largeur de l'image mise en avant sur la page de sommaire de la série (en "
+"pixels)"
 
 #: inc/settings/tab-legacy.php:180
 msgid "Width for featured image on a post page (in pixels)."
-msgstr ""
-"Largeur de l'image mise en avant sur la page d'une publication (en "
-"pixels)."
+msgstr "Largeur de l'image mise en avant sur la page d'une publication (en pixels)."
 
 #: inc/settings/tab-legacy.php:184
 msgid ""
@@ -3001,7 +2997,7 @@ msgstr "Voir la documentation"
 msgid "Upgrade to Pro"
 msgstr "Passer à la version Pro"
 
-#: includes-core/class-blocks.php:55
+#: includes-core/class-blocks.php:55, fuzzy
 msgid "PublishPress Series"
 msgstr "PublishPress Series"
 
@@ -3146,9 +3142,7 @@ msgstr "Modèle personnalisé"
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
-msgstr ""
-"Si vous appréciez %1$s, veuillez nous laisser une note de %2$s. "
-"Merci !"
+msgstr "Si vous appréciez %1$s, veuillez nous laisser une note de %2$s. Merci !"
 
 #: orgSeries-admin.php:166
 msgid "About PublishPress Series"
@@ -3162,7 +3156,7 @@ msgstr "A propos"
 msgid "PublishPress Series Documentation"
 msgstr "Documentation de PublishPress Series"
 
-#: orgSeries-admin.php:167
+#: orgSeries-admin.php:167, fuzzy
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -3170,7 +3164,7 @@ msgstr "Documentation"
 msgid "Contact the PublishPress team"
 msgstr "Contacter l’équipe PublishPress"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:168, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
@@ -3303,7 +3297,7 @@ msgstr "Série non mise à jour."
 msgid "Posts"
 msgstr "Publications"
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:238, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -3553,7 +3547,7 @@ msgstr "nom"
 msgid "count"
 msgstr "compte"
 
-#: orgSeries-widgets.php:319
+#: orgSeries-widgets.php:319, fuzzy
 msgid "slug"
 msgstr "slug"
 

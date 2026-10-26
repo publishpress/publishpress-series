@@ -1,0 +1,3875 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Series Free 3.1.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
+"PO-Revision-Date: 2026-10-26 17:53+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: organize-series\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: or-RO\n"
+
+#: orgSeries.php:3
+#. Plugin Name of the plugin
+msgid "PublishPress Series Free"
+msgstr "PublishPress Series Free"
+
+#: orgSeries.php:4
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/publishpress-series/"
+msgstr "https://publishpress.com/publishpress-series/"
+
+#: orgSeries.php:5
+#. Description of the plugin
+msgid ""
+"PublishPress Series allows you to group content together into a series. "
+"This is ideal for magazines, newspapers, short-story writers, teachers, "
+"comic artists, or anyone who writes multiple posts on the same topic."
+msgstr ""
+"PublishPress Series ଆପଣଙ୍କୁ ବିଷୟବସ୍ତୁକୁ ଏକ ସିରିଜ୍‌ରେ ଗୁଟିକରିବାକୁ ସହାୟତା "
+"କରେ। ଏହା ପତ୍ରକା, ସମ୍ବାଦପତ୍ର, କହାଣୀ ଲେଖକ, ଶିକ୍ଷକ, କାମିକ୍ କଳାକାର, କିମ୍ବା ସେହି "
+"କେହିଙ୍କ ପାଇଁ ଅନୁକୂଳ, ଯିଏ ଏକେ ବିଷୟରେ ଅନେକ ପୋଷ୍ଟ ଲେଖନ୍ତି।"
+
+#: orgSeries.php:7
+#: orgSeries-admin.php:176
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: orgSeries.php:8
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: addons/grouping/legacy-includes.php:301
+msgid "Search Series Categories"
+msgstr "Series Categories ଖୋଜନ୍ତୁ"
+
+#: addons/grouping/legacy-includes.php:302
+msgid "Popular Series Categories"
+msgstr "ପପୁଲାର ସିରିଜ୍ କେଟେଗରୀଗୁଡିକ"
+
+#: addons/grouping/legacy-includes.php:303
+#: addons/grouping/legacy-includes.php:857
+msgid "All Series Categories"
+msgstr "ସମସ୍ତ ସିରିଜ୍ କେଟେଗରୀଗୁଡିକ"
+
+#: addons/grouping/legacy-includes.php:304
+msgid "Edit Series Category"
+msgstr "Series Category ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/grouping/legacy-includes.php:305
+msgid "Update Series Category"
+msgstr "Series Category ଅଦ୍ୟତନ କରନ୍ତୁ"
+
+#: addons/grouping/legacy-includes.php:306
+msgid "Add New Series Category"
+msgstr "ନୂତନ Series Category ଯୋଡନ୍ତୁ"
+
+#: addons/grouping/legacy-includes.php:307
+msgid "New Series Category"
+msgstr "ନୂତନ Series Category"
+
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:582
+#: addons/grouping/legacy-includes.php:668
+#: addons/grouping/legacy-includes.php:783
+#: addons/grouping/legacy-includes.php:826
+#: addons/grouping/legacy-includes.php:848
+#: addons/grouping/legacy-includes.php:884
+#: assets/js/publishpress-series-blocks.js:183, fuzzy
+msgid "Series Categories"
+msgstr "Series Categories"
+
+#: addons/grouping/legacy-includes.php:674
+msgid ""
+"Delete all \"Series Categories\" data from the database when deleting the "
+"plugin."
+msgstr ""
+"ପ୍ଲଗିନ୍ କାର୍ଯ୍ୟକାରିତା ପ୍ରସଙ୍ଗରେ ସ୍ଥାନ ତ୍ୟାଗ କରିବା ସମୟରେ ଡେଟାବେସ୍‌ରୁ "
+"\"Series Categories\" ସମସ୍ତ ତଥ୍ୟ ମିଳାଇ ହେବ।"
+
+#: addons/grouping/legacy-includes.php:826
+msgid "Click to toggle"
+msgstr "ଟୋଗଲ୍ କରିବାକୁ କ୍ଲିକ୍ କରନ୍ତୁ"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+msgid "Series in this category"
+msgstr "ଏହି କେଟେଗରୀରେ ସିରିଜ୍‌ଗୁଡିକ"
+
+#: addons/grouping/theme/primary/taxonomy-series_group.php:117
+msgid "Sorry, no series were found in this category."
+msgstr "ଦୁଃଖିତ, ଏହି କେଟେଗରୀରେ କୌଣସି ସିରିଜ୍‌ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:260
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:310
+#: addons/post-details/includes/class-fields.php:105
+#: addons/post-details/includes/class-utilities.php:158
+msgid "This entry is"
+msgstr "ଏହି ପ୍ରବେଶ"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:261
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:311
+#: addons/post-details/includes/class-fields.php:113
+#: addons/post-details/includes/class-utilities.php:159
+msgid "in the series"
+msgstr "ସିରିଜ୍‌ରେ ଅଛି"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:269
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:331
+#. translators: 1: Current part number, 2: Total number of posts in the series.
+#, php-format
+msgid "part %1$s of %2$s"
+msgstr "ଭାଗ %1$s ମଧ୍ୟରେ %2$s"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:499
+#: addons/post-details/includes/class-utilities.php:303
+#: addons/post-navigation/includes/class-utilities.php:187
+#: includes-core/class-blocks.php:829
+msgid "Sample Series"
+msgstr "ନମୁନା ସିରିଜ୍"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:502
+msgid "Sample Post Title"
+msgstr "ନମୁନା ପୋଷ୍ଟ ଶୀର୍ଷକ"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504, fuzzy
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:517
+msgid "Previous post link"
+msgstr "ପୂର୍ବ ପୋଷ୍ଟ ଲିଙ୍କ୍"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:518
+msgid "Next post link"
+msgstr "ଆଗାକୁ ପୋଷ୍ଟ ଲିଙ୍କ୍"
+
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:519
+msgid "Sample series description."
+msgstr "ନମୁନା ସିରିଜ୍ ବର୍ଣ୍ଣନା।"
+
+#: addons/post-details/includes/class-admin-ui.php:31
+#: addons/post-details/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-details.php:42
+#: includes-core/class-blocks.php:157
+#: orgSeries-utility.php:356
+#: assets/js/publishpress-series-blocks.js:37
+msgid "Post Details"
+msgstr "ପୋଷ୍ଟ ବିବରଣୀ"
+
+#: addons/post-details/includes/class-admin-ui.php:61, fuzzy
+msgid "Series Post Details Preview"
+msgstr "Series Post Details Preview"
+
+#: addons/post-details/includes/class-admin-ui.php:70, fuzzy
+msgid "Series Post Details Editor"
+msgstr "Series Post Details Editor"
+
+#: addons/post-details/includes/class-admin-ui.php:79
+#: addons/post-details/includes/class-admin-ui.php:159
+#: addons/post-list-box/includes/class-admin-ui.php:56
+#: addons/post-list-box/includes/class-admin-ui.php:248
+#: addons/post-navigation/includes/class-admin-ui.php:85
+#: addons/post-navigation/includes/class-admin-ui.php:194
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: addons/post-details/includes/class-admin-ui.php:111, fuzzy
+msgid "Series Post Details sections"
+msgstr "Series Post Details sections"
+
+#: addons/post-details/includes/class-admin-ui.php:148
+#: addons/post-list-box/includes/class-admin-ui.php:279
+#: addons/post-navigation/includes/class-admin-ui.php:183
+msgid "Use this shortcode:"
+msgstr "ଏହି shortcode ବ୍ୟବହାର କରନ୍ତୁ:"
+
+#: addons/post-details/includes/class-admin-ui.php:150
+msgid "Insert into posts or pages to display this Series Post Details manually."
+msgstr ""
+"ଏହି Series Post Details କୁ ମାନ୍ୟୁଆଲ୍ ଭାବେ ଦେଖାଇବା ପାଇଁ ପୋଷ୍ଟ କିମ୍ବା "
+"ପୃଷ୍ଠାରେ ସଂଯୋଜନ କରନ୍ତୁ।"
+
+#: addons/post-details/includes/class-admin-ui.php:158
+msgid "Default Meta Box"
+msgstr "ଡିଫଲ୍ଟ ମେଟା ବକ୍ସ"
+
+#: addons/post-details/includes/class-admin-ui.php:275
+#: addons/post-details/includes/class-admin-ui.php:360
+#: addons/post-list-box/includes/class-admin-ui.php:443
+#: addons/post-list-box/includes/class-admin-ui.php:727
+#: addons/post-navigation/includes/class-admin-ui.php:449
+#: inc/settings/tab-post-types.php:61
+#: inc/settings/tab-pro-features.php:54
+msgid "This feature is available in PublishPress Series Pro"
+msgstr "ଏହି ବୈଶିଷ୍ଟ୍ୟ PublishPress Series Pro ରେ ଉପଲବ୍ଧ"
+
+#: addons/post-details/includes/class-ajax.php:37
+#: addons/post-details/includes/class-ajax.php:106
+#: addons/post-details/includes/class-ajax.php:161
+#: addons/post-navigation/includes/class-ajax.php:37
+#: addons/post-navigation/includes/class-ajax.php:174
+#: addons/post-navigation/includes/class-ajax.php:223
+msgid "Invalid post ID."
+msgstr "ଅବୈଧ ପୋଷ୍ଟ ID।"
+
+#: addons/post-details/includes/class-ajax.php:73
+#: addons/post-navigation/includes/class-ajax.php:121
+msgid "No series available to preview."
+msgstr "ପ୍ରିଭ୍ୟୁ କରିବା ପାଇଁ କୌଣସି ସିରିଜ୍ ଉପଲବ୍ଧ ନାହିଁ।"
+
+#: addons/post-details/includes/class-ajax.php:126
+#: addons/post-list-box/includes/class-ajax.php:38
+#: addons/post-list-box/includes/class-ajax.php:146
+#: addons/post-list-box/includes/class-ajax.php:175
+#: addons/post-navigation/includes/class-ajax.php:194
+msgid "Permission denied."
+msgstr "ଅଧିକାର ଅସ୍ୱୀକୃତ।"
+
+#: addons/post-details/includes/class-ajax.php:132
+#: addons/post-navigation/includes/class-ajax.php:200
+#: addons/post-navigation/includes/class-ajax.php:206
+msgid "Invalid import data."
+msgstr "ଅବୈଧ ଆମଦାନୀ ତଥ୍ୟ।"
+
+#: addons/post-details/includes/class-ajax.php:149
+#: addons/post-navigation/includes/class-ajax.php:211
+msgid "Settings imported successfully."
+msgstr "ସେଟିଂସ୍ ଆମଦାନୀ ସଫଳତା ସହିତ କରାଯାଇଛି।"
+
+#: addons/post-details/includes/class-ajax.php:181
+#: addons/post-navigation/includes/class-ajax.php:229
+msgid "Settings reset to defaults."
+msgstr "ସେଟିଙ୍ଗସ୍ ପୁଣି ଡିଫଲ୍ଟରେ ସେଟ୍ କରାଯାଇଛି।"
+
+#: addons/post-details/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:30
+#: addons/post-navigation/includes/class-fields.php:85
+msgid "General"
+msgstr "ସାଧାରଣ"
+
+#: addons/post-details/includes/class-fields.php:34
+msgid "Styling"
+msgstr "ଶୈଳୀ"
+
+#: addons/post-details/includes/class-fields.php:89
+msgid "Content"
+msgstr "ସାମଗ୍ରୀ"
+
+#: addons/post-details/includes/class-fields.php:93
+msgid "Show Part Number"
+msgstr "ଭାଗ ସଂଖ୍ୟା ଦେଖାନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:98
+msgid "Display \"part X of Y\" in the series text"
+msgstr "ସିରିଜ୍ ଟେକ୍ସଟରେ \"ଭାଗ X ର Y\" ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:101
+msgid "Text Before"
+msgstr "ଟେକ୍ସଟ୍ ପୂର୍ବରୁ"
+
+#: addons/post-details/includes/class-fields.php:106
+msgid "Text shown at the beginning"
+msgstr "ଆରମ୍ଭରେ ଦେଖାଯାଇଥିବା ଟେକ୍ସଟ୍"
+
+#: addons/post-details/includes/class-fields.php:109
+msgid "Text After"
+msgstr "ଟେକ୍ସଟ୍ ପରେ"
+
+#: addons/post-details/includes/class-fields.php:114
+msgid "Text shown before the series name"
+msgstr "ସିରିଜ୍ ନାମ ପୂର୍ବରୁ ଦେଖାଯାଇଥିବା ଟେକ୍ସଟ୍"
+
+#: addons/post-details/includes/class-fields.php:118
+#: assets/js/publishpress-series-blocks.js:179
+msgid "Display"
+msgstr "ପ୍ରଦର୍ଶନ"
+
+#: addons/post-details/includes/class-fields.php:122
+msgid "Meta Box Position"
+msgstr "ମେଟା ବକ୍ସର ଅବସ୍ଥାନ"
+
+#: addons/post-details/includes/class-fields.php:126
+#: addons/post-list-box/classes/PostListBoxFields.php:596
+#: inc/settings/tab-post-details.php:37
+#: inc/settings/tab-post-list-box.php:37
+#: inc/settings/tab-post-navigation.php:37
+msgid "Top"
+msgstr "ଶୀର୍ଷ"
+
+#: addons/post-details/includes/class-fields.php:127
+#: addons/post-list-box/classes/PostListBoxFields.php:597
+#: inc/settings/tab-post-details.php:38
+#: inc/settings/tab-post-list-box.php:38
+#: inc/settings/tab-post-navigation.php:38
+msgid "Bottom"
+msgstr "ତଳ"
+
+#: addons/post-details/includes/class-fields.php:131
+msgid "Choose where to display the meta box in relation to the content"
+msgstr "ସାମଗ୍ରୀ ସହିତ ମେଟା ବକ୍ସକୁ କେଉଁଠାରେ ପ୍ରଦର୍ଶିତ କରିବା ପାଇଁ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:134
+msgid "Limit to Single Posts"
+msgstr "ସିଂଗଲ୍ ପୋଷ୍ଟ୍ ପର୍ୟାବର୍ତ୍ତୀ ରହିବାକୁ ସୀମିତ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:139
+msgid "Enable to display meta box only on single post view, not on archives."
+msgstr ""
+"ଆର୍କାଇଭ୍ସ୍ ଉପରେ ନହୋଇ ସିଂଗଲ୍ ପୋଷ୍ଟ୍ ଦୃଶ୍ୟରେ କେବଳ ମେଟା ବକ୍ସ ପ୍ରଦର୍ଶନ କରିବାକୁ "
+"ସକ୍ରିୟ କରନ୍ତୁ।"
+
+#: addons/post-details/includes/class-fields.php:152
+msgid "Typography"
+msgstr "ଟାଇପୋଗ୍ରାଫି"
+
+#: addons/post-details/includes/class-fields.php:156
+msgid "Text Size (px)"
+msgstr "ଟେକ୍ସଟ୍ ଆକାର (px)"
+
+#: addons/post-details/includes/class-fields.php:163
+msgid "Font size for text in the meta box"
+msgstr "ମେଟା ବକ୍ସର ଟେକ୍ସଟ୍ ପାଇଁ ଫଣ୍ଟ୍ ଆକାର"
+
+#: addons/post-details/includes/class-fields.php:166
+#: addons/post-navigation/includes/class-fields.php:456
+msgid "Text Color"
+msgstr "ଟେକ୍ସଟ୍ ରଙ୍ଗ"
+
+#: addons/post-details/includes/class-fields.php:171
+msgid "Choose the color of text in the meta box"
+msgstr "ମେଟା ବକ୍ସର ଟେକ୍ସଟ୍ ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:174
+msgid "Link Color"
+msgstr "ଲିଙ୍କ୍ ରଙ୍ଗ"
+
+#: addons/post-details/includes/class-fields.php:179
+msgid "Choose the color of links in the meta box"
+msgstr "ମେଟା ବକ୍ସର ଲିଙ୍କ୍ ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:183
+msgid "Background"
+msgstr "ପୃଷ୍ଠଭୂମି"
+
+#: addons/post-details/includes/class-fields.php:187
+#: addons/post-list-box/classes/PostListBoxFields.php:195
+#: addons/post-navigation/includes/class-fields.php:464
+msgid "Background Color"
+msgstr "ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
+
+#: addons/post-details/includes/class-fields.php:192
+msgid "Background color for the meta box container"
+msgstr "ମେଟା ବକ୍ସ୍ କଣ୍ଟେନର ପାଇଁ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
+
+#: addons/post-details/includes/class-fields.php:196
+#: addons/post-navigation/includes/class-fields.php:506
+msgid "Spacing"
+msgstr "ସ୍ପେସିଂ"
+
+#: addons/post-details/includes/class-fields.php:200
+#: addons/post-list-box/classes/PostListBoxFields.php:231
+#: addons/post-navigation/includes/class-fields.php:510
+msgid "Padding (px)"
+msgstr "ପ୍ୟାଡିଂ (px)"
+
+#: addons/post-details/includes/class-fields.php:207
+msgid "Padding applied to all sides of the content area"
+msgstr "ସାମଗ୍ରୀ ଅଞ୍ଚଳର ସମସ୍ତ ପାଟିରେ ପ୍ୟାଡିଂ ଲାଗୁ କରାଯାଇଛି"
+
+#: addons/post-details/includes/class-fields.php:210
+#: addons/post-navigation/includes/class-fields.php:520
+msgid "Margin (px)"
+msgstr "ମାର୍ଜିନ୍ (px)"
+
+#: addons/post-details/includes/class-fields.php:217
+msgid "Margin applied to all sides of the meta box"
+msgstr "ମେଟା ବକ୍ସର ସମସ୍ତ ପାଟିରେ ମାର୍ଜିନ୍ ଲାଗୁ କରାଯାଇଛି"
+
+#: addons/post-details/includes/class-fields.php:221
+#: addons/post-navigation/includes/class-fields.php:473
+msgid "Border"
+msgstr "ବୋର୍ଡର୍"
+
+#: addons/post-details/includes/class-fields.php:225
+#: addons/post-list-box/classes/PostListBoxFields.php:211
+#: addons/post-navigation/includes/class-fields.php:485
+msgid "Border Width (px)"
+msgstr "ବୋର୍ଡର୍ ବ୍ରହ୍ତତ୍ତ୍ୱ (px)"
+
+#: addons/post-details/includes/class-fields.php:232
+msgid "Set the border width in pixels"
+msgstr "ପିକ୍ସେଲ୍‌ସରେ ବୋର୍ଡର୍ ବ୍ରହ୍ତତ୍ତ୍ୱ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:235
+#: addons/post-list-box/classes/PostListBoxFields.php:221
+#: addons/post-navigation/includes/class-fields.php:495
+msgid "Border Radius (px)"
+msgstr "ବୋର୍ଡର୍ ରେଡିଅସ୍ (px)"
+
+#: addons/post-details/includes/class-fields.php:242
+msgid "Set the border radius in pixels"
+msgstr "ପିକ୍ସେଲ୍‌ସରେ ବୋର୍ଡର୍ ରେଡିଅସ୍ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-fields.php:245
+#: addons/post-list-box/classes/PostListBoxFields.php:203
+#: addons/post-navigation/includes/class-fields.php:477
+msgid "Border Color"
+msgstr "ବୋର୍ଡର୍ ରଙ୍ଗ"
+
+#: addons/post-details/includes/class-fields.php:250
+msgid "Choose the border color"
+msgstr "ବୋର୍ଡର୍ ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:26
+#: addons/post-details/includes/class-post-type.php:27
+#: addons/post-details/includes/class-post-type.php:28
+#: addons/post-details/includes/class-post-type.php:29
+msgid "Series Post Details"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ୍ ବିବରଣୀ"
+
+#: addons/post-details/includes/class-post-type.php:30
+#: addons/post-navigation/includes/class-post-type.php:30
+#: orgSeries-admin.php:396
+#: orgSeries-setup.php:220
+msgid "Add New"
+msgstr "ନୂତନ ଯୋଡନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:31
+msgid "Add New Series Post Details"
+msgstr "ନୂତନ ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ଯୋଡନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:32
+msgid "New Series Post Details"
+msgstr "ନୂତନ ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ"
+
+#: addons/post-details/includes/class-post-type.php:33
+msgid "Edit Series Post Details"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ସଂଖ୍ୟା କରନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:34
+msgid "View Series Post Details"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ଦେଖନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:35
+msgid "All Series Post Details"
+msgstr "ସମସ୍ତ ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ"
+
+#: addons/post-details/includes/class-post-type.php:36
+msgid "Search Series Post Details"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ଖୋଜନ୍ତୁ"
+
+#: addons/post-details/includes/class-post-type.php:37
+msgid "No Series Post Details found."
+msgstr "କୌଣସି ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-details/includes/class-post-type.php:38
+msgid "No Series Post Details found in Trash."
+msgstr "କୌଣସି ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ ଟ୍ର୍ୟାସରେ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-details/includes/class-preview.php:25
+msgid "Create a series to preview the post details."
+msgstr "ପୋଷ୍ଟ ବିବରଣୀ ପ୍ରୀଭ୍ୟୁ କରିବାକୁ ଏକ ସିରିଜ୍ ସୃଷ୍ଟି କରନ୍ତୁ।"
+
+#: addons/post-details/includes/class-utilities.php:339
+#: includes-core/class-blocks.php:864
+#. translators: %d: Sample post number.
+#, php-format
+msgid "Sample Series Post %d"
+msgstr "ନମୁନା ସିରିଜ୍ ପୋଷ୍ଟ %d"
+
+#: addons/post-details/includes/class-utilities.php:340
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia "
+"odio vitae vestibulum vestibulum."
+msgstr ""
+"ଲୋରେମ୍ ଇପସମ୍ ଡୋଲର୍ ସିଟ୍ ଏମେଟ୍, କଂସେକ୍ଟେତୁର୍ ଅଡିପିସ୍କିଂ ଏଲିଟ୍। ବିଭାମସ୍ "
+"ଲାସିନିଆ ଓଡିଓ ଭିଟା ଭେସ୍ଟିବୁଲମ୍ ବେସ୍ଟିବୁଲମ୍।"
+
+#: addons/post-details/includes/class-utilities.php:341
+msgid "Sample excerpt preview content for the series meta box."
+msgstr "ସିରିଜ୍ ମେଟା ବକ୍ସ ପାଇଁ ନମୁନା ଅନୁଛେଦ ପ୍ରୀଭ୍ୟୁ ବିଷୟବସ୍ତୁ।"
+
+#: addons/post-details/post-details.php:180
+msgid "Series Post Details #1"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ #1"
+
+#: addons/post-details/post-details.php:185
+msgid "Series Post Details #2"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ #2"
+
+#: addons/post-details/post-details.php:190
+msgid "Series Post Details #3"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ବିବରଣୀ #3"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:34
+msgid "Box Title"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:42
+msgid "Box Style"
+msgstr "ବକ୍ସ ଶୈଳୀ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:50
+msgid "Content Display"
+msgstr "ବିଷୟବସ୍ତୁ ପ୍ରଦର୍ଶନ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:58
+msgid "Featured Image Settings"
+msgstr "ବିଶେଷ ଚିତ୍ର ସେଟିଂସ୍"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:66
+msgid "Post Style"
+msgstr "ପୋଷ୍ଟ ଶୈଳୀ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:74
+msgid "Layout Display"
+msgstr "ଲେଆଉଟ୍ ପ୍ରଦର୍ଶନ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:82
+msgid "Highlights Current Post"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:99
+msgid "Show Box Title"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ ପ୍ରଦର୍ଶନ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:104
+msgid "Display the title above the post list"
+msgstr "ପୋଷ୍ଟ ତାଲିକାର ଉପରେ ଶୀର୍ଷକ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:107
+msgid "Box Title Type"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ ପ୍ରକାର"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:111
+msgid "Use Series Title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:112
+msgid "Custom Title"
+msgstr "କଷ୍ଟମ୍ ଶୀର୍ଷକ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:116
+msgid "Choose whether to display the series title or a custom title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ କିମ୍ବା କଷ୍ଟମ୍ ଶୀର୍ଷକ ପ୍ରଦର୍ଶନ କରିବାକୁ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:121
+msgid "Link Box Title to Series"
+msgstr "ସିରିଜ୍ କୁ ବକ୍ସ ଶୀର୍ଷକ ଲିଙ୍କ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:126
+msgid "Link the box title to the current series archive when using the series title"
+msgstr ""
+"ସିରିଜ୍ ଶୀର୍ଷକ ବ୍ୟବହାର କରିବା ସମୟରେ ବର୍ତ୍ତମାନ ସିରିଜ୍ ଆର୍କାଇଭ୍ କୁ ବକ୍ସ ଶୀର୍ଷକ "
+"ଲିଙ୍କ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:131
+msgid "Custom Box Title Text"
+msgstr "କଷ୍ଟମ୍ ବକ୍ସ ଶୀର୍ଷକ ପାଠ୍ୟ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:135
+#: addons/post-list-box/includes/class-utilities.php:163
+msgid "Series Posts"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:136
+msgid "Enter custom title for the post list"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ପାଇଁ କଷ୍ଟମ୍ ଶୀର୍ଷକ ପ୍ରବେଶ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:137
+msgid "Only used when \"Custom Title\" is selected above"
+msgstr "ଉପରେ \"କଷ୍ଟମ୍ ଶୀର୍ଷକ\" ବାଛିଲେ ମାତ୍ର ବ୍ୟବହାର ହେବ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:142
+msgid "Box Title HTML Tag"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ HTML ଟ୍ୟାଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:157
+msgid "Choose the HTML tag used for the box title"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ ପାଇଁ ବ୍ୟବହାର ହେବାକୁ HTML ଟ୍ୟାଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:162
+msgid "Box Title Color"
+msgstr "ବକ୍ସ ଶୀର୍ଷକଙ୍କର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:167
+msgid "Choose the color of the box title"
+msgstr "ବକ୍ସ ଶୀର୍ଷକଙ୍କର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:172
+msgid "Box Title Font Size (px)"
+msgstr "ବକ୍ସ ଶୀର୍ଷକ ଫଣ୍ଟ ସାଇଜ୍ (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:179
+msgid "Set the font size of the box title in pixels"
+msgstr "ବକ୍ସ ଶୀର୍ଷକର ଫଂଟ ଆକାର ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:200
+msgid "Choose the background color for the post list box"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପାଇଁ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:208
+msgid "Choose the border color for the post list box"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପାଇଁ ଝାଲ ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:218
+msgid "Set the border width for the post list box in pixels"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପାଇଁ ଝାଲ ଚୌଡ଼ା ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:228
+msgid "Set the border radius for the post list box in pixels"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପାଇଁ ଝାଲ ରେଡିଅସ ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:238
+msgid "Set the inner spacing of the post list box in pixels"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପାଇଁ ଅନ୍ତର୍ଗତ ଦୂରତା ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:252
+msgid "Show Post Titles"
+msgstr "ପୋଷ୍ଟ ଶୀର୍ଷକଗୁଡିକୁ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:257
+msgid "Display post titles in the series list"
+msgstr "ଶ୍ରେଣୀ ତାଲିକାରେ ପୋଷ୍ଟ ଶୀର୍ଷକଗୁଡିକୁ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:260
+msgid "Series Order Number"
+msgstr "ଶ୍ରେଣୀ କ୍ରମ ସଂଖ୍ୟା"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:265
+msgid "Show the series order number next to each post title."
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟ ଶୀର୍ଷକ ସାଙ୍ଗରେ ଶ୍ରେଣୀ କ୍ରମ ସଂଖ୍ୟା ଦେଖାନ୍ତୁ।"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:270
+msgid "Series Order Number Position"
+msgstr "ଶ୍ରେଣୀ କ୍ରମ ସଂଖ୍ୟା ଅବସ୍ଥାନ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:274
+msgid "Before the title"
+msgstr "ଶୀର୍ଷକର ପୂର୍ବରେ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:275
+msgid "After the title"
+msgstr "ଶୀର୍ଷକ ପରେ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:279
+msgid "Choose where the order number appears relative to the title."
+msgstr "ଶୀର୍ଷକ ସାଙ୍ଗରେ କେଉଁଠି କ୍ରମ ସଂଖ୍ୟା ଦେଖାଯିବ ବାଛନ୍ତୁ।"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:284
+msgid "Post Title Color"
+msgstr "ପୋଷ୍ଟ ଶୀର୍ଷକର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:289
+msgid "Choose the color of post titles"
+msgstr "ପୋଷ୍ଟ ଶୀର୍ଷକର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:294
+msgid "Post Title Font Size (px)"
+msgstr "ପୋଷ୍ଟ ଶୀର୍ଷକ ଫଂଟ ଆକାର (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:301
+msgid "Set the font size of post titles in pixels"
+msgstr "ପୋଷ୍ଟ ଶୀର୍ଷକର ଫଂଟ ଆକାର ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:306
+msgid "Show Post Excerpt"
+msgstr "ପୋଷ୍ଟ ସାରାଂଶ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:311
+msgid "Display the excerpt for each post"
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟ ପାଇଁ ସାରାଂଶ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:315
+msgid "Excerpt Length (words)"
+msgstr "ସାରାଂଶ ଦୀର୍ଘତା (ଶବ୍ଦ)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:322
+msgid "Set the maximum excerpt length in words"
+msgstr "ଶବ୍ଦରେ ସର୍ବାଧିକ ସାରାଂଶ ଦୀର୍ଘତା ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:328
+msgid "Excerpt Color"
+msgstr "ସାରାଂଶର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:333
+msgid "Choose the color of post excerpts"
+msgstr "ପୋଷ୍ଟ ସାରାଂଶର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:339
+msgid "Show Post Summary"
+msgstr "ପୋଷ୍ଟ ସାରାଂଶ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:344
+msgid "Display a summary generated from each post"
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟରୁ ତିଆରି ହୋଇଥିବା ସାରାଂଶ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:348
+msgid "Summary Length (words)"
+msgstr "ସାରାଂଶ ଦୀର୍ଘତା (ଶବ୍ଦ)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:355
+msgid "Set the maximum summary length in words"
+msgstr "ଶବ୍ଦରେ ସର୍ବାଧିକ ସାରାଂଶ ଦୀର୍ଘତା ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:361
+msgid "Summary Color"
+msgstr "ସାରାଂଶର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:366
+msgid "Choose the color of post summaries"
+msgstr "ପୋଷ୍ଟ ସାରାଂଶର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:372
+msgid "Show Post Author"
+msgstr "ପୋଷ୍ଟ ଲେଖକ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:377
+msgid "Display the author of each post"
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟର ଲେଖକକୁ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:381
+msgid "Post Author Color"
+msgstr "ପୋଷ୍ଟ ଲେଖକର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:386
+msgid "Choose the color of post authors"
+msgstr "ପୋଷ୍ଟ ଲେଖକମାନେଙ୍କର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:392
+msgid "Show Post Date"
+msgstr "ପୋଷ୍ଟ ତାରିଖ ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:397
+msgid "Display the date of each post"
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟର ତାରିଖକୁ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:401
+msgid "Post Date Color"
+msgstr "ପୋଷ୍ଟ ତାରିଖର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:406
+msgid "Choose the color of post dates"
+msgstr "ପୋଷ୍ଟ ତାରିଖଗୁଡିକର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:423
+#: addons/post-navigation/includes/class-fields.php:172
+#: addons/post-navigation/includes/class-fields.php:287
+#: addons/post-navigation/includes/class-fields.php:415
+msgid "Show Featured Image"
+msgstr "ବିଶେଷ ଚିତ୍ର ଦେଖାନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:428
+msgid "Display the featured image for each post"
+msgstr "ପ୍ରତ୍ୟେକ ପୋଷ୍ଟ ପାଇଁ ବିଶେଷ ଚିତ୍ରକୁ ପ୍ରଦର୍ଶିତ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:431
+msgid "Featured Image Width (px)"
+msgstr "ପ୍ରସିଦ୍ଧ ଚିତ୍ରର ଚୌଡ଼ା (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:438
+#: addons/post-navigation/includes/class-fields.php:197
+#: addons/post-navigation/includes/class-fields.php:312
+#: addons/post-navigation/includes/class-fields.php:440
+msgid "Width of the featured image in pixels"
+msgstr "ପ୍ରସିଦ୍ଧ ଚିତ୍ରର ଚୌଡ଼ା ପିକ୍ସେଲରେ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:443
+msgid "Featured Image Height (px)"
+msgstr "ପ୍ରସିଦ୍ଧ ଚିତ୍ରର ଉଚ୍ଚତା (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:450
+#: addons/post-navigation/includes/class-fields.php:205
+#: addons/post-navigation/includes/class-fields.php:320
+#: addons/post-navigation/includes/class-fields.php:448
+msgid "Height of the featured image in pixels"
+msgstr "ପ୍ରସିଦ୍ଧ ଚିତ୍ରର ଉଚ୍ଚତା ପିକ୍ସେଲରେ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:455
+msgid "Fallback Featured Image"
+msgstr "ଫଲବ୍ୟାକ୍ ପ୍ରସିଦ୍ଧ ଚିତ୍ର"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:460
+msgid "Image to display when a post does not have a featured image"
+msgstr "ଏକ ପୋଷ୍ଟରେ ପ୍ରସିଦ୍ଧ ଚିତ୍ର ନଥିଲେ ଦେଖାଯିବା ଚିତ୍ର"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:477
+msgid "Post Padding (px)"
+msgstr "ପୋଷ୍ଟ୍ ପ୍ୟାଡିଂ (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:484
+msgid "Set the inner spacing for each post item in pixels"
+msgstr "ପିକ୍ସେଲରେ ପ୍ରତି ପୋଷ୍ଟ ଆଇଟମ୍‌ର ଭିତର ଖଣ୍ଡ କ୍ଷେତ୍ର ସେଟ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:487
+msgid "Post Border Width (px)"
+msgstr "ପୋଷ୍ଟ୍ ବୋର୍ଡର ଚୌଡ଼ା (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:494
+msgid "Set the border width for each post item in pixels"
+msgstr "ପିକ୍ସେଲରେ ପ୍ରତି ପୋଷ୍ଟ ଆଇଟମ୍‌ର ବୋର୍ଡର ଚୌଡ଼ା ସେଟ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:497
+msgid "Post Border Color"
+msgstr "ପୋଷ୍ଟ୍ ବୋର୍ଡର ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:502
+msgid "Choose the border color for each post item"
+msgstr "ପ୍ରତି ପୋଷ୍ଟ ଆଇଟମ୍‌ର ପାଇଁ ବୋର୍ଡର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:505
+msgid "Post Background Color"
+msgstr "ପୋଷ୍ଟ୍ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:510
+msgid "Background color for the post list container"
+msgstr "ପୋଷ୍ଟ୍ ତାଲିକା କଣ୍ଟେନର ପାଇଁ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:524
+msgid "Layout Style"
+msgstr "ଲେଆଉଟ୍ ଷ୍ଟାଇଲ୍"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:528
+#: inc/settings/tab-legacy.php:30
+#: assets/js/publishpress-series-blocks.js:255
+msgid "List"
+msgstr "ତାଲିକା"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:529
+#: inc/settings/tab-legacy.php:29
+#: assets/js/publishpress-series-blocks.js:254
+msgid "Grid"
+msgstr "ଗ୍ରିଡ୍"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:533
+msgid "Choose the layout style for the post list"
+msgstr "ପୋଷ୍ଟ୍ ତାଲିକା ପାଇଁ ଲେଆଉଟ୍ ଷ୍ଟାଇଲ୍ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:537
+#: assets/js/publishpress-series-blocks.js:262
+msgid "Columns"
+msgstr "କଲମ୍‌ସ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:541
+msgid "2 Columns"
+msgstr "2 କଲମ୍‌ସ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:542
+msgid "3 Columns"
+msgstr "3 କଲମ୍‌ସ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:543
+msgid "4 Columns"
+msgstr "4 କଲମ୍‌ସ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:544
+msgid "6 Columns"
+msgstr "6 କଲମ୍‌ସ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:548
+msgid "Choose the number of columns in the grid layout"
+msgstr "ଗ୍ରିଡ୍ ଲେଆଉଟ୍‌ରେ କଲମ୍‌ସର ସଂଖ୍ୟା ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:554
+msgid "Order By"
+msgstr "କ୍ରମ ଦ୍ୱାରା"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:558
+msgid "Date"
+msgstr "ତାରିଖ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:559
+#: addons/publisher/series-part-post-table.php:61
+#: addons/publisher/series-pending-post-table.php:63
+#: addons/publisher/series-publish-post-table.php:71
+msgid "Title"
+msgstr "ଶୀର୍ଷକ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:560
+#: addons/publisher/series_im_admin_main.php:8
+#: addons/publisher/series_issue_manager.php:929
+#: addons/publisher/series_issue_manager.php:1011
+#: orgSeries-admin.php:354
+#: orgSeries-manage.php:237
+#: orgSeries-manage.php:247
+msgid "Series Order"
+msgstr "ସିରିଜ୍ କ୍ରମ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:564
+msgid "Choose the field used to sort posts"
+msgstr "ପୋଷ୍ଟ୍‌ଗୁଡିକୁ ବିବର୍ତ୍ତନ କରିବା ପାଇଁ ବ୍ୟବହୃତ କ୍ଷେତ୍ର ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:568
+#: orgSeries-manage.php:56
+#: orgSeries-manage.php:271
+msgid "Order"
+msgstr "କ୍ରମ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:572
+#: inc/settings/tab-legacy.php:108
+#: orgSeries-widgets.php:338
+msgid "Ascending"
+msgstr "ଉର୍ଧ୍ବଗତି"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:573
+#: inc/settings/tab-legacy.php:109
+#: orgSeries-widgets.php:337
+msgid "Descending"
+msgstr "ନୀଚଗତି"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:577
+msgid "Choose the direction in which posts are sorted"
+msgstr "ପୋଷ୍ଟ୍‌ଗୁଡିକୁ ଯେଉଁ ଦିଗରେ ବିବର୍ତ୍ତନ କରାଯିବ ସେଥିରେ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:581
+msgid "Gap Between Items (px)"
+msgstr "ଆଇଟମ୍‌ଗୁଡିକର ମଧ୍ୟରେ ଗାପ (px)"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:588
+msgid "Set the space between post items in pixels"
+msgstr "ପିକ୍ସେଲରେ ପୋଷ୍ଟ୍ ଆଇଟମ୍‌ଗୁଡିକର ମଧ୍ୟରେ କ୍ଷେତ୍ର ସେଟ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:592
+msgid "Post List Box Location"
+msgstr "ପୋଷ୍ଟ୍ ତାଲିକା ବକ୍ସ୍ ସ୍ଥାନ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:601
+msgid "Choose where to display the post list box in relation to the content"
+msgstr "ସାମଗ୍ରୀ ସହ ଅନୁସାରେ ପୋଷ୍ଟ୍ ତାଲିକା ବକ୍ସ୍ କେଉଁଠାରେ ଦେଖାଯିବ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:605
+msgid "Maximum number of items"
+msgstr "ଗୁଣାଙ୍କ ମାକ୍ସିମମ୍ ସଂଖ୍ୟା"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:611
+msgid ""
+"Limit the number of posts shown in the series list. Leave empty for no "
+"limit. The admin preview is limited to 4 posts."
+msgstr ""
+"ସିରିଜ୍ ତାଲିକାରେ ଦେଖାଯିବା ପୋଷ୍ଟ୍‌ଗୁଡିକର ସଂଖ୍ୟା ନିୟମିତ କରନ୍ତୁ। କୌଣସି ନିୟମିତ "
+"ନକରିବା ପାଇଁ ଖାଲି ରଖନ୍ତୁ। ଏଡମିନ୍ ପ୍ରୀଭ୍ୟୁ 4 ପୋଷ୍ଟ୍‌ଗୁଡିକରେ ସୀମିତ।"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:626
+msgid "Highlight Current Post"
+msgstr "Current Post Highlight କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:631
+msgid "Highlight the current post when viewing a specific series post"
+msgstr "ନିର୍ଦ୍ଦିଷ୍ଟ ସିରିଜ୍ ପୋଷ୍ଟ ଦେଖୁଥିବା ବେଳେ ବର୍ତ୍ତମାନ ପୋଷ୍ଟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:634
+msgid "Current Post Background Color"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:639
+msgid "Choose the background color for the current post"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ପାଇଁ ପୃଷ୍ଠଭୂମି ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:642
+msgid "Current Post Border Color"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ବୋର୍ଡର୍ ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:647
+msgid "Choose the border color for the current post"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ପାଇଁ ବୋର୍ଡର୍ ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:650
+msgid "Current Post Text Color"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ଟେକ୍ସଟ୍ ରଙ୍ଗ"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:655
+msgid "Choose the text color for the current post"
+msgstr "ବର୍ତ୍ତମାନ ପୋଷ୍ଟ ପାଇଁ ଟେକ୍ସଟ୍ ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:55
+msgid "Default Post List Box"
+msgstr "ଡିଫଲ୍ଟ ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:103
+#: addons/post-list-box/includes/class-admin-ui.php:104
+#: addons/post-list-box/includes/class-admin-ui.php:147
+#: addons/post-list-box/includes/class-post-type.php:25
+#: inc/settings/tab-post-list-box.php:42
+#: includes-core/class-blocks.php:150
+#: orgSeries-utility.php:355
+#: assets/js/publishpress-series-blocks.js:30
+msgid "Post List Boxes"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:120
+#: addons/post-list-box/includes/class-admin-ui.php:121
+msgid "Post List Box updated."
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ଅଦ୍ୟତିତ ହେଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:122
+msgid "Post List Box added."
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ଯୋଗ କରାଗଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:123
+msgid "Post List Box saved."
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ସଞ୍ଚୟ କରାଗଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:124
+msgid "Post List Box submitted."
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ଦାଖଲ କରାଗଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:146
+#: addons/post-list-box/includes/class-post-type.php:24
+msgid "Post List Box"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:152
+#. translators: 1: Number of post list boxes, 2: Post type label.
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %2$s updated."
+msgstr[0] "%1$s %2$s ଅଦ୍ୟତିତ ହେଲା।"
+msgstr[1] "%1$s %2$s ଅଦ୍ୟତିତ ହେଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:158
+#. translators: 1: Number of post list boxes, 2: Post type label.
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %2$s not updated, somebody is editing them."
+msgstr[0] "%1$s %2$s ଅଦ୍ୟତିତ ହୋଇନି, କାହାରେ ଏହା ସମ୍ପାଦନା କରୁଛନ୍ତି।"
+msgstr[1] "%1$s %2$s ଅଦ୍ୟତିତ ହୋଇନି, କାହାରେ ଏହା ସମ୍ପାଦନା କରୁଛନ୍ତି।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:169
+#. translators: 1: Number of post list boxes, 2: Post type label.
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %2$s permanently deleted."
+msgstr[0] "%1$s %2$s ଶାସ୍ତ୍ରୀୟ ଭାବେ ମିଟିଗଲା।"
+msgstr[1] "%1$s %2$s ଶାସ୍ତ୍ରୀୟ ଭାବେ ମିଟିଗଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:180
+#. translators: 1: Number of post list boxes, 2: Post type label.
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %2$s moved to the Trash."
+msgstr[0] "%1$s %2$s ଟ୍ରାଶ୍‌କୁ ହେଲା।"
+msgstr[1] "%1$s %2$s ଟ୍ରାଶ୍‌କୁ ହେଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:191
+#. translators: 1: Number of post list boxes, 2: Post type label.
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %2$s restored from the Trash."
+msgstr[0] "%1$s %2$s ଟ୍ରାଶ୍‌ରୁ ପୁନର୍ନିର୍ମାଣ ହେଲା।"
+msgstr[1] "%1$s %2$s ଟ୍ରାଶ୍‌ରୁ ପୁନର୍ନିର୍ମାଣ ହେଲା।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:214
+msgid "Post List Box Preview"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପ୍ରୀଭ୍ୟୁ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:231
+msgid "Post List Box Editor"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ସମ୍ପାଦକ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:281
+msgid "Insert into posts or pages to display this Post List Box manually."
+msgstr ""
+"ଏହି ପୋଷ୍ଟ ତାଲିକା ବକ୍ସକୁ ହସ୍ତକ୍ଷେପ କରିବା ପାଇଁ ପୋଷ୍ଟ କିମ୍ବା ପୃଷ୍ଠାଗୁଡିକରେ "
+"ସଂଯୋଜନ କରନ୍ତୁ।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:323
+#: addons/post-navigation/includes/class-admin-ui.php:115
+msgid "Select Series to Preview:"
+msgstr "ପ୍ରୀଭ୍ୟୁ ପାଇଁ ସିରିଜ୍ ଚୟନ କରନ୍ତୁ:"
+
+#: addons/post-list-box/includes/class-admin-ui.php:341
+msgid "No series found. Create a series to see the preview."
+msgstr "କୌଣସି ସିରିଜ୍ ମିଳିଲା ନାହିଁ। ପ୍ରୀଭ୍ୟୁ ଦେଖିବା ପାଇଁ ଏକ ସିରିଜ୍ ସୃଷ୍ଟି କରନ୍ତୁ।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:356
+msgid "No posts found in selected series."
+msgstr "ଚୟନ କରାଯାଇଥିବା ସିରିଜ୍‌ରେ କୌଣସି ପୋଷ୍ଟ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:374
+#: addons/post-navigation/post-navigation.php:86
+msgid "Loading preview..."
+msgstr "ପ୍ରୀଭ୍ୟୁ ଲୋଡ୍ କରାଯାଉଛି..."
+
+#: addons/post-list-box/includes/class-admin-ui.php:389
+#: addons/post-list-box/includes/class-admin-ui.php:393
+msgid "Error loading preview."
+msgstr "ପ୍ରୀଭ୍ୟୁ ଲୋଡ୍ କରିବାରେ ତ୍ରୁଟି।"
+
+#: addons/post-list-box/includes/class-admin-ui.php:421
+msgid "Post List Box sections"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ବିଭାଗ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:703
+#: addons/post-navigation/includes/class-admin-ui.php:421
+#: orgSeries-manage.php:309
+msgid "Select Image"
+msgstr "ଚିତ୍ର ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-admin-ui.php:707
+msgid "Remove"
+msgstr "ମିଟାନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-fields.php:25
+msgid "Box Container"
+msgstr "ବକ୍ସ କନ୍ଟେନର"
+
+#: addons/post-list-box/includes/class-fields.php:29
+msgid "Post"
+msgstr "ପୋଷ୍ଟ"
+
+#: addons/post-list-box/includes/class-fields.php:33
+#: addons/post-navigation/includes/class-fields.php:38
+#: assets/js/publishpress-series-blocks.js:130
+msgid "Layout"
+msgstr "ବିନ୍ୟାସ"
+
+#: addons/post-list-box/includes/class-post-type.php:31
+#: addons/post-list-box/includes/class-post-type.php:37
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "New %1$s"
+msgstr "ନୂତନ %1$s"
+
+#: addons/post-list-box/includes/class-post-type.php:33
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "Add New %1$s"
+msgstr "ନୂତନ %1$s ଯୋଗ କରନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-post-type.php:35
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "Edit %1$s"
+msgstr "%1$s ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-post-type.php:40
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "View %1$s"
+msgstr "%1$s ଦେଖନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-post-type.php:42
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "Search %2$s"
+msgstr "%2$s ଖୋଜନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-post-type.php:44
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "No %2$s found"
+msgstr "କୌଣସି %2$s ମିଳିଲା ନାହିଁ"
+
+#: addons/post-list-box/includes/class-post-type.php:46
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "No %2$s found in Trash"
+msgstr "ଟ୍ରାଶ୍‌ରେ କୌଣସି %2$s ମିଳିଲା ନାହିଁ"
+
+#: addons/post-list-box/includes/class-post-type.php:50
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "%1$s Image"
+msgstr "%1$s ଛବି"
+
+#: addons/post-list-box/includes/class-post-type.php:52
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "Set %1$s Image"
+msgstr "ସେଟ %1$s ଛବି"
+
+#: addons/post-list-box/includes/class-post-type.php:54
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "Remove %1$s Image"
+msgstr "ହଟାନ୍ତୁ %1$s ଛବି"
+
+#: addons/post-list-box/includes/class-post-type.php:56
+#. translators: %1$s: Singular post type label.
+#, php-format
+msgid "Use as %1$s Image"
+msgstr "%1$s ଛବି ଭାବେ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: addons/post-list-box/includes/class-post-type.php:58
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "Filter %2$s list"
+msgstr "%2$s ତାଲିକା ଫିଲ୍ଟର"
+
+#: addons/post-list-box/includes/class-post-type.php:60
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "%2$s list navigation"
+msgstr "%2$s ତାଲିକା ନେଭିଗେସନ"
+
+#: addons/post-list-box/includes/class-post-type.php:62
+#. translators: %2$s: Plural post type label.
+#, php-format
+msgid "%2$s list"
+msgstr "%2$s ତାଲିକା"
+
+#: addons/post-list-box/includes/class-preview.php:129
+#. translators: %d: Sample post number.
+#, php-format
+msgid "Sample Post %d"
+msgstr "ସ୍ୱାଦିଷ୍ଟ ପୋଷ୍ଟ %d"
+
+#: addons/post-list-box/includes/class-preview.php:131
+#. translators: %d: Sample post number.
+#, php-format
+msgid ""
+"This is sample content for post %d in the series. Lorem ipsum dolor sit "
+"amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
+"labore et dolore magna aliqua."
+msgstr ""
+"ଏହା ସିରିଜରେ ପୋଷ୍ଟ %d ପାଇଁ ସ୍ୱାଦିଷ୍ଟ ସାମଗ୍ରୀ। ଲୋରେମ୍ ଇପ୍ସମ୍ ଦୋଲୋର୍ ସିଟ୍ "
+"ଅମେଟ୍, କନ୍ସେକ୍ଟେଟୁର୍ ଏଡିପିସିଙ୍ଗ୍ ଏଲିଟ୍। ସେଡ୍ ଡୋ ଇୟୁସ୍ମୋଡ୍ ଟେମ୍ପର୍ ଇନସିଡେଣ୍ଟ "
+"ଉତ୍ ଲାବୋର୍ ଏଟ୍ ଡୋଲୋରେ ମାଗ୍ନା ଅଲିକ୍ୱା।"
+
+#: addons/post-list-box/includes/class-preview.php:133
+#. translators: %d: Sample post number.
+#, php-format
+msgid "This is a sample excerpt for post %d in the series."
+msgstr "ଏହା ସିରିଜରେ ପୋଷ୍ଟ %d ପାଇଁ ସ୍ୱାଦିଷ୍ଟ ନିକାଳ।"
+
+#: addons/post-list-box/includes/class-preview.php:558
+#: addons/publisher/series-part-post-table.php:62
+#: addons/publisher/series-pending-post-table.php:64
+#: addons/publisher/series-publish-post-table.php:72
+msgid "Author"
+msgstr "ଲେଖକ"
+
+#: addons/post-list-box/post-list-box.php:91
+msgid "Default List Box"
+msgstr "ଡିଫଲ୍ଟ ତାଲିକା ବକ୍ସ"
+
+#: addons/post-list-box/post-list-box.php:95
+msgid "Grid Style Box"
+msgstr "ଗ୍ରିଡ୍ ଷ୍ଟାଇଲ୍ ବକ୍ସ"
+
+#: addons/post-list-box/post-list-box.php:108
+msgid "Simple List Box"
+msgstr "ସିମ୍ପଲ୍ ତାଲିକା ବକ୍ସ"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:263
+msgid "Navigation hidden (series has only one post)"
+msgstr "ନେଭିଗେସନ୍ ଲୁଚାଇଛି (ସିରିଜରେ କେବଳ ଗୋଟିଏ ପୋଷ୍ଟ)"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:317
+#: addons/post-navigation/classes/PostNavigationRenderer.php:348
+#: addons/post-navigation/classes/PostNavigationRenderer.php:379
+#: addons/post-navigation/classes/PostNavigationRenderer.php:463
+#: addons/post-navigation/classes/PostNavigationRenderer.php:515
+#: addons/post-navigation/classes/PostNavigationRenderer.php:569
+#: addons/post-navigation/includes/class-utilities.php:62
+msgid "Series Home"
+msgstr "ସିରିଜ୍ ଘର"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:333
+#: addons/post-navigation/classes/PostNavigationRenderer.php:489
+#: addons/post-navigation/includes/class-fields.php:147
+#: addons/post-navigation/includes/class-fields.php:168
+#: addons/post-navigation/includes/class-utilities.php:40
+msgid "Previous"
+msgstr "ପୂର୍ବରୁ"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:364
+#: addons/post-navigation/classes/PostNavigationRenderer.php:543
+#: addons/post-navigation/includes/class-fields.php:262
+#: addons/post-navigation/includes/class-fields.php:283
+#: addons/post-navigation/includes/class-utilities.php:51
+msgid "Next"
+msgstr "ପରବର୍ତ୍ତୀ"
+
+#: addons/post-navigation/includes/class-admin-ui.php:31
+#: addons/post-navigation/includes/class-admin-ui.php:32
+#: inc/settings/tab-post-navigation.php:42
+#: includes-core/class-blocks.php:164
+#: orgSeries-utility.php:357
+#: assets/js/publishpress-series-blocks.js:44
+msgid "Post Navigation"
+msgstr "ପୋଷ୍ଟ ନେଭିଗେସନ"
+
+#: addons/post-navigation/includes/class-admin-ui.php:67
+msgid "Series Post Navigation Preview"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନେଭିଗେସନ୍ ପ୍ରିଭ୍ୟୁ"
+
+#: addons/post-navigation/includes/class-admin-ui.php:76
+msgid "Series Post Navigation Editor"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନେଭିଗେସନ୍ ଏଡିଟର"
+
+#: addons/post-navigation/includes/class-admin-ui.php:124
+msgid "No series found. Create a series to preview the navigation."
+msgstr "କୌଣସି ସିରିଜ୍ ମିଳିଲା ନାହିଁ। ନେଭିଗେସନ୍ ପ୍ରିଭ୍ୟୁ ପାଇଁ ସିରିଜ୍ ସୃଷ୍ଟି କରନ୍ତୁ।"
+
+#: addons/post-navigation/includes/class-admin-ui.php:146
+msgid "Series Post Navigation sections"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନେଭିଗେସନ୍ ବିଭାଗ"
+
+#: addons/post-navigation/includes/class-admin-ui.php:185
+msgid "Insert into posts or pages to display this Series Post Navigation manually."
+msgstr ""
+"ଏହି ସିରିଜ୍ ପୋଷ୍ଟ ନେଭିଗେସନ୍ କୁ ହସ୍ତକଳା କରିବା ପାଇଁ ପୋଷ୍ଟ କିମ୍ବା ପୃଷ୍ଠାରେ "
+"ସାମିଲ୍ କରନ୍ତୁ।"
+
+#: addons/post-navigation/includes/class-admin-ui.php:193
+msgid "Default Navigation"
+msgstr "ଡିଫଲ୍ଟ ନେଭିଗେସନ୍"
+
+#: addons/post-navigation/includes/class-admin-ui.php:421
+msgid "Change Image"
+msgstr "ଛବି ବଦଳାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-admin-ui.php:429
+msgid "Remove Image"
+msgstr "ଛବି ହଟାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-ajax.php:128
+#: addons/post-navigation/includes/class-ajax.php:135
+msgid "No posts found in series to preview."
+msgstr "ପ୍ରିଭ୍ୟୁ ପାଇଁ ସିରିଜରେ କୌଣସି ପୋଷ୍ଟ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-navigation/includes/class-fields.php:34
+msgid "Item"
+msgstr "ଆଇଟମ୍"
+
+#: addons/post-navigation/includes/class-fields.php:89
+msgid "Include Series Title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ ସାମିଲ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:94
+msgid "Display the series title above the navigation"
+msgstr "ନେଭିଗେସନ୍ ଉପରେ ସିରିଜ୍ ଶୀର୍ଷକ ଦେଖାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:97
+msgid "Link Series Title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ ଲିଙ୍କ୍"
+
+#: addons/post-navigation/includes/class-fields.php:102
+msgid "Link the series title to the series archive page"
+msgstr "ସିରିଜ୍ ଆର୍କାଇଭ୍ ପୃଷ୍ଠାକୁ ସିରିଜ୍ ଶୀର୍ଷକ ଲିଙ୍କ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:107
+msgid "Series Title Alignment"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ ଅଲାଇନ୍ମେଣ୍ଟ"
+
+#: addons/post-navigation/includes/class-fields.php:111
+#: addons/post-navigation/includes/class-fields.php:184
+#: addons/post-navigation/includes/class-fields.php:235
+#: addons/post-navigation/includes/class-fields.php:299
+#: addons/post-navigation/includes/class-fields.php:427
+msgid "Left"
+msgstr "ବାମ"
+
+#: addons/post-navigation/includes/class-fields.php:112
+msgid "Center"
+msgstr "ମଧ୍ୟ"
+
+#: addons/post-navigation/includes/class-fields.php:113
+#: addons/post-navigation/includes/class-fields.php:185
+#: addons/post-navigation/includes/class-fields.php:236
+#: addons/post-navigation/includes/class-fields.php:300
+#: addons/post-navigation/includes/class-fields.php:428
+msgid "Right"
+msgstr "ଦାହିନ"
+
+#: addons/post-navigation/includes/class-fields.php:117
+msgid "Choose the alignment of the series title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକର ଅଲାଇନ୍ମେଣ୍ଟ ବାଛନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:120
+msgid "Series Title Color"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକ ରଙ୍ଗ"
+
+#: addons/post-navigation/includes/class-fields.php:125
+msgid "Choose the color of the series title"
+msgstr "ସିରିଜ୍ ଶୀର୍ଷକର ରଙ୍ଗ ବାଛନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:128
+msgid "Hide When Single Post"
+msgstr "ଏକଳ ପୋଷ୍ଟ ଥିଲେ ଲୁଚାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:133
+msgid "Do not display navigation if series has only one post"
+msgstr "ସେରୀରେ କେବଳ ଏକ ପୋଷ୍ଟ ଥିଲେ ନାଭିଗେସନ୍ ଦେଖାନ୍ତୁ ନାହିଁ"
+
+#: addons/post-navigation/includes/class-fields.php:151
+msgid "Previous Navigation Type"
+msgstr "ପୂର୍ବତନ ନାଭିଗେସନ୍ ପ୍ରକାର"
+
+#: addons/post-navigation/includes/class-fields.php:155
+#: addons/post-navigation/includes/class-fields.php:270
+#: addons/post-navigation/includes/class-fields.php:385
+msgid "None"
+msgstr "କିଛି ନାହିଁ"
+
+#: addons/post-navigation/includes/class-fields.php:156
+msgid "Previous Post Title"
+msgstr "ପୂର୍ବତନ ପୋଷ୍ଟ ଶୀର୍ଷକ"
+
+#: addons/post-navigation/includes/class-fields.php:157
+#: addons/post-navigation/includes/class-fields.php:272
+#: addons/post-navigation/includes/class-fields.php:387
+msgid "Custom Label"
+msgstr "କଷ୍ଟମ୍ ଲେବଲ୍"
+
+#: addons/post-navigation/includes/class-fields.php:161
+msgid "Choose how to display the previous navigation"
+msgstr "ପୂର୍ବତନ ନାଭିଗେସନ୍ କିପରି ଦେଖାଇବେ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:164
+msgid "Previous Label"
+msgstr "ପୂର୍ବତନ ଲେବଲ୍"
+
+#: addons/post-navigation/includes/class-fields.php:169
+msgid "Custom text for previous post link"
+msgstr "ପୂର୍ବତନ ପୋଷ୍ଟ ଲିଙ୍କ ପାଇଁ କଷ୍ଟମ୍ ଟେକ୍ସଟ୍"
+
+#: addons/post-navigation/includes/class-fields.php:177
+msgid "Display featured image for previous post"
+msgstr "ପୂର୍ବତନ ପୋଷ୍ଟ ପାଇଁ ବିଶେଷତା ଚିତ୍ର ଦେଖାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:180
+#: addons/post-navigation/includes/class-fields.php:295
+#: addons/post-navigation/includes/class-fields.php:423
+msgid "Image Position"
+msgstr "ଚିତ୍ର ପଦବୀ"
+
+#: addons/post-navigation/includes/class-fields.php:189
+msgid "Position of the featured image relative to the navigation"
+msgstr "ନାଭିଗେସନ୍ ସମ୍ନିକଟରେ ବିଶେଷତା ଚିତ୍ରର ପଦବୀ"
+
+#: addons/post-navigation/includes/class-fields.php:192
+#: addons/post-navigation/includes/class-fields.php:307
+#: addons/post-navigation/includes/class-fields.php:435
+msgid "Image Width (px)"
+msgstr "ଚିତ୍ର ଚୌଡ଼ା (px)"
+
+#: addons/post-navigation/includes/class-fields.php:200
+#: addons/post-navigation/includes/class-fields.php:315
+#: addons/post-navigation/includes/class-fields.php:443
+msgid "Image Height (px)"
+msgstr "ଚିତ୍ର ଉଚ୍ଚତା (px)"
+
+#: addons/post-navigation/includes/class-fields.php:208
+#: addons/post-navigation/includes/class-fields.php:323
+msgid "Show Arrow"
+msgstr "ତୀକ୍ଷ୍ଣ ପ୍ରଦର୍ଶନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:213
+msgid "Display an arrow icon with the previous navigation"
+msgstr "ପୂର୍ବତନ ନାଭିଗେସନ୍ ସହିତ ଏକ ତୀକ୍ଷ୍ଣ ଆଇକନ୍ ଦେଖାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:216
+#: addons/post-navigation/includes/class-fields.php:331
+msgid "Arrow Type"
+msgstr "ତୀକ୍ଷ୍ଣ ପ୍ରକାର"
+
+#: addons/post-navigation/includes/class-fields.php:220
+msgid "Chevron Left (‹)"
+msgstr "ଚେଭ୍ରନ୍ ବାମ (‹)"
+
+#: addons/post-navigation/includes/class-fields.php:221
+msgid "Arrow Left (←)"
+msgstr "ତୀକ୍ଷ୍ଣ ବାମ (←)"
+
+#: addons/post-navigation/includes/class-fields.php:222
+msgid "Double Chevron Left («)"
+msgstr "ଡବଲ୍ ଚେଭ୍ରନ୍ ବାମ («)"
+
+#: addons/post-navigation/includes/class-fields.php:223
+msgid "Triangle Left (◄)"
+msgstr "ତ୍ରିକୋଣ ବାମ (◄)"
+
+#: addons/post-navigation/includes/class-fields.php:224
+#: addons/post-navigation/includes/class-fields.php:339
+msgid "Custom Image"
+msgstr "କଷ୍ଟମ୍ ଚିତ୍ର"
+
+#: addons/post-navigation/includes/class-fields.php:228
+#: addons/post-navigation/includes/class-fields.php:343
+msgid "Choose the arrow icon style"
+msgstr "ତୀକ୍ଷ୍ଣ ଆଇକନ୍ ଶୈଳୀ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:231
+#: addons/post-navigation/includes/class-fields.php:346
+msgid "Arrow Position"
+msgstr "ତୀକ୍ଷ୍ଣ ପଦବୀ"
+
+#: addons/post-navigation/includes/class-fields.php:240
+msgid "Position of the arrow relative to the navigation"
+msgstr "ନାଭିଗେସନ୍ ସମ୍ନିକଟରେ ତୀକ୍ଷ୍ଣର ପଦବୀ"
+
+#: addons/post-navigation/includes/class-fields.php:243
+#: addons/post-navigation/includes/class-fields.php:358
+msgid "Arrow Size (px)"
+msgstr "ତୀକ୍ଷ୍ଣ ଆକାର (px)"
+
+#: addons/post-navigation/includes/class-fields.php:250
+#: addons/post-navigation/includes/class-fields.php:365
+msgid "Size of the arrow icon in pixels (applies to both width and height)"
+msgstr "ପିକ୍ସେଲରେ ତୀକ୍ଷ୍ଣ ଆଇକନ୍ ର ଆକାର (ଚୌଡ଼ା ଏବଂ ଉଚ୍ଚତା ଦୁହିଁ ପାଇଁ ଲାଗୁ)"
+
+#: addons/post-navigation/includes/class-fields.php:253
+#: addons/post-navigation/includes/class-fields.php:368
+msgid "Custom Arrow Image"
+msgstr "କଷ୍ଟମ୍ ତୀକ୍ଷ୍ଣ ଚିତ୍ର"
+
+#: addons/post-navigation/includes/class-fields.php:258
+#: addons/post-navigation/includes/class-fields.php:373
+msgid "Select custom arrow image from media library"
+msgstr "ମିଡିଆ ଲାଇବ୍ରେରୀରୁ କଷ୍ଟମ୍ ତୀକ୍ଷ୍ଣ ଚିତ୍ର ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:266
+msgid "Next Navigation Type"
+msgstr "ପରବର୍ତ୍ତୀ ନାଭିଗେସନ୍ ପ୍ରକାର"
+
+#: addons/post-navigation/includes/class-fields.php:271
+msgid "Next Post Title"
+msgstr "ପରବର୍ତ୍ତୀ ପୋଷ୍ଟ ଶୀର୍ଷକ"
+
+#: addons/post-navigation/includes/class-fields.php:276
+msgid "Choose how to display the next post link"
+msgstr "ପରବର୍ତ୍ତୀ ପୋଷ୍ଟ ଲିଙ୍କ କିପରି ଦେଖାଇବେ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:279
+msgid "Next Label"
+msgstr "ପରବର୍ତ୍ତୀ ଲେବଲ୍"
+
+#: addons/post-navigation/includes/class-fields.php:284
+msgid "Custom text for next post link"
+msgstr "ପରବର୍ତ୍ତୀ ପୋଷ୍ଟ ଲିଙ୍କ ପାଇଁ କଷ୍ଟମ୍ ଟେକ୍ସଟ୍"
+
+#: addons/post-navigation/includes/class-fields.php:292
+msgid "Display featured image for next post"
+msgstr "ପରବର୍ତ୍ତୀ ପୋଷ୍ଟ ପାଇଁ ବିଶେଷତା ଚିତ୍ର ଦେଖାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:304
+msgid "Position of the featured image relative to navigation"
+msgstr "ନାଭିଗେସନ୍ ସମ୍ନିକଟରେ ବିଶେଷତା ଚିତ୍ରର ପଦବୀ"
+
+#: addons/post-navigation/includes/class-fields.php:328
+msgid "Display an arrow icon with the next navigation"
+msgstr "ପରବର୍ତ୍ତୀ ନାଭିଗେସନ୍ ସହିତ ଏକ ତୀକ୍ଷ୍ଣ ଆଇକନ୍ ଦେଖାନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:335
+msgid "Chevron Right (›)"
+msgstr "ଚେଭ୍ରନ୍ ଦାହିଣ (›)"
+
+#: addons/post-navigation/includes/class-fields.php:336
+msgid "Arrow Right (→)"
+msgstr "ତୀକ୍ଷ୍ଣ ଦାହିଣ (→)"
+
+#: addons/post-navigation/includes/class-fields.php:337
+msgid "Double Chevron Right (»)"
+msgstr "ଡବଲ୍ ଚେଭ୍ରନ୍ ଦାହିଣ (»)"
+
+#: addons/post-navigation/includes/class-fields.php:338
+msgid "Triangle Right (►)"
+msgstr "ତ୍ରିଭୁଜ ଦାହିନ (►)"
+
+#: addons/post-navigation/includes/class-fields.php:350
+msgid "Left of Text"
+msgstr "ଲେଫ୍ଟ ଅଫ ଟେକ୍ସଟ"
+
+#: addons/post-navigation/includes/class-fields.php:351
+msgid "Right of Text"
+msgstr "ରାଇଟ ଅଫ ଟେକ୍ସଟ"
+
+#: addons/post-navigation/includes/class-fields.php:355
+msgid "Position of the arrow relative to the link text"
+msgstr "ଲିଙ୍କ୍ ଟେକ୍ସଟ ସହିତ ତୀରର ସ୍ଥିତି"
+
+#: addons/post-navigation/includes/class-fields.php:377
+msgid "First"
+msgstr "ପ୍ରଥମ"
+
+#: addons/post-navigation/includes/class-fields.php:381
+msgid "First Navigation Type"
+msgstr "ପ୍ରଥମ ନାଭିଗେସନ୍ ପ୍ରକାର"
+
+#: addons/post-navigation/includes/class-fields.php:386
+msgid "First Post Title"
+msgstr "ପ୍ରଥମ ପୋଷ୍ଟ ଶୀର୍ଷକ"
+
+#: addons/post-navigation/includes/class-fields.php:391
+msgid "Choose how to display the first navigation"
+msgstr "ପ୍ରଥମ ନାଭିଗେସନ୍ କିପରି ପ୍ରଦର୍ଶିତ କରିବେ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:394
+msgid "First Label"
+msgstr "ପ୍ରଥମ ଲେବଲ୍"
+
+#: addons/post-navigation/includes/class-fields.php:398
+msgid "Go to First"
+msgstr "ପ୍ରଥମକୁ ଯାଆନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:399
+msgid "Custom text for first navigation"
+msgstr "ପ୍ରଥମ ନାଭିଗେସନ୍ ପାଇଁ କଷ୍ଟମ୍ ଟେକ୍ସଟ"
+
+#: addons/post-navigation/includes/class-fields.php:402
+msgid "First Navigation Position"
+msgstr "ପ୍ରଥମ ନାଭିଗେସନ୍ ସ୍ଥିତି"
+
+#: addons/post-navigation/includes/class-fields.php:406
+msgid "Left (First → Previous → Next)"
+msgstr "ଲେଫ୍ଟ (ପ୍ରଥମ → ପୂର୍ବ → ନେକ୍ସଟ)"
+
+#: addons/post-navigation/includes/class-fields.php:407
+msgid "Center (Previous → First → Next)"
+msgstr "କେନ୍ଦ୍ର (ପୂର୍ବ → ପ୍ରଥମ → ନେକ୍ସଟ)"
+
+#: addons/post-navigation/includes/class-fields.php:408
+msgid "Right (Previous → Next → First)"
+msgstr "ଡାହାଣ (ପୂର୍ବ → ନେକ୍ସଟ → ପ୍ରଥମ)"
+
+#: addons/post-navigation/includes/class-fields.php:412
+msgid "Position of the first/series home link in navigation"
+msgstr "ନାଭିଗେସନ୍ ମଧ୍ୟରେ ପ୍ରଥମ/ଶ୍ରେଣୀ ହୋମ୍ ଲିଙ୍କ୍ ର ସ୍ଥିତି"
+
+#: addons/post-navigation/includes/class-fields.php:420
+msgid "Display featured image for first post"
+msgstr "ପ୍ରଥମ ପୋଷ୍ଟ ପାଇଁ ବିଶେଷଣ ଚିତ୍ର ପ୍ରଦର୍ଶନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:432
+msgid "Position of the featured image relative to the link text"
+msgstr "ଲିଙ୍କ୍ ଟେକ୍ସଟ ସହିତ ବିଶେଷଣ ଚିତ୍ର ର ସ୍ଥିତି"
+
+#: addons/post-navigation/includes/class-fields.php:452
+msgid "Color"
+msgstr "ରଙ୍ଗ"
+
+#: addons/post-navigation/includes/class-fields.php:461
+msgid "Choose the color of navigation link text"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଟେକ୍ସଟର ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:469
+msgid "Choose the background color of navigation links"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ପୃଷ୍ଠଭୂମିର ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:482
+msgid "Choose the border color of navigation links"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ବର୍ଡର୍ ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:492
+msgid "Set the border width of navigation links in pixels"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ବର୍ଡର୍ ଚଉଡା ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:502
+msgid "Set the border radius of navigation links in pixels"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ବର୍ଡର୍ ରେଡିୟସ୍ ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:517
+msgid "Set the inner spacing around navigation links in pixels"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ଅନ୍ତର ବ୍ରେକ୍‌ ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:527
+msgid "Set the outer spacing around navigation links in pixels"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକର ବାହ୍ୟ ବ୍ରେକ୍‌ ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:530
+msgid "Gap Between Links (px)"
+msgstr "ଲିଙ୍କ୍‌ଗୁଡିକ ମଧ୍ୟରେ ଗ୍ୟାପ୍ (px)"
+
+#: addons/post-navigation/includes/class-fields.php:537
+msgid "Space between navigation links"
+msgstr "ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଗୁଡିକ ମଧ୍ୟରେ ସ୍ଥାନ"
+
+#: addons/post-navigation/includes/class-fields.php:550
+msgid "Container Style"
+msgstr "କଣ୍ଟେନର୍ ଷ୍ଟାଇଲ୍"
+
+#: addons/post-navigation/includes/class-fields.php:554
+msgid "Container Background Color"
+msgstr "କଣ୍ଟେନର୍ ପୃଷ୍ଠଭୂମିର ରଙ୍ଗ"
+
+#: addons/post-navigation/includes/class-fields.php:559
+msgid "Background color for the navigation container"
+msgstr "ନାଭିଗେସନ୍ କଣ୍ଟେନର୍ ପାଇଁ ପୃଷ୍ଠଭୂମିର ରଙ୍ଗ"
+
+#: addons/post-navigation/includes/class-fields.php:562
+msgid "Container Border Color"
+msgstr "କଣ୍ଟେନର୍ ବର୍ଡର୍ ରଙ୍ଗ"
+
+#: addons/post-navigation/includes/class-fields.php:567
+msgid "Choose the border color of the navigation container"
+msgstr "ନାଭିଗେସନ୍ କଣ୍ଟେନର୍ ର ବର୍ଡର୍ ରଙ୍ଗ ଚୟନ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:570
+msgid "Container Border Width (px)"
+msgstr "କଣ୍ଟେନର୍ ବର୍ଡର୍ ଚଉଡା (px)"
+
+#: addons/post-navigation/includes/class-fields.php:577
+msgid "Set the border width of the navigation container in pixels"
+msgstr "ନାଭିଗେସନ୍ କଣ୍ଟେନରର ବର୍ଡର୍ ଚଉଡା ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:580
+msgid "Container Border Radius (px)"
+msgstr "କଣ୍ଟେନର୍ ବର୍ଡର୍ ରେଡିୟସ୍ (px)"
+
+#: addons/post-navigation/includes/class-fields.php:587
+msgid "Set the border radius of the navigation container in pixels"
+msgstr "ନାଭିଗେସନ୍ କଣ୍ଟେନରର ବର୍ଡର୍ ରେଡିୟସ୍ ପିକ୍ସେଲରେ ସେଟ୍ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-fields.php:590
+msgid "Container Padding (px)"
+msgstr "କଣ୍ଟେନର୍ ପ୍ୟାଡିଙ୍ଗ୍ (px)"
+
+#: addons/post-navigation/includes/class-fields.php:597
+msgid "Inner spacing for the container"
+msgstr "କଣ୍ଟେନର୍ ପାଇଁ ଅନ୍ତର ବ୍ରେକ୍‌"
+
+#: addons/post-navigation/includes/class-post-type.php:26
+#: addons/post-navigation/includes/class-post-type.php:27
+#: addons/post-navigation/includes/class-post-type.php:28
+#: addons/post-navigation/includes/class-post-type.php:29
+msgid "Series Post Navigation"
+msgstr "ଶ୍ରେଣୀ ପୋଷ୍ଟ ନାଭିଗେସନ୍"
+
+#: addons/post-navigation/includes/class-post-type.php:31
+msgid "Add New Series Post Navigation"
+msgstr "ନୂତନ ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ଯୋଗ କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-post-type.php:32
+msgid "New Series Post Navigation"
+msgstr "ନୂତନ ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍"
+
+#: addons/post-navigation/includes/class-post-type.php:33
+msgid "Edit Series Post Navigation"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-post-type.php:34
+msgid "View Series Post Navigation"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ଦେଖନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-post-type.php:35
+msgid "All Series Post Navigation"
+msgstr "ସମସ୍ତ ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍"
+
+#: addons/post-navigation/includes/class-post-type.php:36
+msgid "Search Series Post Navigation"
+msgstr "ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ଖୋଜନ୍ତୁ"
+
+#: addons/post-navigation/includes/class-post-type.php:37
+msgid "No Series Post Navigation found."
+msgstr "କୌଣସି ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-navigation/includes/class-post-type.php:38
+msgid "No Series Post Navigation found in Trash."
+msgstr "କୌଣସି ସିରିଜ୍ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ସ୍ଥାନରେ ମିଳିଲା ନାହିଁ।"
+
+#: addons/post-navigation/includes/class-preview.php:37
+msgid "Create a series to preview the navigation."
+msgstr "ନାଭିଗେସନ୍ ପ୍ରୀଭ୍ୟୁ ପାଇଁ ଏକ ସିରିଜ୍ ତିଆରି କରନ୍ତୁ।"
+
+#: addons/post-navigation/includes/class-preview.php:45
+#: addons/post-navigation/includes/class-preview.php:57
+msgid "Create posts in a series to preview the navigation."
+msgstr "ନାଭିଗେସନ୍ ପ୍ରୀଭ୍ୟୁ ପାଇଁ ସିରିଜ୍ ମଧ୍ୟରେ ପୋଷ୍ଟ୍ ତିଆରି କରନ୍ତୁ।"
+
+#: addons/post-navigation/includes/class-utilities.php:189
+msgid "Sample series for preview purposes"
+msgstr "ପ୍ରୀଭ୍ୟୁ ଉଦ୍ଦେଶ୍ୟରେ ନମୁନା ସିରିଜ୍"
+
+#: addons/post-navigation/post-navigation.php:87
+msgid "Error updating preview."
+msgstr "ପ୍ରୀଭ୍ୟୁ ଅପଡେଟ କରିବାରେ ତ୍ରୁଟି।"
+
+#: addons/post-navigation/post-navigation.php:211
+msgid "Simple Navigation"
+msgstr "ସାଧାରଣ ନାଭିଗେସନ୍"
+
+#: addons/post-navigation/post-navigation.php:216
+msgid "Button Navigation"
+msgstr "ବଟନ୍ ନାଭିଗେସନ୍"
+
+#: addons/post-navigation/post-navigation.php:221
+msgid "Image Navigation"
+msgstr "ଛବି ନାଭିଗେସନ୍"
+
+#: addons/publisher/series-part-post-table.php:63
+#: addons/publisher/series-pending-post-table.php:65
+#: addons/publisher/series-publish-post-table.php:73
+msgid "Categories"
+msgstr "ଶ୍ରେଣୀଗତ"
+
+#: addons/publisher/series-part-post-table.php:64
+#: addons/publisher/series-pending-post-table.php:66
+#: addons/publisher/series-publish-post-table.php:74
+msgid "Tags"
+msgstr "ଟ୍ୟାଗ୍"
+
+#: addons/publisher/series-part-post-table.php:65
+#: addons/publisher/series-pending-post-table.php:67
+#: addons/publisher/series-publish-post-table.php:75
+msgid "Status"
+msgstr "ସ୍ଥିତି"
+
+#: addons/publisher/series-part-post-table.php:66
+#: addons/publisher/series-pending-post-table.php:68
+msgid "Current Part"
+msgstr "ବର୍ତ୍ତମାନ ଭାଗ"
+
+#: addons/publisher/series-part-post-table.php:142
+#: addons/publisher/series-pending-post-table.php:144
+#: addons/publisher/series-publish-post-table.php:291
+msgid "Edit"
+msgstr "ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/publisher/series-part-post-table.php:148
+#: assets/js/publishpress-series-blocks.js:251
+msgid "View"
+msgstr "ଦେଖନ୍ତୁ"
+
+#: addons/publisher/series-part-post-table.php:165
+#: addons/publisher/series-pending-post-table.php:172
+#: addons/publisher/series-publish-post-table.php:308
+msgid "Trash"
+msgstr "ଟ୍ର୍ୟାସ୍"
+
+#: addons/publisher/series-part-post-table.php:192
+msgid "There are no published posts in this series."
+msgstr "ଏହି ସିରିଜ୍ ମଧ୍ୟରେ କୌଣସି ପ୍ରକାଶିତ ପୋଷ୍ଟ୍ ନାହିଁ।"
+
+#: addons/publisher/series-part-post-table.php:312
+msgid "(Currently has no Part number)"
+msgstr "(ବର୍ତ୍ତମାନରେ କୌଣସି ଭାଗ ସଂଖ୍ୟା ନାହିଁ)"
+
+#: addons/publisher/series-pending-post-table.php:155
+#: addons/publisher/series-publish-post-table.php:76
+#: addons/publisher/series-publish-post-table.php:443
+msgid "Preview"
+msgstr "ପ୍ରୀଭ୍ୟୁ"
+
+#: addons/publisher/series-pending-post-table.php:199
+#: addons/publisher/series-publish-post-table.php:46
+msgid "There are no unpublished posts in this series."
+msgstr "ଏହି ସିରିଜ୍ ମଧ୍ୟରେ କୌଣସି ଅପ୍ରକାଶିତ ପୋଷ୍ଟ୍ ନାହିଁ।"
+
+#: addons/publisher/series-pending-post-table.php:314
+msgid "No Part Number"
+msgstr "କୌଣସି ଭାଗ ସଂଖ୍ୟା ନାହିଁ"
+
+#: addons/publisher/series-publish-post-table.php:181
+msgid "All Categories"
+msgstr "ସମସ୍ତ ଶ୍ରେଣୀଗତ"
+
+#: addons/publisher/series-publish-post-table.php:194
+msgid "Filter"
+msgstr "ଫିଲ୍ଟର୍"
+
+#: addons/publisher/series_im_admin_main.php:2
+#: addons/publisher/series_issue_manager.php:723
+#: inc/settings/settings-validation.php:94
+msgid "Manage Series"
+msgstr "ସିରିଜ୍ ପ୍ରବନ୍ଧନ କରନ୍ତୁ"
+
+#: addons/publisher/series_im_admin_main.php:7
+#: assets/js/publishpress-series-blocks.js:138
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: addons/publisher/series_im_admin_main.php:10
+#: addons/publisher/series_issue_manager.php:872
+#: addons/publisher/series_issue_manager.php:919
+msgid "Publish Series"
+msgstr "ସିରିଜ୍ ପ୍ରକାଶିତ କରନ୍ତୁ"
+
+#: addons/publisher/series_im_admin_main.php:12
+msgid "Front View"
+msgstr "ସାମ୍ନା ଦେଖା"
+
+#: addons/publisher/series_im_admin_main.php:19
+#. translators: %1$s: Series name.
+#, php-format
+msgid "Edit the status of %1$s"
+msgstr " %1$s ର ସ୍ଥିତି ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/publisher/series_im_admin_main.php:21
+msgid "Series order"
+msgstr "ସିରିଜ୍ କ୍ରମ"
+
+#: addons/publisher/series_im_admin_main.php:25
+msgid "Publish or schedule posts"
+msgstr "ପୋଷ୍ଟ୍ ପ୍ରକାଶିତ କରନ୍ତୁ କିମ୍ବା ସମୟସୂଚୀବଦ୍ଧ କରନ୍ତୁ"
+
+#: addons/publisher/series_im_admin_main.php:29
+msgid "View series in frontend"
+msgstr "ସାମ୍ନାରେ ସିରିଜ୍ ଦେଖନ୍ତୁ"
+
+#: addons/publisher/series_im_admin_main.php:38
+msgid "You have no series available."
+msgstr "ଆପଣଙ୍କର କୌଣସି ସିରିଜ୍ ଉପଲବ୍ଧ ନାହିଁ।"
+
+#: addons/publisher/series_im_admin_main.php:38
+msgid "Add new Series."
+msgstr "ନୂତନ ସିରିଜ୍ ଯୋଗ କରନ୍ତୁ।"
+
+#: addons/publisher/series_issue_manager.php:238
+msgid "Create as unpublished:"
+msgstr "ଅପ୍ରକାଶିତ ଭାବେ ତିଆରି କରନ୍ତୁ:"
+
+#: addons/publisher/series_issue_manager.php:241
+msgid ""
+"When checked, all posts you assign to this series will remain unpublished "
+"until you publish the entire series."
+msgstr ""
+"ଯଦି ଚେକ୍ କରାଯାଏ, ଏହି ସିରିଜ୍‌କୁ ଆପଣ ଯେ ସମସ୍ତ ପୋଷ୍ଟଗୁଡିକୁ ଆସାଇ କରିବେ, ସେମାନେ "
+"ପୁନର୍ବାର ପ୍ରକାଶିତ ହେବେନି ଯାହାଁପର୍ଯ୍ୟନ୍ତ ଆପଣ ସମ୍ପୂର୍ଣ୍ଣ ସିରିଜ୍‌କୁ ପ୍ରକାଶିତ "
+"କରିବେ।"
+
+#: addons/publisher/series_issue_manager.php:321
+msgid "The posts in your series were successfully unpublished."
+msgstr ""
+"ଆପଣଙ୍କର ସିରିଜ୍‌ର ପୋଷ୍ଟଗୁଡିକୁ ସଫଳତାର ସହିତ ପ୍ରକାଶିତ ହେବାରେ ବିଫଳ ହେବା ପାଇଁ "
+"ତାଡିବା ପାଇଁ।"
+
+#: addons/publisher/series_issue_manager.php:330
+#: addons/publisher/series_issue_manager.php:479
+msgid "Congratulations. Your series order was updated successfully."
+msgstr "ବଧାଇ। ଆପଣଙ୍କର ସିରିଜ୍‌ର ଅନୁକ୍ରମିକ ସମ୍ପାଦନା ସଫଳତାର ସହିତ ଅଦ୍ୟତନ କରାଗଲା।"
+
+#: addons/publisher/series_issue_manager.php:338
+#: addons/publisher/series_issue_manager.php:356
+msgid "Congratulations. Your posts were published successfully."
+msgstr "ବଧାଇ। ଆପଣଙ୍କର ପୋଷ୍ଟଗୁଡିକୁ ସଫଳତାର ସହିତ ପ୍ରକାଶିତ କରାଗଲା।"
+
+#: addons/publisher/series_issue_manager.php:347
+msgid "Post moved to the Trash."
+msgstr "ପୋଷ୍ଟକୁ ଟ୍ରାସ୍‌କୁ ସରାଇ ଦିଆଗଲା।"
+
+#: addons/publisher/series_issue_manager.php:364
+msgid "Congratulations. Your posts were scheduled successfully."
+msgstr "ବଧାଇ। ଆପଣଙ୍କର ପୋଷ୍ଟଗୁଡିକୁ ସଫଳତାର ସହିତ ତାଲିକାବଦ୍ଧ କରାଗଲା।"
+
+#: addons/publisher/series_issue_manager.php:401
+msgid "Sorry, you are not allowed to perform this action."
+msgstr "ଦୟାକରି, ଆପଣଙ୍କୁ ଏହି କାର୍ଯ୍ୟ କରିବାକୁ ଅନୁମତି ନାହିଁ।"
+
+#: addons/publisher/series_issue_manager.php:722
+msgid "Manage Series Issues"
+msgstr "ସିରିଜ୍ ଇସ୍ୟୁଗୁଡିକୁ ପ୍ରବନ୍ଧନ କରନ୍ତୁ"
+
+#: addons/publisher/series_issue_manager.php:752
+msgid "Number of items per page"
+msgstr "ପୃଷ୍ଠା ପ୍ରତି ଆଇଟମ୍‌ସଙ୍କର ସଂଖ୍ୟା"
+
+#: addons/publisher/series_issue_manager.php:812
+msgid "Publishing Series:"
+msgstr "ପ୍ରକାଶିତ ସିରିଜ୍‌:"
+
+#: addons/publisher/series_issue_manager.php:819
+#. translators: %s: search keywords
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "&#8220;%s&#8221; ପାଇଁ ଖୋଜ ଫଳାଫଳ"
+
+#: addons/publisher/series_issue_manager.php:834
+msgid "Search"
+msgstr "ଖୋଜନ୍ତୁ"
+
+#: addons/publisher/series_issue_manager.php:887
+msgid "Publication Date/Time:"
+msgstr "ପ୍ରକାଶିତ ତାରିଖ/ସମୟ:"
+
+#: addons/publisher/series_issue_manager.php:944
+#: addons/publisher/series_issue_manager.php:1026
+#: addons/publisher/series_issue_manager.php:1133
+msgid "Update Order"
+msgstr "ଅନୁକ୍ରମିକ ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: addons/publisher/series_issue_manager.php:971
+msgid "Series Order:"
+msgstr "ସିରିଜ୍ ଅନୁକ୍ରମ:"
+
+#: addons/publisher/series_issue_manager.php:974
+msgid ""
+"Drag the post names into the order you want them to be in the series, from "
+"the first part to the last part."
+msgstr ""
+"ସିରିଜ୍‌ରେ ଆପଣଙ୍କୁ ଯେଉଁ ସ୍ଥାନରେ ପୋଷ୍ଟ ନାମଗୁଡ଼ିକୁ ଆକର୍ଷଣ କରିବାକୁ ଚାହୁଁଛନ୍ତି, "
+"ସେଠାରୁ ପ୍ରଥମ ଅଂଶରୁ ଶେଷ ଅଂଶ ପର୍ଯ୍ୟନ୍ତ।"
+
+#: addons/publisher/series_issue_manager.php:1053
+msgid "Unpublished posts in series:"
+msgstr "ସିରିଜ୍‌ରେ ଅପ୍ରକାଶିତ ପୋଷ୍ଟଗୁଡିକୁ:"
+
+#: addons/publisher/series_issue_manager.php:1056
+msgid ""
+"When these posts are published, they will be added after the last current "
+"post in the series."
+msgstr ""
+"ଯେତେବେଳେ ଏହି ପୋଷ୍ଟଗୁଡିକୁ ପ୍ରକାଶିତ ହେବ, ସେମାନେ ସିରିଜ୍‌ରେ ଶେଷ ବର୍ତ୍ତମାନ ପୋଷ୍ଟ "
+"ପରେ ଯୋଡ଼ାଯିବେ।"
+
+#: addons/publisher/series_issue_manager.php:1093
+msgid "Unpublished Posts"
+msgstr "ଅପ୍ରକାଶିତ ପୋଷ୍ଟଗୁଡିକୁ"
+
+#: addons/publisher/series_issue_manager.php:1108
+msgid "Publish Unpublished Posts"
+msgstr "ଅପ୍ରକାଶିତ ପୋଷ୍ଟଗୁଡିକୁ ପ୍ରକାଶିତ କରନ୍ତୁ"
+
+#: addons/publisher/series_issue_manager.php:1118
+msgid "Unpublished Series Order"
+msgstr "ଅପ୍ରକାଶିତ ସିରିଜ୍ ଅନୁକ୍ରମ"
+
+#: inc/pue-client.php:42
+#. translators: %s is a link to the licensing change documentation.
+#, php-format
+msgid ""
+"PublishPress Series Add-on licensing has changed. This notice only appears "
+"on sites affected by this change. You can %s."
+msgstr ""
+"PublishPress ସିରିଜ୍ ଏଡ୍-ଅନ୍ ଅନୁମତି ପରିବର୍ତ୍ତିତ ହୋଇଛି। ଏହି ସୂଚନା କେବଳ ସେଇ "
+"ସାଇଟଗୁଡିକୁ ଦେଖାଯାଉଛି ଯେଉଁଥିରେ ଏହି ପରିବର୍ତ୍ତନ ପ୍ରଭାବିତ କରେ। ଆପଣ %s।"
+
+#: inc/pue-client.php:43
+msgid "read more about this licensing change"
+msgstr "ଏହି ଅନୁମତି ପରିବର୍ତ୍ତନ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ"
+
+#: inc/settings/settings-page.php:19
+msgid "PublishPress Series Plugin Options"
+msgstr "PublishPress ସିରିଜ୍ ପ୍ଲଗଇନ୍ ବିକଳ୍ପଗୁଡିକ"
+
+#: inc/settings/settings-page.php:26
+msgid "Series settings"
+msgstr "ସିରିଜ୍ ସେଟିଂସ୍"
+
+#: inc/settings/settings-page.php:55
+msgid "Allowed Html"
+msgstr "ଆଗ୍ରହୀତ Html"
+
+#: inc/settings/settings-page.php:64
+msgid "Overview"
+msgstr "ସାରାଂଶ"
+
+#: inc/settings/settings-page.php:66
+msgid ""
+"The following is a legend of the tokens that are available for use in the "
+"custom template fields. These will be replaced with the appropriate values "
+"when the plugin runs."
+msgstr ""
+"ନିକଟରେ ଅନୁପ୍ରୟୋଗ କରିବାକୁ ଉପଲବ୍ଧ ପ୍ରତୀକଗୁଡିକର ଏହା ଏକ ପ୍ରତିକା ଅଟେ। ଏହା "
+"ସମ୍ପାଦନା ସମୟରେ ସଠିକ୍ ମୂଲ୍ୟଗୁଡିକ ସହିତ ବଦଳାଯିବ।"
+
+#: inc/settings/settings-page.php:71
+msgid "This will be replaced with the series featured image for a series."
+msgstr "ଏହା ସିରିଜ୍‌ରେ ଏକ ସିରିଜ୍ ଫିଚର୍ଡ୍ ଇମେଜ୍ ସହିତ ବଦଳାଯିବ।"
+
+#: inc/settings/settings-page.php:79
+#. translators: %series_icon%: Template token for the series featured image.
+#, php-format
+msgid ""
+"Same as %series_icon% except that the series featured image will be linked "
+"to the series page"
+msgstr ""
+"%series_icon% ସହ ଏହା ସମାନ, କିନ୍ତୁ ସିରିଜ୍ ଫିଚର୍ଡ୍ ଇମେଜ୍ ସିରିଜ୍ ପୃଷ୍ଠାକୁ ଏକ "
+"ଲିଙ୍କ୍ ହେବ।"
+
+#: inc/settings/settings-page.php:87
+msgid ""
+"This token is for use with the orgSeries widget only - it references where "
+"you want the list of series titles to be inserted and requires that the "
+"template for each series title be also set."
+msgstr ""
+"ଏହି ପ୍ରତୀକ କେବଳ orgSeries widget ସହିତ ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ମିଳିଛି - ଏହା "
+"ସିରିଜ୍‌ର ଶୀର୍ଷକଗୁଡିକୁ ଯାହା ନିକାସ କରିବା ପାଇଁ ଆପଣ ଚାହୁଁଛନ୍ତି ସେଥାରେ ସୂଚନା "
+"ଦେଇଥାଏ ଏବଂ ପ୍ରତ୍ୟେକ ସିରିଜ୍ ଶୀର୍ଷକ ପାଇଁ ଟେମ୍ପଲେଟ୍‌କୁ ସେଟ୍ କରିବା ଆବଶ୍ୟକ।"
+
+#: inc/settings/settings-page.php:95
+msgid "This will be replaced with the title of a series"
+msgstr "ଏହା ଗୋଟିଏ ସିରିଜ୍‌ର ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ"
+
+#: inc/settings/settings-page.php:103
+#. translators: %series_title%: Template token for the series title.
+#, php-format
+msgid "Same as %series_title% except that it will also be linked to the series page"
+msgstr "%series_title% ସହିତ ଏହା ସମାନ, କିନ୍ତୁ ସିରିଜ୍ ପୃଷ୍ଠାକୁ ଏହା ଲିଙ୍କ୍ ହେବ।"
+
+#: inc/settings/settings-page.php:111
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear."
+msgstr ""
+"ଏହା ପୋଷ୍ଟ ତାଲିକା ପୋଷ୍ଟ ଟେମ୍ପଲେଟ୍‌ର ସାମଗ୍ରୀ କେଉଁଠାରେ ଦେଖାଯିବ ତାହା ପାଇଁ ସ୍ଥାନ "
+"ପ୍ରତୀକ।"
+
+#: inc/settings/settings-page.php:119
+msgid ""
+"Is the location token for where the contents of the post list post "
+"templates will appear and use provided widget post short title."
+msgstr ""
+"ଏହା ପୋଷ୍ଟ ତାଲିକା ପୋଷ୍ଟ ଟେମ୍ପଲେଟ୍‌ର ସାମଗ୍ରୀ କେଉଁଠାରେ ଦେଖାଯିବ ଓ ଦିଆଯାଇଥିବା "
+"widget ପୋଷ୍ଟ ସଂକ୍ଷିପ୍ତ ଶୀର୍ଷକକୁ ବ୍ୟବହାର କରିବ।"
+
+#: inc/settings/settings-page.php:127
+msgid "Will be replaced with the post title of a post in the series"
+msgstr "ଏହା ସିରିଜ୍‌ରେ ଏକ ପୋଷ୍ଟର ପୋଷ୍ଟ ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ"
+
+#: inc/settings/settings-page.php:135
+msgid ""
+"Will be replaced with the post title of a post in the series linked to the "
+"page view of that post."
+msgstr ""
+"ଏହା ସିରିଜ୍‌ରେ ଏକ ପୋଷ୍ଟର ପୋଷ୍ଟ ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ ଯାହା ତାହାର ପୋଷ୍ଟର ପୃଷ୍ଠା "
+"ଦୃଶ୍ୟକୁ ଲିଙ୍କ୍ କରିବ।"
+
+#: inc/settings/settings-page.php:143
+msgid "Will be replaced with the post title short of a post in the series"
+msgstr "ଏହା ସିରିଜ୍‌ରେ ଏକ ପୋଷ୍ଟର ସଂକ୍ଷିପ୍ତ ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ"
+
+#: inc/settings/settings-page.php:151
+msgid ""
+"Will be replaced with the post title short of a post in the series linked "
+"to the page view of that post."
+msgstr ""
+"ଏହା ସିରିଜ୍‌ରେ ଏକ ପୋଷ୍ଟର ସଂକ୍ଷିପ୍ତ ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ ଯାହା ତାହାର ପୋଷ୍ଟର "
+"ପୃଷ୍ଠା ଦୃଶ୍ୟକୁ ଲିଙ୍କ୍ କରିବ।"
+
+#: inc/settings/settings-page.php:159
+msgid ""
+"Will be replaced by the navigation link for the previous post in a series. "
+"The text will be whatever is included in the 'Custom Previous Post "
+"Navigation Text' field. If that field is empty then the text will be the "
+"title of the post"
+msgstr ""
+"ଏହା ଏକ ସିରିଜ୍‌ରେ ପୂର୍ବ ଆଧାରରେ ପୋଷ୍ଟ ପାଇଁ ନାଭିଗେସନ୍ ଲିଙ୍କ୍ ଦ୍ୱାରା ବଦଳାଯିବ। "
+"ଟେକ୍ସଟ୍ ହେବ ଯାହା 'କଷ୍ଟମ୍ ପୂର୍ବ ପୋଷ୍ଟ ନାଭିଗେସନ୍ ଟେକ୍ସଟ୍' ଫିଲ୍ଡରେ ଅନ୍ତର୍ଗତ "
+"ହେବ। ଯଦି ସେଠାରେ କିଛି ନଥାଏ ତେବେ ଟେକ୍ସଟ୍ ପୋଷ୍ଟର ଶୀର୍ଷକ ହେବ।"
+
+#: inc/settings/settings-page.php:167
+msgid ""
+"Will be replaced by the navigation link for the next post in a series. The "
+"text will be whatever is included in the 'Custom Next Post Navigation Text' "
+"field. If that field is empty then the text will be the title of the post"
+msgstr ""
+"ସିରୀଜରେ ନିକଟ ସ୍ଥାନ ପାଇଁ ନାଭିଗେସନ୍ ଲିଙ୍କ ଦ୍ୱାରା ବଦଳାଯିବ। ଟେକ୍ସଟ୍ ହେବ ସେହି "
+"'Custom Next Post Navigation Text' କ୍ଷେତ୍ରରେ ଅନ୍ତର୍ଗତ ଯାହା ଅଛି। ଯଦି ସେହି "
+"କ୍ଷେତ୍ର ଖାଲି ଅଛି, ତେବେ ଟେକ୍ସଟ୍ ହେବ ପୋଷ୍ଟର ଶୀର୍ଷକ"
+
+#: inc/settings/settings-page.php:175
+msgid ""
+"Will be replaced by the navigation link for the first post in a series. The "
+"text will be whatever is included in the 'Custom First Post Navigation "
+"Text' field. If that field is empty then the text will be the title of the "
+"post"
+msgstr ""
+"ସିରୀଜରେ ପ୍ରଥମ ପୋଷ୍ଟ ପାଇଁ ନାଭିଗେସନ୍ ଲିଙ୍କ ଦ୍ୱାରା ବଦଳାଯିବ। ଟେକ୍ସଟ୍ ହେବ ସେହି "
+"'Custom First Post Navigation Text' କ୍ଷେତ୍ରରେ ଅନ୍ତର୍ଗତ ଯାହା ଅଛି। ଯଦି ସେହି "
+"କ୍ଷେତ୍ର ଖାଲି ଅଛି, ତେବେ ଟେକ୍ସଟ୍ ହେବ ପୋଷ୍ଟର ଶୀର୍ଷକ"
+
+#: inc/settings/settings-page.php:182
+msgid ""
+"Use this tag either before or after the rest of the template code.  It will "
+"indicate where you want the content of a post to display."
+msgstr ""
+"ଏହି ଟ୍ୟାଗ୍ କୁ ବାକୀ ଟେମ୍ପ୍ଲେଟ୍ କୋଡ୍ ପୂର୍ବରୁ କିମ୍ବା ପରେ ବ୍ୟବହାର କରନ୍ତୁ। ଏହା "
+"ଦେଖାଏ କେଉଁଠି ଆପଣ ଚାହାଁନ୍ତି ଯେ ପୋଷ୍ଟର ବିଷୟବସ୍ତୁ ଦେଖାଯିବ।"
+
+#: inc/settings/settings-page.php:190
+msgid "Will display what part of a series the post is"
+msgstr "ସିରୀଜରେ ପୋଷ୍ଟ କେଉଁଠି ଅଛି ତାହା ଦେଖାଯିବ"
+
+#: inc/settings/settings-page.php:198
+msgid "Will display the total number of posts in a series"
+msgstr "ସିରୀଜରେ ପୋଷ୍ଟଗୁଡିକର କୁଲ ସଂଖ୍ୟା ଦେଖାଯିବ"
+
+#: inc/settings/settings-page.php:206
+msgid "Will display the description for the series"
+msgstr "ସିରୀଜର ବର୍ଣ୍ଣନା ଦେଖାଯିବ"
+
+#: inc/settings/settings-page.php:218
+msgid "Will output the slug of the series"
+msgstr "ସିରୀଜର ସ୍ଲଗ୍ ଆଉଟପୁଟ୍ କରିବ"
+
+#: inc/settings/settings-page.php:228
+msgid "Will output the ID of the series"
+msgstr "ସିରୀଜର ID ଆଉଟପୁଟ୍ କରିବ"
+
+#: inc/settings/settings-page.php:238
+msgid "Will output the author of the post"
+msgstr "ପୋଷ୍ଟର ଲେଖକ ଆଉଟପୁଟ୍ କରିବ"
+
+#: inc/settings/settings-page.php:248
+msgid "If the post has a feature-image then that image will be displayed"
+msgstr "ଯଦି ପୋଷ୍ଟରେ ଏକ feature-image ଅଛି, ତେବେ ସେହି ଛବି ଦେଖାଯିବ"
+
+#: inc/settings/settings-page.php:258
+msgid "The date that a post was published"
+msgstr "ଜଣେ ପୋଷ୍ଟ ପ୍ରକାଶିତ ହେବାର ତାରିଖ"
+
+#: inc/settings/settings-page.php:268
+msgid "Will be replaced with the unpublished post title of a post in the series"
+msgstr "ସିରୀଜରେ ପୋଷ୍ଟର ଅପ୍ରକାଶିତ ପୋଷ୍ଟ ଶୀର୍ଷକ ସହିତ ବଦଳାଯିବ"
+
+#: inc/settings/settings-page.php:278
+msgid "Will display the total number of published and unpublished posts in a series"
+msgstr "ସିରୀଜରେ ପ୍ରକାଶିତ ଓ ଅପ୍ରକାଶିତ ପୋଷ୍ଟଗୁଡିକର କୁଲ ସଂଖ୍ୟା ଦେଖାଯିବ"
+
+#: inc/settings/settings-page.php:321
+msgid "Update Options"
+msgstr "ଅପଡେଟ୍ ବିକଳ୍ପ"
+
+#: inc/settings/settings-page.php:326
+msgid "Reset Series settings"
+msgstr "ସିରୀଜ ଛାଡ଼ିବା ବିକଳ୍ପଗୁଡିକୁ ରିସେଟ୍ କରନ୍ତୁ"
+
+#: inc/settings/settings-page.php:327
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"ହଁ କ୍ଲିକ୍ କଲେ ବିକଳ୍ପଗୁଡିକୁ ଡିଫଲ୍ଟରେ ରିସେଟ୍ କରାଯିବ ଏବଂ ଆପଣ ସମସ୍ତ "
+"କଷ୍ଟମାଇଜେସନ୍ ହାରାଇବେ। କିମ୍ବା ଆପଣ ବିପରୀତ କରିବାକୁ କ୍ଲିକ୍ କରିପାରିବେ ଏବଂ ଫେରିବେ।"
+
+#: inc/settings/settings-page.php:328
+msgid "No"
+msgstr "ନା"
+
+#: inc/settings/settings-page.php:329
+msgid "Yes"
+msgstr "ହଁ"
+
+#: inc/settings/settings-upgrade.php:24
+#: inc/settings/settings-upgrade.php:47
+msgid "Please update your PublishPress Series data"
+msgstr "ଦୟାକରି ଆପଣଙ୍କର PublishPress Series ତଥ୍ୟ ଅପଡେଟ୍ କରନ୍ତୁ"
+
+#: inc/settings/settings-upgrade.php:26
+#: inc/settings/settings-upgrade.php:48
+msgid ""
+"We have made changes to how series are stored and this requires a small "
+"update. This improves support for the Multiple Series feature, and resolves "
+"some issues with the order of posts. Please click this button to upgrade."
+msgstr ""
+"ସିରୀଜଗୁଡିକୁ କିପରି ସଂରକ୍ଷଣ କରାଯିବ ପ୍ରତି ଆମେ ପରିବର୍ତ୍ତନ କରିଛୁ ଏବଂ ଏହା ଏକ "
+"ସମ୍ପୁର୍ଣ୍ଣ ଅପଡେଟ୍ ଆବଶ୍ୟକ। ଏହା ମଲ୍ଟିପଲ୍ ସିରୀଜ୍ ବୈଶିଷ୍ଟ୍ୟ ପାଇଁ ସହାୟତା ବୃଦ୍ଧି "
+"କରେ, ଏବଂ ପୋଷ୍ଟଗୁଡିକର କ୍ରମ ସହିତ କିଛି ସମସ୍ୟା ସମାଧାନ କରେ। ଦୟାକରି ଏହି ବଟନ୍ "
+"କ୍ଲିକ୍ କରନ୍ତୁ ଅପ୍ଗ୍ରେଡ୍ କରିବାକୁ।"
+
+#: inc/settings/settings-upgrade.php:27
+#: inc/settings/settings-upgrade.php:49
+msgid "Update Series data"
+msgstr "ସିରୀଜ ତଥ୍ୟ ଅପଡେଟ୍ କରନ୍ତୁ"
+
+#: inc/settings/settings-upgrade.php:96
+msgid "Series upgrade completed."
+msgstr "ସିରୀଜ ଅପ୍ଗ୍ରେଡ୍ ସଂପୂର୍ଣ୍ଣ ହୋଇଛି।"
+
+#: inc/settings/settings-upgrade.php:181
+#. translators: %d: Number of posts updated.
+#, php-format
+msgid "Series order sync completed. %d posts updated."
+msgstr "ସିରୀଜ କ୍ରମ ସଙ୍ଗତି ସଂପୂର୍ଣ୍ଣ ହୋଇଛି। %d ପୋଷ୍ଟଗୁଡିକୁ ଅପଡେଟ୍ କରାଯାଇଛି।"
+
+#: inc/settings/settings-validation.php:87
+#: orgSeries-setup.php:273
+msgid "Search Series"
+msgstr "ସିରୀଜ ଖୋଜନ୍ତୁ"
+
+#: inc/settings/settings-validation.php:88
+#: orgSeries-setup.php:274
+msgid "Popular Series"
+msgstr "ପ୍ରସିଦ୍ଧ ସିରୀଜ"
+
+#: inc/settings/settings-validation.php:89
+#: orgSeries-setup.php:275
+#: orgSeries-setup.php:368
+msgid "All Series"
+msgstr "ସମସ୍ତ ସିରୀଜ"
+
+#: inc/settings/settings-validation.php:90
+#: orgSeries-setup.php:276
+msgid "Edit Series"
+msgstr "ସିରୀଜ ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: inc/settings/settings-validation.php:91
+#: orgSeries-setup.php:277
+msgid "Update Series"
+msgstr "ସିରୀଜ ଅପଡେଟ୍ କରନ୍ତୁ"
+
+#: inc/settings/settings-validation.php:92
+#: orgSeries-setup.php:278
+msgid "Add New Series"
+msgstr "ନୂତନ ସିରୀଜ ଯୋଗ କରନ୍ତୁ"
+
+#: inc/settings/settings-validation.php:93
+#: orgSeries-setup.php:279
+msgid "New Series Name"
+msgstr "ନୂତନ ସିରୀଜ ନାମ"
+
+#: inc/settings/settings-validation.php:95
+#: orgSeries-setup.php:281
+msgid "No series found"
+msgstr "କୌଣସି ସିରୀଜ ମିଳିଲା ନାହିଁ"
+
+#: inc/settings/settings-validation.php:155
+#. translators: 1: Number of series migrated, 2: Previous taxonomy slug, 3: New taxonomy slug.
+#, php-format
+msgid "%1$s series migrated from \"%2$s\" to \"%3$s\" taxonomy. Settings updated."
+msgstr ""
+"%1$s ସିରୀଜ \"%2$s\"ରୁ \"%3$s\" ଟ୍ୟାକ୍ସୋନୋମିକୁ ସ୍ଥାନାନ୍ତରିତ କରାଯାଇଛି। "
+"ସେଟିଂସ୍ ଅପଡେଟ୍ କରାଯାଇଛି।"
+
+#: inc/settings/settings-validation.php:170
+msgid "PublishPress Series Plugin Options have been updated"
+msgstr "PublishPress Series Plugin Options ଅପଡେଟ୍ କରାଯାଇଛି"
+
+#: inc/settings/settings-validation.php:187
+msgid "Permission denied"
+msgstr "ଅନୁମତି ଅସ୍ୱୀକୃତ"
+
+#: inc/settings/settings-validation.php:193
+msgid "PublishPress Series Plugin Options have been RESET"
+msgstr "PublishPress Series Plugin Options ରିସେଟ୍ ହୋଇଛି"
+
+#: inc/settings/tab-advanced.php:17
+msgid ""
+"Please change these settings carefully as they make significant changes to "
+"PublishPress Series."
+msgstr ""
+"ଦୟାକରି ଏହି ସେଟିଂସ୍ କୁ ସାବଧାନତା ସହିତ ବଦଳାନ୍ତୁ କାରଣ ସେଗୁଡିକ PublishPress "
+"Series ପାଇଁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପରିବର୍ତ୍ତନ କରେ।"
+
+#: inc/settings/tab-advanced.php:36
+msgid "Series Settings"
+msgstr "ସିରୀଜ ସେଟିଂସ୍"
+
+#: inc/settings/tab-advanced.php:42
+msgid ""
+"Delete all PublishPress Series data from the database when deleting this "
+"plugin."
+msgstr "ଏହି ପ୍ଲଗଇନ୍ ମିଟିବା ସମୟରେ ଡାଟାବେସ୍ରୁ ସମସ୍ତ PublishPress Series ତଥ୍ୟ ମିଟାଇଦିଅ।"
+
+#: inc/settings/tab-advanced.php:49
+msgid "Series Upgrade"
+msgstr "ସିରୀଜ ଅପ୍ଗ୍ରେଡ୍"
+
+#: inc/settings/tab-advanced.php:53
+msgid "Run Upgrade Task"
+msgstr "ଅପ୍ଗ୍ରେଡ୍ କାର୍ଯ୍ୟ କରନ୍ତୁ"
+
+#: inc/settings/tab-advanced.php:56
+msgid ""
+"In version 2.11.4, PublishPress Series made changes to how series are "
+"stored. You can run the upgrade task here if you're having issues with "
+"series parts."
+msgstr ""
+"ସଂସ୍କରଣ 2.11.4ରେ, PublishPress Series ସିରିଜ୍‌ଗୁଡିକ ମାନେ କିପରି ସଂରକ୍ଷିତ ହୁଏ "
+"ସେଥିରେ ପରିବର୍ତ୍ତନ କରିଛି। ଯଦି ଆପଣଙ୍କୁ ସିରିଜ୍ ଅଂଶଗୁଡିକ ସହିତ ସମସ୍ୟା ହେଉଛି, "
+"ତେବେ ଆପଣ ଏଠାରେ ଅପଗ୍ରେଡ୍ କାର୍ଯ୍ୟ ଚାଲାଇପାରିବେ।"
+
+#: inc/settings/tab-advanced.php:64
+msgid "Sync Series Order to Menu Order"
+msgstr "ମେନୁ ଆକାରକୁ ସିରିଜ୍ ବ୍ୟବସ୍ଥା କରନ୍ତୁ"
+
+#: inc/settings/tab-advanced.php:68
+msgid "Sync to Menu Order"
+msgstr "ମେନୁ ଆକାରକୁ ସିଙ୍କ୍ କରନ୍ତୁ"
+
+#: inc/settings/tab-advanced.php:71
+msgid ""
+"This will sync all series part numbers to WordPress menu_order field. "
+"Useful for themes/page builders that can only sort by menu order (Page "
+"Attributes: Order). This allows you to use native WordPress ordering "
+"instead of custom fields."
+msgstr ""
+"ଏହା ସମସ୍ତ ସିରିଜ୍ ଅଂଶ ସଂଖ୍ୟାଗୁଡିକୁ WordPress menu_order କ୍ଷେତ୍ରରେ ସିଙ୍କ୍ "
+"କରିବ। ତେମ୍ସ/ପେଜ୍ ବିଲ୍ଡର୍‌ଗୁଡିକ ପାଇଁ ଯାହାକି କେବଳ ମେନୁ ଆକାର ଦ୍ୱାରା ବ୍ୟବସ୍ଥିତ "
+"କରିପାରିବ (ପେଜ୍ ଗୁଣ: ବ୍ୟବସ୍ଥା)। ଏହା ଆପଣଙ୍କୁ କଷ୍ଟମ୍ କ୍ଷେତ୍ରଗୁଡିକ ବଦଳାଇ ନେଟିଭ୍ "
+"WordPress ବ୍ୟବସ୍ଥା କରିବାକୁ ସହାୟତା କରେ।"
+
+#: inc/settings/tab-advanced.php:79
+msgid "Reset settings"
+msgstr "ସେଟିଂସ୍ ପୁନର୍ସଥାପନ କରନ୍ତୁ"
+
+#: inc/settings/tab-advanced.php:81
+msgid "Reset options to default"
+msgstr "ଡିଫଲ୍ଟକୁ ବିକଳ୍ପଗୁଡିକ ପୁନର୍ସଥାପନ କରନ୍ତୁ"
+
+#: inc/settings/tab-layouts.php:11
+#: orgSeries-options.php:146
+msgid "Layouts"
+msgstr "ଲେଆଉଟ୍‌ସ୍"
+
+#: inc/settings/tab-layouts.php:19
+msgid "Configure the layout displays shown on posts in a series."
+msgstr "ସିରିଜ୍‌ରେ ପୋଷ୍ଟ୍‌ଗୁଡିକରେ ଦେଖାଯାଉଥିବା ଲେଆଉଟ୍ ଦେଖାନ୍ତୁ।"
+
+#: inc/settings/tab-legacy.php:12
+#: orgSeries-options.php:163
+msgid "Legacy"
+msgstr "ଲେଗେସୀ"
+
+#: inc/settings/tab-legacy.php:13
+msgid "Legacy Settings"
+msgstr "ଲେଗେସୀ ସେଟିଂସ୍"
+
+#: inc/settings/tab-legacy.php:28
+msgid "Default"
+msgstr "ଡିଫଲ୍ଟ"
+
+#: inc/settings/tab-legacy.php:37
+msgid "CSS Styles"
+msgstr "CSS ଶୈଳୀଗୁଡିକ"
+
+#: inc/settings/tab-legacy.php:42
+msgid "Use PublishPress Series CSS styles?"
+msgstr "PublishPress Series CSS ଶୈଳୀଗୁଡିକ ବ୍ୟବହାର କରିବେ କି?"
+
+#: inc/settings/tab-legacy.php:46
+msgid "Style options"
+msgstr "ଶୈଳୀ ବିକଳ୍ପଗୁଡିକ"
+
+#: inc/settings/tab-legacy.php:48
+msgid "Use default style"
+msgstr "ଡିଫଲ୍ଟ ଶୈଳୀ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:49
+msgid "Use box style"
+msgstr "ବକ୍ସ୍ ଶୈଳୀ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:50
+msgid "Use dark style"
+msgstr "କଳା ଶୈଳୀ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:51
+msgid "Use light style"
+msgstr "ପାହିଲା ଶୈଳୀ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:61
+msgid "Series Overview"
+msgstr "ସିରିଜ୍ ସାରାଂଶ"
+
+#: inc/settings/tab-legacy.php:63
+msgid "Choose the design for the taxonomy page where a single Series is displayed."
+msgstr "ଏକ ଏକକ ସିରିଜ୍ ପ୍ରଦର୍ଶିତ ହେବା ପାଇଁ ଟାକ୍ସୋନୋମୀ ପୃଷ୍ଠାର ଡିଜାଇନ୍ ଚୟନ କରନ୍ତୁ।"
+
+#: inc/settings/tab-legacy.php:67
+msgid "Layout:"
+msgstr "ଲେଆଉଟ୍:"
+
+#: inc/settings/tab-legacy.php:84
+#. translators: %s: URL to the series archive template documentation.
+#, php-format
+msgid ""
+"Choosing a layout different to \"Default\" will override the taxonomy "
+"template from your theme. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Read the documentation for customizing these designs</a>."
+msgstr ""
+"“ଡିଫଲ୍ଟ”ରୁ ଭିନ୍ନ ଲେଆଉଟ୍ ବାଛିଲେ, ଏହା ଆପଣଙ୍କର ଥୀମ୍‌ରୁ ଟାକ୍ସୋନୋମୀ ଟେମ୍ପଲେଟ୍‌କୁ "
+"ଓଭରରାଇଡ୍ କରିଦେବ। <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">ଏହି ଡିଜାଇନ୍‌ଗୁଡିକୁ କଷ୍ଟମାଇଜ୍ କରିବା ପାଇଁ ଡକ୍ୟୁମେଣ୍ଟେସନ୍ "
+"ପଢନ୍ତୁ</a>।"
+
+#: inc/settings/tab-legacy.php:93
+#: inc/settings/tab-series-category.php:68
+msgid "Columns:"
+msgstr "କଲମ୍‌ସ୍:"
+
+#: inc/settings/tab-legacy.php:99
+msgid "Order series by:"
+msgstr "ସିରିଜ୍‌ଗୁଡିକୁ ବ୍ୟବସ୍ଥା କରନ୍ତୁ:"
+
+#: inc/settings/tab-legacy.php:101
+msgid "Series part"
+msgstr "ସିରିଜ୍ ଅଂଶ"
+
+#: inc/settings/tab-legacy.php:102
+msgid "Order by date"
+msgstr "ତାରିଖ ଦ୍ୱାରା ବ୍ୟବସ୍ଥା କରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:106
+msgid "Series order method"
+msgstr "ସିରିଜ୍ ବ୍ୟବସ୍ଥା ଧରନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:119
+#: inc/settings/tab-legacy.php:218
+#: inc/settings/tab-legacy.php:224
+#: orgSeries-setup.php:544
+#: orgSeries-widgets.php:121
+msgid "Series Table of Contents"
+msgstr "ସିରିଜ୍ ସାରାଂଶ"
+
+#: inc/settings/tab-legacy.php:124
+msgid "Series Table of Contents URL:"
+msgstr "ସିରିଜ୍ ସାରାଂଶ URL:"
+
+#: inc/settings/tab-legacy.php:127
+msgid "view page"
+msgstr "ପୃଷ୍ଠା ଦେଖନ୍ତୁ"
+
+#: inc/settings/tab-legacy.php:137
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You must %1$s update your permalink structure %2$s to something other than "
+"\"Plain\" for the Series Table of Contents URL to work."
+msgstr ""
+"ଆପଣଙ୍କୁ %1$s ଆପଣଙ୍କର permalink ଗଠନ ପୁନର୍ବିନ୍ୟାସ କରିବାକୁ %2$s \"Plain\" "
+"ଚାଲାଇବାକୁ ବାଧ୍ୟତା ଅଛି, ଯାହାକି ସିରିଜ୍ ସାରାଂଶ URL କାମ କରିବ।"
+
+#: inc/settings/tab-legacy.php:157
+msgid "Series Per Page:"
+msgstr "ପ୍ରତି ପୃଷ୍ଠାରେ ସିରିଜ୍:"
+
+#: inc/settings/tab-legacy.php:161
+msgid "Series Table of Contents Title:"
+msgstr "ସିରିଜ୍ ସାରାଂଶ ଶିରୋନାମ:"
+
+#: inc/settings/tab-legacy.php:171
+msgid "Series Featured Images"
+msgstr "ସିରିଜ୍ ପ୍ରଧାନ ଚିତ୍ରଗୁଡିକ"
+
+#: inc/settings/tab-legacy.php:176
+msgid "Width for featured image on series table of contents page (in pixels)"
+msgstr "ସିରିଜ୍ ସାରାଂଶ ପୃଷ୍ଠାରେ ପ୍ରଧାନ ଚିତ୍ର ପାଇଁ ପ୍ରମାଣ (ପିକ୍ସେଲ୍)"
+
+#: inc/settings/tab-legacy.php:180
+msgid "Width for featured image on a post page (in pixels)."
+msgstr "ପୋଷ୍ଟ୍ ପୃଷ୍ଠାରେ ପ୍ରଧାନ ଚିତ୍ର ପାଇଁ ପ୍ରମାଣ (ପିକ୍ସେଲ୍)।"
+
+#: inc/settings/tab-legacy.php:184
+msgid ""
+"Width for featured image if displayed via the latest series template (in "
+"pixels)."
+msgstr ""
+"ସେବେ ଦେଖାଯିବା ସିରିଜ୍ ଟେମ୍ପଲେଟ୍ ଦ୍ୱାରା ପ୍ରଦର୍ଶିତ ପ୍ରଧାନ ଚିତ୍ର ପାଇଁ ପ୍ରମାଣ "
+"(ପିକ୍ସେଲ୍)।"
+
+#: inc/settings/tab-legacy.php:194
+#: orgSeries-widgets.php:14
+msgid "Latest Series"
+msgstr "ସତ୍ୟ ସିରିଜ୍"
+
+#: inc/settings/tab-legacy.php:196
+msgid "This display is used by the \"Latest Series\" widget."
+msgstr "ଏହି ପ୍ରଦର୍ଶନ “ସତ୍ୟ ସିରିଜ୍” ଡିଜେଟ୍‌ରେ ବ୍ୟବହୃତ ହୁଏ।"
+
+#: inc/settings/tab-legacy.php:200
+msgid "Latest Series (tags before):"
+msgstr "ସତ୍ୟ ସିରିଜ୍ (ଟ୍ୟାଗ୍‌ଗୁଡିକ ପୂର୍ବରୁ):"
+
+#: inc/settings/tab-legacy.php:204
+msgid "Latest Series (inner tags):"
+msgstr "ନବୀନ ଶ୍ରେଣୀ (ଭିତର ଟ୍ୟାଗ୍‌):"
+
+#: inc/settings/tab-legacy.php:208
+msgid "Latest Series (tags after):"
+msgstr "ନବୀନ ଶ୍ରେଣୀ (ଟ୍ୟାଗ୍‌ ପରେ):"
+
+#: inc/settings/tab-legacy.php:220
+msgid ""
+"This display is used by the \"Series Table of Contents\" widget, shortcode, "
+"and URL."
+msgstr ""
+"ଏହି ଡିସ୍ପ୍ଲେ \"Series Table of Contents\" widget, shortcode, ଏବଂ URL ଦ୍ବାରା "
+"ବ୍ୟବହାର କରାଯାଇଛି।"
+
+#: inc/settings/tab-legacy.php:227
+msgid ""
+"This display is used by the \"Series Table of Contents\". To find the URL "
+"for this display, go the \"Display\" tab and then \"Series Table of "
+"Contents URL\"."
+msgstr ""
+"ଏହି ଡିସ୍ପ୍ଲେ \"Series Table of Contents\" ଦ୍ବାରା ବ୍ୟବହାର କରାଯାଇଛି। ଏହି "
+"ଡିସ୍ପ୍ଲେ ପାଇଁ URL ଖୋଜିବାକୁ, \"Display\" ଟ୍ୟାବ୍‌କୁ ଯାଆନ୍ତୁ ଏବଂ ପରେ \"Series "
+"Table of Contents URL\" କୁ ଯାଆନ୍ତୁ।"
+
+#: inc/settings/tab-metabox.php:17
+msgid ""
+"These settings allow you to customize the metabox on the post editing "
+"screen."
+msgstr ""
+"ଏହି ସେଟିଂସ୍‌ ଆପଣଙ୍କୁ ଲେଖା ସମ୍ପାଦନା ସ୍କ୍ରିନ୍‌ରେ ମେଟାବକ୍ସ କଷ୍ଟମାଇଜ୍‌ କରିବାକୁ "
+"ଅନୁମତି ଦିଏ।"
+
+#: inc/settings/tab-metabox.php:28
+msgid "Default Series Order"
+msgstr "ଡିଫଲ୍ଟ ଶ୍ରେଣୀ କ୍ରମ"
+
+#: inc/settings/tab-metabox.php:29
+msgid "Alphabetical A-Z"
+msgstr "ଅକ୍ଷରାନୁସାରେ A-Z"
+
+#: inc/settings/tab-metabox.php:30
+msgid "Alphabetical Z-A"
+msgstr "ଅକ୍ଷରାନୁସାରେ Z-A"
+
+#: inc/settings/tab-metabox.php:36
+msgid "Show \"Add New\""
+msgstr "\"ନୂତନ ଯୋଡନ୍ତୁ\" ଦର୍ଶାନ୍ତୁ"
+
+#: inc/settings/tab-metabox.php:40
+msgid "Show \"Post title in widget\""
+msgstr "\"widget ରେ ପୋଷ୍ଟ ଶିରୋନାମା\" ଦର୍ଶାନ୍ତୁ"
+
+#: inc/settings/tab-metabox.php:44
+#: inc/settings/tab-metabox.php:47
+msgid "Metabox Series Order"
+msgstr "ମେଟାବକ୍ସ ଶ୍ରେଣୀ କ୍ରମ"
+
+#: inc/settings/tab-post-details.php:13
+msgid "Post Details Settings"
+msgstr "ପୋଷ୍ଟ ବିବରଣୀ ସେଟିଂସ୍‌"
+
+#: inc/settings/tab-post-details.php:25
+#: inc/settings/tab-post-details.php:43
+msgid "Configure the Series Post Details display shown on posts in a series."
+msgstr "ଶ୍ରେଣୀରେ ପୋଷ୍ଟଗୁଡିକର ବିବରଣୀ ଡିସ୍ପ୍ଲେ କନ୍ଫିଗର୍ କରନ୍ତୁ।"
+
+#: inc/settings/tab-post-details.php:36
+#: inc/settings/tab-post-list-box.php:36
+#: inc/settings/tab-post-navigation.php:36
+msgid "As in Template"
+msgstr "ଟେମ୍ପଲେଟ୍‌ରେ ଯଥା"
+
+#: inc/settings/tab-post-details.php:48
+msgid "Display Series Post Details?"
+msgstr "ଶ୍ରେଣୀ ପୋଷ୍ଟ ବିବରଣୀ ଦର୍ଶାନ୍ତୁ?"
+
+#: inc/settings/tab-post-details.php:53
+msgid "Post Details Selection"
+msgstr "ପୋଷ୍ଟ ବିବରଣୀ ଚୟନ"
+
+#: inc/settings/tab-post-details.php:55
+#: inc/settings/tab-post-navigation.php:55
+msgid "Edit this layout"
+msgstr "ଏହି ଲେଆଉଟ୍‌କୁ ସଂଶୋଧନ କରନ୍ତୁ"
+
+#: inc/settings/tab-post-details.php:56
+#: inc/settings/tab-post-list-box.php:56
+#: inc/settings/tab-post-navigation.php:56
+msgid "Loading…"
+msgstr "ଲୋଡିଂ…"
+
+#: inc/settings/tab-post-details.php:63
+msgid "Post Details Position"
+msgstr "ପୋଷ୍ଟ ବିବରଣୀ ପଦବୀ"
+
+#: inc/settings/tab-post-details.php:78
+msgid "Series Meta Template"
+msgstr "ଶ୍ରେଣୀ ମେଟା ଟେମ୍ପଲେଟ୍‌"
+
+#: inc/settings/tab-post-details.php:83
+msgid "Series Meta (with excerpts)"
+msgstr "ଶ୍ରେଣୀ ମେଟା (ଅନୁସଙ୍ଗଗୁଡିକ ସହିତ)"
+
+#: inc/settings/tab-post-details.php:88
+msgid "Limit to single page only"
+msgstr "ଗୋଟିଏ ପୃଷ୍ଠାକୁ ମାତ୍ର ସୀମିତ କରନ୍ତୁ"
+
+#: inc/settings/tab-post-details.php:91
+msgid ""
+"Whether to limit series meta display to single page only or include archive "
+"page."
+msgstr ""
+"ଶ୍ରେଣୀ ମେଟା ଡିସ୍ପ୍ଲେକୁ ଗୋଟିଏ ପୃଷ୍ଠାକୁ ମାତ୍ର ସୀମିତ କରିବା କିମ୍ବା ଆର୍କାଇଭ୍‌ "
+"ପୃଷ୍ଠା ସାମିଲ କରିବାକୁ।"
+
+#: inc/settings/tab-post-list-box.php:13
+msgid "Post List Box Settings"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ସେଟିଂସ୍‌"
+
+#: inc/settings/tab-post-list-box.php:25
+#: inc/settings/tab-post-list-box.php:43
+msgid "Configure the Post List Box that displays all posts in a series."
+msgstr "ଶ୍ରେଣୀରେ ସମସ୍ତ ପୋଷ୍ଟ ଦର୍ଶାଇବା ପାଇଁ ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ କନ୍ଫିଗର୍ କରନ୍ତୁ।"
+
+#: inc/settings/tab-post-list-box.php:48
+msgid "Display Post List Boxes?"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସଗୁଡିକୁ ଦର୍ଶାନ୍ତୁ?"
+
+#: inc/settings/tab-post-list-box.php:53
+msgid "Post List Boxes Selection"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ଚୟନ"
+
+#: inc/settings/tab-post-list-box.php:55
+msgid "Edit this box"
+msgstr "ଏହି ବକ୍ସକୁ ସଂଶୋଧନ କରନ୍ତୁ"
+
+#: inc/settings/tab-post-list-box.php:63
+msgid "Post List Box Position"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ପଦବୀ"
+
+#: inc/settings/tab-post-list-box.php:78
+msgid "Post List Box Template"
+msgstr "ପୋଷ୍ଟ ତାଲିକା ବକ୍ସ ଟେମ୍ପଲେଟ୍‌"
+
+#: inc/settings/tab-post-list-box.php:82
+msgid "Post Title (Linked Post)"
+msgstr "ପୋଷ୍ଟ ଶିରୋନାମା (ଲିଂକ୍‌ ହୋଇଥିବା ପୋଷ୍ଟ)"
+
+#: inc/settings/tab-post-list-box.php:87
+msgid "Post Title (Current Post)"
+msgstr "ପୋଷ୍ଟ ଶିରୋନାମା (ବର୍ତ୍ତମାନ ପୋଷ୍ଟ)"
+
+#: inc/settings/tab-post-navigation.php:13
+msgid "Navigation Settings"
+msgstr "ନାଭିଗେସନ୍‌ ସେଟିଂସ୍‌"
+
+#: inc/settings/tab-post-navigation.php:25
+#: inc/settings/tab-post-navigation.php:43
+msgid "Configure the Series Navigation display shown on posts in a series."
+msgstr "ଶ୍ରେଣୀରେ ପୋଷ୍ଟଗୁଡିକର ନାଭିଗେସନ୍‌ ଡିସ୍ପ୍ଲେ କନ୍ଫିଗର୍ କରନ୍ତୁ।"
+
+#: inc/settings/tab-post-navigation.php:48
+msgid "Display Series Navigation?"
+msgstr "ଶ୍ରେଣୀ ନାଭିଗେସନ୍‌ ଦର୍ଶାନ୍ତୁ?"
+
+#: inc/settings/tab-post-navigation.php:53
+msgid "Navigation Selection"
+msgstr "ନାଭିଗେସନ୍‌ ଚୟନ"
+
+#: inc/settings/tab-post-navigation.php:63
+msgid "Navigation Position"
+msgstr "ନାଭିଗେସନ୍‌ ପଦବୀ"
+
+#: inc/settings/tab-post-navigation.php:78
+msgid "Navigation Template"
+msgstr "ନାଭିଗେସନ୍‌ ଟେମ୍ପଲେଟ୍‌"
+
+#: inc/settings/tab-post-navigation.php:83
+msgid "Next Post Text"
+msgstr "ପରବର୍ତ୍ତୀ ପୋଷ୍ଟ ଟେକ୍ସଟ୍‌"
+
+#: inc/settings/tab-post-navigation.php:88
+msgid "Previous Post Text"
+msgstr "ପୂର୍ବ ନିବନ୍ଧ ପୋଷ୍ଟ ଟେକ୍ସଟ୍‌"
+
+#: inc/settings/tab-post-navigation.php:93
+msgid "First Post Text"
+msgstr "ପ୍ରଥମ ପୋଷ୍ଟ ଟେକ୍ସଟ"
+
+#: inc/settings/tab-post-types.php:10
+#: orgSeries-options.php:157, fuzzy
+msgid "Post Types"
+msgstr "Post Types"
+
+#: inc/settings/tab-post-types.php:11
+#: inc/settings/tab-pro-features.php:29, fuzzy
+msgid "Custom Post Type Support"
+msgstr "Custom Post Type Support"
+
+#: inc/settings/tab-post-types.php:19
+msgid "Enable PublishPress Series for custom post types."
+msgstr "କଷ୍ଟମ ପୋଷ୍ଟ ଟାଇପ୍‌ସ ପାଇଁ PublishPress Series ସକ୍ରିୟ କରନ୍ତୁ।"
+
+#: inc/settings/tab-pro-features.php:10
+#: inc/settings/tab-pro-features.php:11
+#: orgSeries-options.php:166, fuzzy
+msgid "Pro Features"
+msgstr "Pro Features"
+
+#: inc/settings/tab-pro-features.php:19
+msgid ""
+"These settings allow you enable or disable features in PublishPress Series "
+"Pro."
+msgstr ""
+"ଏହି ସେଟିଂସ୍ ଆପଣଙ୍କୁ PublishPress Series Pro ରେ ବିଶେଷତା ଅନୁମତି କିମ୍ବା ବନ୍ଦ "
+"କରିବାକୁ ଅନୁମତି ଦିଏ।"
+
+#: inc/settings/tab-pro-features.php:29
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "PublishPress Series ସହିତ କଷ୍ଟମ ପୋଷ୍ଟ ଟାଇପ୍‌ସ ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ଦିଏ।"
+
+#: inc/settings/tab-pro-features.php:30, fuzzy
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: inc/settings/tab-pro-features.php:30
+msgid "Provides shortcodes to display series information."
+msgstr "ସିରିଜ୍ ତଥ୍ୟ ପ୍ରଦର୍ଶିତ କରିବାକୁ ଶର୍ଟକୋଡ୍‌ସ୍ ପ୍ରଦାନ କରେ।"
+
+#: inc/settings/tab-pro-features.php:31, fuzzy
+msgid "Extra Tokens"
+msgstr "Extra Tokens"
+
+#: inc/settings/tab-pro-features.php:31
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "ସିରିଜ୍ ତଥ୍ୟର ଆଉ ଅଧିକ ବ୍ୟକ୍ତିଗତ କରିବା ପାଇଁ ଅତିରିକ୍ତ ଟୋକେନ୍‌ସ୍ ପ୍ରଦାନ କରେ।"
+
+#: inc/settings/tab-pro-features.php:32, fuzzy
+msgid "Multiple Series"
+msgstr "Multiple Series"
+
+#: inc/settings/tab-pro-features.php:32
+msgid "Allows authors to add posts to more than one series."
+msgstr "ଲେଖକମାନେ ଏକାଧିକ ସିରିଜ୍‌ରେ ପୋଷ୍ଟ ଯୋଡ଼ିବାକୁ ଅନୁମତି ଦିଏ।"
+
+#: inc/settings/tab-series-category.php:8
+#: inc/settings/tab-series-category.php:9
+#: orgSeries-options.php:161, fuzzy
+msgid "Series Category"
+msgstr "Series Category"
+
+#: inc/settings/tab-series-category.php:14
+msgid "Settings for Series Categories archive URL and display behavior."
+msgstr "Series Categories ଅର୍କାଇଭ୍ URL ଏବଂ ପ୍ରଦର୍ଶନ ବ୍ୟବହାର ପାଇଁ ସେଟିଂସ୍।"
+
+#: inc/settings/tab-series-category.php:28, fuzzy
+msgid "Series Categories URL Base:"
+msgstr "Series Categories URL Base:"
+
+#: inc/settings/tab-series-category.php:32
+msgid ""
+"This text will be used in Series Categories archive URLs. If you change it, "
+"old URLs will be redirected to the new base."
+msgstr ""
+"ଏହି ଟେକ୍ସଟ୍ Series Categories ଅର୍କାଇଭ୍ URLs ରେ ବ୍ୟବହାର କରାଯିବ। ଯଦି ଆପଣ "
+"ଏହାକୁ ବଦଳାଇବେ, ପୁରାନା URLs ନୂତନ ବେସ୍‌କୁ ପ୍ରତିନିଧିତ୍ୱ କରାଯିବ।"
+
+#: inc/settings/tab-series-category.php:38, fuzzy
+msgid "Series Categories Archive Template:"
+msgstr "Series Categories Archive Template:"
+
+#: inc/settings/tab-series-category.php:41
+msgid "Use template from Theme"
+msgstr "ଥିମ୍‌ରୁ ଟେମ୍ପଲେଟ୍ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-series-category.php:42
+msgid "Use template from Plugin"
+msgstr "ପ୍ଲଗିନରୁ ଟେମ୍ପଲେଟ୍ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: inc/settings/tab-series-category.php:45
+msgid ""
+"Theme template uses your active theme template hierarchy. Plugin template "
+"uses PublishPress Series fallback design when your theme does not provide "
+"taxonomy-series_group.php."
+msgstr ""
+"ଥିମ୍ ଟେମ୍ପଲେଟ୍ ଆପଣଙ୍କର ସକ୍ରିୟ ଥିମ୍ ଟେମ୍ପଲେଟ୍ ହିଅରାର୍କୀ ବ୍ୟବହାର କରେ। ପ୍ଲଗିନ "
+"ଟେମ୍ପଲେଟ୍ ସେଇଥିଲେ PublishPress Series ପଛକୁ ଡିଜାଇନ୍ ବ୍ୟବହାର କରେ ଯେତେବେଳେ "
+"ଆପଣଙ୍କର ଥିମ୍ taxonomy-series_group.php ଦେଇନଥିବା ସମୟରେ।"
+
+#: inc/settings/tab-series-category.php:51, fuzzy
+msgid "Plugin Template Display Options:"
+msgstr "Plugin Template Display Options:"
+
+#: inc/settings/tab-series-category.php:55
+msgid "Show Series Featured Image"
+msgstr "Series Featured Image ଦେଖାନ୍ତୁ"
+
+#: inc/settings/tab-series-category.php:60
+msgid "Show Series Description"
+msgstr "Series Description ଦେଖାନ୍ତୁ"
+
+#: inc/settings/tab-series-category.php:65
+msgid "Show Posts in each Series as list items"
+msgstr "ପ୍ରତ୍ୟେକ ସିରିଜ୍‌ରେ ପୋଷ୍ଟଗୁଡ଼ିକୁ ତାଲିକା ଆଇଟମ୍‌ସ୍ ଭାବେ ଦେଖାନ୍ତୁ"
+
+#: inc/settings/tab-taxonomy.php:17
+msgid ""
+"This feature allows you to create a new taxonomy for this plugin to use if "
+"you don't want to use the default \"Series\" taxonomy."
+msgstr ""
+"ଏହି ବିଶେଷତା ଆପଣଙ୍କୁ ଯଦି ଡିଫଲ୍ଟ \"Series\" taxonomy ବ୍ୟବହାର କରିବାକୁ "
+"ଚାହାନ୍ତି, ତେବେ ଏହି ପ୍ଲଗିନ ପାଇଁ ଏକ ନୂତନ taxonomy ତିଆରି କରିବାକୁ ଅନୁମତି ଦିଏ।"
+
+#: inc/settings/tab-taxonomy.php:30, fuzzy
+msgid "Series Taxonomy Slug:"
+msgstr "Series Taxonomy Slug:"
+
+#: inc/settings/tab-taxonomy.php:33
+msgid "This text will be part of the series base URL."
+msgstr "ଏହି ଟେକ୍ସଟ୍ ସିରିଜ୍ ବେସ୍ URL ର ଏକ ଅଂଶ ହେବ।"
+
+#: inc/settings/tab-taxonomy.php:38, fuzzy
+msgid "Series Taxonomy:"
+msgstr "Series Taxonomy:"
+
+#: inc/settings/tab-taxonomy.php:42
+msgid ""
+"To create a new taxonomy, enter the new name and click the \"Update "
+"Options\" button."
+msgstr ""
+"ନୂତନ taxonomy ତିଆରି କରିବାକୁ, ନୂତନ ନାମ ଦିଅନ୍ତୁ ଏବଂ \"Update Options\" "
+"ବଟନ୍‌କୁ କ୍ଲିକ୍ କରନ୍ତୁ।"
+
+#: inc/settings/tab-taxonomy.php:49, fuzzy
+msgid "Migrate Terms"
+msgstr "Migrate Terms"
+
+#: inc/settings/tab-taxonomy.php:55
+msgid "Automatically migrate existing series terms to the new taxonomy"
+msgstr ""
+"ନୂତନ taxonomy କୁ ଅବସ୍ଥାନାନ୍ତର କରିବା ପାଇଁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅବସ୍ଥିତ ସିରିଜ୍ "
+"ଶର୍ତ୍ତଗୁଡିକୁ ଅବସ୍ଥାନାନ୍ତର କରନ୍ତୁ"
+
+#: inc/settings/tab-taxonomy.php:58
+msgid ""
+"If checked, all terms from the current taxonomy will be migrated to the new "
+"taxonomy when you change the taxonomy slug. If unchecked, only the taxonomy "
+"slug will be changed."
+msgstr ""
+"ଯଦି ଚେକ୍ କରାଯାଇଛି, ବର୍ତ୍ତମାନ ର ଟାକ୍ସୋନୋମିର ସମସ୍ତ ଶର୍ତ୍ତଗୁଡିକୁ ନୂତନ taxonomy "
+"କୁ ଅବସ୍ଥାନାନ୍ତର କରାଯିବ ଯେତେବେଳେ ଆପଣ taxonomy slug ବଦଳାଇବେ। ଯଦି ଅନ୍ୟଥା, କେବଳ "
+"taxonomy slug ବଦଳାଯିବ।"
+
+#: inc/templates/taxonomy-series.php:69
+msgid "Sorry, no results found."
+msgstr "ଦୁଃଖିତ, କ forward ଣସି ଫଳାଫଳ ମିଳିନାହିଁ।"
+
+#: inc/welcome/welcome-panel.php:143
+msgid "Dismiss this panel"
+msgstr "ଏହି ପ୍ୟାନେଲକୁ ଅସ୍ୱୀକୃତ କରନ୍ତୁ"
+
+#: inc/welcome/welcome-panel.php:162
+msgid "Welcome to PublishPress Series"
+msgstr "PublishPress Seriesକୁ ସ୍ବାଗତ"
+
+#: inc/welcome/welcome-panel.php:165
+msgid ""
+"A series groups your posts together and shows your readers the reading "
+"order. Create your first series with the form on this page, then add posts "
+"to it."
+msgstr ""
+"ଏକ ସିରିଜ୍ ଆପଣଙ୍କର ପୋଷ୍ଟଗୁଡ଼ିକୁ ସମୂହ ଭାବେ ଗଠନ କରେ ଏବଂ ଆପଣଙ୍କର ପାଠକମାନେ ପାଠନ "
+"ଆର୍ଡର ଦେଖାଏ। ଏହି ପୃଷ୍ଠାରେ ଦିଆଯାଇଥିବା ଫର୍ମ୍ ସହିତ ଆପଣଙ୍କର ପ୍ରଥମ ସିରିଜ୍ ତିଆରି "
+"କରନ୍ତୁ, ତାପରେ ତାହାରେ ପୋଷ୍ଟଗୁଡ଼ିକୁ ଯୋଡ଼ନ୍ତୁ।"
+
+#: inc/welcome/welcome-panel.php:170
+msgid "Create a series"
+msgstr "ଏକ ସିରିଜ୍ ତିଆରି କରନ୍ତୁ"
+
+#: inc/welcome/welcome-panel.php:174
+msgid "View Documentation"
+msgstr "ଡକ୍ୟୁମେଣ୍ଟେସନ୍ ଦେଖନ୍ତୁ"
+
+#: inc/welcome/welcome-panel.php:179
+#: includes-core/PPSeriesCoreAdmin.php:44
+msgid "Upgrade to Pro"
+msgstr "Pro କୁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ"
+
+#: includes-core/class-blocks.php:55, fuzzy
+msgid "PublishPress Series"
+msgstr "PublishPress Series"
+
+#: includes-core/class-blocks.php:151
+#: assets/js/publishpress-series-blocks.js:31
+msgid "Display a styled list of posts from a Series."
+msgstr "Series ରୁ ପୋଷ୍ଟମାନେ ଗୁଡିକର ଏକ ଷ୍ଟାଇଲ୍ ତାଲିକା ଦେଖାନ୍ତୁ।"
+
+#: includes-core/class-blocks.php:158
+#: assets/js/publishpress-series-blocks.js:38
+msgid "Display the current post details from a Series."
+msgstr "Series ରୁ ବର୍ତ୍ତମାନ ପୋଷ୍ଟର ବିବରଣୀ ଦେଖାନ୍ତୁ।"
+
+#: includes-core/class-blocks.php:165
+#: assets/js/publishpress-series-blocks.js:45
+msgid "Display navigation links for posts in a Series."
+msgstr "Series ରେ ପୋଷ୍ଟଗୁଡିକ ପାଇଁ ନାଭିଗେସନ୍ ଲିଙ୍କଗୁଡିକ ଦେଖାନ୍ତୁ।"
+
+#: includes-core/class-blocks.php:171
+#: orgSeries-setup.php:285
+#: assets/js/publishpress-series-blocks.js:51
+msgid "Series List"
+msgstr "Series ତାଲିକା"
+
+#: includes-core/class-blocks.php:172
+#: assets/js/publishpress-series-blocks.js:52
+msgid "Display a customizable list of Series or Series Categories."
+msgstr "Series କିମ୍ବା Series ଶ୍ରେଣୀଗୁଡିକର ଏକ କଷ୍ଟମାଇଜେବଲ୍ ତାଲିକା ଦେଖାନ୍ତୁ।"
+
+#: includes-core/class-blocks.php:425
+#. translators: %s: Number of series.
+#, php-format
+msgid "%s series"
+msgid_plural "%s series"
+msgstr[0] "%s series"
+msgstr[1] "%s series"
+
+#: includes-core/class-blocks.php:431
+#. translators: %s: Number of posts.
+#, php-format
+msgid "%s post"
+msgid_plural "%s posts"
+msgstr[0] "%s ପୋଷ୍ଟ"
+msgstr[1] "%s ପୋଷ୍ଟଗୁଡିକ"
+
+#: includes-core/class-blocks.php:483
+msgid "Editorial Series"
+msgstr "ସାମ୍ପ୍ରତିକ Series"
+
+#: includes-core/class-blocks.php:485
+#: includes-core/class-blocks.php:493
+#: includes-core/class-blocks.php:501
+msgid "A sample Series Category description."
+msgstr "ଏକ ନମୁନା Series ଶ୍ରେଣୀ ବିବରଣୀ।"
+
+#: includes-core/class-blocks.php:491
+msgid "Magazine Issues"
+msgstr "ମ୍ୟାଗଜିନ୍ ସମସ୍ୟାଗୁଡିକ"
+
+#: includes-core/class-blocks.php:499
+msgid "Tutorial Collections"
+msgstr "ଟ୍ୟୁଟୋରିଆଲ୍ ସଂଗ୍ରହ"
+
+#: includes-core/class-blocks.php:511
+msgid "Alpha Series"
+msgstr "ଆଲ୍ଫା Series"
+
+#: includes-core/class-blocks.php:513
+#: includes-core/class-blocks.php:521
+#: includes-core/class-blocks.php:529
+msgid "A sample description for this Series."
+msgstr "ଏହି Series ପାଇଁ ଏକ ନମୁନା ବିବରଣୀ।"
+
+#: includes-core/class-blocks.php:519
+msgid "Bravo Series"
+msgstr "ବ୍ରାଭୋ Series"
+
+#: includes-core/class-blocks.php:527
+msgid "Charlie Series"
+msgstr "ଚାର୍ଲି Series"
+
+#: includes-core/class-blocks.php:900
+#: assets/js/publishpress-series-blocks.js:60
+msgid "Default layout"
+msgstr "ଡିଫଲ୍ଟ୍ ଲେଆଉଟ୍"
+
+#: includes-core/class-blocks.php:933
+#: orgSeries-widgets.php:415
+#: assets/js/publishpress-series-blocks.js:22
+msgid "Current series"
+msgstr "ବର୍ତ୍ତମାନ Series"
+
+#: includes-core/PPSeriesCoreAdmin.php:16
+#. translators: 1: Opening link tag, 2: Closing link tag.
+#, php-format
+msgid ""
+"You're using PublishPress Series Free. The Pro version has more features "
+"and support. %1$sUpgrade to Pro%2$s"
+msgstr ""
+"ଆପଣ PublishPress Series Free ବ୍ୟବହାର କରୁଛନ୍ତି। Pro ସଂସ୍କରଣରେ ଅଧିକ ବିଶେଷତା "
+"ଏବଂ ସହାୟତା ରହିଛି। %1$sPro ରେ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ%2$s"
+
+#: includes-core/PPSeriesCoreAdmin.php:69
+msgid "Need PublishPress Series Support?"
+msgstr "PublishPress Series ସହାୟତା ଆବଶ୍ୟକ କି?"
+
+#: includes-core/PPSeriesCoreAdmin.php:74
+msgid "If you need help or have a new feature request, let us know."
+msgstr ""
+"ଯଦି ଆପଣଙ୍କୁ ସହାୟତା ଆବଶ୍ୟକ ଅଛି କିମ୍ବା ଏକ ନୂତନ ବିଶେଷତା ଅନୁରୋଧ ଅଛି, ଆମକୁ "
+"ଜଣାଇଦିଅ।"
+
+#: includes-core/PPSeriesCoreAdmin.php:76
+msgid "Request Support"
+msgstr "ସହାୟତା ଅନୁରୋଧ କରନ୍ତୁ"
+
+#: includes-core/PPSeriesCoreAdmin.php:85
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "ବିସ୍ତୃତ ଡକ୍ୟୁମେଣ୍ଟେସନ୍ ମଧ୍ୟରେ ପ୍ଲଗିନ୍ ୱେବସାଇଟ୍ ଉପଲବ୍ଧ ଅଛି।"
+
+#: includes-core/PPSeriesCoreAdmin.php:87
+msgid "View Knowledge Base"
+msgstr "ଜ୍ଞାନ ଆଧାର ଦେଖନ୍ତୁ"
+
+#: orgSeries-admin.php:42
+msgid "An error occured"
+msgstr "ଏକ ତ୍ରୁଟି ଘଟିଗଲା"
+
+#: orgSeries-admin.php:46
+#. translators: %1$s: Number of series migrated.
+#, php-format
+msgid "%1$s series migrated to new taxonomy"
+msgstr "%1$s series ନୂତନ taxonomy କୁ ମାଇଗ୍ରେଟ୍ ହୋଇଛି"
+
+#: orgSeries-admin.php:132
+msgid "Custom Template"
+msgstr "କଷ୍ଟମ୍ ଟେମ୍ପ୍ଲେଟ୍"
+
+#: orgSeries-admin.php:155
+#. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
+#, php-format
+msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
+msgstr "ଯଦି ଆପଣ %1$s ପସନ୍ଦ କରନ୍ତି, ଦୟାକରି ଆମକୁ %2$s ରେଟିଂ ଦିଅ। ଧନ୍ୟବାଦ!"
+
+#: orgSeries-admin.php:166
+msgid "About PublishPress Series"
+msgstr "PublishPress Series ବିଷୟରେ"
+
+#: orgSeries-admin.php:166
+msgid "About"
+msgstr "ବିଷୟରେ"
+
+#: orgSeries-admin.php:167
+msgid "PublishPress Series Documentation"
+msgstr "PublishPress Series ଡକ୍ୟୁମେଣ୍ଟେସନ୍"
+
+#: orgSeries-admin.php:167
+msgid "Documentation"
+msgstr "ଡକ୍ୟୁମେଣ୍ଟେସନ୍"
+
+#: orgSeries-admin.php:168
+msgid "Contact the PublishPress team"
+msgstr "PublishPress ଦଳକୁ ସମ୍ପର୍କ କରନ୍ତୁ"
+
+#: orgSeries-admin.php:168
+msgid "Contact"
+msgstr "ସମ୍ପର୍କ"
+
+#: orgSeries-admin.php:199
+msgid "Sorry but you don't have permission to add series"
+msgstr "ଦୟାକରି, ଆପଣଙ୍କର Series ଯୋଗ କରିବା ପାଇଁ ଅଧିକାର ନାହିଁ"
+
+#: orgSeries-admin.php:211
+msgid "The name you picked isn't sanitizing correctly. Try something different."
+msgstr ""
+"ଆପଣ ଚୟନ କରିଥିବା ନାମଟି ସଠିକ୍ ଭାବେ ସାନିଟାଇଜ୍ ହେଉନାହିଁ। କିଛି ଭିନ୍ନ ଚେଷ୍ଟା "
+"କରନ୍ତୁ।"
+
+#: orgSeries-admin.php:218
+msgid ""
+"Hmm... it looks like there is already a series with that name. Try "
+"something else"
+msgstr ""
+"ହୁଁ... ଏହା ପାଇଁ ଦେଖାଯାଉଛି ଯେ ସେହି ନାମରେ ଏକ Series ଅଛି। ଅନ୍ୟ କିଛି ଚେଷ୍ଟା "
+"କରନ୍ତୁ"
+
+#: orgSeries-admin.php:229
+#: orgSeries-manage.php:159
+msgid "Series added."
+msgstr "Series ଯୋଗ କରାଗଲା।"
+
+#: orgSeries-admin.php:343
+msgid "Not part of a series"
+msgstr "Series ର ଅଂଶ ନୁହେଁ"
+
+#: orgSeries-admin.php:396
+msgid "New series name"
+msgstr "ନୂତନ Series ନାମ"
+
+#: orgSeries-admin.php:403
+msgid "Search series"
+msgstr "ଶ୍ରେଣୀ ଖୋଜନ୍ତୁ"
+
+#: orgSeries-admin.php:418
+msgid "Series Part:"
+msgstr "ଶ୍ରେଣୀ ଅଂଶ:"
+
+#: orgSeries-admin.php:425
+msgid "Post title in widget:"
+msgstr "widgetରେ ପୋଷ୍ଟ ଶୀର୍ଷକ:"
+
+#: orgSeries-admin.php:427
+msgid ""
+"A short title of this post that will be used in the Series widget. Leave "
+"blank to use the full title."
+msgstr ""
+"ଏହି ପୋଷ୍ଟର ଏକ ସଂକ୍ଷିପ୍ତ ଶୀର୍ଷକ ଯାହା ଶ୍ରେଣୀ widgetରେ ବ୍ୟବହୃତ ହେବ। ସମ୍ପୂର୍ଣ୍ଣ "
+"ଶୀର୍ଷକ ବ୍ୟବହାର କରିବା ପାଇଁ ଖାଲି ଛାଡ଼ନ୍ତୁ।"
+
+#: orgSeries-admin.php:516
+#. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (କୌଣସି ଅଂଶ ସଂଖ୍ୟା ନାହିଁ)"
+
+#: orgSeries-admin.php:519
+#. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
+#, php-format
+msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
+msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (ଅଂଶ %1$s ମାନେ %2$s)"
+
+#: orgSeries-admin.php:524
+#. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (କୌଣସି ଅଂଶ ସଂଖ୍ୟା ନାହିଁ)"
+
+#: orgSeries-admin.php:530
+#: orgSeries-setup.php:284
+msgid "No Series"
+msgstr "କୌଣସି ଶ୍ରେଣୀ ନାହିଁ"
+
+#: orgSeries-admin.php:554
+msgid "View all series"
+msgstr "ସମସ୍ତ ଶ୍ରେଣୀଗୁଡିକୁ ଦେଖନ୍ତୁ"
+
+#: orgSeries-admin.php:563
+msgid "Manage All Series"
+msgstr "ସମସ୍ତ ଶ୍ରେଣୀ ପ୍ରବନ୍ଧନ କରନ୍ତୁ"
+
+#: orgSeries-icon.php:157
+msgid ""
+"PublishPress Series could not save the series featured image. The featured "
+"image was not changed."
+msgstr ""
+"PublishPress Series ଶ୍ରେଣୀ ପ୍ରଥମ ଚିତ୍ର ସଂରକ୍ଷିତ କରିପାରିଲା ନାହିଁ। ପ୍ରଥମ "
+"ଚିତ୍ର ବଦଳାଯାଇନି।"
+
+#: orgSeries-icon.php:161
+#. translators: %s: the error message reported by the database.
+#, php-format
+msgid "Database error: %s"
+msgstr "ଡେଟାବେସ୍ ତ୍ରୁଟି: %s"
+
+#: orgSeries-manage.php:72
+msgid "Term Order"
+msgstr "ଶର୍ତ୍ତ ଅନୁକ୍ରମ"
+
+#: orgSeries-manage.php:73
+msgid ""
+"To reposition an item, drag and drop the row by \"clicking and holding\" it "
+"anywhere and moving it to its new position."
+msgstr ""
+"ଏକ ଆଇଟମ୍ ପୁନଃସ୍ଥାପିତ କରିବା ପାଇଁ, ଏହାକୁ ନୂତନ ସ୍ଥାନକୁ କାମ କରି \"କ୍ଲିକ୍ କରି "
+"ଧରି\" ଏକ ପଙ୍କ୍ତିକୁ ଡ୍ରାଗ୍ ଓ ଡ୍ରପ୍ କରନ୍ତୁ।"
+
+#: orgSeries-manage.php:160
+#: orgSeries-manage.php:164
+msgid "Series deleted."
+msgstr "ଶ୍ରେଣୀ ମିଟାଯାଇଛି।"
+
+#: orgSeries-manage.php:161
+msgid "Series updated."
+msgstr "ଶ୍ରେଣୀ ଅଦ୍ୟତନ କରାଯାଇଛି।"
+
+#: orgSeries-manage.php:162
+msgid "Series not added."
+msgstr "ଶ୍ରେଣୀ ଯୋଡାଯାଇନି।"
+
+#: orgSeries-manage.php:163
+msgid "Series not updated."
+msgstr "ଶ୍ରେଣୀ ଅଦ୍ୟତନ ହୋଇନି।"
+
+#: orgSeries-manage.php:236
+msgid "Posts"
+msgstr "ପୋଷ୍ଟଗୁଡିକ"
+
+#: orgSeries-manage.php:238, fuzzy
+msgid "ID"
+msgstr "ID"
+
+#: orgSeries-manage.php:277
+msgid ""
+"Terms are usually ordered alphabetically, but you can choose your own order "
+"by entering a number (1 for first, etc.) in this field."
+msgstr ""
+"ଶର୍ତ୍ତଗୁଡିକ ସାଧାରଣତଃ ଅକ୍ଷରକ୍ରମରେ ଅନୁକ୍ରମିତ ହୋଇଥାଏ, କିନ୍ତୁ ଆପଣ ଏହି କ୍ଷେତ୍ରରେ "
+"ସଂଖ୍ୟା (1 ପ୍ରଥମ ପାଇଁ, ଇତ୍ୟାଦି) ଲେଖି ବ୍ୟକ୍ତିଗତ ଅନୁକ୍ରମ ଚୟନ କରିପାରିବେ।"
+
+#: orgSeries-manage.php:284, fuzzy
+msgid "Current series featured image:"
+msgstr "Current series featured image:"
+
+#: orgSeries-manage.php:291
+msgid "No featured image currently"
+msgstr "ବର୍ତ୍ତମାନ କୌଣସି ପ୍ରଥମ ଚିତ୍ର ନାହିଁ"
+
+#: orgSeries-manage.php:301
+msgid ""
+"Delete image? (note: there will not be an image associated with this series "
+"if you select this)"
+msgstr ""
+"ଚିତ୍ର ମିଟାଇବେ କି? (ନୋଟ୍: ଯଦି ଆପଣ ଏହାକୁ ଚୟନ କରନ୍ତି, ତେବେ ଏହି ଶ୍ରେଣୀ ସହିତ "
+"କୌଣସି ଚିତ୍ର ସମ୍ପୃକ୍ତ ହେବ ନାହିଁ)"
+
+#: orgSeries-manage.php:306
+msgid "Series featured image upload:"
+msgstr "ଶ୍ରେଣୀ ପ୍ରଥମ ଚିତ୍ର ଅପଲୋଡ୍:"
+
+#: orgSeries-manage.php:310
+msgid "Upload a featured image for the series."
+msgstr "ଶ୍ରେଣୀ ପାଇଁ ଏକ ପ୍ରଥମ ଚିତ୍ର ଅପଲୋଡ୍ କରନ୍ତୁ।"
+
+#: orgSeries-manage.php:325
+msgid "Invalid form data"
+msgstr "ଅବୈଧ ଫର୍ମ ତଥ୍ୟ"
+
+#: orgSeries-manage.php:335
+msgid "Invalid nonce, reload and try again"
+msgstr "ଅବୈଧ nonce, ପୁନଃଲୋଡ୍ କରନ୍ତୁ ଏବଂ ପୁନର୍ଥାନ କରନ୍ତୁ"
+
+#: orgSeries-manage.php:344
+msgid "Invalid taxonomy"
+msgstr "ଅବୈଧ taxonomy"
+
+#: orgSeries-manage.php:350
+msgid "Not enough permission"
+msgstr "ଯଥେଷ୍ଟ ଅଧିକାର ନାହିଁ"
+
+#: orgSeries-manage.php:354
+msgid "Updated successfully"
+msgstr "ସଫଳତାର ସହିତ ଅଦ୍ୟତନ ହୋଇଛି"
+
+#: orgSeries-options.php:46
+#: orgSeries-options.php:68
+#: orgSeries-options.php:69
+#: orgSeries-setup.php:943
+msgid "Settings"
+msgstr "ସେଟିଂସ୍"
+
+#: orgSeries-options.php:58
+msgid "PublishPress Series Options"
+msgstr "PublishPress Series ବିକଳ୍ପ"
+
+#: orgSeries-options.php:160
+msgid "Taxonomy"
+msgstr "taxonomy"
+
+#: orgSeries-options.php:162, fuzzy
+msgid "Metabox"
+msgstr "Metabox"
+
+#: orgSeries-options.php:169
+msgid "Advanced"
+msgstr "ଉନ୍ନତ"
+
+#: orgSeries-setup.php:221
+msgid "Select \"Not part of a series\" to remove any series data from post"
+msgstr "ଏହାକୁ ପୋଷ୍ଟରୁ ଶ୍ରେଣୀ ତଥ୍ୟ କାଢ଼ିବା ପାଇଁ \"ଶ୍ରେଣୀର ଅଂଶ ନୁହେଁ\" ବାଛନ୍ତୁ"
+
+#: orgSeries-setup.php:282
+msgid "&larr; Go to Series"
+msgstr "&larr; ଶ୍ରେଣୀକୁ ଯାଆନ୍ତୁ"
+
+#: orgSeries-setup.php:283
+msgid "View Series"
+msgstr "ଶ୍ରେଣୀ ଦେଖନ୍ତୁ"
+
+#: orgSeries-setup.php:286
+msgid "Series Link"
+msgstr "ଶ୍ରେଣୀ କଡି"
+
+#: orgSeries-setup.php:287
+msgid "A link to a Series"
+msgstr "ଏକ ସିରିଜ୍‌କୁ ଯୋଗାଯୋଗ"
+
+#: orgSeries-setup.php:382
+msgid "Series Navigation"
+msgstr "ସିରିଜ୍‌ ନାଭିଗେସନ୍"
+
+#: orgSeries-setup.php:925
+msgid "Series: "
+msgstr "ସିରିଜ୍‌: "
+
+#: orgSeries-setup.php:927
+msgid "Posts from the series: "
+msgstr "ସିରିଜ୍‌ର ପୋଷ୍ଟ୍‌: "
+
+#: orgSeries-taxonomy.php:760
+#: orgSeries-taxonomy.php:789
+msgid "Series:"
+msgstr "ସିରିଜ୍‌:"
+
+#: orgSeries-taxonomy.php:762
+msgid "Part:"
+msgstr "ଭାଗ:"
+
+#: orgSeries-template-tags.php:268
+msgid "All the Series I've Written"
+msgstr "ମୁ ଲିଖିଥିବା ସମସ୍ତ ସିରିଜ୍‌"
+
+#: orgSeries-template-tags.php:272
+#: orgSeries-template-tags.php:281
+#. translators: 1: Series table of contents URL, 2: Link title.
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">ସିରିଜ୍‌</a>"
+
+#: orgSeries-utility.php:460
+msgid "Auto/None"
+msgstr "ଆଟୋ/କିଛି ନୁହେଁ"
+
+#: orgSeries-widgets.php:13
+msgid "Use this to control the output of the latest series widget"
+msgstr "ସେହିଥିରୁ ତାଜା ସିରିଜ୍‌ ଓଜନକୁ ନିୟନ୍ତ୍ରଣ କରିବାକୁ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: orgSeries-widgets.php:25
+msgid "Most Recent Series"
+msgstr "ସବୁଠାରୁ ତାଜା ସିରିଜ୍‌"
+
+#: orgSeries-widgets.php:80
+#: orgSeries-widgets.php:287
+msgid "Title:"
+msgstr "ଶୀର୍ଷକ:"
+
+#: orgSeries-widgets.php:86
+#. translators: %s: URL to the Latest Series settings.
+#, php-format
+msgid ""
+"The layout and content of this widget can be adjusted via the <a "
+"href=\"%s\">Latest Series</a> area."
+msgstr ""
+"ଏହି widgetର layout ଓ ବିଷୟବସ୍ତୁକୁ <a href=\"%s\">ତାଜା ସିରିଜ୍‌</a> କ୍ଷେତ୍ର "
+"ମାଧ୍ୟମରେ ସମଯୋଜିତ କରାଯାଇପାରିବ।"
+
+#: orgSeries-widgets.php:90
+msgid "Hide series with no posts?"
+msgstr "କୌଣସି ପୋଷ୍ଟ୍‌ ନଥିବା ସିରିଜ୍‌କୁ ଲୁଚାଇବେ କି?"
+
+#: orgSeries-widgets.php:93
+#: orgSeries-widgets.php:313
+msgid "Order by:"
+msgstr "କ୍ରମକ୍ରମରେ:"
+
+#: orgSeries-widgets.php:95
+msgid "Number of posts in Series"
+msgstr "ସିରିଜ୍‌ରେ ପୋଷ୍ଟ୍‌ଗୁଡିକର ସଂଖ୍ୟା"
+
+#: orgSeries-widgets.php:96
+msgid "Name of Series"
+msgstr "ସିରିଜ୍‌ର ନାମ"
+
+#: orgSeries-widgets.php:97
+msgid "Series Slug"
+msgstr "ସିରିଜ୍‌ ସ୍ଲଗ୍"
+
+#: orgSeries-widgets.php:98
+msgid "When Series was Created"
+msgstr "ସିରିଜ୍‌ କେବେ ସୃଷ୍ଟି ହେଲା"
+
+#: orgSeries-widgets.php:99
+msgid "Random"
+msgstr "ର୍ୟାଣ୍ଡମ୍"
+
+#: orgSeries-widgets.php:103
+msgid "Number of series to display:"
+msgstr "ଦେଖାଯିବାକୁ ସିରିଜ୍‌ଗୁଡିକର ସଂଖ୍ୟା:"
+
+#: orgSeries-widgets.php:107
+msgid "Display Order: "
+msgstr "ଦେଖାଯିବାର କ୍ରମ: "
+
+#: orgSeries-widgets.php:108, fuzzy
+msgid "ASC: "
+msgstr "ASC: "
+
+#: orgSeries-widgets.php:109, fuzzy
+msgid "DESC: "
+msgstr "DESC: "
+
+#: orgSeries-widgets.php:120
+msgid "Use this to display the Series Table of contents"
+msgstr "ସିରିଜ୍‌ ଟେବଲ୍‌ ଅନୁସୂଚୀକୁ ଦେଖାଇବାପାଇଁ ଏହିଥିରୁ ବ୍ୟବହାର କରନ୍ତୁ"
+
+#: orgSeries-widgets.php:192
+msgid "Select Series"
+msgstr "ସିରିଜ୍‌ ଚୟନ କରନ୍ତୁ"
+
+#: orgSeries-widgets.php:252
+msgid "Other posts in series:"
+msgstr "ସିରିଜ୍‌ର ଅନ୍ୟ ପୋଷ୍ଟ୍‌ଗୁଡିକ:"
+
+#: orgSeries-widgets.php:292
+msgid "Show Series Table Of Content"
+msgstr "ସିରିଜ୍‌ ଟେବଲ୍‌ ଅନୁସୂଚୀକୁ ଦେଖାନ୍ତୁ"
+
+#: orgSeries-widgets.php:297
+msgid "Show Series Table Of Content as:"
+msgstr "ସିରିଜ୍‌ ଟେବଲ୍‌ ଅନୁସୂଚୀକୁ ଏଭଳି ଦେଖାନ୍ତୁ:"
+
+#: orgSeries-widgets.php:298
+msgid "Dropdown:"
+msgstr "ଡ୍ରପ୍‌ଡାଉନ୍‌:"
+
+#: orgSeries-widgets.php:299
+msgid "List:"
+msgstr "ସୂଚୀ:"
+
+#: orgSeries-widgets.php:303
+msgid "Show post count:"
+msgstr "ପୋଷ୍ଟ୍‌ ଗଣନା ଦେଖାନ୍ତୁ:"
+
+#: orgSeries-widgets.php:308
+msgid "Hide empty series:"
+msgstr "ଖାଲି ସିରିଜ୍‌କୁ ଲୁଚାଇବେ:"
+
+#: orgSeries-widgets.php:317
+msgid "name"
+msgstr "ନାମ"
+
+#: orgSeries-widgets.php:318
+msgid "count"
+msgstr "ଗଣନା"
+
+#: orgSeries-widgets.php:319
+msgid "slug"
+msgstr "ସ୍ଲଗ୍"
+
+#: orgSeries-widgets.php:320
+msgid "series id"
+msgstr "ସିରିଜ୍‌ ଆଇଡି"
+
+#: orgSeries-widgets.php:333
+msgid "Order:"
+msgstr "କ୍ରମ:"
+
+#: orgSeries-widgets.php:351
+msgid "Exclude series:"
+msgstr "ସିରିଜ୍‌କୁ ବାହାର କରନ୍ତୁ:"
+
+#: orgSeries-widgets.php:366
+msgid "Include series:"
+msgstr "ସିରିଜ୍‌କୁ ଶାମିଲ୍‌ କରନ୍ତୁ:"
+
+#: orgSeries-widgets.php:381
+msgid "Number of Series:"
+msgstr "ସିରିଜର ସଂଖ୍ୟା:"
+
+#: orgSeries-widgets.php:386
+msgid "Offset:"
+msgstr "ଅଫସେଟ:"
+
+#: orgSeries-widgets.php:388
+msgid ""
+"You can select the offset for the number of series (useful for paging).  No "
+"offset if left blank"
+msgstr ""
+"ଆପଣ ପେଜିଂ ପାଇଁ ଉପୟୋଗୀ ସିରିଜର ସଂଖ୍ୟା ପାଇଁ ଅଫସେଟ ବାଛି ପାରିବେ। ଖାଲି ରହିଲେ "
+"କୌଣସି ଅଫସେଟ ନାହିଁ"
+
+#: orgSeries-widgets.php:392
+msgid "Search:"
+msgstr "ସନ୍ଧାନ:"
+
+#: orgSeries-widgets.php:394
+msgid ""
+"You can return any series that match this search string (matched against "
+"series names)"
+msgstr ""
+"ଆପଣ ଏହି ସନ୍ଧାନ ଷ୍ଟ୍ରିଙ୍ଗକୁ ମେଳ ଖାଇଥିବା ଯେକୌଣସି ସିରିଜକୁ ଫେରାଇପାରିବେ (ସିରିଜ "
+"ନାମ ଉପରେ ମେଳ ଖାଇଛି)"
+
+#: orgSeries-widgets.php:398
+msgid "Show other posts in the current series:"
+msgstr "ବର୍ତ୍ତମାନୀ ସିରିଜରେ ଅନ୍ୟ ପୋଷ୍ଟଗୁଡିକୁ ଦେଖାନ୍ତୁ:"
+
+#: orgSeries-widgets.php:433
+msgid "Series widget title:"
+msgstr "ସିରିଜ ଓଜେଟ ଶୀର୍ଷକ:"
+
+#: orgSeries-widgets.php:435
+msgid "This text will display above other posts in this series."
+msgstr "ଏହି ପାଠ୍ୟ ଏହି ସିରିଜରେ ଅନ୍ୟ ପୋଷ୍ଟଗୁଡିକୁ ଉପରେ ଦେଖାଯିବ।"
+
+#: orgSeries.php:179
+msgid "<strong>This plugin can be deleted.</strong>"
+msgstr "<strong>ଏହି ପ୍ଲଗଇନ୍ କୁ ଡିଲିଟ୍ କରାଯିବ।</strong>"
+
+#: src/application/Container.php:162
+#. translators: 1: Container class name, 2: Parameter name.
+#, php-format
+msgid "The %1$s already has a parameter indexed with the name: %2$s."
+msgstr "%1$s ଆଗରୁ ପ୍ରାପ୍ତ ହୋଇଥିବା ଏକ ପ୍ରାମାଣିକ ନାମ: %2$s ଦେଖାଯାଉଛି।"
+
+#: src/application/Root.php:138
+#. translators: 1: Method name, 2: Parent class name.
+#, php-format
+msgid "The %1$s method can only be used to register a child of %2$s."
+msgstr "%1$s ପ୍ରଣାଳୀକୁ %2$sର ଏକ ସନ୍ତାନକୁ ପଞ୍ଜୀକରଣ କରିବାକୁ ବ୍ୟବହାର କରାଯିବ।"
+
+#: src/domain/exceptions/EntityNotFoundException.php:30
+#. translators: %1$s: Expected entity class name.
+#, php-format
+msgid "Unable to retrieve an instance of %1$s. Not found."
+msgstr "%1$s ର ଏକ ଉଦାହରଣ ମିଳିଲା ନାହିଁ।"
+
+#: src/domain/exceptions/InvalidEntityException.php:29
+#. translators: 1: Invalid entity class name, 2: Expected entity class name.
+#, php-format
+msgid "%1$s is not a valid entity (expected: %2$s)."
+msgstr "%1$s ଏକ ମାନ୍ୟତାପ୍ରାପ୍ତ ସଂସ୍ଥାନ ନୁହେଁ (ଆଶା କରାଯାଇଥିଲା: %2$s)."
+
+#: src/domain/exceptions/InvalidFilePathException.php:30
+#. translators: 1: File name, 2: HTML line break, 3: Full file path.
+#, php-format
+msgid ""
+"The \"%1$s\" file is either missing or could not be read due to "
+"permissions. Please ensure that the following path is correct and verify "
+"that the file permissions are correct:%2$s %3$s"
+msgstr ""
+"ଏହି \"%1$s\" ଫାଇଲ୍ କିମ୍ବା ନାହିଁ କିମ୍ବା ପର୍ମିଶନ୍ ତାଲିକା ଦ୍ୱାରା ପଢିବାକୁ "
+"ମିଳିଲା ନାହିଁ। ଦୟାକରି ନିମ୍ନଲିଖିତ ପଥଟି ସଠିକ୍ ଅଛି ବୋଲି ନିଶ୍ଚିତ କରନ୍ତୁ ଓ ଫାଇଲ୍ "
+"ପର୍ମିଶନ୍ ସଠିକ୍ ଅଛି: %2$s %3$s"
+
+#: src/domain/exceptions/InvalidInterfaceException.php:26
+#. translators: %s: Fully qualified class name.
+#, php-format
+msgid "%s does not exist or is not reachable."
+msgstr "%s ଅବସ୍ଥିତ ନୁହେଁ କିମ୍ବା ପ୍ରାପ୍ତ କରାଯାଉନି।"
+
+#: src/domain/exceptions/NonceFailException.php:19
+msgid "Nonce fail."
+msgstr "ନନ୍ସ ବାପାରେ ତ୍ରୁଟି।"
+
+#: src/domain/model/ControllerRoute.php:53
+#: src/domain/model/HasHooksRoute.php:61
+#. translators: 1: Controller class name, 2: Required interface name.
+#, php-format
+msgid ""
+"The provided object fully qualified class name (%1$s) must implement the "
+"%2$s interface."
+msgstr ""
+"ଦିଆଯାଇଥିବା ପଦାର୍ଥ ନିଶ୍ଚିତ ଶ୍ରେଣୀ ନାମ (%1$s) %2$s ଇଣ୍ଟରଫେସ୍ କୁ ଅନୁଷ୍ଠାନ "
+"କରିବା ଆବଶ୍ୟକ।"
+
+#: src/domain/model/FileLocation.php:52
+#. translators: %s: File path.
+#, php-format
+msgid "The given file path (%s) is not readable."
+msgstr "ଦିଆଯାଇଥିବା ଫାଇଲ୍ ପଥ (%s) ପଢିବାକୁ ମିଳିଲା ନାହିଁ।"
+
+#: src/domain/model/LicenseKeyRepository.php:131
+msgid "An error occurred, please try again."
+msgstr "ଏକ ତ୍ରୁଟି ଘଟିଗଲା, ଦୟାକରି ପुनରାୟ କରନ୍ତୁ।"
+
+#: src/domain/model/RouteIdentifier.php:52
+#. translators: %1$s: Callback parameter name.
+#, php-format
+msgid "The incoming value for %1$s is expected to be a closure.  It was not."
+msgstr "%1$s ପାଇଁ ଆସୁଥିବା ମୂଲ୍ୟ ଏକ କ୍ଲୋଜର ହେବା ଆଶା କରାଯାଇଛି। ଏହା ନୁହେଁ।"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:121
+#: src/views/admin/templates/license_key_form.template.php:33
+msgid "Deactivate License"
+msgstr "ଲାଇସେନ୍ସ ବନ୍ଦ କରନ୍ତୁ"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:122
+#: src/views/admin/templates/license_key_form.template.php:35
+msgid "Activate License"
+msgstr "ଲାଇସେନ୍ସ ସକ୍ରିୟ କରନ୍ତୁ"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:240
+msgid "License Key successfully activated."
+msgstr "ଲାଇସେନ୍ସ କୀ ସଫଳତାର ସହିତ ସକ୍ରିୟ ହୋଇଛି।"
+
+#: src/domain/services/admin/LicenseKeyFormManager.php:241
+msgid "License Key successfully deactivated."
+msgstr "ଲାଇସେନ୍ସ କୀ ସଫଳତାର ସହିତ ବନ୍ଦ ହୋଇଛି।"
+
+#: src/domain/services/AssetRegistry.php:231
+#. translators: 1: Data key, 2: Method name.
+#, php-format
+msgid ""
+"The value for %1$s is already set and it is not an array. The %2$s method "
+"can only be used to push values to this data element when it is an array."
+msgstr ""
+"%1$s ପାଇଁ ମୂଲ୍ୟ ପୂର୍ବରୁ ନିର୍ଦ୍ଧାରିତ ହୋଇଛି ଓ ଏହା ଏକ ଆରେ ନୁହେଁ। %2$s ପ୍ରଣାଳୀ "
+"କେବଳ ଏହି ଡାଟା ଉପାଦାନକୁ ଆରେ ଥିଲେ ମୂଲ୍ୟ ଦେଇପାରେ।"
+
+#: src/domain/services/AssetRegistry.php:275
+#. translators: 1: Data key, 2: Class property, 3: Method name.
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed. Since the value of this data is an array, you may want to use the "
+"%3$s method to push your value to the array."
+msgstr ""
+"%1$s ପାଇଁ ମୂଲ୍ୟ %2$s ସଂପତ୍ତିରେ ପୂର୍ବରୁ ଅଛି। ବହିଷ୍କାର ଅନୁମତି ନାହିଁ। ଯେହେତୁ "
+"ଏହି ଡାଟାର ମୂଲ୍ୟ ଏକ ଆରେ, ଆପଣ %3$s ପ୍ରଣାଳୀକୁ ବ୍ୟବହାର କରି ଆପଣଙ୍କର ମୂଲ୍ୟକୁ "
+"ଆରେକୁ ଧାରଣ କରିବାକୁ ଚାହାଁନ୍ତି।"
+
+#: src/domain/services/AssetRegistry.php:288
+#. translators: 1: Data key, 2: Class property.
+#, php-format
+msgid ""
+"The value for %1$s already exists in the %2$s property. Overrides are not "
+"allowed.  Consider attaching your value to a different key"
+msgstr ""
+"%1$s ପାଇଁ ମୂଲ୍ୟ %2$s ସଂପତ୍ତିରେ ପୂର୍ବରୁ ଅଛି। ବହିଷ୍କାର ଅନୁମତି ନାହିଁ। ଏକ ଭିନ୍ନ "
+"କୀକୁ ଆପଣଙ୍କର ମୂଲ୍ୟକୁ ଯୋଡ଼ିବା ବିଚାର କରନ୍ତୁ"
+
+#: src/domain/services/AssetRegistry.php:414
+#. translators: %s: Manifest namespace.
+#, php-format
+msgid ""
+"The namespace for this manifest file has already been registered, choose a "
+"namespace other than %s"
+msgstr ""
+"ଏହି ମାନିଫେସ୍ଟ ଫାଇଲ୍ ପାଇଁ ନେମସ୍ପେସ୍ ପୂର୍ବରୁ ରଜିଷ୍ଟର୍ ହୋଇଛି, %s ଛାଡ଼ି ଏକ "
+"ନେମସ୍ପେସ୍ ବାଛନ୍ତୁ"
+
+#: src/domain/services/AssetRegistry.php:426
+#. translators: 1: URL parameter name, 2: Provided URL.
+#, php-format
+msgid "The provided value for %1$s is not a valid url.  The url provided was: %2$s"
+msgstr "%1$s ପାଇଁ ଦିଆଯାଇଥିବା ମୂଲ୍ୟ ଏକ ବୈଧ URL ନୁହେଁ। ଦିଆଯାଇଥିବା URL: %2$s"
+
+#: src/views/admin/templates/license_key_form.template.php:17
+#. translators: %1$s: Product name.
+#, php-format
+msgid "License Key for %1$s"
+msgstr "%1$s ପାଇଁ ଲାଇସେନ୍ସ କୀ"
+
+#: src/views/admin/templates/license_key_form.template.php:21
+msgid "Enter your license key: "
+msgstr "ଆପଣଙ୍କର ଲାଇସେନ୍ସ କୀ ଦାଖଲ କରନ୍ତୁ: "
+
+#: assets/js/publishpress-series-blocks.js:126
+msgid "Block settings"
+msgstr "ବ୍ଲକ୍ ସେଟିଙ୍ଗ୍ସ"
+
+#: assets/js/publishpress-series-blocks.js:175
+msgid "Query settings"
+msgstr "କ୍ୱେରୀ ସେଟିଙ୍ଗ୍ସ"
+
+#: assets/js/publishpress-series-blocks.js:182
+msgid "Individual Series"
+msgstr "ବ୍ୟକ୍ତିଗତ ସିରିଜ"
+
+#: assets/js/publishpress-series-blocks.js:190
+msgid "Order by"
+msgstr "ଆକୃତିକ୍ରମ କରନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:193
+msgid "Name: A to Z"
+msgstr "ନାମ: A ରୁ Z"
+
+#: assets/js/publishpress-series-blocks.js:194
+msgid "Name: Z to A"
+msgstr "ନାମ: Z ରୁ A"
+
+#: assets/js/publishpress-series-blocks.js:197
+msgid "Series count: High to low"
+msgstr "ସିରିଜ ସଂଖ୍ୟା: ଉଚ୍ଚରୁ ନିମ୍ନ"
+
+#: assets/js/publishpress-series-blocks.js:198
+msgid "Post count: High to low"
+msgstr "ପୋଷ୍ଟ ସଂଖ୍ୟା: ଉଚ୍ଚରୁ ନିମ୍ନ"
+
+#: assets/js/publishpress-series-blocks.js:203
+msgid "Series count: Low to high"
+msgstr "ସିରିଜ ସଂଖ୍ୟା: ନିମ୍ନରୁ ଉଚ୍ଚ"
+
+#: assets/js/publishpress-series-blocks.js:204
+msgid "Post count: Low to high"
+msgstr "ପୋଷ୍ଟ ସଂଖ୍ୟା: କମ୍ ଠାରୁ ଉଚ୍ଚ"
+
+#: assets/js/publishpress-series-blocks.js:209
+msgid "Series Category ID: High to low"
+msgstr "ସିରିଜ୍ କ୍ୟାଟେଗରୀ ID: ଉଚ୍ଚ ଠାରୁ କମ୍"
+
+#: assets/js/publishpress-series-blocks.js:210
+msgid "Series ID: High to low"
+msgstr "ସିରିଜ୍ ID: ଉଚ୍ଚ ଠାରୁ କମ୍"
+
+#: assets/js/publishpress-series-blocks.js:215
+msgid "Series Category ID: Low to high"
+msgstr "ସିରିଜ୍ କ୍ୟାଟେଗରୀ ID: କମ୍ ଠାରୁ ଉଚ୍ଚ"
+
+#: assets/js/publishpress-series-blocks.js:216
+msgid "Series ID: Low to high"
+msgstr "ସିରିଜ୍ ID: କମ୍ ଠାରୁ ଉଚ୍ଚ"
+
+#: assets/js/publishpress-series-blocks.js:226
+msgid "Number of items"
+msgstr "ଆଇଟମ୍‌ସର ସଂଖ୍ୟା"
+
+#: assets/js/publishpress-series-blocks.js:236
+msgid "Hide empty Series Categories"
+msgstr "ଶୂନ୍ୟ ସିରିଜ୍ କ୍ୟାଟେଗରୀଗୁଡିକୁ ଲୁଚାନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:237
+msgid "Hide empty Series"
+msgstr "ଶୂନ୍ୟ ସିରିଜ୍‌ଗୁଡିକୁ ଲୁଚାନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:247
+msgid "Display settings"
+msgstr "ଡିସ୍ପ୍ଲେ ସେଟିଂସ୍"
+
+#: assets/js/publishpress-series-blocks.js:271
+msgid "Show Featured image"
+msgstr "ବିଶେଷ ଛବି ଦେଖାନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:278
+msgid "Show description"
+msgstr "ବର୍ଣ୍ଣନା ଦେଖାନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:286
+msgid "Show Series count"
+msgstr "ସିରିଜ୍ ସଂଖ୍ୟା ଦେଖାନ୍ତୁ"
+
+#: assets/js/publishpress-series-blocks.js:287
+msgid "Show post count"
+msgstr "ପୋଷ୍ଟ ସଂଖ୍ୟା ଦେଖାନ୍ତୁ"
+
+#: addons/grouping/legacy-includes.php:299
+msgctxt "taxonomy general name"
+msgid "Series Categories"
+msgstr "ସିରିଜ୍ କ୍ୟାଟେଗରୀଗୁଡିକ"
+
+#: inc/settings/settings-validation.php:85
+#: orgSeries-setup.php:271
+msgctxt "taxonomy general name"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: addons/grouping/legacy-includes.php:300
+msgctxt "taxonomy singular name"
+msgid "Series Category"
+msgstr "ସିରିଜ୍ କ୍ୟାଟେଗରୀ"
+
+#: inc/settings/settings-validation.php:86
+#: orgSeries-setup.php:272
+msgctxt "taxonomy singular name"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: addons/grouping/legacy-includes.php:723
+msgctxt "series grouping column header"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-admin.php:462
+msgctxt "series meta box title"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-admin.php:487
+msgctxt "posts list column header"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-admin.php:573
+msgctxt "dashboard count label"
+msgid "Series"
+msgid_plural "Series"
+msgstr[0] "ସିରିଜ୍"
+msgstr[1] "ସିରିଜ୍‌ଗୁଡିକ"
+
+#: orgSeries-options.php:59
+msgctxt "top-level admin menu label"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-setup.php:280
+msgctxt "taxonomy menu name"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-setup.php:375
+#: orgSeries-setup.php:377
+#. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
+#, php-format
+msgctxt "leave the %tokens% as is when translating"
+msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
+msgstr "ଏହି ଏଣ୍ଟ୍ରୀ %series_part% ହେଉଛି %total_posts_in_series% ର ସିରିଜ୍‌ର ଗୋଟିଏ ଅଂଶ"
+
+#: orgSeries-taxonomy.php:420
+msgctxt "series list title"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-widgets.php:251
+msgctxt "widget title default"
+msgid "Series"
+msgstr "ସିରିଜ୍"
+
+#: orgSeries-widgets.php:404
+msgctxt "widget section label"
+msgid "Series"
+msgstr "ସିରିଜ୍"

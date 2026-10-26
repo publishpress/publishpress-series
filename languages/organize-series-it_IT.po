@@ -6,13 +6,15 @@ msgstr ""
 "Publishers, Writers - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
+"Language-Team: Italian "
+"<https://weblate.publishpress.com/projects/publishpress-series/organize-"
+"series/it/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
-"PO-Revision-Date: 2026-09-15 16:06+0000\n"
-"X-Generator: Poedit 3.7\n"
+"PO-Revision-Date: 2026-10-26 17:51+0000\n"
+"X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Language: it-IT\n"
@@ -102,9 +104,9 @@ msgstr ""
 msgid "Click to toggle"
 msgstr "Fai clic per commutare"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:37
+#: addons/grouping/theme/primary/taxonomy-series_group.php:37, fuzzy
 msgid "Series in this category"
-msgstr "Serie in questa categoria"
+msgstr "Series in this category"
 
 #: addons/grouping/theme/primary/taxonomy-series_group.php:117
 msgid "Sorry, no series were found in this category."
@@ -142,7 +144,7 @@ msgstr "Esempio di serie"
 msgid "Sample Post Title"
 msgstr "Esempio di titolo dell'articolo"
 
-#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504
+#: addons/post-details/classes/SeriesPostDetailsRenderer.php:504, fuzzy
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 
@@ -1135,7 +1137,7 @@ msgstr "Articolo"
 
 #: addons/post-list-box/includes/class-fields.php:33
 #: addons/post-navigation/includes/class-fields.php:38
-#: assets/js/publishpress-series-blocks.js:130
+#: assets/js/publishpress-series-blocks.js:130, fuzzy
 msgid "Layout"
 msgstr "Layout"
 
@@ -2078,8 +2080,8 @@ msgid ""
 "Same as %series_icon% except that the series featured image will be linked "
 "to the series page"
 msgstr ""
-"Uguale a %series_icon% eccetto che l'immagine in evidenza della "
-"serie sarà collegata alla pagina della serie"
+"Uguale a %series_icon% eccetto che l'immagine in evidenza della serie sarà "
+"collegata alla pagina della serie"
 
 #: inc/settings/settings-page.php:87
 msgid ""
@@ -2101,7 +2103,7 @@ msgstr "Questo sarà sostituito con il titolo di una serie"
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr ""
-"Uguale a %series_title% eccetto che sarà collegato anche alla "
+"Uguale a %series_title% tranne per il fatto che sarà collegato anche alla "
 "pagina della serie"
 
 #: inc/settings/settings-page.php:111
@@ -2249,7 +2251,7 @@ msgstr ""
 "e perderai tutte le personalizzazioni. Oppure puoi fare clic su Annulla e "
 "ritorna."
 
-#: inc/settings/settings-page.php:328
+#: inc/settings/settings-page.php:328, fuzzy
 msgid "No"
 msgstr "No"
 
@@ -2427,12 +2429,10 @@ msgstr "Layout"
 
 #: inc/settings/tab-layouts.php:19
 msgid "Configure the layout displays shown on posts in a series."
-msgstr ""
-"Configura le visualizzazioni di layout mostrate negli articoli di "
-"una serie."
+msgstr "Configura le visualizzazioni di layout mostrate negli articoli di una serie."
 
 #: inc/settings/tab-legacy.php:12
-#: orgSeries-options.php:163
+#: orgSeries-options.php:163, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
@@ -2482,7 +2482,7 @@ msgstr ""
 "Scegli il design per la pagina della tassonomia dove viene visualizzata la "
 "serie."
 
-#: inc/settings/tab-legacy.php:67
+#: inc/settings/tab-legacy.php:67, fuzzy
 msgid "Layout:"
 msgstr "Layout:"
 
@@ -2494,10 +2494,9 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
 "noreferrer\">Read the documentation for customizing these designs</a>."
 msgstr ""
-"La scelta di un layout diverso da \"Predefinito\" sovrascriverà il "
-"modello di tassonomia del tuo tema. <a href=\"%s\" target=\"_blank\" "
-"rel=\"noopener noreferrer\">Leggi la documentazione per "
-"personalizzare questi layout</a>."
+"La scelta di un layout diverso da \"Predefinito\" sovrascriverà il modello "
+"di tassonomia del tuo tema. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Leggi la documentazione per personalizzare questi layout</a>."
 
 #: inc/settings/tab-legacy.php:93
 #: inc/settings/tab-series-category.php:68
@@ -2543,9 +2542,8 @@ msgid ""
 "You must %1$s update your permalink structure %2$s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"Devi %1$s aggiornare la tua struttura dei permalink %2$s a qualcosa "
-"di diverso da \"Semplice\" per far funzionare l'URL dell'indice "
-"della serie."
+"Devi %1$s aggiornare la tua struttura dei permalink %2$s a qualcosa di "
+"diverso da \"Semplice\" per far funzionare l'URL dell'indice della serie."
 
 #: inc/settings/tab-legacy.php:157
 msgid "Series Per Page:"
@@ -2562,14 +2560,12 @@ msgstr "Immagini in evidenza della serie"
 #: inc/settings/tab-legacy.php:176
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr ""
-"Larghezza dell'immagine in evidenza nella pagina dell'indice della "
-"serie (in pixel)"
+"Larghezza dell'immagine in evidenza nella pagina dell'indice della serie "
+"(in pixel)"
 
 #: inc/settings/tab-legacy.php:180
 msgid "Width for featured image on a post page (in pixels)."
-msgstr ""
-"Larghezza dell'immagine in evidenza nella pagina di un articolo (in "
-"pixel)."
+msgstr "Larghezza dell'immagine in evidenza nella pagina di un articolo (in pixel)."
 
 #: inc/settings/tab-legacy.php:184
 msgid ""
@@ -2990,7 +2986,7 @@ msgstr "Vedi la documentazione"
 msgid "Upgrade to Pro"
 msgstr "Aggiorna a Pro"
 
-#: includes-core/class-blocks.php:55
+#: includes-core/class-blocks.php:55, fuzzy
 msgid "PublishPress Series"
 msgstr "PublishPress Series"
 
@@ -3090,8 +3086,8 @@ msgid ""
 "You're using PublishPress Series Free. The Pro version has more features "
 "and support. %1$sUpgrade to Pro%2$s"
 msgstr ""
-"Stai usando la versione gratuita di PublishPress Series. La versione "
-"Pro ha più caratteristiche e supporto. %1$sAggiorna a Pro%2$s"
+"Stai usando la versione gratuita di PublishPress Series. La versione Pro ha "
+"più caratteristiche e supporto. %1$sAggiorna a Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"
@@ -3133,9 +3129,7 @@ msgstr "Template personalizzato"
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
-msgstr ""
-"Se sei soddisfatto di %1$s, lasciaci una valutazione di %2$s. "
-"Grazie!"
+msgstr "Se sei soddisfatto di %1$s, lasciaci una valutazione di %2$s. Grazie!"
 
 #: orgSeries-admin.php:166
 msgid "About PublishPress Series"
@@ -3286,7 +3280,7 @@ msgstr "Serie non aggiornata."
 msgid "Posts"
 msgstr "Articoli"
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:238, fuzzy
 msgid "ID"
 msgstr "ID"
 
@@ -3358,7 +3352,7 @@ msgstr "Opzioni PublishPress Series"
 msgid "Taxonomy"
 msgstr "Tassonomia"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:162, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
@@ -3536,7 +3530,7 @@ msgstr "nome"
 msgid "count"
 msgstr "conteggio"
 
-#: orgSeries-widgets.php:319
+#: orgSeries-widgets.php:319, fuzzy
 msgid "slug"
 msgstr "slug"
 

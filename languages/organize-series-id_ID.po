@@ -13,8 +13,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-09-11 17:08+0000\n"
-"X-Generator: Weblate 5.14.3\n"
+"PO-Revision-Date: 2026-10-26 17:51+0000\n"
+"X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: id-ID\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php:4
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php:8
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -2956,9 +2956,9 @@ msgstr "Lihat Dokumentasi"
 msgid "Upgrade to Pro"
 msgstr "Upgrade ke Pro"
 
-#: includes-core/class-blocks.php:55
+#: includes-core/class-blocks.php:55, fuzzy
 msgid "PublishPress Series"
-msgstr "PublishPress Seri"
+msgstr "PublishPress Series"
 
 #: includes-core/class-blocks.php:151
 #: assets/js/publishpress-series-blocks.js:31

@@ -2,7 +2,8 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Series 3.0.0\n"
+"Project-Id-Version: Plugins - Issues and Series for Newspapers, Magazines, "
+"Publishers, Writers - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese (Brazil) "
@@ -11,20 +12,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-30T10:51:32+00:00\n"
-"PO-Revision-Date: 2026-09-11 17:08+0000\n"
-"X-Generator: Weblate 5.14.3\n"
+"POT-Creation-Date: 2026-09-11T16:55:00+00:00\n"
+"PO-Revision-Date: 2026-10-26 17:51+0000\n"
+"X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "Language: pt-BR\n"
 
 #: orgSeries.php:3
 #. Plugin Name of the plugin
-#, fuzzy
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
 
-#: orgSeries.php:4, fuzzy
+#: orgSeries.php:4
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/publishpress-series/"
 msgstr "https://publishpress.com/publishpress-series/"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: orgSeries.php:8, fuzzy
+#: orgSeries.php:8
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -188,7 +188,7 @@ msgstr "Shortcode"
 
 #: addons/post-details/includes/class-admin-ui.php:111
 msgid "Series Post Details sections"
-msgstr "Detalhes das seções de Postagens da Série"
+msgstr "Seções de detalhes dos posts da série"
 
 #: addons/post-details/includes/class-admin-ui.php:148
 #: addons/post-list-box/includes/class-admin-ui.php:279
@@ -648,7 +648,6 @@ msgid "Display post titles in the series list"
 msgstr "Exiba os títulos dos posts na lista da série"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:260
-#, fuzzy
 msgid "Series Order Number"
 msgstr "Número de ordem da série"
 
@@ -657,12 +656,10 @@ msgid "Show the series order number next to each post title."
 msgstr "Mostre o número de ordem da série, ao lado do título de cada post."
 
 #: addons/post-list-box/classes/PostListBoxFields.php:270
-#, fuzzy
 msgid "Series Order Number Position"
 msgstr "Posição do número de ordem da série"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:274
-#, fuzzy
 msgid "Before the title"
 msgstr "Antes do título"
 
@@ -671,7 +668,6 @@ msgid "After the title"
 msgstr "Após o título"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:279
-#, fuzzy
 msgid "Choose where the order number appears relative to the title."
 msgstr "Escolha onde o número de ordem, vai aparecer em relação ao título."
 
@@ -1042,40 +1038,40 @@ msgstr "Caixa da lista de posts"
 #, php-format
 msgid "%1$s %2$s updated."
 msgid_plural "%1$s %2$s updated."
-msgstr[0] "Caixa de Lista de Postagens atualizada."
-msgstr[1] "Caixa de Lista de Postagens atualizada."
+msgstr[0] "%1$s %2$s atualizado."
+msgstr[1] "%1$s %2$s atualizados."
 
 #: addons/post-list-box/includes/class-admin-ui.php:158
 #. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s not updated, somebody is editing it."
 msgid_plural "%1$s %2$s not updated, somebody is editing them."
-msgstr[0] "%1$s %2$s não atualizado, alguém está editando-o."
-msgstr[1] "%1$s %2$s não atualizado, alguém está editando-os."
+msgstr[0] "%1$s %2$s não foi atualizado, alguém o está editando."
+msgstr[1] "%1$s %2$s não foram atualizados, alguém os está editando."
 
 #: addons/post-list-box/includes/class-admin-ui.php:169
 #. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s permanently deleted."
 msgid_plural "%1$s %2$s permanently deleted."
-msgstr[0] "%1$s %2$s excluído permanentemente."
-msgstr[1] "%1$s %2$s excluído permanentemente."
+msgstr[0] "%1$s %2$s permanentemente excluído."
+msgstr[1] "%1$s %2$s permanentemente excluídos."
 
 #: addons/post-list-box/includes/class-admin-ui.php:180
 #. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s moved to the Trash."
 msgid_plural "%1$s %2$s moved to the Trash."
-msgstr[0] "Post movido para a Lixeira."
-msgstr[1] "Post movido para a Lixeira."
+msgstr[0] "%1$s %2$s movido para a lixeira."
+msgstr[1] "%1$s %2$s movidos para a lixeira."
 
 #: addons/post-list-box/includes/class-admin-ui.php:191
 #. translators: 1: Number of post list boxes, 2: Post type label.
 #, php-format
 msgid "%1$s %2$s restored from the Trash."
 msgid_plural "%1$s %2$s restored from the Trash."
-msgstr[0] "Post movido para a Lixeira."
-msgstr[1] "Post movido para a Lixeira."
+msgstr[0] "%1$s %2$s restaurado da lixeira."
+msgstr[1] "%1$s %2$s restaurados da lixeira."
 
 #: addons/post-list-box/includes/class-admin-ui.php:214
 msgid "Post List Box Preview"
@@ -1116,7 +1112,7 @@ msgstr "Erro ao carregar a pré-visualização."
 
 #: addons/post-list-box/includes/class-admin-ui.php:421
 msgid "Post List Box sections"
-msgstr "Seções da Caixa de Lista de Postagens"
+msgstr "Seções da caixa de lista de posts"
 
 #: addons/post-list-box/includes/class-admin-ui.php:703
 #: addons/post-navigation/includes/class-admin-ui.php:421
@@ -1318,13 +1314,12 @@ msgid "Series Post Navigation Editor"
 msgstr "Editor de navegação de posts da série"
 
 #: addons/post-navigation/includes/class-admin-ui.php:124
-#, fuzzy
 msgid "No series found. Create a series to preview the navigation."
 msgstr "Nenhuma série encontrada. Crie uma série para pré-visualizar a navegação."
 
 #: addons/post-navigation/includes/class-admin-ui.php:146
 msgid "Series Post Navigation sections"
-msgstr "Seções de Navegação de Postagens da Série"
+msgstr "Seções de navegação dos posts da série"
 
 #: addons/post-navigation/includes/class-admin-ui.php:185
 msgid "Insert into posts or pages to display this Series Post Navigation manually."
@@ -1398,7 +1393,6 @@ msgid "Choose the alignment of the series title"
 msgstr "Escolha o alinhamento do título da série"
 
 #: addons/post-navigation/includes/class-fields.php:120
-#, fuzzy
 msgid "Series Title Color"
 msgstr "Cor do título da série"
 
@@ -1649,7 +1643,7 @@ msgstr "Direita (Anterior → Próximo → Inicial)"
 
 #: addons/post-navigation/includes/class-fields.php:412
 msgid "Position of the first/series home link in navigation"
-msgstr "Posição do primeiro link / link da página inicial da série na navegação"
+msgstr "Posição do primeiro link da página inicial/série na navegação"
 
 #: addons/post-navigation/includes/class-fields.php:420
 msgid "Display featured image for first post"
@@ -1796,7 +1790,6 @@ msgid "Sample series for preview purposes"
 msgstr "Série de exemplo para fins de pré-visualização"
 
 #: addons/post-navigation/post-navigation.php:87
-#, fuzzy
 msgid "Error updating preview."
 msgstr "Erro ao atualizar a pré-visualização."
 
@@ -1891,7 +1884,6 @@ msgstr "Gerenciar séries"
 
 #: addons/publisher/series_im_admin_main.php:7
 #: assets/js/publishpress-series-blocks.js:138
-#, fuzzy
 msgid "Series"
 msgstr "Série"
 
@@ -1967,7 +1959,7 @@ msgstr "Parabéns! Seus posts foram agendados."
 
 #: addons/publisher/series_issue_manager.php:401
 msgid "Sorry, you are not allowed to perform this action."
-msgstr "Desculpe, você não tem permissão para realizar esta ação."
+msgstr "Você não tem permissão para executar esta ação."
 
 #: addons/publisher/series_issue_manager.php:722
 msgid "Manage Series Issues"
@@ -2044,12 +2036,13 @@ msgid ""
 "PublishPress Series Add-on licensing has changed. This notice only appears "
 "on sites affected by this change. You can %s."
 msgstr ""
-"A licença do complemento PublishPress Series mudou. Este aviso aparece "
-"apenas em sites afetados por esta mudança. Você pode %s."
+"A licença do complemento do PublishPress Series foi alterada. Esta "
+"notificação aparece apenas nos sites afetados por essa alteração. Você pode "
+"%s."
 
 #: inc/pue-client.php:43
 msgid "read more about this licensing change"
-msgstr "ler mais sobre esta mudança de licença"
+msgstr "saiba mais sobre essa alteração na licença"
 
 #: inc/settings/settings-page.php:19
 msgid "PublishPress Series Plugin Options"
@@ -2057,7 +2050,7 @@ msgstr "Opções do plugin PublishPress Series"
 
 #: inc/settings/settings-page.php:26
 msgid "Series settings"
-msgstr "Configurações da série"
+msgstr "Configurações das séries"
 
 #: inc/settings/settings-page.php:55
 msgid "Allowed Html"
@@ -2429,7 +2422,7 @@ msgstr "Layouts"
 
 #: inc/settings/tab-layouts.php:19
 msgid "Configure the layout displays shown on posts in a series."
-msgstr "Configure as exibições de layout mostradas nas postagens de uma série."
+msgstr "Configure os layouts exibidos nos posts de uma série."
 
 #: inc/settings/tab-legacy.php:12
 #: orgSeries-options.php:163
@@ -2492,9 +2485,9 @@ msgid ""
 "template from your theme. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
 "noreferrer\">Read the documentation for customizing these designs</a>."
 msgstr ""
-"Escolher um layout diferente de \"Padrão\" substituirá o template de "
+"A escolha de um layout diferente do “Padrão” irá substituir o modelo de "
 "taxonomia do seu tema. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
-"noreferrer\">Leia a documentação para personalizar esses designs</a>."
+"noreferrer\">Leia a documentação sobre como personalizar esses designs</a>."
 
 #: inc/settings/tab-legacy.php:93
 #: inc/settings/tab-series-category.php:68
@@ -2540,9 +2533,9 @@ msgid ""
 "You must %1$s update your permalink structure %2$s to something other than "
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr ""
-"Você deve %1$s atualizar sua estrutura de permalink %2$s para algo "
-"diferente de \"Simples\" para que a URL da Tabela de Conteúdos da Série "
-"funcione."
+"Você precisa %1$s atualizar sua estrutura de links permanentes %2$s para "
+"algo diferente de \"Simples\" para que o URL da tabela de conteúdos da "
+"série funcione."
 
 #: inc/settings/tab-legacy.php:157
 msgid "Series Per Page:"
@@ -2988,17 +2981,17 @@ msgstr "PublishPress Series"
 #: includes-core/class-blocks.php:151
 #: assets/js/publishpress-series-blocks.js:31
 msgid "Display a styled list of posts from a Series."
-msgstr "Exibir uma lista estilizada de postagens de uma Série."
+msgstr "Exibir uma lista estilizada de posts de uma série."
 
 #: includes-core/class-blocks.php:158
 #: assets/js/publishpress-series-blocks.js:38
 msgid "Display the current post details from a Series."
-msgstr "Exibir os detalhes da postagens atual de uma Série."
+msgstr "Exibir os detalhes do post atual de uma série."
 
 #: includes-core/class-blocks.php:165
 #: assets/js/publishpress-series-blocks.js:45
 msgid "Display navigation links for posts in a Series."
-msgstr "Exibir links de navegação para postagens em uma Série."
+msgstr "Exibir links de navegação para os posts de uma série."
 
 #: includes-core/class-blocks.php:171
 #: orgSeries-setup.php:285
@@ -3009,7 +3002,7 @@ msgstr "Lista de séries"
 #: includes-core/class-blocks.php:172
 #: assets/js/publishpress-series-blocks.js:52
 msgid "Display a customizable list of Series or Series Categories."
-msgstr "Exibir uma lista personalizável de Séries ou Categorias de Séries."
+msgstr "Exibir uma lista personalizável de séries ou categorias de séries."
 
 #: includes-core/class-blocks.php:425
 #. translators: %s: Number of series.
@@ -3024,26 +3017,26 @@ msgstr[1] "%s séries"
 #, php-format
 msgid "%s post"
 msgid_plural "%s posts"
-msgstr[0] "%s postagem"
-msgstr[1] "%s postagens"
+msgstr[0] "%s post"
+msgstr[1] "%s posts"
 
 #: includes-core/class-blocks.php:483
 msgid "Editorial Series"
-msgstr "Série Editorial"
+msgstr "Série editorial"
 
 #: includes-core/class-blocks.php:485
 #: includes-core/class-blocks.php:493
 #: includes-core/class-blocks.php:501
 msgid "A sample Series Category description."
-msgstr "Uma descrição de Categoria de Série de exemplo."
+msgstr "Uma descrição de exemplo para esta categoria de séries."
 
 #: includes-core/class-blocks.php:491
 msgid "Magazine Issues"
-msgstr "Edições de Revista"
+msgstr "Edições da revista"
 
 #: includes-core/class-blocks.php:499
 msgid "Tutorial Collections"
-msgstr "Coleções de Tutoriais"
+msgstr "Coleções de tutoriais"
 
 #: includes-core/class-blocks.php:511
 msgid "Alpha Series"
@@ -3053,7 +3046,7 @@ msgstr "Série Alpha"
 #: includes-core/class-blocks.php:521
 #: includes-core/class-blocks.php:529
 msgid "A sample description for this Series."
-msgstr "Uma descrição de exemplo para esta Série."
+msgstr "Uma descrição de exemplo para esta série."
 
 #: includes-core/class-blocks.php:519
 msgid "Bravo Series"
@@ -3081,8 +3074,8 @@ msgid ""
 "You're using PublishPress Series Free. The Pro version has more features "
 "and support. %1$sUpgrade to Pro%2$s"
 msgstr ""
-"Você está usando PublishPress Series Free. A versão Pro tem mais recursos e "
-"suporte. %1$sUpgrade para Pro%2$s"
+"Você está usando o PublishPress Series gratuito. A versão Pro tem mais "
+"recursos e suporte. %1$sAtualize para Pro%2$s"
 
 #: includes-core/PPSeriesCoreAdmin.php:69
 msgid "Need PublishPress Series Support?"
@@ -3122,7 +3115,9 @@ msgstr "Modelo personalizado"
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
-msgstr "Se você gosta de %1$s, por favor, deixe-nos uma avaliação de %2$s. Obrigado!"
+msgstr ""
+"Se você estiver gostando do %1$s, nos deixe uma classificação de %2$s. "
+"Obrigado!"
 
 #: orgSeries-admin.php:166
 msgid "About PublishPress Series"
@@ -3175,7 +3170,7 @@ msgstr "Não faz parte de uma série"
 
 #: orgSeries-admin.php:396
 msgid "New series name"
-msgstr "Novo nome da série"
+msgstr "Nome da nova série"
 
 #: orgSeries-admin.php:403
 msgid "Search series"
@@ -3407,7 +3402,7 @@ msgstr "Todas as séries que escrevi"
 #. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
-msgstr "<a href=\"%1$s\" title=\"%2$s\">Série</a>"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">Séries</a>"
 
 #: orgSeries-utility.php:460
 msgid "Auto/None"
@@ -3741,19 +3736,19 @@ msgstr "Digite sua chave de licença: "
 
 #: assets/js/publishpress-series-blocks.js:126
 msgid "Block settings"
-msgstr "Configurações de bloco"
+msgstr "Configurações do bloco"
 
 #: assets/js/publishpress-series-blocks.js:175
 msgid "Query settings"
-msgstr "Configurações de consulta"
+msgstr "Configurações da consulta"
 
 #: assets/js/publishpress-series-blocks.js:182
 msgid "Individual Series"
-msgstr "Séries Individuais"
+msgstr "Série individual"
 
 #: assets/js/publishpress-series-blocks.js:190
 msgid "Order by"
-msgstr "Ordenar por"
+msgstr "Ordernar por"
 
 #: assets/js/publishpress-series-blocks.js:193
 msgid "Name: A to Z"
@@ -3765,35 +3760,35 @@ msgstr "Nome: Z a A"
 
 #: assets/js/publishpress-series-blocks.js:197
 msgid "Series count: High to low"
-msgstr "Contagem de séries: Alta para baixa"
+msgstr "Contagem de séries: Do maior para o menor"
 
 #: assets/js/publishpress-series-blocks.js:198
 msgid "Post count: High to low"
-msgstr "Contagem de postagens: Alta para baixa"
+msgstr "Contagem de posts: Do maior para o menor"
 
 #: assets/js/publishpress-series-blocks.js:203
 msgid "Series count: Low to high"
-msgstr "Contagem de séries: Baixo para alto"
+msgstr "Contagem de séries: Do menor para o maior"
 
 #: assets/js/publishpress-series-blocks.js:204
 msgid "Post count: Low to high"
-msgstr "Contagem de postagens: Baixo para alto"
+msgstr "Contagem de posts: Do menor para o maior"
 
 #: assets/js/publishpress-series-blocks.js:209
 msgid "Series Category ID: High to low"
-msgstr "ID da Categoria de Séries: Alto para baixo"
+msgstr "ID da categoria da série: Do maior para o menor"
 
 #: assets/js/publishpress-series-blocks.js:210
 msgid "Series ID: High to low"
-msgstr "ID da Série: Alto para baixo"
+msgstr "ID da série: Do maior para o menor"
 
 #: assets/js/publishpress-series-blocks.js:215
 msgid "Series Category ID: Low to high"
-msgstr "ID da Categoria de Séries: Baixo para alto"
+msgstr "ID da categoria da série: Do menor para o maior"
 
 #: assets/js/publishpress-series-blocks.js:216
 msgid "Series ID: Low to high"
-msgstr "ID da Série: Baixo para alto"
+msgstr "ID da série: Do menor para o maior"
 
 #: assets/js/publishpress-series-blocks.js:226
 msgid "Number of items"
@@ -3801,11 +3796,11 @@ msgstr "Número de itens"
 
 #: assets/js/publishpress-series-blocks.js:236
 msgid "Hide empty Series Categories"
-msgstr "Ocultar Categorias de Séries vazias"
+msgstr "Ocultar categorias de séries vazias"
 
 #: assets/js/publishpress-series-blocks.js:237
 msgid "Hide empty Series"
-msgstr "Ocultar Séries vazias"
+msgstr "Ocultar séries vazias"
 
 #: assets/js/publishpress-series-blocks.js:247
 msgid "Display settings"
@@ -3813,7 +3808,7 @@ msgstr "Configurações de exibição"
 
 #: assets/js/publishpress-series-blocks.js:271
 msgid "Show Featured image"
-msgstr "Mostrar imagem em destaque"
+msgstr "Mostrar imagem destacada"
 
 #: assets/js/publishpress-series-blocks.js:278
 msgid "Show description"
@@ -3825,7 +3820,7 @@ msgstr "Mostrar contagem de séries"
 
 #: assets/js/publishpress-series-blocks.js:287
 msgid "Show post count"
-msgstr "Mostrar contagem de postagens"
+msgstr "Mostrar contagem de posts"
 
 #: addons/grouping/legacy-includes.php:299
 msgctxt "taxonomy general name"
@@ -3850,39 +3845,33 @@ msgid "Series"
 msgstr "Série"
 
 #: addons/grouping/legacy-includes.php:723
-#, fuzzy
 msgctxt "series grouping column header"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-admin.php:462
-#, fuzzy
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-admin.php:487
-#, fuzzy
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-admin.php:573
-#, fuzzy
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
-msgstr[0] "Séries"
-msgstr[1] "Série"
+msgstr[0] "Série"
+msgstr[1] "Séries"
 
 #: orgSeries-options.php:59
-#, fuzzy
 msgctxt "top-level admin menu label"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-setup.php:280
-#, fuzzy
 msgctxt "taxonomy menu name"
 msgid "Series"
 msgstr "Série"
@@ -3896,19 +3885,16 @@ msgid "This entry is part %series_part% of %total_posts_in_series% in the series
 msgstr "Este post é parte da %series_part% do %total_posts_in_series% na série "
 
 #: orgSeries-taxonomy.php:420
-#, fuzzy
 msgctxt "series list title"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-widgets.php:251
-#, fuzzy
 msgctxt "widget title default"
 msgid "Series"
 msgstr "Série"
 
 #: orgSeries-widgets.php:404
-#, fuzzy
 msgctxt "widget section label"
 msgid "Series"
 msgstr "Série"
