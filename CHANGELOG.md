@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * Changed: Rename the Post Details archive option to "Hide on archive screens" and explain what it hides #1232
 * Changed: Improve the accessibility of admin fields, links, images and Series featured images #1234 #1250
 * Changed: Set the options autoload values, build admin URLs with admin_url() and set up Series on new multisite sites #1235
+* Changed: Increase the minimum required PHP version to 8.2
 * Changed: Add a workflow that builds the plugin zip from any branch or pull request #1251
 * Changed: Update axios from 1.19.0 to 1.20.0, follow-redirects from 1.16.0 to 1.16.1 and source-map-js from 1.2.1 to 1.2.2, and rebuild the JavaScript files #1252 #1254 #1257
 * Changed: Update postcss-selector-parser from 7.1.4 to 7.1.6 (development) #1253

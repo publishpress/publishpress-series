@@ -9,7 +9,7 @@
  * Text Domain: organize-series
  * Domain Path: /languages
  * Requires at least: 5.5
- * Requires PHP: 7.4.0
+ * Requires PHP: 8.2.0
  * License: GPLv3
  *
  * Copyright (c) 2022 PublishPress
@@ -58,7 +58,7 @@ defined('ABSPATH') || exit;
 
 global $wp_version;
 
-$min_php_version = '7.4.0';
+$min_php_version = '8.2.0';
 $min_wp_version  = '5.5';
 
 $invalid_php_version = version_compare(phpversion(), $min_php_version, '<');
