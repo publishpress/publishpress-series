@@ -9,6 +9,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section('series_legacy_settings', __('Legacy', 'organize-series'), 'orgseries_legacy_section', 'orgseries_options_page');
 add_settings_field('series_legacy_fieldset', __('Legacy Settings', 'organize-series'), 'series_legacy_fieldset', 'orgseries_options_page', 'series_legacy_settings');
 

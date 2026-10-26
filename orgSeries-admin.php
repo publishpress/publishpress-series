@@ -7,6 +7,8 @@
  * @since 2.2
  */
 
+defined('ABSPATH') || exit;
+
 global $pagenow, $orgseries;
 
 /**

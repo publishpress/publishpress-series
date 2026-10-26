@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\model;
 use OrganizeSeries\domain\interfaces\AbstractCollection;
 use OrganizeSeries\domain\interfaces\AbstractNotice;
 
+\defined('ABSPATH') || exit;
+
 /**
  * SingleNoticeCollection
  * Collection of notices that should be displayed individually.

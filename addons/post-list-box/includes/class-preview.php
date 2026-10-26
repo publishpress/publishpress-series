@@ -3,6 +3,8 @@
  * Preview System for Post List Box
  */
 
+defined('ABSPATH') || exit;
+
 if (!class_exists('PPS_Post_List_Box_Utilities')) {
     require_once __DIR__ . '/class-utilities.php';
 }

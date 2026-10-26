@@ -8,6 +8,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_field(
     'series_post_list_box_fieldset',
     __('Post List Box Settings', 'organize-series'),

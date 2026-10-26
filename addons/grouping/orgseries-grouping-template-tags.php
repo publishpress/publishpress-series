@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
 * This file contains all the functions that can be used in themes for displaying series_grouping related info
 */

@@ -6,6 +6,8 @@ use OrganizeSeries\domain\model\LicenseKey;
  * @var LicenseKey $license_key
  * @var string $extension_slug
  */
+defined('ABSPATH') || exit;
+
 $key = $license_key->getLicenseKey();
 ?>
 <div id="os-license-key-container-<?php echo esc_attr($extension_slug); ?>" class="wrap os-license-key-container">

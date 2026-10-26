@@ -3,6 +3,8 @@ namespace OrganizeSeries\domain\model;
 
 use InvalidArgumentException;
 
+\defined('ABSPATH') || exit;
+
 /**
  * FileLocation
  * This is a value object for a file location.

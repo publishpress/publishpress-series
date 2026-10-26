@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\model;
 use OrganizeSeries\application\IncomingRequest;
 use OrganizeSeries\domain\interfaces\AbstractAjaxRequest;
 
+\defined('ABSPATH') || exit;
+
 class LicenseKeyAjaxRequest extends AbstractAjaxRequest
 {
     /**

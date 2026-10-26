@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * This file contains all the functions that users and theme developers can use to add series related information in the blog/theme.  IF it is desired that there be more control on the display of series related information it is important to disable the auto-tag option for that particular function in the series options page of the WordPress admin.  Functions that are toggable in this way will be indicated in the comments.
 

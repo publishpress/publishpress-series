@@ -10,6 +10,8 @@
  */
 
 // Load modular settings files
+defined('ABSPATH') || exit;
+
 require_once dirname(__FILE__) . '/inc/settings/settings-validation.php';
 require_once dirname(__FILE__) . '/inc/settings/settings-page.php';
 require_once dirname(__FILE__) . '/inc/settings/settings-upgrade.php';

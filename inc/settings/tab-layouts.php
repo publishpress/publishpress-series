@@ -6,6 +6,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section(
     'series_layouts_settings',
     __('Layouts', 'organize-series'),

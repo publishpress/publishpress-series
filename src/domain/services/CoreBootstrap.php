@@ -13,6 +13,8 @@ use OrganizeSeries\domain\model\HasHooksRoute;
 use OrganizeSeries\domain\model\RouteIdentifier;
 use OrganizeSeries\domain\services\admin\LicenseKeyFormManager;
 
+\defined('ABSPATH') || exit;
+
 class CoreBootstrap extends AbstractBootstrap
 {
     /**

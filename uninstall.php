@@ -8,6 +8,8 @@
  * or the per-site org_series_options value on single-site installs.
  */
 
+defined('ABSPATH') || exit;
+
 if (! defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }

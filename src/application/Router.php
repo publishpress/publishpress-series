@@ -9,6 +9,8 @@ use OrganizeSeries\domain\model\ControllerRouteCollection;
 use OrganizeSeries\domain\model\HasHooksRoute;
 use OrganizeSeries\domain\model\HasHooksRouteCollection;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Router
  * This class is a simple router for registering classes/controllers etc that get

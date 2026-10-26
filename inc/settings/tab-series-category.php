@@ -5,6 +5,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_settings_section('series_group_settings', __('Series Category', 'organize-series'), 'ppseries_series_group_section', 'orgseries_options_page');
 add_settings_field('series_group_fieldset', __('Series Category', 'organize-series'), 'ppseries_series_group_fieldset', 'orgseries_options_page', 'series_group_settings');
 

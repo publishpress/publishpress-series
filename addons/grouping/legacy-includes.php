@@ -3,6 +3,8 @@
  * Contains all the legacy includes (and hooks) for the plugin.  Eventually this will make its way into the new refactor
  * of the plugin. But while in transition this allows these legacy files to be included as necessary.
  */
+defined('ABSPATH') || exit;
+
 global $pagenow, $checkpage;
 $checkpage = $pagenow;
 global $checkpage;

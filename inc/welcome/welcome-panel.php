@@ -9,9 +9,7 @@
  * @package Publishpress Series
  */
 
-if (!defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 define('PPSERIES_WELCOME_REDIRECT_OPTION', 'ppseries_do_welcome_redirect');
 define('PPSERIES_WELCOME_DISMISSED_META', 'ppseries_welcome_panel_dismissed');

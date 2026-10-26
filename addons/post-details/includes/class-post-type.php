@@ -3,9 +3,7 @@
  * Custom post type registration for Series Post Details
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Details_Post_Type
 {

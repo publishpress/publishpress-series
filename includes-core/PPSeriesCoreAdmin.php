@@ -1,6 +1,8 @@
 <?php
 namespace PublishPress\Series;
 
+\defined('ABSPATH') || exit;
+
 class PPSeriesCoreAdmin
 {
     function __construct()

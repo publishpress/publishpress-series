@@ -1,6 +1,8 @@
 <?php
 namespace OrganizeSeries\domain\model;
 
+\defined('ABSPATH') || exit;
+
 class LicenseKeyAjaxResponse extends AjaxJsonResponse
 {
     /**

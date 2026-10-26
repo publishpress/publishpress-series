@@ -6,6 +6,8 @@ use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use SplObjectStorage;
 
+\defined('ABSPATH') || exit;
+
 class AbstractCollection extends SplObjectStorage implements CollectionInterface
 {
     /**

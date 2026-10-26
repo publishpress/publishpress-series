@@ -4,6 +4,8 @@ namespace OrganizeSeries\domain\model;
 use function interface_exists;
 use OrganizeSeries\domain\exceptions\InvalidInterfaceException;
 
+\defined('ABSPATH') || exit;
+
 /**
  * ClassOrInterfaceFullyQualifiedName;
  * A value object for a class or interface string.

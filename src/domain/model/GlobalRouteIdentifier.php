@@ -1,6 +1,8 @@
 <?php
 namespace OrganizeSeries\domain\model;
 
+\defined('ABSPATH') || exit;
+
 /**
  * GlobalRouteIdentifier
  * This route identifier just instructs a route to load on every request.

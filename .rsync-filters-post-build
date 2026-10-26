@@ -33,3 +33,8 @@
 - .phplint.yml
 - .web
 - .ddev
+- /webpack.common.js
+- /webpack.dev.js
+- /webpack.prod.js
+- /lib/vendor/publishpress/pimple-pimple/lib/pimple/pimple/.php_cs.dist
+- /lib/vendor/publishpress/pimple-pimple/lib/pimple/pimple/phpunit.xml.dist

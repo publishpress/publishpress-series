@@ -1,6 +1,8 @@
 <?php
 ##SERIES-ICON RELATED STUFF
 
+defined('ABSPATH') || exit;
+
 function default_seriesicons_upload()
 {
     $def_path = apply_filters('orgseries_icons_path', ABSPATH);

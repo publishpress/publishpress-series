@@ -3,13 +3,13 @@
  * Plugin Name: PublishPress Series Free
  * Plugin URI: https://publishpress.com/publishpress-series/
  * Description: PublishPress Series allows you to group content together into a series. This is ideal for magazines, newspapers, short-story writers, teachers, comic artists, or anyone who writes multiple posts on the same topic.
- * Version: 3.1.4
+ * Version: 3.1.5
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: organize-series
  * Domain Path: /languages
  * Requires at least: 5.5
- * Requires PHP: 7.4.0
+ * Requires PHP: 8.2.0
  * License: GPLv3
  *
  * Copyright (c) 2022 PublishPress
@@ -54,9 +54,11 @@ Visit @link http://wordpress.org/extend/plugins/organize-series/changelog/ for t
 
 */
 
+defined('ABSPATH') || exit;
+
 global $wp_version;
 
-$min_php_version = '7.4.0';
+$min_php_version = '8.2.0';
 $min_wp_version  = '5.5';
 
 $invalid_php_version = version_compare(phpversion(), $min_php_version, '<');
@@ -136,7 +138,7 @@ add_action('plugins_loaded', function () use ($pp_series_loaded_as_library) {
     require_once(dirname(__FILE__) . '/includes-core/functions.php');
 
     if (!defined('ORG_SERIES_VERSION')) {
-        define('ORG_SERIES_VERSION', '3.1.4'); 
+        define('ORG_SERIES_VERSION', '3.1.5'); 
         define('SERIES_FILE_PATH', __FILE__);
         define('SERIES_PATH_URL', plugins_url('', __FILE__) . '/');
         define('SERIES_LOC', plugins_url('', __FILE__) . '/'); //the uri of the orgSeries files.

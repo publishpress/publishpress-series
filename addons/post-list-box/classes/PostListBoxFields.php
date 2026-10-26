@@ -1,4 +1,6 @@
 <?php
+
+defined('ABSPATH') || exit;
 /**
  * Post List Box Fields class
  * Defines the fields for Post List Box editor

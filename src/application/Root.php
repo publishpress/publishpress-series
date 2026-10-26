@@ -10,6 +10,8 @@ use OrganizeSeries\domain\model\ClassOrInterfaceFullyQualifiedName;
 use OrganizeSeries\domain\services\ExtensionsRegistry;
 use PublishPress\Pimple\Container as PimpleContainer;
 
+\defined('ABSPATH') || exit;
+
 /**
  * Root
  * This provides access to base services that are used everywhere (i.e. DI container).

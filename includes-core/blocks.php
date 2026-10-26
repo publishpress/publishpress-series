@@ -6,9 +6,7 @@
 
 namespace PublishPress\Series;
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+\defined('ABSPATH') || exit;
 
 if (class_exists('PublishPress\\Series\\Blocks')) {
     return;

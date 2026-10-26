@@ -8,6 +8,8 @@
  * This is an example template demonstrating hierarchy in series groups.  Note that this particular template is only demonstrating one level.
  */
 
+defined('ABSPATH') || exit;
+
 if (pp_series_locate_template(['header.php'])) {
     get_header();
 } elseif (pp_series_is_block_theme()) {

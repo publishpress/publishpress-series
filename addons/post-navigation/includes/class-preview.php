@@ -3,9 +3,7 @@
  * Preview rendering helpers for Series Post Navigation
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 class PPS_Series_Post_Navigation_Preview
 {

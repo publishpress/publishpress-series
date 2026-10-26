@@ -3,9 +3,7 @@
  * Renderer utilities for Series Post Navigation.
  */
 
-if (! defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 require_once __DIR__ . '/../includes/class-utilities.php';
 

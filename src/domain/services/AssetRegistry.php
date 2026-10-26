@@ -7,6 +7,8 @@ use InvalidArgumentException;
 use OrganizeSeries\application\Root;
 use OrganizeSeries\domain\exceptions\InvalidFilePathException;
 
+\defined('ABSPATH') || exit;
+
 /**
  * AssetRegistry
  * This class is where all assets for OrganizeSeries are registered.

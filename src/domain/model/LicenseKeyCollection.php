@@ -6,6 +6,8 @@ use OrganizeSeries\domain\exceptions\InvalidEntityException;
 use OrganizeSeries\domain\interfaces\AbstractCollection;
 
 
+\defined('ABSPATH') || exit;
+
 /**
  * LicenseKeyCollection
  * For holding a collection of LicenseKey objects.

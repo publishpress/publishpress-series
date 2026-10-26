@@ -8,6 +8,8 @@
  * @package Publishpress Series
  */
 
+defined('ABSPATH') || exit;
+
 add_action('wp_ajax_ppseries_get_layout_options', 'ppseries_ajax_get_layout_options');
 
 function ppseries_ajax_get_layout_options()

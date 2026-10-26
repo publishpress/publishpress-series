@@ -5,6 +5,8 @@ namespace OrganizeSeries\domain\exceptions;
 use Exception;
 use Throwable;
 
+\defined('ABSPATH') || exit;
+
 class InvalidInterfaceException extends Exception
 {
     /**
