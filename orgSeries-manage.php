@@ -73,6 +73,11 @@ function pp_series_save_group_term_order($term_id, $tt_id)
         return;
     }
 
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by WordPress before edited_{taxonomy}.
+    if (isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === (int) $_POST['term_order']) {
+        return;
+    }
+
     $tax = get_taxonomy('series_group');
     if (!$tax || !current_user_can($tax->cap->edit_terms)) {
         return;
@@ -121,6 +126,7 @@ function pp_series_quick_edit_term_order($column_name = '', $screen = '', $name 
                 <span class="title"><?php esc_html_e('Order', 'organize-series'); ?></span>
                 <span class="input-text-wrap">
                     <input type="number" step="1" class="ptitle" name="term_order" value="" size="11">
+                    <input type="hidden" name="term_order_original" value="">
                 </span>
             </label>
         </div>
@@ -269,7 +275,8 @@ function wp_insert_series($series_id, $taxonomy_id)
     $series_icon = seriesicons_write($series_id, $series_icon);
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
-    if (null !== $term_order) {
+    // Skip when Quick Edit left the order untouched, so a stale value can't undo a drag or Move reorder.
+    if (null !== $term_order && !(isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === $term_order)) {
         $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
     }
 }
@@ -300,7 +307,8 @@ function wp_update_series($series_id, $taxonomy_id)
     }
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
-    if (null !== $term_order) {
+    // Skip when Quick Edit left the order untouched, so a stale value can't undo a drag or Move reorder.
+    if (null !== $term_order && !(isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === $term_order)) {
         $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
     }
 }

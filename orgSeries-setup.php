@@ -629,8 +629,16 @@ if (!class_exists('orgSeries')) {
                         seriesDropdownKeyboard = false;
                         onSeriesChange();
                     } else if (key !== 'Tab' && key !== 9) {
+                        // Only a change fired straight after this key press came from arrowing
+                        // through the closed select; picks made in the native popup still navigate.
                         seriesDropdownKeyboard = true;
+                        setTimeout(function () {
+                            seriesDropdownKeyboard = false;
+                        }, 100);
                     }
+                });
+                seriesdropdown.addEventListener('click', function () {
+                    seriesDropdownKeyboard = false;
                 });
                 seriesdropdown.addEventListener('mousedown', function () {
                     seriesDropdownKeyboard = false;

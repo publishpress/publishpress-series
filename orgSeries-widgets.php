@@ -44,7 +44,7 @@ class orgSeries_widget_latestseries extends WP_Widget
             }
             // The default template already prints its own <ul>. Only keep the outer
             // list when a custom template prints bare <li> items.
-            if (0 === stripos(ltrim($out), '<li')) {
+            if (false !== stripos($out, '<li') && false === stripos($out, '<ul') && false === stripos($out, '<ol')) {
                 $out = '<ul>' . $out . '</ul>';
             }
             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

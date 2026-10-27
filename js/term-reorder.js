@@ -253,6 +253,14 @@ function term_order_update_callback( response, announcement ) {
 
 	if ( response && response.status === 'success' ) {
 		jQuery( '.pp-series-term-order-notice' ).remove();
+		// The server renumbers the rows in page order; keep the Order column (read by Quick Edit) in step.
+		var position = 0;
+		term_order_rows().each( function () {
+			if ( jQuery( this ).attr( 'id' ) ) {
+				position++;
+				jQuery( this ).find( '.pp-series-term-order' ).attr( 'data-order', position ).removeData( 'order' ).text( position );
+			}
+		} );
 		term_order_speak( ( announcement ? announcement + ' ' : '' ) + term_order_i18n.saved );
 	} else {
 		term_order_show_error( ( response && response.message ) ? response.message + ' ' + term_order_i18n.error : term_order_i18n.error );

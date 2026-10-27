@@ -20,8 +20,10 @@ jQuery( document ).ready( function( $ ) {
 
         // Template row (cloned by WordPress) and, once open, the live edit row.
         $( ':input[name="term_order"]', '#inline-edit' ).val( order );
+        $( ':input[name="term_order_original"]', '#inline-edit' ).val( order );
         setTimeout( function() {
             $( ':input[name="term_order"]', '#edit-' + tagId ).val( order );
+            $( ':input[name="term_order_original"]', '#edit-' + tagId ).val( order );
         }, 0 );
     } );
 } );

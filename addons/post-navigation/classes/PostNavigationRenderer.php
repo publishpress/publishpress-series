@@ -67,10 +67,15 @@ class PostNavigationRenderer
             return [];
         }
 
+        // With a custom label ("Previous", "Next") the link text doesn't name the post, so the image
+        // alt carries the title. Otherwise the link already shows the title and the image is decorative.
+        $link_type = isset($settings[$position . '_link_type']) ? $settings[$position . '_link_type'] : '';
+        $alt       = ('custom' === $link_type) ? get_the_title($post) : '';
+
         $html = sprintf(
-            // alt is empty: the image sits inside the link that already shows the post title.
-            '<img src="%s" alt="" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
+            '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
             esc_url($image_url),
+            esc_attr(wp_strip_all_tags($alt)),
             $width,
             $height
         );

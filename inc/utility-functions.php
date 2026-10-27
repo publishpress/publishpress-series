@@ -527,6 +527,19 @@ if (! function_exists('ppseries_sr_only_style')) {
     }
 }
 
+if (! function_exists('ppseries_is_plain_text_context')) {
+    /**
+     * Whether output is being built for a context that strips tags (auto-excerpts, REST),
+     * where visually hidden text would show up as plain words.
+     *
+     * @return bool
+     */
+    function ppseries_is_plain_text_context()
+    {
+        return doing_filter('get_the_excerpt') || (function_exists('wp_is_json_request') && wp_is_json_request());
+    }
+}
+
 if (! function_exists('ppseries_sr_text')) {
     /**
      * Build a visually hidden span for screen readers.
@@ -537,7 +550,7 @@ if (! function_exists('ppseries_sr_text')) {
      */
     function ppseries_sr_text($text)
     {
-        if ('' === (string) $text) {
+        if ('' === (string) $text || ppseries_is_plain_text_context()) {
             return '';
         }
 
@@ -692,6 +705,10 @@ if (! function_exists('ppseries_mark_current_post')) {
             }
         }
 
+        if (ppseries_is_plain_text_context()) {
+            return $html;
+        }
+
         $label = '<span class="screen-reader-text ppseries-current-label" style="' . esc_attr(ppseries_sr_only_style()) . '"> '
             . esc_html__('(current post)', 'organize-series') . '</span>';
 
@@ -701,6 +718,41 @@ if (! function_exists('ppseries_mark_current_post')) {
         }
 
         return $html . $label;
+    }
+}
+
+if (! function_exists('ppseries_html_is_balanced')) {
+    /**
+     * Whether every element opened in an HTML fragment is also closed in it.
+     *
+     * @param string $html
+     *
+     * @return bool
+     */
+    function ppseries_html_is_balanced($html)
+    {
+        $void  = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
+        $stack = [];
+
+        if (! preg_match_all('#<(/?)([a-z][a-z0-9-]*)\b[^>]*?(/?)>#i', (string) $html, $matches, PREG_SET_ORDER)) {
+            return true;
+        }
+
+        foreach ($matches as $tag) {
+            $name = strtolower($tag[2]);
+
+            if ('/' === $tag[3] || in_array($name, $void, true)) {
+                continue;
+            }
+
+            if ('' === $tag[1]) {
+                $stack[] = $name;
+            } elseif (empty($stack) || array_pop($stack) !== $name) {
+                return false;
+            }
+        }
+
+        return empty($stack);
     }
 }
 
@@ -729,6 +781,14 @@ if (! function_exists('ppseries_wrap_nav_landmark')) {
         }
         $open     = '<div class="ppseries-nav-landmark" role="navigation" aria-label="' . esc_attr($label) . '">';
         $segments = explode('%postcontent%', $html);
+
+        // A template can open an element before %postcontent% and close it after. Wrapping the
+        // pieces separately would then break the markup, so leave such templates untouched.
+        foreach ($segments as $segment) {
+            if (! ppseries_html_is_balanced($segment)) {
+                return $html;
+            }
+        }
 
         foreach ($segments as $i => $segment) {
             if ('' !== trim(wp_strip_all_tags($segment, true)) || preg_match('/<(img|svg|a)\b/i', $segment)) {
