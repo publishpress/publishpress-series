@@ -96,7 +96,16 @@ function orgSeries_admin_header()
 
 function orgSeries_post_script()
 {
+    // 'ajaxseries' is registered in orgSeries-setup.php without wp-a11y, so enqueue it here.
+    wp_enqueue_script('wp-a11y');
     wp_enqueue_script('ajaxseries');
+    wp_localize_script('ajaxseries', 'ppSeriesMetabox', [
+        'noResults' => __('No series found.', 'organize-series'),
+        'oneResult' => __('1 series found.', 'organize-series'),
+        /* translators: %d: number of series matching the search */
+        'results'   => __('%d series found.', 'organize-series'),
+        'emptyName' => __('Enter a name for the new series.', 'organize-series'),
+    ]);
 }
 function orgSeries_admin_script()
 {
@@ -116,7 +125,7 @@ function orgSeries_admin_script()
 function orgSeries_admin_assets()
 {
 
-    wp_register_script('pps-admin-js', SERIES_PATH_URL . 'assets/js/admin.js', array('jquery'), ORG_SERIES_VERSION);
+    wp_register_script('pps-admin-js', SERIES_PATH_URL . 'assets/js/admin.js', array('jquery', 'wp-a11y'), ORG_SERIES_VERSION);
     wp_register_style('pps-admin-common', SERIES_PATH_URL . 'assets/css/pressshack-admin.css', [], ORG_SERIES_VERSION);
 
     if (is_ppseries_admin_pages()) {
@@ -132,6 +141,8 @@ function orgSeries_admin_assets()
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'nonce'   => wp_create_nonce('ppseries_settings_nonce'),
             'customTemplateLabel' => __('Custom Template', 'organize-series'),
+            'layoutOptionsLoaded' => __('Layout options loaded.', 'organize-series'),
+            'layoutOptionsError'  => __('Layout options could not be loaded. Reload the page to try again.', 'organize-series'),
             'saved'   => [
                 'series_post_list_box_selection'  => isset($org_opt['series_post_list_box_selection']) ? (int) $org_opt['series_post_list_box_selection'] : $default_post_list_box_selection,
                 'series_post_details_selection'   => isset($org_opt['series_post_details_selection']) ? (int) $org_opt['series_post_details_selection'] : 0,
@@ -149,15 +160,16 @@ function orgSeries_admin_footer()
         <div class="pressshack-admin-wrapper ppseries-footer-credit temporary">
             <footer>
                 <div class="pp-rating">
-                    <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Leave a five-star review for PublishPress Series', 'organize-series'); ?>">
+                    <a href="https://wordpress.org/support/plugin/organize-series/reviews/#new-post" target="_blank" rel="noopener noreferrer">
                         <?php
                         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         printf(
                             /* translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons. */
                             __('If you like %1$s, please leave us a %2$s rating. Thank you!', 'organize-series'),
                             '<strong>PublishPress Series</strong>',
-                            '<span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>'
+                            '<span class="screen-reader-text">' . esc_html__('five-star', 'organize-series') . '</span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>'
                         );
+                        echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ?>
                     </a>
                 </div>
@@ -165,17 +177,17 @@ function orgSeries_admin_footer()
                 <hr>
                 <nav>
                     <ul>
-                        <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series'); ?>"><?php esc_html_e('About', 'organize-series'); ?></a></li>
-                        <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series'); ?>"><?php esc_html_e('Documentation', 'organize-series'); ?></a></li>
-                        <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series'); ?>"><?php esc_html_e('Contact', 'organize-series'); ?></a></li>
-                        <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow PublishPress on Twitter', 'organize-series'); ?>"><span class="dashicons dashicons-twitter" aria-hidden="true"></span></a></li>
-                        <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow PublishPress on Facebook', 'organize-series'); ?>"><span class="dashicons dashicons-facebook" aria-hidden="true"></span></a></li>
+                        <li><a href="https://publishpress.com/series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('About PublishPress Series', 'organize-series'); ?>"><?php esc_html_e('About', 'organize-series'); ?><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></li>
+                        <li><a href=" https://publishpress.com/knowledge-base/start-series/" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('PublishPress Series Documentation', 'organize-series'); ?>"><?php esc_html_e('Documentation', 'organize-series'); ?><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></li>
+                        <li><a href="https://publishpress.com/contact" target="_blank" rel="noopener noreferrer" title="<?php esc_attr_e('Contact the PublishPress team', 'organize-series'); ?>"><?php esc_html_e('Contact', 'organize-series'); ?><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></li>
+                        <li><a href="https://twitter.com/publishpresscom" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-twitter" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e('Follow PublishPress on Twitter', 'organize-series'); ?></span><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></li>
+                        <li><a href="https://facebook.com/publishpress" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-facebook" aria-hidden="true"></span><span class="screen-reader-text"><?php esc_html_e('Follow PublishPress on Facebook', 'organize-series'); ?></span><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a></li>
                     </ul>
                 </nav>
 
                 <div class="pp-pressshack-logo">
-                    <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Visit PublishPress', 'organize-series'); ?>">
-                        <img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" alt="<?php esc_attr_e('PublishPress', 'organize-series'); ?>" />
+                    <a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
+                        <img src="<?php echo esc_url(SERIES_PATH_URL . 'assets/images/publishpress-logo.png'); ?>" alt="<?php esc_attr_e('PublishPress', 'organize-series'); ?>" /><?php echo ppseries_new_tab_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </a>
                 </div>
             </footer>
@@ -190,6 +202,10 @@ function orgSeries_manage_script()
     wp_enqueue_script('thickbox');
     wp_enqueue_script('media-upload');
     wp_enqueue_script('orgseries_scripts', SERIES_PATH_URL . 'js/orgseries_scripts.js', array('jquery', 'thickbox', 'media-upload'), ORG_SERIES_VERSION, true);
+    wp_localize_script('orgseries_scripts', 'ppSeriesMedia', [
+        'selectMedia'   => __('Select Media', 'organize-series'),
+        'selectedImage' => __('Selected Image:', 'organize-series'),
+    ]);
 }
 
 ######ON THE FLY ADD SERIES########
@@ -202,7 +218,7 @@ function admin_ajax_series()
     }
 
     if (!check_ajax_referer('add-series-nonce', 'addnonce', false)) {
-        $response['error'] = 'Sorry but security check failed';
+        $response['error'] = __('Sorry but security check failed', 'organize-series');
     }
     $new_nonce = wp_create_nonce('add-series-nonce');
 
@@ -354,7 +370,7 @@ function write_series_list($series)
                         </label>
                         <a class='selected-series-order' style='text-decoration: none;display:none;' href='" . admin_url("edit.php?page=manage-issues&action=part&series_ID=" . $serial['series_ID'] . "") . "' target='_blank' rel='noopener noreferrer'>
                              " . __('Series Order', 'organize-series') . "
-                             <span class='dashicons dashicons-external' aria-hidden='true'></span>
+                             <span class='dashicons dashicons-external' aria-hidden='true'></span>" . ppseries_new_tab_text() . "
                         </a>
                 </li>";
         if ($serial['checked']) {
@@ -391,25 +407,32 @@ function series_edit_meta_box()
     $metabox_show_post_title_in_widget = isset($org_opt['metabox_show_post_title_in_widget']) ? (int) $org_opt['metabox_show_post_title_in_widget'] : 0;
     $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int) $org_opt['metabox_show_add_new'] : 0;
     $series_list = get_series_list(0);
+    // Users without the manage capability get series-restricted.js, which has no Add New or search handlers.
+    $can_manage_series = current_user_can('manage_publishpress_series');
     ?>
     <div class="series-metadiv">
         <div class="tabs-panel">
+            <?php if ($can_manage_series) : ?>
             <p id="jaxseries">
                 <span id="ajaxseries" style="<?php echo ($metabox_show_add_new === 0) ? 'display: none;' : ''; ?>"><label for="newseries" class="screen-reader-text"><?php esc_html_e('New series name', 'organize-series'); ?></label><input type="text" name="newseries" id="newseries" size="16" autocomplete="off" /><input type="button" name="Button" class="add:serieschecklist:jaxseries button" id="seriesadd" value="<?php echo esc_attr(__('Add New', 'organize-series')); ?>" /><input type="hidden" /><input type="hidden" /></span>
                 <span id="series-ajax-response" role="status" aria-live="polite" aria-atomic="true"></span>
                 <span id="add-series-nonce" class="hidden"><?php echo wp_create_nonce('add-series-nonce'); ?></span>
             </p>
+            <?php endif; ?>
 
-            <?php if (is_array($series_list) && count($series_list) > 1) : ?>
+            <?php if ($can_manage_series && is_array($series_list) && count($series_list) > 1) : ?>
                 <div class="editor-series-search">
                     <label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
                     <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
                 </div>
             <?php endif; ?>
 
+            <fieldset class="ppseries-fieldset">
+            <legend class="screen-reader-text"><?php esc_html_e('Series', 'organize-series'); ?></legend>
             <ul id="serieschecklist" class="list:series serieschecklist categorychecklist form-no-clear">
                 <?php write_series_list($series_list); ?>
             </ul>
+            </fieldset>
 
             <div class="series-part-wrap" style="display: none">
                 <?php
@@ -553,7 +576,13 @@ function orgSeries_custom_manage_posts_filter()
         $series_name = sanitize_text_field(wp_unslash($_GET[ SERIES_QUERYVAR ]));
     }
 
-    wp_dropdown_series('show_option_all=' . esc_attr__('View all series', 'organize-series') . '&hide_empty=0&show_count=0&selected=' . $series_name);
+    wp_dropdown_series([
+        'show_option_all' => esc_html__('View all series', 'organize-series'),
+        'hide_empty'      => 0,
+        'show_count'      => 0,
+        'selected'        => $series_name,
+        'label'           => __('Filter by series', 'organize-series'),
+    ]);
 }
 
 function add_series_management_link()

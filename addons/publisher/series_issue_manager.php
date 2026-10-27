@@ -843,7 +843,18 @@ class PPS_Publisher_Admin
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-sortable');
 
-        wp_enqueue_script("series_im_sort_articles", plugin_dir_url(__FILE__) . "/js/series_im_sort_articles.js", array('jquery-ui-sortable'), ORG_SERIES_VERSION, true);
+        wp_enqueue_script("series_im_sort_articles", plugin_dir_url(__FILE__) . "/js/series_im_sort_articles.js", array('jquery-ui-sortable', 'wp-a11y'), ORG_SERIES_VERSION, true);
+        wp_localize_script('series_im_sort_articles', 'seriesImSortArticles', [
+            'moveUp'        => __('Move up', 'organize-series'),
+            'moveDown'      => __('Move down', 'organize-series'),
+            /* translators: %s: post title */
+            'moveUpLabel'   => __('Move up: %s', 'organize-series'),
+            /* translators: %s: post title */
+            'moveDownLabel' => __('Move down: %s', 'organize-series'),
+            /* translators: 1: post title, 2: new position, 3: total number of posts */
+            'moved'         => __('%1$s moved to position %2$d of %3$d.', 'organize-series'),
+            'unsaved'       => __('Order changed. Save to keep the new order.', 'organize-series'),
+        ]);
         wp_enqueue_style('series_im_sort_articles', plugin_dir_url(__FILE__) . '/css/series_im_sort_articles.css', array(), ORG_SERIES_VERSION, 'all');
     }
 

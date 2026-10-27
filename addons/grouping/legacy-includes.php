@@ -738,7 +738,7 @@ function select_series_group_filter($taxonomy)
     // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
     $group_id = !empty($_GET['ser_grp']) ? absint($_GET['ser_grp']) : 0;
     $dropdown_args = array(
-        'show_option_all' => 'View all Series Categories',
+        'show_option_all' => __('View all Series Categories', 'organize-series'),
         'selected' => $group_id,
         'taxonomy' => 'series_group',
         'name' => 'ser_grp',
@@ -756,8 +756,9 @@ function select_series_group_filter($taxonomy)
     <div style="display:none;">
         <form id="series_group_filter" style="float:right" action method="get">
             <input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy); ?>" />
+            <label for="ser_grp" class="screen-reader-text"><?php esc_html_e('Filter by Series Category', 'organize-series'); ?></label>
             <?php echo $dropdown; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <input type="submit" name="group_filter" id="filter-query-submit" class="button-secondary" value="Filter">
+            <input type="submit" name="group_filter" id="filter-query-submit" class="button-secondary" value="<?php esc_attr_e('Filter', 'organize-series'); ?>">
         </form>
     </div>
     <?php
@@ -847,7 +848,7 @@ function edit_orgseries_group_fields($series, $taxonomy)
 
     ?>
     <tr class="form-field term-groups-wrap">
-            <th scope="row"><label for="groups"><h3 class='hndle'><span><?php esc_html_e('Series Categories', 'organize-series'); ?></span></h3></label></th>
+            <th scope="row"><h3 class='hndle' id="pp-series-categories-heading"><span><?php esc_html_e('Series Categories', 'organize-series'); ?></span></h3></th>
             <td>
         <div class="metabox-holder">
             <div id="side-info-column" class="">
@@ -863,9 +864,12 @@ function edit_orgseries_group_fields($series, $taxonomy)
                                     <input type="search" id="pp-series-category-search" class="widefat" placeholder="<?php esc_attr_e('Search Series Categories', 'organize-series'); ?>" />
                                 </p>
                                 <div id="category-all" class="tabs-panel">
+                                    <fieldset class="ppseries-fieldset">
+                                    <legend class="screen-reader-text"><?php esc_html_e('Series Categories', 'organize-series'); ?></legend>
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
                                         <?php wp_terms_checklist($groupID, array('selected_cats' => $groups, 'taxonomy' => 'series_group' )); ?>
                                     </ul>
+                                    </fieldset>
                                 </div>
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function() {

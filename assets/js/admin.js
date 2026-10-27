@@ -92,7 +92,7 @@
       var label  = $select.data('edit-label') || 'Edit';
 
       if (url) {
-        $link.attr('href', url).text(label + ' \u2192');
+        $link.attr('href', url).text(label + ' ').append($('<span aria-hidden="true"></span>').text('\u2192'));
         $wrap.show();
       } else {
         $wrap.hide();
@@ -113,6 +113,28 @@
     //   AJAX lazy-load layout select options
     // -------------------------------------------------------------
     var layoutSelectLoaded = {};
+    var layoutLoadsPending = 0;
+    var layoutLoadFailed = false;
+
+    function layoutSpeak(message, politeness) {
+      if (message && window.wp && wp.a11y && typeof wp.a11y.speak === 'function') {
+        wp.a11y.speak(message, politeness || 'polite');
+      }
+    }
+
+    // One announcement after all lazy-loaded layout selects finish.
+    function layoutLoadDone() {
+      layoutLoadsPending = Math.max(0, layoutLoadsPending - 1);
+      if (layoutLoadsPending > 0) {
+        return;
+      }
+      var settings = window.ppseriesSettings || {};
+      if (layoutLoadFailed) {
+        layoutSpeak(settings.layoutOptionsError || 'Layout options could not be loaded. Reload the page to try again.', 'assertive');
+      } else {
+        layoutSpeak(settings.layoutOptionsLoaded || 'Layout options loaded.');
+      }
+    }
 
     function loadLayoutSelect($select, callback) {
       var postType = $select.data('post-type');
@@ -125,6 +147,9 @@
       var savedKey = $select.data('saved-key');
       var savedVal = settings.saved && savedKey ? parseInt(settings.saved[savedKey], 10) || 0 : 0;
 
+      layoutLoadsPending++;
+      $select.attr('aria-busy', 'true');
+
       $.ajax({
         url: settings.ajaxUrl,
         data: {
@@ -133,8 +158,18 @@
           post_type: postType
         },
         dataType: 'json',
+        complete: function() {
+          $select.removeAttr('aria-busy');
+          layoutLoadDone();
+        },
+        error: function() {
+          layoutLoadFailed = true;
+        },
         success: function(response) {
-          if (!response.success) return;
+          if (!response || !response.success) {
+            layoutLoadFailed = true;
+            return;
+          }
 
           $select.empty();
           $select.append(

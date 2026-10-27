@@ -108,6 +108,9 @@ function ppseries_enqueue_tooltips_assets()
 function orgseries_options_scripts()
 {
     wp_enqueue_script('orgseries_options');
+    wp_localize_script('orgseries_options', 'ppSeriesOptions', [
+        'resetTitle' => __('Are you sure you want to Reset?', 'organize-series'),
+    ]);
 }
 
 //register orgseries options

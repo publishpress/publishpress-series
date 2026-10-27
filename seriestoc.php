@@ -16,15 +16,31 @@
 
 defined('ABSPATH') || exit;
 
+// Only claim the main landmark when the plugin prints the whole page (block theme
+// without header.php). Classic themes usually print their own <main>.
+$pps_prints_page = false;
 if (pp_series_locate_template(['header.php'])) {
     get_header();
 } elseif (pp_series_is_block_theme()) {
     pp_series_format_block_theme_header();
+    $pps_prints_page = true;
+}
+
+// Hidden page heading, unless the listing template already prints an <h1>.
+$pps_toc_options  = get_option('org_series_options');
+$pps_toc_box_tpl  = isset($pps_toc_options['series_table_of_contents_box_template']) ? (string) $pps_toc_options['series_table_of_contents_box_template'] : '';
+$pps_toc_title    = isset($pps_toc_options['series_toc_title']) ? trim(wp_strip_all_tags((string) $pps_toc_options['series_toc_title'])) : '';
+if ('' === $pps_toc_title) {
+    $pps_toc_title = __('Series Table of Contents', 'organize-series');
 }
 ?>
 
         <section id="series-primary" class="site-content">
-            <div id="series-content" role="main">
+            <div id="series-content"<?php echo $pps_prints_page ? ' role="main"' : ''; ?>>
+
+            <?php if (false === stripos($pps_toc_box_tpl, '<h1')) : ?>
+                <h1 class="screen-reader-text" style="<?php echo esc_attr(ppseries_sr_only_style()); ?>"><?php echo esc_html($pps_toc_title); ?></h1>
+            <?php endif; ?>
 
             <?php wp_serieslist_display(); ?>
 

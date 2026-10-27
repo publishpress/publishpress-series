@@ -52,6 +52,8 @@ function ppseries_series_group_fieldset()
             <tr valign="top" id="ppseries-plugin-template-display-options-row">
                 <th scope="row"><?php esc_html_e('Plugin Template Display Options:', 'organize-series'); ?></th>
                 <td>
+                    <fieldset class="ppseries-fieldset">
+                    <legend class="screen-reader-text"><?php esc_html_e('Plugin Template Display Options:', 'organize-series'); ?></legend>
                     <label>
                         <input type="checkbox" name="<?php echo esc_attr($org_name); ?>[series_group_plugin_show_image]" value="1" <?php checked(1, isset($org_opt['series_group_plugin_show_image']) ? (int) $org_opt['series_group_plugin_show_image'] : 1); ?> />
                         <?php esc_html_e('Show Series Featured Image', 'organize-series'); ?>
@@ -66,7 +68,8 @@ function ppseries_series_group_fieldset()
                         <input type="checkbox" name="<?php echo esc_attr($org_name); ?>[series_group_plugin_show_series_items]" value="1" <?php checked(1, isset($org_opt['series_group_plugin_show_series_items']) ? (int) $org_opt['series_group_plugin_show_series_items'] : 0); ?> />
                         <?php esc_html_e('Show Posts in each Series as list items', 'organize-series'); ?>
                     </label>
-                    <br /><br />
+                    </fieldset>
+                    <br />
                     <label for="series_group_plugin_columns"><?php esc_html_e('Columns:', 'organize-series'); ?></label>
                     <?php $series_group_plugin_columns = isset($org_opt['series_group_plugin_columns']) ? (int) $org_opt['series_group_plugin_columns'] : 3; ?>
                     <select id="series_group_plugin_columns" name="<?php echo esc_attr($org_name); ?>[series_group_plugin_columns]">

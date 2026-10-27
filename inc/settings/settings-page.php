@@ -18,7 +18,7 @@ function orgseries_option_page()
     ?>
     <div class="wrap">
         <div class="icon32" id="icon-options-general"><br /></div>
-        <h2><?php esc_html_e('PublishPress Series Plugin Options', 'organize-series'); ?></h2>
+        <h1 class="ppseries-settings-title"><?php esc_html_e('PublishPress Series Plugin Options', 'organize-series'); ?></h1>
     <?php
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo $org_update_message;
@@ -46,6 +46,43 @@ function orgseries_option_page()
 
     <div id="poststuff" class="metabox-holder has-right-sidebar ppseries-settings-layout">
 
+        <div id="post-body" class="has-sidebar">
+            <div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
+                <form action="options.php" method="post" id="series_options" name="series_options">
+                <?php settings_fields('orgseries_options'); ?>
+                <table class="widefat seriesmanage" role="presentation">
+                <tbody id="the-list">
+                <tr><td>
+
+                    <?php ppseries_do_settings_sections('orgseries_options_page'); ?>
+
+                </td></tr>
+                </tbody>
+                </table>
+                <br />
+                <?php
+                wp_nonce_field('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
+                //$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
+                //$script_text = "javascript:return confirm('".$submit_text."')"
+                ?>
+                <span class="submit">
+                    <input type="hidden" name="org_series_options[updated_output]" value="" />
+                    <input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
+                    <input type="submit" class="button-primary" name="update_orgseries" value="<?php esc_attr_e('Update Options', 'organize-series'); ?>" />
+                </span>
+                </form>
+                <div id="TBcontent" style="display:none;">
+                    <div class="reset_dialog" role="dialog" aria-modal="true" aria-labelledby="TBtitle" aria-describedby="TBdescription" tabindex="-1">
+                        <h2 id="TBtitle" class="screen-reader-text"><?php esc_html_e('Reset Series settings', 'organize-series'); ?></h2>
+                        <p id="TBdescription"><?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
+                        <button type="button" id="TBcancel" class="button"><?php esc_html_e('No', 'organize-series'); ?></button>
+                        <button type="button" id="TBsubmit" class="alignright button-primary"><?php esc_html_e('Yes', 'organize-series'); ?></button>
+                    </div>
+                </div>
+        </div>
+        </div>
+
+        <?php /* Sidebar comes after the form in the DOM so tab order matches the visual order (form left, sidebar right). */ ?>
         <div id="side-info-column">
 
         <div class="inner-sidebar">
@@ -62,7 +99,6 @@ function orgseries_option_page()
                             ?>
                         </div>
 
-                    </p>
                     <h3 class="handle"><span><?php esc_html_e('Overview', 'organize-series'); ?></span></h3>
                     <div class="inside">
                         <p><small><?php esc_html_e('The following is a legend of the tokens that are available for use in the custom template fields. These will be replaced with the appropriate values when the plugin runs.', 'organize-series'); ?></small></p>
@@ -213,74 +249,67 @@ function orgseries_option_page()
                         <!-- PRO Features -->
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_slug%</strong> <?php   if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                           } ?>
+                            <strong>%series_slug%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the slug of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%series_id%</strong> <?php if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                         } ?>
+                            <strong>%series_id%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the ID of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_author%</strong> <?php   if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                           } ?>
+                            <strong>%post_author%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will output the author of the post', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_thumbnail%</strong> <?php    if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                              } ?>
+                            <strong>%post_thumbnail%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('If the post has a feature-image then that image will be displayed', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%post_date%</strong> <?php if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                         } ?>
+                            <strong>%post_date%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('The date that a post was published', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%unpublished_post_title%</strong> <?php    if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                                      } ?>
+                            <strong>%unpublished_post_title%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will be replaced with the unpublished post title of a post in the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
-                            <strong>%total_posts_in_series_with_unpub%</strong> <?php  if (!pp_series_is_pro_active()) {
-                                ?> <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a> <?php
-                                                                                } ?>
+                            <strong>%total_posts_in_series_with_unpub%</strong>
                             <span class="tooltip-text">
                                 <span><?php esc_html_e('Will display the total number of published and unpublished posts in a series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } ?><br /><br />
 
                         <?php do_action('orgseries_token_description'); ?>
                             <?php do_action('ppseries_licence_key_form'); ?>
@@ -297,41 +326,6 @@ function orgseries_option_page()
         </div>
 
 
-        </div>
-        <div id="post-body" class="has-sidebar">
-            <div id="post-body-content" class="has-sidebar-content ppseries-settings-body-content">
-                <form action="options.php" method="post" id="series_options" name="series_options">
-                <?php settings_fields('orgseries_options'); ?>
-                <table class="widefat seriesmanage">
-                <tbody id="the-list">
-                <tr><td>
-
-                    <?php ppseries_do_settings_sections('orgseries_options_page'); ?>
-
-                </td></tr>
-                </tbody>
-                </table>
-                <br />
-                <?php
-                wp_nonce_field('publishpress_series_settings_nonce_action', 'publishpress_series_settings_nonce_field');
-                //$submit_text = __('Do you really want to reset to default options (all your custom changes will be lost)?', 'organize-series');
-                //$script_text = "javascript:return confirm('".$submit_text."')"
-                ?>
-                <span class="submit">
-                    <input type="hidden" name="org_series_options[updated_output]" value="" />
-                    <input type="hidden" name="org_series_options[reset_option]" class="reset_option" value="" />
-                    <input type="submit" class="button-primary" name="update_orgseries" value="<?php esc_attr_e('Update Options', 'organize-series'); ?>" />
-                </span>
-                </form>
-                <div id="TBcontent" style="display:none;">
-                    <div class="reset_dialog" role="dialog" aria-modal="true" aria-labelledby="TBtitle" aria-describedby="TBdescription" tabindex="-1">
-                        <h2 id="TBtitle" class="screen-reader-text"><?php esc_html_e('Reset Series settings', 'organize-series'); ?></h2>
-                        <p id="TBdescription"><?php esc_html_e('Clicking Yes will reset the options to the defaults and you will lose all customizations. Or you can click cancel and return.', 'organize-series'); ?></p>
-                        <button type="button" id="TBcancel" class="button"><?php esc_html_e('No', 'organize-series'); ?></button>
-                        <button type="button" id="TBsubmit" class="alignright button-primary"><?php esc_html_e('Yes', 'organize-series'); ?></button>
-                    </div>
-                </div>
-        </div>
         </div>
     <br class="clear" />
     </div>
