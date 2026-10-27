@@ -45,12 +45,15 @@ function series_legacy_fieldset()
                             <td><input name="<?php echo esc_attr($org_name); ?>[custom_css]" id="custom_css" type="checkbox" aria-label="<?php esc_attr_e('Use PublishPress Series CSS styles?', 'organize-series'); ?>" value="1" <?php checked('1', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /></td>
                         </tr>
                         <tr valign="top">
-                            <th scope="row"><label><?php esc_html_e('Style options', 'organize-series'); ?></label></th>
+                            <th scope="row"><?php esc_html_e('Style options', 'organize-series'); ?></th>
                             <td>
+                                <fieldset class="ppseries-fieldset">
+                                <legend class="screen-reader-text"><?php esc_html_e('Style options', 'organize-series'); ?></legend>
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_css_tougle]" class="css_style" id="css_default" type="radio" value="default" <?php checked('default', $series_css_tougle); ?> <?php disabled('0', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /><?php esc_html_e('Use default style', 'organize-series'); ?> </label><br />
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_css_tougle]" class="css_style" id="css_box" type="radio" value="box" <?php checked('box', $series_css_tougle); ?> <?php disabled('0', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /><?php esc_html_e('Use box style', 'organize-series'); ?> </label><br />
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_css_tougle]" class="css_style" id="css_dark" type="radio" value="dark" <?php checked('dark', $series_css_tougle); ?> <?php disabled('0', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /><?php esc_html_e('Use dark style', 'organize-series'); ?> </label><br />
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_css_tougle]" class="css_style" id="css_light" type="radio" value="light" <?php checked('light', $series_css_tougle); ?> <?php disabled('0', isset($org_opt['custom_css']) ? $org_opt['custom_css'] : ''); ?> /><?php esc_html_e('Use light style', 'organize-series'); ?> </label>
+                                </fieldset>
                             </td>
                         </tr>
                     </tbody>
@@ -80,11 +83,15 @@ function series_legacy_fieldset()
                                 <div id="series_overview_page_layout_desc">
                                     <p class="description">
                                         <?php
-                                        echo sprintf(
-											// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                            /* translators: %s: URL to the series archive template documentation. */
-                                            __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank" rel="noopener noreferrer">Read the documentation for customizing these designs</a>.', 'organize-series'),
-                                            esc_url('https://publishpress.com/knowledge-base/series-archive-templates/')
+                                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                        echo str_replace(
+                                            '</a>',
+                                            ppseries_new_tab_text() . '</a>',
+                                            sprintf(
+                                                /* translators: %s: URL to the series archive template documentation. */
+                                                __('Choosing a layout different to "Default" will override the taxonomy template from your theme. <a href="%s" target="_blank" rel="noopener noreferrer">Read the documentation for customizing these designs</a>.', 'organize-series'),
+                                                esc_url('https://publishpress.com/knowledge-base/series-archive-templates/')
+                                            )
                                         );
                                         ?>
                                     </p>
@@ -98,17 +105,23 @@ function series_legacy_fieldset()
                             </td>
                         </tr>
                         <tr valign="top">
-                            <th scope="row"><label><?php esc_html_e('Order series by:', 'organize-series'); ?></label></th>
+                            <th scope="row"><?php esc_html_e('Order series by:', 'organize-series'); ?></th>
                             <td>
+                                <fieldset class="ppseries-fieldset">
+                                <legend class="screen-reader-text"><?php esc_html_e('Order series by:', 'organize-series'); ?></legend>
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_part" type="radio" value="meta_value" <?php checked('meta_value', isset($org_opt['series_posts_orderby']) ? $org_opt['series_posts_orderby'] : ''); ?> /><?php esc_html_e('Series part', 'organize-series'); ?></label> &nbsp;
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_posts_orderby]" id="series_posts_orderby_date" type="radio" value="post_date" <?php checked('post_date', isset($org_opt['series_posts_orderby']) ? $org_opt['series_posts_orderby'] : ''); ?> /><?php esc_html_e('Order by date', 'organize-series'); ?></label>
+                                </fieldset>
                             </td>
                         </tr>
                         <tr valign="top">
-                            <th scope="row"><label><?php esc_html_e('Series order method', 'organize-series'); ?></label></th>
+                            <th scope="row"><?php esc_html_e('Series order method', 'organize-series'); ?></th>
                             <td>
+                                <fieldset class="ppseries-fieldset">
+                                <legend class="screen-reader-text"><?php esc_html_e('Series order method', 'organize-series'); ?></legend>
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_ASC" type="radio" value="ASC" <?php checked('ASC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Ascending', 'organize-series'); ?></label>&nbsp;
                                 <label><input name="<?php echo esc_attr($org_name); ?>[series_posts_order]" id="series_posts_order_DESC" type="radio" value="DESC" <?php checked('DESC', isset($org_opt['series_posts_order']) ? $org_opt['series_posts_order'] : ''); ?> /><?php esc_html_e('Descending', 'organize-series'); ?></label>
+                                </fieldset>
                             </td>
                         </tr>
                     </tbody>

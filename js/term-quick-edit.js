@@ -1,8 +1,27 @@
 jQuery( document ).ready( function( $ ) {
-    $( '.editinline' ).on( 'click', function() {
-        var tag_id = $( this ).parents( 'tr' ).attr( 'id' ),
-			order  = $( 'td.order', '#' + tag_id ).text();
+    /**
+     * Read the stored order from the row's data attribute (falls back to the Order column text).
+     */
+    function getRowOrder( $row ) {
+        var $value = $row.find( '.pp-series-term-order' ).first();
 
-        $( ':input[name="order"]', '.inline-edit-row' ).val( order );
+        if ( $value.length && typeof $value.data( 'order' ) !== 'undefined' ) {
+            return String( $value.data( 'order' ) );
+        }
+
+        return $.trim( $row.find( 'td.column-order, td.order' ).first().text() );
+    }
+
+    // Delegated, so rows replaced after a Quick Edit save keep working.
+    $( '#the-list' ).on( 'click', '.editinline', function() {
+        var $row  = $( this ).closest( 'tr' ),
+            tagId = ( $row.attr( 'id' ) || '' ).replace( /\D/g, '' ),
+            order = getRowOrder( $row );
+
+        // Template row (cloned by WordPress) and, once open, the live edit row.
+        $( ':input[name="term_order"]', '#inline-edit' ).val( order );
+        setTimeout( function() {
+            $( ':input[name="term_order"]', '#edit-' + tagId ).val( order );
+        }, 0 );
     } );
 } );

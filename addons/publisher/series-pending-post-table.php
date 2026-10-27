@@ -152,9 +152,10 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         }
 
         $actions['view'] = sprintf(
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',
             esc_url($preview_link),
-            esc_html__('Preview', 'organize-series')
+            esc_html__('Preview', 'organize-series'),
+            ppseries_new_tab_text()
         );
 
         $actions = array_merge($actions, [

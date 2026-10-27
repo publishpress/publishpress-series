@@ -643,7 +643,9 @@ function wp_dropdown_series($args)
         'tab_index' => 0,
         'taxonomy' => ppseries_get_series_slug(),
         'hide_if_empty' => false,
-        'context' => 'normal'
+        'context' => 'normal',
+        // Optional visually hidden <label for> text. Empty = no label is output.
+        'label' => ''
     );
 
     $series_id = get_query_var(SERIES_QUERYVAR);
@@ -688,7 +690,12 @@ function wp_dropdown_series($args)
     $id = $id ? esc_attr($id) : $name;
 
     if (!$r['hide_if_empty'] || !empty($series)) {
-        $output = "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
+        $output = '';
+        if (!empty($r['label'])) {
+            $label_style = (!is_admin() && function_exists('ppseries_sr_only_style')) ? ' style="' . esc_attr(ppseries_sr_only_style()) . '"' : '';
+            $output .= '<label for="' . $id . '" class="screen-reader-text"' . $label_style . '>' . esc_html($r['label']) . "</label>\n";
+        }
+        $output .= "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
     } else {
         $output = '';
     }
@@ -1088,8 +1095,19 @@ function inline_edit_series($column_name, $type)
         <fieldset class="inline-edit-col-right">
             <div class="inline-edit-col">
                 <div class="inline_edit_series_">
+                    <label>
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
-                    <?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
+                    <?php
+                    wp_dropdown_series([
+                        'name'             => 'post_series',
+                        'id'               => 'pp-series-quick-edit-select',
+                        'class'            => 'post_series_select',
+                        'hide_empty'       => 0,
+                        'show_option_none' => esc_html__('No Series', 'organize-series'),
+                        'context'          => 'quick-edit',
+                    ]);
+                    ?>
+                    </label>
                     <span style="display:none;"><?php esc_html_e('Part:', 'organize-series'); ?></span>
           <input style="display:none;" size="3" type="text" name="series_part" class="series_part" aria-label="<?php esc_attr_e('Series Part', 'organize-series'); ?>" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
@@ -1117,8 +1135,21 @@ function bulk_edit_series($column_name, $type)
         <fieldset class="inline-edit-col-right">
             <div class="inline-edit-col">
                 <div class="inline_edit_series_">
+                    <label>
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
-                    <?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&show_option_not_in_series=Not part of a series&selected=-1&context=quick-edit'); ?>
+                    <?php
+                    wp_dropdown_series([
+                        'name'                      => 'post_series',
+                        'id'                        => 'pp-series-bulk-edit-select',
+                        'class'                     => 'bulk_post_series_select',
+                        'hide_empty'                => 0,
+                        'show_option_none'          => esc_html__('&mdash; No Change &mdash;', 'organize-series'),
+                        'show_option_not_in_series' => esc_html__('Not part of a series', 'organize-series'),
+                        'selected'                  => -1,
+                        'context'                   => 'quick-edit',
+                    ]);
+                    ?>
+                    </label>
                     <input type="hidden" name="series_part" class="series_part" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
                     <input type="hidden" name="is_series_save" value="1" />
@@ -1134,6 +1165,9 @@ function bulk_edit_series($column_name, $type)
 function inline_edit_series_js()
 {
     wp_enqueue_script('inline-edit-series');
+    wp_localize_script('inline-edit-series', 'ppSeriesInlineEdit', [
+        'noSeries' => __('No Series', 'organize-series'),
+    ]);
 }
 
 

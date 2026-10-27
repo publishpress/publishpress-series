@@ -602,34 +602,54 @@ if (!class_exists('orgSeries')) {
             $settings = $this->settings;
             $series_custom_base = $settings['series_custom_base'];
             if ($wp_rewrite instanceof WP_Rewrite && !($wp_rewrite->using_permalinks())) {
-                ?>
+                $series_base_url = get_option('home') . '/?' . SERIES_QUERYVAR . '=';
+            } else {
+                $series_base_url = get_option('home') . '/' . $series_custom_base . '/';
+            }
+            /*
+             * Accessibility (WCAG 3.2.2): do not navigate while a keyboard user moves
+             * through the options with the arrow keys. Navigate on a mouse or touch
+             * selection, or when the user presses Enter.
+             */
+            ?>
             <script type='text/javascript'><!--
             var seriesdropdown = document.getElementById("orgseries_dropdown");
             if (seriesdropdown) {
+                var seriesDropdownKeyboard = false;
                 function onSeriesChange() {
-                    if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-                        location.href = "<?php echo esc_attr(get_option('home')); ?>/?<?php echo esc_attr(SERIES_QUERYVAR); ?>="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                    var seriesValue = seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                    if ( seriesValue !== '' && seriesValue != 0 && seriesValue != -1 ) {
+                        location.href = "<?php echo esc_js($series_base_url); ?>" + seriesValue;
                     }
                 }
-                seriesdropdown.onchange = onSeriesChange;
-            }
-            --></script>
-                <?php
-            } else {
-                ?>
-                <script type='text/javascript'><!--
-            var seriesdropdown = document.getElementById("orgseries_dropdown");
-            if (seriesdropdown) {
-             function onSeriesChange() {
-                    if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-                        location.href = "<?php echo esc_attr(get_option('home')); ?>/<?php echo esc_attr($series_custom_base); ?>/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                seriesdropdown.addEventListener('keydown', function (event) {
+                    var key = event.key || event.keyCode;
+                    if (key === 'Enter' || key === 13) {
+                        event.preventDefault();
+                        seriesDropdownKeyboard = false;
+                        onSeriesChange();
+                    } else if (key !== 'Tab' && key !== 9) {
+                        seriesDropdownKeyboard = true;
                     }
-                }
-                seriesdropdown.onchange = onSeriesChange;
+                });
+                seriesdropdown.addEventListener('mousedown', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.addEventListener('touchstart', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.addEventListener('blur', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.onchange = function () {
+                    if (seriesDropdownKeyboard) {
+                        return;
+                    }
+                    onSeriesChange();
+                };
             }
             --></script>
-                <?php
-            }
+            <?php
         }
 
         //joins and wheres etc.
