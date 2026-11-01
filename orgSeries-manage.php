@@ -176,7 +176,7 @@ function wp_delete_series($series_ID, $taxonomy_id)
     seriesicons_delete($series_ID);
     wp_reset_series_order_meta_cache('', $series_ID, true);
     $series_part = SERIES_PART_KEY . '_' . $series_ID;
-    $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $series_part));
+    $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key = %s", $series_part));
 }
 
 // phpcs:disable WordPress.Security.NonceVerification.Missing -- WordPress verifies term create/edit requests before these taxonomy hooks.
@@ -195,7 +195,7 @@ function wp_insert_series($series_id, $taxonomy_id)
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
     if (null !== $term_order) {
-        $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
+        ppseries_set_term_order($series_id, $term_order);
     }
 }
 
@@ -226,7 +226,7 @@ function wp_update_series($series_id, $taxonomy_id)
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
     if (null !== $term_order) {
-        $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
+        ppseries_set_term_order($series_id, $term_order);
     }
 }
 
@@ -356,7 +356,7 @@ function ajax_pp_series_reordering_terms()
     $return_data->message = __('Updated successfully', 'organize-series');
 
     foreach ($terms as $key => $term_id) {
-        $wpdb->update($wpdb->terms, array('term_order' => ($key + 1)), array('term_id' => $term_id));
+        ppseries_set_term_order((int) $term_id, $key + 1);
     }
     clean_term_cache($terms);
 
@@ -424,4 +424,27 @@ function pp_series_get_terms_orderby($orderby, $args)
 
     return $orderby;
 }
-?>
+/** Save native Series display order, shared with authenticated non-form clients. */
+function ppseries_set_term_order($term_id, $order)
+{
+    global $wpdb;
+    $result = $wpdb->update($wpdb->terms, ['term_order' => (int) $order], ['term_id' => (int) $term_id], ['%d'], ['%d']);
+    clean_term_cache((int) $term_id);
+    return $result !== false;
+}
+
+/** Find post objects affected by the native Series order-metadata cleanup. */
+function ppseries_get_order_meta_post_ids($series_id, $limit = 1001)
+{
+    global $wpdb;
+    $key = SERIES_PART_KEY . '_' . (int) $series_id;
+    $ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT DISTINCT post_id FROM $wpdb->postmeta WHERE meta_key = %s ORDER BY post_id LIMIT %d",
+        $key,
+        max(1, (int) $limit)
+    ));
+    if ($wpdb->last_error) {
+        return new WP_Error('ppseries_order_read_failed', __('Series order metadata could not be read. No cleanup was authorized.', 'organize-series'), ['status' => 500]);
+    }
+    return array_map('intval', $ids);
+}

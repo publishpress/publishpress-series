@@ -105,7 +105,6 @@ function publishpress_series_process_upgrade()
 
 function publishpress_series_sync_menu_order()
 {
-    global $wpdb;
     if (
         isset($_REQUEST['series_action'])
         && isset($_REQUEST['nonce'])
@@ -124,38 +123,14 @@ function publishpress_series_sync_menu_order()
         if (!empty($all_series) && !is_wp_error($all_series)) {
             foreach ($all_series as $series) {
                 $series_id = $series->term_id;
-                $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
-
-                // Get all posts in this series with their part numbers
-                $query = $wpdb->prepare(
-                    "SELECT p.ID, pm.meta_value as series_part
-					FROM {$wpdb->posts} p
-					INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
-					INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id
-					INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-					WHERE pm.meta_key = %s
-					AND tt.term_id = %d
-					AND tt.taxonomy = %s
-					AND p.post_status = 'publish'",
-                    $part_key,
-                    $series_id,
-                    ppseries_get_series_slug()
-                );
-
-                $posts = $wpdb->get_results($query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query prepared above.
+                $posts = ppseries_get_menu_order_posts($series_id);
 
                 if (!empty($posts)) {
                     foreach ($posts as $post) {
                         $series_part = (int) $post->series_part;
 
                         // Update menu_order to match series part
-                        $result = $wpdb->update(
-                            $wpdb->posts,
-                            array('menu_order' => $series_part),
-                            array('ID' => $post->ID),
-                            array('%d'),
-                            array('%d')
-                        );
+                        $result = ppseries_sync_post_menu_order($post->ID, $series_part);
 
                         if ($result !== false) {
                             $updated_count++;
@@ -189,4 +164,38 @@ function publishpress_series_sync_menu_order()
             <?php
         });
     }
+}
+
+/** Persist one native menu-order projection; callers authorize all affected posts first. */
+function ppseries_sync_post_menu_order($post_id, $part)
+{
+    global $wpdb;
+    $result = $wpdb->update($wpdb->posts, ['menu_order' => (int) $part], ['ID' => (int) $post_id], ['%d'], ['%d']);
+    if ($result !== false) {
+        clean_post_cache($post_id);
+    }
+    return $result;
+}
+
+/** Native published, numbered members eligible for menu-order projection. */
+function ppseries_get_menu_order_posts($series_id)
+{
+    global $wpdb;
+    $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+    $query = $wpdb->prepare(
+        "SELECT p.ID, pm.meta_value as series_part
+					FROM {$wpdb->posts} p
+					INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
+					INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id
+					INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+					WHERE pm.meta_key = %s
+					AND tt.term_id = %d
+					AND tt.taxonomy = %s
+					AND p.post_status = 'publish'",
+        $part_key,
+        $series_id,
+        ppseries_get_series_slug()
+    );
+
+    return $wpdb->get_results($query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query prepared above.
 }

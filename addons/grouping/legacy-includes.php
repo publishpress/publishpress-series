@@ -947,7 +947,10 @@ function wp_update_series_group($series_id, $taxonomy_id)
 {
     global $_POST;
 
-    $tax_input = isset($_POST['tax_input']) && is_array($_POST['tax_input']) ? map_deep(wp_unslash($_POST['tax_input']), 'absint') : array();
+    if (!isset($_POST['tax_input']['series_group'])) {
+        return orgseries_group_id($series_id, false);
+    }
+    $tax_input = map_deep(wp_unslash($_POST['tax_input']), 'absint');
 
     $tax_input['series_group'] = !isset($tax_input['series_group']) ? array() : $tax_input['series_group'];
 
@@ -966,14 +969,14 @@ function wp_delete_series_group($series_id, $taxonomy_id)
     //TODO check, do we need wp_delete_post_term_relationship here?
 }
 
-function orgseries_group_id($series_id)
+function orgseries_group_id($series_id, $create = true)
 {
     $post_title = 'series_grouping_' . $series_id;
     $query = array( 'post_status' => array( 'draft', 'publish' ), 'name' => $post_title, 'post_type' => 'series_grouping');
     $series_posts = get_posts($query);
     $series_post = reset($series_posts);
     $group_id = $series_post instanceof WP_Post ? $series_post->ID : 0;
-    if ($series_id && ! $group_id) {
+    if ($create && $series_id && ! $group_id) {
         //looks like the series didn't get added as a custom post for some reason.  Let's fix that
         return wp_insert_series_group($series_id, '');
     }
