@@ -998,14 +998,7 @@ require_once(plugin_dir_path(__FILE__) . '/orgseries-grouping-template-tags.php'
 //helper functions
 function os_stringarray_to_intarray($array)
 {
-    function to_int(&$val, $key)
-    {
-        $val = (int) $val;
-    }
-
-    array_walk($array, 'to_int');
-
-    return $array;
+    return array_map('intval', (array) $array);
 }
 
 
