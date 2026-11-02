@@ -855,18 +855,24 @@ function series_wp_save_post($post_ID, $post, $update)
 // phpcs:disable WordPress.Security.NonceVerification -- Core post/inline/bulk edit handlers verify nonces before save_post.
 function wp_set_post_series($post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false)
 {
-    if (!is_bool($update) || !is_object($post) || $post->post_type === 'revision'
-        || !isset($_REQUEST['is_series_save'], $_REQUEST['series_part'], $_REQUEST['post_series'])) {
+    if (
+        !is_bool($update) || !is_object($post) || $post->post_type === 'revision'
+        || !isset($_REQUEST['is_series_save'], $_REQUEST['series_part'], $_REQUEST['post_series'])
+    ) {
         return;
     }
     if (isset($_GET['bulk_edit_series'], $_GET['post_series']) && $_GET['bulk_edit_series'] === 'bulk' && $_GET['post_series'] == -1) {
         return;
     }
-    $series = $series_id ?: wp_unslash($_REQUEST['post_series']);
-    $parts = isset($_GET['series_part']) ? wp_unslash($_GET['series_part']) : wp_unslash($_POST['series_part'] ?? []);
-    $short = $_GET['serie_post_shorttitle'] ?? $_POST['serie_post_shorttitle'] ?? null;
+    $series = $series_id ?: map_deep(wp_unslash($_REQUEST['post_series']), 'sanitize_text_field');
+    $parts = isset($_GET['series_part'])
+        ? map_deep(wp_unslash($_GET['series_part']), 'sanitize_text_field')
+        : map_deep(wp_unslash($_POST['series_part'] ?? []), 'sanitize_text_field');
+    $short = isset($_GET['serie_post_shorttitle'])
+        ? map_deep(wp_unslash($_GET['serie_post_shorttitle']), 'sanitize_text_field')
+        : (isset($_POST['serie_post_shorttitle'])
+            ? map_deep(wp_unslash($_POST['serie_post_shorttitle']), 'sanitize_text_field') : null);
     if ($short !== null) {
-        $short = wp_unslash($short);
         $first = (int) (is_array($series) ? reset($series) : $series);
         $short = is_array($short) ? ($short[$first] ?? $short[0] ?? '') : '';
         $short = sanitize_text_field($short);
