@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 			
 			if ( series_check === '' ) {
 				series_check = -1;
-				series_text = 'No Series';
+				series_text = ( window.ppSeriesInlineEdit && ppSeriesInlineEdit.noSeries ) ? ppSeriesInlineEdit.noSeries : 'No Series';
 			}
 			/* FOR SOME STRANGE REASON IT APPEARS THAT ONLY ATTR AND VAL AREN'T WORKING BUT REMOVE() WILL WORK? WIERD...*/
 			$('select[name="post_series"] option[value="'+series_check+'"]', editRowData).remove();

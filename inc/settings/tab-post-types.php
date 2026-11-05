@@ -54,12 +54,12 @@ function series_cpt_settings_display()
                                     </label>
                                 </th>
                                 <td>
-                                    <label>
                                     <input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
                                     <?php if ($post_type !== 'post') : ?>
+                                    <?php $pro_tooltip_id = ppseries_pro_tooltip_id(); ?>
                                     <div class="ppseries-pro-lock">
-                                        <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
-                                        <span class="tooltip-text">
+                                        <?php echo ppseries_pro_badge_link($pro_tooltip_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        <span class="tooltip-text" id="<?php echo esc_attr($pro_tooltip_id); ?>" role="tooltip">
                                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                                             <i></i>
                                         </span>

@@ -67,10 +67,15 @@ class PostNavigationRenderer
             return [];
         }
 
+        // With a custom label ("Previous", "Next") the link text doesn't name the post, so the image
+        // alt carries the title. Otherwise the link already shows the title and the image is decorative.
+        $link_type = isset($settings[$position . '_link_type']) ? $settings[$position . '_link_type'] : '';
+        $alt       = ('custom' === $link_type) ? get_the_title($post) : '';
+
         $html = sprintf(
             '<img src="%s" alt="%s" class="pps-nav-featured-image" style="width: %dpx; height: %dpx; object-fit: cover;" />',
             esc_url($image_url),
-            esc_attr(get_the_title($post->ID)),
+            esc_attr(wp_strip_all_tags($alt)),
             $width,
             $height
         );
@@ -199,6 +204,13 @@ class PostNavigationRenderer
             $content
         );
 
+        // Accessibility: expose the navigation as a landmark named after the series.
+        $content = ppseries_wrap_nav_landmark(
+            $content,
+            /* translators: %s: Series name. */
+            sprintf(__('Series navigation: %s', 'organize-series'), wp_strip_all_tags($series_term->name))
+        );
+
         return $content;
     }
 
@@ -273,7 +285,8 @@ class PostNavigationRenderer
                 }
             }
 
-            $content_parts[] = '<h3 class="pps-nav-series-title">' . $title_markup . '</h3>';
+            $title_level = ppseries_heading_level(3, 'post_navigation');
+            $content_parts[] = '<h' . $title_level . ' class="pps-nav-series-title">' . $title_markup . '</h' . $title_level . '>';
         }
 
         // Navigation links (prev, next, first)
@@ -439,7 +452,8 @@ class PostNavigationRenderer
                 }
             }
 
-            $content_parts[] = '<h3 class="pps-nav-series-title">' . $title_markup . '</h3>';
+            $title_level = ppseries_heading_level(3, 'post_navigation');
+            $content_parts[] = '<h' . $title_level . ' class="pps-nav-series-title">' . $title_markup . '</h' . $title_level . '>';
         }
 
         // Navigation links (prev, next, first)
@@ -649,7 +663,7 @@ class PostNavigationRenderer
             $parts[] = $arrow_html;
         }
 
-        $link_content = implode('', $parts);
+        $link_content = self::get_nav_purpose_html($position) . implode('', $parts);
 
         return sprintf('<a%s>%s</a>', $attributes, $link_content);
     }
@@ -694,14 +708,14 @@ class PostNavigationRenderer
 
         // SVG icons for predefined arrow types
         $svg_icons = [
-            'chevron_left' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>',
-            'arrow_left' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
-            'double_left' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>',
-            'triangle_left' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="currentColor"><polygon points="15,18 9,12 15,6"></polygon></svg>',
-            'chevron_right' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>',
-            'arrow_right' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
-            'double_right' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>',
-            'triangle_right' => '<svg class="pps-nav-arrow" width="%d" height="%d" viewBox="0 0 24 24" fill="currentColor"><polygon points="9,18 15,12 9,6"></polygon></svg>',
+            'chevron_left' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>',
+            'arrow_left' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+            'double_left' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>',
+            'triangle_left' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="currentColor"><polygon points="15,18 9,12 15,6"></polygon></svg>',
+            'chevron_right' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>',
+            'arrow_right' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            'double_right' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>',
+            'triangle_right' => '<svg class="pps-nav-arrow" aria-hidden="true" focusable="false" width="%d" height="%d" viewBox="0 0 24 24" fill="currentColor"><polygon points="9,18 15,12 9,6"></polygon></svg>',
         ];
 
         if (isset($svg_icons[$arrow_type])) {
@@ -796,7 +810,38 @@ class PostNavigationRenderer
             );
         }
 
+        // Accessibility: state the link's purpose for screen readers. Custom labels
+        // replace the link text, so add the hidden text back when it is missing.
+        if (false === strpos($link_html, 'screen-reader-text')) {
+            $purpose_html = self::get_nav_purpose_html($position);
+            if ('' !== $purpose_html) {
+                $link_html = preg_replace('/(<a\b(?:[^>"\']|"[^"]*"|\'[^\']*\')*>)/i', '$1' . str_replace(array('\\', '$'), array('\\\\', '\\$'), $purpose_html), $link_html, 1);
+            }
+        }
+
         return $link_html;
+    }
+
+    /**
+     * Hidden text that states a navigation link's purpose.
+     *
+     * @param string $position previous, next or first.
+     *
+     * @return string
+     */
+    private static function get_nav_purpose_html($position)
+    {
+        $purposes = [
+            'previous' => __('Previous post in series:', 'organize-series'),
+            'next'     => __('Next post in series:', 'organize-series'),
+            'first'    => __('First post in series:', 'organize-series'),
+        ];
+
+        if (! isset($purposes[$position])) {
+            return '';
+        }
+
+        return ppseries_sr_text($purposes[$position] . ' ');
     }
 
     /**
@@ -828,6 +873,9 @@ class PostNavigationRenderer
      */
     private static function normalize_nav_link_text($link_html)
     {
+        // Drop hidden screen-reader text so it never becomes the visible label.
+        $link_html = preg_replace('/<span class="screen-reader-text"[^>]*>.*?<\/span>/is', '', (string) $link_html);
+
         if (! class_exists('DOMDocument')) {
             $text = trim(wp_strip_all_tags($link_html));
             // remove arrowlike unicode (double angle quotes etc.)

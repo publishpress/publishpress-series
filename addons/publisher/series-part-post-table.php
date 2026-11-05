@@ -163,9 +163,10 @@ class PPS_Publisher_Post_Part_Table extends WP_List_Table
         );
 
         $actions['view'] = sprintf(
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',
             esc_url(get_permalink($item->ID)),
-            esc_html__('View', 'organize-series')
+            esc_html__('View', 'organize-series'),
+            ppseries_new_tab_text()
         );
 
         $actions = array_merge($actions, [

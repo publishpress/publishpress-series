@@ -10,11 +10,16 @@
 
 defined('ABSPATH') || exit;
 
+// Only output <main> when the plugin prints the whole page (block theme without
+// header.php). Classic themes usually print their own <main>.
+$pps_prints_page = false;
 if (pp_series_locate_template(['header.php'])) {
     get_header();
 } elseif (pp_series_is_block_theme()) {
     pp_series_format_block_theme_header();
+    $pps_prints_page = true;
 }
+$pps_main_tag = $pps_prints_page ? 'main' : 'div';
 
 $group = get_queried_object();
 $group_name = (!empty($group) && isset($group->name)) ? $group->name : '';
@@ -27,7 +32,7 @@ $show_series_items = isset($series_options['series_group_plugin_show_series_item
 $columns = isset($series_options['series_group_plugin_columns']) ? (int) $series_options['series_group_plugin_columns'] : 3;
 $columns = min(4, max(1, $columns));
 ?>
-<main id="series-group-primary" class="site-content pp-series-group-archive" role="main">
+<<?php echo $pps_main_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> id="series-group-primary" class="site-content pp-series-group-archive"<?php echo $pps_prints_page ? ' role="main"' : ''; ?>>
     <div id="series-group-content" class="pp-series-group-archive__content pps-columns-<?php echo esc_attr($columns); ?>">
         <header class="page-header">
             <h1 id="group-title-<?php echo esc_attr($group_term_id); ?>" class="page-title">
@@ -36,7 +41,7 @@ $columns = min(4, max(1, $columns));
         </header>
         <div id="series-post" class="pp-series-group-archive__entry series-entry-content" data-group-id="<?php echo esc_attr($group_term_id); ?>">
             <?php if (!empty($series_ids)) : ?>
-                <div class="pp-series-group-grid" aria-label="<?php esc_attr_e('Series in this category', 'organize-series'); ?>">
+                <div class="pp-series-group-grid" role="region" aria-label="<?php esc_attr_e('Series in this category', 'organize-series'); ?>">
                     <?php foreach ((array) $series_ids as $series_id) : ?>
                         <?php
                         $series_id = (int) $series_id;
@@ -53,10 +58,15 @@ $columns = min(4, max(1, $columns));
                         }
                         $series_icon = $show_image ? get_series_icon('series=' . $series_id . '&fit_width=640&fit_height=360&display=0&link=0') : '';
                         $series_description = term_description($series_id);
+                        if (!empty($series_icon)) {
+                            // The title link below names this card, so the image is decorative.
+                            $series_icon = preg_replace('/\salt=("[^"]*"|\'[^\']*\')/i', '', $series_icon);
+                            $series_icon = preg_replace('/<img\b/i', '<img alt=""', $series_icon);
+                        }
                         ?>
                         <article class="pp-series-group-card">
                             <?php if ($show_image && !empty($series_icon)) : ?>
-                                <a class="pp-series-group-card__thumb" href="<?php echo esc_url($series_link); ?>">
+                                <a class="pp-series-group-card__thumb" href="<?php echo esc_url($series_link); ?>" aria-hidden="true" tabindex="-1">
                                     <?php echo $series_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             <?php endif; ?>
@@ -120,7 +130,7 @@ $columns = min(4, max(1, $columns));
             <?php endif; ?>
             </div>
     </div>
-</main>
+</<?php echo $pps_main_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 <?php
 if (pp_series_locate_template(array( 'sidebar.php' ))) {
     get_sidebar();

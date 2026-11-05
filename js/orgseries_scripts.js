@@ -68,7 +68,7 @@ $(document).on('click', '#upload_image_button', function (e) {
 	}
 	// Define custom_feedback_image_frame as wp.media object
 	custom_feedback_image_frame = wp.media({
-					title: 'Select Media',
+					title: ( window.ppSeriesMedia && ppSeriesMedia.selectMedia ) ? ppSeriesMedia.selectMedia : 'Select Media',
 					multiple : multiple > 0 ? true : false,
 					library : {
 						 type : 'image',
@@ -87,11 +87,18 @@ $(document).on('click', '#upload_image_button', function (e) {
 					});
 
 				}else{
-				 var attachment = custom_feedback_image_frame.state().get('selection').first().toJSON();
+				 var selected = custom_feedback_image_frame.state().get('selection').first();
+				 if ( ! selected ) {
+					return;
+				 }
+				 var attachment = selected.toJSON();
 					 $(upload_input).val(attachment.url);
 					 $(upload_display).val(attachment.url);
-					var view_image_url = "Selected Image:<br /> <img src=\"" + attachment.url + "\" width=\"100px\" alt=\"\" />";
-		 			$('#selected-icon').html(view_image_url)
+					var selectedLabel = ( window.ppSeriesMedia && ppSeriesMedia.selectedImage ) ? ppSeriesMedia.selectedImage : 'Selected Image:';
+					$('#selected-icon').empty()
+						.append( document.createTextNode( selectedLabel ) )
+						.append( '<br /> ' )
+						.append( $('<img />', { src: attachment.url, width: '100px', alt: '' }) );
 				 }
 
 				});

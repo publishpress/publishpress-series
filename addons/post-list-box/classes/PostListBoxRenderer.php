@@ -336,12 +336,15 @@ class PostListBoxRenderer
                     if ($highlighting['is_current']) {
                         $post_item_class .= ' current-post';
                     }
+                    // Accessibility: identify the current post to screen readers.
+                    $current_attr = $highlighting['is_current'] ? ' aria-current="page"' : '';
+                    $post_title_level = ppseries_heading_level(4, 'post_list_box');
                     ?>
                     <div class="<?php echo esc_attr($post_item_class); ?>">
                         <?php if (!empty($settings['show_post_thumbnail'])) : ?>
                             <div class="pps-post-thumbnail">
                                 <?php if (has_post_thumbnail($post->ID)) : ?>
-                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>"<?php echo $current_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                                     </a>
                                 <?php else : ?>
@@ -361,7 +364,7 @@ class PostListBoxRenderer
                                             $post
                                         );
                                     ?>
-                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>"<?php echo $current_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <img src="<?php echo esc_url($fallback_url); ?>" alt="<?php echo esc_attr(get_the_title($post->ID)); ?>" />
                                     </a>
                                 <?php endif; ?>
@@ -374,17 +377,19 @@ class PostListBoxRenderer
                                 $order_number_html = self::get_series_order_number_html($settings, $index);
                                 $order_number_position = self::get_series_order_number_position($settings);
                                 ?>
-                                <h4 class="pps-post-title">
+                                <h<?php echo (int) $post_title_level; ?> class="pps-post-title">
                                     <?php if ($order_number_html && $order_number_position === 'before_title') : ?>
                                         <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                     <?php endif; ?>
-                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>">
+                                    <a href="<?php echo esc_url(get_permalink($post->ID)); ?>"<?php echo $current_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <?php echo esc_html(get_the_title($post->ID)); ?>
                                     </a>
                                     <?php if ($order_number_html && $order_number_position === 'after_title') : ?>
                                         <?php echo $order_number_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                     <?php endif; ?>
-                                </h4>
+                                </h<?php echo (int) $post_title_level; ?>>
+                            <?php elseif ($highlighting['is_current'] && empty($settings['show_post_thumbnail'])) : ?>
+                                <?php echo ppseries_sr_text(__('(current post)', 'organize-series')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             <?php endif; ?>
 
                             <?php

@@ -379,6 +379,7 @@ class Blocks
         \wp_enqueue_style(self::STYLE_HANDLE);
 
         $items = '';
+        $title_level = function_exists('ppseries_heading_level') ? \ppseries_heading_level(3, 'block_series') : 3;
         foreach ($terms as $term) {
             $term_id = isset($term->term_id) ? \absint($term->term_id) : 0;
             $term_name = isset($term->name) ? (string) $term->name : '';
@@ -400,15 +401,18 @@ class Blocks
 
             $item = '<li class="pps-series-list__item">';
             if ($icon) {
-                $item .= '<div class="pps-series-list__icon"><a href="' . \esc_url($term_link) . '">';
+                // The title link repeats this link, so hide the image link from assistive tech.
+                $icon = preg_replace('/\salt=("[^"]*"|\'[^\']*\')/i', '', (string) $icon);
+                $icon = preg_replace('/<img\b/i', '<img alt=""', (string) $icon);
+                $item .= '<div class="pps-series-list__icon"><a href="' . \esc_url($term_link) . '" aria-hidden="true" tabindex="-1">';
                 $item .= \wp_kses_post($icon);
                 $item .= '</a></div>';
             }
 
             $item .= '<div class="pps-series-list__content">';
-            $item .= '<h3 class="pps-series-list__title"><a href="' . \esc_url($term_link) . '">';
+            $item .= '<h' . $title_level . ' class="pps-series-list__title"><a href="' . \esc_url($term_link) . '">';
             $item .= \esc_html($term_name);
-            $item .= '</a></h3>';
+            $item .= '</a></h' . $title_level . '>';
 
             if ($show_description && '' !== trim(\wp_strip_all_tags($term_description))) {
                 $item .= '<div class="pps-series-list__description">';
