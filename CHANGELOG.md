@@ -1,5 +1,9 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[Unreleased]
+
+* Added: Private MCP actions for Series settings, categories, membership, layouts and editorial workflows, with native permissions and preview support.
+
 [3.1.5] - 27 Oct, 2026
 
 * Added: Add search, a part number filter and pagination to the Series Order screen #1231

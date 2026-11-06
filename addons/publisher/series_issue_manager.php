@@ -112,6 +112,9 @@ if (!function_exists('series_issue_manager_part')) {
         );
 
         foreach ($ordered_ids as $offset => $series_post_id) {
+            if (!current_user_can('edit_post', $series_post_id)) {
+                return;
+            }
             $new_part = $offset + 1;
             if ((string) get_post_meta($series_post_id, $part_key, true) !== (string) $new_part) {
                 delete_post_meta($series_post_id, $part_key);
@@ -162,6 +165,9 @@ if (!function_exists('series_issue_manager_pending_order')) {
 
         $current_part = 0;
         foreach ($post_ids as $post_ID) {
+            if (!current_user_can('edit_post', $post_ID)) {
+                return;
+            }
             $current_part++;
             $part_key = apply_filters('orgseries_pending_part_key', '_pending_series_part', $series_ID);
             update_post_meta($post_ID, $part_key, $current_part);
@@ -203,6 +209,9 @@ if (!function_exists('series_issue_manager_publish')) {
             $current_sn = count($post_ids_in_series) - count($post_ids);
 
         foreach ($post_ids as $post_ID) {
+            if (!current_user_can('edit_post', $post_ID) || !current_user_can('publish_post', $post_ID)) {
+                return;
+            }
             $current_sn++;
             $post = get_post($post_ID);
             if (!$post) {
@@ -233,7 +242,7 @@ if (!function_exists('series_issue_manager_publish')) {
 if (!function_exists('series_issue_manager_unpublish')) {
     function series_issue_manager_unpublish($series_ID, &$published, &$unpublished)
     {
-        $posts = get_objects_in_term($series_ID, ppseries_get_series_slug());
+        $posts = ppseries_publisher_get_unpublish_ids($series_ID);
         if (is_wp_error($posts) || !ppseries_publisher_user_can_all_posts($posts, 'edit_post')) {
             return;
         }
@@ -253,7 +262,10 @@ if (!function_exists('series_issue_manager_unpublish')) {
 
             // change all published posts in the series to pending
         foreach ($posts as $post) {
-            if (!empty(get_post_status($post)) && get_post_status($post) !== 'draft') {
+            if (!current_user_can('edit_post', $post)) {
+                return;
+            }
+            if (in_array(get_post_status($post), ppseries_publisher_unpublish_statuses(), true)) {
                 wp_update_post(
                     array(
                         'ID' => $post,
@@ -666,7 +678,7 @@ function ppseries_publisher_admin_init()
     switch ($action) {
         case 'unpublish':
             ppseries_publisher_require_series_admin();
-            $posts = get_objects_in_term($series_id, ppseries_get_series_slug());
+            $posts = ppseries_publisher_get_unpublish_ids($series_id);
             if (is_wp_error($posts) || !ppseries_publisher_user_can_all_posts($posts, 'edit_post')) {
                 ppseries_publisher_die_forbidden();
             }
@@ -699,16 +711,7 @@ function ppseries_publisher_admin_init()
 
         case 'ignore':
             ppseries_publisher_require_series_admin();
-            $key = array_search($series_id, $published);
-            if (false !== $key) {
-                array_splice($published, $key, 1);
-                update_option('im_published_series', $published);
-            }
-            $key = array_search($series_id, $unpublished);
-            if (false !== $key) {
-                array_splice($unpublished, $key, 1);
-                update_option('im_unpublished_series', $unpublished);
-            }
+            ppseries_publisher_mark_published($series_id, $published, $unpublished);
             ppseries_publisher_redirect();
             break;
 
@@ -1290,3 +1293,37 @@ function init_pps_publisher()
 }
 add_action('publishpress_series_after_init', 'init_pps_publisher');
 add_action('publishpress_series_pro_before_init', 'init_pps_publisher');
+
+/** Mark a Series as published without changing its posts. */
+function ppseries_publisher_mark_published($series_id, &$published, &$unpublished)
+{
+    $unpublished = array_values(array_diff($unpublished, [$series_id]));
+    $published = array_values(array_unique(array_merge($published, [$series_id])));
+    sort($published);
+    update_option('im_unpublished_series', $unpublished);
+    update_option('im_published_series', $published);
+}
+
+/** Native unpublished-post order screen statuses. */
+function ppseries_publisher_pending_statuses()
+{
+    return ['draft', 'future', 'pending'];
+}
+
+/** Status changes in Publish Series must never restore Trash or auto-drafts. */
+function ppseries_publisher_unpublish_statuses()
+{
+    return ['publish', 'private', 'future', 'pending'];
+}
+
+/** Share the exact unpublish set between the screen and non-form clients. */
+function ppseries_publisher_get_unpublish_ids($series_id)
+{
+    $ids = get_objects_in_term($series_id, ppseries_get_series_slug());
+    if (is_wp_error($ids)) {
+        return $ids;
+    }
+    return array_values(array_filter(array_map('intval', $ids), static function ($id) {
+        return in_array(get_post_status($id), ppseries_publisher_unpublish_statuses(), true);
+    }));
+}

@@ -83,7 +83,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
 
         if ($series_id) {
             $arg = array(
-                'post_status' => array('draft', 'future', 'pending'),
+                'post_status' => ppseries_publisher_pending_statuses(),
                 'post_type' => apply_filters('orgseries_posttype_support', array('post')),
                 'posts_per_page' => -1,
                 'no_found_rows' => true,
