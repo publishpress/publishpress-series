@@ -843,6 +843,43 @@ if (!class_exists('orgSeries')) {
             return $content;
         }
 
+        /**
+         * Whether the content being filtered is the main post's content.
+         *
+         * Shortcodes and blocks that embed another post (e.g. Post Content Shortcodes) run
+         * 'the_content' again inside the main post's content, with or without setting up the
+         * embedded post as the global post. Series boxes belong to the main post only (#745):
+         * - a 'the_content' call nested inside another one is embedded content;
+         * - on a singular view, content of any post other than the queried one is skipped.
+         *
+         * Archives keep their current behaviour: each post in the loop is checked on its own.
+         * The block theme core/post-content block applies 'the_content' once, from the template
+         * and with the queried post set up, so the main post still gets its boxes.
+         *
+         * @return bool
+         */
+        private function is_main_series_content()
+        {
+            global $wp_current_filter;
+
+            $is_main_content = true;
+
+            if (is_array($wp_current_filter) && count(array_keys($wp_current_filter, 'the_content', true)) > 1) {
+                $is_main_content = false;
+            } elseif (is_singular()) {
+                $queried_id = (int) get_queried_object_id();
+                $is_main_content = $queried_id < 1 || (int) get_the_ID() === $queried_id;
+            }
+
+            /**
+             * Filter whether Series boxes are added to the content being filtered.
+             *
+             * @param bool $is_main_content Whether this is the main post's content.
+             * @param int  $post_id         ID of the post the content is filtered for.
+             */
+            return (bool) apply_filters('pp_series_is_main_post_content', $is_main_content, (int) get_the_ID());
+        }
+
         //add series post-list box to a post in that series (on single.php view)
         public function add_series_post_list_box($content)
         {
@@ -852,7 +889,7 @@ if (!class_exists('orgSeries')) {
             */
             $add_series_content = apply_filters('pp_series_add_series_content', true);
 
-            if ($add_series_content && $this->settings['auto_tag_toggle']) {
+            if ($add_series_content && $this->settings['auto_tag_toggle'] && $this->is_main_series_content()) {
                 if (( is_single() || is_page() ) && $postlist = wp_postlist_display()) {
                     // Get position from the selected post list box
                     $position = 'top'; // fallback value
@@ -903,7 +940,7 @@ if (!class_exists('orgSeries')) {
                 return $content;
             }
 
-            if ($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
+            if ($add_series_content && $this->settings['auto_tag_seriesmeta_toggle'] && $this->is_main_series_content()) {
                 if ($series_meta = wp_seriesmeta_write()) {
                     $position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
                     if ($layout_settings && isset($layout_settings['metabox_position'])) {
@@ -980,7 +1017,7 @@ if (!class_exists('orgSeries')) {
                 */
                 $add_series_content = apply_filters('pp_series_add_series_content', true);
 
-                if ($add_series_content && $this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav()) {
+                if ($add_series_content && $this->settings['auto_tag_nav_toggle'] && $this->is_main_series_content() && $series_nav = wp_assemble_series_nav()) {
                     $position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
                     $content = $this->add_deferred_series_output($series_nav, $content, $position);
                 }
