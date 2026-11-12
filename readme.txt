@@ -199,4 +199,105 @@ Yes. The `organize-series` folder contains `seriestoc.php`, which is loaded at y
 
 == Changelog ==
 
-The full changelog can be found on [GitHub](https://github.com/publishpress/publishpress-series/blob/master/CHANGELOG.md).
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+= 3.1.5 - 27 Oct, 2026 =
+
+* Added: Add search, a part number filter and pagination to the Series Order screen #1231
+* Added: Add Order Tools to the Series Order screen to order posts by publication date, oldest or newest first #1236
+* Added: Add a search box to the Series Categories list on the Series edit screen #1233
+* Added: Add top, right, bottom and left padding and margin controls for Post Details #1245
+* Changed: Add the Series boxes after table of contents plugins read the post content, so tables of contents no longer list Series headings or appear inside the Post List Box. Content that other plugins add to the post after the Series boxes (filter priority 13 to 10050) now appears above a Series box placed at the bottom of the post #1242
+* Changed: "Update Order" on the Series Order screen only changes the posts on the current page and leaves posts without a part number unnumbered. Saving without changes no longer renumbers posts #1231
+* Changed: On multisite, only Super Admins can change "Delete all PublishPress Series data" and the setting applies to the whole network #1230
+* Changed: Rename the Post Details archive option to "Hide on archive screens" and explain what it hides #1232
+* Changed: Improve the accessibility of admin fields, links, images and Series featured images #1234 #1250
+* Changed: Set the options autoload values, build admin URLs with admin_url() and set up Series on new multisite sites #1235
+* Changed: Increase the minimum required PHP version to 8.2
+* Changed: Add a workflow that builds the plugin zip from any branch or pull request #1251
+* Changed: Update axios from 1.19.0 to 1.20.0, follow-redirects from 1.16.0 to 1.16.1 and source-map-js from 1.2.1 to 1.2.2, and rebuild the JavaScript files #1252 #1254 #1257
+* Changed: Update postcss-selector-parser from 7.1.4 to 7.1.6 (development) #1253
+* Changed: Update publishpress/pimple-pimple from 3.5.0.10 to 3.5.0.11
+* Fixed: Show the correct series title and link in each Post List Box when a post is in more than one series #1261
+* Fixed: Update the Series post counts and part numbers when a post is published, unpublished or trashed #1244
+* Fixed: The Series widget Include and Exclude options #1243
+* Fixed: Deleting the plugin removes the Series data when "Delete all PublishPress Series data" is on #1230
+* Fixed: Updates to the Series settings made by code no longer fail with "The link you followed has expired" #1259
+* Fixed: Verify TLS certificates in license requests and harden cache keys and output escaping #1237
+* Fixed: A clean JavaScript build no longer drops the admin script from assets/dist
+
+= 3.1.4 - 14 Sep, 2026 =
+
+* Added: Add Gutenberg blocks for Post List Boxes, Post Details, Post Navigation, and Series List #1198
+* Changed: Improve the accessibility of Series admin controls, tabs, tooltips, dynamic updates, dialogs, and text contrast #1204 #1205 #1206 #1207 #1208 #1209 #1210
+* Changed: Allow post-level HTML, including `<hr>`, in Series descriptions #1199
+* Changed: Increase the minimum required PHP version to 7.4 #1197
+* Fixed: Assign the correct Series order to new published and private posts #1187
+* Fixed: Correct the Post List Box preview order and layout editor tabs #1189 #1190 #1191
+* Fixed: Correct the footer layout on the Publish or schedule posts screen #1188
+* Fixed: Require authorization and validated input for Series management, layout, upgrade, and sorting requests #1185 #1203 #1216
+* Fixed: Hide series-wide Publish Series controls from unauthorized users #1203
+
+= 3.1.3 - 17 Aug, 2026 =
+
+* Added: Add a welcome panel with the first steps for new users #1170
+* Added: Add a Dependabot triage workflow #1145
+* Changed: Add a description to each setting in the editor #1150
+* Changed: Indent the sub-settings below their parent setting #1149
+* Changed: Link the PRO badges to the Series upgrade page #1148
+* Changed: Replace the use of extract() with explicit variable assignments #1153
+* Changed: Refactor the ppseries_get_series_slug() function #1144 (thanks @lenasterg)
+* Changed: Update the dev-workspace and the GitHub workflows #1133
+* Fixed: Fatal error "Cannot redeclare ppseries_addons_settings_hooks()" #1139
+* Fixed: The category filter is broken on the Add Series screen #1172
+* Fixed: PHP 8.5 deprecation warnings from SplObjectStorage #1163
+* Fixed: The string "Custom Template" is hard-coded and not translatable #1154
+* Fixed: The top banner is missing on three screens in the Free plugin #1147
+* Fixed: Improve the escaping and the sanitization in the series navigation template tags #1141
+* Fixed: The series icon column upgrade fails in the database #1143 (thanks @lenasterg)
+
+= 3.1.2 - 29 Apr, 2026 =
+
+* Added: Add new translation languages #1082
+* Added: Migrate to shared dev-workspace #1108
+* Added: Add new field to add post summary field in Post List Box #1116
+* Changed: Update readme file #1111
+* Changed: Disable Excerpt in default box #1115
+* Fixed: Translation warning in WordPress admin #1117
+
+= 3.1.0 - 09 Mar, 2026 =
+
+* Added: Add a "No Series" option in bulk edit #1016
+* Added: Add a default Series categories template and add a fallback to theme template #1020
+* Added: Add new field to link the title in Post List Box and Post Navigation #1022
+* Added: Allow user to change slug for Series Categories #1034
+* Added: Add new field Series order number in Post List box #1037
+* Added: Use new PublishPress translation library for translation system #1043
+* Fixed: Updated the relative URL in Post List Box #1023
+* Fixed: Added missing text domain #1024 (thanks @DAnn2012)
+* Fixed: Fixed text domain in Post Navigation #1025 (thanks @DAnn2012)
+* Fixed: Add path for localization files #1026 (thanks @DAnn2012)
+* Fixed: Fixed functions in Post List Box Admin UI #1027 (thanks @DAnn2012)
+* Fixed: Navigation cannot be clicked in Post Navigation #1047
+* Changed: Update PublishPress Review library #1040
+* Changed: Update PublishPress EDD Updated library #1039
+* Changed: Refactor the settings page #1021
+
+= 3.0.0 - 12 Feb, 2026 =
+
+* Changed: Restructured Pro plugin to include Free as Composer dependency
+* Changed: Pro now extends Free functionality via hooks instead of code duplication
+
+= 2.17.1 - 10 Dec, 2025 =
+
+* Fixed: Patch for XSS Vulnerability
+
+= 2.17.0 - 19 Nov, 2025 =
+
+* Added: Series Post Navigation editor #998
+* Added: Add a View link from the Series Order screen #984
+* Added: Add a checkbox to migrate terms to new taxonomies
+* Fixed: Border color does not match on Post List Box
+* Update: ES-FR-IT Translation #1002
+
+The full changelog, including older releases, can be found on [GitHub](https://github.com/publishpress/publishpress-series/blob/master/CHANGELOG.md).

@@ -77,6 +77,25 @@ if (!function_exists('pp_series_upgrade_function')) {
             update_option('pp_series_2_7_1_upgraded', true);
         }
 
+        /**
+         * Grant manage_publishpress_series to editors once.
+         *
+         * Editors were meant to get this capability on install, but the old install
+         * routine was never run on activation. This runs once (fresh installs and
+         * existing sites); it is not re-added on later loads, so sites that remove it
+         * from editors afterwards keep their setting. A capability explicitly denied
+         * on the role (stored as false, e.g. by a role editor plugin) is left alone.
+         */
+        if (!get_option('pp_series_3_2_0_editor_cap_upgraded')) {
+            if (function_exists('get_role')) {
+                $role = get_role('editor');
+                if (null !== $role && !isset($role->capabilities['manage_publishpress_series'])) {
+                    $role->add_cap('manage_publishpress_series');
+                }
+            }
+            update_option('pp_series_3_2_0_editor_cap_upgraded', true);
+        }
+
         if (!get_option('pp_series_2_8_0_upgraded')) {
             $settings = get_option('org_series_options');
             $settings = apply_filters('org_series_settings', $settings);
@@ -129,6 +148,56 @@ if (!function_exists('pp_series_upgrade_function')) {
             if ($table_exists) {
                 update_option('pp_series_2_11_1_upgraded', true);
             }
+        }
+
+        /**
+         * Repair zero dates on hidden series_grouping posts.
+         *
+         * These posts were created as drafts without a GMT date, so their
+         * post_date_gmt and post_modified_gmt were 0000-00-00 00:00:00, which SEO
+         * plugins turned into invalid sitemap lastmod values. The GMT dates are
+         * rebuilt from the local dates; zero local dates fall back to now.
+         */
+        if (!get_option('pp_series_3_2_0_group_dates_upgraded')) {
+            $zero_date = '0000-00-00 00:00:00';
+            $group_posts = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, post_date, post_date_gmt, post_modified, post_modified_gmt FROM $wpdb->posts WHERE post_type = %s AND (post_date_gmt = %s OR post_modified_gmt = %s OR post_date = %s OR post_modified = %s)",
+                    'series_grouping',
+                    $zero_date,
+                    $zero_date,
+                    $zero_date,
+                    $zero_date
+                )
+            );
+
+            if (!empty($group_posts)) {
+                $now = current_time('mysql');
+                $now_gmt = current_time('mysql', true);
+
+                foreach ($group_posts as $group_post) {
+                    $post_date = ($group_post->post_date !== $zero_date) ? $group_post->post_date : $now;
+                    $post_date_gmt = ($group_post->post_date !== $zero_date) ? get_gmt_from_date($post_date) : $now_gmt;
+                    $post_modified = ($group_post->post_modified !== $zero_date) ? $group_post->post_modified : $post_date;
+                    $post_modified_gmt = ($group_post->post_modified !== $zero_date) ? get_gmt_from_date($post_modified) : $post_date_gmt;
+
+                    $wpdb->update(
+                        $wpdb->posts,
+                        array(
+                            'post_date' => $post_date,
+                            'post_date_gmt' => ($group_post->post_date_gmt !== $zero_date) ? $group_post->post_date_gmt : $post_date_gmt,
+                            'post_modified' => $post_modified,
+                            'post_modified_gmt' => ($group_post->post_modified_gmt !== $zero_date) ? $group_post->post_modified_gmt : $post_modified_gmt,
+                        ),
+                        array('ID' => (int) $group_post->ID),
+                        array('%s', '%s', '%s', '%s'),
+                        array('%d')
+                    );
+                    clean_post_cache((int) $group_post->ID);
+                }
+            }
+
+            update_option('pp_series_3_2_0_group_dates_upgraded', true);
         }
 
         /**
@@ -798,4 +867,21 @@ if (! function_exists('ppseries_wrap_nav_landmark')) {
 
         return implode('%postcontent%', $segments);
     }
+}
+
+/** Native transparent color controls share the same validator as layout imports. */
+function pps_sanitize_transparent_color($value)
+{
+    return pps_sanitize_css_color($value, true);
+}
+
+/** Native optional Series Pro controls shared by discovery and both settings screens. */
+function ppseries_get_pro_feature_definitions()
+{
+    return [
+        'cpt' => ['name' => __('Custom Post Type Support', 'organize-series'), 'description' => __('Allow custom post types to be used with PublishPress Series.', 'organize-series')],
+        'shortcodes' => ['name' => __('Shortcodes', 'organize-series'), 'description' => __('Provides shortcodes to display series information.', 'organize-series')],
+        'extra-tokens' => ['name' => __('Extra Tokens', 'organize-series'), 'description' => __('Provides extra tokens to customize the output of series information.', 'organize-series')],
+        'multiples' => ['name' => __('Multiple Series', 'organize-series'), 'description' => __('Allows authors to add posts to more than one series.', 'organize-series')],
+    ];
 }

@@ -171,48 +171,7 @@ class Blocks
                 'icon'        => 'screenoptions',
                 'style'       => self::STYLE_HANDLE,
                 'editor_style' => self::STYLE_HANDLE,
-                'attributes'  => [
-                    'contentType' => [
-                        'type'    => 'string',
-                        'default' => 'series',
-                    ],
-                    'view' => [
-                        'type'    => 'string',
-                        'default' => 'grid',
-                    ],
-                    'columns' => [
-                        'type'    => 'integer',
-                        'default' => 3,
-                    ],
-                    'numberOfItems' => [
-                        'type'    => 'integer',
-                        'default' => 6,
-                    ],
-                    'orderBy' => [
-                        'type'    => 'string',
-                        'default' => 'name',
-                    ],
-                    'order' => [
-                        'type'    => 'string',
-                        'default' => 'asc',
-                    ],
-                    'hideEmpty' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showIcon' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showDescription' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showPostCount' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                ],
+                'attributes' => self::getSeriesListAttributes(),
                 'render_callback' => [__CLASS__, 'renderSeriesList'],
             ],
         ];
@@ -299,11 +258,64 @@ class Blocks
      *
      * @return string
      */
+    public static function getSeriesListAttributes()
+    {
+        return [
+                    'contentType' => [
+                        'type'    => 'string',
+                        'default' => 'series',
+                        'enum' => ['series', 'series_group'],
+                    ],
+                    'view' => [
+                        'type'    => 'string',
+                        'default' => 'grid',
+                        'enum' => ['grid', 'list'],
+                    ],
+                    'columns' => [
+                        'type'    => 'integer',
+                        'default' => 3,
+                        'minimum' => 1, 'maximum' => 4,
+                    ],
+                    'numberOfItems' => [
+                        'type'    => 'integer',
+                        'default' => 6,
+                        'minimum' => 1, 'maximum' => 50,
+                    ],
+                    'orderBy' => [
+                        'type'    => 'string',
+                        'default' => 'name',
+                        'enum' => ['name', 'count', 'term_id'],
+                    ],
+                    'order' => [
+                        'type'    => 'string',
+                        'default' => 'asc',
+                        'enum' => ['asc', 'desc'],
+                    ],
+                    'hideEmpty' => [
+                        'type'    => 'boolean',
+                        'default' => true,
+                    ],
+                    'showIcon' => [
+                        'type'    => 'boolean',
+                        'default' => true,
+                    ],
+                    'showDescription' => [
+                        'type'    => 'boolean',
+                        'default' => true,
+                    ],
+                    'showPostCount' => [
+                        'type'    => 'boolean',
+                        'default' => true,
+                    ],
+                ];
+    }
+
     public static function renderSeriesList($attributes, $content = '', $block = null)
     {
-        $views = ['grid', 'list'];
-        $order_by_options = ['name', 'count', 'term_id'];
-        $content_types = ['series', 'series_group'];
+        $definitions = self::getSeriesListAttributes();
+        $views = $definitions['view']['enum'];
+        $order_by_options = $definitions['orderBy']['enum'];
+        $content_types = $definitions['contentType']['enum'];
         $content_type = isset($attributes['contentType']) && in_array($attributes['contentType'], $content_types, true)
             ? $attributes['contentType']
             : 'series';

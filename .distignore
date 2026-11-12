@@ -73,6 +73,8 @@ screenshot-*.png
 /scripts
 tailwind.config.js
 tests
+/.agents
+/docs
 vendor
 vendor/bin
 vendor/pimple/pimple/.gitignore

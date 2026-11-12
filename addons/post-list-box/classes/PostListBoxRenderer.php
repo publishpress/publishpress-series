@@ -124,7 +124,8 @@ class PostListBoxRenderer
         }
 
         // Get posts from series
-        $posts = self::get_series_posts($series_id, $settings);
+        $number_offset = 0;
+        $posts = self::get_series_posts($series_id, $settings, self::get_current_post_id(), $number_offset);
 
         if (empty($posts)) {
             return '';
@@ -133,17 +134,38 @@ class PostListBoxRenderer
         // Enqueue styles only when content is actually rendered
         self::enqueue_frontend_styles();
 
-        return self::render_html($posts, $settings, $atts['class'], $post_id, $series_id);
+        return self::render_html($posts, $settings, $atts['class'], $post_id, $series_id, $number_offset);
+    }
+
+    /**
+     * Get the ID of the post being viewed, used for highlighting and for
+     * showing the posts around the current post.
+     *
+     * @return int
+     */
+    private static function get_current_post_id()
+    {
+        $current_post_id = get_queried_object_id();
+        if (!$current_post_id && is_singular()) {
+            global $post;
+            if ($post) {
+                $current_post_id = $post->ID;
+            }
+        }
+
+        return (int) $current_post_id;
     }
 
     /**
      * Get posts from series
      *
-     * @param int $series_id Series ID
-     * @param array $settings Layout settings
+     * @param int   $series_id       Series ID
+     * @param array $settings        Layout settings
+     * @param int   $current_post_id ID of the post being viewed, 0 when none
+     * @param int   $number_offset   Set to the position of the first returned post in the full list
      * @return array
      */
-    private static function get_series_posts($series_id, $settings)
+    private static function get_series_posts($series_id, $settings, $current_post_id = 0, &$number_offset = 0)
     {
         $taxonomy_slug = get_option('pp_series_taxonomy_slug', 'series');
 
@@ -153,11 +175,16 @@ class PostListBoxRenderer
             'orderby' => 'series_order',
             'order' => 'ASC',
             'maximum_items' => -1,
+            'maximum_items_mode' => PPS_Post_List_Box_Fields::sanitize_maximum_items_mode(
+                isset($settings['maximum_items_mode']) ? $settings['maximum_items_mode'] : 'first'
+            ),
         ];
 
         /**
          * Filter query parameters for post list box.
          * Pro uses this to apply orderby, order, and maximum_items settings.
+         * maximum_items_mode ('first' or 'around_current') decides which posts are kept
+         * when maximum_items limits the list.
          *
          * @param array $query_params Default query parameters.
          * @param array $settings     Layout settings.
@@ -167,7 +194,12 @@ class PostListBoxRenderer
 
         $orderby = $query_params['orderby'];
         $order = $query_params['order'];
-        $maximum_items = $query_params['maximum_items'];
+        $maximum_items = (int) $query_params['maximum_items'];
+        $maximum_items = $maximum_items > 0 ? $maximum_items : -1;
+        $maximum_items_mode = PPS_Post_List_Box_Fields::sanitize_maximum_items_mode(
+            isset($query_params['maximum_items_mode']) ? $query_params['maximum_items_mode'] : 'first'
+        );
+        $number_offset = 0;
 
         if ($orderby === 'series_order') {
             $args = [
@@ -180,7 +212,9 @@ class PostListBoxRenderer
                         'terms' => $series_id,
                     ],
                 ],
-                'posts_per_page' => $maximum_items,
+                // Fetch the whole series: the limit is applied after sorting by series order,
+                // otherwise the newest posts would be kept instead of the first parts.
+                'posts_per_page' => -1,
                 'orderby' => 'date',
                 'order' => 'DESC'
             ];
@@ -206,11 +240,17 @@ class PostListBoxRenderer
                     $sorted_posts = array_reverse($sorted_posts);
                 }
 
-                return $sorted_posts;
+                $limited = PPS_Post_List_Box_Utilities::limit_posts($sorted_posts, $maximum_items, $maximum_items_mode, $current_post_id);
+                $number_offset = $limited['offset'];
+
+                return $limited['posts'];
             }
 
             return [];
         }
+
+        // Showing the posts around the current post needs the whole list to find it.
+        $limit_after_query = $maximum_items > 0 && $maximum_items_mode === 'around_current';
 
         $args = [
             'post_type' => 'post',
@@ -224,10 +264,18 @@ class PostListBoxRenderer
             ],
             'orderby' => $orderby,
             'order' => $order,
-            'posts_per_page' => $maximum_items,
+            'posts_per_page' => $limit_after_query ? -1 : $maximum_items,
         ];
 
-        return get_posts($args);
+        $posts = get_posts($args);
+
+        if ($limit_after_query) {
+            $limited = PPS_Post_List_Box_Utilities::limit_posts($posts, $maximum_items, $maximum_items_mode, $current_post_id);
+            $number_offset = $limited['offset'];
+            $posts = $limited['posts'];
+        }
+
+        return $posts;
     }
 
     /**
@@ -246,7 +294,7 @@ class PostListBoxRenderer
      * Build title number token.
      *
      * @param array $settings Layout settings.
-     * @param int   $index    Zero-based post index.
+     * @param int   $index    Zero-based post index in the full list.
      * @return string
      */
     private static function get_series_order_number_html($settings, $index)
@@ -266,9 +314,12 @@ class PostListBoxRenderer
      * @param array $posts Posts to display
      * @param array $settings Layout settings
      * @param string $additional_class Additional CSS classes
+     * @param int|null $post_id Post list box ID
+     * @param int|null $series_id Series term ID
+     * @param int $number_offset Position of the first post in the full list, used for the order number
      * @return string
      */
-    private static function render_html($posts, $settings, $additional_class = '', $post_id = null, $series_id = null)
+    private static function render_html($posts, $settings, $additional_class = '', $post_id = null, $series_id = null, $number_offset = 0)
     {
         ob_start();
 
@@ -319,13 +370,7 @@ class PostListBoxRenderer
             <div class="pps-post-list <?php echo esc_attr($layout_style); ?>">
                 <?php
                 // Get current post ID for highlighting
-                $current_post_id = get_queried_object_id();
-                if (!$current_post_id && is_singular()) {
-                    global $post;
-                    if ($post) {
-                        $current_post_id = $post->ID;
-                    }
-                }
+                $current_post_id = self::get_current_post_id();
 
                 foreach ($posts as $index => $post) :
                     setup_postdata($post);
@@ -374,7 +419,7 @@ class PostListBoxRenderer
                         <div class="pps-post-content">
                             <?php if (!empty($settings['show_post_titles'])) : ?>
                                 <?php
-                                $order_number_html = self::get_series_order_number_html($settings, $index);
+                                $order_number_html = self::get_series_order_number_html($settings, $index + (int) $number_offset);
                                 $order_number_position = self::get_series_order_number_position($settings);
                                 ?>
                                 <h<?php echo (int) $post_title_level; ?> class="pps-post-title">
