@@ -71,3 +71,33 @@
 		float: right;
 	}
 }
+
+/* Accessibility: hidden text for screen readers, scoped to PublishPress Series output. */
+.seriesbox .screen-reader-text,
+.seriesmeta .screen-reader-text,
+.ppseries-nav-landmark .screen-reader-text,
+.latest-series .screen-reader-text,
+.pps-navigation-content .screen-reader-text,
+.pps-post-list .screen-reader-text,
+.pps-series-list .screen-reader-text,
+#series-content .screen-reader-text,
+#series-group-primary .screen-reader-text,
+label.screen-reader-text[for="orgseries_dropdown"] {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+/* Accessibility (reflow): drop the forced width on small screens. */
+@media (max-width: 600px) {
+	.seriesbox {
+		min-width: 0;
+	}
+}

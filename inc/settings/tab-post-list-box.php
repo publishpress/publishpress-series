@@ -57,7 +57,7 @@ function series_post_list_box_fieldset()
                         <select name="<?php echo esc_attr($org_name); ?>[series_post_list_box_selection]" id="series_post_list_box_selection" class="ppseries-full-width ppseries-layout-select" data-post-type="pps_post_list_box" data-saved-key="series_post_list_box_selection" data-edit-label="<?php esc_attr_e('Edit this box', 'organize-series'); ?>">
                             <option value=""><?php esc_html_e('Loading…', 'organize-series'); ?></option>
                         </select>
-                        <p class="ppseries-edit-link-wrap" style="display:none;"><a href="#" class="ppseries-edit-link">&rarr;</a></p>
+                        <p class="ppseries-edit-link-wrap" style="display:none;"><a href="#" class="ppseries-edit-link"><?php esc_html_e('Edit this box', 'organize-series'); ?> <span aria-hidden="true">&rarr;</span></a></p>
                     </td>
                 </tr>
 

@@ -42,16 +42,15 @@ class orgSeries_widget_latestseries extends WP_Widget
                 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 echo $before_title . $title . $after_title;
             }
-            ?>
-            <ul>
-                <?php
-                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                echo $out;
-                ?>
-            </ul>
-            <?php
-                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                echo $after_widget;
+            // The default template already prints its own <ul>. Only keep the outer
+            // list when a custom template prints bare <li> items.
+            if (false !== stripos($out, '<li') && false === stripos($out, '<ul') && false === stripos($out, '<ol')) {
+                $out = '<ul>' . $out . '</ul>';
+            }
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $out;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $after_widget;
         }
     }
 
@@ -193,7 +192,15 @@ class orgSeries_widget_seriestoc extends WP_Widget
             } elseif ($instance['list-type'] == 'dropdown') {
                 $series_args['show_option_all'] = __('Select Series', 'organize-series');
                 $series_args['name'] = 'orgseries_dropdown';
-                $out = wp_dropdown_series($series_args);
+                $dropdown = wp_dropdown_series($series_args);
+                if (!empty($dropdown)) {
+                    // Hidden label for the select (id defaults to the name).
+                    $out = '<label for="orgseries_dropdown" class="screen-reader-text" style="'
+                        . esc_attr(ppseries_sr_only_style()) . '">'
+                        . esc_html__('Select Series', 'organize-series') . '</label>' . $dropdown;
+                } else {
+                    $out = $dropdown;
+                }
             }
         }
 

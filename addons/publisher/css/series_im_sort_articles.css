@@ -33,6 +33,17 @@
     width: 100%;
 }
 
+.pp-series-move-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.pp-series-move-buttons .button {
+    cursor: pointer;
+}
+
 #timestampdiv select {
     max-width: 90px !important;
 }

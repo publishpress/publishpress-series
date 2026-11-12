@@ -402,6 +402,26 @@ input #seriesadd {
     opacity: 1;
 }
 
+/* Hover bridge: lets the pointer move from the trigger onto the tooltip (WCAG 1.4.13). */
+.ppseries-pro-lock .tooltip-text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 12px;
+}
+
+/* Escape dismisses the tooltip until the pointer/focus leaves. */
+.ppseries-pro-lock.is-dismissed .tooltip-text {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.ppseries-pro-lock .tooltip-text {
+    max-width: calc(100vw - 32px);
+}
+
 /* PRO Badge styling */
 .ppseries-pro-badge {
     display: inline-block;
@@ -608,4 +628,106 @@ input.pps-shortcode-input {
 .ppseries-edit-link {
     text-decoration: none;
     font-weight: 500;
+}
+
+
+/* Settings page title: real <h1>, same look as the previous <h2>. */
+.wrap h1.ppseries-settings-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Token legend tooltips (assets/js/tooltip.min.js) - WCAG 1.4.13 */
+.wrap .pp-tooltips-library[data-toggle=tooltip] .tooltip-text {
+    max-width: calc(100vw - 32px);
+    min-width: min(250px, calc(100vw - 32px));
+}
+
+/* Transparent bridge over the gap between trigger and tooltip, so the pointer can move onto it. */
+.wrap .pp-tooltips-library[data-toggle=tooltip] .tooltip-text::before {
+    content: "";
+    position: absolute;
+}
+
+.wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=left] .tooltip-text::before {
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 14px;
+}
+
+.wrap .pp-tooltips-library[data-toggle=tooltip]:not([data-placement]) .tooltip-text::before,
+.wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=top] .tooltip-text::before {
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 22px;
+}
+
+.wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=bottom] .tooltip-text::before {
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 12px;
+}
+
+.wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=right] .tooltip-text::before {
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 12px;
+}
+
+/* Toggled open with Enter/Space. */
+.wrap .pp-tooltips-library[data-toggle=tooltip].is-active .tooltip-text {
+    display: block;
+}
+
+/* Escape hides the tooltip until the pointer/focus leaves the trigger. */
+.wrap .pp-tooltips-library[data-toggle=tooltip].is-dismissed .tooltip-text {
+    display: none !important;
+}
+
+.wrap .pp-tooltips-library[data-toggle=tooltip]:focus-visible {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Narrow screens: the sidebar stacks full width, so open left-placed tooltips below the token instead of off-screen. */
+@media only screen and (max-width: 960px) {
+    .wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=left] .tooltip-text {
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+        transform: none;
+    }
+
+    .wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=left] .tooltip-text i {
+        display: none;
+    }
+
+    .wrap .pp-tooltips-library[data-toggle=tooltip][data-placement=left] .tooltip-text::before {
+        top: auto;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 10px;
+    }
+}
+
+/* Fieldsets added around settings radio/checkbox groups: keep the previous layout. */
+fieldset.ppseries-fieldset {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.form-table td fieldset.ppseries-fieldset label {
+    display: inline;
+    margin: 0 !important;
 }

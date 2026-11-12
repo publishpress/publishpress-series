@@ -73,7 +73,8 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
         $posts_in_series = get_series_order($series_post, 0, $ser, false, $is_unpub_template);
         if ('widget' == $referral) {
             if ($serieswidg_title != false) {
-                $result .= '<h4>' . __($serieswidg_title, 'organize-series') . '</h4>';
+                $widget_heading_level = ppseries_heading_level(4, 'widget_post_list');
+                $result .= '<h' . $widget_heading_level . '>' . __($serieswidg_title, 'organize-series') . '</h' . $widget_heading_level . '>';
             }
             $result .= '<ul>';
         }
@@ -95,6 +96,8 @@ function get_series_posts($ser_ID = array(), $referral = false, $display = false
                     }
                     $current_result .= token_replace(stripslashes($template_tag), 'other', $seriespost['id'], $ser);
                 }
+                // Accessibility: identify the current post to screen readers.
+                $current_result = ppseries_mark_current_post($current_result, $seriespost['id']);
                 $result_list[$seriespost['id']] = $current_result;
                 continue;
             }
@@ -590,11 +593,32 @@ function ppseries_get_nav_custom_text($template, $post_id, $series_id)
     return wp_kses_post(token_replace($template, 'other', $post_id, $series_id));
 }
 
-function ppseries_get_nav_link($link, $title)
+/**
+ * Build a series navigation link.
+ *
+ * @param string $link      URL.
+ * @param string $title     Link HTML (already escaped or kses-filtered).
+ * @param string $direction Optional. 'previous', 'next' or 'first'. Adds hidden text that
+ *                          states the link's purpose for screen readers.
+ *
+ * @return string
+ */
+function ppseries_get_nav_link($link, $title, $direction = '')
 {
     $title = (string) $title;
 
-    return '<a href="' . esc_url($link) . '" title="' . esc_attr(wp_strip_all_tags($title)) . '">' . $title . '</a>';
+    $purpose = '';
+    if ('previous' === $direction) {
+        $purpose = __('Previous post in series:', 'organize-series') . ' ';
+    } elseif ('next' === $direction) {
+        $purpose = __('Next post in series:', 'organize-series') . ' ';
+    } elseif ('first' === $direction) {
+        $purpose = __('First post in series:', 'organize-series') . ' ';
+    }
+
+    $link_text = ppseries_sr_text($purpose) . ppseries_hide_nav_arrows($title);
+
+    return '<a href="' . esc_url($link) . '" title="' . esc_attr(wp_strip_all_tags($title)) . '">' . $link_text . '</a>';
 }
 
 function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $display = false, $calc = false)
@@ -647,7 +671,7 @@ function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $di
                     $title = esc_html(get_the_title($seriespost['id']));
                 }
                 $link = get_permalink($seriespost['id']);
-                $result .= ppseries_get_nav_link($link, $title);
+                $result .= ppseries_get_nav_link($link, $title, 'next');
             }
         }
 
@@ -660,7 +684,7 @@ function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $di
                     $title = esc_html(get_the_title($seriespost['id']));
                 }
                 $link = get_permalink($seriespost['id']);
-                $result .= ppseries_get_nav_link($link, $title);
+                $result .= ppseries_get_nav_link($link, $title, 'previous');
             }
         }
 
@@ -673,7 +697,7 @@ function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $di
                     $title = esc_html(get_the_title($seriespost['id']));
                 }
                 $link = get_permalink($seriespost['id']);
-                $result .= ppseries_get_nav_link($link, $title);
+                $result .= ppseries_get_nav_link($link, $title, 'first');
             }
         }
     }
@@ -694,7 +718,7 @@ function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $di
                     $title = esc_html(get_the_title($next_post_id));
                 }
                 $link = get_permalink($next_post_id);
-                $result .= ppseries_get_nav_link($link, $title);
+                $result .= ppseries_get_nav_link($link, $title, 'next');
             }
         }
 
@@ -715,7 +739,7 @@ function wp_series_nav($series_ID, $next = true, $customtext = 'deprecated', $di
                     $title = esc_html(get_the_title($prev_post_id));
                 }
                 $link = get_permalink($prev_post_id);
-                $result .= ppseries_get_nav_link($link, $title);
+                $result .= ppseries_get_nav_link($link, $title, 'previous');
             }
         }
     }
@@ -818,6 +842,11 @@ function wp_assemble_series_nav()
 
             // Filter for Pro to modify navigation output
                 $nav = apply_filters('publishpress_series_navigation_output', $nav, $series, $settings);
+
+                // Accessibility: hide decorative arrows in the template text and expose a landmark.
+                if (is_string($nav) && '' !== $nav) {
+                    $nav = ppseries_wrap_nav_landmark(ppseries_hide_nav_arrows($nav));
+                }
 
                 return $nav;
             }

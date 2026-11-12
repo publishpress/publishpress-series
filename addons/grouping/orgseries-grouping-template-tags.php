@@ -370,9 +370,11 @@ function get_series_group_list($group_id = array(), $args = array(), $echo = tru
         $limit_series_ids = array_map('trim', $limit_series_ids);
     }
 
+    $group_heading_level = function_exists('ppseries_heading_level') ? ppseries_heading_level(3, 'series_group') : 3;
+
     foreach ($groups as $group) {
         $has_series = false;
-        $group_html = '<h3 id="group-title-' . $group->term_id . '" class="group-title">' . $group->name . '</h3>';
+        $group_html = '<h' . $group_heading_level . ' id="group-title-' . $group->term_id . '" class="group-title">' . $group->name . '</h' . $group_heading_level . '>';
         $group_html .= '<ul id="group-list-' . $group->term_id . '" class="group-list-ul">';
         $series_in_group = get_series_in_group($group->term_id, $args);
         foreach ($series_in_group as $series) {

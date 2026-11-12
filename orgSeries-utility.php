@@ -11,6 +11,50 @@
 
 defined('ABSPATH') || exit;
 
+if (!function_exists('ppseries_new_tab_text')) {
+    /**
+     * Screen-reader-only notice for links that open in a new tab.
+     *
+     * @return string Safe HTML.
+     */
+    function ppseries_new_tab_text()
+    {
+        return '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'organize-series') . '</span>';
+    }
+}
+
+if (!function_exists('ppseries_pro_tooltip_id')) {
+    /**
+     * Unique id for a PRO lock tooltip, so the badge link can reference it with aria-describedby.
+     *
+     * @return string
+     */
+    function ppseries_pro_tooltip_id()
+    {
+        static $count = 0;
+        $count++;
+        return 'ppseries-pro-tooltip-' . $count;
+    }
+}
+
+if (!function_exists('ppseries_pro_badge_link')) {
+    /**
+     * "PRO" upgrade badge link with an accessible name.
+     *
+     * @param string $describedby Optional id of a tooltip that describes the link.
+     *
+     * @return string Safe HTML.
+     */
+    function ppseries_pro_badge_link($describedby = '')
+    {
+        return '<a class="ppseries-pro-badge" href="' . esc_url('https://publishpress.com/links/series-banner') . '" target="_blank" rel="noopener noreferrer"'
+            . ($describedby ? ' aria-describedby="' . esc_attr($describedby) . '"' : '') . '>PRO'
+            . '<span class="screen-reader-text"> ' . esc_html__('Available in PublishPress Series Pro', 'organize-series') . '</span>'
+            . ppseries_new_tab_text()
+            . '</a>';
+    }
+}
+
 function _usort_series_by_part($a, $b)
 {
     if ($a['part'] > $b['part']) {
@@ -394,6 +438,8 @@ function ppseries_do_settings_sections($page)
         }
 
         if (! isset($wp_settings_fields) || ! isset($wp_settings_fields[ $page ]) || ! isset($wp_settings_fields[ $page ][ $section['id'] ])) {
+            // Close the tab panel even when the section has no fields.
+            echo '</div>';
             continue;
         }
         echo '<table class="form-table" role="presentation">';
