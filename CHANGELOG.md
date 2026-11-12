@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 * Fixed: Series boxes are no longer added to posts embedded in another post's content #745
 * Fixed: The Series Table of Contents widget no longer loses its selected series on save #1270
 * Fixed: "Cannot redeclare to_int()" fatal error when several series are updated in one request #1268
+* Fixed: Fatal error when another plugin applies the_title without a post ID #1284
 
 [3.1.5] - 27 Oct, 2026
 
