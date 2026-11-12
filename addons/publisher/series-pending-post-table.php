@@ -67,6 +67,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             'categories' => esc_html__('Categories', 'organize-series'),
             'tags' => esc_html__('Tags', 'organize-series'),
             'post_status' => esc_html__('Status', 'organize-series'),
+            'date' => esc_html__('Date', 'organize-series'),
             'part'        => esc_html__('Current Part', 'organize-series'),
         ];
 
@@ -299,6 +300,18 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         }
 
         return $term_html;
+    }
+
+    /**
+     * Handles the post date column output.
+     *
+     * @param WP_Post $item
+     *
+     * @return string
+     */
+    protected function column_date($item)
+    {
+        return ppseries_publisher_post_date_column($item);
     }
 
     /**
