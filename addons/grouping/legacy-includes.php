@@ -1073,7 +1073,8 @@ function pp_series_group_aioseo_sitemap_term($entry, $term_id = 0, $taxonomy = '
     $placeholders = implode(',', array_fill(0, count($series_ids), '%d'));
     $args = array_merge(array(ppseries_get_series_slug()), $series_ids);
 
-    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $placeholders only holds %d.
+    // $placeholders only holds %d placeholders.
+    // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
     $last_modified = $wpdb->get_var($wpdb->prepare(
         "SELECT MAX(p.post_modified_gmt) FROM $wpdb->posts p
         INNER JOIN $wpdb->term_relationships tr ON tr.object_id = p.ID
@@ -1081,6 +1082,7 @@ function pp_series_group_aioseo_sitemap_term($entry, $term_id = 0, $taxonomy = '
         WHERE p.post_status = 'publish' AND tt.taxonomy = %s AND tt.term_id IN ($placeholders)",
         $args
     ));
+    // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 
     if (empty($last_modified) || '0000-00-00 00:00:00' === $last_modified) {
         return $entry;
