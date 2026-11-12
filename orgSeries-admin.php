@@ -269,7 +269,7 @@ function admin_inline_series_ajax()
  */
 function get_series_list($default = 0)
 {
-    global $post, $postdata, $checked_series, $orgseries;
+    global $post, $postdata, $orgseries;
 
     if (is_object($orgseries) && isset($orgseries->settings)) {
         $org_opt = $orgseries->settings;
@@ -286,49 +286,49 @@ function get_series_list($default = 0)
         $post_ID = false;
     }
 
-    if (empty($checked_series)) {
-        if ($post_ID) {
-            $checked_series = wp_get_post_series($post_ID);
-            $checked_series = is_array($checked_series) ? $checked_series : array();
+    $checked_series = array();
 
-            if (count($checked_series) == 0) {
-                $checked_series[] = $default;
-            }
-        } else {
+    if ($post_ID) {
+        $checked_series = wp_get_post_series($post_ID);
+        $checked_series = is_array($checked_series) ? $checked_series : array();
+
+        if (count($checked_series) == 0) {
             $checked_series[] = $default;
         }
-
-        $series = get_series("hide_empty=0&fields=ids&orderby=term_order");
-
-        $result = array();
-
-        if (is_array($series)) {
-            foreach ($series as $serial) {
-                $result[$serial]['series_ID'] = $serial;
-                $result[$serial]['checked'] = in_array($serial, $checked_series);
-                $result[$serial]['ser_name'] = get_the_series_by_ID($serial);
-            }
-        }
-
-        $unsorted_result = $result;
-        if ($metabox_series_order === 'a-z') {
-            uasort($result, function ($a, $b) {
-                return strcasecmp($a['ser_name'], $b['ser_name']);
-            });
-        } elseif ($metabox_series_order === 'z-a') {
-            uasort($result, function ($a, $b) {
-                return strcasecmp($b['ser_name'], $a['ser_name']);
-            });
-        }
-
-        $result = apply_filters(
-            'get_series_list',
-            $result,
-            $unsorted_result
-        );
-
-        return $result;
+    } else {
+        $checked_series[] = $default;
     }
+
+    $series = get_series("hide_empty=0&fields=ids&orderby=term_order");
+
+    $result = array();
+
+    if (is_array($series)) {
+        foreach ($series as $serial) {
+            $result[$serial]['series_ID'] = $serial;
+            $result[$serial]['checked'] = in_array($serial, $checked_series);
+            $result[$serial]['ser_name'] = get_the_series_by_ID($serial);
+        }
+    }
+
+    $unsorted_result = $result;
+    if ($metabox_series_order === 'a-z') {
+        uasort($result, function ($a, $b) {
+            return strcasecmp($a['ser_name'], $b['ser_name']);
+        });
+    } elseif ($metabox_series_order === 'z-a') {
+        uasort($result, function ($a, $b) {
+            return strcasecmp($b['ser_name'], $a['ser_name']);
+        });
+    }
+
+    $result = apply_filters(
+        'get_series_list',
+        $result,
+        $unsorted_result
+    );
+
+    return $result;
 }
 
 /**
