@@ -13,26 +13,7 @@ class PPS_Series_Post_Navigation_Utilities
     /** Edition locks shared by the native editor and other authenticated clients. */
     public static function get_pro_locked_fields()
     {
-        $fields = [
-            'previous_custom_arrow_image',
-            'next_custom_arrow_image',
-            'previous_show_featured_image',
-            'next_show_featured_image',
-            'first_show_featured_image',
-            'previous_image_position',
-            'next_image_position',
-            'first_image_position',
-            'previous_image_width',
-            'previous_image_height',
-            'next_image_width',
-            'next_image_height',
-            'first_image_width',
-            'first_image_height',
-            'gap_between_links',
-            'alignment',
-            'separator_text',
-        ];
-        return apply_filters('pps_series_post_navigation_pro_locked_fields', $fields, []);
+        return ppseries_get_post_navigation_pro_locked_fields();
     }
 
     /**

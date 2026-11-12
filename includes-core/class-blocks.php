@@ -260,54 +260,7 @@ class Blocks
      */
     public static function getSeriesListAttributes()
     {
-        return [
-                    'contentType' => [
-                        'type'    => 'string',
-                        'default' => 'series',
-                        'enum' => ['series', 'series_group'],
-                    ],
-                    'view' => [
-                        'type'    => 'string',
-                        'default' => 'grid',
-                        'enum' => ['grid', 'list'],
-                    ],
-                    'columns' => [
-                        'type'    => 'integer',
-                        'default' => 3,
-                        'minimum' => 1, 'maximum' => 4,
-                    ],
-                    'numberOfItems' => [
-                        'type'    => 'integer',
-                        'default' => 6,
-                        'minimum' => 1, 'maximum' => 50,
-                    ],
-                    'orderBy' => [
-                        'type'    => 'string',
-                        'default' => 'name',
-                        'enum' => ['name', 'count', 'term_id'],
-                    ],
-                    'order' => [
-                        'type'    => 'string',
-                        'default' => 'asc',
-                        'enum' => ['asc', 'desc'],
-                    ],
-                    'hideEmpty' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showIcon' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showDescription' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                    'showPostCount' => [
-                        'type'    => 'boolean',
-                        'default' => true,
-                    ],
-                ];
+        return ppseries_get_series_list_block_attributes();
     }
 
     public static function renderSeriesList($attributes, $content = '', $block = null)

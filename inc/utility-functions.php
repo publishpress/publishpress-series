@@ -890,3 +890,110 @@ if (!function_exists('ppseries_get_pro_feature_definitions')) {
         ];
     }
 }
+
+/*
+ * The helpers below are shared by Free and the copy of Free bundled in Pro.
+ * When both plugins are active, each copy's classes and files can come from
+ * different versions, so new shared helpers live here behind function_exists().
+ */
+if (!function_exists('ppseries_new_tab_text')) {
+    /**
+     * Screen-reader-only notice for links that open in a new tab.
+     *
+     * @return string Safe HTML.
+     */
+    function ppseries_new_tab_text()
+    {
+        return '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'organize-series') . '</span>';
+    }
+}
+
+if (!function_exists('ppseries_get_post_navigation_pro_locked_fields')) {
+    /**
+     * Post Navigation fields that are locked unless Series Pro is active.
+     *
+     * @return array
+     */
+    function ppseries_get_post_navigation_pro_locked_fields()
+    {
+        $fields = [
+            'previous_custom_arrow_image',
+            'next_custom_arrow_image',
+            'previous_show_featured_image',
+            'next_show_featured_image',
+            'first_show_featured_image',
+            'previous_image_position',
+            'next_image_position',
+            'first_image_position',
+            'previous_image_width',
+            'previous_image_height',
+            'next_image_width',
+            'next_image_height',
+            'first_image_width',
+            'first_image_height',
+            'gap_between_links',
+            'alignment',
+            'separator_text',
+        ];
+        return apply_filters('pps_series_post_navigation_pro_locked_fields', $fields, []);
+    }
+}
+
+if (!function_exists('ppseries_get_series_list_block_attributes')) {
+    /**
+     * Attribute definitions of the Series List block.
+     *
+     * @return array
+     */
+    function ppseries_get_series_list_block_attributes()
+    {
+        return [
+            'contentType' => [
+                'type'    => 'string',
+                'default' => 'series',
+                'enum' => ['series', 'series_group'],
+            ],
+            'view' => [
+                'type'    => 'string',
+                'default' => 'grid',
+                'enum' => ['grid', 'list'],
+            ],
+            'columns' => [
+                'type'    => 'integer',
+                'default' => 3,
+                'minimum' => 1, 'maximum' => 4,
+            ],
+            'numberOfItems' => [
+                'type'    => 'integer',
+                'default' => 6,
+                'minimum' => 1, 'maximum' => 50,
+            ],
+            'orderBy' => [
+                'type'    => 'string',
+                'default' => 'name',
+                'enum' => ['name', 'count', 'term_id'],
+            ],
+            'order' => [
+                'type'    => 'string',
+                'default' => 'asc',
+                'enum' => ['asc', 'desc'],
+            ],
+            'hideEmpty' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showIcon' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showDescription' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showPostCount' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+        ];
+    }
+}
