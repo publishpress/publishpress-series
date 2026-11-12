@@ -501,6 +501,68 @@ function ppseries_publisher_user_can_all_posts($post_ids, $capability)
     return true;
 }
 
+/**
+ * Output of the Date column in the Series Order tables.
+ *
+ * @param WP_Post $post Post shown in the row.
+ *
+ * @return string Escaped HTML.
+ */
+function ppseries_publisher_post_date_column($post)
+{
+    if ('publish' === $post->post_status) {
+        $label = __('Published', 'organize-series');
+        $date_field = 'date';
+    } elseif ('future' === $post->post_status) {
+        $label = __('Scheduled', 'organize-series');
+        $date_field = 'date';
+    } else {
+        $label = __('Last Modified', 'organize-series');
+        $date_field = 'modified';
+    }
+
+    $date = 'modified' === $date_field
+        ? get_post_modified_time(get_option('date_format'), false, $post, true)
+        : get_the_date(get_option('date_format'), $post);
+    $time = 'modified' === $date_field
+        ? get_post_modified_time(get_option('time_format'), false, $post, true)
+        : get_the_time(get_option('time_format'), $post);
+
+    if (empty($date)) {
+        return '&mdash;';
+    }
+
+    return esc_html($label) . '<br />' . esc_html(
+        sprintf(
+            /* translators: 1: Post date, 2: Post time. */
+            __('%1$s at %2$s', 'organize-series'),
+            $date,
+            $time
+        )
+    );
+}
+
+/**
+ * Hide the Categories and Tags columns by default on the Series Order screen.
+ * Users can show them again under Screen Options.
+ *
+ * @param string[]  $hidden Columns hidden by default.
+ * @param WP_Screen $screen Current screen.
+ *
+ * @return string[]
+ */
+function ppseries_publisher_default_hidden_columns($hidden, $screen)
+{
+    // Only added on the load hook of the Manage Series page.
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
+    $action = isset($_GET['action']) ? sanitize_key(wp_unslash($_GET['action'])) : '';
+    if (!in_array($action, ['part', 'order'], true)) {
+        return $hidden;
+    }
+
+    return array_values(array_unique(array_merge((array) $hidden, ['categories', 'tags'])));
+}
+
 function ppseries_publisher_die_forbidden()
 {
     wp_die(
@@ -880,6 +942,7 @@ class PPS_Publisher_Admin
             $this->series_part_table = new PPS_Publisher_Post_Part_Table();
             $this->series_pending_table = new PPS_Publisher_Post_Pending_Table();
             add_screen_option($option, $args);
+            add_filter('default_hidden_columns', 'ppseries_publisher_default_hidden_columns', 10, 2);
         }
     }
 

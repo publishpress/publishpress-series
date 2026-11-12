@@ -82,6 +82,7 @@ Before releasing the Free plugin, ensure every step in this checklist is complet
 
 - [ ] Review `CHANGELOG.md` and refine user-facing descriptions as needed
 - [ ] Verify the release date in `CHANGELOG.md` is correct
+- [ ] Copy the release's `CHANGELOG.md` entries to the top of the `== Changelog ==` section in `readme.txt` (`= <version> - <date> =` heading), and drop entries older than about a year
 - [ ] Run `composer set:version <version>` to update plugin version numbers in all required files
 - [ ] Commit the version and changelog updates to the release branch
 
