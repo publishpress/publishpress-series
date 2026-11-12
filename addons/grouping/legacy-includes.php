@@ -434,9 +434,10 @@ function pp_series_group_theme_archive_get_series_id_from_grouping_post($post)
     return (int) str_replace('series_grouping_', '', (string) $post->post_name);
 }
 
-function pp_series_group_theme_archive_title($title, $post_id)
+function pp_series_group_theme_archive_title($title, $post_id = null)
 {
-    if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
+    // Some plugins and themes apply 'the_title' with only the title argument.
+    if (empty($post_id) || is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
         return $title;
     }
 
