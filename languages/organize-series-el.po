@@ -12,13 +12,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-10-26 18:30+0000\n"
+"PO-Revision-Date: 2026-11-12 15:28+0000\n"
 "X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Language: el\n"
 
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -41,7 +41,8 @@ msgstr ""
 "αναρτήσεις για το ίδιο θέμα."
 
 #: orgSeries.php:7
-#: orgSeries-admin.php:178
+#: includes-core/Mcp/bootstrap.php:15
+#: orgSeries-admin.php:190
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -51,49 +52,50 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:303
-#: addons/grouping/legacy-includes.php:862
-#: addons/grouping/legacy-includes.php:863
+#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:868
+#: addons/grouping/legacy-includes.php:869
 msgid "Search Series Categories"
 msgstr "Αναζήτηση Κατηγοριών Σειρών"
 
-#: addons/grouping/legacy-includes.php:304
+#: addons/grouping/legacy-includes.php:307
 msgid "Popular Series Categories"
 msgstr "Δημοφιλείς Κατηγορίες Σειρών"
 
-#: addons/grouping/legacy-includes.php:305
-#: addons/grouping/legacy-includes.php:859
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:865
 msgid "All Series Categories"
 msgstr "Όλες οι Κατηγορίες Σειρών"
 
-#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:309
 msgid "Edit Series Category"
 msgstr "Επεξεργασία Κατηγορίας Σειρών"
 
-#: addons/grouping/legacy-includes.php:307
+#: addons/grouping/legacy-includes.php:310
 msgid "Update Series Category"
 msgstr "Ενημέρωση Κατηγορίας Σειρών"
 
-#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:311
 msgid "Add New Series Category"
 msgstr "Προσθήκη Νέας Κατηγορίας Σειρών"
 
-#: addons/grouping/legacy-includes.php:309
+#: addons/grouping/legacy-includes.php:312
 msgid "New Series Category"
 msgstr "Νέα Κατηγορία Σειρών"
 
-#: addons/grouping/legacy-includes.php:310
-#: addons/grouping/legacy-includes.php:584
-#: addons/grouping/legacy-includes.php:670
-#: addons/grouping/legacy-includes.php:785
-#: addons/grouping/legacy-includes.php:828
-#: addons/grouping/legacy-includes.php:850
-#: addons/grouping/legacy-includes.php:910
+#: addons/grouping/legacy-includes.php:313
+#: addons/grouping/legacy-includes.php:589
+#: addons/grouping/legacy-includes.php:675
+#: addons/grouping/legacy-includes.php:791
+#: addons/grouping/legacy-includes.php:834
+#: addons/grouping/legacy-includes.php:856
+#: addons/grouping/legacy-includes.php:873
+#: addons/grouping/legacy-includes.php:919
 #: assets/js/publishpress-series-blocks.js:183
 msgid "Series Categories"
 msgstr "Κατηγορίες Σειρών"
 
-#: addons/grouping/legacy-includes.php:676
+#: addons/grouping/legacy-includes.php:681
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
@@ -101,15 +103,29 @@ msgstr ""
 "Διαγράψτε όλα τα δεδομένα \"Κατηγορίες Σειρών\" από τη βάση δεδομένων κατά "
 "τη διαγραφή του πρόσθετου."
 
-#: addons/grouping/legacy-includes.php:828
+#: addons/grouping/legacy-includes.php:746
+msgid "View all Series Categories"
+msgstr "Δείτε όλες τις κατηγορίες σειράς"
+
+#: addons/grouping/legacy-includes.php:764
+msgid "Filter by Series Category"
+msgstr "Φιλτράρισμα κατά κατηγορία σειράς"
+
+#: addons/grouping/legacy-includes.php:766
+#: addons/publisher/series-part-post-table.php:396
+#: addons/publisher/series-publish-post-table.php:196
+msgid "Filter"
+msgstr "Φίλτρο"
+
+#: addons/grouping/legacy-includes.php:834
 msgid "Click to toggle"
 msgstr "Κάντε κλικ για εναλλαγή"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:39
+#: addons/grouping/theme/primary/taxonomy-series_group.php:44
 msgid "Series in this category"
 msgstr "Σειρές σε αυτήν την κατηγορία"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:119
+#: addons/grouping/theme/primary/taxonomy-series_group.php:129
 msgid "Sorry, no series were found in this category."
 msgstr "Λυπάμαι, δεν βρέθηκαν σειρές σε αυτήν την κατηγορία."
 
@@ -136,8 +152,8 @@ msgstr "μέρος %1$s από %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:505
 #: addons/post-details/includes/class-utilities.php:325
-#: addons/post-navigation/includes/class-utilities.php:185
-#: includes-core/class-blocks.php:827
+#: addons/post-navigation/includes/class-utilities.php:210
+#: includes-core/class-blocks.php:843
 msgid "Sample Series"
 msgstr "Δείγμα Σειράς"
 
@@ -165,7 +181,7 @@ msgstr "Περιγραφή δείγματος σειράς."
 #: addons/post-details/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-details.php:44
 #: includes-core/class-blocks.php:155
-#: orgSeries-utility.php:358
+#: orgSeries-utility.php:402
 #: assets/js/publishpress-series-blocks.js:37
 msgid "Post Details"
 msgstr "Λεπτομέρειες Ανάρτησης"
@@ -217,7 +233,7 @@ msgstr "Shortcode λεπτομερειών δημοσίευσης"
 #: addons/post-list-box/includes/class-admin-ui.php:734
 #: addons/post-navigation/includes/class-admin-ui.php:447
 #: inc/settings/tab-post-types.php:63
-#: inc/settings/tab-pro-features.php:56
+#: inc/settings/tab-pro-features.php:51
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "Αυτή η δυνατότητα είναι διαθέσιμη στο PublishPress Series Pro"
 
@@ -329,6 +345,7 @@ msgstr "Επιλέξτε πού να εμφανίσετε το μετα-κουτ
 #: addons/post-details/includes/class-fields.php:132
 #: inc/settings/tab-post-details.php:90
 #: inc/settings/tab-post-details.php:92
+#: includes-core/Mcp/Settings.php:104
 msgid "Hide on archive screens"
 msgstr "Κρύψτε στις οθόνες αρχειοθέτησης"
 
@@ -505,8 +522,8 @@ msgstr "Λεπτομέρειες Δημοσίευσης Σειράς"
 
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:28
-#: orgSeries-admin.php:398
-#: orgSeries-setup.php:225
+#: orgSeries-admin.php:417
+#: orgSeries-setup.php:233
 msgid "Add New"
 msgstr "Προσθήκη Νέου"
 
@@ -547,7 +564,7 @@ msgid "Create a series to preview the post details."
 msgstr "Δημιουργήστε μια σειρά για να προεπισκοπήσετε τις λεπτομέρειες ανάρτησης."
 
 #: addons/post-details/includes/class-utilities.php:361
-#: includes-core/class-blocks.php:862
+#: includes-core/class-blocks.php:878
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Series Post %d"
@@ -644,7 +661,7 @@ msgid "Custom Box Title Text"
 msgstr "Κείμενο Τίτλου Κουτιού Προσαρμοσμένο"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:137
-#: addons/post-list-box/includes/class-utilities.php:177
+#: addons/post-list-box/includes/class-utilities.php:228
 msgid "Series Posts"
 msgstr "Δημοσιεύσεις Σειράς"
 
@@ -926,7 +943,7 @@ msgid "Choose the layout style for the post list"
 msgstr "Επιλέξτε το στυλ διάταξης για τη λίστα αναρτήσεων"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:539
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:104
 #: assets/js/publishpress-series-blocks.js:262
 msgid "Columns"
 msgstr "Στήλες"
@@ -956,6 +973,8 @@ msgid "Order By"
 msgstr "Ταξινόμηση κατά"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:560
+#: addons/publisher/series-part-post-table.php:68
+#: addons/publisher/series-pending-post-table.php:70
 msgid "Date"
 msgstr "Ημερομηνία"
 
@@ -968,11 +987,11 @@ msgstr "Τίτλος"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:562
 #: addons/publisher/series_im_admin_main.php:10
-#: addons/publisher/series_issue_manager.php:1043
-#: addons/publisher/series_issue_manager.php:1113
-#: orgSeries-admin.php:356
-#: orgSeries-manage.php:239
-#: orgSeries-manage.php:249
+#: addons/publisher/series_issue_manager.php:1120
+#: addons/publisher/series_issue_manager.php:1190
+#: orgSeries-admin.php:372
+#: orgSeries-manage.php:337
+#: orgSeries-manage.php:347
 msgid "Series Order"
 msgstr "Σειρά σειράς"
 
@@ -981,20 +1000,21 @@ msgid "Choose the field used to sort posts"
 msgstr "Επιλέξτε το πεδίο που θα χρησιμοποιηθεί για τη ταξινόμηση των αναρτήσεων"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:570
-#: orgSeries-manage.php:58
-#: orgSeries-manage.php:273
+#: orgSeries-manage.php:62
+#: orgSeries-manage.php:141
+#: orgSeries-manage.php:371
 msgid "Order"
 msgstr "Ταξινόμηση"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:574
-#: inc/settings/tab-legacy.php:110
-#: orgSeries-widgets.php:343
+#: inc/settings/tab-legacy.php:122
+#: orgSeries-widgets.php:350
 msgid "Ascending"
 msgstr "Αύξουσα"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:575
-#: inc/settings/tab-legacy.php:111
-#: orgSeries-widgets.php:342
+#: inc/settings/tab-legacy.php:123
+#: orgSeries-widgets.php:349
 msgid "Descending"
 msgstr "Φθίνουσα"
 
@@ -1033,39 +1053,71 @@ msgstr ""
 "Αφήστε κενό για να μην υπάρχει περιορισμός. Η προεπισκόπηση του διαχειριστή "
 "περιορίζεται σε 4 αναρτήσεις."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:628
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Items to show when limited"
+msgstr "Στοιχεία που θα εμφανιστούν όταν είναι περιορισμένα"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:621
+msgid "First posts in the series"
+msgstr "Πρώτες δημοσιεύσεις στη σειρά"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:622
+msgid "Posts before and after the current post"
+msgstr "Δημοσιεύσεις πριν και μετά την τρέχουσα δημοσίευση"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:626
+msgid ""
+"Only used when \"Maximum number of items\" is set. Choose \"Posts before "
+"and after the current post\" to keep the post being viewed in the list, "
+"with the posts around it. On pages that are not part of the series, the "
+"first posts are shown. The admin preview uses a post from the middle of the "
+"series as the current post."
+msgstr ""
+"Χρησιμοποιείται μόνο όταν έχει οριστεί \"Μέγιστος αριθμός στοιχείων\". "
+"Επιλέξτε \"Δημοσιεύσεις πριν και μετά την τρέχουσα δημοσίευση\" για να "
+"διατηρήσετε τη δημοσίευση που βλέπετε στη λίστα, με τις δημοσιεύσεις γύρω "
+"της. Σε σελίδες που δεν ανήκουν στη σειρά, εμφανίζονται οι πρώτες "
+"δημοσιεύσεις. Η προεπισκόπηση του διαχειριστή χρησιμοποιεί μια δημοσίευση "
+"από τη μέση της σειράς ως τρέχουσα δημοσίευση."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:641
 msgid "Highlight Current Post"
 msgstr "Επισήμανση Τρέχουσας Δημοσίευσης"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:633
+#: addons/post-list-box/classes/PostListBoxFields.php:646
 msgid "Highlight the current post when viewing a specific series post"
 msgstr ""
 "Επισήμανση της τρέχουσας δημοσίευσης όταν βλέπετε μια συγκεκριμένη "
 "δημοσίευση σειράς"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:636
+#: addons/post-list-box/classes/PostListBoxFields.php:649
 msgid "Current Post Background Color"
 msgstr "Χρώμα Φόντου Τρέχουσας Δημοσίευσης"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:641
+#: addons/post-list-box/classes/PostListBoxFields.php:654
 msgid "Choose the background color for the current post"
 msgstr "Επιλέξτε το χρώμα φόντου για την τρέχουσα ανάρτηση"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:644
+#: addons/post-list-box/classes/PostListBoxFields.php:657
 msgid "Current Post Border Color"
 msgstr "Χρώμα Περιγράμματος Τρέχουσας Δημοσίευσης"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:649
+#: addons/post-list-box/classes/PostListBoxFields.php:662
 msgid "Choose the border color for the current post"
 msgstr "Επιλέξτε το χρώμα του περιγράμματος για την τρέχουσα ανάρτηση"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:652
+#: addons/post-list-box/classes/PostListBoxFields.php:665
 msgid "Current Post Text Color"
 msgstr "Χρώμα Κειμένου Τρέχουσας Δημοσίευσης"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:657
+#: addons/post-list-box/classes/PostListBoxFields.php:670
 msgid "Choose the text color for the current post"
 msgstr "Επιλέξτε το χρώμα κειμένου για την τρέχουσα ανάρτηση"
+
+#: addons/post-list-box/classes/PostListBoxRenderer.php:437
+#: inc/utility-functions.php:783
+msgid "(current post)"
+msgstr "(τρέχουσα δημοσίευση)"
 
 #: addons/post-list-box/includes/class-admin-ui.php:57
 msgid "Default Post List Box"
@@ -1081,7 +1133,7 @@ msgstr "Shortcode κουτιού λίστας δημοσιεύσεων"
 #: addons/post-list-box/includes/class-post-type.php:27
 #: inc/settings/tab-post-list-box.php:44
 #: includes-core/class-blocks.php:148
-#: orgSeries-utility.php:357
+#: orgSeries-utility.php:401
 #: assets/js/publishpress-series-blocks.js:30
 msgid "Post List Boxes"
 msgstr "Πλαίσια Λίστας Δημοσιεύσεων"
@@ -1195,7 +1247,7 @@ msgstr "Ενότητες λίστας δημοσιεύσεων"
 
 #: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:419
-#: orgSeries-manage.php:311
+#: orgSeries-manage.php:409
 msgid "Select Image"
 msgstr "Επιλέξτε Εικόνα"
 
@@ -1302,13 +1354,13 @@ msgstr "Πλοήγηση λίστας %2$s"
 msgid "%2$s list"
 msgstr "Λίστα %2$s"
 
-#: addons/post-list-box/includes/class-preview.php:131
+#: addons/post-list-box/includes/class-preview.php:167
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Post %d"
 msgstr "Δείγμα Ανάρτησης %d"
 
-#: addons/post-list-box/includes/class-preview.php:133
+#: addons/post-list-box/includes/class-preview.php:169
 #. translators: %d: Sample post number.
 #, php-format
 msgid ""
@@ -1320,13 +1372,13 @@ msgstr ""
 "ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor "
 "incididunt ut labore et dolore magna aliqua."
 
-#: addons/post-list-box/includes/class-preview.php:135
+#: addons/post-list-box/includes/class-preview.php:171
 #. translators: %d: Sample post number.
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Αυτό είναι ένα δείγμα αποσπάσματος για την ανάρτηση %d στη σειρά."
 
-#: addons/post-list-box/includes/class-preview.php:560
+#: addons/post-list-box/includes/class-preview.php:603
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
@@ -1345,41 +1397,62 @@ msgstr "Πλαίσιο Στυλ Πλέγματος"
 msgid "Simple List Box"
 msgstr "Απλό Πλαίσιο Λίστας"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:261
+#: addons/post-navigation/classes/PostNavigationRenderer.php:211
+#. translators: %s: Series name.
+#, php-format
+msgid "Series navigation: %s"
+msgstr "Πλοήγηση σειράς: %s"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:273
 msgid "Navigation hidden (series has only one post)"
 msgstr "Η πλοήγηση είναι κρυφή (η σειρά έχει μόνο μία ανάρτηση)"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:315
-#: addons/post-navigation/classes/PostNavigationRenderer.php:346
-#: addons/post-navigation/classes/PostNavigationRenderer.php:377
-#: addons/post-navigation/classes/PostNavigationRenderer.php:461
-#: addons/post-navigation/classes/PostNavigationRenderer.php:513
-#: addons/post-navigation/classes/PostNavigationRenderer.php:567
-#: addons/post-navigation/includes/class-utilities.php:60
+#: addons/post-navigation/classes/PostNavigationRenderer.php:328
+#: addons/post-navigation/classes/PostNavigationRenderer.php:359
+#: addons/post-navigation/classes/PostNavigationRenderer.php:390
+#: addons/post-navigation/classes/PostNavigationRenderer.php:475
+#: addons/post-navigation/classes/PostNavigationRenderer.php:527
+#: addons/post-navigation/classes/PostNavigationRenderer.php:581
+#: addons/post-navigation/includes/class-utilities.php:85
 msgid "Series Home"
 msgstr "Αρχική Σελίδα Σειράς"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:331
-#: addons/post-navigation/classes/PostNavigationRenderer.php:487
+#: addons/post-navigation/classes/PostNavigationRenderer.php:344
+#: addons/post-navigation/classes/PostNavigationRenderer.php:501
 #: addons/post-navigation/includes/class-fields.php:145
 #: addons/post-navigation/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-utilities.php:38
+#: addons/post-navigation/includes/class-utilities.php:63
 msgid "Previous"
 msgstr "Προηγούμενο"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:362
-#: addons/post-navigation/classes/PostNavigationRenderer.php:541
+#: addons/post-navigation/classes/PostNavigationRenderer.php:375
+#: addons/post-navigation/classes/PostNavigationRenderer.php:555
 #: addons/post-navigation/includes/class-fields.php:260
 #: addons/post-navigation/includes/class-fields.php:281
-#: addons/post-navigation/includes/class-utilities.php:49
+#: addons/post-navigation/includes/class-utilities.php:74
 msgid "Next"
 msgstr "Επόμενο"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:835
+#: orgSeries-template-tags.php:612
+msgid "Previous post in series:"
+msgstr "Προηγούμενη δημοσίευση στη σειρά:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:836
+#: orgSeries-template-tags.php:614
+msgid "Next post in series:"
+msgstr "Επόμενη δημοσίευση στη σειρά:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:837
+#: orgSeries-template-tags.php:616
+msgid "First post in series:"
+msgstr "Πρώτη δημοσίευση στη σειρά:"
 
 #: addons/post-navigation/includes/class-admin-ui.php:29
 #: addons/post-navigation/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-navigation.php:44
 #: includes-core/class-blocks.php:162
-#: orgSeries-utility.php:359
+#: orgSeries-utility.php:403
 #: assets/js/publishpress-series-blocks.js:44
 msgid "Post Navigation"
 msgstr "Πλοήγηση Αναρτήσεων"
@@ -1870,7 +1943,7 @@ msgstr "Δημιουργήστε μια σειρά για να προεπισκ�
 msgid "Create posts in a series to preview the navigation."
 msgstr "Δημιουργήστε δημοσιεύσεις σε μια σειρά για να προεπισκοπήσετε την πλοήγηση."
 
-#: addons/post-navigation/includes/class-utilities.php:187
+#: addons/post-navigation/includes/class-utilities.php:212
 msgid "Sample series for preview purposes"
 msgstr "Δείγμα σειράς για σκοπούς προεπισκόπησης"
 
@@ -1878,15 +1951,15 @@ msgstr "Δείγμα σειράς για σκοπούς προεπισκόπησ
 msgid "Error updating preview."
 msgstr "Σφάλμα κατά την ενημέρωση προεπισκόπησης."
 
-#: addons/post-navigation/post-navigation.php:209
+#: addons/post-navigation/post-navigation.php:190
 msgid "Simple Navigation"
 msgstr "Απλή Πλοήγηση"
 
-#: addons/post-navigation/post-navigation.php:214
+#: addons/post-navigation/post-navigation.php:195
 msgid "Button Navigation"
 msgstr "Πλοήγηση με Κουμπί"
 
-#: addons/post-navigation/post-navigation.php:219
+#: addons/post-navigation/post-navigation.php:200
 msgid "Image Navigation"
 msgstr "Πλοήγηση Εικόνας"
 
@@ -1908,77 +1981,72 @@ msgstr "Ετικέτες"
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: addons/publisher/series-part-post-table.php:68
-#: addons/publisher/series-pending-post-table.php:70
+#: addons/publisher/series-part-post-table.php:69
+#: addons/publisher/series-pending-post-table.php:71
 msgid "Current Part"
 msgstr "Τρέχον Μέρος"
 
-#: addons/publisher/series-part-post-table.php:162
-#: addons/publisher/series-pending-post-table.php:146
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:147
 #: addons/publisher/series-publish-post-table.php:293
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: addons/publisher/series-part-post-table.php:168
+#: addons/publisher/series-part-post-table.php:169
 #: assets/js/publishpress-series-blocks.js:251
 msgid "View"
 msgstr "Προβολή"
 
-#: addons/publisher/series-part-post-table.php:185
-#: addons/publisher/series-pending-post-table.php:174
+#: addons/publisher/series-part-post-table.php:187
+#: addons/publisher/series-pending-post-table.php:176
 #: addons/publisher/series-publish-post-table.php:310
 msgid "Trash"
 msgstr "Ανακύκλωση"
 
-#: addons/publisher/series-part-post-table.php:212
+#: addons/publisher/series-part-post-table.php:214
 msgid "There are no published posts in this series."
 msgstr "Δεν υπάρχουν δημοσιευμένες αναρτήσεις σε αυτή τη σειρά."
 
-#: addons/publisher/series-part-post-table.php:230
-#: addons/publisher/series-pending-post-table.php:219
+#: addons/publisher/series-part-post-table.php:232
+#: addons/publisher/series-pending-post-table.php:221
 #: addons/publisher/series-publish-post-table.php:345
 #. translators: %s: Post title.
 #, php-format
 msgid "Select %s"
 msgstr "Επιλέξτε %s"
 
-#: addons/publisher/series-part-post-table.php:341
+#: addons/publisher/series-part-post-table.php:355
 msgid "(Currently has no Part number)"
 msgstr "(Αυτή τη στιγμή δεν έχει αριθμό Μέρους)"
 
-#: addons/publisher/series-part-post-table.php:376
+#: addons/publisher/series-part-post-table.php:390
 msgid "Filter by part number"
 msgstr "Φιλτράρισμα κατά αριθμό μέρους"
 
-#: addons/publisher/series-part-post-table.php:378
+#: addons/publisher/series-part-post-table.php:392
 msgid "All part numbers"
 msgstr "Όλοι οι αριθμοί μερών"
 
-#: addons/publisher/series-part-post-table.php:379
+#: addons/publisher/series-part-post-table.php:393
 msgid "Has part number"
 msgstr "Έχει αριθμό μέρους"
 
-#: addons/publisher/series-part-post-table.php:380
+#: addons/publisher/series-part-post-table.php:394
 msgid "Missing part number"
 msgstr "Λείπει αριθμός μέρους"
 
-#: addons/publisher/series-part-post-table.php:382
-#: addons/publisher/series-publish-post-table.php:196
-msgid "Filter"
-msgstr "Φίλτρο"
-
-#: addons/publisher/series-pending-post-table.php:157
+#: addons/publisher/series-pending-post-table.php:158
 #: addons/publisher/series-publish-post-table.php:78
 #: addons/publisher/series-publish-post-table.php:454
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
-#: addons/publisher/series-pending-post-table.php:201
+#: addons/publisher/series-pending-post-table.php:203
 #: addons/publisher/series-publish-post-table.php:48
 msgid "There are no unpublished posts in this series."
 msgstr "Δεν υπάρχουν αδημοσίευτες αναρτήσεις σε αυτή τη σειρά."
 
-#: addons/publisher/series-pending-post-table.php:325
+#: addons/publisher/series-pending-post-table.php:339
 msgid "No Part Number"
 msgstr "Χωρίς Αριθμό Μέρους"
 
@@ -1987,19 +2055,20 @@ msgid "All Categories"
 msgstr "Όλες οι Κατηγορίες"
 
 #: addons/publisher/series_im_admin_main.php:4
-#: addons/publisher/series_issue_manager.php:830
+#: addons/publisher/series_issue_manager.php:895
 #: inc/settings/settings-validation.php:96
 msgid "Manage Series"
 msgstr "Διαχείριση Σειρών"
 
 #: addons/publisher/series_im_admin_main.php:9
+#: orgSeries-admin.php:431
 #: assets/js/publishpress-series-blocks.js:138
 msgid "Series"
 msgstr "Σειρές"
 
 #: addons/publisher/series_im_admin_main.php:12
-#: addons/publisher/series_issue_manager.php:986
-#: addons/publisher/series_issue_manager.php:1033
+#: addons/publisher/series_issue_manager.php:1063
+#: addons/publisher/series_issue_manager.php:1110
 msgid "Publish Series"
 msgstr "Δημοσίευση Σειράς"
 
@@ -2033,11 +2102,11 @@ msgstr "Δεν έχετε διαθέσιμες σειρές."
 msgid "Add new Series."
 msgstr "Προσθήκη νέας Σειράς."
 
-#: addons/publisher/series_issue_manager.php:332
+#: addons/publisher/series_issue_manager.php:344
 msgid "Create as unpublished:"
 msgstr "Δημιουργία ως αδημοσίευτο:"
 
-#: addons/publisher/series_issue_manager.php:335
+#: addons/publisher/series_issue_manager.php:347
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
@@ -2045,90 +2114,146 @@ msgstr ""
 "Όταν είναι επιλεγμένο, όλες οι αναρτήσεις που αναθέτετε σε αυτή τη σειρά θα "
 "παραμείνουν μη δημοσιευμένες μέχρι να δημοσιεύσετε ολόκληρη τη σειρά."
 
-#: addons/publisher/series_issue_manager.php:415
+#: addons/publisher/series_issue_manager.php:427
 msgid "The posts in your series were successfully unpublished."
 msgstr "Οι δημοσιεύσεις στη σειρά σας διαγράφηκαν με επιτυχία."
 
-#: addons/publisher/series_issue_manager.php:424
-#: addons/publisher/series_issue_manager.php:573
+#: addons/publisher/series_issue_manager.php:436
+#: addons/publisher/series_issue_manager.php:647
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Συγχαρητήρια. Η σειρά παραγγελίας σας ενημερώθηκε με επιτυχία."
 
-#: addons/publisher/series_issue_manager.php:432
-#: addons/publisher/series_issue_manager.php:450
+#: addons/publisher/series_issue_manager.php:444
+#: addons/publisher/series_issue_manager.php:462
 msgid "Congratulations. Your posts were published successfully."
 msgstr "Συγχαρητήρια. Οι δημοσιεύσεις σας δημοσιεύτηκαν με επιτυχία."
 
-#: addons/publisher/series_issue_manager.php:441
+#: addons/publisher/series_issue_manager.php:453
 msgid "Post moved to the Trash."
 msgstr "Η δημοσίευση μεταφέρθηκε στον Κάδο ανακύκλωσης."
 
-#: addons/publisher/series_issue_manager.php:458
+#: addons/publisher/series_issue_manager.php:470
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "Συγχαρητήρια. Οι δημοσιεύσεις σας προγραμματίστηκαν με επιτυχία."
 
-#: addons/publisher/series_issue_manager.php:495
+#: addons/publisher/series_issue_manager.php:514
+msgid "Published"
+msgstr "Δημοσιευμένο"
+
+#: addons/publisher/series_issue_manager.php:517
+msgid "Scheduled"
+msgstr "Προγραμματισμένο"
+
+#: addons/publisher/series_issue_manager.php:520
+msgid "Last Modified"
+msgstr "Τελευταία τροποποίηση"
+
+#: addons/publisher/series_issue_manager.php:538
+#. translators: 1: Post date, 2: Post time.
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s στις %2$s"
+
+#: addons/publisher/series_issue_manager.php:569
 msgid "Sorry, you are not allowed to perform this action."
 msgstr "Λυπάμαι, δεν έχετε άδεια να εκτελέσετε αυτή την ενέργεια."
 
-#: addons/publisher/series_issue_manager.php:829
+#: addons/publisher/series_issue_manager.php:894
 msgid "Manage Series Issues"
 msgstr "Διαχείριση Θεμάτων Σειρών"
 
-#: addons/publisher/series_issue_manager.php:859
-#: addons/publisher/series_issue_manager.php:871
+#: addons/publisher/series_issue_manager.php:913
+#: orgSeries-manage.php:117
+msgid "Move up"
+msgstr "Μετακίνηση προς τα πάνω"
+
+#: addons/publisher/series_issue_manager.php:914
+#: orgSeries-manage.php:118
+msgid "Move down"
+msgstr "Μετακίνηση προς τα κάτω"
+
+#: addons/publisher/series_issue_manager.php:916
+#: orgSeries-manage.php:120
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move up: %s"
+msgstr "Μετακίνηση προς τα πάνω: %s"
+
+#: addons/publisher/series_issue_manager.php:918
+#: orgSeries-manage.php:122
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move down: %s"
+msgstr "Μετακίνηση προς τα κάτω: %s"
+
+#: addons/publisher/series_issue_manager.php:920
+#: orgSeries-manage.php:124
+#. translators: 1: post title, 2: new position, 3: total number of posts
+#. translators: 1: term name, 2: new position, 3: number of rows
+#, php-format
+msgid "%1$s moved to position %2$d of %3$d."
+msgstr "%1$s μετακινήθηκε στη θέση %2$d από %3$d."
+
+#: addons/publisher/series_issue_manager.php:921
+msgid "Order changed. Save to keep the new order."
+msgstr "Η σειρά άλλαξε. Αποθηκεύστε για να διατηρήσετε τη νέα σειρά."
+
+#: addons/publisher/series_issue_manager.php:935
+#: addons/publisher/series_issue_manager.php:947
 msgid "Number of items per page"
 msgstr "Αριθμός στοιχείων ανά σελίδα"
 
-#: addons/publisher/series_issue_manager.php:926
+#: addons/publisher/series_issue_manager.php:1003
 msgid "Publishing Series:"
 msgstr "Δημοσίευση Σειρών:"
 
-#: addons/publisher/series_issue_manager.php:933
+#: addons/publisher/series_issue_manager.php:1010
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Αποτελέσματα αναζήτησης για &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:948
+#: addons/publisher/series_issue_manager.php:1025
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: addons/publisher/series_issue_manager.php:1001
+#: addons/publisher/series_issue_manager.php:1078
 msgid "Publication Date/Time:"
 msgstr "Ημερομηνία/Ώρα Δημοσίευσης:"
 
-#: addons/publisher/series_issue_manager.php:1012
+#: addons/publisher/series_issue_manager.php:1089
 msgid "Month"
 msgstr "Μήνας"
 
-#: addons/publisher/series_issue_manager.php:1021
+#: addons/publisher/series_issue_manager.php:1098
 msgid "Day"
 msgstr "Ημέρα"
 
-#: addons/publisher/series_issue_manager.php:1022
+#: addons/publisher/series_issue_manager.php:1099
 msgid "Year"
 msgstr "Έτος"
 
-#: addons/publisher/series_issue_manager.php:1023
+#: addons/publisher/series_issue_manager.php:1100
 msgid "Hour"
 msgstr "Ώρα"
 
-#: addons/publisher/series_issue_manager.php:1024
+#: addons/publisher/series_issue_manager.php:1101
 msgid "Minute"
 msgstr "Λεπτό"
 
-#: addons/publisher/series_issue_manager.php:1058
-#: addons/publisher/series_issue_manager.php:1128
-#: addons/publisher/series_issue_manager.php:1265
+#: addons/publisher/series_issue_manager.php:1135
+#: addons/publisher/series_issue_manager.php:1205
+#: addons/publisher/series_issue_manager.php:1342
 msgid "Update Order"
 msgstr "Ενημέρωση Παραγγελίας"
 
-#: addons/publisher/series_issue_manager.php:1085
+#: addons/publisher/series_issue_manager.php:1162
 msgid "Series Order:"
 msgstr "Σειρά Παραγγελίας:"
 
-#: addons/publisher/series_issue_manager.php:1088
+#: addons/publisher/series_issue_manager.php:1165
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
@@ -2136,31 +2261,31 @@ msgstr ""
 "Σύρετε τα ονόματα των αναρτήσεων στη σειρά που θέλετε να βρίσκονται στη "
 "σειρά, από το πρώτο μέρος μέχρι το τελευταίο μέρος."
 
-#: addons/publisher/series_issue_manager.php:1100
+#: addons/publisher/series_issue_manager.php:1177
 msgid "Search Posts"
 msgstr "Αναζήτηση Δημοσιεύσεων"
 
-#: addons/publisher/series_issue_manager.php:1138
+#: addons/publisher/series_issue_manager.php:1215
 msgid "Order Tools"
 msgstr "Παραγγελία Εργαλείων"
 
-#: addons/publisher/series_issue_manager.php:1142
+#: addons/publisher/series_issue_manager.php:1219
 msgid "Automatically reorder this series by publication date."
 msgstr "Αυτόματη αναδιάταξη αυτής της σειράς κατά ημερομηνία δημοσίευσης."
 
-#: addons/publisher/series_issue_manager.php:1150
+#: addons/publisher/series_issue_manager.php:1227
 msgid "Order by publication date: Oldest first"
 msgstr "Ταξινόμηση κατά ημερομηνία δημοσίευσης: Παλαιότερα πρώτα"
 
-#: addons/publisher/series_issue_manager.php:1160
+#: addons/publisher/series_issue_manager.php:1237
 msgid "Order by publication date: Newest first"
 msgstr "Ταξινόμηση κατά ημερομηνία δημοσίευσης: Νεότερα πρώτα"
 
-#: addons/publisher/series_issue_manager.php:1185
+#: addons/publisher/series_issue_manager.php:1262
 msgid "Unpublished posts in series:"
 msgstr "Αδημοσίευτες αναρτήσεις στη σειρά:"
 
-#: addons/publisher/series_issue_manager.php:1188
+#: addons/publisher/series_issue_manager.php:1265
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -2168,15 +2293,15 @@ msgstr ""
 "Όταν αυτές οι αναρτήσεις δημοσιευτούν, θα προστεθούν μετά την τελευταία "
 "τρέχουσα ανάρτηση στη σειρά."
 
-#: addons/publisher/series_issue_manager.php:1225
+#: addons/publisher/series_issue_manager.php:1302
 msgid "Unpublished Posts"
 msgstr "Αδημοσίευτες Αναρτήσεις"
 
-#: addons/publisher/series_issue_manager.php:1240
+#: addons/publisher/series_issue_manager.php:1317
 msgid "Publish Unpublished Posts"
 msgstr "Δημοσίευση Αδημοσίευτων Αναρτήσεων"
 
-#: addons/publisher/series_issue_manager.php:1250
+#: addons/publisher/series_issue_manager.php:1327
 msgid "Unpublished Series Order"
 msgstr "Διαταγή Αδημοσίευτης Σειράς"
 
@@ -2215,15 +2340,40 @@ msgstr "Επιλογές Πρόσθετου Σειρών PublishPress"
 msgid "Series settings"
 msgstr "Ρυθμίσεις σειράς"
 
-#: inc/settings/settings-page.php:57
+#: inc/settings/settings-page.php:71
+msgid "Update Options"
+msgstr "Ενημέρωση Επιλογών"
+
+#: inc/settings/settings-page.php:76
+msgid "Reset Series settings"
+msgstr "Επαναφορά ρυθμίσεων σειράς"
+
+#: inc/settings/settings-page.php:77
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Κάνοντας κλικ στο Ναι, θα επαναφέρετε τις επιλογές στις προεπιλογές και θα "
+"χάσετε όλες τις προσαρμογές. Ή μπορείτε να κάνετε κλικ στην ακύρωση και να "
+"επιστρέψετε."
+
+#: inc/settings/settings-page.php:78
+msgid "No"
+msgstr "Όχι"
+
+#: inc/settings/settings-page.php:79
+msgid "Yes"
+msgstr "Ναι"
+
+#: inc/settings/settings-page.php:94
 msgid "Allowed Html"
 msgstr "Επιτρεπόμενο Html"
 
-#: inc/settings/settings-page.php:66
+#: inc/settings/settings-page.php:102
 msgid "Overview"
 msgstr "Επισκόπηση"
 
-#: inc/settings/settings-page.php:68
+#: inc/settings/settings-page.php:104
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -2233,13 +2383,13 @@ msgstr ""
 "πεδία προσαρμοσμένου προτύπου. Αυτά θα αντικατασταθούν με τις κατάλληλες "
 "τιμές όταν εκτελείται το πρόσθετο."
 
-#: inc/settings/settings-page.php:73
+#: inc/settings/settings-page.php:109
 msgid "This will be replaced with the series featured image for a series."
 msgstr ""
 "Αυτό θα αντικατασταθεί με την εικόνα χαρακτηριστικού της σειράς για μια "
 "σειρά."
 
-#: inc/settings/settings-page.php:81
+#: inc/settings/settings-page.php:117
 #. translators: %series_icon%: Template token for the series featured image.
 #, php-format
 msgid ""
@@ -2249,7 +2399,7 @@ msgstr ""
 "Ίδιο με το %series_icon% εκτός από το ότι η εικόνα χαρακτηριστικού της "
 "σειράς θα είναι συνδεδεμένη με τη σελίδα της σειράς"
 
-#: inc/settings/settings-page.php:89
+#: inc/settings/settings-page.php:125
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
@@ -2259,11 +2409,11 @@ msgstr ""
 "αναφέρεται πού θέλετε να εισαχθεί η λίστα των τίτλων σειρών και απαιτεί να "
 "έχει ρυθμιστεί και το πρότυπο για κάθε τίτλο σειράς."
 
-#: inc/settings/settings-page.php:97
+#: inc/settings/settings-page.php:133
 msgid "This will be replaced with the title of a series"
 msgstr "Αυτό θα αντικατασταθεί με τον τίτλο μιας σειράς"
 
-#: inc/settings/settings-page.php:105
+#: inc/settings/settings-page.php:141
 #. translators: %series_title%: Template token for the series title.
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
@@ -2271,7 +2421,7 @@ msgstr ""
 "Ίδιο με το %series_title% εκτός από το ότι θα είναι επίσης συνδεδεμένο με "
 "τη σελίδα της σειράς"
 
-#: inc/settings/settings-page.php:113
+#: inc/settings/settings-page.php:149
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
@@ -2279,7 +2429,7 @@ msgstr ""
 "Είναι το σύμβολο τοποθεσίας για το πού θα εμφανίζονται τα περιεχόμενα των "
 "προτύπων αναρτήσεων λίστας αναρτήσεων."
 
-#: inc/settings/settings-page.php:121
+#: inc/settings/settings-page.php:157
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
@@ -2288,11 +2438,11 @@ msgstr ""
 "προτύπων αναρτήσεων λίστας αναρτήσεων και χρησιμοποιεί τον παρεχόμενο "
 "σύντομο τίτλο ανάρτησης του widget."
 
-#: inc/settings/settings-page.php:129
+#: inc/settings/settings-page.php:165
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "Θα αντικατασταθεί με τον τίτλο της ανάρτησης μιας ανάρτησης στη σειρά"
 
-#: inc/settings/settings-page.php:137
+#: inc/settings/settings-page.php:173
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
@@ -2300,13 +2450,13 @@ msgstr ""
 "Θα αντικατασταθεί με τον τίτλο της ανάρτησης μιας ανάρτησης στη σειρά που "
 "συνδέεται με την προβολή της σελίδας αυτής της ανάρτησης."
 
-#: inc/settings/settings-page.php:145
+#: inc/settings/settings-page.php:181
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr ""
 "Θα αντικατασταθεί με τον σύντομο τίτλο της ανάρτησης μιας ανάρτησης στη "
 "σειρά"
 
-#: inc/settings/settings-page.php:153
+#: inc/settings/settings-page.php:189
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
@@ -2314,7 +2464,7 @@ msgstr ""
 "Θα αντικατασταθεί με τον σύντομο τίτλο της ανάρτησης μιας ανάρτησης στη "
 "σειρά που συνδέεται με την προβολή της σελίδας αυτής της ανάρτησης."
 
-#: inc/settings/settings-page.php:161
+#: inc/settings/settings-page.php:197
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -2326,7 +2476,7 @@ msgstr ""
 "'Προσαρμοσμένο Κείμενο Πλοήγησης Προηγούμενης Ανάρτησης'. Εάν αυτό το πεδίο "
 "είναι κενό, τότε το κείμενο θα είναι ο τίτλος της ανάρτησης"
 
-#: inc/settings/settings-page.php:169
+#: inc/settings/settings-page.php:205
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
@@ -2337,7 +2487,7 @@ msgstr ""
 "Κείμενο Πλοήγησης Επόμενης Ανάρτησης'. Εάν αυτό το πεδίο είναι κενό, τότε "
 "το κείμενο θα είναι ο τίτλος της ανάρτησης"
 
-#: inc/settings/settings-page.php:177
+#: inc/settings/settings-page.php:213
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
 "text will be whatever is included in the 'Custom First Post Navigation "
@@ -2349,7 +2499,7 @@ msgstr ""
 "Κείμενο Πλοήγησης Πρώτης Ανάρτησης'. Εάν αυτό το πεδίο είναι κενό, τότε το "
 "κείμενο θα είναι ο τίτλος της ανάρτησης"
 
-#: inc/settings/settings-page.php:184
+#: inc/settings/settings-page.php:220
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
@@ -2358,74 +2508,49 @@ msgstr ""
 "προτύπου. Θα υποδεικνύει πού θέλετε να εμφανίζεται το περιεχόμενο μιας "
 "ανάρτησης."
 
-#: inc/settings/settings-page.php:192
+#: inc/settings/settings-page.php:228
 msgid "Will display what part of a series the post is"
 msgstr "Θα εμφανίσει ποιο μέρος μιας σειράς είναι η ανάρτηση"
 
-#: inc/settings/settings-page.php:200
+#: inc/settings/settings-page.php:236
 msgid "Will display the total number of posts in a series"
 msgstr "Θα εμφανίσει τον συνολικό αριθμό αναρτήσεων σε μια σειρά"
 
-#: inc/settings/settings-page.php:208
+#: inc/settings/settings-page.php:244
 msgid "Will display the description for the series"
 msgstr "Θα εμφανίσει την περιγραφή για τη σειρά"
 
-#: inc/settings/settings-page.php:220
+#: inc/settings/settings-page.php:254
 msgid "Will output the slug of the series"
 msgstr "Θα εξάγει το slug της σειράς"
 
-#: inc/settings/settings-page.php:230
+#: inc/settings/settings-page.php:264
 msgid "Will output the ID of the series"
 msgstr "Θα εξάγει το ID της σειράς"
 
-#: inc/settings/settings-page.php:240
+#: inc/settings/settings-page.php:274
 msgid "Will output the author of the post"
 msgstr "Θα εξάγει τον συγγραφέα της ανάρτησης"
 
-#: inc/settings/settings-page.php:250
+#: inc/settings/settings-page.php:284
 msgid "If the post has a feature-image then that image will be displayed"
 msgstr "Αν η ανάρτηση έχει εικόνα χαρακτηριστικού, τότε αυτή η εικόνα θα εμφανιστεί"
 
-#: inc/settings/settings-page.php:260
+#: inc/settings/settings-page.php:294
 msgid "The date that a post was published"
 msgstr "Η ημερομηνία που δημοσιεύτηκε μια ανάρτηση"
 
-#: inc/settings/settings-page.php:270
+#: inc/settings/settings-page.php:304
 msgid "Will be replaced with the unpublished post title of a post in the series"
 msgstr ""
 "Θα αντικατασταθεί με τον αδημοσίευτο τίτλο της ανάρτησης μιας ανάρτησης στη "
 "σειρά"
 
-#: inc/settings/settings-page.php:280
+#: inc/settings/settings-page.php:314
 msgid "Will display the total number of published and unpublished posts in a series"
 msgstr ""
 "Θα εμφανίσει τον συνολικό αριθμό δημοσιευμένων και αδημοσίευτων αναρτήσεων "
 "σε μια σειρά"
-
-#: inc/settings/settings-page.php:323
-msgid "Update Options"
-msgstr "Ενημέρωση Επιλογών"
-
-#: inc/settings/settings-page.php:328
-msgid "Reset Series settings"
-msgstr "Επαναφορά ρυθμίσεων σειράς"
-
-#: inc/settings/settings-page.php:329
-msgid ""
-"Clicking Yes will reset the options to the defaults and you will lose all "
-"customizations. Or you can click cancel and return."
-msgstr ""
-"Κάνοντας κλικ στο Ναι, θα επαναφέρετε τις επιλογές στις προεπιλογές και θα "
-"χάσετε όλες τις προσαρμογές. Ή μπορείτε να κάνετε κλικ στην ακύρωση και να "
-"επιστρέψετε."
-
-#: inc/settings/settings-page.php:330
-msgid "No"
-msgstr "Όχι"
-
-#: inc/settings/settings-page.php:331
-msgid "Yes"
-msgstr "Ναι"
 
 #: inc/settings/settings-upgrade.php:26
 #: inc/settings/settings-upgrade.php:49
@@ -2453,50 +2578,50 @@ msgstr "Ενημέρωση Δεδομένων Σειρών"
 msgid "Series upgrade completed."
 msgstr "Η αναβάθμιση της σειράς ολοκληρώθηκε."
 
-#: inc/settings/settings-upgrade.php:183
+#: inc/settings/settings-upgrade.php:158
 #. translators: %d: Number of posts updated.
 #, php-format
 msgid "Series order sync completed. %d posts updated."
 msgstr "Η συγχρονισμένη σειρά ολοκληρώθηκε. %d αναρτήσεις ενημερώθηκαν."
 
 #: inc/settings/settings-validation.php:89
-#: orgSeries-setup.php:278
+#: orgSeries-setup.php:286
 msgid "Search Series"
 msgstr "Αναζήτηση Σειρών"
 
 #: inc/settings/settings-validation.php:90
-#: orgSeries-setup.php:279
+#: orgSeries-setup.php:287
 msgid "Popular Series"
 msgstr "Δημοφιλείς Σειρές"
 
 #: inc/settings/settings-validation.php:91
-#: orgSeries-setup.php:280
-#: orgSeries-setup.php:373
+#: orgSeries-setup.php:288
+#: orgSeries-setup.php:380
 msgid "All Series"
 msgstr "Όλες οι Σειρές"
 
 #: inc/settings/settings-validation.php:92
-#: orgSeries-setup.php:281
+#: orgSeries-setup.php:289
 msgid "Edit Series"
 msgstr "Επεξεργασία Σειρών"
 
 #: inc/settings/settings-validation.php:93
-#: orgSeries-setup.php:282
+#: orgSeries-setup.php:290
 msgid "Update Series"
 msgstr "Ενημέρωση Σειρών"
 
 #: inc/settings/settings-validation.php:94
-#: orgSeries-setup.php:283
+#: orgSeries-setup.php:291
 msgid "Add New Series"
 msgstr "Προσθήκη Νέας Σειράς"
 
 #: inc/settings/settings-validation.php:95
-#: orgSeries-setup.php:284
+#: orgSeries-setup.php:292
 msgid "New Series Name"
 msgstr "Όνομα Νέας Σειράς"
 
 #: inc/settings/settings-validation.php:97
-#: orgSeries-setup.php:286
+#: orgSeries-setup.php:294
 msgid "No series found"
 msgstr "Δεν βρέθηκαν σειρές"
 
@@ -2599,7 +2724,7 @@ msgid "Reset options to default"
 msgstr "Επαναφορά επιλογών στις προεπιλογές"
 
 #: inc/settings/tab-layouts.php:13
-#: orgSeries-options.php:148
+#: orgSeries-options.php:151
 msgid "Layouts"
 msgstr "Διατάξεις"
 
@@ -2608,7 +2733,7 @@ msgid "Configure the layout displays shown on posts in a series."
 msgstr "Διαμορφώστε τις διατάξεις που εμφανίζονται σε δημοσιεύσεις σε μια σειρά."
 
 #: inc/settings/tab-legacy.php:14
-#: orgSeries-options.php:165
+#: orgSeries-options.php:168
 msgid "Legacy"
 msgstr "Κληρονομιά"
 
@@ -2630,40 +2755,41 @@ msgid "Use PublishPress Series CSS styles?"
 msgstr "Θέλετε να χρησιμοποιήσετε τα στυλ CSS του PublishPress Series;"
 
 #: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:51
 msgid "Style options"
 msgstr "Επιλογές στυλ"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:52
 msgid "Use default style"
 msgstr "Χρήση προεπιλεγμένου στυλ"
 
-#: inc/settings/tab-legacy.php:51
+#: inc/settings/tab-legacy.php:53
 msgid "Use box style"
 msgstr "Χρήση στυλ πλαισίου"
 
-#: inc/settings/tab-legacy.php:52
+#: inc/settings/tab-legacy.php:54
 msgid "Use dark style"
 msgstr "Χρήση στυλ σκοτεινού"
 
-#: inc/settings/tab-legacy.php:53
+#: inc/settings/tab-legacy.php:55
 msgid "Use light style"
 msgstr "Χρήση στυλ φωτεινού"
 
-#: inc/settings/tab-legacy.php:63
+#: inc/settings/tab-legacy.php:66
 msgid "Series Overview"
 msgstr "Επισκόπηση Σειρών"
 
-#: inc/settings/tab-legacy.php:65
+#: inc/settings/tab-legacy.php:68
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr ""
 "Επιλέξτε το σχέδιο για τη σελίδα ταξινόμησης όπου εμφανίζεται μια ενιαία "
 "Σειρά."
 
-#: inc/settings/tab-legacy.php:69
+#: inc/settings/tab-legacy.php:72
 msgid "Layout:"
 msgstr "Διάταξη:"
 
-#: inc/settings/tab-legacy.php:86
+#: inc/settings/tab-legacy.php:92
 #. translators: %s: URL to the series archive template documentation.
 #, php-format
 msgid ""
@@ -2676,48 +2802,51 @@ msgstr ""
 "target=\"_blank\" rel=\"noopener noreferrer\">Διαβάστε την τεκμηρίωση για "
 "την προσαρμογή αυτών των σχεδίων</a>."
 
-#: inc/settings/tab-legacy.php:95
-#: inc/settings/tab-series-category.php:70
+#: inc/settings/tab-legacy.php:102
+#: inc/settings/tab-series-category.php:73
 msgid "Columns:"
 msgstr "Στήλες:"
 
-#: inc/settings/tab-legacy.php:101
+#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:111
 msgid "Order series by:"
 msgstr "Ταξινόμηση σειρών κατά:"
 
-#: inc/settings/tab-legacy.php:103
+#: inc/settings/tab-legacy.php:112
 msgid "Series part"
 msgstr "Μέρος σειράς"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:113
 msgid "Order by date"
 msgstr "Ταξινόμηση κατά ημερομηνία"
 
-#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:118
+#: inc/settings/tab-legacy.php:121
 msgid "Series order method"
 msgstr "Μέθοδος ταξινόμησης σειρών"
 
-#: inc/settings/tab-legacy.php:121
-#: inc/settings/tab-legacy.php:220
-#: inc/settings/tab-legacy.php:226
-#: orgSeries-setup.php:549
-#: orgSeries-widgets.php:123
+#: inc/settings/tab-legacy.php:134
+#: inc/settings/tab-legacy.php:233
+#: inc/settings/tab-legacy.php:239
+#: orgSeries-setup.php:562
+#: orgSeries-widgets.php:122
+#: seriestoc.php:34
 msgid "Series Table of Contents"
 msgstr "Πίνακας περιεχομένων σειράς"
 
-#: inc/settings/tab-legacy.php:126
+#: inc/settings/tab-legacy.php:139
 msgid "Series Table of Contents URL:"
 msgstr "URL πίνακα περιεχομένων σειράς:"
 
-#: inc/settings/tab-legacy.php:128
+#: inc/settings/tab-legacy.php:141
 msgid "Series Table of Contents URL"
 msgstr "Διεύθυνση URL Περιεχομένων Σειράς"
 
-#: inc/settings/tab-legacy.php:129
+#: inc/settings/tab-legacy.php:142
 msgid "view page"
 msgstr "προβολή σελίδας"
 
-#: inc/settings/tab-legacy.php:139
+#: inc/settings/tab-legacy.php:152
 #. translators: 1: Opening link tag, 2: Closing link tag.
 #, php-format
 msgid ""
@@ -2728,41 +2857,41 @@ msgstr ""
 "διαφορετικό από το \"Απλό\" για να λειτουργήσει το URL του Πίνακα "
 "Περιεχομένων Σειράς."
 
-#: inc/settings/tab-legacy.php:159
+#: inc/settings/tab-legacy.php:172
 msgid "Series Per Page:"
 msgstr "Σειρές ανά σελίδα:"
 
-#: inc/settings/tab-legacy.php:160
+#: inc/settings/tab-legacy.php:173
 msgid "Series Per Page"
 msgstr "Σειρές ανά σελίδα"
 
-#: inc/settings/tab-legacy.php:163
+#: inc/settings/tab-legacy.php:176
 msgid "Series Table of Contents Title:"
 msgstr "Τίτλος πίνακα περιεχομένων σειράς:"
 
-#: inc/settings/tab-legacy.php:173
+#: inc/settings/tab-legacy.php:186
 msgid "Series Featured Images"
 msgstr "Εικόνες Χαρακτηριστικού Σειράς"
 
-#: inc/settings/tab-legacy.php:178
+#: inc/settings/tab-legacy.php:191
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr ""
 "Πλάτος για την εικόνα χαρακτηριστικού στη σελίδα περιεχομένων της σειράς "
 "(σε pixels)"
 
-#: inc/settings/tab-legacy.php:179
+#: inc/settings/tab-legacy.php:192
 msgid "Width for featured image on series table of contents page"
 msgstr "Πλάτος για την προβεβλημένη εικόνα στη σελίδα περιεχομένων σειράς"
 
-#: inc/settings/tab-legacy.php:182
+#: inc/settings/tab-legacy.php:195
 msgid "Width for featured image on a post page (in pixels)."
 msgstr "Πλάτος για την εικόνα χαρακτηριστικού στη σελίδα μιας ανάρτησης (σε pixels)."
 
-#: inc/settings/tab-legacy.php:183
+#: inc/settings/tab-legacy.php:196
 msgid "Width for featured image on a post page"
 msgstr "Πλάτος για την αναγνωρισμένη εικόνα σε μια σελίδα ανάρτησης"
 
-#: inc/settings/tab-legacy.php:186
+#: inc/settings/tab-legacy.php:199
 msgid ""
 "Width for featured image if displayed via the latest series template (in "
 "pixels)."
@@ -2770,46 +2899,46 @@ msgstr ""
 "Πλάτος για την εικόνα χαρακτηριστικού αν εμφανίζεται μέσω του τελευταίου "
 "προτύπου σειράς (σε pixels)."
 
-#: inc/settings/tab-legacy.php:187
+#: inc/settings/tab-legacy.php:200
 msgid "Width for featured image if displayed via the latest series template"
 msgstr ""
 "Πλάτος για την αναγνωρισμένη εικόνα εάν εμφανίζεται μέσω του προτύπου "
 "τελευταίων σειρών"
 
-#: inc/settings/tab-legacy.php:196
+#: inc/settings/tab-legacy.php:209
 #: orgSeries-widgets.php:16
 msgid "Latest Series"
 msgstr "Τελευταία Σειρά"
 
-#: inc/settings/tab-legacy.php:198
+#: inc/settings/tab-legacy.php:211
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr "Αυτή η εμφάνιση χρησιμοποιείται από το widget \"Τελευταία Σειρά\"."
 
-#: inc/settings/tab-legacy.php:202
+#: inc/settings/tab-legacy.php:215
 msgid "Latest Series (tags before):"
 msgstr "Τελευταία Σειρά (ετικέτες πριν):"
 
-#: inc/settings/tab-legacy.php:203
+#: inc/settings/tab-legacy.php:216
 msgid "Latest Series tags before"
 msgstr "Ετικέτες τελευταίας σειράς πριν"
 
-#: inc/settings/tab-legacy.php:206
+#: inc/settings/tab-legacy.php:219
 msgid "Latest Series (inner tags):"
 msgstr "Τελευταία Σειρά (εσωτερικές ετικέτες):"
 
-#: inc/settings/tab-legacy.php:207
+#: inc/settings/tab-legacy.php:220
 msgid "Latest Series inner tags"
 msgstr "Εσωτερικές ετικέτες τελευταίας σειράς"
 
-#: inc/settings/tab-legacy.php:210
+#: inc/settings/tab-legacy.php:223
 msgid "Latest Series (tags after):"
 msgstr "Τελευταίες Σειρές (ετικέτες μετά):"
 
-#: inc/settings/tab-legacy.php:211
+#: inc/settings/tab-legacy.php:224
 msgid "Latest Series tags after"
 msgstr "Ετικέτες τελευταίας σειράς μετά"
 
-#: inc/settings/tab-legacy.php:222
+#: inc/settings/tab-legacy.php:235
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
@@ -2817,7 +2946,7 @@ msgstr ""
 "Αυτή η εμφάνιση χρησιμοποιείται από το widget \"Πίνακας Περιεχομένων "
 "Σειρών\", shortcode και URL."
 
-#: inc/settings/tab-legacy.php:229
+#: inc/settings/tab-legacy.php:242
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
 "for this display, go the \"Display\" tab and then \"Series Table of "
@@ -2848,6 +2977,7 @@ msgid "Alphabetical Z-A"
 msgstr "Αλφαβητικά Z-A"
 
 #: inc/settings/tab-metabox.php:38
+#: includes-core/Mcp/Settings.php:105
 msgid "Show \"Add New\""
 msgstr "Εμφάνιση \"Προσθήκη Νέου\""
 
@@ -2856,6 +2986,7 @@ msgid "Show Add New"
 msgstr "Εμφάνιση Προσθήκη Νέου"
 
 #: inc/settings/tab-metabox.php:42
+#: includes-core/Mcp/Settings.php:106
 msgid "Show \"Post title in widget\""
 msgstr "Εμφάνιση \"Τίτλος ανάρτησης στο widget\""
 
@@ -2887,15 +3018,19 @@ msgstr "Όπως στο Πρότυπο"
 
 #: inc/settings/tab-post-details.php:50
 #: inc/settings/tab-post-details.php:51
+#: includes-core/Mcp/Settings.php:91
 msgid "Display Series Post Details?"
 msgstr "Εμφάνιση Στοιχείων Ανάρτησης Σειρών;"
 
 #: inc/settings/tab-post-details.php:55
+#: includes-core/Mcp/Settings.php:93
 msgid "Post Details Selection"
 msgstr "Επιλογή Στοιχείων Ανάρτησης"
 
 #: inc/settings/tab-post-details.php:57
+#: inc/settings/tab-post-details.php:60
 #: inc/settings/tab-post-navigation.php:57
+#: inc/settings/tab-post-navigation.php:60
 msgid "Edit this layout"
 msgstr "Επεξεργασία αυτής της διάταξης"
 
@@ -2906,6 +3041,7 @@ msgid "Loading…"
 msgstr "Φόρτωση…"
 
 #: inc/settings/tab-post-details.php:65
+#: includes-core/Mcp/Settings.php:96
 msgid "Post Details Position"
 msgstr "Θέση Στοιχείων Ανάρτησης"
 
@@ -2942,14 +3078,17 @@ msgid "Display Post List Boxes?"
 msgstr "Εμφάνιση Πλαισίων Λίστας Δημοσιεύσεων;"
 
 #: inc/settings/tab-post-list-box.php:55
+#: includes-core/Mcp/Settings.php:92
 msgid "Post List Boxes Selection"
 msgstr "Επιλογή Πλαισίων Λίστας Δημοσιεύσεων"
 
 #: inc/settings/tab-post-list-box.php:57
+#: inc/settings/tab-post-list-box.php:60
 msgid "Edit this box"
 msgstr "Επεξεργασία αυτού του πλαισίου"
 
 #: inc/settings/tab-post-list-box.php:65
+#: includes-core/Mcp/Settings.php:95
 msgid "Post List Box Position"
 msgstr "Θέση Πλαισίου Λίστας Δημοσιεύσεων"
 
@@ -2986,14 +3125,17 @@ msgstr ""
 
 #: inc/settings/tab-post-navigation.php:50
 #: inc/settings/tab-post-navigation.php:51
+#: includes-core/Mcp/Settings.php:90
 msgid "Display Series Navigation?"
 msgstr "Εμφάνιση Πλοήγησης Σειράς;"
 
 #: inc/settings/tab-post-navigation.php:55
+#: includes-core/Mcp/Settings.php:94
 msgid "Navigation Selection"
 msgstr "Επιλογή Πλοήγησης"
 
 #: inc/settings/tab-post-navigation.php:65
+#: includes-core/Mcp/Settings.php:97
 msgid "Navigation Position"
 msgstr "Θέση Πλοήγησης"
 
@@ -3003,26 +3145,29 @@ msgstr "Πρότυπο Πλοήγησης"
 
 #: inc/settings/tab-post-navigation.php:85
 #: inc/settings/tab-post-navigation.php:86
+#: includes-core/Mcp/Settings.php:98
 msgid "Next Post Text"
 msgstr "Κείμενο Επόμενης Δημοσίευσης"
 
 #: inc/settings/tab-post-navigation.php:90
 #: inc/settings/tab-post-navigation.php:91
+#: includes-core/Mcp/Settings.php:99
 msgid "Previous Post Text"
 msgstr "Κείμενο Προηγούμενης Δημοσίευσης"
 
 #: inc/settings/tab-post-navigation.php:95
 #: inc/settings/tab-post-navigation.php:96
+#: includes-core/Mcp/Settings.php:100
 msgid "First Post Text"
 msgstr "Κείμενο Πρώτης Ανάρτησης"
 
 #: inc/settings/tab-post-types.php:12
-#: orgSeries-options.php:159, fuzzy
+#: orgSeries-options.php:162, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
 #: inc/settings/tab-post-types.php:13
-#: inc/settings/tab-pro-features.php:31
+#: inc/utility-functions.php:883
 msgid "Custom Post Type Support"
 msgstr "Υποστήριξη Προσαρμοσμένων Post Types"
 
@@ -3032,7 +3177,7 @@ msgstr "Ενεργοποίηση του PublishPress Series για προσαρ�
 
 #: inc/settings/tab-pro-features.php:12
 #: inc/settings/tab-pro-features.php:13
-#: orgSeries-options.php:168
+#: orgSeries-options.php:171
 msgid "Pro Features"
 msgstr "Pro Χαρακτηριστικά"
 
@@ -3044,39 +3189,9 @@ msgstr ""
 "Αυτές οι ρυθμίσεις σας επιτρέπουν να ενεργοποιήσετε ή να απενεργοποιήσετε "
 "δυνατότητες στο PublishPress Series Pro."
 
-#: inc/settings/tab-pro-features.php:31
-msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "Επιτρέψτε τη χρήση προσαρμοσμένων post types με το PublishPress Series."
-
-#: inc/settings/tab-pro-features.php:32, fuzzy
-msgid "Shortcodes"
-msgstr "Shortcodes"
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Provides shortcodes to display series information."
-msgstr "Παρέχει shortcodes για την εμφάνιση πληροφοριών σειρών."
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Extra Tokens"
-msgstr "Επιπλέον Tokens"
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Provides extra tokens to customize the output of series information."
-msgstr "Παρέχει επιπλέον tokens για την προσαρμογή της εξόδου πληροφοριών σειρών."
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Multiple Series"
-msgstr "Πολλαπλές Σειρές"
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Allows authors to add posts to more than one series."
-msgstr ""
-"Επιτρέπει στους συγγραφείς να προσθέτουν αναρτήσεις σε περισσότερες από μία "
-"σειρές."
-
 #: inc/settings/tab-series-category.php:10
 #: inc/settings/tab-series-category.php:11
-#: orgSeries-options.php:163
+#: orgSeries-options.php:166
 msgid "Series Category"
 msgstr "Κατηγορία Σειρών"
 
@@ -3085,6 +3200,7 @@ msgid "Settings for Series Categories archive URL and display behavior."
 msgstr "Ρυθμίσεις για το URL αρχείου Κατηγοριών Σειρών και τη συμπεριφορά εμφάνισης."
 
 #: inc/settings/tab-series-category.php:30
+#: includes-core/Mcp/Settings.php:102
 msgid "Series Categories URL Base:"
 msgstr "Βάση URL Κατηγοριών Σειρών:"
 
@@ -3097,6 +3213,7 @@ msgstr ""
 "Αν το αλλάξετε, οι παλιές διευθύνσεις URL θα ανακατευθυνθούν στη νέα βάση."
 
 #: inc/settings/tab-series-category.php:40
+#: includes-core/Mcp/Settings.php:103
 msgid "Series Categories Archive Template:"
 msgstr "Πρότυπο Αρχείου Κατηγοριών Σειρών:"
 
@@ -3119,18 +3236,19 @@ msgstr ""
 "Series όταν το θέμα σας δεν παρέχει το taxonomy-series_group.php."
 
 #: inc/settings/tab-series-category.php:53
+#: inc/settings/tab-series-category.php:56
 msgid "Plugin Template Display Options:"
 msgstr "Επιλογές Εμφάνισης Προτύπου Πρόσθετου:"
 
-#: inc/settings/tab-series-category.php:57
+#: inc/settings/tab-series-category.php:59
 msgid "Show Series Featured Image"
 msgstr "Εμφάνιση Εικόνας Χαρακτηριστικού Σειράς"
 
-#: inc/settings/tab-series-category.php:62
+#: inc/settings/tab-series-category.php:64
 msgid "Show Series Description"
 msgstr "Εμφάνιση Περιγραφής Σειράς"
 
-#: inc/settings/tab-series-category.php:67
+#: inc/settings/tab-series-category.php:69
 msgid "Show Posts in each Series as list items"
 msgstr "Εμφάνιση Δημοσιεύσεων σε κάθε Σειρά ως στοιχεία λίστας"
 
@@ -3144,6 +3262,7 @@ msgstr ""
 "προεπιλεγμένη ταξινόμηση \"Σειρές\"."
 
 #: inc/settings/tab-taxonomy.php:32
+#: includes-core/Mcp/Settings.php:101
 msgid "Series Taxonomy Slug:"
 msgstr "Slug Ταξινόμησης Σειράς:"
 
@@ -3185,19 +3304,57 @@ msgstr ""
 "μεταφερθούν στη νέα ταξινόμηση όταν αλλάξετε το slug της ταξινόμησης. Εάν "
 "δεν είναι επιλεγμένο, μόνο το slug της ταξινόμησης θα αλλάξει."
 
-#: inc/templates/taxonomy-series.php:71
+#: inc/templates/taxonomy-series.php:75
 msgid "Sorry, no results found."
 msgstr "Λυπάμαι, δεν βρέθηκαν αποτελέσματα."
 
-#: inc/welcome/welcome-panel.php:141
+#: inc/utility-functions.php:850
+msgid "Series navigation"
+msgstr "Πλοήγηση σειράς"
+
+#: inc/utility-functions.php:883
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Επιτρέψτε τη χρήση προσαρμοσμένων post types με το PublishPress Series."
+
+#: inc/utility-functions.php:884, fuzzy
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: inc/utility-functions.php:884
+msgid "Provides shortcodes to display series information."
+msgstr "Παρέχει shortcodes για την εμφάνιση πληροφοριών σειρών."
+
+#: inc/utility-functions.php:885
+msgid "Extra Tokens"
+msgstr "Επιπλέον Tokens"
+
+#: inc/utility-functions.php:885
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "Παρέχει επιπλέον tokens για την προσαρμογή της εξόδου πληροφοριών σειρών."
+
+#: inc/utility-functions.php:886
+msgid "Multiple Series"
+msgstr "Πολλαπλές Σειρές"
+
+#: inc/utility-functions.php:886
+msgid "Allows authors to add posts to more than one series."
+msgstr ""
+"Επιτρέπει στους συγγραφείς να προσθέτουν αναρτήσεις σε περισσότερες από μία "
+"σειρές."
+
+#: inc/welcome/welcome-panel.php:93
+msgid "Welcome panel dismissed."
+msgstr "Το πάνελ καλωσορίσματος απορρίφθηκε."
+
+#: inc/welcome/welcome-panel.php:142
 msgid "Dismiss this panel"
 msgstr "Απενεργοποίηση αυτού του πίνακα"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:161
 msgid "Welcome to PublishPress Series"
 msgstr "Καλώς ήρθατε στο PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:163
+#: inc/welcome/welcome-panel.php:164
 msgid ""
 "A series groups your posts together and shows your readers the reading "
 "order. Create your first series with the form on this page, then add posts "
@@ -3207,23 +3364,15 @@ msgstr ""
 "σειρά ανάγνωσης. Δημιουργήστε την πρώτη σας σειρά με τη φόρμα σε αυτή τη "
 "σελίδα, στη συνέχεια προσθέστε αναρτήσεις σε αυτήν."
 
-#: inc/welcome/welcome-panel.php:168
+#: inc/welcome/welcome-panel.php:169
 msgid "Create a series"
 msgstr "Δημιουργία σειράς"
 
-#: inc/welcome/welcome-panel.php:171
-msgid "View PublishPress Series documentation"
-msgstr "Δείτε την τεκμηρίωση του PublishPress Series"
-
-#: inc/welcome/welcome-panel.php:172
+#: inc/welcome/welcome-panel.php:173
 msgid "View Documentation"
 msgstr "Δείτε την τεκμηρίωση"
 
-#: inc/welcome/welcome-panel.php:176
-msgid "Upgrade to PublishPress Series Pro"
-msgstr "Αναβάθμιση σε PublishPress Series Pro"
-
-#: inc/welcome/welcome-panel.php:177
+#: inc/welcome/welcome-panel.php:178
 #: includes-core/PPSeriesCoreAdmin.php:46
 msgid "Upgrade to Pro"
 msgstr "Αναβάθμιση σε Pro"
@@ -3248,7 +3397,7 @@ msgid "Display navigation links for posts in a Series."
 msgstr "Εμφάνιση συνδέσμων πλοήγησης για δημοσιεύσεις σε μια Σειρά."
 
 #: includes-core/class-blocks.php:169
-#: orgSeries-setup.php:290
+#: orgSeries-setup.php:298
 #: assets/js/publishpress-series-blocks.js:51
 msgid "Series List"
 msgstr "Λίστα Σειρών"
@@ -3258,7 +3407,7 @@ msgstr "Λίστα Σειρών"
 msgid "Display a customizable list of Series or Series Categories."
 msgstr "Εμφάνιση μιας προσαρμόσιμης λίστας Σειρών ή Κατηγοριών Σειρών."
 
-#: includes-core/class-blocks.php:423
+#: includes-core/class-blocks.php:439
 #. translators: %s: Number of series.
 #, php-format
 msgid "%s series"
@@ -3266,7 +3415,7 @@ msgid_plural "%s series"
 msgstr[0] "%s σειρές"
 msgstr[1] "%s σειρές"
 
-#: includes-core/class-blocks.php:429
+#: includes-core/class-blocks.php:445
 #. translators: %s: Number of posts.
 #, php-format
 msgid "%s post"
@@ -3274,52 +3423,551 @@ msgid_plural "%s posts"
 msgstr[0] "%s δημοσίευση"
 msgstr[1] "%s δημοσιεύσεις"
 
-#: includes-core/class-blocks.php:481
+#: includes-core/class-blocks.php:497
 msgid "Editorial Series"
 msgstr "Σειρά Εκδόσεων"
 
-#: includes-core/class-blocks.php:483
-#: includes-core/class-blocks.php:491
 #: includes-core/class-blocks.php:499
+#: includes-core/class-blocks.php:507
+#: includes-core/class-blocks.php:515
 msgid "A sample Series Category description."
 msgstr "Μια περιγραφή κατηγορίας σειράς δείγματος."
 
-#: includes-core/class-blocks.php:489
+#: includes-core/class-blocks.php:505
 msgid "Magazine Issues"
 msgstr "Τεύχη Περιοδικών"
 
-#: includes-core/class-blocks.php:497
+#: includes-core/class-blocks.php:513
 msgid "Tutorial Collections"
 msgstr "Συλλογές Μαθημάτων"
 
-#: includes-core/class-blocks.php:509
+#: includes-core/class-blocks.php:525
 msgid "Alpha Series"
 msgstr "Σειρά Άλφα"
 
-#: includes-core/class-blocks.php:511
-#: includes-core/class-blocks.php:519
 #: includes-core/class-blocks.php:527
+#: includes-core/class-blocks.php:535
+#: includes-core/class-blocks.php:543
 msgid "A sample description for this Series."
 msgstr "Μια περιγραφή δείγματος για αυτή τη σειρά."
 
-#: includes-core/class-blocks.php:517
+#: includes-core/class-blocks.php:533
 msgid "Bravo Series"
 msgstr "Σειρά Μπράβο"
 
-#: includes-core/class-blocks.php:525
+#: includes-core/class-blocks.php:541
 msgid "Charlie Series"
 msgstr "Σειρά Τσάρλι"
 
-#: includes-core/class-blocks.php:898
+#: includes-core/class-blocks.php:914
 #: assets/js/publishpress-series-blocks.js:60
 msgid "Default layout"
 msgstr "Προεπιλεγμένη διάταξη"
 
-#: includes-core/class-blocks.php:931
-#: orgSeries-widgets.php:420
+#: includes-core/class-blocks.php:947
+#: orgSeries-widgets.php:427
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Τρέχουσα σειρά"
+
+#: includes-core/Mcp/bootstrap.php:15
+msgid "Actions provided by PublishPress plugins."
+msgstr "Ενέργειες που παρέχονται από τα πρόσθετα του PublishPress."
+
+#: includes-core/Mcp/Content.php:21
+msgid "Discover Series features and identifiers"
+msgstr "Ανακαλύψτε τις δυνατότητες και τους προσδιοριστές της σειράς"
+
+#: includes-core/Mcp/Content.php:21
+msgid ""
+"Discover the native series taxonomy, Series Categories, supported post "
+"types, publishing and active Pro addons. Layout discovery uses get-layout; "
+"settings use get-plugin-settings. Hub supplies generic post lookup."
+msgstr ""
+"Ανακαλύψτε την εγNative σειρά taxonomy, τις κατηγορίες σειράς, τους "
+"υποστηριζόμενους τύπους δημοσιεύσεων, τη δημοσίευση και τα ενεργά πρόσθετα "
+"Pro. Η ανακάλυψη διάταξης χρησιμοποιεί get-layout; οι ρυθμίσεις "
+"χρησιμοποιούν get-plugin-settings. Το Hub παρέχει γενική αναζήτηση "
+"δημοσιεύσεων."
+
+#: includes-core/Mcp/Content.php:22
+msgid "Find Series and Series Categories"
+msgstr "Βρείτε σειρές και κατηγορίες σειράς"
+
+#: includes-core/Mcp/Content.php:22
+msgid ""
+"Find native Series terms or Series Categories by name. Returns native term "
+"metadata and concurrency tokens without exposing post content."
+msgstr ""
+"Βρείτε εγNative όρους σειράς ή κατηγορίες σειράς κατά όνομα. Επιστρέφει "
+"εγNative μεταδεδομένα όρων και tokens ταυτόχρονης χρήσης χωρίς να εκθέτει "
+"το περιεχόμενο δημοσίευσης."
+
+#: includes-core/Mcp/Content.php:23
+msgid "Read posts in a Series"
+msgstr "Διαβάστε δημοσιεύσεις σε μια σειρά"
+
+#: includes-core/Mcp/Content.php:23
+msgid ""
+"List readable posts with their native part numbers, pending order, status "
+"and date. Pagination filters unreadable objects first. Get-post-series "
+"supplies edit tokens for individual posts."
+msgstr ""
+"Λίστα αναγνώσιμων δημοσιεύσεων με τους εγNative αριθμούς μέρους τους, "
+"εκκρεμή σειρά, κατάσταση και ημερομηνία. Η σελιδοποίηση φιλτράρει πρώτα τα "
+"μη αναγνώσιμα αντικείμενα. Το get-post-series παρέχει tokens επεξεργασίας "
+"για μεμονωμένες δημοσιεύσεις."
+
+#: includes-core/Mcp/Content.php:24
+msgid "Inspect a Series or category"
+msgstr "Επιθεωρήστε μια σειρά ή κατηγορία"
+
+#: includes-core/Mcp/Content.php:24
+msgid ""
+"Read name, description, icon, order, category assignments and "
+"expected_hash. Series Categories use taxonomy=category. Parent IDs apply to "
+"hierarchical categories."
+msgstr ""
+"Διαβάστε το όνομα, την περιγραφή, το εικονίδιο, τη σειρά, τις αναθέσεις "
+"κατηγορίας και το expected_hash. Οι κατηγορίες σειράς χρησιμοποιούν "
+"taxonomy=category. Οι γονικές ταυτότητες ισχύουν για ιεραρχικές κατηγορίες."
+
+#: includes-core/Mcp/Content.php:25
+msgid "Create or update a Series or category"
+msgstr "Δημιουργήστε ή ενημερώστε μια σειρά ή κατηγορία"
+
+#: includes-core/Mcp/Content.php:25
+msgid ""
+"Create with name, or patch an existing id and expected_hash. Omitted fields "
+"remain unchanged. icon_id is a readable image attachment; zero clears the "
+"Series icon. category_ids replace Series category assignments; [] clears "
+"them. dry_run previews."
+msgstr ""
+"Δημιουργήστε με όνομα ή τροποποιήστε μια υπάρχουσα ταυτότητα και "
+"expected_hash. Τα παραλειπόμενα πεδία παραμένουν αμετάβλητα. Το icon_id "
+"είναι μια αναγνώσιμη προσκόλληση εικόνας; το μηδέν καθαρίζει το εικονίδιο "
+"σειράς. Τα category_ids αντικαθιστούν τις αναθέσεις κατηγορίας σειράς; [] "
+"τα καθαρίζει. Το dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Content.php:26
+msgid "Delete a Series or category"
+msgstr "Διαγράψτε μια σειρά ή κατηγορία"
+
+#: includes-core/Mcp/Content.php:26
+msgid ""
+"Delete a native taxonomy term without deleting its posts. Requires the "
+"current term and membership token and permission to edit all affected "
+"posts. dry_run previews. Large collections remain in native administration."
+msgstr ""
+"Διαγράψτε έναν εγNative όρο taxonomy χωρίς να διαγράψετε τις δημοσιεύσεις "
+"του. Απαιτεί την τρέχουσα ταυτότητα όρου και token μέλους και άδεια να "
+"επεξεργαστεί όλες τις επηρεαζόμενες δημοσιεύσεις. Το dry_run προεπισκοπεί. "
+"Οι μεγάλες συλλογές παραμένουν στη Native διαχείριση."
+
+#: includes-core/Mcp/Content.php:27
+msgid "Inspect a post’s Series and block assignments"
+msgstr "Επιθεωρήστε τις αναθέσεις σειράς και μπλοκ μιας δημοσίευσης"
+
+#: includes-core/Mcp/Content.php:27
+msgid ""
+"Read Series membership, part numbers, widget short title and Series "
+"Gutenberg block attributes for a readable editable supported post. Returns "
+"expected_hash covering affected Series order and content."
+msgstr ""
+"Διαβάστε την ιδιότητα μέλους σειράς, τους αριθμούς μερών, τον σύντομο τίτλο "
+"widget και τα χαρακτηριστικά μπλοκ Gutenberg σειράς για μια αναγνώσιμη "
+"επεξεργάσιμη υποστηριζόμενη δημοσίευση. Επιστρέφει το expected_hash που "
+"καλύπτει την επηρεαζόμενη σειρά και περιεχόμενο σειράς."
+
+#: includes-core/Mcp/Content.php:28
+msgid "Set post Series, part numbers and widget title"
+msgstr "Ορίστε τη σειρά δημοσίευσης, τους αριθμούς μερών και τον τίτλο widget"
+
+#: includes-core/Mcp/Content.php:28
+msgid ""
+"Replace memberships with items; [] removes all. Omit items to update only "
+"short_title. Part zero uses native automatic placement. Multiple Series "
+"requires active Pro Multiple Series. All posts whose numbering can change "
+"require native read/edit permission. Read expected_hash from get-series "
+"before adding a new membership. dry_run previews."
+msgstr ""
+"Αντικαταστήστε τις συμμετοχές με στοιχεία; [] αφαιρεί όλα. Παραλείψτε "
+"στοιχεία για να ενημερώσετε μόνο το short_title. Το μέρος μηδέν "
+"χρησιμοποιεί την εγNative αυτόματη τοποθέτηση. Πολλαπλές σειρές απαιτούν "
+"ενεργό Pro Multiple Series. Όλες οι δημοσιεύσεις των οποίων η αριθμητική "
+"μπορεί να αλλάξει απαιτούν εγNative άδεια ανάγνωσης/επεξεργασίας. Διαβάστε "
+"το expected_hash από get-series πριν προσθέσετε μια νέα συμμετοχή. Το "
+"dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Content.php:31
+msgid "Update Series memberships for multiple posts"
+msgstr "Ενημέρωση συμμετοχών Σειρών για πολλαπλές αναρτήσεις"
+
+#: includes-core/Mcp/Content.php:31
+msgid ""
+"Validate every explicit post, Series token and native permission before "
+"updating up to 20 posts. Each row uses the same input as "
+"update-post-series. Omitted fields are preserved. dry_run previews all "
+"rows. Native numbering is not transactional; inspect complete, applied_ids "
+"and failed_id before retrying a partial result."
+msgstr ""
+"Επικύρωση κάθε ρητής ανάρτησης, κωδικού Σειράς και εγγενών δικαιωμάτων πριν "
+"από την ενημέρωση έως 20 αναρτήσεων. Κάθε γραμμή χρησιμοποιεί την ίδια "
+"είσοδο όπως η update-post-series. Τα παραλειπόμενα πεδία διατηρούνται. Η "
+"dry_run προεπισκοπεί όλες τις γραμμές. Η εγγενής αρίθμηση δεν είναι "
+"συναλλαγή; ελέγξτε τα ολοκληρωμένα, applied_ids και failed_id πριν από την "
+"επαναφορά ενός μερικού αποτελέσματος."
+
+#: includes-core/Mcp/Content.php:32
+msgid "Order, publish, schedule or unpublish Series posts"
+msgstr "Διατάξτε, δημοσιεύστε, προγραμματίστε ή αποδημοσιεύστε αναρτήσεις Σειρών"
+
+#: includes-core/Mcp/Content.php:32
+msgid ""
+"Native Series Order and Publish Series workflows. Get expected_hash from "
+"get-series. order requires the complete counted post set and never "
+"publishes drafts. pending-order requires complete unpublished set. publish "
+"accepts selected pending/draft posts; date is optional site-local "
+"YYYY-MM-DD HH:MM for scheduling. unpublish affects the entire Series. trash "
+"requires explicit post_ids and native deletion capabilities. mark-published "
+"changes only the Series marker. date-asc/date-desc reuse native "
+"publication-date ordering. Cross-Series status transitions require "
+"series_tokens from get-series for the other memberships. sync-menu-order "
+"copies part numbers to WordPress menu order. All affected objects are "
+"preflighted; native multi-step operations are not transactional. dry_run "
+"previews."
+msgstr ""
+"Εγγενής σειρά Σειρών και ροές εργασίας δημοσίευσης Σειρών. Λάβετε το "
+"expected_hash από το get-series. Η σειρά απαιτεί το πλήρες σύνολο "
+"αναρτήσεων που μετράται και ποτέ δεν δημοσιεύει προσχέδια. Η pending-order "
+"απαιτεί το πλήρες σύνολο που δεν έχει δημοσιευθεί. Η δημοσίευση αποδέχεται "
+"τις επιλεγμένες αναρτήσεις που εκκρεμούν/προσχέδια; η ημερομηνία είναι "
+"προαιρετική και τοπική για τον ιστότοπο YYYY-MM-DD HH:MM για "
+"προγραμματισμό. Η αποδημοσίευση επηρεάζει ολόκληρη τη Σειρά. Η απορρίμματα "
+"απαιτεί ρητές post_ids και εγγενείς δυνατότητες διαγραφής. Η mark-published "
+"αλλάζει μόνο το δείκτη Σειράς. Οι ημερομηνίες-asc/date-desc "
+"επαναχρησιμοποιούν την εγγενή σειρά ημερομηνίας δημοσίευσης. Οι μεταβάσεις "
+"κατάστασης μεταξύ Σειρών απαιτούν series_tokens από το get-series για τις "
+"άλλες συμμετοχές. Η sync-menu-order αντιγράφει τους αριθμούς μέρους στην "
+"παραγγελία μενού του WordPress. Όλα τα επηρεαζόμενα αντικείμενα ελέγχονται "
+"εκ των προτέρων. Οι εγγενείς πολλαπλές λειτουργίες βημάτων δεν είναι "
+"συναλλαγές. Η dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Content.php:33
+msgid "Add or configure a Series Gutenberg block"
+msgstr "Προσθέστε ή ρυθμίστε ένα μπλοκ Gutenberg Σειράς"
+
+#: includes-core/Mcp/Content.php:33
+msgid ""
+"Append a native Series block or update one using its zero-based path from "
+"get-post-series. Only registered Series block attributes are accepted, with "
+"native editor availability and layout access checks. No arbitrary HTML or "
+"other block edits. dry_run previews."
+msgstr ""
+"Προσθέστε ένα εγγενές μπλοκ Σειράς ή ενημερώστε ένα χρησιμοποιώντας την "
+"μηδενικής βάσης διαδρομή του από το get-post-series. Μόνο οι καταχωρημένες "
+"ιδιότητες μπλοκ Σειράς γίνονται αποδεκτές, με ελέγχους διαθεσιμότητας και "
+"πρόσβασης διάταξης του εγγενούς επεξεργαστή. Όχι αυθαίρετο HTML ή άλλες "
+"επεξεργασίες μπλοκ. Η dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Content.php:64
+msgid "This Series term does not exist."
+msgstr "Αυτός ο όρος Σειράς δεν υπάρχει."
+
+#: includes-core/Mcp/Content.php:72
+msgid "Series membership could not be read."
+msgstr "Η συμμετοχή στη Σειρά δεν μπόρεσε να διαβαστεί."
+
+#: includes-core/Mcp/Content.php:78
+#: includes-core/Mcp/Content.php:103
+msgid "Use native administration for more than 1,000 affected records."
+msgstr ""
+"Χρησιμοποιήστε την εγγενή διαχείριση για περισσότερα από 1.000 επηρεαζόμενα "
+"αρχεία."
+
+#: includes-core/Mcp/Content.php:119
+#: includes-core/Mcp/Content.php:329
+msgid "Use native administration for this category hierarchy."
+msgstr "Χρησιμοποιήστε την εγγενή διαχείριση για αυτή την ιεραρχία κατηγοριών."
+
+#: includes-core/Mcp/Content.php:201
+#: includes-core/Mcp/Content.php:523
+msgid "Use native administration for more than 1,000 affected posts."
+msgstr ""
+"Χρησιμοποιήστε την εγγενή διαχείριση για περισσότερες από 1.000 "
+"επηρεαζόμενες αναρτήσεις."
+
+#: includes-core/Mcp/Content.php:233
+msgid "Supply a Series or category name."
+msgstr "Δώστε ένα όνομα Σειράς ή κατηγορίας."
+
+#: includes-core/Mcp/Content.php:236
+msgid "These fields apply only to Series, not Series Categories."
+msgstr "Αυτά τα πεδία ισχύουν μόνο για Σειρές, όχι Κατηγορίες Σειρών."
+
+#: includes-core/Mcp/Content.php:239
+msgid "Use an existing category parent without a cycle."
+msgstr "Χρησιμοποιήστε μια υπάρχουσα γονική κατηγορία χωρίς κύκλο."
+
+#: includes-core/Mcp/Content.php:258
+msgid "Unknown Series Category."
+msgstr "Άγνωστη Κατηγορία Σειράς."
+
+#: includes-core/Mcp/Content.php:413
+msgid ""
+"Multiple membership requires the active Pro Multiple Series feature; "
+"duplicate Series IDs are invalid."
+msgstr ""
+"Πολλαπλή συμμετοχή απαιτεί την ενεργή δυνατότητα Pro Multiple Series; οι "
+"διπλές ταυτότητες Σειρών είναι άκυρες."
+
+#: includes-core/Mcp/Content.php:417
+#: includes-core/Mcp/Content.php:666
+msgid "Supply one token per Series."
+msgstr "Δώστε ένα κωδικό ανά Σειρά."
+
+#: includes-core/Mcp/Content.php:422
+#: includes-core/Mcp/Content.php:794
+msgid "Unknown Series."
+msgstr "Άγνωστη Σειρά."
+
+#: includes-core/Mcp/Content.php:497
+msgid "A target Series no longer exists."
+msgstr "Μια στοχευόμενη Σειρά δεν υπάρχει πλέον."
+
+#: includes-core/Mcp/Content.php:513
+msgid "Each bulk post target must appear only once."
+msgstr "Κάθε στόχος μαζικής ανάρτησης πρέπει να εμφανίζεται μόνο μία φορά."
+
+#: includes-core/Mcp/Content.php:539
+msgid "The batch changed. Read every affected object before retrying."
+msgstr ""
+"Η παρτίδα άλλαξε. Διαβάστε κάθε επηρεαζόμενο αντικείμενο πριν από την "
+"επαναφορά."
+
+#: includes-core/Mcp/Content.php:551
+msgid ""
+"A native bulk update could not be fully confirmed. Read affected objects "
+"before retrying."
+msgstr ""
+"Μια εγγενής μαζική ενημέρωση δεν μπόρεσε να επιβεβαιωθεί πλήρως. Διαβάστε "
+"τα επηρεαζόμενα αντικείμενα πριν από την επαναφορά."
+
+#: includes-core/Mcp/Content.php:555
+msgid ""
+"Post content changed during the native batch. Read affected posts before "
+"retrying."
+msgstr ""
+"Το περιεχόμενο ανάρτησης άλλαξε κατά τη διάρκεια της εγγενούς παρτίδας. "
+"Διαβάστε τις επηρεαζόμενες αναρτήσεις πριν από την επαναφορά."
+
+#: includes-core/Mcp/Content.php:581
+msgid "Every target must belong to this Series."
+msgstr "Κάθε στόχος πρέπει να ανήκει σε αυτή τη Σειρά."
+
+#: includes-core/Mcp/Content.php:588
+msgid "This operation applies to the Series; omit post_ids."
+msgstr "Αυτή η λειτουργία ισχύει για τη Σειρά; παραλείψτε τα post_ids."
+
+#: includes-core/Mcp/Content.php:591
+msgid "Publication dates apply only to publish operations."
+msgstr "Οι ημερομηνίες δημοσίευσης ισχύουν μόνο για λειτουργίες δημοσίευσης."
+
+#: includes-core/Mcp/Content.php:594
+msgid "Supply explicit post_ids for this operation."
+msgstr "Δώστε ρητές post_ids για αυτή τη λειτουργία."
+
+#: includes-core/Mcp/Content.php:600
+msgid "Native menu-order targets could not be read."
+msgstr "Οι στόχοι εγγενούς παραγγελίας μενού δεν μπόρεσαν να διαβαστούν."
+
+#: includes-core/Mcp/Content.php:607
+msgid "Menu-order sync accepts only native published, numbered posts."
+msgstr ""
+"Η συγχρονισμένη παραγγελία μενού δέχεται μόνο εγγενείς δημοσιευμένες, "
+"αριθμημένες αναρτήσεις."
+
+#: includes-core/Mcp/Content.php:614
+msgid "Supply the complete native ordered post set; no hidden targets are changed."
+msgstr ""
+"Δώστε το πλήρες εγγενές παραγγελμένο σύνολο αναρτήσεων; δεν αλλάζουν κρυφοί "
+"στόχοι."
+
+#: includes-core/Mcp/Content.php:676
+msgid "Use a valid site-local publication date."
+msgstr "Χρησιμοποιήστε μια έγκυρη τοπική ημερομηνία δημοσίευσης."
+
+#: includes-core/Mcp/Content.php:811
+msgid "Read the current Series block path before editing."
+msgstr "Διαβάστε την τρέχουσα διαδρομή μπλοκ Σειράς πριν από την επεξεργασία."
+
+#: includes-core/Mcp/Layouts.php:79
+msgid "Read Series layout fields and settings"
+msgstr "Διαβάστε τα πεδία και τις ρυθμίσεις διάταξης Σειράς"
+
+#: includes-core/Mcp/Layouts.php:79
+msgid ""
+"Inspect a Post List Box, Post Details or Post Navigation layout. Omit id to "
+"discover native fields/defaults for a new layout. Includes exact JSON "
+"schema, native labels and edition locks. Use list-layouts to find IDs."
+msgstr ""
+"Εξετάστε ένα πλαίσιο λίστας αναρτήσεων, λεπτομέρειες ανάρτησης ή διάταξη "
+"πλοήγησης ανάρτησης. Παραλείψτε το id για να ανακαλύψετε εγγενή "
+"πεδία/προεπιλογές για μια νέα διάταξη. Περιλαμβάνει ακριβές σχήμα JSON, "
+"εγγενείς ετικέτες και κλειδώματα έκδοσης. Χρησιμοποιήστε τα list-layouts "
+"για να βρείτε IDs."
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "Find Series layouts"
+msgstr "Βρείτε διάταξεις Σειρών"
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "List readable native Series layouts, including trash when requested."
+msgstr ""
+"Καταγράψτε τις αναγνώσιμες εγγενείς διάταξεις Σειρών, συμπεριλαμβανομένων "
+"των απορριμμάτων όταν ζητηθούν."
+
+#: includes-core/Mcp/Layouts.php:88
+msgid "Create or update a Series layout"
+msgstr "Δημιουργήστε ή ενημερώστε μια διάταξη Σειράς"
+
+#: includes-core/Mcp/Layouts.php:88
+msgid ""
+"Create a published layout or patch one by id and expected_hash. Use "
+"get-layout for exact per-module field types and locks. JSON booleans for "
+"checkboxes, integers for sizes and image IDs, strings for select choices. "
+"Omitted fields and unrelated metadata remain unchanged. dry_run previews."
+msgstr ""
+"Δημιουργήστε μια δημοσιευμένη διάταξη ή επιδιορθώστε μία με id και "
+"expected_hash. Χρησιμοποιήστε το get-layout για ακριβείς τύπους πεδίων και "
+"κλειδώματα ανά μονάδα. JSON booleans για πλαίσια ελέγχου, ακέραιοι για "
+"μεγέθη και IDs εικόνας, συμβολοσειρές για επιλογές επιλεγμένων. Τα "
+"παραλειπόμενα πεδία και τα άσχετα μεταδεδομένα παραμένουν αμετάβλητα. Η "
+"dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Layouts.php:89
+msgid "Trash, restore or delete a Series layout"
+msgstr "Απορρίμματα, επαναφορά ή διαγραφή διάταξης Σειράς"
+
+#: includes-core/Mcp/Layouts.php:89
+msgid ""
+"Native layout lifecycle. Read id and expected_hash first. Permanent "
+"deletion requires prior trash and native delete permission. dry_run "
+"previews."
+msgstr ""
+"Εγγενής κύκλος ζωής διάταξης. Διαβάστε πρώτα το id και το expected_hash. Η "
+"μόνιμη διαγραφή απαιτεί προηγούμενη απορρίμματα και εγγενή άδεια διαγραφής. "
+"Η dry_run προεπισκοπεί."
+
+#: includes-core/Mcp/Layouts.php:124
+msgid "Use native administration for more than 1,000 layouts."
+msgstr "Χρησιμοποιήστε την εγγενή διαχείριση για περισσότερα από 1.000 σχέδια."
+
+#: includes-core/Mcp/Layouts.php:148
+msgid "Supply a title for the new layout."
+msgstr "Δώστε έναν τίτλο για το νέο σχέδιο."
+
+#: includes-core/Mcp/Layouts.php:154
+msgid "Restore the layout before editing."
+msgstr "Ανακτήστε το σχέδιο πριν από την επεξεργασία."
+
+#: includes-core/Mcp/Layouts.php:167
+msgid "This layout field requires an active Pro feature."
+msgstr "Αυτό το πεδίο σχεδίου απαιτεί μια ενεργή Pro δυνατότητα."
+
+#: includes-core/Mcp/Layouts.php:205
+msgid ""
+"The layout exists but its settings were not fully confirmed. Read before "
+"retrying."
+msgstr ""
+"Το σχέδιο υπάρχει αλλά οι ρυθμίσεις του δεν επιβεβαιώθηκαν πλήρως. Διαβάστε "
+"πριν δοκιμάσετε ξανά."
+
+#: includes-core/Mcp/Layouts.php:223
+msgid "This lifecycle operation does not match the current layout state."
+msgstr ""
+"Αυτή η λειτουργία κύκ ζωής δεν ταιριάζει με την τρέχουσα κατάσταση του "
+"σχεδίου."
+
+#: includes-core/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr ""
+"Χρησιμοποιήστε τα ακριβή πεδία, τύπους και επιλογές που επιστρέφονται από "
+"την ανακάλυψη."
+
+#: includes-core/Mcp/Registry.php:52
+msgid "You do not have permission to use this Series operation."
+msgstr "Δεν έχετε άδεια να χρησιμοποιήσετε αυτή τη λειτουργία Series."
+
+#: includes-core/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "Μη έγκυρος τύπος JSON στο %s."
+
+#: includes-core/Mcp/Registry.php:168
+msgid ""
+"Series could not complete this operation. Inspect the current state before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Η σειρά δεν μπόρεσε να ολοκληρώσει αυτή τη λειτουργία. Ελέγξτε την τρέχουσα "
+"κατάσταση πριν δοκιμάσετε ξανά. Ορισμένες αλλαγές μπορεί να έχουν "
+"αποθηκευτεί."
+
+#: includes-core/Mcp/Registry.php:200
+msgid "This object changed. Read it again before saving."
+msgstr "Αυτό το αντικείμενο έχει αλλάξει. Διαβάστε το ξανά πριν από την αποθήκευση."
+
+#: includes-core/Mcp/Registry.php:205
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Η λειτουργία δεν μπόρεσε να επιβεβαιωθεί πλήρως. Διαβάστε το αντικείμενο "
+"πριν δοκιμάσετε ξανά. Ορισμένες αλλαγές μπορεί να έχουν αποθηκευτεί."
+
+#: includes-core/Mcp/Settings.php:79
+msgid "Read Series settings and choices"
+msgstr "Διαβάστε τις ρυθμίσεις και επιλογές της Series"
+
+#: includes-core/Mcp/Settings.php:79
+msgid ""
+"Discover native Series Settings: automatic displays, layouts, legacy "
+"templates, category archives, metabox, sorting, uninstall policy and active "
+"Pro features. Booleans use JSON true/false; layout IDs are integers. No "
+"license or account credentials are returned."
+msgstr ""
+"Ανακαλύψτε τις εγγενείς ρυθμίσεις της Series: αυτόματες εμφανίσεις, σχέδια, "
+"κληρονομικές προτυπώσεις, αρχεία κατηγοριών, metabox, ταξινόμηση, πολιτική "
+"απεγκατάστασης και ενεργές Pro δυνατότητες. Οι Boolean χρησιμοποιούν JSON "
+"true/false; τα IDs σχεδίων είναι ακέραιοι αριθμοί. Δεν επιστρέφονται άδειες "
+"ή στοιχεία σύνδεσης λογαριασμού."
+
+#: includes-core/Mcp/Settings.php:80
+msgid "Update Series settings"
+msgstr "Ενημερώστε τις ρυθμίσεις της Series"
+
+#: includes-core/Mcp/Settings.php:80
+msgid ""
+"Patch the exact keys discovered by get-plugin-settings. Preserve omitted "
+"settings. Read expected_hash first. dry_run previews without saving. Pro "
+"addon and post-type changes take effect on the next request. Taxonomy "
+"identity migrations remain in native administration."
+msgstr ""
+"Διορθώστε τα ακριβή κλειδιά που ανακαλύφθηκαν από το get-plugin-settings. "
+"Διατηρήστε τις παραλειπόμενες ρυθμίσεις. Διαβάστε πρώτα το expected_hash. "
+"Το dry_run προεπισκοπεί χωρίς αποθήκευση. Οι αλλαγές σε Pro addon και "
+"τύπους αναρτήσεων ισχύουν στην επόμενη αίτηση. Οι μετακινήσεις ταυτότητας "
+"ταξινόμησης παραμένουν στην εγγενή διαχείριση."
+
+#: includes-core/Mcp/Settings.php:89
+msgid "Display Series Post List Boxes?"
+msgstr "Εμφάνιση πλαισίων λίστας αναρτήσεων της Series;"
+
+#: includes-core/Mcp/Settings.php:154
+msgid "This text requires unfiltered_html. Use safe post HTML."
+msgstr ""
+"Αυτό το κείμενο απαιτεί unfiltered_html. Χρησιμοποιήστε ασφαλές HTML "
+"ανάρτησης."
 
 #: includes-core/PPSeriesCoreAdmin.php:18
 #. translators: 1: Opening link tag, 2: Closing link tag.
@@ -3339,10 +3987,6 @@ msgstr "Χρειάζεστε Υποστήριξη του PublishPress Series;"
 msgid "If you need help or have a new feature request, let us know."
 msgstr "Εάν χρειάζεστε βοήθεια ή έχετε ένα νέο αίτημα λειτουργίας, ενημερώστε μας."
 
-#: includes-core/PPSeriesCoreAdmin.php:77
-msgid "Request PublishPress Series support"
-msgstr "Αίτηση υποστήριξης για το PublishPress Series"
-
 #: includes-core/PPSeriesCoreAdmin.php:78
 msgid "Request Support"
 msgstr "Αίτημα Υποστήριξης"
@@ -3350,10 +3994,6 @@ msgstr "Αίτημα Υποστήριξης"
 #: includes-core/PPSeriesCoreAdmin.php:87
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Λεπτομερής τεκμηρίωση είναι επίσης διαθέσιμη στην ιστοσελίδα του πρόσθετου."
-
-#: includes-core/PPSeriesCoreAdmin.php:88
-msgid "View PublishPress Series knowledge base"
-msgstr "Δείτε τη βάση γνώσεων του PublishPress Series"
 
 #: includes-core/PPSeriesCoreAdmin.php:89
 msgid "View Knowledge Base"
@@ -3369,15 +4009,39 @@ msgstr "Συνέβη ένα σφάλμα"
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s σειρά μεταφέρθηκε σε νέα taxonomy"
 
-#: orgSeries-admin.php:134
+#: orgSeries-admin.php:103
+msgid "No series found."
+msgstr "Καμία σειρά δεν βρέθηκε."
+
+#: orgSeries-admin.php:104
+msgid "1 series found."
+msgstr "1 σειρά βρέθηκε."
+
+#: orgSeries-admin.php:106
+#. translators: %d: number of series matching the search
+#, php-format
+msgid "%d series found."
+msgstr "%d σειρές βρέθηκαν."
+
+#: orgSeries-admin.php:107
+msgid "Enter a name for the new series."
+msgstr "Εισάγετε ένα όνομα για τη νέα σειρά."
+
+#: orgSeries-admin.php:143
 msgid "Custom Template"
 msgstr "Προσαρμοσμένο Πρότυπο"
 
-#: orgSeries-admin.php:152
-msgid "Leave a five-star review for PublishPress Series"
-msgstr "Αφήστε μια κριτική πέντε αστέρων για το PublishPress Series"
+#: orgSeries-admin.php:144
+msgid "Layout options loaded."
+msgstr "Οι επιλογές σχεδίου φορτώθηκαν."
 
-#: orgSeries-admin.php:157
+#: orgSeries-admin.php:145
+msgid "Layout options could not be loaded. Reload the page to try again."
+msgstr ""
+"Οι επιλογές σχεδίου δεν μπόρεσαν να φορτωθούν. Ανανεώστε τη σελίδα για να "
+"δοκιμάσετε ξανά."
+
+#: orgSeries-admin.php:168
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
@@ -3385,51 +4049,63 @@ msgstr ""
 "Αν σας αρέσει το %1$s, παρακαλούμε αφήστε μας μια αξιολόγηση %2$s. "
 "Ευχαριστούμε!"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:170
+msgid "five-star"
+msgstr "πέντε αστέρια"
+
+#: orgSeries-admin.php:180
 msgid "About PublishPress Series"
 msgstr "Σχετικά με τη σειρά PublishPress"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:180
 msgid "About"
 msgstr "Σχετικά"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "PublishPress Series Documentation"
 msgstr "Τεκμηρίωση Σειρών PublishPress"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact the PublishPress team"
 msgstr "Επικοινωνήστε με την ομάδα PublishPress"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact"
 msgstr "Επικοινωνία"
 
-#: orgSeries-admin.php:171
+#: orgSeries-admin.php:183
 msgid "Follow PublishPress on Twitter"
 msgstr "Ακολουθήστε το PublishPress στο Twitter"
 
-#: orgSeries-admin.php:172
+#: orgSeries-admin.php:184
 msgid "Follow PublishPress on Facebook"
 msgstr "Ακολουθήστε το PublishPress στο Facebook"
 
-#: orgSeries-admin.php:177
-msgid "Visit PublishPress"
-msgstr "Επισκεφθείτε το PublishPress"
+#: orgSeries-admin.php:206
+msgid "Select Media"
+msgstr "Επιλέξτε Μέσα"
 
-#: orgSeries-admin.php:201
+#: orgSeries-admin.php:207
+msgid "Selected Image:"
+msgstr "Επιλεγμένη Εικόνα:"
+
+#: orgSeries-admin.php:217
 msgid "Sorry but you don't have permission to add series"
 msgstr "Λυπάμαι, αλλά δεν έχετε άδεια να προσθέσετε σειρές"
 
-#: orgSeries-admin.php:213
+#: orgSeries-admin.php:221
+msgid "Sorry but security check failed"
+msgstr "Λυπάμαι αλλά η έλεγχος ασφαλείας απέτυχε"
+
+#: orgSeries-admin.php:229
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "Το όνομα που επιλέξατε δεν καθαρίζεται σωστά. Δοκιμάστε κάτι διαφορετικό."
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
@@ -3437,37 +4113,38 @@ msgstr ""
 "Χμμ... φαίνεται ότι υπάρχει ήδη μια σειρά με αυτό το όνομα. Δοκιμάστε κάτι "
 "άλλο"
 
-#: orgSeries-admin.php:231
-#: orgSeries-manage.php:161
+#: orgSeries-admin.php:247
+#: orgSeries-manage.php:257
 msgid "Series added."
 msgstr "Η σειρά προστέθηκε."
 
-#: orgSeries-admin.php:345
+#: orgSeries-admin.php:361
+#: orgSeries-taxonomy.php:1053
 msgid "Not part of a series"
 msgstr "Δεν είναι μέρος μιας σειράς"
 
-#: orgSeries-admin.php:398
+#: orgSeries-admin.php:417
 msgid "New series name"
 msgstr "Νέο όνομα σειράς"
 
-#: orgSeries-admin.php:405
+#: orgSeries-admin.php:425
 msgid "Search series"
 msgstr "Αναζητήστε σειρές"
 
-#: orgSeries-admin.php:420
+#: orgSeries-admin.php:443
 msgid "Series Part:"
 msgstr "Μέρος Σειράς:"
 
-#: orgSeries-admin.php:421
-#: orgSeries-taxonomy.php:1094
+#: orgSeries-admin.php:444
+#: orgSeries-taxonomy.php:1018
 msgid "Series Part"
 msgstr "Μέρος Σειράς"
 
-#: orgSeries-admin.php:427
+#: orgSeries-admin.php:450
 msgid "Post title in widget:"
 msgstr "Τίτλος ανάρτησης στο widget:"
 
-#: orgSeries-admin.php:429
+#: orgSeries-admin.php:452
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -3475,38 +4152,44 @@ msgstr ""
 "Ένας σύντομος τίτλος αυτής της ανάρτησης που θα χρησιμοποιηθεί στο widget "
 "Σειρών. Αφήστε κενό για να χρησιμοποιήσετε τον πλήρη τίτλο."
 
-#: orgSeries-admin.php:431
+#: orgSeries-admin.php:454
 msgid "Post title in widget"
 msgstr "Τίτλος ανάρτησης στο widget"
 
-#: orgSeries-admin.php:518
+#: orgSeries-admin.php:541
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Χωρίς αριθμό μέρους)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:544
 #. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Μέρος %1$s της %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:549
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Δεν υπάρχει αριθμός μέρους)"
 
-#: orgSeries-admin.php:532
-#: orgSeries-setup.php:289
+#: orgSeries-admin.php:555
+#: orgSeries-setup.php:297
+#: orgSeries-taxonomy.php:1012
+#: orgSeries-taxonomy.php:1075
 msgid "No Series"
 msgstr "Δεν υπάρχει σειρά"
 
-#: orgSeries-admin.php:556
+#: orgSeries-admin.php:580
 msgid "View all series"
 msgstr "Δείτε όλες τις σειρές"
 
-#: orgSeries-admin.php:565
+#: orgSeries-admin.php:584
+msgid "Filter by series"
+msgstr "Φιλτράρισμα κατά σειρά"
+
+#: orgSeries-admin.php:594
 msgid "Manage All Series"
 msgstr "Διαχείριση όλων των σειρών"
 
@@ -3524,11 +4207,21 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Σφάλμα βάσης δεδομένων: %s"
 
-#: orgSeries-manage.php:74
+#: orgSeries-manage.php:125
+msgid "Order saved."
+msgstr "Η σειρά αποθηκεύτηκε."
+
+#: orgSeries-manage.php:126
+msgid "The new order could not be saved. Reload the page and try again."
+msgstr ""
+"Η νέα σειρά δεν μπόρεσε να αποθηκευτεί. Ανανεώστε τη σελίδα και δοκιμάστε "
+"ξανά."
+
+#: orgSeries-manage.php:158
 msgid "Term Order"
 msgstr "Διαταγή Όρων"
 
-#: orgSeries-manage.php:75
+#: orgSeries-manage.php:159
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3536,32 +4229,41 @@ msgstr ""
 "Για να επανατοποθετήσετε ένα στοιχείο, σύρετε και αφήστε τη γραμμή κάνοντας "
 "\"κλικ και κρατώντας\" οπουδήποτε και μετακινήστε την στη νέα της θέση."
 
-#: orgSeries-manage.php:162
-#: orgSeries-manage.php:166
+#: orgSeries-manage.php:160
+msgid ""
+"You can also use the \"Move up\" and \"Move down\" buttons in each row. "
+"They work with the keyboard and save the new order straight away."
+msgstr ""
+"Μπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά \"Μετακίνηση επάνω\" και "
+"\"Μετακίνηση κάτω\" σε κάθε σειρά. Λειτουργούν με το πληκτρολόγιο και "
+"αποθηκεύουν τη νέα σειρά αμέσως."
+
+#: orgSeries-manage.php:258
+#: orgSeries-manage.php:262
 msgid "Series deleted."
 msgstr "Η σειρά διαγράφηκε."
 
-#: orgSeries-manage.php:163
+#: orgSeries-manage.php:259
 msgid "Series updated."
 msgstr "Η σειρά ενημερώθηκε."
 
-#: orgSeries-manage.php:164
+#: orgSeries-manage.php:260
 msgid "Series not added."
 msgstr "Η σειρά δεν προστέθηκε."
 
-#: orgSeries-manage.php:165
+#: orgSeries-manage.php:261
 msgid "Series not updated."
 msgstr "Η σειρά δεν ενημερώθηκε."
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:336
 msgid "Posts"
 msgstr "Αναρτήσεις"
 
-#: orgSeries-manage.php:240, fuzzy
+#: orgSeries-manage.php:338, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:377
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3569,15 +4271,15 @@ msgstr ""
 "Οι όροι συνήθως παρατίθενται αλφαβητικά, αλλά μπορείτε να επιλέξετε τη δική "
 "σας σειρά εισάγοντας έναν αριθμό (1 για πρώτη, κ.λπ.) σε αυτό το πεδίο."
 
-#: orgSeries-manage.php:286
+#: orgSeries-manage.php:384
 msgid "Current series featured image:"
 msgstr "Τρέχουσα εικόνα χαρακτηριστικού σειράς:"
 
-#: orgSeries-manage.php:293
+#: orgSeries-manage.php:391
 msgid "No featured image currently"
 msgstr "Δεν υπάρχει τρέχουσα εικόνα χαρακτηριστικού"
 
-#: orgSeries-manage.php:303
+#: orgSeries-manage.php:401
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3585,38 +4287,44 @@ msgstr ""
 "Διαγραφή εικόνας; (σημείωση: δεν θα υπάρχει εικόνα που να σχετίζεται με "
 "αυτή τη σειρά αν επιλέξετε αυτό)"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:406
 msgid "Series featured image upload:"
 msgstr "Ανέβασμα εικόνας χαρακτηριστικού σειράς:"
 
-#: orgSeries-manage.php:312
+#: orgSeries-manage.php:410
 msgid "Upload a featured image for the series."
 msgstr "Ανεβάστε μια εικόνα προβολής για τη σειρά."
 
-#: orgSeries-manage.php:327
+#: orgSeries-manage.php:425
 msgid "Invalid form data"
 msgstr "Μη έγκυρα δεδομένα φόρμας"
 
-#: orgSeries-manage.php:337
+#: orgSeries-manage.php:435
 msgid "Invalid nonce, reload and try again"
 msgstr "Μη έγκυρο nonce, ανανεώστε και δοκιμάστε ξανά"
 
-#: orgSeries-manage.php:346
+#: orgSeries-manage.php:444
 msgid "Invalid taxonomy"
 msgstr "Μη έγκυρη ταξινόμηση"
 
-#: orgSeries-manage.php:352
+#: orgSeries-manage.php:450
 msgid "Not enough permission"
 msgstr "Όχι αρκετά δικαιώματα"
 
-#: orgSeries-manage.php:356
+#: orgSeries-manage.php:455
 msgid "Updated successfully"
 msgstr "Ενημερώθηκε επιτυχώς"
+
+#: orgSeries-manage.php:546
+msgid "Series order metadata could not be read. No cleanup was authorized."
+msgstr ""
+"Τα μεταδεδομένα σειράς δεν μπόρεσαν να διαβαστούν. Καμία καθαριότητα δεν "
+"επιτράπηκε."
 
 #: orgSeries-options.php:48
 #: orgSeries-options.php:70
 #: orgSeries-options.php:71
-#: orgSeries-setup.php:1009
+#: orgSeries-setup.php:1087
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -3624,82 +4332,98 @@ msgstr "Ρυθμίσεις"
 msgid "PublishPress Series Options"
 msgstr "Επιλογές Σειρών PublishPress"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:112
+msgid "Are you sure you want to Reset?"
+msgstr "Είστε σίγουροι ότι θέλετε να επαναφέρετε;"
+
+#: orgSeries-options.php:165
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: orgSeries-options.php:164, fuzzy
+#: orgSeries-options.php:167, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:171, fuzzy
+#: orgSeries-options.php:174, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: orgSeries-setup.php:226
+#: orgSeries-setup.php:234
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 "Επιλέξτε \"Δεν είναι μέρος μιας σειράς\" για να αφαιρέσετε οποιαδήποτε "
 "δεδομένα σειράς από την ανάρτηση"
 
-#: orgSeries-setup.php:287
+#: orgSeries-setup.php:295
 msgid "&larr; Go to Series"
 msgstr "&larr; Πηγαίνετε στη Σειρά"
 
-#: orgSeries-setup.php:288
+#: orgSeries-setup.php:296
 msgid "View Series"
 msgstr "Προβολή Σειράς"
 
-#: orgSeries-setup.php:291
+#: orgSeries-setup.php:299
 msgid "Series Link"
 msgstr "Σύνδεσμος Σειράς"
 
-#: orgSeries-setup.php:292
+#: orgSeries-setup.php:300
 msgid "A link to a Series"
 msgstr "Ένας σύνδεσμος σε μια Σειρά"
 
-#: orgSeries-setup.php:387
+#: orgSeries-setup.php:394
 msgid "Series Navigation"
 msgstr "Πλοήγηση Σειρών"
 
-#: orgSeries-setup.php:991
+#: orgSeries-setup.php:1069
 msgid "Series: "
 msgstr "Σειρά: "
 
-#: orgSeries-setup.php:993
+#: orgSeries-setup.php:1071
 msgid "Posts from the series: "
 msgstr "Δημοσιεύσεις από τη σειρά: "
 
-#: orgSeries-taxonomy.php:1091
-#: orgSeries-taxonomy.php:1120
+#: orgSeries-taxonomy.php:1005
+#: orgSeries-taxonomy.php:1045
 msgid "Series:"
 msgstr "Σειρές:"
 
-#: orgSeries-taxonomy.php:1093
+#: orgSeries-taxonomy.php:1017
 msgid "Part:"
 msgstr "Μέρος:"
 
-#: orgSeries-template-tags.php:270
+#: orgSeries-taxonomy.php:1052
+msgid "&mdash; No Change &mdash;"
+msgstr "&mdash; Καμία Αλλαγή &mdash;"
+
+#: orgSeries-template-tags.php:273
 msgid "All the Series I've Written"
 msgstr "Όλες οι Σειρές που Έχω Γράψει"
 
-#: orgSeries-template-tags.php:274
-#: orgSeries-template-tags.php:283
+#: orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:286
 #. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">Σειρά</a>"
 
-#: orgSeries-template-tags.php:1290
+#: orgSeries-template-tags.php:1319
 msgid "Series featured image"
 msgstr "Αναγνωρισμένη εικόνα σειράς"
 
-#: orgSeries-template-tags.php:1296
+#: orgSeries-template-tags.php:1325
 #, php-format
 msgid "View series: %s"
 msgstr "Δείτε τη σειρά: %s"
 
-#: orgSeries-utility.php:462
+#: orgSeries-utility.php:22
+msgid "(opens in a new tab)"
+msgstr "(ανοίγει σε νέα καρτέλα)"
+
+#: orgSeries-utility.php:52
+msgid "Available in PublishPress Series Pro"
+msgstr "Διαθέσιμο στο PublishPress Series Pro"
+
+#: orgSeries-utility.php:508
 msgid "Auto/None"
 msgstr "Auto/Καμία"
 
@@ -3711,12 +4435,12 @@ msgstr "Χρησιμοποιήστε αυτό για να ελέγξετε τη�
 msgid "Most Recent Series"
 msgstr "Πιο Πρόσφατη Σειρά"
 
-#: orgSeries-widgets.php:82
-#: orgSeries-widgets.php:292
+#: orgSeries-widgets.php:81
+#: orgSeries-widgets.php:299
 msgid "Title:"
 msgstr "Τίτλος:"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:87
 #. translators: %s: URL to the Latest Series settings.
 #, php-format
 msgid ""
@@ -3726,125 +4450,126 @@ msgstr ""
 "Η διάταξη και το περιεχόμενο αυτού του widget μπορούν να ρυθμιστούν μέσω "
 "της περιοχής <a href=\"%s\">Τελευταίες Σειρές</a>."
 
+#: orgSeries-widgets.php:91
 #: orgSeries-widgets.php:92
-#: orgSeries-widgets.php:93
 msgid "Hide series with no posts?"
 msgstr "Να κρύψω σειρές χωρίς αναρτήσεις;"
 
-#: orgSeries-widgets.php:95
-#: orgSeries-widgets.php:318
+#: orgSeries-widgets.php:94
+#: orgSeries-widgets.php:325
 msgid "Order by:"
 msgstr "Ταξινόμηση κατά:"
 
-#: orgSeries-widgets.php:97
+#: orgSeries-widgets.php:96
 msgid "Number of posts in Series"
 msgstr "Αριθμός αναρτήσεων στη Σειρά"
 
-#: orgSeries-widgets.php:98
+#: orgSeries-widgets.php:97
 msgid "Name of Series"
 msgstr "Όνομα της Σειράς"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:98
 msgid "Series Slug"
 msgstr "Slug της Σειράς"
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:99
 msgid "When Series was Created"
 msgstr "Προθεσμία δημιουργίας Σειράς"
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:100
 msgid "Random"
 msgstr "Τυχαία"
 
-#: orgSeries-widgets.php:105
+#: orgSeries-widgets.php:104
 msgid "Number of series to display:"
 msgstr "Αριθμός σειρών προς εμφάνιση:"
 
-#: orgSeries-widgets.php:109
+#: orgSeries-widgets.php:108
 msgid "Display Order: "
 msgstr "Διατάξη Εμφάνισης: "
 
-#: orgSeries-widgets.php:110
+#: orgSeries-widgets.php:109
 msgid "ASC: "
 msgstr "Αύξουσα: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:110
 msgid "DESC: "
 msgstr "Φθίνουσα: "
 
-#: orgSeries-widgets.php:122
+#: orgSeries-widgets.php:121
 msgid "Use this to display the Series Table of contents"
 msgstr "Χρησιμοποιήστε αυτό για να εμφανίσετε τον πίνακα περιεχομένων της Σειράς"
 
-#: orgSeries-widgets.php:194
+#: orgSeries-widgets.php:193
+#: orgSeries-widgets.php:200
 msgid "Select Series"
 msgstr "Επιλογή Σειράς"
 
-#: orgSeries-widgets.php:257
+#: orgSeries-widgets.php:264
 msgid "Other posts in series:"
 msgstr "Άλλες αναρτήσεις στη σειρά:"
 
-#: orgSeries-widgets.php:297
+#: orgSeries-widgets.php:304
 msgid "Show Series Table Of Content"
 msgstr "Εμφάνιση Πίνακα Περιεχομένων Σειράς"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:309
 msgid "Show Series Table Of Content as:"
 msgstr "Εμφάνιση Πίνακα Περιεχομένων Σειράς ως:"
 
-#: orgSeries-widgets.php:303
+#: orgSeries-widgets.php:310
 msgid "Dropdown:"
 msgstr "Αναπτυσσόμενο:"
 
-#: orgSeries-widgets.php:304
+#: orgSeries-widgets.php:311
 msgid "List:"
 msgstr "Λίστα:"
 
-#: orgSeries-widgets.php:308
+#: orgSeries-widgets.php:315
 msgid "Show post count:"
 msgstr "Εμφάνιση αριθμού αναρτήσεων:"
 
-#: orgSeries-widgets.php:313
+#: orgSeries-widgets.php:320
 msgid "Hide empty series:"
 msgstr "Απόκρυψη κενών σειρών:"
 
-#: orgSeries-widgets.php:322, fuzzy
+#: orgSeries-widgets.php:329, fuzzy
 msgid "name"
 msgstr "name"
 
-#: orgSeries-widgets.php:323, fuzzy
+#: orgSeries-widgets.php:330, fuzzy
 msgid "count"
 msgstr "count"
 
-#: orgSeries-widgets.php:324, fuzzy
+#: orgSeries-widgets.php:331, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:325, fuzzy
+#: orgSeries-widgets.php:332, fuzzy
 msgid "series id"
 msgstr "series id"
 
-#: orgSeries-widgets.php:338
+#: orgSeries-widgets.php:345
 msgid "Order:"
 msgstr "Σειρά:"
 
-#: orgSeries-widgets.php:356
+#: orgSeries-widgets.php:363
 msgid "Exclude series:"
 msgstr "Εξαίρεση σειρών:"
 
-#: orgSeries-widgets.php:371
+#: orgSeries-widgets.php:378
 msgid "Include series:"
 msgstr "Συμπερίληψη σειρών:"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:393
 msgid "Number of Series:"
 msgstr "Αριθμός Σειρών:"
 
-#: orgSeries-widgets.php:391
+#: orgSeries-widgets.php:398
 msgid "Offset:"
 msgstr "Απόκλιση:"
 
-#: orgSeries-widgets.php:393
+#: orgSeries-widgets.php:400
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3852,11 +4577,11 @@ msgstr ""
 "Μπορείτε να επιλέξετε την απόκλιση για τον αριθμό των σειρών (χρήσιμο για "
 "σελίδωση). Καμία απόκλιση αν αφεθεί κενή"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:404
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
-#: orgSeries-widgets.php:399
+#: orgSeries-widgets.php:406
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
@@ -3864,15 +4589,15 @@ msgstr ""
 "Μπορείτε να επιστρέψετε οποιαδήποτε σειρά που ταιριάζει με αυτή τη "
 "συμβολοσειρά αναζήτησης (σε αντιπαραβολή με τα ονόματα των σειρών)"
 
-#: orgSeries-widgets.php:403
+#: orgSeries-widgets.php:410
 msgid "Show other posts in the current series:"
 msgstr "Εμφάνιση άλλων αναρτήσεων στην τρέχουσα σειρά:"
 
-#: orgSeries-widgets.php:438
+#: orgSeries-widgets.php:445
 msgid "Series widget title:"
 msgstr "Τίτλος widget σειράς:"
 
-#: orgSeries-widgets.php:440
+#: orgSeries-widgets.php:447
 msgid "This text will display above other posts in this series."
 msgstr "Αυτό το κείμενο θα εμφανίζεται πάνω από άλλες αναρτήσεις σε αυτή τη σειρά."
 
@@ -4036,9 +4761,9 @@ msgstr "Κωδικός Άδειας για %1$s"
 msgid "Enter your license key: "
 msgstr "Εισάγετε τον κωδικό άδειας σας: "
 
-#: src/views/admin/templates/license_key_form.template.php:24
-msgid "License key"
-msgstr "Κωδικός άδειας"
+#: src/views/admin/templates/license_key_form.template.php:28
+msgid "Expires:"
+msgstr "Λήγει:"
 
 #: assets/js/publishpress-series-blocks.js:126
 msgid "Block settings"
@@ -4128,44 +4853,44 @@ msgstr "Εμφάνιση αριθμού σειρών"
 msgid "Show post count"
 msgstr "Εμφάνιση αριθμού δημοσιεύσεων"
 
-#: addons/grouping/legacy-includes.php:301
+#: addons/grouping/legacy-includes.php:304
 msgctxt "taxonomy general name"
 msgid "Series Categories"
 msgstr "Κατηγορίες Σειρών"
 
 #: inc/settings/settings-validation.php:87
-#: orgSeries-setup.php:276
+#: orgSeries-setup.php:284
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Σειρές"
 
-#: addons/grouping/legacy-includes.php:302
+#: addons/grouping/legacy-includes.php:305
 msgctxt "taxonomy singular name"
 msgid "Series Category"
 msgstr "Κατηγορία Σειρών"
 
 #: inc/settings/settings-validation.php:88
-#: orgSeries-setup.php:277
+#: orgSeries-setup.php:285
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Σειρές"
 
-#: addons/grouping/legacy-includes.php:725
+#: addons/grouping/legacy-includes.php:730
 msgctxt "series grouping column header"
 msgid "Series"
 msgstr "Σειρές"
 
-#: orgSeries-admin.php:464
+#: orgSeries-admin.php:487
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-admin.php:489
+#: orgSeries-admin.php:512
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-admin.php:575
+#: orgSeries-admin.php:604
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -4177,13 +4902,13 @@ msgctxt "top-level admin menu label"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-setup.php:285
+#: orgSeries-setup.php:293
 msgctxt "taxonomy menu name"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-setup.php:380
-#: orgSeries-setup.php:382
+#: orgSeries-setup.php:387
+#: orgSeries-setup.php:389
 #. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
@@ -4192,17 +4917,17 @@ msgstr ""
 "Αυτή η καταχώρηση είναι το μέρος %series_part% από %total_posts_in_series% "
 "στη σειρά "
 
-#: orgSeries-taxonomy.php:750
+#: orgSeries-taxonomy.php:768
 msgctxt "series list title"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-widgets.php:256
+#: orgSeries-widgets.php:263
 msgctxt "widget title default"
 msgid "Series"
 msgstr "Σειρά"
 
-#: orgSeries-widgets.php:409
+#: orgSeries-widgets.php:416
 msgctxt "widget section label"
 msgid "Series"
 msgstr "Σειρά"

@@ -5,7 +5,7 @@ Tags: issue, series, magazine, newspaper, publication
 Requires at least: 5.5
 Requires PHP: 8.2.0
 Tested up to: 7.1
-Stable tag: 3.1.5
+Stable tag: 3.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -200,6 +200,21 @@ Yes. The `organize-series` folder contains `seriestoc.php`, which is loaded at y
 == Changelog ==
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+= 3.2.0 - 12 Nov, 2026 =
+
+* Added: Private MCP abilities for PublishPress Hub to read and manage series, Series Categories, post membership and order, layouts and settings, with the same permissions as the Series screens #1272
+* Added: Post List Box option to show the posts before and after the current post when the number of items is limited #1276
+* Changed: Accessibility improvements for WCAG 2.2 AA (VPAT 2.5): the current post and series navigation are announced to screen readers, Move up and Move down buttons for ordering series and series posts, focus styles, labels, tooltips and settings page structure #1267
+* Changed: The Series Order screen shows the post date. Categories and Tags are hidden by default and can be shown in Screen Options #1275
+* Changed: Add the changelog to readme.txt #1186
+* Changed: Update qs from 6.16.0 to 6.16.1 and follow-redirects from 1.16.1 to 1.16.2, and rebuild the JavaScript files #1273 #1274
+* Fixed: Editors get the manage_publishpress_series capability on new installs, and once on upgrade #1266
+* Fixed: Invalid sitemap lastmod dates for Series Categories in All in One SEO #876
+* Fixed: Series boxes are no longer added to posts embedded in another post's content #745
+* Fixed: The Series Table of Contents widget no longer loses its selected series on save #1270
+* Fixed: "Cannot redeclare to_int()" fatal error when several series are updated in one request #1268
+* Fixed: Fatal error when another plugin applies the_title without a post ID #1284
 
 = 3.1.5 - 27 Oct, 2026 =
 

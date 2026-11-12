@@ -13,12 +13,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-27T13:21:22+00:00\n"
-"PO-Revision-Date: 2026-10-26 18:28+0000\n"
+"PO-Revision-Date: 2026-11-12 15:36+0000\n"
 "X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Language: ja\n"
 
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -39,7 +40,8 @@ msgstr ""
 "に関する複数の投稿を書くすべての人に最適です。"
 
 #: orgSeries.php:7
-#: orgSeries-admin.php:178
+#: includes-core/Mcp/bootstrap.php:15
+#: orgSeries-admin.php:190
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -49,63 +51,78 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:303
-#: addons/grouping/legacy-includes.php:862
-#: addons/grouping/legacy-includes.php:863
+#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:868
+#: addons/grouping/legacy-includes.php:869
 msgid "Search Series Categories"
 msgstr "シリーズカテゴリを検索"
 
-#: addons/grouping/legacy-includes.php:304
+#: addons/grouping/legacy-includes.php:307
 msgid "Popular Series Categories"
 msgstr "人気のシリーズカテゴリ"
 
-#: addons/grouping/legacy-includes.php:305
-#: addons/grouping/legacy-includes.php:859
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:865
 msgid "All Series Categories"
 msgstr "すべてのシリーズカテゴリ"
 
-#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:309
 msgid "Edit Series Category"
 msgstr "シリーズカテゴリを編集"
 
-#: addons/grouping/legacy-includes.php:307
+#: addons/grouping/legacy-includes.php:310
 msgid "Update Series Category"
 msgstr "シリーズカテゴリを更新"
 
-#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:311
 msgid "Add New Series Category"
 msgstr "新しいシリーズカテゴリを追加"
 
-#: addons/grouping/legacy-includes.php:309
+#: addons/grouping/legacy-includes.php:312
 msgid "New Series Category"
 msgstr "新しいシリーズカテゴリ"
 
-#: addons/grouping/legacy-includes.php:310
-#: addons/grouping/legacy-includes.php:584
-#: addons/grouping/legacy-includes.php:670
-#: addons/grouping/legacy-includes.php:785
-#: addons/grouping/legacy-includes.php:828
-#: addons/grouping/legacy-includes.php:850
-#: addons/grouping/legacy-includes.php:910
+#: addons/grouping/legacy-includes.php:313
+#: addons/grouping/legacy-includes.php:589
+#: addons/grouping/legacy-includes.php:675
+#: addons/grouping/legacy-includes.php:791
+#: addons/grouping/legacy-includes.php:834
+#: addons/grouping/legacy-includes.php:856
+#: addons/grouping/legacy-includes.php:873
+#: addons/grouping/legacy-includes.php:919
 #: assets/js/publishpress-series-blocks.js:183
 msgid "Series Categories"
 msgstr "シリーズカテゴリ"
 
-#: addons/grouping/legacy-includes.php:676
+#: addons/grouping/legacy-includes.php:681
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "プラグインを削除する際に、データベースからすべての「シリーズカテゴリ」データを削除します。"
 
-#: addons/grouping/legacy-includes.php:828
+#: addons/grouping/legacy-includes.php:746
+msgid "View all Series Categories"
+msgstr "すべてのシリーズカテゴリを表示"
+
+#: addons/grouping/legacy-includes.php:764
+msgid "Filter by Series Category"
+msgstr "シリーズカテゴリでフィルター"
+
+#: addons/grouping/legacy-includes.php:766
+#: addons/publisher/series-part-post-table.php:396
+#: addons/publisher/series-publish-post-table.php:196
+msgid "Filter"
+msgstr "フィルター"
+
+#: addons/grouping/legacy-includes.php:834
 msgid "Click to toggle"
 msgstr "クリックして切り替え"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:39
+#: addons/grouping/theme/primary/taxonomy-series_group.php:44
 msgid "Series in this category"
 msgstr "このカテゴリのシリーズ"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:119
+#: addons/grouping/theme/primary/taxonomy-series_group.php:129
 msgid "Sorry, no series were found in this category."
 msgstr "申し訳ありませんが、このカテゴリにはシリーズが見つかりませんでした。"
 
@@ -132,8 +149,8 @@ msgstr "%1$sの%2$sの部分"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:505
 #: addons/post-details/includes/class-utilities.php:325
-#: addons/post-navigation/includes/class-utilities.php:185
-#: includes-core/class-blocks.php:827
+#: addons/post-navigation/includes/class-utilities.php:210
+#: includes-core/class-blocks.php:843
 msgid "Sample Series"
 msgstr "サンプルシリーズ"
 
@@ -161,7 +178,7 @@ msgstr "サンプルシリーズの説明。"
 #: addons/post-details/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-details.php:44
 #: includes-core/class-blocks.php:155
-#: orgSeries-utility.php:358
+#: orgSeries-utility.php:402
 #: assets/js/publishpress-series-blocks.js:37
 msgid "Post Details"
 msgstr "投稿の詳細"
@@ -211,7 +228,7 @@ msgstr "投稿詳細ショートコード"
 #: addons/post-list-box/includes/class-admin-ui.php:734
 #: addons/post-navigation/includes/class-admin-ui.php:447
 #: inc/settings/tab-post-types.php:63
-#: inc/settings/tab-pro-features.php:56
+#: inc/settings/tab-pro-features.php:51
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "この機能はPublishPress Series Proで利用可能です"
 
@@ -323,6 +340,7 @@ msgstr "コンテンツに対してメタボックスを表示する場所を選
 #: addons/post-details/includes/class-fields.php:132
 #: inc/settings/tab-post-details.php:90
 #: inc/settings/tab-post-details.php:92
+#: includes-core/Mcp/Settings.php:104
 msgid "Hide on archive screens"
 msgstr "アーカイブ画面で非表示"
 
@@ -493,8 +511,8 @@ msgstr "シリーズ投稿の詳細"
 
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:28
-#: orgSeries-admin.php:398
-#: orgSeries-setup.php:225
+#: orgSeries-admin.php:417
+#: orgSeries-setup.php:233
 msgid "Add New"
 msgstr "新規追加"
 
@@ -535,7 +553,7 @@ msgid "Create a series to preview the post details."
 msgstr "投稿の詳細をプレビューするにはシリーズを作成してください。"
 
 #: addons/post-details/includes/class-utilities.php:361
-#: includes-core/class-blocks.php:862
+#: includes-core/class-blocks.php:878
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Series Post %d"
@@ -630,7 +648,7 @@ msgid "Custom Box Title Text"
 msgstr "カスタムボックスタイトルテキスト"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:137
-#: addons/post-list-box/includes/class-utilities.php:177
+#: addons/post-list-box/includes/class-utilities.php:228
 msgid "Series Posts"
 msgstr "シリーズ投稿"
 
@@ -908,7 +926,7 @@ msgid "Choose the layout style for the post list"
 msgstr "投稿リストのレイアウトスタイルを選択する"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:539
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:104
 #: assets/js/publishpress-series-blocks.js:262
 msgid "Columns"
 msgstr "列"
@@ -938,6 +956,8 @@ msgid "Order By"
 msgstr "並べ替え"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:560
+#: addons/publisher/series-part-post-table.php:68
+#: addons/publisher/series-pending-post-table.php:70
 msgid "Date"
 msgstr "日付"
 
@@ -950,11 +970,11 @@ msgstr "タイトル"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:562
 #: addons/publisher/series_im_admin_main.php:10
-#: addons/publisher/series_issue_manager.php:1043
-#: addons/publisher/series_issue_manager.php:1113
-#: orgSeries-admin.php:356
-#: orgSeries-manage.php:239
-#: orgSeries-manage.php:249
+#: addons/publisher/series_issue_manager.php:1120
+#: addons/publisher/series_issue_manager.php:1190
+#: orgSeries-admin.php:372
+#: orgSeries-manage.php:337
+#: orgSeries-manage.php:347
 msgid "Series Order"
 msgstr "シリーズ順序"
 
@@ -963,20 +983,21 @@ msgid "Choose the field used to sort posts"
 msgstr "投稿を並べ替えるために使用するフィールドを選択する"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:570
-#: orgSeries-manage.php:58
-#: orgSeries-manage.php:273
+#: orgSeries-manage.php:62
+#: orgSeries-manage.php:141
+#: orgSeries-manage.php:371
 msgid "Order"
 msgstr "順序"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:574
-#: inc/settings/tab-legacy.php:110
-#: orgSeries-widgets.php:343
+#: inc/settings/tab-legacy.php:122
+#: orgSeries-widgets.php:350
 msgid "Ascending"
 msgstr "昇順"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:575
-#: inc/settings/tab-legacy.php:111
-#: orgSeries-widgets.php:342
+#: inc/settings/tab-legacy.php:123
+#: orgSeries-widgets.php:349
 msgid "Descending"
 msgstr "降順"
 
@@ -1010,37 +1031,65 @@ msgid ""
 "limit. The admin preview is limited to 4 posts."
 msgstr "シリーズリストに表示される投稿の数を制限します。制限なしの場合は空のままにしてください。管理者プレビューは4件の投稿に制限されています。"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:628
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Items to show when limited"
+msgstr "制限時に表示するアイテム"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:621
+msgid "First posts in the series"
+msgstr "シリーズの最初の投稿"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:622
+msgid "Posts before and after the current post"
+msgstr "現在の投稿の前後の投稿"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:626
+msgid ""
+"Only used when \"Maximum number of items\" is set. Choose \"Posts before "
+"and after the current post\" to keep the post being viewed in the list, "
+"with the posts around it. On pages that are not part of the series, the "
+"first posts are shown. The admin preview uses a post from the middle of the "
+"series as the current post."
+msgstr ""
+"「アイテムの最大数」が設定されているときにのみ使用されます。「現在の投稿の前後の投稿」を選択すると、閲覧中の投稿をリストに保持し、その周辺の投稿が表示さ"
+"れます。シリーズの一部でないページでは、最初の投稿が表示されます。管理者プレビューでは、シリーズの中央の投稿が現在の投稿として使用されます。"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:641
 msgid "Highlight Current Post"
 msgstr "現在の投稿を強調表示"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:633
+#: addons/post-list-box/classes/PostListBoxFields.php:646
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "特定のシリーズ投稿を表示しているときに現在の投稿を強調表示します"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:636
+#: addons/post-list-box/classes/PostListBoxFields.php:649
 msgid "Current Post Background Color"
 msgstr "現在の投稿の背景色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:641
+#: addons/post-list-box/classes/PostListBoxFields.php:654
 msgid "Choose the background color for the current post"
 msgstr "現在の投稿の背景色を選択する"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:644
+#: addons/post-list-box/classes/PostListBoxFields.php:657
 msgid "Current Post Border Color"
 msgstr "現在の投稿の枠線の色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:649
+#: addons/post-list-box/classes/PostListBoxFields.php:662
 msgid "Choose the border color for the current post"
 msgstr "現在の投稿のボーダー色を選択する"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:652
+#: addons/post-list-box/classes/PostListBoxFields.php:665
 msgid "Current Post Text Color"
 msgstr "現在の投稿のテキストの色"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:657
+#: addons/post-list-box/classes/PostListBoxFields.php:670
 msgid "Choose the text color for the current post"
 msgstr "現在の投稿のテキスト色を選択する"
+
+#: addons/post-list-box/classes/PostListBoxRenderer.php:437
+#: inc/utility-functions.php:783
+msgid "(current post)"
+msgstr "(現在の投稿)"
 
 #: addons/post-list-box/includes/class-admin-ui.php:57
 msgid "Default Post List Box"
@@ -1056,7 +1105,7 @@ msgstr "投稿リストボックスショートコード"
 #: addons/post-list-box/includes/class-post-type.php:27
 #: inc/settings/tab-post-list-box.php:44
 #: includes-core/class-blocks.php:148
-#: orgSeries-utility.php:357
+#: orgSeries-utility.php:401
 #: assets/js/publishpress-series-blocks.js:30
 msgid "Post List Boxes"
 msgstr "投稿リストボックス"
@@ -1163,7 +1212,7 @@ msgstr "投稿リストボックスセクション"
 
 #: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:419
-#: orgSeries-manage.php:311
+#: orgSeries-manage.php:409
 msgid "Select Image"
 msgstr "画像を選択"
 
@@ -1270,13 +1319,13 @@ msgstr "%2$s リストナビゲーション"
 msgid "%2$s list"
 msgstr "%2$s リスト"
 
-#: addons/post-list-box/includes/class-preview.php:131
+#: addons/post-list-box/includes/class-preview.php:167
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Post %d"
 msgstr "サンプル投稿 %d"
 
-#: addons/post-list-box/includes/class-preview.php:133
+#: addons/post-list-box/includes/class-preview.php:169
 #. translators: %d: Sample post number.
 #, php-format
 msgid ""
@@ -1288,13 +1337,13 @@ msgstr ""
 "adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna "
 "aliqua。"
 
-#: addons/post-list-box/includes/class-preview.php:135
+#: addons/post-list-box/includes/class-preview.php:171
 #. translators: %d: Sample post number.
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "これはシリーズの投稿 %d のサンプル抜粋です。"
 
-#: addons/post-list-box/includes/class-preview.php:560
+#: addons/post-list-box/includes/class-preview.php:603
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
@@ -1313,41 +1362,62 @@ msgstr "グリッドスタイルボックス"
 msgid "Simple List Box"
 msgstr "シンプルリストボックス"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:261
+#: addons/post-navigation/classes/PostNavigationRenderer.php:211
+#. translators: %s: Series name.
+#, php-format
+msgid "Series navigation: %s"
+msgstr "シリーズナビゲーション: %s"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:273
 msgid "Navigation hidden (series has only one post)"
 msgstr "ナビゲーションが非表示（シリーズには投稿が1つだけです）"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:315
-#: addons/post-navigation/classes/PostNavigationRenderer.php:346
-#: addons/post-navigation/classes/PostNavigationRenderer.php:377
-#: addons/post-navigation/classes/PostNavigationRenderer.php:461
-#: addons/post-navigation/classes/PostNavigationRenderer.php:513
-#: addons/post-navigation/classes/PostNavigationRenderer.php:567
-#: addons/post-navigation/includes/class-utilities.php:60
+#: addons/post-navigation/classes/PostNavigationRenderer.php:328
+#: addons/post-navigation/classes/PostNavigationRenderer.php:359
+#: addons/post-navigation/classes/PostNavigationRenderer.php:390
+#: addons/post-navigation/classes/PostNavigationRenderer.php:475
+#: addons/post-navigation/classes/PostNavigationRenderer.php:527
+#: addons/post-navigation/classes/PostNavigationRenderer.php:581
+#: addons/post-navigation/includes/class-utilities.php:85
 msgid "Series Home"
 msgstr "シリーズホーム"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:331
-#: addons/post-navigation/classes/PostNavigationRenderer.php:487
+#: addons/post-navigation/classes/PostNavigationRenderer.php:344
+#: addons/post-navigation/classes/PostNavigationRenderer.php:501
 #: addons/post-navigation/includes/class-fields.php:145
 #: addons/post-navigation/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-utilities.php:38
+#: addons/post-navigation/includes/class-utilities.php:63
 msgid "Previous"
 msgstr "前へ"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:362
-#: addons/post-navigation/classes/PostNavigationRenderer.php:541
+#: addons/post-navigation/classes/PostNavigationRenderer.php:375
+#: addons/post-navigation/classes/PostNavigationRenderer.php:555
 #: addons/post-navigation/includes/class-fields.php:260
 #: addons/post-navigation/includes/class-fields.php:281
-#: addons/post-navigation/includes/class-utilities.php:49
+#: addons/post-navigation/includes/class-utilities.php:74
 msgid "Next"
 msgstr "次へ"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:835
+#: orgSeries-template-tags.php:612
+msgid "Previous post in series:"
+msgstr "シリーズ内の前の投稿:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:836
+#: orgSeries-template-tags.php:614
+msgid "Next post in series:"
+msgstr "シリーズ内の次の投稿:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:837
+#: orgSeries-template-tags.php:616
+msgid "First post in series:"
+msgstr "シリーズ内の最初の投稿:"
 
 #: addons/post-navigation/includes/class-admin-ui.php:29
 #: addons/post-navigation/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-navigation.php:44
 #: includes-core/class-blocks.php:162
-#: orgSeries-utility.php:359
+#: orgSeries-utility.php:403
 #: assets/js/publishpress-series-blocks.js:44
 msgid "Post Navigation"
 msgstr "投稿ナビゲーション"
@@ -1832,7 +1902,7 @@ msgstr "ナビゲーションをプレビューするためにシリーズを作
 msgid "Create posts in a series to preview the navigation."
 msgstr "ナビゲーションをプレビューするためにシリーズ内に投稿を作成します。"
 
-#: addons/post-navigation/includes/class-utilities.php:187
+#: addons/post-navigation/includes/class-utilities.php:212
 msgid "Sample series for preview purposes"
 msgstr "プレビュー用のサンプルシリーズ"
 
@@ -1840,15 +1910,15 @@ msgstr "プレビュー用のサンプルシリーズ"
 msgid "Error updating preview."
 msgstr "プレビューの更新中にエラーが発生しました。"
 
-#: addons/post-navigation/post-navigation.php:209
+#: addons/post-navigation/post-navigation.php:190
 msgid "Simple Navigation"
 msgstr "シンプルナビゲーション"
 
-#: addons/post-navigation/post-navigation.php:214
+#: addons/post-navigation/post-navigation.php:195
 msgid "Button Navigation"
 msgstr "ボタンナビゲーション"
 
-#: addons/post-navigation/post-navigation.php:219
+#: addons/post-navigation/post-navigation.php:200
 msgid "Image Navigation"
 msgstr "画像ナビゲーション"
 
@@ -1870,77 +1940,72 @@ msgstr "タグ"
 msgid "Status"
 msgstr "ステータス"
 
-#: addons/publisher/series-part-post-table.php:68
-#: addons/publisher/series-pending-post-table.php:70
+#: addons/publisher/series-part-post-table.php:69
+#: addons/publisher/series-pending-post-table.php:71
 msgid "Current Part"
 msgstr "現在のパート"
 
-#: addons/publisher/series-part-post-table.php:162
-#: addons/publisher/series-pending-post-table.php:146
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:147
 #: addons/publisher/series-publish-post-table.php:293
 msgid "Edit"
 msgstr "編集"
 
-#: addons/publisher/series-part-post-table.php:168
+#: addons/publisher/series-part-post-table.php:169
 #: assets/js/publishpress-series-blocks.js:251
 msgid "View"
 msgstr "表示"
 
-#: addons/publisher/series-part-post-table.php:185
-#: addons/publisher/series-pending-post-table.php:174
+#: addons/publisher/series-part-post-table.php:187
+#: addons/publisher/series-pending-post-table.php:176
 #: addons/publisher/series-publish-post-table.php:310
 msgid "Trash"
 msgstr "ゴミ箱"
 
-#: addons/publisher/series-part-post-table.php:212
+#: addons/publisher/series-part-post-table.php:214
 msgid "There are no published posts in this series."
 msgstr "このシリーズには公開された投稿がありません。"
 
-#: addons/publisher/series-part-post-table.php:230
-#: addons/publisher/series-pending-post-table.php:219
+#: addons/publisher/series-part-post-table.php:232
+#: addons/publisher/series-pending-post-table.php:221
 #: addons/publisher/series-publish-post-table.php:345
 #. translators: %s: Post title.
 #, php-format
 msgid "Select %s"
 msgstr "%sを選択"
 
-#: addons/publisher/series-part-post-table.php:341
+#: addons/publisher/series-part-post-table.php:355
 msgid "(Currently has no Part number)"
 msgstr "(現在パート番号はありません)"
 
-#: addons/publisher/series-part-post-table.php:376
+#: addons/publisher/series-part-post-table.php:390
 msgid "Filter by part number"
 msgstr "部品番号でフィルタリング"
 
-#: addons/publisher/series-part-post-table.php:378
+#: addons/publisher/series-part-post-table.php:392
 msgid "All part numbers"
 msgstr "すべての部品番号"
 
-#: addons/publisher/series-part-post-table.php:379
+#: addons/publisher/series-part-post-table.php:393
 msgid "Has part number"
 msgstr "部品番号あり"
 
-#: addons/publisher/series-part-post-table.php:380
+#: addons/publisher/series-part-post-table.php:394
 msgid "Missing part number"
 msgstr "部品番号なし"
 
-#: addons/publisher/series-part-post-table.php:382
-#: addons/publisher/series-publish-post-table.php:196
-msgid "Filter"
-msgstr "フィルター"
-
-#: addons/publisher/series-pending-post-table.php:157
+#: addons/publisher/series-pending-post-table.php:158
 #: addons/publisher/series-publish-post-table.php:78
 #: addons/publisher/series-publish-post-table.php:454
 msgid "Preview"
 msgstr "プレビュー"
 
-#: addons/publisher/series-pending-post-table.php:201
+#: addons/publisher/series-pending-post-table.php:203
 #: addons/publisher/series-publish-post-table.php:48
 msgid "There are no unpublished posts in this series."
 msgstr "このシリーズには未公開の投稿がありません。"
 
-#: addons/publisher/series-pending-post-table.php:325
+#: addons/publisher/series-pending-post-table.php:339
 msgid "No Part Number"
 msgstr "パート番号なし"
 
@@ -1949,19 +2014,20 @@ msgid "All Categories"
 msgstr "すべてのカテゴリー"
 
 #: addons/publisher/series_im_admin_main.php:4
-#: addons/publisher/series_issue_manager.php:830
+#: addons/publisher/series_issue_manager.php:895
 #: inc/settings/settings-validation.php:96
 msgid "Manage Series"
 msgstr "シリーズを管理"
 
 #: addons/publisher/series_im_admin_main.php:9
+#: orgSeries-admin.php:431
 #: assets/js/publishpress-series-blocks.js:138
 msgid "Series"
 msgstr "シリーズ"
 
 #: addons/publisher/series_im_admin_main.php:12
-#: addons/publisher/series_issue_manager.php:986
-#: addons/publisher/series_issue_manager.php:1033
+#: addons/publisher/series_issue_manager.php:1063
+#: addons/publisher/series_issue_manager.php:1110
 msgid "Publish Series"
 msgstr "シリーズを公開"
 
@@ -1995,144 +2061,200 @@ msgstr "利用可能なシリーズはありません。"
 msgid "Add new Series."
 msgstr "新しいシリーズを追加。"
 
-#: addons/publisher/series_issue_manager.php:332
+#: addons/publisher/series_issue_manager.php:344
 msgid "Create as unpublished:"
 msgstr "未公開として作成："
 
-#: addons/publisher/series_issue_manager.php:335
+#: addons/publisher/series_issue_manager.php:347
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
 msgstr "チェックを入れると、このシリーズに割り当てたすべての投稿は、シリーズ全体を公開するまで未公開のままになります。"
 
-#: addons/publisher/series_issue_manager.php:415
+#: addons/publisher/series_issue_manager.php:427
 msgid "The posts in your series were successfully unpublished."
 msgstr "シリーズ内の投稿は正常に未公開になりました。"
 
-#: addons/publisher/series_issue_manager.php:424
-#: addons/publisher/series_issue_manager.php:573
+#: addons/publisher/series_issue_manager.php:436
+#: addons/publisher/series_issue_manager.php:647
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "おめでとうございます。シリーズの順序が正常に更新されました。"
 
-#: addons/publisher/series_issue_manager.php:432
-#: addons/publisher/series_issue_manager.php:450
+#: addons/publisher/series_issue_manager.php:444
+#: addons/publisher/series_issue_manager.php:462
 msgid "Congratulations. Your posts were published successfully."
 msgstr "おめでとうございます。投稿が正常に公開されました。"
 
-#: addons/publisher/series_issue_manager.php:441
+#: addons/publisher/series_issue_manager.php:453
 msgid "Post moved to the Trash."
 msgstr "投稿がゴミ箱に移動されました。"
 
-#: addons/publisher/series_issue_manager.php:458
+#: addons/publisher/series_issue_manager.php:470
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "おめでとうございます。投稿が正常にスケジュールされました。"
 
-#: addons/publisher/series_issue_manager.php:495
+#: addons/publisher/series_issue_manager.php:514
+msgid "Published"
+msgstr "公開済み"
+
+#: addons/publisher/series_issue_manager.php:517
+msgid "Scheduled"
+msgstr "スケジュール済み"
+
+#: addons/publisher/series_issue_manager.php:520
+msgid "Last Modified"
+msgstr "最終更新"
+
+#: addons/publisher/series_issue_manager.php:538
+#. translators: 1: Post date, 2: Post time.
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s に %2$s"
+
+#: addons/publisher/series_issue_manager.php:569
 msgid "Sorry, you are not allowed to perform this action."
 msgstr "申し訳ありませんが、このアクションを実行することは許可されていません。"
 
-#: addons/publisher/series_issue_manager.php:829
+#: addons/publisher/series_issue_manager.php:894
 msgid "Manage Series Issues"
 msgstr "シリーズの問題を管理"
 
-#: addons/publisher/series_issue_manager.php:859
-#: addons/publisher/series_issue_manager.php:871
+#: addons/publisher/series_issue_manager.php:913
+#: orgSeries-manage.php:117
+msgid "Move up"
+msgstr "上に移動"
+
+#: addons/publisher/series_issue_manager.php:914
+#: orgSeries-manage.php:118
+msgid "Move down"
+msgstr "下に移動"
+
+#: addons/publisher/series_issue_manager.php:916
+#: orgSeries-manage.php:120
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move up: %s"
+msgstr "上に移動: %s"
+
+#: addons/publisher/series_issue_manager.php:918
+#: orgSeries-manage.php:122
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move down: %s"
+msgstr "下に移動: %s"
+
+#: addons/publisher/series_issue_manager.php:920
+#: orgSeries-manage.php:124
+#. translators: 1: post title, 2: new position, 3: total number of posts
+#. translators: 1: term name, 2: new position, 3: number of rows
+#, php-format
+msgid "%1$s moved to position %2$d of %3$d."
+msgstr "%1$s を %2$d の %3$d に移動しました。"
+
+#: addons/publisher/series_issue_manager.php:921
+msgid "Order changed. Save to keep the new order."
+msgstr "順序が変更されました。新しい順序を保持するには保存してください。"
+
+#: addons/publisher/series_issue_manager.php:935
+#: addons/publisher/series_issue_manager.php:947
 msgid "Number of items per page"
 msgstr "ページあたりのアイテム数"
 
-#: addons/publisher/series_issue_manager.php:926
+#: addons/publisher/series_issue_manager.php:1003
 msgid "Publishing Series:"
 msgstr "シリーズを公開中："
 
-#: addons/publisher/series_issue_manager.php:933
+#: addons/publisher/series_issue_manager.php:1010
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "検索キーワード: %s の検索結果"
 
-#: addons/publisher/series_issue_manager.php:948
+#: addons/publisher/series_issue_manager.php:1025
 msgid "Search"
 msgstr "検索"
 
-#: addons/publisher/series_issue_manager.php:1001
+#: addons/publisher/series_issue_manager.php:1078
 msgid "Publication Date/Time:"
 msgstr "公開日/時間:"
 
-#: addons/publisher/series_issue_manager.php:1012
+#: addons/publisher/series_issue_manager.php:1089
 msgid "Month"
 msgstr "月"
 
-#: addons/publisher/series_issue_manager.php:1021
+#: addons/publisher/series_issue_manager.php:1098
 msgid "Day"
 msgstr "日"
 
-#: addons/publisher/series_issue_manager.php:1022
+#: addons/publisher/series_issue_manager.php:1099
 msgid "Year"
 msgstr "年"
 
-#: addons/publisher/series_issue_manager.php:1023
+#: addons/publisher/series_issue_manager.php:1100
 msgid "Hour"
 msgstr "時間"
 
-#: addons/publisher/series_issue_manager.php:1024
+#: addons/publisher/series_issue_manager.php:1101
 msgid "Minute"
 msgstr "分"
 
-#: addons/publisher/series_issue_manager.php:1058
-#: addons/publisher/series_issue_manager.php:1128
-#: addons/publisher/series_issue_manager.php:1265
+#: addons/publisher/series_issue_manager.php:1135
+#: addons/publisher/series_issue_manager.php:1205
+#: addons/publisher/series_issue_manager.php:1342
 msgid "Update Order"
 msgstr "更新順"
 
-#: addons/publisher/series_issue_manager.php:1085
+#: addons/publisher/series_issue_manager.php:1162
 msgid "Series Order:"
 msgstr "シリーズ順:"
 
-#: addons/publisher/series_issue_manager.php:1088
+#: addons/publisher/series_issue_manager.php:1165
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr "シリーズの最初の部分から最後の部分までの順番に投稿名をドラッグします。"
 
-#: addons/publisher/series_issue_manager.php:1100
+#: addons/publisher/series_issue_manager.php:1177
 msgid "Search Posts"
 msgstr "投稿を検索"
 
-#: addons/publisher/series_issue_manager.php:1138
+#: addons/publisher/series_issue_manager.php:1215
 msgid "Order Tools"
 msgstr "ツールを並べ替え"
 
-#: addons/publisher/series_issue_manager.php:1142
+#: addons/publisher/series_issue_manager.php:1219
 msgid "Automatically reorder this series by publication date."
 msgstr "このシリーズを発行日で自動的に再注文します。"
 
-#: addons/publisher/series_issue_manager.php:1150
+#: addons/publisher/series_issue_manager.php:1227
 msgid "Order by publication date: Oldest first"
 msgstr "発行日で並べ替え: 古いものから表示"
 
-#: addons/publisher/series_issue_manager.php:1160
+#: addons/publisher/series_issue_manager.php:1237
 msgid "Order by publication date: Newest first"
 msgstr "発行日で並べ替え: 新しいものから表示"
 
-#: addons/publisher/series_issue_manager.php:1185
+#: addons/publisher/series_issue_manager.php:1262
 msgid "Unpublished posts in series:"
 msgstr "シリーズ内の未公開投稿:"
 
-#: addons/publisher/series_issue_manager.php:1188
+#: addons/publisher/series_issue_manager.php:1265
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
 msgstr "これらの投稿が公開されると、シリーズ内の現在の最後の投稿の後に追加されます。"
 
-#: addons/publisher/series_issue_manager.php:1225
+#: addons/publisher/series_issue_manager.php:1302
 msgid "Unpublished Posts"
 msgstr "未公開投稿"
 
-#: addons/publisher/series_issue_manager.php:1240
+#: addons/publisher/series_issue_manager.php:1317
 msgid "Publish Unpublished Posts"
 msgstr "未公開投稿を公開"
 
-#: addons/publisher/series_issue_manager.php:1250
+#: addons/publisher/series_issue_manager.php:1327
 msgid "Unpublished Series Order"
 msgstr "未公開シリーズ順"
 
@@ -2170,26 +2292,48 @@ msgstr "PublishPressシリーズプラグインオプション"
 msgid "Series settings"
 msgstr "シリーズ設定"
 
-#: inc/settings/settings-page.php:57
+#: inc/settings/settings-page.php:71
+msgid "Update Options"
+msgstr "オプションの更新"
+
+#: inc/settings/settings-page.php:76
+msgid "Reset Series settings"
+msgstr "シリーズ設定をリセット"
+
+#: inc/settings/settings-page.php:77
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr "はいをクリックすると、オプションがデフォルトにリセットされ、すべてのカスタマイズが失われます。キャンセルをクリックして戻ることもできます。"
+
+#: inc/settings/settings-page.php:78
+msgid "No"
+msgstr "いいえ"
+
+#: inc/settings/settings-page.php:79
+msgid "Yes"
+msgstr "はい"
+
+#: inc/settings/settings-page.php:94
 msgid "Allowed Html"
 msgstr "許可されたHTML"
 
-#: inc/settings/settings-page.php:66
+#: inc/settings/settings-page.php:102
 msgid "Overview"
 msgstr "概要"
 
-#: inc/settings/settings-page.php:68
+#: inc/settings/settings-page.php:104
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
 "when the plugin runs."
 msgstr "以下はカスタムテンプレートフィールドで使用できるトークンの凡例です。プラグインが実行されると、これらは適切な値に置き換えられます。"
 
-#: inc/settings/settings-page.php:73
+#: inc/settings/settings-page.php:109
 msgid "This will be replaced with the series featured image for a series."
 msgstr "これはシリーズの特徴的な画像に置き換えられます。"
 
-#: inc/settings/settings-page.php:81
+#: inc/settings/settings-page.php:117
 #. translators: %series_icon%: Template token for the series featured image.
 #, php-format
 msgid ""
@@ -2197,7 +2341,7 @@ msgid ""
 "to the series page"
 msgstr "%series_icon% と同じですが、シリーズの特徴的な画像はシリーズページにリンクされます"
 
-#: inc/settings/settings-page.php:89
+#: inc/settings/settings-page.php:125
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
@@ -2206,49 +2350,49 @@ msgstr ""
 "このトークンはorgSeriesウィジェット専用です - "
 "シリーズタイトルのリストを挿入したい場所を参照し、各シリーズタイトルのテンプレートも設定する必要があります。"
 
-#: inc/settings/settings-page.php:97
+#: inc/settings/settings-page.php:133
 msgid "This will be replaced with the title of a series"
 msgstr "これはシリーズのタイトルに置き換えられます"
 
-#: inc/settings/settings-page.php:105
+#: inc/settings/settings-page.php:141
 #. translators: %series_title%: Template token for the series title.
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr "%series_title% と同じですが、シリーズページにもリンクされます"
 
-#: inc/settings/settings-page.php:113
+#: inc/settings/settings-page.php:149
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
 msgstr "投稿リストの投稿テンプレートの内容が表示される場所トークンです。"
 
-#: inc/settings/settings-page.php:121
+#: inc/settings/settings-page.php:157
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
 msgstr "投稿リストの投稿テンプレートの内容が表示される場所トークンで、提供されたウィジェット投稿の短いタイトルを使用します。"
 
-#: inc/settings/settings-page.php:129
+#: inc/settings/settings-page.php:165
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "シリーズ内の投稿のタイトルで置き換えられます。"
 
-#: inc/settings/settings-page.php:137
+#: inc/settings/settings-page.php:173
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr "その投稿のページビューにリンクされたシリーズ内の投稿のタイトルで置き換えられます。"
 
-#: inc/settings/settings-page.php:145
+#: inc/settings/settings-page.php:181
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "シリーズ内の投稿の短いタイトルで置き換えられます。"
 
-#: inc/settings/settings-page.php:153
+#: inc/settings/settings-page.php:189
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
 msgstr "その投稿のページビューにリンクされたシリーズ内の投稿の短いタイトルで置き換えられます。"
 
-#: inc/settings/settings-page.php:161
+#: inc/settings/settings-page.php:197
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -2258,7 +2402,7 @@ msgstr ""
 "シリーズ内の前の投稿のナビゲーションリンクで置き換えられます。テキストは「カスタム前の投稿ナビゲーションテキスト」フィールドに含まれるもので、空であれば"
 "投稿のタイトルがテキストになります。"
 
-#: inc/settings/settings-page.php:169
+#: inc/settings/settings-page.php:205
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
@@ -2267,7 +2411,7 @@ msgstr ""
 "シリーズ内の次の投稿のナビゲーションリンクで置き換えられます。テキストは「カスタム次の投稿ナビゲーションテキスト」フィールドに含まれるもので、空であれば"
 "投稿のタイトルがテキストになります。"
 
-#: inc/settings/settings-page.php:177
+#: inc/settings/settings-page.php:213
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
 "text will be whatever is included in the 'Custom First Post Navigation "
@@ -2277,73 +2421,51 @@ msgstr ""
 "シリーズ内の最初の投稿のナビゲーションリンクで置き換えられます。テキストは「カスタム最初の投稿ナビゲーションテキスト」フィールドに含まれるもので、空であ"
 "れば投稿のタイトルがテキストになります。"
 
-#: inc/settings/settings-page.php:184
+#: inc/settings/settings-page.php:220
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
 msgstr "このタグはテンプレートコードの前または後に使用してください。投稿の内容を表示したい場所を示します。"
 
-#: inc/settings/settings-page.php:192
+#: inc/settings/settings-page.php:228
 msgid "Will display what part of a series the post is"
 msgstr "投稿がシリーズのどの部分であるかを表示します。"
 
-#: inc/settings/settings-page.php:200
+#: inc/settings/settings-page.php:236
 msgid "Will display the total number of posts in a series"
 msgstr "シリーズ内の投稿の総数を表示します。"
 
-#: inc/settings/settings-page.php:208
+#: inc/settings/settings-page.php:244
 msgid "Will display the description for the series"
 msgstr "シリーズの説明を表示します。"
 
-#: inc/settings/settings-page.php:220
+#: inc/settings/settings-page.php:254
 msgid "Will output the slug of the series"
 msgstr "シリーズのスラッグを出力します。"
 
-#: inc/settings/settings-page.php:230
+#: inc/settings/settings-page.php:264
 msgid "Will output the ID of the series"
 msgstr "シリーズのIDを出力します。"
 
-#: inc/settings/settings-page.php:240
+#: inc/settings/settings-page.php:274
 msgid "Will output the author of the post"
 msgstr "投稿の著者を出力します。"
 
-#: inc/settings/settings-page.php:250
+#: inc/settings/settings-page.php:284
 msgid "If the post has a feature-image then that image will be displayed"
 msgstr "投稿にフィーチャー画像がある場合、その画像が表示されます。"
 
-#: inc/settings/settings-page.php:260
+#: inc/settings/settings-page.php:294
 msgid "The date that a post was published"
 msgstr "投稿が公開された日付です。"
 
-#: inc/settings/settings-page.php:270
+#: inc/settings/settings-page.php:304
 msgid "Will be replaced with the unpublished post title of a post in the series"
 msgstr "シリーズ内の未公開投稿のタイトルで置き換えられます。"
 
-#: inc/settings/settings-page.php:280
+#: inc/settings/settings-page.php:314
 msgid "Will display the total number of published and unpublished posts in a series"
 msgstr "シリーズ内の公開および未公開の投稿の総数を表示します。"
-
-#: inc/settings/settings-page.php:323
-msgid "Update Options"
-msgstr "オプションの更新"
-
-#: inc/settings/settings-page.php:328
-msgid "Reset Series settings"
-msgstr "シリーズ設定をリセット"
-
-#: inc/settings/settings-page.php:329
-msgid ""
-"Clicking Yes will reset the options to the defaults and you will lose all "
-"customizations. Or you can click cancel and return."
-msgstr "はいをクリックすると、オプションがデフォルトにリセットされ、すべてのカスタマイズが失われます。キャンセルをクリックして戻ることもできます。"
-
-#: inc/settings/settings-page.php:330
-msgid "No"
-msgstr "いいえ"
-
-#: inc/settings/settings-page.php:331
-msgid "Yes"
-msgstr "はい"
 
 #: inc/settings/settings-upgrade.php:26
 #: inc/settings/settings-upgrade.php:49
@@ -2369,50 +2491,50 @@ msgstr "シリーズデータの更新"
 msgid "Series upgrade completed."
 msgstr "シリーズのアップグレードが完了しました。"
 
-#: inc/settings/settings-upgrade.php:183
+#: inc/settings/settings-upgrade.php:158
 #. translators: %d: Number of posts updated.
 #, php-format
 msgid "Series order sync completed. %d posts updated."
 msgstr "シリーズの順序同期が完了しました。 %d 件の投稿が更新されました。"
 
 #: inc/settings/settings-validation.php:89
-#: orgSeries-setup.php:278
+#: orgSeries-setup.php:286
 msgid "Search Series"
 msgstr "シリーズを検索"
 
 #: inc/settings/settings-validation.php:90
-#: orgSeries-setup.php:279
+#: orgSeries-setup.php:287
 msgid "Popular Series"
 msgstr "人気シリーズ"
 
 #: inc/settings/settings-validation.php:91
-#: orgSeries-setup.php:280
-#: orgSeries-setup.php:373
+#: orgSeries-setup.php:288
+#: orgSeries-setup.php:380
 msgid "All Series"
 msgstr "すべてのシリーズ"
 
 #: inc/settings/settings-validation.php:92
-#: orgSeries-setup.php:281
+#: orgSeries-setup.php:289
 msgid "Edit Series"
 msgstr "シリーズを編集"
 
 #: inc/settings/settings-validation.php:93
-#: orgSeries-setup.php:282
+#: orgSeries-setup.php:290
 msgid "Update Series"
 msgstr "シリーズを更新"
 
 #: inc/settings/settings-validation.php:94
-#: orgSeries-setup.php:283
+#: orgSeries-setup.php:291
 msgid "Add New Series"
 msgstr "新しいシリーズを追加"
 
 #: inc/settings/settings-validation.php:95
-#: orgSeries-setup.php:284
+#: orgSeries-setup.php:292
 msgid "New Series Name"
 msgstr "新しいシリーズ名"
 
 #: inc/settings/settings-validation.php:97
-#: orgSeries-setup.php:286
+#: orgSeries-setup.php:294
 msgid "No series found"
 msgstr "シリーズが見つかりません"
 
@@ -2504,7 +2626,7 @@ msgid "Reset options to default"
 msgstr "オプションをデフォルトにリセット"
 
 #: inc/settings/tab-layouts.php:13
-#: orgSeries-options.php:148
+#: orgSeries-options.php:151
 msgid "Layouts"
 msgstr "レイアウト"
 
@@ -2513,7 +2635,7 @@ msgid "Configure the layout displays shown on posts in a series."
 msgstr "シリーズ内の投稿に表示されるレイアウトを設定します。"
 
 #: inc/settings/tab-legacy.php:14
-#: orgSeries-options.php:165
+#: orgSeries-options.php:168
 msgid "Legacy"
 msgstr "レガシー"
 
@@ -2535,38 +2657,39 @@ msgid "Use PublishPress Series CSS styles?"
 msgstr "PublishPressシリーズのCSSスタイルを使用しますか？"
 
 #: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:51
 msgid "Style options"
 msgstr "スタイルオプション"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:52
 msgid "Use default style"
 msgstr "デフォルトスタイルを使用"
 
-#: inc/settings/tab-legacy.php:51
+#: inc/settings/tab-legacy.php:53
 msgid "Use box style"
 msgstr "ボックススタイルを使用"
 
-#: inc/settings/tab-legacy.php:52
+#: inc/settings/tab-legacy.php:54
 msgid "Use dark style"
 msgstr "ダークスタイルを使用"
 
-#: inc/settings/tab-legacy.php:53
+#: inc/settings/tab-legacy.php:55
 msgid "Use light style"
 msgstr "ライトスタイルを使用"
 
-#: inc/settings/tab-legacy.php:63
+#: inc/settings/tab-legacy.php:66
 msgid "Series Overview"
 msgstr "シリーズ概要"
 
-#: inc/settings/tab-legacy.php:65
+#: inc/settings/tab-legacy.php:68
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr "単一のシリーズが表示される分類ページのデザインを選択します。"
 
-#: inc/settings/tab-legacy.php:69
+#: inc/settings/tab-legacy.php:72
 msgid "Layout:"
 msgstr "レイアウト:"
 
-#: inc/settings/tab-legacy.php:86
+#: inc/settings/tab-legacy.php:92
 #. translators: %s: URL to the series archive template documentation.
 #, php-format
 msgid ""
@@ -2578,48 +2701,51 @@ msgstr ""
 "target=\"_blank\" rel=\"noopener "
 "noreferrer\">これらのデザインをカスタマイズするためのドキュメントを読む</a>。"
 
-#: inc/settings/tab-legacy.php:95
-#: inc/settings/tab-series-category.php:70
+#: inc/settings/tab-legacy.php:102
+#: inc/settings/tab-series-category.php:73
 msgid "Columns:"
 msgstr "列:"
 
-#: inc/settings/tab-legacy.php:101
+#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:111
 msgid "Order series by:"
 msgstr "シリーズの順序:"
 
-#: inc/settings/tab-legacy.php:103
+#: inc/settings/tab-legacy.php:112
 msgid "Series part"
 msgstr "シリーズのパート"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:113
 msgid "Order by date"
 msgstr "日付で並べ替え"
 
-#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:118
+#: inc/settings/tab-legacy.php:121
 msgid "Series order method"
 msgstr "シリーズの順序方法"
 
-#: inc/settings/tab-legacy.php:121
-#: inc/settings/tab-legacy.php:220
-#: inc/settings/tab-legacy.php:226
-#: orgSeries-setup.php:549
-#: orgSeries-widgets.php:123
+#: inc/settings/tab-legacy.php:134
+#: inc/settings/tab-legacy.php:233
+#: inc/settings/tab-legacy.php:239
+#: orgSeries-setup.php:562
+#: orgSeries-widgets.php:122
+#: seriestoc.php:34
 msgid "Series Table of Contents"
 msgstr "シリーズ目次"
 
-#: inc/settings/tab-legacy.php:126
+#: inc/settings/tab-legacy.php:139
 msgid "Series Table of Contents URL:"
 msgstr "シリーズ目次のURL:"
 
-#: inc/settings/tab-legacy.php:128
+#: inc/settings/tab-legacy.php:141
 msgid "Series Table of Contents URL"
 msgstr "シリーズ目次URL"
 
-#: inc/settings/tab-legacy.php:129
+#: inc/settings/tab-legacy.php:142
 msgid "view page"
 msgstr "ページを表示"
 
-#: inc/settings/tab-legacy.php:139
+#: inc/settings/tab-legacy.php:152
 #. translators: 1: Opening link tag, 2: Closing link tag.
 #, php-format
 msgid ""
@@ -2627,88 +2753,88 @@ msgid ""
 "\"Plain\" for the Series Table of Contents URL to work."
 msgstr "シリーズ目次のURLを機能させるには、%1$sパーマリンク構造を%2$s「プレーン」以外のものに更新する必要があります。"
 
-#: inc/settings/tab-legacy.php:159
+#: inc/settings/tab-legacy.php:172
 msgid "Series Per Page:"
 msgstr "ページあたりのシリーズ数:"
 
-#: inc/settings/tab-legacy.php:160
+#: inc/settings/tab-legacy.php:173
 msgid "Series Per Page"
 msgstr "ページあたりのシリーズ数"
 
-#: inc/settings/tab-legacy.php:163
+#: inc/settings/tab-legacy.php:176
 msgid "Series Table of Contents Title:"
 msgstr "シリーズ目次のタイトル:"
 
-#: inc/settings/tab-legacy.php:173
+#: inc/settings/tab-legacy.php:186
 msgid "Series Featured Images"
 msgstr "シリーズの特徴的な画像"
 
-#: inc/settings/tab-legacy.php:178
+#: inc/settings/tab-legacy.php:191
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr "シリーズ目次ページの特徴的な画像の幅（ピクセル単位）"
 
-#: inc/settings/tab-legacy.php:179
+#: inc/settings/tab-legacy.php:192
 msgid "Width for featured image on series table of contents page"
 msgstr "シリーズ目次ページのフィーチャー画像の幅"
 
-#: inc/settings/tab-legacy.php:182
+#: inc/settings/tab-legacy.php:195
 msgid "Width for featured image on a post page (in pixels)."
 msgstr "投稿ページの特徴的な画像の幅（ピクセル単位）。"
 
-#: inc/settings/tab-legacy.php:183
+#: inc/settings/tab-legacy.php:196
 msgid "Width for featured image on a post page"
 msgstr "投稿ページのフィーチャー画像の幅"
 
-#: inc/settings/tab-legacy.php:186
+#: inc/settings/tab-legacy.php:199
 msgid ""
 "Width for featured image if displayed via the latest series template (in "
 "pixels)."
 msgstr "最新のシリーズテンプレートを介して表示される場合の特徴的な画像の幅（ピクセル単位）。"
 
-#: inc/settings/tab-legacy.php:187
+#: inc/settings/tab-legacy.php:200
 msgid "Width for featured image if displayed via the latest series template"
 msgstr "最新シリーズテンプレート経由で表示された場合のフィーチャー画像の幅"
 
-#: inc/settings/tab-legacy.php:196
+#: inc/settings/tab-legacy.php:209
 #: orgSeries-widgets.php:16
 msgid "Latest Series"
 msgstr "最新シリーズ"
 
-#: inc/settings/tab-legacy.php:198
+#: inc/settings/tab-legacy.php:211
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr "この表示は「最新シリーズ」ウィジェットで使用されます。"
 
-#: inc/settings/tab-legacy.php:202
+#: inc/settings/tab-legacy.php:215
 msgid "Latest Series (tags before):"
 msgstr "最新シリーズ（前のタグ）："
 
-#: inc/settings/tab-legacy.php:203
+#: inc/settings/tab-legacy.php:216
 msgid "Latest Series tags before"
 msgstr "最新シリーズタグの前"
 
-#: inc/settings/tab-legacy.php:206
+#: inc/settings/tab-legacy.php:219
 msgid "Latest Series (inner tags):"
 msgstr "最新シリーズ（内部タグ）："
 
-#: inc/settings/tab-legacy.php:207
+#: inc/settings/tab-legacy.php:220
 msgid "Latest Series inner tags"
 msgstr "最新シリーズ内部タグ"
 
-#: inc/settings/tab-legacy.php:210
+#: inc/settings/tab-legacy.php:223
 msgid "Latest Series (tags after):"
 msgstr "最新シリーズ（後のタグ）："
 
-#: inc/settings/tab-legacy.php:211
+#: inc/settings/tab-legacy.php:224
 msgid "Latest Series tags after"
 msgstr "最新シリーズタグの後"
 
-#: inc/settings/tab-legacy.php:222
+#: inc/settings/tab-legacy.php:235
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr "この表示は「シリーズ目次」ウィジェット、ショートコード、およびURLで使用されます。"
 
-#: inc/settings/tab-legacy.php:229
+#: inc/settings/tab-legacy.php:242
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
 "for this display, go the \"Display\" tab and then \"Series Table of "
@@ -2734,6 +2860,7 @@ msgid "Alphabetical Z-A"
 msgstr "アルファベット順 Z-A"
 
 #: inc/settings/tab-metabox.php:38
+#: includes-core/Mcp/Settings.php:105
 msgid "Show \"Add New\""
 msgstr "「新規追加」を表示"
 
@@ -2742,6 +2869,7 @@ msgid "Show Add New"
 msgstr "新規追加を表示"
 
 #: inc/settings/tab-metabox.php:42
+#: includes-core/Mcp/Settings.php:106
 msgid "Show \"Post title in widget\""
 msgstr "「ウィジェット内の投稿タイトルを表示」を表示"
 
@@ -2771,15 +2899,19 @@ msgstr "テンプレートと同様"
 
 #: inc/settings/tab-post-details.php:50
 #: inc/settings/tab-post-details.php:51
+#: includes-core/Mcp/Settings.php:91
 msgid "Display Series Post Details?"
 msgstr "シリーズ投稿詳細を表示しますか？"
 
 #: inc/settings/tab-post-details.php:55
+#: includes-core/Mcp/Settings.php:93
 msgid "Post Details Selection"
 msgstr "投稿詳細の選択"
 
 #: inc/settings/tab-post-details.php:57
+#: inc/settings/tab-post-details.php:60
 #: inc/settings/tab-post-navigation.php:57
+#: inc/settings/tab-post-navigation.php:60
 msgid "Edit this layout"
 msgstr "このレイアウトを編集"
 
@@ -2790,6 +2922,7 @@ msgid "Loading…"
 msgstr "読み込み中…"
 
 #: inc/settings/tab-post-details.php:65
+#: includes-core/Mcp/Settings.php:96
 msgid "Post Details Position"
 msgstr "投稿詳細の位置"
 
@@ -2822,14 +2955,17 @@ msgid "Display Post List Boxes?"
 msgstr "投稿リストボックスを表示しますか？"
 
 #: inc/settings/tab-post-list-box.php:55
+#: includes-core/Mcp/Settings.php:92
 msgid "Post List Boxes Selection"
 msgstr "投稿リストボックスの選択"
 
 #: inc/settings/tab-post-list-box.php:57
+#: inc/settings/tab-post-list-box.php:60
 msgid "Edit this box"
 msgstr "このボックスを編集"
 
 #: inc/settings/tab-post-list-box.php:65
+#: includes-core/Mcp/Settings.php:95
 msgid "Post List Box Position"
 msgstr "投稿リストボックスの位置"
 
@@ -2864,14 +3000,17 @@ msgstr "シリーズ内の投稿に表示されるシリーズナビゲーショ
 
 #: inc/settings/tab-post-navigation.php:50
 #: inc/settings/tab-post-navigation.php:51
+#: includes-core/Mcp/Settings.php:90
 msgid "Display Series Navigation?"
 msgstr "シリーズナビゲーションを表示しますか？"
 
 #: inc/settings/tab-post-navigation.php:55
+#: includes-core/Mcp/Settings.php:94
 msgid "Navigation Selection"
 msgstr "ナビゲーション選択"
 
 #: inc/settings/tab-post-navigation.php:65
+#: includes-core/Mcp/Settings.php:97
 msgid "Navigation Position"
 msgstr "ナビゲーション位置"
 
@@ -2881,26 +3020,29 @@ msgstr "ナビゲーションテンプレート"
 
 #: inc/settings/tab-post-navigation.php:85
 #: inc/settings/tab-post-navigation.php:86
+#: includes-core/Mcp/Settings.php:98
 msgid "Next Post Text"
 msgstr "次の投稿テキスト"
 
 #: inc/settings/tab-post-navigation.php:90
 #: inc/settings/tab-post-navigation.php:91
+#: includes-core/Mcp/Settings.php:99
 msgid "Previous Post Text"
 msgstr "前の投稿テキスト"
 
 #: inc/settings/tab-post-navigation.php:95
 #: inc/settings/tab-post-navigation.php:96
+#: includes-core/Mcp/Settings.php:100
 msgid "First Post Text"
 msgstr "最初の投稿テキスト"
 
 #: inc/settings/tab-post-types.php:12
-#: orgSeries-options.php:159
+#: orgSeries-options.php:162
 msgid "Post Types"
 msgstr "投稿タイプ"
 
 #: inc/settings/tab-post-types.php:13
-#: inc/settings/tab-pro-features.php:31
+#: inc/utility-functions.php:883
 msgid "Custom Post Type Support"
 msgstr "カスタム投稿タイプサポート"
 
@@ -2910,7 +3052,7 @@ msgstr "カスタム投稿タイプ用にPublishPressシリーズを有効にし
 
 #: inc/settings/tab-pro-features.php:12
 #: inc/settings/tab-pro-features.php:13
-#: orgSeries-options.php:168
+#: orgSeries-options.php:171
 msgid "Pro Features"
 msgstr "プロ機能"
 
@@ -2920,37 +3062,9 @@ msgid ""
 "Pro."
 msgstr "これらの設定により、PublishPress Series Proの機能を有効または無効にできます。"
 
-#: inc/settings/tab-pro-features.php:31
-msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "カスタム投稿タイプをPublishPressシリーズで使用できるようにします。"
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Shortcodes"
-msgstr "ショートコード"
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Provides shortcodes to display series information."
-msgstr "シリーズ情報を表示するためのショートコードを提供します。"
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Extra Tokens"
-msgstr "追加トークン"
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Provides extra tokens to customize the output of series information."
-msgstr "シリーズ情報の出力をカスタマイズするための追加トークンを提供します。"
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Multiple Series"
-msgstr "複数のシリーズ"
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Allows authors to add posts to more than one series."
-msgstr "著者が複数のシリーズに投稿を追加できるようにします。"
-
 #: inc/settings/tab-series-category.php:10
 #: inc/settings/tab-series-category.php:11
-#: orgSeries-options.php:163
+#: orgSeries-options.php:166
 msgid "Series Category"
 msgstr "シリーズカテゴリー"
 
@@ -2959,6 +3073,7 @@ msgid "Settings for Series Categories archive URL and display behavior."
 msgstr "シリーズカテゴリーのアーカイブURLおよび表示動作の設定。"
 
 #: inc/settings/tab-series-category.php:30
+#: includes-core/Mcp/Settings.php:102
 msgid "Series Categories URL Base:"
 msgstr "シリーズカテゴリーURLベース:"
 
@@ -2969,6 +3084,7 @@ msgid ""
 msgstr "このテキストはシリーズカテゴリーのアーカイブURLに使用されます。変更すると、古いURLは新しいベースにリダイレクトされます。"
 
 #: inc/settings/tab-series-category.php:40
+#: includes-core/Mcp/Settings.php:103
 msgid "Series Categories Archive Template:"
 msgstr "シリーズカテゴリアーカイブテンプレート："
 
@@ -2990,18 +3106,19 @@ msgstr ""
 "phpを提供していない場合にPublishPress Seriesのフォールバックデザインを使用します。"
 
 #: inc/settings/tab-series-category.php:53
+#: inc/settings/tab-series-category.php:56
 msgid "Plugin Template Display Options:"
 msgstr "プラグインテンプレート表示オプション："
 
-#: inc/settings/tab-series-category.php:57
+#: inc/settings/tab-series-category.php:59
 msgid "Show Series Featured Image"
 msgstr "シリーズの特徴的な画像を表示"
 
-#: inc/settings/tab-series-category.php:62
+#: inc/settings/tab-series-category.php:64
 msgid "Show Series Description"
 msgstr "シリーズ説明を表示"
 
-#: inc/settings/tab-series-category.php:67
+#: inc/settings/tab-series-category.php:69
 msgid "Show Posts in each Series as list items"
 msgstr "各シリーズの投稿をリスト項目として表示"
 
@@ -3012,6 +3129,7 @@ msgid ""
 msgstr "この機能は、デフォルトの「シリーズ」タクソノミーを使用したくない場合に、このプラグインが使用する新しいタクソノミーを作成することを可能にします。"
 
 #: inc/settings/tab-taxonomy.php:32
+#: includes-core/Mcp/Settings.php:101
 msgid "Series Taxonomy Slug:"
 msgstr "シリーズタクソノミースラッグ："
 
@@ -3050,42 +3168,70 @@ msgstr ""
 "チェックを入れると、タクソノミースラッグを変更すると、現在のタクソノミーからすべての用語が新しいタクソノミーに移行されます。チェックを外すと、タクソノミ"
 "ースラッグのみが変更されます。"
 
-#: inc/templates/taxonomy-series.php:71
+#: inc/templates/taxonomy-series.php:75
 msgid "Sorry, no results found."
 msgstr "申し訳ありませんが、結果は見つかりませんでした。"
 
-#: inc/welcome/welcome-panel.php:141
+#: inc/utility-functions.php:850
+msgid "Series navigation"
+msgstr "シリーズナビゲーション"
+
+#: inc/utility-functions.php:883
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "カスタム投稿タイプをPublishPressシリーズで使用できるようにします。"
+
+#: inc/utility-functions.php:884
+msgid "Shortcodes"
+msgstr "ショートコード"
+
+#: inc/utility-functions.php:884
+msgid "Provides shortcodes to display series information."
+msgstr "シリーズ情報を表示するためのショートコードを提供します。"
+
+#: inc/utility-functions.php:885
+msgid "Extra Tokens"
+msgstr "追加トークン"
+
+#: inc/utility-functions.php:885
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "シリーズ情報の出力をカスタマイズするための追加トークンを提供します。"
+
+#: inc/utility-functions.php:886
+msgid "Multiple Series"
+msgstr "複数のシリーズ"
+
+#: inc/utility-functions.php:886
+msgid "Allows authors to add posts to more than one series."
+msgstr "著者が複数のシリーズに投稿を追加できるようにします。"
+
+#: inc/welcome/welcome-panel.php:93
+msgid "Welcome panel dismissed."
+msgstr "ウェルカムパネルが閉じられました。"
+
+#: inc/welcome/welcome-panel.php:142
 msgid "Dismiss this panel"
 msgstr "このパネルを閉じる"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:161
 msgid "Welcome to PublishPress Series"
 msgstr "PublishPressシリーズへようこそ"
 
-#: inc/welcome/welcome-panel.php:163
+#: inc/welcome/welcome-panel.php:164
 msgid ""
 "A series groups your posts together and shows your readers the reading "
 "order. Create your first series with the form on this page, then add posts "
 "to it."
 msgstr "シリーズはあなたの投稿をまとめて、読者に読み順を示します。このページのフォームを使って最初のシリーズを作成し、その後投稿を追加してください。"
 
-#: inc/welcome/welcome-panel.php:168
+#: inc/welcome/welcome-panel.php:169
 msgid "Create a series"
 msgstr "シリーズを作成"
 
-#: inc/welcome/welcome-panel.php:171
-msgid "View PublishPress Series documentation"
-msgstr "PublishPressシリーズのドキュメントを見る"
-
-#: inc/welcome/welcome-panel.php:172
+#: inc/welcome/welcome-panel.php:173
 msgid "View Documentation"
 msgstr "ドキュメントを表示"
 
-#: inc/welcome/welcome-panel.php:176
-msgid "Upgrade to PublishPress Series Pro"
-msgstr "PublishPressシリーズProにアップグレード"
-
-#: inc/welcome/welcome-panel.php:177
+#: inc/welcome/welcome-panel.php:178
 #: includes-core/PPSeriesCoreAdmin.php:46
 msgid "Upgrade to Pro"
 msgstr "Proにアップグレード"
@@ -3110,7 +3256,7 @@ msgid "Display navigation links for posts in a Series."
 msgstr "シリーズ内の投稿のナビゲーションリンクを表示します。"
 
 #: includes-core/class-blocks.php:169
-#: orgSeries-setup.php:290
+#: orgSeries-setup.php:298
 #: assets/js/publishpress-series-blocks.js:51
 msgid "Series List"
 msgstr "シリーズリスト"
@@ -3120,66 +3266,501 @@ msgstr "シリーズリスト"
 msgid "Display a customizable list of Series or Series Categories."
 msgstr "シリーズまたはシリーズカテゴリのカスタマイズ可能なリストを表示します。"
 
-#: includes-core/class-blocks.php:423
+#: includes-core/class-blocks.php:439
 #. translators: %s: Number of series.
 #, php-format
 msgid "%s series"
 msgid_plural "%s series"
 msgstr[0] "%sシリーズ"
 
-#: includes-core/class-blocks.php:429
+#: includes-core/class-blocks.php:445
 #. translators: %s: Number of posts.
 #, php-format
 msgid "%s post"
 msgid_plural "%s posts"
 msgstr[0] "%s投稿"
 
-#: includes-core/class-blocks.php:481
+#: includes-core/class-blocks.php:497
 msgid "Editorial Series"
 msgstr "エディトリアルシリーズ"
 
-#: includes-core/class-blocks.php:483
-#: includes-core/class-blocks.php:491
 #: includes-core/class-blocks.php:499
+#: includes-core/class-blocks.php:507
+#: includes-core/class-blocks.php:515
 msgid "A sample Series Category description."
 msgstr "シリーズカテゴリのサンプル説明。"
 
-#: includes-core/class-blocks.php:489
+#: includes-core/class-blocks.php:505
 msgid "Magazine Issues"
 msgstr "雑誌の号"
 
-#: includes-core/class-blocks.php:497
+#: includes-core/class-blocks.php:513
 msgid "Tutorial Collections"
 msgstr "チュートリアルコレクション"
 
-#: includes-core/class-blocks.php:509
+#: includes-core/class-blocks.php:525
 msgid "Alpha Series"
 msgstr "アルファシリーズ"
 
-#: includes-core/class-blocks.php:511
-#: includes-core/class-blocks.php:519
 #: includes-core/class-blocks.php:527
+#: includes-core/class-blocks.php:535
+#: includes-core/class-blocks.php:543
 msgid "A sample description for this Series."
 msgstr "このシリーズのサンプル説明。"
 
-#: includes-core/class-blocks.php:517
+#: includes-core/class-blocks.php:533
 msgid "Bravo Series"
 msgstr "ブラボーシリーズ"
 
-#: includes-core/class-blocks.php:525
+#: includes-core/class-blocks.php:541
 msgid "Charlie Series"
 msgstr "チャーリーシリーズ"
 
-#: includes-core/class-blocks.php:898
+#: includes-core/class-blocks.php:914
 #: assets/js/publishpress-series-blocks.js:60
 msgid "Default layout"
 msgstr "デフォルトレイアウト"
 
-#: includes-core/class-blocks.php:931
-#: orgSeries-widgets.php:420
+#: includes-core/class-blocks.php:947
+#: orgSeries-widgets.php:427
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "現在のシリーズ"
+
+#: includes-core/Mcp/bootstrap.php:15
+msgid "Actions provided by PublishPress plugins."
+msgstr "PublishPressプラグインによって提供されるアクション。"
+
+#: includes-core/Mcp/Content.php:21
+msgid "Discover Series features and identifiers"
+msgstr "シリーズの機能と識別子を発見する"
+
+#: includes-core/Mcp/Content.php:21
+msgid ""
+"Discover the native series taxonomy, Series Categories, supported post "
+"types, publishing and active Pro addons. Layout discovery uses get-layout; "
+"settings use get-plugin-settings. Hub supplies generic post lookup."
+msgstr ""
+"ネイティブシリーズタクソノミー、シリーズカテゴリ、サポートされている投稿タイプ、公開およびアクティブなProアドオンを発見します。レイアウトの発見にはg"
+"et-layoutを使用し、設定にはget-plugin-settingsを使用します。Hubは一般的な投稿の検索を提供します。"
+
+#: includes-core/Mcp/Content.php:22
+msgid "Find Series and Series Categories"
+msgstr "シリーズとシリーズカテゴリを見つける"
+
+#: includes-core/Mcp/Content.php:22
+msgid ""
+"Find native Series terms or Series Categories by name. Returns native term "
+"metadata and concurrency tokens without exposing post content."
+msgstr "ネイティブシリーズ用語またはシリーズカテゴリを名前で見つけます。投稿コンテンツを公開せずにネイティブ用語のメタデータと同時トークンを返します。"
+
+#: includes-core/Mcp/Content.php:23
+msgid "Read posts in a Series"
+msgstr "シリーズ内の投稿を読む"
+
+#: includes-core/Mcp/Content.php:23
+msgid ""
+"List readable posts with their native part numbers, pending order, status "
+"and date. Pagination filters unreadable objects first. Get-post-series "
+"supplies edit tokens for individual posts."
+msgstr ""
+"ネイティブ部品番号、保留中の順序、ステータス、日付を持つ読み取り可能な投稿のリストを表示します。ページネーションは読み取れないオブジェクトを最初にフィル"
+"タリングします。get-post-seriesは個々の投稿の編集トークンを提供します。"
+
+#: includes-core/Mcp/Content.php:24
+msgid "Inspect a Series or category"
+msgstr "シリーズまたはカテゴリを検査する"
+
+#: includes-core/Mcp/Content.php:24
+msgid ""
+"Read name, description, icon, order, category assignments and "
+"expected_hash. Series Categories use taxonomy=category. Parent IDs apply to "
+"hierarchical categories."
+msgstr ""
+"名前、説明、アイコン、順序、カテゴリの割り当て、およびexpected_"
+"hashを読み取ります。シリーズカテゴリはtaxonomy=categoryを使用します。親IDは階層カテゴリに適用されます。"
+
+#: includes-core/Mcp/Content.php:25
+msgid "Create or update a Series or category"
+msgstr "シリーズまたはカテゴリを作成または更新する"
+
+#: includes-core/Mcp/Content.php:25
+msgid ""
+"Create with name, or patch an existing id and expected_hash. Omitted fields "
+"remain unchanged. icon_id is a readable image attachment; zero clears the "
+"Series icon. category_ids replace Series category assignments; [] clears "
+"them. dry_run previews."
+msgstr ""
+"名前で作成するか、既存のIDとexpected_hashをパッチします。省略されたフィールドは変更されません。icon_"
+"idは読み取り可能な画像添付ファイルで、ゼロはシリーズアイコンをクリアします。category_idsはシリーズカテゴリの割り当てを置き換えます; "
+"[]はそれらをクリアします。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Content.php:26
+msgid "Delete a Series or category"
+msgstr "シリーズまたはカテゴリを削除する"
+
+#: includes-core/Mcp/Content.php:26
+msgid ""
+"Delete a native taxonomy term without deleting its posts. Requires the "
+"current term and membership token and permission to edit all affected "
+"posts. dry_run previews. Large collections remain in native administration."
+msgstr ""
+"投稿を削除せずにネイティブタクソノミー用語を削除します。現在の用語とメンバーシップトークン、および影響を受けるすべての投稿を編集する権限が必要です。dr"
+"y_runはプレビューします。大規模コレクションはネイティブ管理に残ります。"
+
+#: includes-core/Mcp/Content.php:27
+msgid "Inspect a post’s Series and block assignments"
+msgstr "投稿のシリーズとブロックの割り当てを検査する"
+
+#: includes-core/Mcp/Content.php:27
+msgid ""
+"Read Series membership, part numbers, widget short title and Series "
+"Gutenberg block attributes for a readable editable supported post. Returns "
+"expected_hash covering affected Series order and content."
+msgstr ""
+"読み取り可能な編集可能なサポートされた投稿のシリーズメンバーシップ、部品番号、ウィジェットの短いタイトル、およびシリーズのGutenbergブロック属性"
+"を読み取ります。影響を受けるシリーズの順序とコンテンツをカバーするexpected_hashを返します。"
+
+#: includes-core/Mcp/Content.php:28
+msgid "Set post Series, part numbers and widget title"
+msgstr "投稿のシリーズ、部品番号、ウィジェットのタイトルを設定する"
+
+#: includes-core/Mcp/Content.php:28
+msgid ""
+"Replace memberships with items; [] removes all. Omit items to update only "
+"short_title. Part zero uses native automatic placement. Multiple Series "
+"requires active Pro Multiple Series. All posts whose numbering can change "
+"require native read/edit permission. Read expected_hash from get-series "
+"before adding a new membership. dry_run previews."
+msgstr ""
+"メンバーシップをアイテムで置き換えます; "
+"[]はすべてを削除します。アイテムを省略するとshort_"
+"titleのみが更新されます。部品ゼロはネイティブ自動配置を使用します。複数のシリーズにはアクティブなPro Multiple "
+"Seriesが必要です。番号が変更できるすべての投稿にはネイティブの読み取り/編集権限が必要です。新しいメンバーシップを追加する前にget-"
+"seriesからexpected_hashを読み取ります。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Content.php:31
+msgid "Update Series memberships for multiple posts"
+msgstr "複数の投稿に対するシリーズメンバーシップを更新する"
+
+#: includes-core/Mcp/Content.php:31
+msgid ""
+"Validate every explicit post, Series token and native permission before "
+"updating up to 20 posts. Each row uses the same input as "
+"update-post-series. Omitted fields are preserved. dry_run previews all "
+"rows. Native numbering is not transactional; inspect complete, applied_ids "
+"and failed_id before retrying a partial result."
+msgstr ""
+"20件までの投稿を更新する前に、すべての明示的な投稿、シリーズトークン、およびネイティブパーミッションを検証します。各行は、update-post-"
+"seriesと同じ入力を使用します。省略されたフィールドは保持されます。dry_"
+"runはすべての行をプレビューします。ネイティブ番号付けはトランザクションではありません; "
+"完全な、適用された_idsおよび失敗した_idを再試行する前に確認してください。"
+
+#: includes-core/Mcp/Content.php:32
+msgid "Order, publish, schedule or unpublish Series posts"
+msgstr "シリーズ投稿を注文、公開、スケジュール、または未公開にする"
+
+#: includes-core/Mcp/Content.php:32
+msgid ""
+"Native Series Order and Publish Series workflows. Get expected_hash from "
+"get-series. order requires the complete counted post set and never "
+"publishes drafts. pending-order requires complete unpublished set. publish "
+"accepts selected pending/draft posts; date is optional site-local "
+"YYYY-MM-DD HH:MM for scheduling. unpublish affects the entire Series. trash "
+"requires explicit post_ids and native deletion capabilities. mark-published "
+"changes only the Series marker. date-asc/date-desc reuse native "
+"publication-date ordering. Cross-Series status transitions require "
+"series_tokens from get-series for the other memberships. sync-menu-order "
+"copies part numbers to WordPress menu order. All affected objects are "
+"preflighted; native multi-step operations are not transactional. dry_run "
+"previews."
+msgstr ""
+"ネイティブシリーズ注文および公開シリーズワークフロー。 "
+"get-seriesからexpected_"
+"hashを取得します。注文には、完全にカウントされた投稿セットが必要で、ドラフトを公開することはありません。pending-"
+"orderには完全な未公開セットが必要です。publishは選択されたpending/ドラフト投稿を受け入れます; "
+"日付はスケジュール用のオプショナルなサイトローカルYYYY-MM-DD "
+"HH:MMです。unpublishはシリーズ全体に影響します。trashには明示的なpost_idsとネイティブ削除機能が必要です。mark-"
+"publishedはシリーズマーカーのみを変更します。date-asc/date-"
+"descはネイティブの公開日順序を再利用します。シリーズ間のステータス遷移には、他のメンバーシップのためにget-seriesからseries_"
+"tokensが必要です。sync-menu-"
+"orderは部品番号をWordPressメニュー順序にコピーします。影響を受けるすべてのオブジェクトは事前確認されます; "
+"ネイティブのマルチステップ操作はトランザクションではありません。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Content.php:33
+msgid "Add or configure a Series Gutenberg block"
+msgstr "シリーズGutenbergブロックを追加または構成する"
+
+#: includes-core/Mcp/Content.php:33
+msgid ""
+"Append a native Series block or update one using its zero-based path from "
+"get-post-series. Only registered Series block attributes are accepted, with "
+"native editor availability and layout access checks. No arbitrary HTML or "
+"other block edits. dry_run previews."
+msgstr ""
+"ネイティブシリーズブロックを追加するか、get-post-"
+"seriesからのゼロベースのパスを使用して更新します。登録されたシリーズブロック属性のみが受け入れられ、ネイティブエディタの可用性とレイアウトアクセス"
+"チェックが行われます。任意のHTMLやその他のブロック編集はありません。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Content.php:64
+msgid "This Series term does not exist."
+msgstr "このシリーズ用語は存在しません。"
+
+#: includes-core/Mcp/Content.php:72
+msgid "Series membership could not be read."
+msgstr "シリーズメンバーシップを読み取ることができませんでした。"
+
+#: includes-core/Mcp/Content.php:78
+#: includes-core/Mcp/Content.php:103
+msgid "Use native administration for more than 1,000 affected records."
+msgstr "1,000件を超える影響を受けたレコードにはネイティブ管理を使用してください。"
+
+#: includes-core/Mcp/Content.php:119
+#: includes-core/Mcp/Content.php:329
+msgid "Use native administration for this category hierarchy."
+msgstr "このカテゴリ階層にはネイティブ管理を使用してください。"
+
+#: includes-core/Mcp/Content.php:201
+#: includes-core/Mcp/Content.php:523
+msgid "Use native administration for more than 1,000 affected posts."
+msgstr "1,000件を超える影響を受けた投稿にはネイティブ管理を使用してください。"
+
+#: includes-core/Mcp/Content.php:233
+msgid "Supply a Series or category name."
+msgstr "シリーズまたはカテゴリ名を入力してください。"
+
+#: includes-core/Mcp/Content.php:236
+msgid "These fields apply only to Series, not Series Categories."
+msgstr "これらのフィールドはシリーズにのみ適用され、シリーズカテゴリには適用されません。"
+
+#: includes-core/Mcp/Content.php:239
+msgid "Use an existing category parent without a cycle."
+msgstr "サイクルなしで既存のカテゴリ親を使用してください。"
+
+#: includes-core/Mcp/Content.php:258
+msgid "Unknown Series Category."
+msgstr "不明なシリーズカテゴリ。"
+
+#: includes-core/Mcp/Content.php:413
+msgid ""
+"Multiple membership requires the active Pro Multiple Series feature; "
+"duplicate Series IDs are invalid."
+msgstr "複数のメンバーシップには、アクティブなPro Multiple Series機能が必要です; 重複したシリーズIDは無効です。"
+
+#: includes-core/Mcp/Content.php:417
+#: includes-core/Mcp/Content.php:666
+msgid "Supply one token per Series."
+msgstr "シリーズごとに1つのトークンを提供してください。"
+
+#: includes-core/Mcp/Content.php:422
+#: includes-core/Mcp/Content.php:794
+msgid "Unknown Series."
+msgstr "不明なシリーズ。"
+
+#: includes-core/Mcp/Content.php:497
+msgid "A target Series no longer exists."
+msgstr "ターゲットシリーズはもはや存在しません。"
+
+#: includes-core/Mcp/Content.php:513
+msgid "Each bulk post target must appear only once."
+msgstr "各バルク投稿ターゲットは1回のみ表示される必要があります。"
+
+#: includes-core/Mcp/Content.php:539
+msgid "The batch changed. Read every affected object before retrying."
+msgstr "バッチが変更されました。再試行する前にすべての影響を受けたオブジェクトを読み取ってください。"
+
+#: includes-core/Mcp/Content.php:551
+msgid ""
+"A native bulk update could not be fully confirmed. Read affected objects "
+"before retrying."
+msgstr "ネイティブバルク更新が完全に確認できませんでした。再試行する前に影響を受けたオブジェクトを読み取ってください。"
+
+#: includes-core/Mcp/Content.php:555
+msgid ""
+"Post content changed during the native batch. Read affected posts before "
+"retrying."
+msgstr "ネイティブバッチ中に投稿内容が変更されました。再試行する前に影響を受けた投稿を読み取ってください。"
+
+#: includes-core/Mcp/Content.php:581
+msgid "Every target must belong to this Series."
+msgstr "すべてのターゲットはこのシリーズに属する必要があります。"
+
+#: includes-core/Mcp/Content.php:588
+msgid "This operation applies to the Series; omit post_ids."
+msgstr "この操作はシリーズに適用されます; post_idsを省略してください。"
+
+#: includes-core/Mcp/Content.php:591
+msgid "Publication dates apply only to publish operations."
+msgstr "公開日付は公開操作にのみ適用されます。"
+
+#: includes-core/Mcp/Content.php:594
+msgid "Supply explicit post_ids for this operation."
+msgstr "この操作のために明示的なpost_idsを提供してください。"
+
+#: includes-core/Mcp/Content.php:600
+msgid "Native menu-order targets could not be read."
+msgstr "ネイティブメニュー順序ターゲットを読み取ることができませんでした。"
+
+#: includes-core/Mcp/Content.php:607
+msgid "Menu-order sync accepts only native published, numbered posts."
+msgstr "メニュー順序の同期は、ネイティブ公開番号付き投稿のみを受け入れます。"
+
+#: includes-core/Mcp/Content.php:614
+msgid "Supply the complete native ordered post set; no hidden targets are changed."
+msgstr "完全なネイティブ順序付けされた投稿セットを提供してください; 隠されたターゲットは変更されません。"
+
+#: includes-core/Mcp/Content.php:676
+msgid "Use a valid site-local publication date."
+msgstr "有効なサイトローカルの公開日を使用してください。"
+
+#: includes-core/Mcp/Content.php:811
+msgid "Read the current Series block path before editing."
+msgstr "編集する前に現在のシリーズブロックパスを読み取ってください。"
+
+#: includes-core/Mcp/Layouts.php:79
+msgid "Read Series layout fields and settings"
+msgstr "シリーズレイアウトフィールドと設定を読み取る"
+
+#: includes-core/Mcp/Layouts.php:79
+msgid ""
+"Inspect a Post List Box, Post Details or Post Navigation layout. Omit id to "
+"discover native fields/defaults for a new layout. Includes exact JSON "
+"schema, native labels and edition locks. Use list-layouts to find IDs."
+msgstr ""
+"投稿リストボックス、投稿詳細、または投稿ナビゲーションレイアウトを検査します。新しいレイアウトのためにネイティブフィールド/"
+"デフォルトを発見するにはidを省略してください。正確なJSONスキーマ、ネイティブラベル、およびエディションロックを含みます。IDを見つけるにはlist"
+"-layoutsを使用してください。"
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "Find Series layouts"
+msgstr "シリーズレイアウトを見つける"
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "List readable native Series layouts, including trash when requested."
+msgstr "要求された場合、ゴミ箱を含む読み取り可能なネイティブシリーズレイアウトのリスト。"
+
+#: includes-core/Mcp/Layouts.php:88
+msgid "Create or update a Series layout"
+msgstr "シリーズレイアウトを作成または更新する"
+
+#: includes-core/Mcp/Layouts.php:88
+msgid ""
+"Create a published layout or patch one by id and expected_hash. Use "
+"get-layout for exact per-module field types and locks. JSON booleans for "
+"checkboxes, integers for sizes and image IDs, strings for select choices. "
+"Omitted fields and unrelated metadata remain unchanged. dry_run previews."
+msgstr ""
+"公開されたレイアウトを作成するか、idとexpected_"
+"hashによってパッチを当てます。正確なモジュールごとのフィールドタイプとロックについてはget-"
+"layoutを使用してください。チェックボックスにはJSONブール値、サイズと画像IDには整数、選択肢には文字列を使用します。省略されたフィールドと無関"
+"係なメタデータは変更されません。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Layouts.php:89
+msgid "Trash, restore or delete a Series layout"
+msgstr "シリーズレイアウトをゴミ箱に入れる、復元する、または削除する"
+
+#: includes-core/Mcp/Layouts.php:89
+msgid ""
+"Native layout lifecycle. Read id and expected_hash first. Permanent "
+"deletion requires prior trash and native delete permission. dry_run "
+"previews."
+msgstr ""
+"ネイティブレイアウトライフサイクル。最初にidとexpected_"
+"hashを読み取ります。永久削除には事前のゴミ箱とネイティブ削除権限が必要です。dry_runはプレビューします。"
+
+#: includes-core/Mcp/Layouts.php:124
+msgid "Use native administration for more than 1,000 layouts."
+msgstr "1,000以上のレイアウトにはネイティブ管理を使用してください。"
+
+#: includes-core/Mcp/Layouts.php:148
+msgid "Supply a title for the new layout."
+msgstr "新しいレイアウトのタイトルを入力してください。"
+
+#: includes-core/Mcp/Layouts.php:154
+msgid "Restore the layout before editing."
+msgstr "編集する前にレイアウトを復元します。"
+
+#: includes-core/Mcp/Layouts.php:167
+msgid "This layout field requires an active Pro feature."
+msgstr "このレイアウトフィールドにはアクティブなPro機能が必要です。"
+
+#: includes-core/Mcp/Layouts.php:205
+msgid ""
+"The layout exists but its settings were not fully confirmed. Read before "
+"retrying."
+msgstr "レイアウトは存在しますが、その設定は完全には確認されていません。再試行前にお読みください。"
+
+#: includes-core/Mcp/Layouts.php:223
+msgid "This lifecycle operation does not match the current layout state."
+msgstr "このライフサイクル操作は現在のレイアウト状態と一致しません。"
+
+#: includes-core/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr "ディスカバリーによって返された正確なフィールド、タイプ、および選択肢を使用してください。"
+
+#: includes-core/Mcp/Registry.php:52
+msgid "You do not have permission to use this Series operation."
+msgstr "このシリーズ操作を使用する権限がありません。"
+
+#: includes-core/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "無効なJSONタイプ %s。"
+
+#: includes-core/Mcp/Registry.php:168
+msgid ""
+"Series could not complete this operation. Inspect the current state before "
+"retrying; some changes may have been saved."
+msgstr "シリーズはこの操作を完了できませんでした。再試行前に現在の状態を確認してください; 一部の変更が保存されている可能性があります。"
+
+#: includes-core/Mcp/Registry.php:200
+msgid "This object changed. Read it again before saving."
+msgstr "このオブジェクトが変更されました。保存する前に再度お読みください。"
+
+#: includes-core/Mcp/Registry.php:205
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr "操作は完全には確認されませんでした。再試行前にオブジェクトをお読みください; 一部の変更が保存されている可能性があります。"
+
+#: includes-core/Mcp/Settings.php:79
+msgid "Read Series settings and choices"
+msgstr "シリーズの設定と選択肢を読む"
+
+#: includes-core/Mcp/Settings.php:79
+msgid ""
+"Discover native Series Settings: automatic displays, layouts, legacy "
+"templates, category archives, metabox, sorting, uninstall policy and active "
+"Pro features. Booleans use JSON true/false; layout IDs are integers. No "
+"license or account credentials are returned."
+msgstr ""
+"ネイティブシリーズ設定を発見します: "
+"自動表示、レイアウト、レガシーテンプレート、カテゴリアーカイブ、メタボックス、ソート、アンインストールポリシー、およびアクティブなPro機能。ブーリアン"
+"はJSONのtrue/falseを使用; レイアウトIDは整数です。ライセンスやアカウント資格情報は返されません。"
+
+#: includes-core/Mcp/Settings.php:80
+msgid "Update Series settings"
+msgstr "シリーズ設定を更新"
+
+#: includes-core/Mcp/Settings.php:80
+msgid ""
+"Patch the exact keys discovered by get-plugin-settings. Preserve omitted "
+"settings. Read expected_hash first. dry_run previews without saving. Pro "
+"addon and post-type changes take effect on the next request. Taxonomy "
+"identity migrations remain in native administration."
+msgstr ""
+"get-plugin-settingsによって発見された正確なキーをパッチします。省略された設定を保持します。expected_"
+"hashを最初にお読みください。dry_"
+"runは保存せずにプレビューします。Proアドオンおよび投稿タイプの変更は次のリクエストで有効になります。タクソノミーIDの移行はネイティブ管理に残りま"
+"す。"
+
+#: includes-core/Mcp/Settings.php:89
+msgid "Display Series Post List Boxes?"
+msgstr "シリーズ投稿リストボックスを表示しますか？"
+
+#: includes-core/Mcp/Settings.php:154
+msgid "This text requires unfiltered_html. Use safe post HTML."
+msgstr "このテキストにはunfiltered_htmlが必要です。安全な投稿HTMLを使用してください。"
 
 #: includes-core/PPSeriesCoreAdmin.php:18
 #. translators: 1: Opening link tag, 2: Closing link tag.
@@ -3199,10 +3780,6 @@ msgstr "PublishPress Seriesのサポートが必要ですか？"
 msgid "If you need help or have a new feature request, let us know."
 msgstr "ヘルプが必要な場合や新機能のリクエストがある場合は、お知らせください。"
 
-#: includes-core/PPSeriesCoreAdmin.php:77
-msgid "Request PublishPress Series support"
-msgstr "PublishPressシリーズのサポートをリクエスト"
-
 #: includes-core/PPSeriesCoreAdmin.php:78
 msgid "Request Support"
 msgstr "サポートをリクエスト"
@@ -3210,10 +3787,6 @@ msgstr "サポートをリクエスト"
 #: includes-core/PPSeriesCoreAdmin.php:87
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "詳細なドキュメントはプラグインのウェブサイトでも利用できます。"
-
-#: includes-core/PPSeriesCoreAdmin.php:88
-msgid "View PublishPress Series knowledge base"
-msgstr "PublishPressシリーズのナレッジベースを見る"
 
 #: includes-core/PPSeriesCoreAdmin.php:89
 msgid "View Knowledge Base"
@@ -3229,138 +3802,179 @@ msgstr "エラーが発生しました"
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s シリーズが新しい分類法に移行されました"
 
-#: orgSeries-admin.php:134
+#: orgSeries-admin.php:103
+msgid "No series found."
+msgstr "シリーズは見つかりませんでした。"
+
+#: orgSeries-admin.php:104
+msgid "1 series found."
+msgstr "1つのシリーズが見つかりました。"
+
+#: orgSeries-admin.php:106
+#. translators: %d: number of series matching the search
+#, php-format
+msgid "%d series found."
+msgstr "%dシリーズが見つかりました。"
+
+#: orgSeries-admin.php:107
+msgid "Enter a name for the new series."
+msgstr "新しいシリーズの名前を入力してください。"
+
+#: orgSeries-admin.php:143
 msgid "Custom Template"
 msgstr "カスタムテンプレート"
 
-#: orgSeries-admin.php:152
-msgid "Leave a five-star review for PublishPress Series"
-msgstr "PublishPressシリーズに5つ星レビューを残す"
+#: orgSeries-admin.php:144
+msgid "Layout options loaded."
+msgstr "レイアウトオプションが読み込まれました。"
 
-#: orgSeries-admin.php:157
+#: orgSeries-admin.php:145
+msgid "Layout options could not be loaded. Reload the page to try again."
+msgstr "レイアウトオプションを読み込めませんでした。再試行するためにページを再読み込みしてください。"
+
+#: orgSeries-admin.php:168
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
 msgstr "%1$sが気に入ったら、%2$s評価を残してください。ありがとうございます！"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:170
+msgid "five-star"
+msgstr "五つ星"
+
+#: orgSeries-admin.php:180
 msgid "About PublishPress Series"
 msgstr "PublishPressシリーズについて"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:180
 msgid "About"
 msgstr "について"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "PublishPress Series Documentation"
 msgstr "PublishPressシリーズのドキュメント"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact the PublishPress team"
 msgstr "PublishPressチームに連絡する"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact"
 msgstr "連絡先"
 
-#: orgSeries-admin.php:171
+#: orgSeries-admin.php:183
 msgid "Follow PublishPress on Twitter"
 msgstr "TwitterでPublishPressをフォロー"
 
-#: orgSeries-admin.php:172
+#: orgSeries-admin.php:184
 msgid "Follow PublishPress on Facebook"
 msgstr "FacebookでPublishPressをフォロー"
 
-#: orgSeries-admin.php:177
-msgid "Visit PublishPress"
-msgstr "PublishPressを訪れる"
+#: orgSeries-admin.php:206
+msgid "Select Media"
+msgstr "メディアを選択"
 
-#: orgSeries-admin.php:201
+#: orgSeries-admin.php:207
+msgid "Selected Image:"
+msgstr "選択した画像:"
+
+#: orgSeries-admin.php:217
 msgid "Sorry but you don't have permission to add series"
 msgstr "申し訳ありませんが、シリーズを追加する権限がありません。"
 
-#: orgSeries-admin.php:213
+#: orgSeries-admin.php:221
+msgid "Sorry but security check failed"
+msgstr "申し訳ありませんが、セキュリティチェックに失敗しました"
+
+#: orgSeries-admin.php:229
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "選択した名前は正しくサニタイズされていません。他の名前を試してください。"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "うーん... その名前のシリーズはすでに存在するようです。他の名前を試してください。"
 
-#: orgSeries-admin.php:231
-#: orgSeries-manage.php:161
+#: orgSeries-admin.php:247
+#: orgSeries-manage.php:257
 msgid "Series added."
 msgstr "シリーズが追加されました。"
 
-#: orgSeries-admin.php:345
+#: orgSeries-admin.php:361
+#: orgSeries-taxonomy.php:1053
 msgid "Not part of a series"
 msgstr "シリーズの一部ではありません"
 
-#: orgSeries-admin.php:398
+#: orgSeries-admin.php:417
 msgid "New series name"
 msgstr "新しいシリーズ名"
 
-#: orgSeries-admin.php:405
+#: orgSeries-admin.php:425
 msgid "Search series"
 msgstr "シリーズを検索"
 
-#: orgSeries-admin.php:420
+#: orgSeries-admin.php:443
 msgid "Series Part:"
 msgstr "シリーズの部分："
 
-#: orgSeries-admin.php:421
-#: orgSeries-taxonomy.php:1094
+#: orgSeries-admin.php:444
+#: orgSeries-taxonomy.php:1018
 msgid "Series Part"
 msgstr "シリーズパート"
 
-#: orgSeries-admin.php:427
+#: orgSeries-admin.php:450
 msgid "Post title in widget:"
 msgstr "ウィジェット内の投稿タイトル："
 
-#: orgSeries-admin.php:429
+#: orgSeries-admin.php:452
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
 msgstr "この投稿の短いタイトルで、シリーズウィジェットで使用されます。完全なタイトルを使用するには空白のままにしてください。"
 
-#: orgSeries-admin.php:431
+#: orgSeries-admin.php:454
 msgid "Post title in widget"
 msgstr "ウィジェットの投稿タイトル"
 
-#: orgSeries-admin.php:518
+#: orgSeries-admin.php:541
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> （部品番号なし）"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:544
 #. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> （%2$sの部品%1$s）"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:549
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  （部品番号なし）"
 
-#: orgSeries-admin.php:532
-#: orgSeries-setup.php:289
+#: orgSeries-admin.php:555
+#: orgSeries-setup.php:297
+#: orgSeries-taxonomy.php:1012
+#: orgSeries-taxonomy.php:1075
 msgid "No Series"
 msgstr "シリーズなし"
 
-#: orgSeries-admin.php:556
+#: orgSeries-admin.php:580
 msgid "View all series"
 msgstr "すべてのシリーズを表示"
 
-#: orgSeries-admin.php:565
+#: orgSeries-admin.php:584
+msgid "Filter by series"
+msgstr "シリーズでフィルタリング"
+
+#: orgSeries-admin.php:594
 msgid "Manage All Series"
 msgstr "すべてのシリーズを管理"
 
@@ -3376,93 +3990,111 @@ msgstr "PublishPressシリーズはシリーズの特徴的な画像を保存で
 msgid "Database error: %s"
 msgstr "データベースエラー: %s"
 
-#: orgSeries-manage.php:74
+#: orgSeries-manage.php:125
+msgid "Order saved."
+msgstr "順序が保存されました。"
+
+#: orgSeries-manage.php:126
+msgid "The new order could not be saved. Reload the page and try again."
+msgstr "新しい順序を保存できませんでした。ページを再読み込みして再試行してください。"
+
+#: orgSeries-manage.php:158
 msgid "Term Order"
 msgstr "用語順序"
 
-#: orgSeries-manage.php:75
+#: orgSeries-manage.php:159
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
 msgstr "アイテムの位置を変更するには、行を「クリックして保持」しながら新しい位置にドラッグ＆ドロップします。"
 
-#: orgSeries-manage.php:162
-#: orgSeries-manage.php:166
+#: orgSeries-manage.php:160
+msgid ""
+"You can also use the \"Move up\" and \"Move down\" buttons in each row. "
+"They work with the keyboard and save the new order straight away."
+msgstr "各行の「上に移動」と「下に移動」ボタンも使用できます。キーボードで動作し、新しい順序をすぐに保存します。"
+
+#: orgSeries-manage.php:258
+#: orgSeries-manage.php:262
 msgid "Series deleted."
 msgstr "シリーズが削除されました。"
 
-#: orgSeries-manage.php:163
+#: orgSeries-manage.php:259
 msgid "Series updated."
 msgstr "シリーズが更新されました。"
 
-#: orgSeries-manage.php:164
+#: orgSeries-manage.php:260
 msgid "Series not added."
 msgstr "シリーズは追加されませんでした。"
 
-#: orgSeries-manage.php:165
+#: orgSeries-manage.php:261
 msgid "Series not updated."
 msgstr "シリーズは更新されませんでした。"
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:336
 msgid "Posts"
 msgstr "投稿"
 
-#: orgSeries-manage.php:240, fuzzy
+#: orgSeries-manage.php:338, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:377
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
 msgstr "用語は通常アルファベット順に並べられますが、このフィールドに番号（1が最初など）を入力することで自分の順序を選択できます。"
 
-#: orgSeries-manage.php:286
+#: orgSeries-manage.php:384
 msgid "Current series featured image:"
 msgstr "現在のシリーズの特徴的な画像："
 
-#: orgSeries-manage.php:293
+#: orgSeries-manage.php:391
 msgid "No featured image currently"
 msgstr "現在特徴的な画像はありません"
 
-#: orgSeries-manage.php:303
+#: orgSeries-manage.php:401
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "画像を削除しますか？（注意：これを選択すると、このシリーズに関連する画像はありません）"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:406
 msgid "Series featured image upload:"
 msgstr "シリーズの特徴的な画像のアップロード："
 
-#: orgSeries-manage.php:312
+#: orgSeries-manage.php:410
 msgid "Upload a featured image for the series."
 msgstr "シリーズのための特集画像をアップロードしてください。"
 
-#: orgSeries-manage.php:327
+#: orgSeries-manage.php:425
 msgid "Invalid form data"
 msgstr "無効なフォームデータ"
 
-#: orgSeries-manage.php:337
+#: orgSeries-manage.php:435
 msgid "Invalid nonce, reload and try again"
 msgstr "無効なノンス、再読み込みして再試行してください"
 
-#: orgSeries-manage.php:346
+#: orgSeries-manage.php:444
 msgid "Invalid taxonomy"
 msgstr "無効なタクソノミー"
 
-#: orgSeries-manage.php:352
+#: orgSeries-manage.php:450
 msgid "Not enough permission"
 msgstr "権限が不足しています"
 
-#: orgSeries-manage.php:356
+#: orgSeries-manage.php:455
 msgid "Updated successfully"
 msgstr "正常に更新されました"
+
+#: orgSeries-manage.php:546
+msgid "Series order metadata could not be read. No cleanup was authorized."
+msgstr "シリーズの順序メタデータを読み取れませんでした。クリーンアップは許可されていません。"
 
 #: orgSeries-options.php:48
 #: orgSeries-options.php:70
 #: orgSeries-options.php:71
-#: orgSeries-setup.php:1009
+#: orgSeries-setup.php:1087
 msgid "Settings"
 msgstr "設定"
 
@@ -3470,80 +4102,96 @@ msgstr "設定"
 msgid "PublishPress Series Options"
 msgstr "PublishPressシリーズオプション"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:112
+msgid "Are you sure you want to Reset?"
+msgstr "リセットしてもよろしいですか？"
+
+#: orgSeries-options.php:165
 msgid "Taxonomy"
 msgstr "分類"
 
-#: orgSeries-options.php:164
+#: orgSeries-options.php:167
 msgid "Metabox"
 msgstr "メタボックス"
 
-#: orgSeries-options.php:171
+#: orgSeries-options.php:174
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: orgSeries-setup.php:226
+#: orgSeries-setup.php:234
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "「シリーズの一部ではない」を選択して投稿からシリーズデータを削除します"
 
-#: orgSeries-setup.php:287
+#: orgSeries-setup.php:295
 msgid "&larr; Go to Series"
 msgstr "&larr; シリーズに移動"
 
-#: orgSeries-setup.php:288
+#: orgSeries-setup.php:296
 msgid "View Series"
 msgstr "シリーズを見る"
 
-#: orgSeries-setup.php:291
+#: orgSeries-setup.php:299
 msgid "Series Link"
 msgstr "シリーズリンク"
 
-#: orgSeries-setup.php:292
+#: orgSeries-setup.php:300
 msgid "A link to a Series"
 msgstr "シリーズへのリンク"
 
-#: orgSeries-setup.php:387
+#: orgSeries-setup.php:394
 msgid "Series Navigation"
 msgstr "シリーズナビゲーション"
 
-#: orgSeries-setup.php:991
+#: orgSeries-setup.php:1069
 msgid "Series: "
 msgstr "シリーズ： "
 
-#: orgSeries-setup.php:993
+#: orgSeries-setup.php:1071
 msgid "Posts from the series: "
 msgstr "シリーズからの投稿： "
 
-#: orgSeries-taxonomy.php:1091
-#: orgSeries-taxonomy.php:1120
+#: orgSeries-taxonomy.php:1005
+#: orgSeries-taxonomy.php:1045
 msgid "Series:"
 msgstr "シリーズ："
 
-#: orgSeries-taxonomy.php:1093
+#: orgSeries-taxonomy.php:1017
 msgid "Part:"
 msgstr "パート："
 
-#: orgSeries-template-tags.php:270
+#: orgSeries-taxonomy.php:1052
+msgid "&mdash; No Change &mdash;"
+msgstr "&mdash; 変更なし &mdash;"
+
+#: orgSeries-template-tags.php:273
 msgid "All the Series I've Written"
 msgstr "私が書いたすべてのシリーズ"
 
-#: orgSeries-template-tags.php:274
-#: orgSeries-template-tags.php:283
+#: orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:286
 #. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">シリーズ</a>"
 
-#: orgSeries-template-tags.php:1290
+#: orgSeries-template-tags.php:1319
 msgid "Series featured image"
 msgstr "シリーズフィーチャー画像"
 
-#: orgSeries-template-tags.php:1296
+#: orgSeries-template-tags.php:1325
 #, php-format
 msgid "View series: %s"
 msgstr "シリーズを見る: %s"
 
-#: orgSeries-utility.php:462
+#: orgSeries-utility.php:22
+msgid "(opens in a new tab)"
+msgstr "(新しいタブで開く)"
+
+#: orgSeries-utility.php:52
+msgid "Available in PublishPress Series Pro"
+msgstr "PublishPress Series Proで利用可能"
+
+#: orgSeries-utility.php:508
 msgid "Auto/None"
 msgstr "自動/なし"
 
@@ -3555,12 +4203,12 @@ msgstr "これを使用して最新のシリーズウィジェットの出力を
 msgid "Most Recent Series"
 msgstr "最新のシリーズ"
 
-#: orgSeries-widgets.php:82
-#: orgSeries-widgets.php:292
+#: orgSeries-widgets.php:81
+#: orgSeries-widgets.php:299
 msgid "Title:"
 msgstr "タイトル:"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:87
 #. translators: %s: URL to the Latest Series settings.
 #, php-format
 msgid ""
@@ -3568,149 +4216,150 @@ msgid ""
 "href=\"%s\">Latest Series</a> area."
 msgstr "このウィジェットのレイアウトと内容は、<a href=\"%s\">最新のシリーズ</a>エリアを介して調整できます。"
 
+#: orgSeries-widgets.php:91
 #: orgSeries-widgets.php:92
-#: orgSeries-widgets.php:93
 msgid "Hide series with no posts?"
 msgstr "投稿がないシリーズを非表示にしますか？"
 
-#: orgSeries-widgets.php:95
-#: orgSeries-widgets.php:318
+#: orgSeries-widgets.php:94
+#: orgSeries-widgets.php:325
 msgid "Order by:"
 msgstr "並べ替え:"
 
-#: orgSeries-widgets.php:97
+#: orgSeries-widgets.php:96
 msgid "Number of posts in Series"
 msgstr "シリーズ内の投稿数"
 
-#: orgSeries-widgets.php:98
+#: orgSeries-widgets.php:97
 msgid "Name of Series"
 msgstr "シリーズ名"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:98
 msgid "Series Slug"
 msgstr "シリーズスラッグ"
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:99
 msgid "When Series was Created"
 msgstr "シリーズが作成された日時"
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:100
 msgid "Random"
 msgstr "ランダム"
 
-#: orgSeries-widgets.php:105
+#: orgSeries-widgets.php:104
 msgid "Number of series to display:"
 msgstr "表示するシリーズの数:"
 
-#: orgSeries-widgets.php:109
+#: orgSeries-widgets.php:108
 msgid "Display Order: "
 msgstr "表示順: "
 
-#: orgSeries-widgets.php:110
+#: orgSeries-widgets.php:109
 msgid "ASC: "
 msgstr "昇順: "
 
-#: orgSeries-widgets.php:111
+#: orgSeries-widgets.php:110
 msgid "DESC: "
 msgstr "降順: "
 
-#: orgSeries-widgets.php:122
+#: orgSeries-widgets.php:121
 msgid "Use this to display the Series Table of contents"
 msgstr "これを使用してシリーズの目次を表示します"
 
-#: orgSeries-widgets.php:194
+#: orgSeries-widgets.php:193
+#: orgSeries-widgets.php:200
 msgid "Select Series"
 msgstr "シリーズを選択"
 
-#: orgSeries-widgets.php:257
+#: orgSeries-widgets.php:264
 msgid "Other posts in series:"
 msgstr "シリーズ内の他の投稿:"
 
-#: orgSeries-widgets.php:297
+#: orgSeries-widgets.php:304
 msgid "Show Series Table Of Content"
 msgstr "シリーズ目次を表示"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:309
 msgid "Show Series Table Of Content as:"
 msgstr "シリーズ目次を表示："
 
-#: orgSeries-widgets.php:303
+#: orgSeries-widgets.php:310
 msgid "Dropdown:"
 msgstr "ドロップダウン："
 
-#: orgSeries-widgets.php:304
+#: orgSeries-widgets.php:311
 msgid "List:"
 msgstr "リスト："
 
-#: orgSeries-widgets.php:308
+#: orgSeries-widgets.php:315
 msgid "Show post count:"
 msgstr "投稿数を表示："
 
-#: orgSeries-widgets.php:313
+#: orgSeries-widgets.php:320
 msgid "Hide empty series:"
 msgstr "空のシリーズを非表示："
 
-#: orgSeries-widgets.php:322
+#: orgSeries-widgets.php:329
 msgid "name"
 msgstr "名前"
 
-#: orgSeries-widgets.php:323
+#: orgSeries-widgets.php:330
 msgid "count"
 msgstr "カウント"
 
-#: orgSeries-widgets.php:324
+#: orgSeries-widgets.php:331
 msgid "slug"
 msgstr "スラッグ"
 
-#: orgSeries-widgets.php:325
+#: orgSeries-widgets.php:332
 msgid "series id"
 msgstr "シリーズID"
 
-#: orgSeries-widgets.php:338
+#: orgSeries-widgets.php:345
 msgid "Order:"
 msgstr "順序："
 
-#: orgSeries-widgets.php:356
+#: orgSeries-widgets.php:363
 msgid "Exclude series:"
 msgstr "シリーズを除外："
 
-#: orgSeries-widgets.php:371
+#: orgSeries-widgets.php:378
 msgid "Include series:"
 msgstr "シリーズを含める："
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:393
 msgid "Number of Series:"
 msgstr "シリーズの数："
 
-#: orgSeries-widgets.php:391
+#: orgSeries-widgets.php:398
 msgid "Offset:"
 msgstr "オフセット："
 
-#: orgSeries-widgets.php:393
+#: orgSeries-widgets.php:400
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
 msgstr "シリーズの数のオフセットを選択できます（ページングに便利）。空白の場合はオフセットなし"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:404
 msgid "Search:"
 msgstr "検索："
 
-#: orgSeries-widgets.php:399
+#: orgSeries-widgets.php:406
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr "この検索文字列に一致するシリーズを返すことができます（シリーズ名に対して一致）"
 
-#: orgSeries-widgets.php:403
+#: orgSeries-widgets.php:410
 msgid "Show other posts in the current series:"
 msgstr "現在のシリーズ内の他の投稿を表示："
 
-#: orgSeries-widgets.php:438
+#: orgSeries-widgets.php:445
 msgid "Series widget title:"
 msgstr "シリーズウィジェットのタイトル："
 
-#: orgSeries-widgets.php:440
+#: orgSeries-widgets.php:447
 msgid "This text will display above other posts in this series."
 msgstr "このテキストは、このシリーズの他の投稿の上に表示されます。"
 
@@ -3859,9 +4508,9 @@ msgstr "%1$sのライセンスキー"
 msgid "Enter your license key: "
 msgstr "ライセンスキーを入力してください： "
 
-#: src/views/admin/templates/license_key_form.template.php:24
-msgid "License key"
-msgstr "ライセンスキー"
+#: src/views/admin/templates/license_key_form.template.php:28
+msgid "Expires:"
+msgstr "有効期限:"
 
 #: assets/js/publishpress-series-blocks.js:126
 msgid "Block settings"
@@ -3951,44 +4600,44 @@ msgstr "シリーズ数を表示"
 msgid "Show post count"
 msgstr "投稿数を表示"
 
-#: addons/grouping/legacy-includes.php:301
+#: addons/grouping/legacy-includes.php:304
 msgctxt "taxonomy general name"
 msgid "Series Categories"
 msgstr "シリーズカテゴリ"
 
 #: inc/settings/settings-validation.php:87
-#: orgSeries-setup.php:276
+#: orgSeries-setup.php:284
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "シリーズ"
 
-#: addons/grouping/legacy-includes.php:302
+#: addons/grouping/legacy-includes.php:305
 msgctxt "taxonomy singular name"
 msgid "Series Category"
 msgstr "シリーズカテゴリ"
 
 #: inc/settings/settings-validation.php:88
-#: orgSeries-setup.php:277
+#: orgSeries-setup.php:285
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "シリーズ"
 
-#: addons/grouping/legacy-includes.php:725
+#: addons/grouping/legacy-includes.php:730
 msgctxt "series grouping column header"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-admin.php:464
+#: orgSeries-admin.php:487
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-admin.php:489
+#: orgSeries-admin.php:512
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-admin.php:575
+#: orgSeries-admin.php:604
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -3999,30 +4648,30 @@ msgctxt "top-level admin menu label"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-setup.php:285
+#: orgSeries-setup.php:293
 msgctxt "taxonomy menu name"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-setup.php:380
-#: orgSeries-setup.php:382
+#: orgSeries-setup.php:387
+#: orgSeries-setup.php:389
 #. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "このエントリはシリーズの%series_part%の一部で、合計%total_posts_in_series%投稿があります "
 
-#: orgSeries-taxonomy.php:750
+#: orgSeries-taxonomy.php:768
 msgctxt "series list title"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-widgets.php:256
+#: orgSeries-widgets.php:263
 msgctxt "widget title default"
 msgid "Series"
 msgstr "シリーズ"
 
-#: orgSeries-widgets.php:409
+#: orgSeries-widgets.php:416
 msgctxt "widget section label"
 msgid "Series"
 msgstr "シリーズ"

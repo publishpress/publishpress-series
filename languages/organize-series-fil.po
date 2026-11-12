@@ -12,15 +12,15 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-10-26 18:27+0000\n"
+"PO-Revision-Date: 2026-11-12 15:31+0000\n"
 "X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
 "|| n % 10 == 6 || n % 10 == 9);: \n"
 "Language: fil\n"
-"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
 
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -43,7 +43,8 @@ msgstr ""
 "sinumang sumusulat ng maraming post sa parehong paksa."
 
 #: orgSeries.php:7
-#: orgSeries-admin.php:178
+#: includes-core/Mcp/bootstrap.php:15
+#: orgSeries-admin.php:190
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -53,49 +54,50 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:303
-#: addons/grouping/legacy-includes.php:862
-#: addons/grouping/legacy-includes.php:863
+#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:868
+#: addons/grouping/legacy-includes.php:869
 msgid "Search Series Categories"
 msgstr "Maghanap ng mga Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:304
+#: addons/grouping/legacy-includes.php:307
 msgid "Popular Series Categories"
 msgstr "Mga Sikat na Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:305
-#: addons/grouping/legacy-includes.php:859
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:865
 msgid "All Series Categories"
 msgstr "Lahat ng Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:309
 msgid "Edit Series Category"
 msgstr "I-edit ang Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:307
+#: addons/grouping/legacy-includes.php:310
 msgid "Update Series Category"
 msgstr "I-update ang Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:311
 msgid "Add New Series Category"
 msgstr "Magdagdag ng Bagong Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:309
+#: addons/grouping/legacy-includes.php:312
 msgid "New Series Category"
 msgstr "Bagong Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:310
-#: addons/grouping/legacy-includes.php:584
-#: addons/grouping/legacy-includes.php:670
-#: addons/grouping/legacy-includes.php:785
-#: addons/grouping/legacy-includes.php:828
-#: addons/grouping/legacy-includes.php:850
-#: addons/grouping/legacy-includes.php:910
+#: addons/grouping/legacy-includes.php:313
+#: addons/grouping/legacy-includes.php:589
+#: addons/grouping/legacy-includes.php:675
+#: addons/grouping/legacy-includes.php:791
+#: addons/grouping/legacy-includes.php:834
+#: addons/grouping/legacy-includes.php:856
+#: addons/grouping/legacy-includes.php:873
+#: addons/grouping/legacy-includes.php:919
 #: assets/js/publishpress-series-blocks.js:183
 msgid "Series Categories"
 msgstr "Mga Kategorya ng Serye"
 
-#: addons/grouping/legacy-includes.php:676
+#: addons/grouping/legacy-includes.php:681
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
@@ -103,15 +105,29 @@ msgstr ""
 "Burahin ang lahat ng data ng \"Mga Kategorya ng Serye\" mula sa database "
 "kapag binura ang plugin."
 
-#: addons/grouping/legacy-includes.php:828
+#: addons/grouping/legacy-includes.php:746
+msgid "View all Series Categories"
+msgstr "Tingnan ang lahat ng Kategorya ng Series"
+
+#: addons/grouping/legacy-includes.php:764
+msgid "Filter by Series Category"
+msgstr "Salain ayon sa Kategorya ng Series"
+
+#: addons/grouping/legacy-includes.php:766
+#: addons/publisher/series-part-post-table.php:396
+#: addons/publisher/series-publish-post-table.php:196
+msgid "Filter"
+msgstr "Salain"
+
+#: addons/grouping/legacy-includes.php:834
 msgid "Click to toggle"
 msgstr "I-click upang i-toggle"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:39
+#: addons/grouping/theme/primary/taxonomy-series_group.php:44
 msgid "Series in this category"
 msgstr "Mga serye sa kategoryang ito"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:119
+#: addons/grouping/theme/primary/taxonomy-series_group.php:129
 msgid "Sorry, no series were found in this category."
 msgstr "Paumanhin, walang serye na natagpuan sa kategoryang ito."
 
@@ -138,8 +154,8 @@ msgstr "bahagi %1$s ng %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:505
 #: addons/post-details/includes/class-utilities.php:325
-#: addons/post-navigation/includes/class-utilities.php:185
-#: includes-core/class-blocks.php:827
+#: addons/post-navigation/includes/class-utilities.php:210
+#: includes-core/class-blocks.php:843
 msgid "Sample Series"
 msgstr "Halimbawang Serye"
 
@@ -167,7 +183,7 @@ msgstr "Paglalarawan ng halimbawang serye."
 #: addons/post-details/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-details.php:44
 #: includes-core/class-blocks.php:155
-#: orgSeries-utility.php:358
+#: orgSeries-utility.php:402
 #: assets/js/publishpress-series-blocks.js:37
 msgid "Post Details"
 msgstr "Mga Detalye ng Post"
@@ -219,7 +235,7 @@ msgstr "Post Details shortcode"
 #: addons/post-list-box/includes/class-admin-ui.php:734
 #: addons/post-navigation/includes/class-admin-ui.php:447
 #: inc/settings/tab-post-types.php:63
-#: inc/settings/tab-pro-features.php:56
+#: inc/settings/tab-pro-features.php:51
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "Ang tampok na ito ay available sa PublishPress Series Pro"
 
@@ -331,6 +347,7 @@ msgstr "Pumili kung saan ipapakita ang meta box kaugnay ng nilalaman"
 #: addons/post-details/includes/class-fields.php:132
 #: inc/settings/tab-post-details.php:90
 #: inc/settings/tab-post-details.php:92
+#: includes-core/Mcp/Settings.php:104
 msgid "Hide on archive screens"
 msgstr "Itago sa mga archive na screen"
 
@@ -507,8 +524,8 @@ msgstr "Mga Detalye ng Post ng Series"
 
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:28
-#: orgSeries-admin.php:398
-#: orgSeries-setup.php:225
+#: orgSeries-admin.php:417
+#: orgSeries-setup.php:233
 msgid "Add New"
 msgstr "Magdagdag ng Bago"
 
@@ -549,7 +566,7 @@ msgid "Create a series to preview the post details."
 msgstr "Lumikha ng isang series upang i-preview ang mga detalye ng post."
 
 #: addons/post-details/includes/class-utilities.php:361
-#: includes-core/class-blocks.php:862
+#: includes-core/class-blocks.php:878
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Series Post %d"
@@ -646,7 +663,7 @@ msgid "Custom Box Title Text"
 msgstr "Teksto ng Pasadyang Pamagat ng Kahon"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:137
-#: addons/post-list-box/includes/class-utilities.php:177
+#: addons/post-list-box/includes/class-utilities.php:228
 msgid "Series Posts"
 msgstr "Mga Post ng Serye"
 
@@ -928,7 +945,7 @@ msgid "Choose the layout style for the post list"
 msgstr "Pumili ng estilo ng layout para sa listahan ng post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:539
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:104
 #: assets/js/publishpress-series-blocks.js:262
 msgid "Columns"
 msgstr "Mga Kolum"
@@ -958,6 +975,8 @@ msgid "Order By"
 msgstr "Order By"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:560
+#: addons/publisher/series-part-post-table.php:68
+#: addons/publisher/series-pending-post-table.php:70
 msgid "Date"
 msgstr "Petsa"
 
@@ -970,11 +989,11 @@ msgstr "Pamagat"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:562
 #: addons/publisher/series_im_admin_main.php:10
-#: addons/publisher/series_issue_manager.php:1043
-#: addons/publisher/series_issue_manager.php:1113
-#: orgSeries-admin.php:356
-#: orgSeries-manage.php:239
-#: orgSeries-manage.php:249
+#: addons/publisher/series_issue_manager.php:1120
+#: addons/publisher/series_issue_manager.php:1190
+#: orgSeries-admin.php:372
+#: orgSeries-manage.php:337
+#: orgSeries-manage.php:347
 msgid "Series Order"
 msgstr "Sunod ng Serye"
 
@@ -983,20 +1002,21 @@ msgid "Choose the field used to sort posts"
 msgstr "Pumili ng field na gagamitin upang ayusin ang mga post"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:570
-#: orgSeries-manage.php:58
-#: orgSeries-manage.php:273, fuzzy
+#: orgSeries-manage.php:62
+#: orgSeries-manage.php:141
+#: orgSeries-manage.php:371, fuzzy
 msgid "Order"
 msgstr "Order"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:574
-#: inc/settings/tab-legacy.php:110
-#: orgSeries-widgets.php:343
+#: inc/settings/tab-legacy.php:122
+#: orgSeries-widgets.php:350
 msgid "Ascending"
 msgstr "Tumataas"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:575
-#: inc/settings/tab-legacy.php:111
-#: orgSeries-widgets.php:342
+#: inc/settings/tab-legacy.php:123
+#: orgSeries-widgets.php:349
 msgid "Descending"
 msgstr "Bumababa"
 
@@ -1033,39 +1053,71 @@ msgstr ""
 "Iwanang walang laman para sa walang limit. Ang preview ng admin ay limitado "
 "sa 4 na post."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:628
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Items to show when limited"
+msgstr "Mga item na ipapakita kapag limitado"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:621
+msgid "First posts in the series"
+msgstr "Unang mga post sa series"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:622
+msgid "Posts before and after the current post"
+msgstr "Mga post bago at pagkatapos ng kasalukuyang post"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:626
+msgid ""
+"Only used when \"Maximum number of items\" is set. Choose \"Posts before "
+"and after the current post\" to keep the post being viewed in the list, "
+"with the posts around it. On pages that are not part of the series, the "
+"first posts are shown. The admin preview uses a post from the middle of the "
+"series as the current post."
+msgstr ""
+"Ginagamit lamang kapag nakatakda ang \"Maximum number of items\". Pumili ng "
+"\"Mga post bago at pagkatapos ng kasalukuyang post\" upang panatilihin ang "
+"post na tinitingnan sa listahan, kasama ang mga post sa paligid nito. Sa "
+"mga pahina na hindi bahagi ng series, ang mga unang post ay ipinapakita. "
+"Ang preview ng admin ay gumagamit ng post mula sa gitna ng series bilang "
+"kasalukuyang post."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:641
 msgid "Highlight Current Post"
 msgstr "I-highlight ang Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:633
+#: addons/post-list-box/classes/PostListBoxFields.php:646
 msgid "Highlight the current post when viewing a specific series post"
 msgstr ""
 "I-highlight ang kasalukuyang post kapag tinitingnan ang isang tiyak na post "
 "ng serye"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:636
+#: addons/post-list-box/classes/PostListBoxFields.php:649
 msgid "Current Post Background Color"
 msgstr "Kulay ng Background ng Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:641
+#: addons/post-list-box/classes/PostListBoxFields.php:654
 msgid "Choose the background color for the current post"
 msgstr "Pumili ng kulay ng background para sa kasalukuyang post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:644
+#: addons/post-list-box/classes/PostListBoxFields.php:657
 msgid "Current Post Border Color"
 msgstr "Kulay ng Hangganan ng Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:649
+#: addons/post-list-box/classes/PostListBoxFields.php:662
 msgid "Choose the border color for the current post"
 msgstr "Pumili ng kulay ng hangganan para sa kasalukuyang post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:652
+#: addons/post-list-box/classes/PostListBoxFields.php:665
 msgid "Current Post Text Color"
 msgstr "Kulay ng Teksto ng Kasalukuyang Post"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:657
+#: addons/post-list-box/classes/PostListBoxFields.php:670
 msgid "Choose the text color for the current post"
 msgstr "Pumili ng kulay ng teksto para sa kasalukuyang post"
+
+#: addons/post-list-box/classes/PostListBoxRenderer.php:437
+#: inc/utility-functions.php:783
+msgid "(current post)"
+msgstr "(kasalukuyang post)"
 
 #: addons/post-list-box/includes/class-admin-ui.php:57
 msgid "Default Post List Box"
@@ -1081,7 +1133,7 @@ msgstr "Post List Box shortcode"
 #: addons/post-list-box/includes/class-post-type.php:27
 #: inc/settings/tab-post-list-box.php:44
 #: includes-core/class-blocks.php:148
-#: orgSeries-utility.php:357
+#: orgSeries-utility.php:401
 #: assets/js/publishpress-series-blocks.js:30
 msgid "Post List Boxes"
 msgstr "Mga Listahan ng Post"
@@ -1195,7 +1247,7 @@ msgstr "Mga seksyon ng Listahan ng Post Box"
 
 #: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:419
-#: orgSeries-manage.php:311
+#: orgSeries-manage.php:409
 msgid "Select Image"
 msgstr "Pumili ng Imahe"
 
@@ -1302,13 +1354,13 @@ msgstr "Nabigasyon ng listahan ng %2$s"
 msgid "%2$s list"
 msgstr "Listahan ng %2$s"
 
-#: addons/post-list-box/includes/class-preview.php:131
+#: addons/post-list-box/includes/class-preview.php:167
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Post %d"
 msgstr "Halimbawa ng Post %d"
 
-#: addons/post-list-box/includes/class-preview.php:133
+#: addons/post-list-box/includes/class-preview.php:169
 #. translators: %d: Sample post number.
 #, php-format
 msgid ""
@@ -1320,13 +1372,13 @@ msgstr ""
 "amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut "
 "labore et dolore magna aliqua."
 
-#: addons/post-list-box/includes/class-preview.php:135
+#: addons/post-list-box/includes/class-preview.php:171
 #. translators: %d: Sample post number.
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "Ito ay isang sample na sipi para sa post %d sa serye."
 
-#: addons/post-list-box/includes/class-preview.php:560
+#: addons/post-list-box/includes/class-preview.php:603
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
@@ -1345,41 +1397,62 @@ msgstr "Grid Style Box"
 msgid "Simple List Box"
 msgstr "Simple List Box"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:261
+#: addons/post-navigation/classes/PostNavigationRenderer.php:211
+#. translators: %s: Series name.
+#, php-format
+msgid "Series navigation: %s"
+msgstr "Naviwasyon ng Series: %s"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:273
 msgid "Navigation hidden (series has only one post)"
 msgstr "Nakatagong nabigasyon (isang post lamang ang mayroon ang serye)"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:315
-#: addons/post-navigation/classes/PostNavigationRenderer.php:346
-#: addons/post-navigation/classes/PostNavigationRenderer.php:377
-#: addons/post-navigation/classes/PostNavigationRenderer.php:461
-#: addons/post-navigation/classes/PostNavigationRenderer.php:513
-#: addons/post-navigation/classes/PostNavigationRenderer.php:567
-#: addons/post-navigation/includes/class-utilities.php:60
+#: addons/post-navigation/classes/PostNavigationRenderer.php:328
+#: addons/post-navigation/classes/PostNavigationRenderer.php:359
+#: addons/post-navigation/classes/PostNavigationRenderer.php:390
+#: addons/post-navigation/classes/PostNavigationRenderer.php:475
+#: addons/post-navigation/classes/PostNavigationRenderer.php:527
+#: addons/post-navigation/classes/PostNavigationRenderer.php:581
+#: addons/post-navigation/includes/class-utilities.php:85
 msgid "Series Home"
 msgstr "Tahanan ng Serye"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:331
-#: addons/post-navigation/classes/PostNavigationRenderer.php:487
+#: addons/post-navigation/classes/PostNavigationRenderer.php:344
+#: addons/post-navigation/classes/PostNavigationRenderer.php:501
 #: addons/post-navigation/includes/class-fields.php:145
 #: addons/post-navigation/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-utilities.php:38
+#: addons/post-navigation/includes/class-utilities.php:63
 msgid "Previous"
 msgstr "Nakaraan"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:362
-#: addons/post-navigation/classes/PostNavigationRenderer.php:541
+#: addons/post-navigation/classes/PostNavigationRenderer.php:375
+#: addons/post-navigation/classes/PostNavigationRenderer.php:555
 #: addons/post-navigation/includes/class-fields.php:260
 #: addons/post-navigation/includes/class-fields.php:281
-#: addons/post-navigation/includes/class-utilities.php:49
+#: addons/post-navigation/includes/class-utilities.php:74
 msgid "Next"
 msgstr "Susunod"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:835
+#: orgSeries-template-tags.php:612
+msgid "Previous post in series:"
+msgstr "Nakaraang post sa series:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:836
+#: orgSeries-template-tags.php:614
+msgid "Next post in series:"
+msgstr "Susunod na post sa series:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:837
+#: orgSeries-template-tags.php:616
+msgid "First post in series:"
+msgstr "Unang post sa series:"
 
 #: addons/post-navigation/includes/class-admin-ui.php:29
 #: addons/post-navigation/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-navigation.php:44
 #: includes-core/class-blocks.php:162
-#: orgSeries-utility.php:359
+#: orgSeries-utility.php:403
 #: assets/js/publishpress-series-blocks.js:44
 msgid "Post Navigation"
 msgstr "Nabigasyon ng Post"
@@ -1870,7 +1943,7 @@ msgstr "Lumikha ng serye upang i-preview ang navigasyon."
 msgid "Create posts in a series to preview the navigation."
 msgstr "Lumikha ng mga post sa isang serye upang i-preview ang navigasyon."
 
-#: addons/post-navigation/includes/class-utilities.php:187
+#: addons/post-navigation/includes/class-utilities.php:212
 msgid "Sample series for preview purposes"
 msgstr "Halimbawang serye para sa mga layunin ng preview"
 
@@ -1878,15 +1951,15 @@ msgstr "Halimbawang serye para sa mga layunin ng preview"
 msgid "Error updating preview."
 msgstr "Error sa pag-update ng preview."
 
-#: addons/post-navigation/post-navigation.php:209
+#: addons/post-navigation/post-navigation.php:190
 msgid "Simple Navigation"
 msgstr "Simpleng Navigasyon"
 
-#: addons/post-navigation/post-navigation.php:214
+#: addons/post-navigation/post-navigation.php:195
 msgid "Button Navigation"
 msgstr "Navigasyon ng Button"
 
-#: addons/post-navigation/post-navigation.php:219
+#: addons/post-navigation/post-navigation.php:200
 msgid "Image Navigation"
 msgstr "Navigasyon ng Imahe"
 
@@ -1908,77 +1981,72 @@ msgstr "Mga Tag"
 msgid "Status"
 msgstr "Katayuan"
 
-#: addons/publisher/series-part-post-table.php:68
-#: addons/publisher/series-pending-post-table.php:70
+#: addons/publisher/series-part-post-table.php:69
+#: addons/publisher/series-pending-post-table.php:71
 msgid "Current Part"
 msgstr "Kasalukuyang Bahagi"
 
-#: addons/publisher/series-part-post-table.php:162
-#: addons/publisher/series-pending-post-table.php:146
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:147
 #: addons/publisher/series-publish-post-table.php:293
 msgid "Edit"
 msgstr "I-edit"
 
-#: addons/publisher/series-part-post-table.php:168
+#: addons/publisher/series-part-post-table.php:169
 #: assets/js/publishpress-series-blocks.js:251
 msgid "View"
 msgstr "Tingnan"
 
-#: addons/publisher/series-part-post-table.php:185
-#: addons/publisher/series-pending-post-table.php:174
+#: addons/publisher/series-part-post-table.php:187
+#: addons/publisher/series-pending-post-table.php:176
 #: addons/publisher/series-publish-post-table.php:310
 msgid "Trash"
 msgstr "Basurahan"
 
-#: addons/publisher/series-part-post-table.php:212
+#: addons/publisher/series-part-post-table.php:214
 msgid "There are no published posts in this series."
 msgstr "Walang mga na-publish na post sa seryeng ito."
 
-#: addons/publisher/series-part-post-table.php:230
-#: addons/publisher/series-pending-post-table.php:219
+#: addons/publisher/series-part-post-table.php:232
+#: addons/publisher/series-pending-post-table.php:221
 #: addons/publisher/series-publish-post-table.php:345
 #. translators: %s: Post title.
 #, php-format
 msgid "Select %s"
 msgstr "Pumili ng %s"
 
-#: addons/publisher/series-part-post-table.php:341
+#: addons/publisher/series-part-post-table.php:355
 msgid "(Currently has no Part number)"
 msgstr "(Kasalukuyan ay walang numero ng Bahagi)"
 
-#: addons/publisher/series-part-post-table.php:376
+#: addons/publisher/series-part-post-table.php:390
 msgid "Filter by part number"
 msgstr "I-filter ayon sa numero ng bahagi"
 
-#: addons/publisher/series-part-post-table.php:378
+#: addons/publisher/series-part-post-table.php:392
 msgid "All part numbers"
 msgstr "Lahat ng numero ng bahagi"
 
-#: addons/publisher/series-part-post-table.php:379
+#: addons/publisher/series-part-post-table.php:393
 msgid "Has part number"
 msgstr "May numero ng bahagi"
 
-#: addons/publisher/series-part-post-table.php:380
+#: addons/publisher/series-part-post-table.php:394
 msgid "Missing part number"
 msgstr "Nawawalang numero ng bahagi"
 
-#: addons/publisher/series-part-post-table.php:382
-#: addons/publisher/series-publish-post-table.php:196
-msgid "Filter"
-msgstr "Salain"
-
-#: addons/publisher/series-pending-post-table.php:157
+#: addons/publisher/series-pending-post-table.php:158
 #: addons/publisher/series-publish-post-table.php:78
 #: addons/publisher/series-publish-post-table.php:454
 msgid "Preview"
 msgstr "I-preview"
 
-#: addons/publisher/series-pending-post-table.php:201
+#: addons/publisher/series-pending-post-table.php:203
 #: addons/publisher/series-publish-post-table.php:48
 msgid "There are no unpublished posts in this series."
 msgstr "Walang mga hindi na-publish na post sa seryeng ito."
 
-#: addons/publisher/series-pending-post-table.php:325
+#: addons/publisher/series-pending-post-table.php:339
 msgid "No Part Number"
 msgstr "Walang Numero ng Bahagi"
 
@@ -1987,19 +2055,20 @@ msgid "All Categories"
 msgstr "Lahat ng Kategorya"
 
 #: addons/publisher/series_im_admin_main.php:4
-#: addons/publisher/series_issue_manager.php:830
+#: addons/publisher/series_issue_manager.php:895
 #: inc/settings/settings-validation.php:96
 msgid "Manage Series"
 msgstr "Pamahalaan ang mga Serye"
 
 #: addons/publisher/series_im_admin_main.php:9
+#: orgSeries-admin.php:431
 #: assets/js/publishpress-series-blocks.js:138
 msgid "Series"
 msgstr "Serye"
 
 #: addons/publisher/series_im_admin_main.php:12
-#: addons/publisher/series_issue_manager.php:986
-#: addons/publisher/series_issue_manager.php:1033
+#: addons/publisher/series_issue_manager.php:1063
+#: addons/publisher/series_issue_manager.php:1110
 msgid "Publish Series"
 msgstr "I-publish ang Serye"
 
@@ -2033,11 +2102,11 @@ msgstr "Wala kang magagamit na mga serye."
 msgid "Add new Series."
 msgstr "Magdagdag ng bagong Serye."
 
-#: addons/publisher/series_issue_manager.php:332
+#: addons/publisher/series_issue_manager.php:344
 msgid "Create as unpublished:"
 msgstr "Lumikha bilang hindi na-publish:"
 
-#: addons/publisher/series_issue_manager.php:335
+#: addons/publisher/series_issue_manager.php:347
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
@@ -2045,90 +2114,148 @@ msgstr ""
 "Kapag naka-check, lahat ng post na itatalaga mo sa seryeng ito ay "
 "mananatiling hindi na-publish hanggang sa i-publish mo ang buong serye."
 
-#: addons/publisher/series_issue_manager.php:415
+#: addons/publisher/series_issue_manager.php:427
 msgid "The posts in your series were successfully unpublished."
 msgstr "Ang mga post sa iyong serye ay matagumpay na hindi na-publish."
 
-#: addons/publisher/series_issue_manager.php:424
-#: addons/publisher/series_issue_manager.php:573
+#: addons/publisher/series_issue_manager.php:436
+#: addons/publisher/series_issue_manager.php:647
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "Binabati kita. Ang kaayusan ng iyong serye ay matagumpay na na-update."
 
-#: addons/publisher/series_issue_manager.php:432
-#: addons/publisher/series_issue_manager.php:450
+#: addons/publisher/series_issue_manager.php:444
+#: addons/publisher/series_issue_manager.php:462
 msgid "Congratulations. Your posts were published successfully."
 msgstr "Binabati kita. Ang iyong mga post ay matagumpay na na-publish."
 
-#: addons/publisher/series_issue_manager.php:441
+#: addons/publisher/series_issue_manager.php:453
 msgid "Post moved to the Trash."
 msgstr "Ang post ay inilipat sa Basurahan."
 
-#: addons/publisher/series_issue_manager.php:458
+#: addons/publisher/series_issue_manager.php:470
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "Binabati kita. Ang iyong mga post ay matagumpay na itinalaga."
 
-#: addons/publisher/series_issue_manager.php:495
+#: addons/publisher/series_issue_manager.php:514
+msgid "Published"
+msgstr "Nai-publish"
+
+#: addons/publisher/series_issue_manager.php:517
+msgid "Scheduled"
+msgstr "Naka-schedule"
+
+#: addons/publisher/series_issue_manager.php:520
+msgid "Last Modified"
+msgstr "Huling Binago"
+
+#: addons/publisher/series_issue_manager.php:538
+#. translators: 1: Post date, 2: Post time.
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s sa %2$s"
+
+#: addons/publisher/series_issue_manager.php:569
 msgid "Sorry, you are not allowed to perform this action."
 msgstr "Paumanhin, hindi ka pinapayagan na isagawa ang aksyon na ito."
 
-#: addons/publisher/series_issue_manager.php:829
+#: addons/publisher/series_issue_manager.php:894
 msgid "Manage Series Issues"
 msgstr "Pamahalaan ang mga Isyu sa Serye"
 
-#: addons/publisher/series_issue_manager.php:859
-#: addons/publisher/series_issue_manager.php:871
+#: addons/publisher/series_issue_manager.php:913
+#: orgSeries-manage.php:117
+msgid "Move up"
+msgstr "Igalaw pataas"
+
+#: addons/publisher/series_issue_manager.php:914
+#: orgSeries-manage.php:118
+msgid "Move down"
+msgstr "Igalaw pababa"
+
+#: addons/publisher/series_issue_manager.php:916
+#: orgSeries-manage.php:120
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move up: %s"
+msgstr "Igalaw pataas: %s"
+
+#: addons/publisher/series_issue_manager.php:918
+#: orgSeries-manage.php:122
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move down: %s"
+msgstr "Igalaw pababa: %s"
+
+#: addons/publisher/series_issue_manager.php:920
+#: orgSeries-manage.php:124
+#. translators: 1: post title, 2: new position, 3: total number of posts
+#. translators: 1: term name, 2: new position, 3: number of rows
+#, php-format
+msgid "%1$s moved to position %2$d of %3$d."
+msgstr "%1$s inilipat sa posisyon %2$d ng %3$d."
+
+#: addons/publisher/series_issue_manager.php:921
+msgid "Order changed. Save to keep the new order."
+msgstr ""
+"Nagbago ang pagkakasunud-sunod. I-save upang panatilihin ang bagong "
+"pagkakasunud-sunod."
+
+#: addons/publisher/series_issue_manager.php:935
+#: addons/publisher/series_issue_manager.php:947
 msgid "Number of items per page"
 msgstr "Bilang ng mga item bawat pahina"
 
-#: addons/publisher/series_issue_manager.php:926
+#: addons/publisher/series_issue_manager.php:1003
 msgid "Publishing Series:"
 msgstr "Pag-publish ng Serye:"
 
-#: addons/publisher/series_issue_manager.php:933
+#: addons/publisher/series_issue_manager.php:1010
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Mga resulta ng paghahanap para sa &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:948
+#: addons/publisher/series_issue_manager.php:1025
 msgid "Search"
 msgstr "Maghanap"
 
-#: addons/publisher/series_issue_manager.php:1001
+#: addons/publisher/series_issue_manager.php:1078
 msgid "Publication Date/Time:"
 msgstr "Petsa/Wika ng Paglalathala:"
 
-#: addons/publisher/series_issue_manager.php:1012
+#: addons/publisher/series_issue_manager.php:1089
 msgid "Month"
 msgstr "Buwan"
 
-#: addons/publisher/series_issue_manager.php:1021
+#: addons/publisher/series_issue_manager.php:1098
 msgid "Day"
 msgstr "Araw"
 
-#: addons/publisher/series_issue_manager.php:1022
+#: addons/publisher/series_issue_manager.php:1099
 msgid "Year"
 msgstr "Taon"
 
-#: addons/publisher/series_issue_manager.php:1023
+#: addons/publisher/series_issue_manager.php:1100
 msgid "Hour"
 msgstr "Oras"
 
-#: addons/publisher/series_issue_manager.php:1024
+#: addons/publisher/series_issue_manager.php:1101
 msgid "Minute"
 msgstr "Minuto"
 
-#: addons/publisher/series_issue_manager.php:1058
-#: addons/publisher/series_issue_manager.php:1128
-#: addons/publisher/series_issue_manager.php:1265
+#: addons/publisher/series_issue_manager.php:1135
+#: addons/publisher/series_issue_manager.php:1205
+#: addons/publisher/series_issue_manager.php:1342
 msgid "Update Order"
 msgstr "Ayusin ang Pag-update"
 
-#: addons/publisher/series_issue_manager.php:1085
+#: addons/publisher/series_issue_manager.php:1162
 msgid "Series Order:"
 msgstr "Ayusin ang Serye:"
 
-#: addons/publisher/series_issue_manager.php:1088
+#: addons/publisher/series_issue_manager.php:1165
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
@@ -2136,31 +2263,31 @@ msgstr ""
 "I-drag ang mga pangalan ng post sa pagkakasunud-sunod na nais mo silang "
 "ilagay sa serye, mula sa unang bahagi hanggang sa huling bahagi."
 
-#: addons/publisher/series_issue_manager.php:1100
+#: addons/publisher/series_issue_manager.php:1177
 msgid "Search Posts"
 msgstr "Maghanap ng mga Post"
 
-#: addons/publisher/series_issue_manager.php:1138
+#: addons/publisher/series_issue_manager.php:1215
 msgid "Order Tools"
 msgstr "Mag-order ng mga Tool"
 
-#: addons/publisher/series_issue_manager.php:1142
+#: addons/publisher/series_issue_manager.php:1219
 msgid "Automatically reorder this series by publication date."
 msgstr "Awtomatikong i-reorder ang seryeng ito ayon sa petsa ng publication."
 
-#: addons/publisher/series_issue_manager.php:1150
+#: addons/publisher/series_issue_manager.php:1227
 msgid "Order by publication date: Oldest first"
 msgstr "Mag-order ayon sa petsa ng publication: Pinakamatanda muna"
 
-#: addons/publisher/series_issue_manager.php:1160
+#: addons/publisher/series_issue_manager.php:1237
 msgid "Order by publication date: Newest first"
 msgstr "Mag-order ayon sa petsa ng publication: Pinakabago muna"
 
-#: addons/publisher/series_issue_manager.php:1185
+#: addons/publisher/series_issue_manager.php:1262
 msgid "Unpublished posts in series:"
 msgstr "Mga hindi nailathalang post sa serye:"
 
-#: addons/publisher/series_issue_manager.php:1188
+#: addons/publisher/series_issue_manager.php:1265
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -2168,15 +2295,15 @@ msgstr ""
 "Kapag nailathala ang mga post na ito, idadagdag sila pagkatapos ng huling "
 "kasalukuyang post sa serye."
 
-#: addons/publisher/series_issue_manager.php:1225
+#: addons/publisher/series_issue_manager.php:1302
 msgid "Unpublished Posts"
 msgstr "Mga Hindi Nailathalang Post"
 
-#: addons/publisher/series_issue_manager.php:1240
+#: addons/publisher/series_issue_manager.php:1317
 msgid "Publish Unpublished Posts"
 msgstr "I-publish ang Mga Hindi Nailathalang Post"
 
-#: addons/publisher/series_issue_manager.php:1250
+#: addons/publisher/series_issue_manager.php:1327
 msgid "Unpublished Series Order"
 msgstr "Ayusin ang Hindi Nailathalang Serye"
 
@@ -2214,15 +2341,40 @@ msgstr "Mga Opsyon ng PublishPress Series Plugin"
 msgid "Series settings"
 msgstr "Mga setting ng Series"
 
-#: inc/settings/settings-page.php:57
+#: inc/settings/settings-page.php:71
+msgid "Update Options"
+msgstr "Mga Opsyon sa Pag-update"
+
+#: inc/settings/settings-page.php:76
+msgid "Reset Series settings"
+msgstr "I-reset ang mga setting ng Series"
+
+#: inc/settings/settings-page.php:77
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"Ang pag-click sa Oo ay ibabalik ang mga opsyon sa mga default at mawawala "
+"sa iyo ang lahat ng mga pasadyang pagbabago. O maaari mong i-click ang "
+"kanselahin at bumalik."
+
+#: inc/settings/settings-page.php:78
+msgid "No"
+msgstr "Hindi"
+
+#: inc/settings/settings-page.php:79
+msgid "Yes"
+msgstr "Oo"
+
+#: inc/settings/settings-page.php:94
 msgid "Allowed Html"
 msgstr "Pinapayagang Html"
 
-#: inc/settings/settings-page.php:66
+#: inc/settings/settings-page.php:102
 msgid "Overview"
 msgstr "Pangkalahatang-ideya"
 
-#: inc/settings/settings-page.php:68
+#: inc/settings/settings-page.php:104
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -2232,11 +2384,11 @@ msgstr ""
 "mga custom na template field. Ito ay mapapalitan ng mga angkop na halaga "
 "kapag tumatakbo ang plugin."
 
-#: inc/settings/settings-page.php:73
+#: inc/settings/settings-page.php:109
 msgid "This will be replaced with the series featured image for a series."
 msgstr "Ito ay papalitan ng tampok na larawan ng serye para sa isang serye."
 
-#: inc/settings/settings-page.php:81
+#: inc/settings/settings-page.php:117
 #. translators: %series_icon%: Template token for the series featured image.
 #, php-format
 msgid ""
@@ -2246,7 +2398,7 @@ msgstr ""
 "Pareho ng %series_icon% maliban na ang tampok na larawan ng serye ay "
 "mai-link sa pahina ng serye"
 
-#: inc/settings/settings-page.php:89
+#: inc/settings/settings-page.php:125
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
@@ -2257,17 +2409,17 @@ msgstr ""
 "nangangailangan na ang template para sa bawat pamagat ng serye ay nakaset "
 "din."
 
-#: inc/settings/settings-page.php:97
+#: inc/settings/settings-page.php:133
 msgid "This will be replaced with the title of a series"
 msgstr "Ito ay mapapalitan ng pamagat ng isang serye"
 
-#: inc/settings/settings-page.php:105
+#: inc/settings/settings-page.php:141
 #. translators: %series_title%: Template token for the series title.
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr "Katulad ng %series_title% maliban na ito ay mai-link din sa pahina ng serye"
 
-#: inc/settings/settings-page.php:113
+#: inc/settings/settings-page.php:149
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
@@ -2275,7 +2427,7 @@ msgstr ""
 "Ito ang token ng lokasyon para sa kung saan lilitaw ang nilalaman ng mga "
 "template ng listahan ng post."
 
-#: inc/settings/settings-page.php:121
+#: inc/settings/settings-page.php:157
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
@@ -2284,11 +2436,11 @@ msgstr ""
 "template ng listahan ng post at gumamit ng ibinigay na maikling pamagat ng "
 "widget post."
 
-#: inc/settings/settings-page.php:129
+#: inc/settings/settings-page.php:165
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "Mapapalitan ng pamagat ng post ng isang post sa serye"
 
-#: inc/settings/settings-page.php:137
+#: inc/settings/settings-page.php:173
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
@@ -2296,11 +2448,11 @@ msgstr ""
 "Mapapalitan ng pamagat ng post ng isang post sa serye na naka-link sa page "
 "view ng post na iyon."
 
-#: inc/settings/settings-page.php:145
+#: inc/settings/settings-page.php:181
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "Mapapalitan ng maikling pamagat ng post ng isang post sa serye"
 
-#: inc/settings/settings-page.php:153
+#: inc/settings/settings-page.php:189
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
@@ -2308,7 +2460,7 @@ msgstr ""
 "Mapapalitan ng maikling pamagat ng post ng isang post sa serye na naka-link "
 "sa page view ng post na iyon."
 
-#: inc/settings/settings-page.php:161
+#: inc/settings/settings-page.php:197
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -2320,7 +2472,7 @@ msgstr ""
 "Text' na field. Kung ang field na iyon ay walang laman, ang teksto ay "
 "magiging pamagat ng post"
 
-#: inc/settings/settings-page.php:169
+#: inc/settings/settings-page.php:205
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
@@ -2331,7 +2483,7 @@ msgstr ""
 "na field. Kung ang field na iyon ay walang laman, ang teksto ay magiging "
 "pamagat ng post"
 
-#: inc/settings/settings-page.php:177
+#: inc/settings/settings-page.php:213
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
 "text will be whatever is included in the 'Custom First Post Navigation "
@@ -2343,7 +2495,7 @@ msgstr ""
 "na field. Kung ang field na iyon ay walang laman, ang teksto ay magiging "
 "pamagat ng post"
 
-#: inc/settings/settings-page.php:184
+#: inc/settings/settings-page.php:220
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
@@ -2352,72 +2504,47 @@ msgstr ""
 "template. Ipinapakita nito kung saan mo gustong ipakita ang nilalaman ng "
 "isang post."
 
-#: inc/settings/settings-page.php:192
+#: inc/settings/settings-page.php:228
 msgid "Will display what part of a series the post is"
 msgstr "Ipinapakita kung anong bahagi ng serye ang post"
 
-#: inc/settings/settings-page.php:200
+#: inc/settings/settings-page.php:236
 msgid "Will display the total number of posts in a series"
 msgstr "Ipinapakita ang kabuuang bilang ng mga post sa isang serye"
 
-#: inc/settings/settings-page.php:208
+#: inc/settings/settings-page.php:244
 msgid "Will display the description for the series"
 msgstr "Ipinapakita ang paglalarawan para sa serye"
 
-#: inc/settings/settings-page.php:220
+#: inc/settings/settings-page.php:254
 msgid "Will output the slug of the series"
 msgstr "Ipinapakita ang slug ng serye"
 
-#: inc/settings/settings-page.php:230
+#: inc/settings/settings-page.php:264
 msgid "Will output the ID of the series"
 msgstr "Ipinapakita ang ID ng serye"
 
-#: inc/settings/settings-page.php:240
+#: inc/settings/settings-page.php:274
 msgid "Will output the author of the post"
 msgstr "Ipinapakita ang may-akda ng post"
 
-#: inc/settings/settings-page.php:250
+#: inc/settings/settings-page.php:284
 msgid "If the post has a feature-image then that image will be displayed"
 msgstr "Kung ang post ay may feature-image, ang larawang iyon ay ipapakita"
 
-#: inc/settings/settings-page.php:260
+#: inc/settings/settings-page.php:294
 msgid "The date that a post was published"
 msgstr "Ang petsa kung kailan inilathala ang isang post"
 
-#: inc/settings/settings-page.php:270
+#: inc/settings/settings-page.php:304
 msgid "Will be replaced with the unpublished post title of a post in the series"
 msgstr "Mapapalitan ng hindi nailathalang pamagat ng post ng isang post sa serye"
 
-#: inc/settings/settings-page.php:280
+#: inc/settings/settings-page.php:314
 msgid "Will display the total number of published and unpublished posts in a series"
 msgstr ""
 "Ipinapakita ang kabuuang bilang ng mga nailathala at hindi nailathalang "
 "post sa isang serye"
-
-#: inc/settings/settings-page.php:323
-msgid "Update Options"
-msgstr "Mga Opsyon sa Pag-update"
-
-#: inc/settings/settings-page.php:328
-msgid "Reset Series settings"
-msgstr "I-reset ang mga setting ng Series"
-
-#: inc/settings/settings-page.php:329
-msgid ""
-"Clicking Yes will reset the options to the defaults and you will lose all "
-"customizations. Or you can click cancel and return."
-msgstr ""
-"Ang pag-click sa Oo ay ibabalik ang mga opsyon sa mga default at mawawala "
-"sa iyo ang lahat ng mga pasadyang pagbabago. O maaari mong i-click ang "
-"kanselahin at bumalik."
-
-#: inc/settings/settings-page.php:330
-msgid "No"
-msgstr "Hindi"
-
-#: inc/settings/settings-page.php:331
-msgid "Yes"
-msgstr "Oo"
 
 #: inc/settings/settings-upgrade.php:26
 #: inc/settings/settings-upgrade.php:49
@@ -2446,7 +2573,7 @@ msgstr "I-update ang data ng Serye"
 msgid "Series upgrade completed."
 msgstr "Nakumpleto ang pag-upgrade ng Serye."
 
-#: inc/settings/settings-upgrade.php:183
+#: inc/settings/settings-upgrade.php:158
 #. translators: %d: Number of posts updated.
 #, php-format
 msgid "Series order sync completed. %d posts updated."
@@ -2455,43 +2582,43 @@ msgstr ""
 "ang na-update."
 
 #: inc/settings/settings-validation.php:89
-#: orgSeries-setup.php:278
+#: orgSeries-setup.php:286
 msgid "Search Series"
 msgstr "Maghanap ng Serye"
 
 #: inc/settings/settings-validation.php:90
-#: orgSeries-setup.php:279
+#: orgSeries-setup.php:287
 msgid "Popular Series"
 msgstr "Mga Sikat na Serye"
 
 #: inc/settings/settings-validation.php:91
-#: orgSeries-setup.php:280
-#: orgSeries-setup.php:373
+#: orgSeries-setup.php:288
+#: orgSeries-setup.php:380
 msgid "All Series"
 msgstr "Lahat ng Serye"
 
 #: inc/settings/settings-validation.php:92
-#: orgSeries-setup.php:281
+#: orgSeries-setup.php:289
 msgid "Edit Series"
 msgstr "I-edit ang Serye"
 
 #: inc/settings/settings-validation.php:93
-#: orgSeries-setup.php:282
+#: orgSeries-setup.php:290
 msgid "Update Series"
 msgstr "I-update ang Serye"
 
 #: inc/settings/settings-validation.php:94
-#: orgSeries-setup.php:283
+#: orgSeries-setup.php:291
 msgid "Add New Series"
 msgstr "Magdagdag ng Bagong Serye"
 
 #: inc/settings/settings-validation.php:95
-#: orgSeries-setup.php:284
+#: orgSeries-setup.php:292
 msgid "New Series Name"
 msgstr "Pangalan ng Bagong Serye"
 
 #: inc/settings/settings-validation.php:97
-#: orgSeries-setup.php:286
+#: orgSeries-setup.php:294
 msgid "No series found"
 msgstr "Walang natagpuang serye"
 
@@ -2593,7 +2720,7 @@ msgid "Reset options to default"
 msgstr "I-reset ang mga opsyon sa default"
 
 #: inc/settings/tab-layouts.php:13
-#: orgSeries-options.php:148
+#: orgSeries-options.php:151
 msgid "Layouts"
 msgstr "Mga Layout"
 
@@ -2602,7 +2729,7 @@ msgid "Configure the layout displays shown on posts in a series."
 msgstr "I-configure ang mga layout na ipinapakita sa mga post sa isang series."
 
 #: inc/settings/tab-legacy.php:14
-#: orgSeries-options.php:165
+#: orgSeries-options.php:168
 msgid "Legacy"
 msgstr "Pamana"
 
@@ -2624,40 +2751,41 @@ msgid "Use PublishPress Series CSS styles?"
 msgstr "Gamitin ang mga estilo ng CSS ng PublishPress Series?"
 
 #: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:51
 msgid "Style options"
 msgstr "Mga opsyon sa estilo"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:52
 msgid "Use default style"
 msgstr "Gamitin ang default na estilo"
 
-#: inc/settings/tab-legacy.php:51
+#: inc/settings/tab-legacy.php:53
 msgid "Use box style"
 msgstr "Gamitin ang estilo ng kahon"
 
-#: inc/settings/tab-legacy.php:52
+#: inc/settings/tab-legacy.php:54
 msgid "Use dark style"
 msgstr "Gumamit ng madilim na estilo"
 
-#: inc/settings/tab-legacy.php:53
+#: inc/settings/tab-legacy.php:55
 msgid "Use light style"
 msgstr "Gumamit ng maliwanag na estilo"
 
-#: inc/settings/tab-legacy.php:63
+#: inc/settings/tab-legacy.php:66
 msgid "Series Overview"
 msgstr "Pangkalahatang-ideya ng Series"
 
-#: inc/settings/tab-legacy.php:65
+#: inc/settings/tab-legacy.php:68
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr ""
 "Pumili ng disenyo para sa pahina ng taxonomy kung saan ipinapakita ang "
 "isang solong Series."
 
-#: inc/settings/tab-legacy.php:69
+#: inc/settings/tab-legacy.php:72
 msgid "Layout:"
 msgstr "Kahulugan:"
 
-#: inc/settings/tab-legacy.php:86
+#: inc/settings/tab-legacy.php:92
 #. translators: %s: URL to the series archive template documentation.
 #, php-format
 msgid ""
@@ -2670,48 +2798,51 @@ msgstr ""
 "rel=\"noopener noreferrer\">Basahin ang dokumentasyon para sa pag-customize "
 "ng mga disenyo na ito</a>."
 
-#: inc/settings/tab-legacy.php:95
-#: inc/settings/tab-series-category.php:70
+#: inc/settings/tab-legacy.php:102
+#: inc/settings/tab-series-category.php:73
 msgid "Columns:"
 msgstr "Mga Kolum:"
 
-#: inc/settings/tab-legacy.php:101
+#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:111
 msgid "Order series by:"
 msgstr "I-order ang series ayon sa:"
 
-#: inc/settings/tab-legacy.php:103
+#: inc/settings/tab-legacy.php:112
 msgid "Series part"
 msgstr "Bahagi ng series"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:113
 msgid "Order by date"
 msgstr "I-order ayon sa petsa"
 
-#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:118
+#: inc/settings/tab-legacy.php:121
 msgid "Series order method"
 msgstr "Paraan ng pag-order ng series"
 
-#: inc/settings/tab-legacy.php:121
-#: inc/settings/tab-legacy.php:220
-#: inc/settings/tab-legacy.php:226
-#: orgSeries-setup.php:549
-#: orgSeries-widgets.php:123
+#: inc/settings/tab-legacy.php:134
+#: inc/settings/tab-legacy.php:233
+#: inc/settings/tab-legacy.php:239
+#: orgSeries-setup.php:562
+#: orgSeries-widgets.php:122
+#: seriestoc.php:34
 msgid "Series Table of Contents"
 msgstr "Talaan ng Nilalaman ng Series"
 
-#: inc/settings/tab-legacy.php:126
+#: inc/settings/tab-legacy.php:139
 msgid "Series Table of Contents URL:"
 msgstr "URL ng Talaan ng Nilalaman ng Series:"
 
-#: inc/settings/tab-legacy.php:128
+#: inc/settings/tab-legacy.php:141
 msgid "Series Table of Contents URL"
 msgstr "URL ng Series Table of Contents"
 
-#: inc/settings/tab-legacy.php:129
+#: inc/settings/tab-legacy.php:142
 msgid "view page"
 msgstr "tingnan ang pahina"
 
-#: inc/settings/tab-legacy.php:139
+#: inc/settings/tab-legacy.php:152
 #. translators: 1: Opening link tag, 2: Closing link tag.
 #, php-format
 msgid ""
@@ -2721,41 +2852,41 @@ msgstr ""
 "Dapat mong %1$s i-update ang iyong permalink structure %2$s sa isang bagay "
 "na iba sa \"Plain\" para gumana ang URL ng Series Table of Contents."
 
-#: inc/settings/tab-legacy.php:159
+#: inc/settings/tab-legacy.php:172
 msgid "Series Per Page:"
 msgstr "Series Per Pahina:"
 
-#: inc/settings/tab-legacy.php:160, fuzzy
+#: inc/settings/tab-legacy.php:173, fuzzy
 msgid "Series Per Page"
 msgstr "Series Per Page"
 
-#: inc/settings/tab-legacy.php:163
+#: inc/settings/tab-legacy.php:176
 msgid "Series Table of Contents Title:"
 msgstr "Pamagat ng Talaan ng Nilalaman ng Series:"
 
-#: inc/settings/tab-legacy.php:173
+#: inc/settings/tab-legacy.php:186
 msgid "Series Featured Images"
 msgstr "Mga Tampok na Larawan ng Serye"
 
-#: inc/settings/tab-legacy.php:178
+#: inc/settings/tab-legacy.php:191
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr ""
 "Lapad para sa tampok na larawan sa pahina ng nilalaman ng serye (sa mga "
 "pixel)"
 
-#: inc/settings/tab-legacy.php:179
+#: inc/settings/tab-legacy.php:192
 msgid "Width for featured image on series table of contents page"
 msgstr "Lapad para sa tampok na larawan sa pahina ng series table of contents"
 
-#: inc/settings/tab-legacy.php:182
+#: inc/settings/tab-legacy.php:195
 msgid "Width for featured image on a post page (in pixels)."
 msgstr "Lapad para sa tampok na larawan sa pahina ng post (sa mga pixel)."
 
-#: inc/settings/tab-legacy.php:183
+#: inc/settings/tab-legacy.php:196
 msgid "Width for featured image on a post page"
 msgstr "Lapad para sa tampok na imahe sa isang pahina ng post"
 
-#: inc/settings/tab-legacy.php:186
+#: inc/settings/tab-legacy.php:199
 msgid ""
 "Width for featured image if displayed via the latest series template (in "
 "pixels)."
@@ -2763,46 +2894,46 @@ msgstr ""
 "Lapad para sa tampok na larawan kung ipinapakita sa pamamagitan ng "
 "pinakabagong template ng serye (sa mga pixel)."
 
-#: inc/settings/tab-legacy.php:187
+#: inc/settings/tab-legacy.php:200
 msgid "Width for featured image if displayed via the latest series template"
 msgstr ""
 "Lapad para sa tampok na imahe kung ipinapakita sa pamamagitan ng "
 "pinakabagong template ng serye"
 
-#: inc/settings/tab-legacy.php:196
+#: inc/settings/tab-legacy.php:209
 #: orgSeries-widgets.php:16
 msgid "Latest Series"
 msgstr "Pinakabagong Series"
 
-#: inc/settings/tab-legacy.php:198
+#: inc/settings/tab-legacy.php:211
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr "Ginagamit ang display na ito ng \"Pinakabagong Series\" widget."
 
-#: inc/settings/tab-legacy.php:202
+#: inc/settings/tab-legacy.php:215
 msgid "Latest Series (tags before):"
 msgstr "Pinakabagong Series (mga tag bago):"
 
-#: inc/settings/tab-legacy.php:203
+#: inc/settings/tab-legacy.php:216
 msgid "Latest Series tags before"
 msgstr "Pinakabagong mga tag ng Serye bago"
 
-#: inc/settings/tab-legacy.php:206
+#: inc/settings/tab-legacy.php:219
 msgid "Latest Series (inner tags):"
 msgstr "Pinakabagong Series (mga panloob na tag):"
 
-#: inc/settings/tab-legacy.php:207
+#: inc/settings/tab-legacy.php:220
 msgid "Latest Series inner tags"
 msgstr "Pinakabagong mga panloob na tag ng Serye"
 
-#: inc/settings/tab-legacy.php:210
+#: inc/settings/tab-legacy.php:223
 msgid "Latest Series (tags after):"
 msgstr "Pinakabagong Series (mga tag pagkatapos):"
 
-#: inc/settings/tab-legacy.php:211
+#: inc/settings/tab-legacy.php:224
 msgid "Latest Series tags after"
 msgstr "Pinakabagong mga tag ng Serye pagkatapos"
 
-#: inc/settings/tab-legacy.php:222
+#: inc/settings/tab-legacy.php:235
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
@@ -2810,7 +2941,7 @@ msgstr ""
 "Ginagamit ang display na ito ng \"Series Table of Contents\" widget, "
 "shortcode, at URL."
 
-#: inc/settings/tab-legacy.php:229
+#: inc/settings/tab-legacy.php:242
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
 "for this display, go the \"Display\" tab and then \"Series Table of "
@@ -2841,6 +2972,7 @@ msgid "Alphabetical Z-A"
 msgstr "Alfabeto Z-A"
 
 #: inc/settings/tab-metabox.php:38
+#: includes-core/Mcp/Settings.php:105
 msgid "Show \"Add New\""
 msgstr "Ipakita ang \"Magdagdag ng Bago\""
 
@@ -2849,6 +2981,7 @@ msgid "Show Add New"
 msgstr "Ipakita ang Magdagdag ng Bago"
 
 #: inc/settings/tab-metabox.php:42
+#: includes-core/Mcp/Settings.php:106
 msgid "Show \"Post title in widget\""
 msgstr "Ipakita ang \"Pamagat ng Post sa widget\""
 
@@ -2880,15 +3013,19 @@ msgstr "Tulad sa Template"
 
 #: inc/settings/tab-post-details.php:50
 #: inc/settings/tab-post-details.php:51
+#: includes-core/Mcp/Settings.php:91
 msgid "Display Series Post Details?"
 msgstr "I-display ang Detalye ng Post ng Series?"
 
 #: inc/settings/tab-post-details.php:55
+#: includes-core/Mcp/Settings.php:93
 msgid "Post Details Selection"
 msgstr "Piliin ang Detalye ng Post"
 
 #: inc/settings/tab-post-details.php:57
+#: inc/settings/tab-post-details.php:60
 #: inc/settings/tab-post-navigation.php:57
+#: inc/settings/tab-post-navigation.php:60
 msgid "Edit this layout"
 msgstr "I-edit ang layout na ito"
 
@@ -2899,6 +3036,7 @@ msgid "Loading…"
 msgstr "Naglo-load…"
 
 #: inc/settings/tab-post-details.php:65
+#: includes-core/Mcp/Settings.php:96
 msgid "Post Details Position"
 msgstr "Posisyon ng Detalye ng Post"
 
@@ -2935,14 +3073,17 @@ msgid "Display Post List Boxes?"
 msgstr "Ipakita ang mga Post List Box?"
 
 #: inc/settings/tab-post-list-box.php:55
+#: includes-core/Mcp/Settings.php:92
 msgid "Post List Boxes Selection"
 msgstr "Pagpili ng Post List Boxes"
 
 #: inc/settings/tab-post-list-box.php:57
+#: inc/settings/tab-post-list-box.php:60
 msgid "Edit this box"
 msgstr "I-edit ang kahon na ito"
 
 #: inc/settings/tab-post-list-box.php:65
+#: includes-core/Mcp/Settings.php:95
 msgid "Post List Box Position"
 msgstr "Posisyon ng Post List Box"
 
@@ -2979,14 +3120,17 @@ msgstr ""
 
 #: inc/settings/tab-post-navigation.php:50
 #: inc/settings/tab-post-navigation.php:51
+#: includes-core/Mcp/Settings.php:90
 msgid "Display Series Navigation?"
 msgstr "Ipakita ang Nabigasyon ng Serye?"
 
 #: inc/settings/tab-post-navigation.php:55
+#: includes-core/Mcp/Settings.php:94
 msgid "Navigation Selection"
 msgstr "Pagsasala ng Navigasyon"
 
 #: inc/settings/tab-post-navigation.php:65
+#: includes-core/Mcp/Settings.php:97
 msgid "Navigation Position"
 msgstr "Posisyon ng Navigasyon"
 
@@ -2996,26 +3140,29 @@ msgstr "Template ng Navigasyon"
 
 #: inc/settings/tab-post-navigation.php:85
 #: inc/settings/tab-post-navigation.php:86
+#: includes-core/Mcp/Settings.php:98
 msgid "Next Post Text"
 msgstr "Susunod na Post na Teksto"
 
 #: inc/settings/tab-post-navigation.php:90
 #: inc/settings/tab-post-navigation.php:91
+#: includes-core/Mcp/Settings.php:99
 msgid "Previous Post Text"
 msgstr "Nakaraang Post na Teksto"
 
 #: inc/settings/tab-post-navigation.php:95
 #: inc/settings/tab-post-navigation.php:96
+#: includes-core/Mcp/Settings.php:100
 msgid "First Post Text"
 msgstr "Unang Post na Teksto"
 
 #: inc/settings/tab-post-types.php:12
-#: orgSeries-options.php:159
+#: orgSeries-options.php:162
 msgid "Post Types"
 msgstr "Mga Uri ng Post"
 
 #: inc/settings/tab-post-types.php:13
-#: inc/settings/tab-pro-features.php:31
+#: inc/utility-functions.php:883
 msgid "Custom Post Type Support"
 msgstr "Suporta sa Pasadyang Uri ng Post"
 
@@ -3025,7 +3172,7 @@ msgstr "Paganahin ang PublishPress Series para sa mga pasadyang uri ng post."
 
 #: inc/settings/tab-pro-features.php:12
 #: inc/settings/tab-pro-features.php:13
-#: orgSeries-options.php:168
+#: orgSeries-options.php:171
 msgid "Pro Features"
 msgstr "Mga Pro Feature"
 
@@ -3037,41 +3184,9 @@ msgstr ""
 "Ang mga setting na ito ay nagpapahintulot sa iyo na paganahin o huwag "
 "paganahin ang mga tampok sa PublishPress Series Pro."
 
-#: inc/settings/tab-pro-features.php:31
-msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "Paganahin ang mga pasadyang uri ng post na magamit sa PublishPress Series."
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Shortcodes"
-msgstr "Mga Shortcode"
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Provides shortcodes to display series information."
-msgstr "Nagbibigay ng mga shortcode upang ipakita ang impormasyon tungkol sa serye."
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Extra Tokens"
-msgstr "Karagdagang Token"
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Provides extra tokens to customize the output of series information."
-msgstr ""
-"Nagbibigay ng karagdagang mga token upang i-customize ang output ng "
-"impormasyon tungkol sa serye."
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Multiple Series"
-msgstr "Maramihang Serye"
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Allows authors to add posts to more than one series."
-msgstr ""
-"Pinapayagan ang mga may-akda na magdagdag ng mga post sa higit sa isang "
-"serye."
-
 #: inc/settings/tab-series-category.php:10
 #: inc/settings/tab-series-category.php:11
-#: orgSeries-options.php:163
+#: orgSeries-options.php:166
 msgid "Series Category"
 msgstr "Kategorya ng Serye"
 
@@ -3082,6 +3197,7 @@ msgstr ""
 "pagpapakita."
 
 #: inc/settings/tab-series-category.php:30
+#: includes-core/Mcp/Settings.php:102
 msgid "Series Categories URL Base:"
 msgstr "Base ng URL ng Kategorya ng Serye:"
 
@@ -3094,6 +3210,7 @@ msgstr ""
 "Kung babaguhin mo ito, ang mga lumang URL ay ire-redirect sa bagong base."
 
 #: inc/settings/tab-series-category.php:40
+#: includes-core/Mcp/Settings.php:103
 msgid "Series Categories Archive Template:"
 msgstr "Template ng Archive ng Kategorya ng Series:"
 
@@ -3117,18 +3234,19 @@ msgstr ""
 "taxonomy-series_group.php."
 
 #: inc/settings/tab-series-category.php:53
+#: inc/settings/tab-series-category.php:56
 msgid "Plugin Template Display Options:"
 msgstr "Mga Opsyon sa Pagpapakita ng Template ng Plugin:"
 
-#: inc/settings/tab-series-category.php:57
+#: inc/settings/tab-series-category.php:59
 msgid "Show Series Featured Image"
 msgstr "Ipakita ang Tampok na Larawan ng Serye"
 
-#: inc/settings/tab-series-category.php:62
+#: inc/settings/tab-series-category.php:64
 msgid "Show Series Description"
 msgstr "Ipakita ang Deskripsyon ng Series"
 
-#: inc/settings/tab-series-category.php:67
+#: inc/settings/tab-series-category.php:69
 msgid "Show Posts in each Series as list items"
 msgstr "Ipakita ang mga Post sa bawat Series bilang mga item sa listahan"
 
@@ -3142,6 +3260,7 @@ msgstr ""
 "taxonomy na \"Series\"."
 
 #: inc/settings/tab-taxonomy.php:32
+#: includes-core/Mcp/Settings.php:101
 msgid "Series Taxonomy Slug:"
 msgstr "Slug ng Taxonomy ng Series:"
 
@@ -3183,19 +3302,59 @@ msgstr ""
 "sa bagong taxonomy kapag binago mo ang slug ng taxonomy. Kung hindi "
 "naka-check, ang slug ng taxonomy lamang ang mababago."
 
-#: inc/templates/taxonomy-series.php:71
+#: inc/templates/taxonomy-series.php:75
 msgid "Sorry, no results found."
 msgstr "Paumanhin, walang natagpuang resulta."
 
-#: inc/welcome/welcome-panel.php:141
+#: inc/utility-functions.php:850
+msgid "Series navigation"
+msgstr "Naviwasyon ng Series"
+
+#: inc/utility-functions.php:883
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "Paganahin ang mga pasadyang uri ng post na magamit sa PublishPress Series."
+
+#: inc/utility-functions.php:884
+msgid "Shortcodes"
+msgstr "Mga Shortcode"
+
+#: inc/utility-functions.php:884
+msgid "Provides shortcodes to display series information."
+msgstr "Nagbibigay ng mga shortcode upang ipakita ang impormasyon tungkol sa serye."
+
+#: inc/utility-functions.php:885
+msgid "Extra Tokens"
+msgstr "Karagdagang Token"
+
+#: inc/utility-functions.php:885
+msgid "Provides extra tokens to customize the output of series information."
+msgstr ""
+"Nagbibigay ng karagdagang mga token upang i-customize ang output ng "
+"impormasyon tungkol sa serye."
+
+#: inc/utility-functions.php:886
+msgid "Multiple Series"
+msgstr "Maramihang Serye"
+
+#: inc/utility-functions.php:886
+msgid "Allows authors to add posts to more than one series."
+msgstr ""
+"Pinapayagan ang mga may-akda na magdagdag ng mga post sa higit sa isang "
+"serye."
+
+#: inc/welcome/welcome-panel.php:93
+msgid "Welcome panel dismissed."
+msgstr "Nawala ang panel ng Welcome."
+
+#: inc/welcome/welcome-panel.php:142
 msgid "Dismiss this panel"
 msgstr "Isara ang panel na ito"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:161
 msgid "Welcome to PublishPress Series"
 msgstr "Maligayang pagdating sa PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:163
+#: inc/welcome/welcome-panel.php:164
 msgid ""
 "A series groups your posts together and shows your readers the reading "
 "order. Create your first series with the form on this page, then add posts "
@@ -3206,23 +3365,15 @@ msgstr ""
 "serye gamit ang form sa pahinang ito, pagkatapos ay magdagdag ng mga post "
 "dito."
 
-#: inc/welcome/welcome-panel.php:168
+#: inc/welcome/welcome-panel.php:169
 msgid "Create a series"
 msgstr "Lumikha ng isang serye"
 
-#: inc/welcome/welcome-panel.php:171
-msgid "View PublishPress Series documentation"
-msgstr "Tingnan ang dokumentasyon ng PublishPress Serye"
-
-#: inc/welcome/welcome-panel.php:172
+#: inc/welcome/welcome-panel.php:173
 msgid "View Documentation"
 msgstr "Tingnan ang Dokumentasyon"
 
-#: inc/welcome/welcome-panel.php:176
-msgid "Upgrade to PublishPress Series Pro"
-msgstr "Mag-upgrade sa PublishPress Serye Pro"
-
-#: inc/welcome/welcome-panel.php:177
+#: inc/welcome/welcome-panel.php:178
 #: includes-core/PPSeriesCoreAdmin.php:46
 msgid "Upgrade to Pro"
 msgstr "Mag-upgrade sa Pro"
@@ -3247,7 +3398,7 @@ msgid "Display navigation links for posts in a Series."
 msgstr "Ipakita ang mga link ng nabigasyon para sa mga post sa isang Series."
 
 #: includes-core/class-blocks.php:169
-#: orgSeries-setup.php:290
+#: orgSeries-setup.php:298
 #: assets/js/publishpress-series-blocks.js:51
 msgid "Series List"
 msgstr "Listahan ng Serye"
@@ -3259,7 +3410,7 @@ msgstr ""
 "Ipakita ang isang nako-customize na listahan ng mga Series o mga Kategorya "
 "ng Series."
 
-#: includes-core/class-blocks.php:423
+#: includes-core/class-blocks.php:439
 #. translators: %s: Number of series.
 #, php-format
 msgid "%s series"
@@ -3267,7 +3418,7 @@ msgid_plural "%s series"
 msgstr[0] "%s series"
 msgstr[1] "%s series"
 
-#: includes-core/class-blocks.php:429
+#: includes-core/class-blocks.php:445
 #. translators: %s: Number of posts.
 #, php-format
 msgid "%s post"
@@ -3275,52 +3426,553 @@ msgid_plural "%s posts"
 msgstr[0] "%s post"
 msgstr[1] "%s posts"
 
-#: includes-core/class-blocks.php:481
+#: includes-core/class-blocks.php:497
 msgid "Editorial Series"
 msgstr "Serye ng Pahayagan"
 
-#: includes-core/class-blocks.php:483
-#: includes-core/class-blocks.php:491
 #: includes-core/class-blocks.php:499
+#: includes-core/class-blocks.php:507
+#: includes-core/class-blocks.php:515
 msgid "A sample Series Category description."
 msgstr "Isang halimbawa ng paglalarawan ng Kategoryang Serye."
 
-#: includes-core/class-blocks.php:489
+#: includes-core/class-blocks.php:505
 msgid "Magazine Issues"
 msgstr "Mga Isyu ng Magasin"
 
-#: includes-core/class-blocks.php:497
+#: includes-core/class-blocks.php:513
 msgid "Tutorial Collections"
 msgstr "Mga Koleksyon ng Tutorial"
 
-#: includes-core/class-blocks.php:509
+#: includes-core/class-blocks.php:525
 msgid "Alpha Series"
 msgstr "Alpha Serye"
 
-#: includes-core/class-blocks.php:511
-#: includes-core/class-blocks.php:519
 #: includes-core/class-blocks.php:527
+#: includes-core/class-blocks.php:535
+#: includes-core/class-blocks.php:543
 msgid "A sample description for this Series."
 msgstr "Isang halimbawa ng paglalarawan para sa Seryeng ito."
 
-#: includes-core/class-blocks.php:517
+#: includes-core/class-blocks.php:533
 msgid "Bravo Series"
 msgstr "Bravo Serye"
 
-#: includes-core/class-blocks.php:525
+#: includes-core/class-blocks.php:541
 msgid "Charlie Series"
 msgstr "Charlie Serye"
 
-#: includes-core/class-blocks.php:898
+#: includes-core/class-blocks.php:914
 #: assets/js/publishpress-series-blocks.js:60
 msgid "Default layout"
 msgstr "Default na layout"
 
-#: includes-core/class-blocks.php:931
-#: orgSeries-widgets.php:420
+#: includes-core/class-blocks.php:947
+#: orgSeries-widgets.php:427
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "Kasalukuyang serye"
+
+#: includes-core/Mcp/bootstrap.php:15
+msgid "Actions provided by PublishPress plugins."
+msgstr "Mga aksyon na ibinibigay ng mga plugin ng PublishPress."
+
+#: includes-core/Mcp/Content.php:21
+msgid "Discover Series features and identifiers"
+msgstr "Tuklasin ang mga tampok at identifier ng Series"
+
+#: includes-core/Mcp/Content.php:21
+msgid ""
+"Discover the native series taxonomy, Series Categories, supported post "
+"types, publishing and active Pro addons. Layout discovery uses get-layout; "
+"settings use get-plugin-settings. Hub supplies generic post lookup."
+msgstr ""
+"Tuklasin ang katutubong taxonomy ng series, Mga Kategorya ng Series, "
+"suportadong uri ng post, pag-publish at aktibong Pro addons. Ang pagtuklas "
+"ng layout ay gumagamit ng get-layout; ang mga setting ay gumagamit ng "
+"get-plugin-settings. Ang Hub ay nagbibigay ng pangkalahatang post lookup."
+
+#: includes-core/Mcp/Content.php:22
+msgid "Find Series and Series Categories"
+msgstr "Hanapin ang mga Series at Kategorya ng Series"
+
+#: includes-core/Mcp/Content.php:22
+msgid ""
+"Find native Series terms or Series Categories by name. Returns native term "
+"metadata and concurrency tokens without exposing post content."
+msgstr ""
+"Hanapin ang mga katutubong term ng Series o Kategorya ng Series ayon sa "
+"pangalan. Nagbabalik ng katutubong metadata ng term at mga concurrency "
+"token nang hindi pinapakita ang nilalaman ng post."
+
+#: includes-core/Mcp/Content.php:23
+msgid "Read posts in a Series"
+msgstr "Basahin ang mga post sa isang Series"
+
+#: includes-core/Mcp/Content.php:23
+msgid ""
+"List readable posts with their native part numbers, pending order, status "
+"and date. Pagination filters unreadable objects first. Get-post-series "
+"supplies edit tokens for individual posts."
+msgstr ""
+"Ilista ang mga nababasang post kasama ang kanilang mga katutubong numero ng "
+"bahagi, nakabinbing pagkakasunud-sunod, katayuan at petsa. Ang pagination "
+"ay nagsasala ng mga hindi nababasang bagay muna. Nagbibigay ang "
+"get-post-series ng mga edit token para sa mga indibidwal na post."
+
+#: includes-core/Mcp/Content.php:24
+msgid "Inspect a Series or category"
+msgstr "Suriin ang isang Series o kategorya"
+
+#: includes-core/Mcp/Content.php:24
+msgid ""
+"Read name, description, icon, order, category assignments and "
+"expected_hash. Series Categories use taxonomy=category. Parent IDs apply to "
+"hierarchical categories."
+msgstr ""
+"Basahin ang pangalan, paglalarawan, icon, pagkakasunud-sunod, mga "
+"itinalagang kategorya at expected_hash. Ang Mga Kategorya ng Series ay "
+"gumagamit ng taxonomy=category. Ang mga Parent ID ay nalalapat sa "
+"hierarchical na mga kategorya."
+
+#: includes-core/Mcp/Content.php:25
+msgid "Create or update a Series or category"
+msgstr "Lumikha o mag-update ng isang Series o kategorya"
+
+#: includes-core/Mcp/Content.php:25
+msgid ""
+"Create with name, or patch an existing id and expected_hash. Omitted fields "
+"remain unchanged. icon_id is a readable image attachment; zero clears the "
+"Series icon. category_ids replace Series category assignments; [] clears "
+"them. dry_run previews."
+msgstr ""
+"Lumikha na may pangalan, o patch ang umiiral na id at expected_hash. Ang "
+"mga omited na field ay mananatiling hindi nagbabago. ang icon_id ay isang "
+"nababasang attachment ng larawan; ang zero ay naglilinis ng icon ng Series. "
+"ang category_ids ay pumapalit sa mga itinalagang kategorya ng Series; [] ay "
+"nililinis ang mga ito. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Content.php:26
+msgid "Delete a Series or category"
+msgstr "Burahin ang isang Series o kategorya"
+
+#: includes-core/Mcp/Content.php:26
+msgid ""
+"Delete a native taxonomy term without deleting its posts. Requires the "
+"current term and membership token and permission to edit all affected "
+"posts. dry_run previews. Large collections remain in native administration."
+msgstr ""
+"Burahin ang isang katutubong taxonomy term nang hindi binubura ang mga post "
+"nito. Nangangailangan ng kasalukuyang term at membership token at "
+"pahintulot na i-edit ang lahat ng naapektuhang post. Ang dry_run ay "
+"nag-preview. Ang malalaking koleksyon ay mananatili sa katutubong "
+"administrasyon."
+
+#: includes-core/Mcp/Content.php:27
+msgid "Inspect a post’s Series and block assignments"
+msgstr "Suriin ang mga pag-aasign ng Series at block ng isang post"
+
+#: includes-core/Mcp/Content.php:27
+msgid ""
+"Read Series membership, part numbers, widget short title and Series "
+"Gutenberg block attributes for a readable editable supported post. Returns "
+"expected_hash covering affected Series order and content."
+msgstr ""
+"Basahin ang membership ng Series, mga numero ng bahagi, maikling pamagat ng "
+"widget at mga katangian ng Series Gutenberg block para sa isang nababasang "
+"editable na suportadong post. Nagbabalik ng expected_hash na sumasaklaw sa "
+"naapektuhang pagkakasunud-sunod at nilalaman ng Series."
+
+#: includes-core/Mcp/Content.php:28
+msgid "Set post Series, part numbers and widget title"
+msgstr "Itakda ang Series ng post, mga numero ng bahagi at pamagat ng widget"
+
+#: includes-core/Mcp/Content.php:28
+msgid ""
+"Replace memberships with items; [] removes all. Omit items to update only "
+"short_title. Part zero uses native automatic placement. Multiple Series "
+"requires active Pro Multiple Series. All posts whose numbering can change "
+"require native read/edit permission. Read expected_hash from get-series "
+"before adding a new membership. dry_run previews."
+msgstr ""
+"Palitan ang mga membership ng mga item; [] ay nag-aalis ng lahat. Iwasan "
+"ang mga item upang i-update lamang ang short_title. Ang bahagi zero ay "
+"gumagamit ng katutubong awtomatikong paglalagay. Ang maraming Series ay "
+"nangangailangan ng aktibong Pro Multiple Series. Ang lahat ng mga post na "
+"maaaring magbago ng pagkakasunud-sunod ay nangangailangan ng katutubong "
+"pahintulot na magbasa/magbago. Basahin ang expected_hash mula sa get-series "
+"bago magdagdag ng bagong membership. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Content.php:31
+msgid "Update Series memberships for multiple posts"
+msgstr "I-update ang mga membership ng Series para sa maraming mga post"
+
+#: includes-core/Mcp/Content.php:31
+msgid ""
+"Validate every explicit post, Series token and native permission before "
+"updating up to 20 posts. Each row uses the same input as "
+"update-post-series. Omitted fields are preserved. dry_run previews all "
+"rows. Native numbering is not transactional; inspect complete, applied_ids "
+"and failed_id before retrying a partial result."
+msgstr ""
+"I-validate ang bawat tahasang post, Series token at katutubong pahintulot "
+"bago i-update ang hanggang 20 mga post. Ang bawat hilera ay gumagamit ng "
+"parehong input tulad ng update-post-series. Ang mga hindi pinansin na "
+"patlang ay pinanatili. Ang dry_run ay nag-preview ng lahat ng hilera. Ang "
+"katutubong numbering ay hindi transactional; suriin ang kumpleto, "
+"applied_ids at failed_id bago subukan muli ang isang bahagyang resulta."
+
+#: includes-core/Mcp/Content.php:32
+msgid "Order, publish, schedule or unpublish Series posts"
+msgstr "I-order, i-publish, i-schedule o i-unpublish ang mga post ng Series"
+
+#: includes-core/Mcp/Content.php:32
+msgid ""
+"Native Series Order and Publish Series workflows. Get expected_hash from "
+"get-series. order requires the complete counted post set and never "
+"publishes drafts. pending-order requires complete unpublished set. publish "
+"accepts selected pending/draft posts; date is optional site-local "
+"YYYY-MM-DD HH:MM for scheduling. unpublish affects the entire Series. trash "
+"requires explicit post_ids and native deletion capabilities. mark-published "
+"changes only the Series marker. date-asc/date-desc reuse native "
+"publication-date ordering. Cross-Series status transitions require "
+"series_tokens from get-series for the other memberships. sync-menu-order "
+"copies part numbers to WordPress menu order. All affected objects are "
+"preflighted; native multi-step operations are not transactional. dry_run "
+"previews."
+msgstr ""
+"Katutubong Series Order at Publish Series workflows. Kunin ang "
+"expected_hash mula sa get-series. Ang order ay nangangailangan ng "
+"kumpletong bilang ng post set at hindi kailanman nag-publish ng mga draft. "
+"Ang pending-order ay nangangailangan ng kumpletong hindi nai-publish na "
+"set. Ang publish ay tumatanggap ng napiling pending/draft posts; ang petsa "
+"ay opsyonal na site-local YYYY-MM-DD HH:MM para sa scheduling. Ang "
+"unpublish ay nakakaapekto sa buong Series. Ang trash ay nangangailangan ng "
+"tahasang post_ids at katutubong kakayahan sa pagtanggal. Ang mark-published "
+"ay nagbabago lamang ng Series marker. Ang date-asc/date-desc ay muling "
+"ginagamit ang katutubong publication-date ordering. Ang mga transition ng "
+"status ng Cross-Series ay nangangailangan ng series_tokens mula sa "
+"get-series para sa iba pang mga membership. Ang sync-menu-order ay "
+"kinokopya ang mga numero ng bahagi sa WordPress menu order. Ang lahat ng "
+"naapektuhang bagay ay preflighted; ang katutubong multi-step operations ay "
+"hindi transactional. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Content.php:33
+msgid "Add or configure a Series Gutenberg block"
+msgstr "Magdagdag o i-configure ang isang Series Gutenberg block"
+
+#: includes-core/Mcp/Content.php:33
+msgid ""
+"Append a native Series block or update one using its zero-based path from "
+"get-post-series. Only registered Series block attributes are accepted, with "
+"native editor availability and layout access checks. No arbitrary HTML or "
+"other block edits. dry_run previews."
+msgstr ""
+"Magdagdag ng isang katutubong Series block o i-update ito gamit ang "
+"zero-based path mula sa get-post-series. Tanging ang mga nakarehistrong "
+"Series block attributes ang tinatanggap, na may katutubong availability ng "
+"editor at layout access checks. Walang arbitrary HTML o ibang mga pag-edit "
+"ng block. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Content.php:64
+msgid "This Series term does not exist."
+msgstr "Ang term na Series na ito ay hindi umiiral."
+
+#: includes-core/Mcp/Content.php:72
+msgid "Series membership could not be read."
+msgstr "Hindi mabasa ang membership ng Series."
+
+#: includes-core/Mcp/Content.php:78
+#: includes-core/Mcp/Content.php:103
+msgid "Use native administration for more than 1,000 affected records."
+msgstr ""
+"Gumamit ng katutubong administrasyon para sa higit sa 1,000 naapektuhang "
+"tala."
+
+#: includes-core/Mcp/Content.php:119
+#: includes-core/Mcp/Content.php:329
+msgid "Use native administration for this category hierarchy."
+msgstr "Gumamit ng katutubong administrasyon para sa hierarchy ng kategoryang ito."
+
+#: includes-core/Mcp/Content.php:201
+#: includes-core/Mcp/Content.php:523
+msgid "Use native administration for more than 1,000 affected posts."
+msgstr ""
+"Gumamit ng katutubong administrasyon para sa higit sa 1,000 naapektuhang "
+"post."
+
+#: includes-core/Mcp/Content.php:233
+msgid "Supply a Series or category name."
+msgstr "Magbigay ng pangalan ng Series o kategorya."
+
+#: includes-core/Mcp/Content.php:236
+msgid "These fields apply only to Series, not Series Categories."
+msgstr ""
+"Ang mga patlang na ito ay nalalapat lamang sa Series, hindi sa mga "
+"Kategoryang Series."
+
+#: includes-core/Mcp/Content.php:239
+msgid "Use an existing category parent without a cycle."
+msgstr "Gumamit ng umiiral na magulang ng kategorya nang walang cycle."
+
+#: includes-core/Mcp/Content.php:258
+msgid "Unknown Series Category."
+msgstr "Hindi kilalang Kategorya ng Series."
+
+#: includes-core/Mcp/Content.php:413
+msgid ""
+"Multiple membership requires the active Pro Multiple Series feature; "
+"duplicate Series IDs are invalid."
+msgstr ""
+"Ang maramihang membership ay nangangailangan ng aktibong Pro Multiple "
+"Series feature; ang mga duplicate na Series ID ay hindi wasto."
+
+#: includes-core/Mcp/Content.php:417
+#: includes-core/Mcp/Content.php:666
+msgid "Supply one token per Series."
+msgstr "Magbigay ng isang token para sa bawat Series."
+
+#: includes-core/Mcp/Content.php:422
+#: includes-core/Mcp/Content.php:794
+msgid "Unknown Series."
+msgstr "Hindi kilalang Series."
+
+#: includes-core/Mcp/Content.php:497
+msgid "A target Series no longer exists."
+msgstr "Ang target na Series ay hindi na umiiral."
+
+#: includes-core/Mcp/Content.php:513
+msgid "Each bulk post target must appear only once."
+msgstr "Ang bawat bulk post target ay dapat lumitaw lamang isang beses."
+
+#: includes-core/Mcp/Content.php:539
+msgid "The batch changed. Read every affected object before retrying."
+msgstr "Nabago ang batch. Basahin ang bawat naapektuhang bagay bago subukan muli."
+
+#: includes-core/Mcp/Content.php:551
+msgid ""
+"A native bulk update could not be fully confirmed. Read affected objects "
+"before retrying."
+msgstr ""
+"Ang katutubong bulk update ay hindi ganap na makumpirma. Basahin ang mga "
+"naapektuhang bagay bago subukan muli."
+
+#: includes-core/Mcp/Content.php:555
+msgid ""
+"Post content changed during the native batch. Read affected posts before "
+"retrying."
+msgstr ""
+"Nabago ang nilalaman ng post sa panahon ng katutubong batch. Basahin ang "
+"mga naapektuhang post bago subukan muli."
+
+#: includes-core/Mcp/Content.php:581
+msgid "Every target must belong to this Series."
+msgstr "Ang bawat target ay dapat kabilang sa Series na ito."
+
+#: includes-core/Mcp/Content.php:588
+msgid "This operation applies to the Series; omit post_ids."
+msgstr "Ang operasyon na ito ay nalalapat sa Series; alisin ang post_ids."
+
+#: includes-core/Mcp/Content.php:591
+msgid "Publication dates apply only to publish operations."
+msgstr ""
+"Ang mga petsa ng publikasyon ay nalalapat lamang sa mga operasyon ng "
+"publish."
+
+#: includes-core/Mcp/Content.php:594
+msgid "Supply explicit post_ids for this operation."
+msgstr "Magbigay ng tahasang post_ids para sa operasyon na ito."
+
+#: includes-core/Mcp/Content.php:600
+msgid "Native menu-order targets could not be read."
+msgstr "Hindi mabasa ang mga target ng katutubong menu-order."
+
+#: includes-core/Mcp/Content.php:607
+msgid "Menu-order sync accepts only native published, numbered posts."
+msgstr ""
+"Ang menu-order sync ay tumatanggap lamang ng mga katutubong nai-publish, "
+"numbered posts."
+
+#: includes-core/Mcp/Content.php:614
+msgid "Supply the complete native ordered post set; no hidden targets are changed."
+msgstr ""
+"Magbigay ng kumpletong katutubong ordered post set; walang nakatagong mga "
+"target ang nababago."
+
+#: includes-core/Mcp/Content.php:676
+msgid "Use a valid site-local publication date."
+msgstr "Gumamit ng wastong site-local publication date."
+
+#: includes-core/Mcp/Content.php:811
+msgid "Read the current Series block path before editing."
+msgstr "Basahin ang kasalukuyang path ng Series block bago mag-edit."
+
+#: includes-core/Mcp/Layouts.php:79
+msgid "Read Series layout fields and settings"
+msgstr "Basahin ang mga patlang at setting ng layout ng Series"
+
+#: includes-core/Mcp/Layouts.php:79
+msgid ""
+"Inspect a Post List Box, Post Details or Post Navigation layout. Omit id to "
+"discover native fields/defaults for a new layout. Includes exact JSON "
+"schema, native labels and edition locks. Use list-layouts to find IDs."
+msgstr ""
+"Suriin ang isang Post List Box, Post Details o Post Navigation layout. "
+"Alisin ang id upang matuklasan ang mga katutubong patlang/defaults para sa "
+"isang bagong layout. Kasama ang eksaktong JSON schema, katutubong labels at "
+"mga lock ng edisyon. Gumamit ng list-layouts upang mahanap ang mga ID."
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "Find Series layouts"
+msgstr "Hanapin ang mga layout ng Series"
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "List readable native Series layouts, including trash when requested."
+msgstr ""
+"Ilista ang mga nababasang katutubong layout ng Series, kasama ang trash "
+"kapag hiniling."
+
+#: includes-core/Mcp/Layouts.php:88
+msgid "Create or update a Series layout"
+msgstr "Lumikha o mag-update ng isang layout ng Series"
+
+#: includes-core/Mcp/Layouts.php:88
+msgid ""
+"Create a published layout or patch one by id and expected_hash. Use "
+"get-layout for exact per-module field types and locks. JSON booleans for "
+"checkboxes, integers for sizes and image IDs, strings for select choices. "
+"Omitted fields and unrelated metadata remain unchanged. dry_run previews."
+msgstr ""
+"Lumikha ng isang nai-publish na layout o i-patch ito sa pamamagitan ng id "
+"at expected_hash. Gumamit ng get-layout para sa eksaktong per-module field "
+"types at locks. JSON booleans para sa mga checkbox, integers para sa mga "
+"sukat at image IDs, strings para sa mga pagpipilian sa select. Ang mga "
+"hindi pinansin na patlang at hindi nauugnay na metadata ay mananatiling "
+"hindi nababago. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Layouts.php:89
+msgid "Trash, restore or delete a Series layout"
+msgstr "Trash, ibalik o tanggalin ang isang layout ng Series"
+
+#: includes-core/Mcp/Layouts.php:89
+msgid ""
+"Native layout lifecycle. Read id and expected_hash first. Permanent "
+"deletion requires prior trash and native delete permission. dry_run "
+"previews."
+msgstr ""
+"Katutubong lifecycle ng layout. Basahin ang id at expected_hash muna. Ang "
+"permanenteng pagtanggal ay nangangailangan ng naunang trash at katutubong "
+"pahintulot sa pagtanggal. Ang dry_run ay nag-preview."
+
+#: includes-core/Mcp/Layouts.php:124
+msgid "Use native administration for more than 1,000 layouts."
+msgstr "Gamitin ang katutubong administrasyon para sa higit sa 1,000 layout."
+
+#: includes-core/Mcp/Layouts.php:148
+msgid "Supply a title for the new layout."
+msgstr "Magbigay ng pamagat para sa bagong layout."
+
+#: includes-core/Mcp/Layouts.php:154
+msgid "Restore the layout before editing."
+msgstr "Ibalik ang layout bago mag-edit."
+
+#: includes-core/Mcp/Layouts.php:167
+msgid "This layout field requires an active Pro feature."
+msgstr "Ang patlang ng layout na ito ay nangangailangan ng aktibong Pro na tampok."
+
+#: includes-core/Mcp/Layouts.php:205
+msgid ""
+"The layout exists but its settings were not fully confirmed. Read before "
+"retrying."
+msgstr ""
+"Ang layout ay umiiral ngunit ang mga setting nito ay hindi ganap na "
+"nakumpirma. Basahin bago muling subukan."
+
+#: includes-core/Mcp/Layouts.php:223
+msgid "This lifecycle operation does not match the current layout state."
+msgstr ""
+"Ang operasyon ng lifecycle na ito ay hindi tumutugma sa kasalukuyang estado "
+"ng layout."
+
+#: includes-core/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr ""
+"Gamitin ang eksaktong mga patlang, uri at pagpipilian na ibinabalik ng "
+"discovery."
+
+#: includes-core/Mcp/Registry.php:52
+msgid "You do not have permission to use this Series operation."
+msgstr "Wala kang pahintulot upang gamitin ang operasyon ng Series na ito."
+
+#: includes-core/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "Hindi wastong uri ng JSON sa %s."
+
+#: includes-core/Mcp/Registry.php:168
+msgid ""
+"Series could not complete this operation. Inspect the current state before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Hindi nakumpleto ng Series ang operasyon na ito. Suriin ang kasalukuyang "
+"estado bago muling subukan; maaaring may ilang pagbabago na naisave."
+
+#: includes-core/Mcp/Registry.php:200
+msgid "This object changed. Read it again before saving."
+msgstr "Nagbago ang object na ito. Basahin muli bago i-save."
+
+#: includes-core/Mcp/Registry.php:205
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Ang operasyon ay hindi ganap na nakumpirma. Basahin ang object bago muling "
+"subukan; maaaring may ilang pagbabago na naisave."
+
+#: includes-core/Mcp/Settings.php:79
+msgid "Read Series settings and choices"
+msgstr "Basahin ang mga setting at pagpipilian ng Series"
+
+#: includes-core/Mcp/Settings.php:79
+msgid ""
+"Discover native Series Settings: automatic displays, layouts, legacy "
+"templates, category archives, metabox, sorting, uninstall policy and active "
+"Pro features. Booleans use JSON true/false; layout IDs are integers. No "
+"license or account credentials are returned."
+msgstr ""
+"Tuklasin ang mga katutubong Setting ng Series: awtomatikong pagpapakita, "
+"mga layout, mga legacy template, mga archive ng kategorya, metabox, "
+"pagsasaayos, patakaran sa pag-uninstall at mga aktibong Pro na tampok. Ang "
+"mga Boolean ay gumagamit ng JSON true/false; ang mga ID ng layout ay mga "
+"integer. Walang lisensya o kredensyal ng account ang ibinabalik."
+
+#: includes-core/Mcp/Settings.php:80
+msgid "Update Series settings"
+msgstr "I-update ang mga setting ng Series"
+
+#: includes-core/Mcp/Settings.php:80
+msgid ""
+"Patch the exact keys discovered by get-plugin-settings. Preserve omitted "
+"settings. Read expected_hash first. dry_run previews without saving. Pro "
+"addon and post-type changes take effect on the next request. Taxonomy "
+"identity migrations remain in native administration."
+msgstr ""
+"I-patch ang eksaktong mga susi na natuklasan sa pamamagitan ng "
+"get-plugin-settings. Panatilihin ang mga hindi isinamang setting. Basahin "
+"ang expected_hash muna. Ang dry_run ay nagpe-preview nang hindi nagse-save. "
+"Ang mga pagbabago sa Pro addon at post-type ay magkakaroon ng bisa sa "
+"susunod na kahilingan. Ang mga migrasyon ng pagkakakilanlan ng taxonomy ay "
+"mananatili sa katutubong administrasyon."
+
+#: includes-core/Mcp/Settings.php:89
+msgid "Display Series Post List Boxes?"
+msgstr "I-display ang mga Kahon ng Listahan ng Post ng Series?"
+
+#: includes-core/Mcp/Settings.php:154
+msgid "This text requires unfiltered_html. Use safe post HTML."
+msgstr ""
+"Ang text na ito ay nangangailangan ng unfiltered_html. Gumamit ng ligtas na "
+"post HTML."
 
 #: includes-core/PPSeriesCoreAdmin.php:18
 #. translators: 1: Opening link tag, 2: Closing link tag.
@@ -3340,10 +3992,6 @@ msgstr "Kailangan ng Suporta sa PublishPress Series?"
 msgid "If you need help or have a new feature request, let us know."
 msgstr "Kung kailangan mo ng tulong o may bagong hiling na tampok, ipaalam sa amin."
 
-#: includes-core/PPSeriesCoreAdmin.php:77
-msgid "Request PublishPress Series support"
-msgstr "Humiling ng suporta para sa PublishPress Serye"
-
 #: includes-core/PPSeriesCoreAdmin.php:78
 msgid "Request Support"
 msgstr "Humiling ng Suporta"
@@ -3351,10 +3999,6 @@ msgstr "Humiling ng Suporta"
 #: includes-core/PPSeriesCoreAdmin.php:87
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Detalyadong dokumentasyon ay available din sa website ng plugin."
-
-#: includes-core/PPSeriesCoreAdmin.php:88
-msgid "View PublishPress Series knowledge base"
-msgstr "Tingnan ang kaalaman na base ng PublishPress Serye"
 
 #: includes-core/PPSeriesCoreAdmin.php:89
 msgid "View Knowledge Base"
@@ -3370,103 +4014,140 @@ msgstr "Nagkaroon ng error"
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s serye ay nailipat sa bagong taxonomy"
 
-#: orgSeries-admin.php:134
+#: orgSeries-admin.php:103
+msgid "No series found."
+msgstr "Walang series na natagpuan."
+
+#: orgSeries-admin.php:104
+msgid "1 series found."
+msgstr "1 series ang natagpuan."
+
+#: orgSeries-admin.php:106
+#. translators: %d: number of series matching the search
+#, php-format
+msgid "%d series found."
+msgstr "%d series ang natagpuan."
+
+#: orgSeries-admin.php:107
+msgid "Enter a name for the new series."
+msgstr "Mag-enter ng pangalan para sa bagong series."
+
+#: orgSeries-admin.php:143
 msgid "Custom Template"
 msgstr "Pasadyang Template"
 
-#: orgSeries-admin.php:152
-msgid "Leave a five-star review for PublishPress Series"
-msgstr "Mag-iwan ng limang-bituin na pagsusuri para sa PublishPress Serye"
+#: orgSeries-admin.php:144
+msgid "Layout options loaded."
+msgstr "Na-load ang mga pagpipilian sa layout."
 
-#: orgSeries-admin.php:157
+#: orgSeries-admin.php:145
+msgid "Layout options could not be loaded. Reload the page to try again."
+msgstr ""
+"Hindi ma-load ang mga pagpipilian sa layout. I-reload ang pahina upang "
+"subukan muli."
+
+#: orgSeries-admin.php:168
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
 msgstr "Kung gusto mo ang %1$s, mangyaring iwanan kami ng %2$s na rating. Salamat!"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:170
+msgid "five-star"
+msgstr "limang-bituin"
+
+#: orgSeries-admin.php:180
 msgid "About PublishPress Series"
 msgstr "Tungkol sa PublishPress Series"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:180
 msgid "About"
 msgstr "Tungkol"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "PublishPress Series Documentation"
 msgstr "Dokumentasyon ng PublishPress Series"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "Documentation"
 msgstr "Dokumentasyon"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact the PublishPress team"
 msgstr "Makipag-ugnayan sa team ng PublishPress"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact"
 msgstr "Makipag-ugnayan"
 
-#: orgSeries-admin.php:171
+#: orgSeries-admin.php:183
 msgid "Follow PublishPress on Twitter"
 msgstr "Sundan ang PublishPress sa Twitter"
 
-#: orgSeries-admin.php:172
+#: orgSeries-admin.php:184
 msgid "Follow PublishPress on Facebook"
 msgstr "Sundan ang PublishPress sa Facebook"
 
-#: orgSeries-admin.php:177
-msgid "Visit PublishPress"
-msgstr "Bumisita sa PublishPress"
+#: orgSeries-admin.php:206
+msgid "Select Media"
+msgstr "Pumili ng Media"
 
-#: orgSeries-admin.php:201
+#: orgSeries-admin.php:207
+msgid "Selected Image:"
+msgstr "Napiling Larawan:"
+
+#: orgSeries-admin.php:217
 msgid "Sorry but you don't have permission to add series"
 msgstr "Paumanhin ngunit wala kang pahintulot na magdagdag ng serye"
 
-#: orgSeries-admin.php:213
+#: orgSeries-admin.php:221
+msgid "Sorry but security check failed"
+msgstr "Paumanhin ngunit nabigo ang tseke sa seguridad"
+
+#: orgSeries-admin.php:229
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr ""
 "Ang pangalan na pinili mo ay hindi tama ang pag-sanitize. Subukan ang ibang "
 "bagay."
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "Hmm... mukhang mayroon nang serye na may ganung pangalan. Subukan ang iba."
 
-#: orgSeries-admin.php:231
-#: orgSeries-manage.php:161
+#: orgSeries-admin.php:247
+#: orgSeries-manage.php:257
 msgid "Series added."
 msgstr "Nagdagdag ng serye."
 
-#: orgSeries-admin.php:345
+#: orgSeries-admin.php:361
+#: orgSeries-taxonomy.php:1053
 msgid "Not part of a series"
 msgstr "Hindi bahagi ng isang serye"
 
-#: orgSeries-admin.php:398
+#: orgSeries-admin.php:417
 msgid "New series name"
 msgstr "Bagong pangalan ng serye"
 
-#: orgSeries-admin.php:405
+#: orgSeries-admin.php:425
 msgid "Search series"
 msgstr "Maghanap ng serye"
 
-#: orgSeries-admin.php:420
+#: orgSeries-admin.php:443
 msgid "Series Part:"
 msgstr "Bahagi ng Serye:"
 
-#: orgSeries-admin.php:421
-#: orgSeries-taxonomy.php:1094
+#: orgSeries-admin.php:444
+#: orgSeries-taxonomy.php:1018
 msgid "Series Part"
 msgstr "Bahagi ng Serye"
 
-#: orgSeries-admin.php:427
+#: orgSeries-admin.php:450
 msgid "Post title in widget:"
 msgstr "Pamagat ng post sa widget:"
 
-#: orgSeries-admin.php:429
+#: orgSeries-admin.php:452
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -3474,38 +4155,44 @@ msgstr ""
 "Isang maikling pamagat ng post na ito na gagamitin sa widget ng Series. "
 "Iwanang blangko upang gamitin ang buong pamagat."
 
-#: orgSeries-admin.php:431
+#: orgSeries-admin.php:454
 msgid "Post title in widget"
 msgstr "Pamagat ng post sa widget"
 
-#: orgSeries-admin.php:518
+#: orgSeries-admin.php:541
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (Walang bahagi ng numero)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:544
 #. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Bahagi %1$s ng %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:549
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (Walang Bahagi ng Numero)"
 
-#: orgSeries-admin.php:532
-#: orgSeries-setup.php:289
+#: orgSeries-admin.php:555
+#: orgSeries-setup.php:297
+#: orgSeries-taxonomy.php:1012
+#: orgSeries-taxonomy.php:1075
 msgid "No Series"
 msgstr "Walang Series"
 
-#: orgSeries-admin.php:556
+#: orgSeries-admin.php:580
 msgid "View all series"
 msgstr "Tingnan ang lahat ng series"
 
-#: orgSeries-admin.php:565
+#: orgSeries-admin.php:584
+msgid "Filter by series"
+msgstr "I-filter ayon sa series"
+
+#: orgSeries-admin.php:594
 msgid "Manage All Series"
 msgstr "Pamahalaan ang Lahat ng Series"
 
@@ -3523,11 +4210,19 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "Error sa database: %s"
 
-#: orgSeries-manage.php:74
+#: orgSeries-manage.php:125
+msgid "Order saved."
+msgstr "Naisave ang order."
+
+#: orgSeries-manage.php:126
+msgid "The new order could not be saved. Reload the page and try again."
+msgstr "Hindi maisave ang bagong order. I-reload ang pahina at subukan muli."
+
+#: orgSeries-manage.php:158
 msgid "Term Order"
 msgstr "Kaayusan ng Termino"
 
-#: orgSeries-manage.php:75
+#: orgSeries-manage.php:159
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3536,32 +4231,41 @@ msgstr ""
 "\"pag-click at paghawak\" nito kahit saan at ilipat ito sa bagong posisyon "
 "nito."
 
-#: orgSeries-manage.php:162
-#: orgSeries-manage.php:166
+#: orgSeries-manage.php:160
+msgid ""
+"You can also use the \"Move up\" and \"Move down\" buttons in each row. "
+"They work with the keyboard and save the new order straight away."
+msgstr ""
+"Maaari mo ring gamitin ang \"Ilipat pataas\" at \"Ilipat pababa\" na mga "
+"button sa bawat hilera. Gumagana ang mga ito gamit ang keyboard at agad na "
+"nagse-save ng bagong order."
+
+#: orgSeries-manage.php:258
+#: orgSeries-manage.php:262
 msgid "Series deleted."
 msgstr "Nabura ang serye."
 
-#: orgSeries-manage.php:163
+#: orgSeries-manage.php:259
 msgid "Series updated."
 msgstr "Na-update ang serye."
 
-#: orgSeries-manage.php:164
+#: orgSeries-manage.php:260
 msgid "Series not added."
 msgstr "Hindi nadagdag ang serye."
 
-#: orgSeries-manage.php:165
+#: orgSeries-manage.php:261
 msgid "Series not updated."
 msgstr "Hindi na-update ang serye."
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:336
 msgid "Posts"
 msgstr "Mga Post"
 
-#: orgSeries-manage.php:240, fuzzy
+#: orgSeries-manage.php:338, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:377
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3570,15 +4274,15 @@ msgstr ""
 "mong piliin ang iyong sariling kaayusan sa pamamagitan ng pagpasok ng isang "
 "numero (1 para sa una, atbp.) sa patlang na ito."
 
-#: orgSeries-manage.php:286
+#: orgSeries-manage.php:384
 msgid "Current series featured image:"
 msgstr "Kasalukuyang tampok na larawan ng serye:"
 
-#: orgSeries-manage.php:293
+#: orgSeries-manage.php:391
 msgid "No featured image currently"
 msgstr "Walang tampok na larawan sa kasalukuyan"
 
-#: orgSeries-manage.php:303
+#: orgSeries-manage.php:401
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
@@ -3586,38 +4290,44 @@ msgstr ""
 "Burahin ang larawan? (tandaan: walang larawang maiuugnay sa series na ito "
 "kung pipiliin mo ito)"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:406
 msgid "Series featured image upload:"
 msgstr "Pag-upload ng tampok na larawan ng serye:"
 
-#: orgSeries-manage.php:312
+#: orgSeries-manage.php:410
 msgid "Upload a featured image for the series."
 msgstr "Mag-upload ng tampok na larawan para sa serye."
 
-#: orgSeries-manage.php:327
+#: orgSeries-manage.php:425
 msgid "Invalid form data"
 msgstr "Hindi wastong data ng form"
 
-#: orgSeries-manage.php:337
+#: orgSeries-manage.php:435
 msgid "Invalid nonce, reload and try again"
 msgstr "Hindi wastong nonce, i-reload at subukan muli"
 
-#: orgSeries-manage.php:346
+#: orgSeries-manage.php:444
 msgid "Invalid taxonomy"
 msgstr "Hindi wastong taxonomy"
 
-#: orgSeries-manage.php:352
+#: orgSeries-manage.php:450
 msgid "Not enough permission"
 msgstr "Hindi sapat na pahintulot"
 
-#: orgSeries-manage.php:356
+#: orgSeries-manage.php:455
 msgid "Updated successfully"
 msgstr "Nai-update nang matagumpay"
+
+#: orgSeries-manage.php:546
+msgid "Series order metadata could not be read. No cleanup was authorized."
+msgstr ""
+"Hindi mabasa ang metadata ng order ng Series. Walang paglilinis ang "
+"pinahintulutan."
 
 #: orgSeries-options.php:48
 #: orgSeries-options.php:70
 #: orgSeries-options.php:71
-#: orgSeries-setup.php:1009
+#: orgSeries-setup.php:1087
 msgid "Settings"
 msgstr "Mga Setting"
 
@@ -3625,82 +4335,98 @@ msgstr "Mga Setting"
 msgid "PublishPress Series Options"
 msgstr "Mga Pagpipilian ng PublishPress Series"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:112
+msgid "Are you sure you want to Reset?"
+msgstr "Sigurado ka bang nais mong I-reset?"
+
+#: orgSeries-options.php:165
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: orgSeries-options.php:164, fuzzy
+#: orgSeries-options.php:167, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:171, fuzzy
+#: orgSeries-options.php:174, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: orgSeries-setup.php:226
+#: orgSeries-setup.php:234
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr ""
 "Pumili ng \"Hindi bahagi ng isang serye\" upang alisin ang anumang data ng "
 "serye mula sa post"
 
-#: orgSeries-setup.php:287
+#: orgSeries-setup.php:295
 msgid "&larr; Go to Series"
 msgstr "&larr; Pumunta sa Serye"
 
-#: orgSeries-setup.php:288
+#: orgSeries-setup.php:296
 msgid "View Series"
 msgstr "Tingnan ang Serye"
 
-#: orgSeries-setup.php:291
+#: orgSeries-setup.php:299
 msgid "Series Link"
 msgstr "Link ng Serye"
 
-#: orgSeries-setup.php:292
+#: orgSeries-setup.php:300
 msgid "A link to a Series"
 msgstr "Isang link sa isang Serye"
 
-#: orgSeries-setup.php:387
+#: orgSeries-setup.php:394
 msgid "Series Navigation"
 msgstr "Nabigasyon ng Serye"
 
-#: orgSeries-setup.php:991
+#: orgSeries-setup.php:1069
 msgid "Series: "
 msgstr "Serye: "
 
-#: orgSeries-setup.php:993
+#: orgSeries-setup.php:1071
 msgid "Posts from the series: "
 msgstr "Mga Post mula sa serye: "
 
-#: orgSeries-taxonomy.php:1091
-#: orgSeries-taxonomy.php:1120
+#: orgSeries-taxonomy.php:1005
+#: orgSeries-taxonomy.php:1045
 msgid "Series:"
 msgstr "Serye:"
 
-#: orgSeries-taxonomy.php:1093
+#: orgSeries-taxonomy.php:1017
 msgid "Part:"
 msgstr "Bahagi:"
 
-#: orgSeries-template-tags.php:270
+#: orgSeries-taxonomy.php:1052
+msgid "&mdash; No Change &mdash;"
+msgstr "&mdash; Walang Pagbabago &mdash;"
+
+#: orgSeries-template-tags.php:273
 msgid "All the Series I've Written"
 msgstr "Lahat ng Serye na Aking Sinulat"
 
-#: orgSeries-template-tags.php:274
-#: orgSeries-template-tags.php:283
+#: orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:286
 #. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">Serye</a>"
 
-#: orgSeries-template-tags.php:1290
+#: orgSeries-template-tags.php:1319
 msgid "Series featured image"
 msgstr "Tampok na imahe ng Serye"
 
-#: orgSeries-template-tags.php:1296
+#: orgSeries-template-tags.php:1325
 #, php-format
 msgid "View series: %s"
 msgstr "Tingnan ang serye: %s"
 
-#: orgSeries-utility.php:462
+#: orgSeries-utility.php:22
+msgid "(opens in a new tab)"
+msgstr "(nagbubukas sa bagong tab)"
+
+#: orgSeries-utility.php:52
+msgid "Available in PublishPress Series Pro"
+msgstr "Available sa PublishPress Series Pro"
+
+#: orgSeries-utility.php:508
 msgid "Auto/None"
 msgstr "Auto/Wala"
 
@@ -3712,12 +4438,12 @@ msgstr "Gamitin ito upang kontrolin ang output ng pinakabagong widget ng serye"
 msgid "Most Recent Series"
 msgstr "Pinakabagong Serye"
 
-#: orgSeries-widgets.php:82
-#: orgSeries-widgets.php:292
+#: orgSeries-widgets.php:81
+#: orgSeries-widgets.php:299
 msgid "Title:"
 msgstr "Pamagat:"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:87
 #. translators: %s: URL to the Latest Series settings.
 #, php-format
 msgid ""
@@ -3727,125 +4453,126 @@ msgstr ""
 "Ang layout at nilalaman ng widget na ito ay maaaring ayusin sa pamamagitan "
 "ng <a href=\"%s\">Pinakabagong Serye</a> na lugar."
 
+#: orgSeries-widgets.php:91
 #: orgSeries-widgets.php:92
-#: orgSeries-widgets.php:93
 msgid "Hide series with no posts?"
 msgstr "Itago ang mga serye na walang mga post?"
 
-#: orgSeries-widgets.php:95
-#: orgSeries-widgets.php:318
+#: orgSeries-widgets.php:94
+#: orgSeries-widgets.php:325
 msgid "Order by:"
 msgstr "Ayusin ayon sa:"
 
-#: orgSeries-widgets.php:97
+#: orgSeries-widgets.php:96
 msgid "Number of posts in Series"
 msgstr "Bilang ng mga post sa Serye"
 
-#: orgSeries-widgets.php:98
+#: orgSeries-widgets.php:97
 msgid "Name of Series"
 msgstr "Pangalan ng Serye"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:98
 msgid "Series Slug"
 msgstr "Slug ng Serye"
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:99
 msgid "When Series was Created"
 msgstr "Kailan nalikha ang Serye"
 
-#: orgSeries-widgets.php:101, fuzzy
+#: orgSeries-widgets.php:100, fuzzy
 msgid "Random"
 msgstr "Random"
 
-#: orgSeries-widgets.php:105
+#: orgSeries-widgets.php:104
 msgid "Number of series to display:"
 msgstr "Bilang ng mga serye na ipapakita:"
 
-#: orgSeries-widgets.php:109
+#: orgSeries-widgets.php:108
 msgid "Display Order: "
 msgstr "Order ng Display: "
 
-#: orgSeries-widgets.php:110, fuzzy
+#: orgSeries-widgets.php:109, fuzzy
 msgid "ASC: "
 msgstr "ASC: "
 
-#: orgSeries-widgets.php:111, fuzzy
+#: orgSeries-widgets.php:110, fuzzy
 msgid "DESC: "
 msgstr "DESC: "
 
-#: orgSeries-widgets.php:122
+#: orgSeries-widgets.php:121
 msgid "Use this to display the Series Table of contents"
 msgstr "Gamitin ito upang ipakita ang Talaan ng nilalaman ng Serye"
 
-#: orgSeries-widgets.php:194
+#: orgSeries-widgets.php:193
+#: orgSeries-widgets.php:200
 msgid "Select Series"
 msgstr "Pumili ng Serye"
 
-#: orgSeries-widgets.php:257
+#: orgSeries-widgets.php:264
 msgid "Other posts in series:"
 msgstr "Ibang mga post sa serye:"
 
-#: orgSeries-widgets.php:297
+#: orgSeries-widgets.php:304
 msgid "Show Series Table Of Content"
 msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:309
 msgid "Show Series Table Of Content as:"
 msgstr "Ipakita ang Nilalaman ng Talahanayan ng Serye bilang:"
 
-#: orgSeries-widgets.php:303, fuzzy
+#: orgSeries-widgets.php:310, fuzzy
 msgid "Dropdown:"
 msgstr "Dropdown:"
 
-#: orgSeries-widgets.php:304
+#: orgSeries-widgets.php:311
 msgid "List:"
 msgstr "Listahan:"
 
-#: orgSeries-widgets.php:308
+#: orgSeries-widgets.php:315
 msgid "Show post count:"
 msgstr "Ipakita ang bilang ng mga post:"
 
-#: orgSeries-widgets.php:313
+#: orgSeries-widgets.php:320
 msgid "Hide empty series:"
 msgstr "Itago ang mga walang laman na serye:"
 
-#: orgSeries-widgets.php:322
+#: orgSeries-widgets.php:329
 msgid "name"
 msgstr "pangalan"
 
-#: orgSeries-widgets.php:323
+#: orgSeries-widgets.php:330
 msgid "count"
 msgstr "bilang"
 
-#: orgSeries-widgets.php:324, fuzzy
+#: orgSeries-widgets.php:331, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:325
+#: orgSeries-widgets.php:332
 msgid "series id"
 msgstr "id ng serye"
 
-#: orgSeries-widgets.php:338
+#: orgSeries-widgets.php:345
 msgid "Order:"
 msgstr "Kaayusan:"
 
-#: orgSeries-widgets.php:356
+#: orgSeries-widgets.php:363
 msgid "Exclude series:"
 msgstr "I-exclude ang mga serye:"
 
-#: orgSeries-widgets.php:371
+#: orgSeries-widgets.php:378
 msgid "Include series:"
 msgstr "Isama ang mga serye:"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:393
 msgid "Number of Series:"
 msgstr "Bilang ng mga Serye:"
 
-#: orgSeries-widgets.php:391, fuzzy
+#: orgSeries-widgets.php:398, fuzzy
 msgid "Offset:"
 msgstr "Offset:"
 
-#: orgSeries-widgets.php:393
+#: orgSeries-widgets.php:400
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3853,11 +4580,11 @@ msgstr ""
 "Maaari mong piliin ang offset para sa bilang ng mga serye "
 "(kapaki-pakinabang para sa paging). Walang offset kung iiwanang blangko"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:404
 msgid "Search:"
 msgstr "Maghanap:"
 
-#: orgSeries-widgets.php:399
+#: orgSeries-widgets.php:406
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
@@ -3865,15 +4592,15 @@ msgstr ""
 "Maaari mong ibalik ang anumang serye na tumutugma sa string ng paghahanap "
 "na ito (tumugma sa mga pangalan ng serye)"
 
-#: orgSeries-widgets.php:403
+#: orgSeries-widgets.php:410
 msgid "Show other posts in the current series:"
 msgstr "Ipakita ang iba pang mga post sa kasalukuyang serye:"
 
-#: orgSeries-widgets.php:438
+#: orgSeries-widgets.php:445
 msgid "Series widget title:"
 msgstr "Pamagat ng widget ng serye:"
 
-#: orgSeries-widgets.php:440
+#: orgSeries-widgets.php:447
 msgid "This text will display above other posts in this series."
 msgstr "Ang tekstong ito ay ipapakita sa itaas ng iba pang mga post sa seryeng ito."
 
@@ -4039,9 +4766,9 @@ msgstr "Key ng Lisensya para sa %1$s"
 msgid "Enter your license key: "
 msgstr "Ilagay ang iyong key ng lisensya: "
 
-#: src/views/admin/templates/license_key_form.template.php:24
-msgid "License key"
-msgstr "Susi ng lisensya"
+#: src/views/admin/templates/license_key_form.template.php:28
+msgid "Expires:"
+msgstr "Mawawalan ng bisa:"
 
 #: assets/js/publishpress-series-blocks.js:126
 msgid "Block settings"
@@ -4131,44 +4858,44 @@ msgstr "Ipakita ang bilang ng serye"
 msgid "Show post count"
 msgstr "Ipakita ang bilang ng post"
 
-#: addons/grouping/legacy-includes.php:301
+#: addons/grouping/legacy-includes.php:304
 msgctxt "taxonomy general name"
 msgid "Series Categories"
 msgstr "Kategorya ng Serye"
 
 #: inc/settings/settings-validation.php:87
-#: orgSeries-setup.php:276
+#: orgSeries-setup.php:284
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "Serye"
 
-#: addons/grouping/legacy-includes.php:302
+#: addons/grouping/legacy-includes.php:305
 msgctxt "taxonomy singular name"
 msgid "Series Category"
 msgstr "Kategorya ng Serye"
 
 #: inc/settings/settings-validation.php:88
-#: orgSeries-setup.php:277
+#: orgSeries-setup.php:285
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "Serye"
 
-#: addons/grouping/legacy-includes.php:725
+#: addons/grouping/legacy-includes.php:730
 msgctxt "series grouping column header"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-admin.php:464
+#: orgSeries-admin.php:487
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-admin.php:489
+#: orgSeries-admin.php:512
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-admin.php:575
+#: orgSeries-admin.php:604
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -4180,13 +4907,13 @@ msgctxt "top-level admin menu label"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-setup.php:285
+#: orgSeries-setup.php:293
 msgctxt "taxonomy menu name"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-setup.php:380
-#: orgSeries-setup.php:382
+#: orgSeries-setup.php:387
+#: orgSeries-setup.php:389
 #. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
@@ -4195,17 +4922,17 @@ msgstr ""
 "Ang entry na ito ay bahagi %series_part% ng %total_posts_in_series% sa "
 "serye "
 
-#: orgSeries-taxonomy.php:750
+#: orgSeries-taxonomy.php:768
 msgctxt "series list title"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-widgets.php:256
+#: orgSeries-widgets.php:263
 msgctxt "widget title default"
 msgid "Series"
 msgstr "Serye"
 
-#: orgSeries-widgets.php:409
+#: orgSeries-widgets.php:416
 msgctxt "widget section label"
 msgid "Series"
 msgstr "Serye"
