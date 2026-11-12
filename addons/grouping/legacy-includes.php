@@ -569,6 +569,8 @@ function orgseries_grouping_import_existing_series()
         foreach ($series as $this_series) {
             $post_args = array(
                 'post_type' => 'series_grouping',
+                'post_status' => 'draft',
+                'post_date_gmt' => current_time('mysql', true),
                 'to_ping' => 0,
                 'post_title' => 'series_grouping_' . $this_series,
                 'post_name' => 'series_grouping_' . $this_series
@@ -930,8 +932,13 @@ function wp_insert_series_group($series_id, $taxonomy_id)
         $terms = os_stringarray_to_intarray($tax_input['series_group']);
     }
 
+    // Grouping posts stay drafts so they are never public. Drafts get a zero
+    // post_date_gmt/post_modified_gmt unless one is passed, which breaks sitemap
+    // lastmod values built from these posts (e.g. All in One SEO), so pass it.
     $post_arr = array(
         'post_type' => 'series_grouping',
+        'post_status' => 'draft',
+        'post_date_gmt' => current_time('mysql', true),
         'to_ping' => 0,
         'post_title' => 'series_grouping_' . $series_id,
         'post_name' => 'series_grouping_' . $series_id
