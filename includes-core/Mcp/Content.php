@@ -741,7 +741,7 @@ class Content
         $schemas = [];
         foreach (\WP_Block_Type_Registry::get_instance()->get_all_registered() as $name => $block) {
             if (str_starts_with($name, 'publishpress-series/')) {
-                $keys = $name === 'publishpress-series/series-list' ? array_keys(\PublishPress\Series\Blocks::getSeriesListAttributes()) : ['layoutId', 'seriesId'];
+                $keys = $name === 'publishpress-series/series-list' ? array_keys(ppseries_get_series_list_block_attributes()) : ['layoutId', 'seriesId'];
                 $schemas[$name] = Registry::object(array_intersect_key($block->attributes, array_flip($keys)));
             }
         }

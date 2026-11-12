@@ -38,7 +38,7 @@ class Layouts
 
     private static function locked(string $module, string $key, array $field): bool
     {
-        $locks = $module === 'post-navigation' ? \PPS_Series_Post_Navigation_Utilities::get_pro_locked_fields() : [];
+        $locks = $module === 'post-navigation' ? ppseries_get_post_navigation_pro_locked_fields() : [];
         $locked = !empty($field['pro_only']) || in_array($key, $locks, true);
         if ($module === 'post-details') {
             $locked = $locked || (!Registry::pro() && in_array($key, \PPS_Series_Post_Details_Utilities::get_pro_only_keys(), true));

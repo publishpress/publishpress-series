@@ -11,18 +11,6 @@
 
 defined('ABSPATH') || exit;
 
-if (!function_exists('ppseries_new_tab_text')) {
-    /**
-     * Screen-reader-only notice for links that open in a new tab.
-     *
-     * @return string Safe HTML.
-     */
-    function ppseries_new_tab_text()
-    {
-        return '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'organize-series') . '</span>';
-    }
-}
-
 if (!function_exists('ppseries_pro_tooltip_id')) {
     /**
      * Unique id for a PRO lock tooltip, so the badge link can reference it with aria-describedby.
