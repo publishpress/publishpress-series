@@ -61,6 +61,8 @@
 - /scripts
 - tailwind.config.js
 - tests
+- /.agents
+- /docs
 - /vendor
 - /vendor/bin
 - webpack.config.js

@@ -462,8 +462,8 @@ class PPS_Series_Post_Navigation_Fields
                 'label'    => __('Background Color', 'organize-series'),
                 'type'     => 'color',
                 'tab'      => 'item',
-                'sanitize' => 'sanitize_hex_color',
-                'default'  => '',
+                'sanitize' => 'pps_sanitize_transparent_color',
+                'default'  => 'transparent',
                 'description' => __('Choose the background color of navigation links', 'organize-series'),
             ],
             'border_separator' => [
@@ -552,8 +552,8 @@ class PPS_Series_Post_Navigation_Fields
                 'label'    => __('Container Background Color', 'organize-series'),
                 'type'     => 'color',
                 'tab'      => 'layout',
-                'sanitize' => 'sanitize_hex_color',
-                'default'  => '',
+                'sanitize' => 'pps_sanitize_transparent_color',
+                'default'  => 'transparent',
                 'description' => __('Background color for the navigation container', 'organize-series'),
             ],
             'container_border_color' => [

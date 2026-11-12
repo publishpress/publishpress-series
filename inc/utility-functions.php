@@ -570,3 +570,20 @@ if (! function_exists('pps_sanitize_optional_absint')) {
         return absint($value);
     }
 }
+
+/** Native transparent color controls share the same validator as layout imports. */
+function pps_sanitize_transparent_color($value)
+{
+    return pps_sanitize_css_color($value, true);
+}
+
+/** Native optional Series Pro controls shared by discovery and both settings screens. */
+function ppseries_get_pro_feature_definitions()
+{
+    return [
+        'cpt' => ['name' => __('Custom Post Type Support', 'organize-series'), 'description' => __('Allow custom post types to be used with PublishPress Series.', 'organize-series')],
+        'shortcodes' => ['name' => __('Shortcodes', 'organize-series'), 'description' => __('Provides shortcodes to display series information.', 'organize-series')],
+        'extra-tokens' => ['name' => __('Extra Tokens', 'organize-series'), 'description' => __('Provides extra tokens to customize the output of series information.', 'organize-series')],
+        'multiples' => ['name' => __('Multiple Series', 'organize-series'), 'description' => __('Allows authors to add posts to more than one series.', 'organize-series')],
+    ];
+}

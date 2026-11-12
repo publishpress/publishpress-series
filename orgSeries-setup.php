@@ -359,11 +359,10 @@ if (!class_exists('orgSeries')) {
             return wp_kses_data($description);
         }
 
-        function add_settings($reset = false)
+        /** Native defaults shared by installation, reset and discovery. */
+        public function get_default_settings()
         {
-            $url = wp_parse_url(get_bloginfo('url'));
-            if (!($this->settings = get_option('org_series_options')) || $reset == true) {
-                $this->settings = array(
+            $defaults = array(
                 //main settings
                 'custom_css' => 1,
                 'metabox_show_add_new' => 0,
@@ -417,8 +416,14 @@ if (!class_exists('orgSeries')) {
                 'series_group_plugin_columns' => 3,
                 'metabox_series_order' => 'default',
                 );
+            return apply_filters('org_series_settings', $defaults);
+        }
 
-                $this->settings = apply_filters('org_series_settings', $this->settings);
+        function add_settings($reset = false)
+        {
+            $url = wp_parse_url(get_bloginfo('url'));
+            if (!($this->settings = get_option('org_series_options')) || $reset == true) {
+                $this->settings = $this->get_default_settings();
                 update_option('org_series_options', $this->settings);
                 return true;
             }
