@@ -74,7 +74,7 @@ jQuery(document).ready( function($) {
         return;
       }
       var title = rowTitle($row);
-      var $cell = $row.find('td.column-title, td.column-primary').first();
+      var $cell = $row.find('.column-title, .column-primary').filter('td, th').first();
       if (!$cell.length) {
         $cell = $row.children('td').first();
       }
