@@ -613,6 +613,19 @@ class PostListBoxFields
                 'description' => __('Limit the number of posts shown in the series list. Leave empty for no limit. The admin preview is limited to 4 posts.', 'organize-series'),
                 'pro_only' => true,
             ],
+            'maximum_items_mode' => [
+                'label' => __('Items to show when limited', 'organize-series'),
+                'type' => 'select',
+                'tab' => 'layout',
+                'options' => [
+                    'first' => __('First posts in the series', 'organize-series'),
+                    'around_current' => __('Posts before and after the current post', 'organize-series'),
+                ],
+                'sanitize' => 'sanitize_key',
+                'default' => 'first',
+                'description' => __('Only used when "Maximum number of items" is set. Choose "Posts before and after the current post" to keep the post being viewed in the list, with the posts around it. On pages that are not part of the series, the first posts are shown. The admin preview uses a post from the middle of the series as the current post.', 'organize-series'),
+                'pro_only' => true,
+            ],
         ];
     }
 
