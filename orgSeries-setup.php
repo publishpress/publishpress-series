@@ -21,8 +21,9 @@ if (!class_exists('orgSeries')) {
         {
             $this->register_textdomain();
 
-            //install OrgSeries
-            add_action('activate_' . PPSERIES_BASE_NAME . '', array($this, 'org_series_install'));
+            // Activation and capability setup run through pp_series_core_activation() and
+            // pp_series_upgrade_function(). An 'activate_' hook registered here would never
+            // fire, because this class is created during 'plugins_loaded'.
             add_action('admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
 
             //add support for capabilities tab in PublishPress Capabilities
@@ -146,6 +147,13 @@ if (!class_exists('orgSeries')) {
             delete_option('pp_series_flush_rewrite_rules');
         }
 
+        /**
+         * Legacy install routine.
+         *
+         * No longer hooked to plugin activation: the 'activate_' hook was registered
+         * during 'plugins_loaded', too late for the activation request. Roles are now
+         * set up by pp_series_upgrade_function(). Kept for backward compatibility.
+         */
         function org_series_install()
         {
             global $wpdb, $wp_rewrite;
