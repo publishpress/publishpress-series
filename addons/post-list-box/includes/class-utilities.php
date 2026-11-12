@@ -96,6 +96,57 @@ class PPS_Post_List_Box_Utilities
     }
 
     /**
+     * Limit an ordered list of series posts to a maximum number of items.
+     *
+     * In "first" mode the first posts are kept. In "around_current" mode the
+     * posts before and after the current post are kept, with the current post
+     * as close to the middle as the series allows. When the current post is not
+     * in the list, "around_current" falls back to the first posts.
+     *
+     * @param array  $posts           Ordered posts.
+     * @param int    $maximum_items   Maximum number of items. 0 or less means no limit.
+     * @param string $mode            'first' or 'around_current'.
+     * @param int    $current_post_id ID of the post being viewed, 0 when none.
+     * @return array {
+     *     @type array $posts  The kept posts, re-indexed from 0.
+     *     @type int   $offset Position of the first kept post in the full list.
+     * }
+     */
+    public static function limit_posts($posts, $maximum_items, $mode = 'first', $current_post_id = 0)
+    {
+        $posts = array_values((array) $posts);
+        $maximum_items = (int) $maximum_items;
+        $total = count($posts);
+
+        if ($maximum_items <= 0 || $total <= $maximum_items) {
+            return ['posts' => $posts, 'offset' => 0];
+        }
+
+        $offset = 0;
+
+        if ($mode === 'around_current' && $current_post_id) {
+            $current_index = false;
+            foreach ($posts as $index => $post) {
+                if (is_object($post) && isset($post->ID) && (string) $post->ID === (string) $current_post_id) {
+                    $current_index = $index;
+                    break;
+                }
+            }
+
+            if ($current_index !== false) {
+                $before = (int) floor(($maximum_items - 1) / 2);
+                $offset = max(0, $current_index - $before);
+                $offset = min($offset, $total - $maximum_items);
+            }
+        }
+
+        return [
+            'posts' => array_slice($posts, $offset, $maximum_items),
+            'offset' => $offset,
+        ];
+    }
+
+    /**
      * Resolve the series term for a post list box.
      *
      * @param array            $posts  Posts array.
