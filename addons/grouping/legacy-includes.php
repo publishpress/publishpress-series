@@ -59,6 +59,9 @@ add_action('template_redirect', 'pp_series_group_redirect_legacy_base');
 
 add_action('pp_series_advanced_tab_top', 'series_grouping_delete_output');
 
+// All in One SEO: give Series Categories a real sitemap lastmod (#876).
+add_filter('aioseo_sitemap_term', 'pp_series_group_aioseo_sitemap_term', 10, 3);
+
 add_shortcode('publishpress_series_categories', 'publishpress_series_groups');
 
 function pp_series_group_get_current_base()
@@ -569,6 +572,8 @@ function orgseries_grouping_import_existing_series()
         foreach ($series as $this_series) {
             $post_args = array(
                 'post_type' => 'series_grouping',
+                'post_status' => 'draft',
+                'post_date_gmt' => current_time('mysql', true),
                 'to_ping' => 0,
                 'post_title' => 'series_grouping_' . $this_series,
                 'post_name' => 'series_grouping_' . $this_series
@@ -930,8 +935,13 @@ function wp_insert_series_group($series_id, $taxonomy_id)
         $terms = os_stringarray_to_intarray($tax_input['series_group']);
     }
 
+    // Grouping posts stay drafts so they are never public. Drafts get a zero
+    // post_date_gmt/post_modified_gmt unless one is passed, which breaks sitemap
+    // lastmod values built from these posts (e.g. All in One SEO), so pass it.
     $post_arr = array(
         'post_type' => 'series_grouping',
+        'post_status' => 'draft',
+        'post_date_gmt' => current_time('mysql', true),
         'to_ping' => 0,
         'post_title' => 'series_grouping_' . $series_id,
         'post_name' => 'series_grouping_' . $series_id
@@ -1020,4 +1030,61 @@ function publishpress_series_groups($atts)
     $args = shortcode_atts($default_atts, $atts);
 
     return get_series_group_list($args['category_ids'], $args, false);
+}
+
+/**
+ * Set the All in One SEO sitemap lastmod of a Series Category.
+ *
+ * Series Category terms are attached to hidden draft series_grouping posts, and AIOSEO
+ * only reads published posts, so it falls back to 1970-01-01. Use the latest modified
+ * date of the published posts in the category's series instead.
+ *
+ * @param array  $entry    Sitemap entry.
+ * @param int    $term_id  Term ID.
+ * @param string $taxonomy Taxonomy name.
+ *
+ * @return array
+ */
+function pp_series_group_aioseo_sitemap_term($entry, $term_id = 0, $taxonomy = '')
+{
+    global $wpdb;
+
+    if ('series_group' !== $taxonomy || !is_array($entry)) {
+        return $entry;
+    }
+
+    $series_ids = get_series_in_group((int) $term_id);
+    if (empty($series_ids) || !is_array($series_ids)) {
+        return $entry;
+    }
+
+    $series_ids = array_values(array_filter(array_map('intval', $series_ids)));
+    if (empty($series_ids)) {
+        return $entry;
+    }
+
+    $placeholders = implode(',', array_fill(0, count($series_ids), '%d'));
+    $args = array_merge(array(ppseries_get_series_slug()), $series_ids);
+
+    // $placeholders only holds %d placeholders.
+    // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    $last_modified = $wpdb->get_var($wpdb->prepare(
+        "SELECT MAX(p.post_modified_gmt) FROM $wpdb->posts p
+        INNER JOIN $wpdb->term_relationships tr ON tr.object_id = p.ID
+        INNER JOIN $wpdb->term_taxonomy tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+        WHERE p.post_status = 'publish' AND tt.taxonomy = %s AND tt.term_id IN ($placeholders)",
+        $args
+    ));
+    // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
+    if (empty($last_modified) || '0000-00-00 00:00:00' === $last_modified) {
+        return $entry;
+    }
+
+    $timestamp = strtotime($last_modified . ' UTC');
+    if ($timestamp) {
+        $entry['lastmod'] = gmdate('c', $timestamp);
+    }
+
+    return $entry;
 }

@@ -151,6 +151,56 @@ if (!function_exists('pp_series_upgrade_function')) {
         }
 
         /**
+         * Repair zero dates on hidden series_grouping posts.
+         *
+         * These posts were created as drafts without a GMT date, so their
+         * post_date_gmt and post_modified_gmt were 0000-00-00 00:00:00, which SEO
+         * plugins turned into invalid sitemap lastmod values. The GMT dates are
+         * rebuilt from the local dates; zero local dates fall back to now.
+         */
+        if (!get_option('pp_series_3_2_0_group_dates_upgraded')) {
+            $zero_date = '0000-00-00 00:00:00';
+            $group_posts = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, post_date, post_date_gmt, post_modified, post_modified_gmt FROM $wpdb->posts WHERE post_type = %s AND (post_date_gmt = %s OR post_modified_gmt = %s OR post_date = %s OR post_modified = %s)",
+                    'series_grouping',
+                    $zero_date,
+                    $zero_date,
+                    $zero_date,
+                    $zero_date
+                )
+            );
+
+            if (!empty($group_posts)) {
+                $now = current_time('mysql');
+                $now_gmt = current_time('mysql', true);
+
+                foreach ($group_posts as $group_post) {
+                    $post_date = ($group_post->post_date !== $zero_date) ? $group_post->post_date : $now;
+                    $post_date_gmt = ($group_post->post_date !== $zero_date) ? get_gmt_from_date($post_date) : $now_gmt;
+                    $post_modified = ($group_post->post_modified !== $zero_date) ? $group_post->post_modified : $post_date;
+                    $post_modified_gmt = ($group_post->post_modified !== $zero_date) ? get_gmt_from_date($post_modified) : $post_date_gmt;
+
+                    $wpdb->update(
+                        $wpdb->posts,
+                        array(
+                            'post_date' => $post_date,
+                            'post_date_gmt' => ($group_post->post_date_gmt !== $zero_date) ? $group_post->post_date_gmt : $post_date_gmt,
+                            'post_modified' => $post_modified,
+                            'post_modified_gmt' => ($group_post->post_modified_gmt !== $zero_date) ? $group_post->post_modified_gmt : $post_modified_gmt,
+                        ),
+                        array('ID' => (int) $group_post->ID),
+                        array('%s', '%s', '%s', '%s'),
+                        array('%d')
+                    );
+                    clean_post_cache((int) $group_post->ID);
+                }
+            }
+
+            update_option('pp_series_3_2_0_group_dates_upgraded', true);
+        }
+
+        /**
          * Upgrade icon column from VARCHAR(100) to TEXT.
          *
          * dbDelta() handles both new tables and existing tables. The option is
