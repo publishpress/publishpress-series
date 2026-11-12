@@ -10,6 +10,12 @@ class PPS_Series_Post_Navigation_Utilities
     const POST_TYPE = 'pps_post_navigation';
     const META_PREFIX = 'pps_post_navigation_';
 
+    /** Edition locks shared by the native editor and other authenticated clients. */
+    public static function get_pro_locked_fields()
+    {
+        return ppseries_get_post_navigation_pro_locked_fields();
+    }
+
     /**
      * Get module path
      */

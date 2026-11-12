@@ -14,6 +14,7 @@ add_action('created_' . ppseries_get_series_slug() . '', 'wp_insert_series', 10,
 add_action('edited_' . ppseries_get_series_slug() . '', 'wp_update_series', 10, 2);
 add_action('delete_' . ppseries_get_series_slug() . '', 'wp_delete_series', 10, 2);
 add_action('wp_ajax_pp_series_reordering_terms', 'ajax_pp_series_reordering_terms');
+add_action('edited_series_group', 'pp_series_save_group_term_order', 10, 2);
 
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
 if (! empty($_REQUEST['taxonomy']) && in_array($_REQUEST['taxonomy'], [ppseries_get_series_slug(), 'series_group'], true)) {
@@ -30,6 +31,78 @@ function pp_series_edit_tags()
     add_action('quick_edit_custom_box', 'pp_series_quick_edit_term_order', 10, 3);
 }
 
+/*
+ * Order column. WordPress only renders quick_edit_custom_box fields for registered
+ * columns, so the Quick Edit "Order" field needs this column to exist.
+ * Registered on every request (not only edit-tags.php) so the row returned by
+ * the Quick Edit AJAX save keeps the column.
+ */
+add_filter('manage_edit-' . ppseries_get_series_slug() . '_columns', 'pp_series_term_order_column', 20);
+add_filter('manage_edit-series_group_columns', 'pp_series_term_order_column', 20);
+add_filter('manage_' . ppseries_get_series_slug() . '_custom_column', 'pp_series_term_order_column_value', 20, 3);
+add_filter('manage_series_group_custom_column', 'pp_series_term_order_column_value', 20, 3);
+
+/*
+ * Hide the Order column by default so it doesn't squeeze the Name column; users can show it
+ * under Screen Options. Hidden columns are still rendered, so Quick Edit keeps working.
+ */
+add_filter('default_hidden_columns', 'pp_series_term_order_default_hidden', 10, 2);
+
+function pp_series_term_order_default_hidden($hidden, $screen)
+{
+    if ($screen && in_array($screen->id, ['edit-' . ppseries_get_series_slug(), 'edit-series_group'], true)) {
+        $hidden[] = 'order';
+    }
+
+    return $hidden;
+}
+
+function pp_series_term_order_column($columns)
+{
+    $columns['order'] = __('Order', 'organize-series');
+    return $columns;
+}
+
+function pp_series_term_order_column_value($content, $column_name, $term_id)
+{
+    if ('order' !== $column_name) {
+        return $content;
+    }
+
+    $term  = get_term((int) $term_id);
+    $order = ($term && !is_wp_error($term) && isset($term->term_order)) ? (int) $term->term_order : 0;
+
+    return $content . '<span class="pp-series-term-order" data-order="' . esc_attr($order) . '">' . esc_html($order) . '</span>';
+}
+
+/**
+ * Save the Quick Edit order for Series Categories (Series use wp_update_series()).
+ * WordPress verifies the nonce for term edits and Quick Edit before this hook.
+ */
+function pp_series_save_group_term_order($term_id, $tt_id)
+{
+    global $wpdb;
+
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by WordPress before edited_{taxonomy}.
+    if (!isset($_POST['term_order'])) {
+        return;
+    }
+
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by WordPress before edited_{taxonomy}.
+    if (isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === (int) $_POST['term_order']) {
+        return;
+    }
+
+    $tax = get_taxonomy('series_group');
+    if (!$tax || !current_user_can($tax->cap->edit_terms)) {
+        return;
+    }
+
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by WordPress before edited_{taxonomy}.
+    $wpdb->update($wpdb->terms, array('term_order' => (int) $_POST['term_order']), array('term_id' => (int) $term_id));
+    clean_term_cache((int) $term_id, 'series_group');
+}
+
 function pp_series_term_enqueue_scripts()
 {
 
@@ -37,10 +110,20 @@ function pp_series_term_enqueue_scripts()
     wp_enqueue_script('jquery-ui-sortable');
 
     wp_enqueue_script('pp-series-term-order-quick-edit', SERIES_PATH_URL . 'js/term-quick-edit.js', array( 'jquery' ), ORG_SERIES_VERSION, true);
-    wp_enqueue_script('pp-series-term-order-reorder', SERIES_PATH_URL . 'js/term-reorder.js', array( 'jquery-ui-sortable' ), ORG_SERIES_VERSION, true);
+    wp_enqueue_script('pp-series-term-order-reorder', SERIES_PATH_URL . 'js/term-reorder.js', array( 'jquery-ui-sortable', 'wp-a11y' ), ORG_SERIES_VERSION, true);
 
     wp_localize_script('pp-series-term-order-reorder', 'orderL10n', array(
-        'nonce' => wp_create_nonce('series-order-nonce'),
+        'nonce'         => wp_create_nonce('series-order-nonce'),
+        'moveUp'        => __('Move up', 'organize-series'),
+        'moveDown'      => __('Move down', 'organize-series'),
+        /* translators: %s: term name */
+        'moveUpLabel'   => __('Move up: %s', 'organize-series'),
+        /* translators: %s: term name */
+        'moveDownLabel' => __('Move down: %s', 'organize-series'),
+        /* translators: 1: term name, 2: new position, 3: number of rows */
+        'moved'         => __('%1$s moved to position %2$d of %3$d.', 'organize-series'),
+        'saved'         => __('Order saved.', 'organize-series'),
+        'error'         => __('The new order could not be saved. Reload the page and try again.', 'organize-series'),
     ));
 }
 
@@ -57,7 +140,8 @@ function pp_series_quick_edit_term_order($column_name = '', $screen = '', $name 
             <label>
                 <span class="title"><?php esc_html_e('Order', 'organize-series'); ?></span>
                 <span class="input-text-wrap">
-                    <input type="number" pattern="[0-9.]+" class="ptitle" name="order" value="" size="11">
+                    <input type="number" step="1" class="ptitle" name="term_order" value="" size="11">
+                    <input type="hidden" name="term_order_original" value="">
                 </span>
             </label>
         </div>
@@ -72,7 +156,8 @@ function pp_series_term_help_tab()
     get_current_screen()->add_help_tab(array(
         'id'      => 'wp_term_order_help_tab',
         'title'   => __('Term Order', 'organize-series'),
-        'content' => '<p>' . __('To reposition an item, drag and drop the row by "clicking and holding" it anywhere and moving it to its new position.', 'organize-series') . '</p>',
+        'content' => '<p>' . __('To reposition an item, drag and drop the row by "clicking and holding" it anywhere and moving it to its new position.', 'organize-series') . '</p>'
+            . '<p>' . __('You can also use the "Move up" and "Move down" buttons in each row. They work with the keyboard and save the new order straight away.', 'organize-series') . '</p>',
     ));
 }
 
@@ -88,6 +173,17 @@ function pp_series_term_admin_head()
 
         .wp-list-table .ui-sortable tr:not(.no-items) {
             cursor: move;
+        }
+
+        .pp-series-term-move-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .pp-series-term-move-buttons .button {
+            cursor: pointer;
         }
 
         .striped.dragging > tbody > .ui-sortable-helper ~ tr:nth-child(even) {
@@ -176,7 +272,7 @@ function wp_delete_series($series_ID, $taxonomy_id)
     seriesicons_delete($series_ID);
     wp_reset_series_order_meta_cache('', $series_ID, true);
     $series_part = SERIES_PART_KEY . '_' . $series_ID;
-    $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key LIKE %s", $series_part));
+    $wpdb->query($wpdb->prepare("DELETE FROM $wpdb->postmeta WHERE meta_key = %s", $series_part));
 }
 
 // phpcs:disable WordPress.Security.NonceVerification.Missing -- WordPress verifies term create/edit requests before these taxonomy hooks.
@@ -194,8 +290,9 @@ function wp_insert_series($series_id, $taxonomy_id)
     $series_icon = seriesicons_write($series_id, $series_icon);
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
-    if (null !== $term_order) {
-        $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
+    // Skip when Quick Edit left the order untouched, so a stale value can't undo a drag or Move reorder.
+    if (null !== $term_order && !(isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === $term_order)) {
+        ppseries_set_term_order($series_id, $term_order);
     }
 }
 
@@ -225,8 +322,9 @@ function wp_update_series($series_id, $taxonomy_id)
     }
 
     $term_order = isset($_POST['term_order']) ? (int) $_POST['term_order'] : null;
-    if (null !== $term_order) {
-        $wpdb->update($wpdb->terms, array('term_order' => $term_order), array('term_id' => $series_id));
+    // Skip when Quick Edit left the order untouched, so a stale value can't undo a drag or Move reorder.
+    if (null !== $term_order && !(isset($_POST['term_order_original']) && (int) $_POST['term_order_original'] === $term_order)) {
+        ppseries_set_term_order($series_id, $term_order);
     }
 }
 
@@ -353,10 +451,11 @@ function ajax_pp_series_reordering_terms()
         die(wp_json_encode($return_data));
     }
 
+    $return_data->status = 'success';
     $return_data->message = __('Updated successfully', 'organize-series');
 
     foreach ($terms as $key => $term_id) {
-        $wpdb->update($wpdb->terms, array('term_order' => ($key + 1)), array('term_id' => $term_id));
+        ppseries_set_term_order((int) $term_id, $key + 1);
     }
     clean_term_cache($terms);
 
@@ -424,4 +523,27 @@ function pp_series_get_terms_orderby($orderby, $args)
 
     return $orderby;
 }
-?>
+/** Save native Series display order, shared with authenticated non-form clients. */
+function ppseries_set_term_order($term_id, $order)
+{
+    global $wpdb;
+    $result = $wpdb->update($wpdb->terms, ['term_order' => (int) $order], ['term_id' => (int) $term_id], ['%d'], ['%d']);
+    clean_term_cache((int) $term_id);
+    return $result !== false;
+}
+
+/** Find post objects affected by the native Series order-metadata cleanup. */
+function ppseries_get_order_meta_post_ids($series_id, $limit = 1001)
+{
+    global $wpdb;
+    $key = SERIES_PART_KEY . '_' . (int) $series_id;
+    $ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT DISTINCT post_id FROM $wpdb->postmeta WHERE meta_key = %s ORDER BY post_id LIMIT %d",
+        $key,
+        max(1, (int) $limit)
+    ));
+    if ($wpdb->last_error) {
+        return new WP_Error('ppseries_order_read_failed', __('Series order metadata could not be read. No cleanup was authorized.', 'organize-series'), ['status' => 500]);
+    }
+    return array_map('intval', $ids);
+}

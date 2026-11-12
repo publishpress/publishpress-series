@@ -12,6 +12,21 @@ if (!class_exists('PPS_Post_List_Box_Utilities')) {
 class PPS_Post_List_Box_Preview
 {
     /**
+     * Post treated as the current post by the next preview render.
+     * Set by get_sample_series_posts() when "Posts before and after the current post" is used.
+     *
+     * @var int
+     */
+    private static $preview_current_post_id = 0;
+
+    /**
+     * Position of the first sample post in the full series list, for the order number.
+     *
+     * @var int
+     */
+    private static $preview_number_offset = 0;
+
+    /**
      * Get sample posts for a series
      *
      * @param int $series_id
@@ -24,7 +39,13 @@ class PPS_Post_List_Box_Preview
             'orderby' => !empty($settings['orderby']) ? $settings['orderby'] : 'series_order',
             'order' => !empty($settings['order']) ? $settings['order'] : 'ASC',
             'maximum_items' => !empty($settings['maximum_items']) ? (int) $settings['maximum_items'] : 4,
+            'maximum_items_mode' => PPS_Post_List_Box_Fields::sanitize_maximum_items_mode(
+                isset($settings['maximum_items_mode']) ? $settings['maximum_items_mode'] : 'first'
+            ),
         ];
+
+        self::$preview_current_post_id = 0;
+        self::$preview_number_offset = 0;
 
         /**
          * Filter query parameters for post list box admin preview.
@@ -40,7 +61,11 @@ class PPS_Post_List_Box_Preview
         $order = $order === 'ASC' ? 'ASC' : 'DESC';
         $maximum_items = isset($query_params['maximum_items']) ? (int) $query_params['maximum_items'] : 4;
         $maximum_items = $maximum_items > 0 ? $maximum_items : 4;
-        $posts_per_page = $orderby === 'series_order' ? -1 : $maximum_items;
+        $maximum_items_mode = PPS_Post_List_Box_Fields::sanitize_maximum_items_mode(
+            isset($query_params['maximum_items_mode']) ? $query_params['maximum_items_mode'] : 'first'
+        );
+        $show_around_current = $maximum_items_mode === 'around_current';
+        $posts_per_page = ($orderby === 'series_order' || $show_around_current) ? -1 : $maximum_items;
         $query_orderby = $orderby === 'series_order' ? 'date' : $orderby;
         $query_order = $orderby === 'series_order' ? 'DESC' : $order;
 
@@ -91,9 +116,20 @@ class PPS_Post_List_Box_Preview
                 $posts = array_reverse($posts);
             }
 
-            if ($maximum_items > 0) {
+            if (!$show_around_current && $maximum_items > 0) {
                 $posts = array_slice($posts, 0, $maximum_items);
             }
+        }
+
+        if ($show_around_current && !empty($posts)) {
+            // There is no post being viewed in the editor: use the middle post of the series.
+            $posts = array_values($posts);
+            $middle_post = $posts[(int) floor((count($posts) - 1) / 2)];
+            self::$preview_current_post_id = isset($middle_post->ID) ? (int) $middle_post->ID : 0;
+
+            $limited = PPS_Post_List_Box_Utilities::limit_posts($posts, $maximum_items, 'around_current', self::$preview_current_post_id);
+            $posts = $limited['posts'];
+            self::$preview_number_offset = $limited['offset'];
         }
 
         /**
@@ -425,8 +461,13 @@ class PPS_Post_List_Box_Preview
         $container_styles = self::get_container_styles($settings);
         echo '<div class="pps-post-list ' . esc_attr($layout_style) . '"' . $container_styles . '>';
 
-        foreach ($posts_to_render as $index => $post) {
-            self::render_preview_post_item($settings, $post, $index);
+        $preview_current_post_id = self::$preview_current_post_id;
+        $preview_number_offset = self::$preview_number_offset;
+        self::$preview_current_post_id = 0;
+        self::$preview_number_offset = 0;
+
+        foreach (array_values($posts_to_render) as $index => $post) {
+            self::render_preview_post_item($settings, $post, $index, $preview_current_post_id, $preview_number_offset);
         }
 
         echo '</div>'; // .pps-post-list
@@ -447,13 +488,15 @@ class PPS_Post_List_Box_Preview
      * @param array $settings
      * @param object $post
      * @param int $index
+     * @param int $current_post_id Post treated as current, 0 to highlight the first post.
+     * @param int $number_offset   Position of the first rendered post in the full list.
      */
-    private static function render_preview_post_item($settings, $post, $index = 0)
+    private static function render_preview_post_item($settings, $post, $index = 0, $current_post_id = 0, $number_offset = 0)
     {
         $item_classes = ['pps-post-item', 'pps-post-list-item'];
 
         // Get highlighting data using the centralized helper
-        $highlighting = PPS_Post_List_Box_Utilities::get_current_post_highlighting($settings, $post, $index, null);
+        $highlighting = PPS_Post_List_Box_Utilities::get_current_post_highlighting($settings, $post, $index, $current_post_id ? $current_post_id : null);
 
         if ($highlighting['is_current']) {
             $item_classes[] = 'current-post';
@@ -518,7 +561,7 @@ class PPS_Post_List_Box_Preview
             }
             $post_title_styles = !empty($title_styles) ? ' style="' . implode('; ', $title_styles) . ';"' : '';
 
-            $order_number_html = self::get_series_order_number_html($settings, $index);
+            $order_number_html = self::get_series_order_number_html($settings, $index + (int) $number_offset);
             $order_number_position = self::get_series_order_number_position($settings);
             $post_title_text = esc_html(isset($post->post_title) ? $post->post_title : '');
 

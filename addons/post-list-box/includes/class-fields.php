@@ -119,6 +119,26 @@ class PPS_Post_List_Box_Fields
     }
 
     /**
+     * Which posts are kept when the list is limited by "Maximum number of items".
+     *
+     * - first: the first posts of the series (default, previous behaviour).
+     * - around_current: the posts before and after the post being viewed.
+     *
+     * @return array
+     */
+    public static function get_allowed_maximum_items_modes()
+    {
+        return ['first', 'around_current'];
+    }
+
+    public static function sanitize_maximum_items_mode($mode)
+    {
+        $mode = is_string($mode) ? strtolower(trim($mode)) : '';
+
+        return pps_sanitize_choice($mode, self::get_allowed_maximum_items_modes(), 'first');
+    }
+
+    /**
      * Get default post list box data
      *
      * @return array
@@ -140,6 +160,7 @@ class PPS_Post_List_Box_Fields
             'orderby' => 'series_order',
             'order' => 'ASC',
             'gap_between_items' => 10,
+            'maximum_items_mode' => 'first',
             'highlight_current_post' => 1,
             'current_post_bg_color' => '#fff3cd',
             'current_post_border_color' => '#e5e5e5',

@@ -327,32 +327,17 @@ function ppseries_add_returning_series_posts($series_id, $ordered_ids, $skip_pos
     return $ordered_ids;
 }
 
-/**
- * Renumber the counted posts of a series so their parts are unique and run 1..n.
- *
- * Posts keep their current relative order. Counted posts without a part number are left alone.
- * Optionally leave one post out and/or slot one post in.
- *
- * @param int        $series_id       Series term ID.
- * @param int        $exclude_post_id Post to leave out of the numbering. Its own part meta is not touched.
- * @param int        $insert_post_id  Post to slot in.
- * @param int        $insert_part     Part number to slot $insert_post_id in at. 0 or less appends; values past the end are clamped to the end.
- * @param int[]|null $insert_after    Post IDs (nearest first) to slot $insert_post_id in after; the first one still in the series wins,
- *                                    and if none is left the post becomes part 1. Overrides $insert_part when given.
- *
- * @return bool
- */
-function ppseries_normalize_series_parts($series_id, $exclude_post_id = 0, $insert_post_id = 0, $insert_part = 0, $insert_after = null)
+/** Plan the same native contiguous order without writing metadata. */
+function ppseries_get_normalized_series_order($series_id, $exclude_post_id = 0, $insert_post_id = 0, $insert_part = 0, $insert_after = null)
 {
     $series_id       = (int) $series_id;
     $exclude_post_id = (int) $exclude_post_id;
     $insert_post_id  = (int) $insert_post_id;
 
     if ($series_id <= 0) {
-        return false;
+        return [];
     }
 
-    $part_key    = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
     $ordered_ids = array_values(array_diff(ppseries_get_numbered_series_post_ids($series_id), array($exclude_post_id, $insert_post_id)));
 
     if ($insert_post_id > 0) {
@@ -372,6 +357,32 @@ function ppseries_normalize_series_parts($series_id, $exclude_post_id = 0, $inse
             }
         }
         array_splice($ordered_ids, $position - 1, 0, array($insert_post_id));
+    }
+
+    return $ordered_ids;
+}
+
+/**
+ * Renumber the counted posts of a series so their parts are unique and run 1..n.
+ *
+ * Posts keep their current relative order. Counted posts without a part number are left alone.
+ * Optionally leave one post out and/or slot one post in.
+ *
+ * @param int        $series_id       Series term ID.
+ * @param int        $exclude_post_id Post to leave out of the numbering. Its own part meta is not touched.
+ * @param int        $insert_post_id  Post to slot in.
+ * @param int        $insert_part     Part number to slot $insert_post_id in at. 0 or less appends; values past the end are clamped to the end.
+ * @param int[]|null $insert_after    Post IDs (nearest first) to slot $insert_post_id in after; the first one still in the series wins,
+ *                                    and if none is left the post becomes part 1. Overrides $insert_part when given.
+ *
+ * @return bool
+ */
+function ppseries_normalize_series_parts($series_id, $exclude_post_id = 0, $insert_post_id = 0, $insert_part = 0, $insert_after = null)
+{
+    $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $series_id);
+    $ordered_ids = ppseries_get_normalized_series_order($series_id, $exclude_post_id, $insert_post_id, $insert_part, $insert_after);
+    if ($series_id <= 0) {
+        return false;
     }
 
     foreach ($ordered_ids as $offset => $series_post_id) {
@@ -643,7 +654,9 @@ function wp_dropdown_series($args)
         'tab_index' => 0,
         'taxonomy' => ppseries_get_series_slug(),
         'hide_if_empty' => false,
-        'context' => 'normal'
+        'context' => 'normal',
+        // Optional visually hidden <label for> text. Empty = no label is output.
+        'label' => ''
     );
 
     $series_id = get_query_var(SERIES_QUERYVAR);
@@ -688,7 +701,12 @@ function wp_dropdown_series($args)
     $id = $id ? esc_attr($id) : $name;
 
     if (!$r['hide_if_empty'] || !empty($series)) {
-        $output = "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
+        $output = '';
+        if (!empty($r['label'])) {
+            $label_style = (!is_admin() && function_exists('ppseries_sr_only_style')) ? ' style="' . esc_attr(ppseries_sr_only_style()) . '"' : '';
+            $output .= '<label for="' . $id . '" class="screen-reader-text"' . $label_style . '>' . esc_html($r['label']) . "</label>\n";
+        }
+        $output .= "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
     } else {
         $output = '';
     }
@@ -844,168 +862,63 @@ function series_wp_save_post($post_ID, $post, $update)
 // phpcs:disable WordPress.Security.NonceVerification -- Core post/inline/bulk edit handlers verify nonces before save_post.
 function wp_set_post_series($post, $update, $post_ID = 0, $series_id = array(), $dont_skip = false, $is_published = false)
 {
-    $post_series = null;
-    $post_shorttitle = array();
-    global $orgseries;
-
-    if (!isset($_REQUEST['series_part']) || !isset($_REQUEST['post_series'])) {
+    if (
+        !is_bool($update) || !is_object($post) || $post->post_type === 'revision'
+        || !isset($_REQUEST['is_series_save'], $_REQUEST['series_part'], $_REQUEST['post_series'])
+    ) {
         return;
     }
-
-    $settings = $orgseries->settings;
-
-    $automatic_series_part = 0;
-
-    if (!is_bool($update)) {
-        return; //safety check for users on earlier version of WP (so existing series don't get messed up)
-    }
-
-    if (!is_object($post)) {
+    if (isset($_GET['bulk_edit_series'], $_GET['post_series']) && $_GET['bulk_edit_series'] === 'bulk' && $_GET['post_series'] == -1) {
         return;
     }
-
-
-    //fix for the revisions feature in WP 2.6+  && bulk-edit stuff.
-    if ($post->post_type == 'revision' || (isset($_GET['bulk_edit_series']) && $_GET['bulk_edit_series'] == 'bulk' && isset($_GET['post_series']) && $_GET['post_series'] == -1) || !isset($_REQUEST['is_series_save'])) {
-        return;
+    $series = $series_id ?: map_deep(wp_unslash($_REQUEST['post_series']), 'sanitize_text_field');
+    $parts = isset($_GET['series_part'])
+        ? map_deep(wp_unslash($_GET['series_part']), 'sanitize_text_field')
+        : map_deep(wp_unslash($_POST['series_part'] ?? []), 'sanitize_text_field');
+    $short = isset($_GET['serie_post_shorttitle'])
+        ? map_deep(wp_unslash($_GET['serie_post_shorttitle']), 'sanitize_text_field')
+        : (isset($_POST['serie_post_shorttitle'])
+            ? map_deep(wp_unslash($_POST['serie_post_shorttitle']), 'sanitize_text_field') : null);
+    if ($short !== null) {
+        $first = (int) (is_array($series) ? reset($series) : $series);
+        $short = is_array($short) ? ($short[$first] ?? $short[0] ?? '') : '';
+        $short = sanitize_text_field($short);
     }
+    return ppseries_set_post_series_data((int) $post_ID, os_strarr_to_intarr((array) $series), (array) $parts, $short);
+}
 
-
-    $post_ID = (int) $post_ID;
-    $old_series = wp_get_post_series($post_ID);
-    $old_series = is_array($old_series) ? $old_series : array();
-
-    if (empty($series_id)) {
-        $post_series = isset($_REQUEST['post_series']) && is_array($_REQUEST['post_series']) ? array_map('sanitize_text_field', wp_unslash($_REQUEST['post_series'])) : array(sanitize_text_field(wp_unslash($_REQUEST['post_series'])));
-    } else {
-        $post_series = is_array($series_id) ? $series_id : array($series_id);
-    }
-
-    $post_series = os_strarr_to_intarr($post_series);
-
-    if (empty($post_series) || (count($post_series) >= count($old_series))) {
-        $match = false;
-    } else {
-        $match = array_diff($old_series, $post_series);
-    }
-
-    if (empty($post_series) || (count($post_series) == 1 && $post_series[0] == 0)) {
-        $post_series = array();
-    }
-
-
-    if (isset($_POST) || isset($_GET)) {
-        if (isset($_POST['series_part'])) {
-            $series_part = is_array($_POST['series_part']) ? array_map('sanitize_text_field', wp_unslash($_POST['series_part'])) : array(sanitize_text_field(wp_unslash($_POST['series_part'])));
-        }
-        if (isset($_GET['series_part'])) {
-            $series_part = is_array($_GET['series_part']) ? array_map('sanitize_text_field', wp_unslash($_GET['series_part'])) : array(sanitize_text_field(wp_unslash($_GET['series_part'])));
-        }
-
-        //The "short" title of the post that will be displayed  in the OrgSeries widget.
-        $update_short_title = false;
-        if (isset($_POST['serie_post_shorttitle'])) {
-            $update_short_title = true;
-            $post_shorttitle = is_array($_POST['serie_post_shorttitle']) ? array_map('sanitize_text_field', wp_unslash($_POST['serie_post_shorttitle'])) : sanitize_text_field(wp_unslash($_POST['serie_post_shorttitle']));
-        }
-        if (isset($_GET['serie_post_shorttitle'])) {
-            $update_short_title = true;
-            $post_shorttitle = is_array($_GET['serie_post_shorttitle']) ? array_map('sanitize_text_field', wp_unslash($_GET['serie_post_shorttitle'])) : sanitize_text_field(wp_unslash($_GET['serie_post_shorttitle']));
-        }
-
-        $st_ser_id = is_array($post_series) && isset($post_series[0]) ? (int) $post_series[0] : 0;
-
-        if (is_array($post_shorttitle) && isset($post_shorttitle[$st_ser_id])) {
-            $post_shorttitle = trim($post_shorttitle[$st_ser_id]);
-        } elseif (is_array($post_shorttitle) && count($post_shorttitle) === 1 && isset($post_shorttitle[0])) {
-            $post_shorttitle = trim($post_shorttitle[0]);
-        } else {
-            $post_shorttitle = '';
-        }
-
-        if ($update_short_title) {
-            update_post_meta($post->ID, SPOST_SHORTTITLE_KEY, $post_shorttitle);
-        }
-
-        //if we don't have any changes in the series or series part info (or series post status) then let's get out and save time.
-        $p_status = $post->post_status;
-        if ($p_status != 'draft' && $p_status != 'future' && $p_status != 'pending') {
-            $is_published = true;
-        }
-        $count = count($post_series);
-        $c_chk = 0;
-        foreach ($post_series as $ser) {
-            $post_series_part = wp_series_part($post_ID, $ser);
-            if (in_array($ser, $old_series) && isset($series_part[$ser]) && !empty($post_series_part) && $series_part[$ser] == $post_series_part && !$dont_skip) {
-                $c_chk++;
-                continue;
-            } else {
-                $p_ser_edit[] = $ser; //these are the series we need to set the parts for (leave the rest alone when we get to this section).
-            }
-        }
-
-        if ($c_chk == $count && !empty($post_series) && count($post_series) == count($old_series) && !$dont_skip) {
-            return; //there are no changes so let's just skip the rest
-        }
-    }
-
-
-    if (empty($post_series)) {
-        foreach ($old_series as $o_ser) {
-            $part_key = apply_filters('orgseries_part_key', SERIES_PART_KEY, $o_ser);
-            delete_post_meta($post_ID, $part_key);
-        }
-    }
-
-    foreach ($old_series as $os_id) {
-        if (!in_array($os_id, $post_series)) {
-            wp_delete_post_series_relationship($post_ID, $os_id);
-        }
-    }
-
-
-    if (!empty($match) && $match) {
-        foreach ($match as $part_reset_id) {
-            wp_reset_series_order_meta_cache($post_ID, $part_reset_id);
-        }
-    }
-
-    $success = wp_set_object_terms($post_ID, $post_series, ppseries_get_series_slug());
-
-    if (empty($p_ser_edit)) {
-        return; //let's get out we've done everything we need to do.
-    }
-
-
-
-    if ($success) {
-        if ($p_status != 'draft' && $p_status != 'future' && $p_status != 'pending') {
-            $is_published = true;
-        }
-        foreach ($p_ser_edit as $ser_id) {
-            //If post is not published its part stays as set by user
-            if (!$is_published || $automatic_series_part === 0) {
-                $s_pt = isset($series_part[$ser_id]) ? $series_part[$ser_id] : '';
-            } else {
-                if (isset($_GET['submit'])) {
-                    $set_spart = isset($_GET['series_part']) ? array_map('sanitize_text_field', (array) wp_unslash($_GET['series_part'])) : array();
-                } else {
-                    $set_spart = isset($_POST['series_part']) ? array_map('sanitize_text_field', (array) wp_unslash($_POST['series_part'])) : array();
-                }
-                if (!empty($set_spart)) {
-                    $s_pt = isset($set_spart[$ser_id]) ? $set_spart[$ser_id] : '';
-                } else {
-                    $s_pt = '';
-                }
-            }
-
-            set_series_order($ser_id, $post_ID, $s_pt, $is_published);
-        }
-
-        return;
-    } else {
+/**
+ * Persist editor membership and numbering without depending on request globals.
+ * Callers enforce their own authenticated operation and object permissions.
+ */
+function ppseries_set_post_series_data($post_id, array $series, array $parts = [], $short_title = null)
+{
+    $post = get_post($post_id);
+    if (!$post || $post->post_type === 'revision') {
         return false;
     }
+    $old = wp_get_post_series($post_id);
+    if (is_wp_error($old)) {
+        return $old;
+    }
+    $series = array_values(array_filter(array_unique(array_map('intval', $series))));
+    foreach (array_diff($old, $series) as $removed) {
+        wp_delete_post_series_relationship($post_id, $removed);
+        wp_reset_series_order_meta_cache($post_id, $removed);
+    }
+    $result = wp_set_object_terms($post_id, $series, ppseries_get_series_slug());
+    if (is_wp_error($result)) {
+        return $result;
+    }
+    if ($short_title !== null) {
+        ppseries_set_post_short_title($post_id, $short_title);
+    }
+    foreach ($series as $series_id) {
+        if (array_key_exists($series_id, $parts) || !in_array($series_id, $old)) {
+            set_series_order($series_id, $post_id, $parts[$series_id] ?? 0, ppseries_is_counted_series_post($post_id));
+        }
+    }
+    return true;
 }
 // phpcs:enable WordPress.Security.NonceVerification
 
@@ -1088,8 +1001,19 @@ function inline_edit_series($column_name, $type)
         <fieldset class="inline-edit-col-right">
             <div class="inline-edit-col">
                 <div class="inline_edit_series_">
+                    <label>
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
-                    <?php wp_dropdown_series('name=post_series&class=post_series_select&hide_empty=0&show_option_none=No Series&context=quick-edit'); ?>
+                    <?php
+                    wp_dropdown_series([
+                        'name'             => 'post_series',
+                        'id'               => 'pp-series-quick-edit-select',
+                        'class'            => 'post_series_select',
+                        'hide_empty'       => 0,
+                        'show_option_none' => esc_html__('No Series', 'organize-series'),
+                        'context'          => 'quick-edit',
+                    ]);
+                    ?>
+                    </label>
                     <span style="display:none;"><?php esc_html_e('Part:', 'organize-series'); ?></span>
           <input style="display:none;" size="3" type="text" name="series_part" class="series_part" aria-label="<?php esc_attr_e('Series Part', 'organize-series'); ?>" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
@@ -1117,8 +1041,21 @@ function bulk_edit_series($column_name, $type)
         <fieldset class="inline-edit-col-right">
             <div class="inline-edit-col">
                 <div class="inline_edit_series_">
+                    <label>
                     <span><?php esc_html_e('Series:', 'organize-series'); ?></span>
-                    <?php wp_dropdown_series('name=post_series&class=bulk_post_series_select&hide_empty=0&show_option_none=— No Change —&show_option_not_in_series=Not part of a series&selected=-1&context=quick-edit'); ?>
+                    <?php
+                    wp_dropdown_series([
+                        'name'                      => 'post_series',
+                        'id'                        => 'pp-series-bulk-edit-select',
+                        'class'                     => 'bulk_post_series_select',
+                        'hide_empty'                => 0,
+                        'show_option_none'          => esc_html__('&mdash; No Change &mdash;', 'organize-series'),
+                        'show_option_not_in_series' => esc_html__('Not part of a series', 'organize-series'),
+                        'selected'                  => -1,
+                        'context'                   => 'quick-edit',
+                    ]);
+                    ?>
+                    </label>
                     <input type="hidden" name="series_part" class="series_part" />
                     <input type="hidden" name="series_post_id" class="series_post_id" />
                     <input type="hidden" name="is_series_save" value="1" />
@@ -1134,6 +1071,9 @@ function bulk_edit_series($column_name, $type)
 function inline_edit_series_js()
 {
     wp_enqueue_script('inline-edit-series');
+    wp_localize_script('inline-edit-series', 'ppSeriesInlineEdit', [
+        'noSeries' => __('No Series', 'organize-series'),
+    ]);
 }
 
 
@@ -1251,3 +1191,9 @@ add_action('delete_post', 'delete_series_post_relationship', 1);
 //prep for term splitting that happens in WP4.2+ (this is more for taking care of Publishpress Series Multiples users
 add_action('split_shared_term', 'org_series_maybe_update_post_parts', 10, 4);
 add_action('admin_init', 'orgseries_fix_terms_changed');
+
+/** Preserve unslashed editor text through WordPress metadata storage. */
+function ppseries_set_post_short_title($post_id, $short_title)
+{
+    return update_post_meta($post_id, SPOST_SHORTTITLE_KEY, wp_slash($short_title));
+}

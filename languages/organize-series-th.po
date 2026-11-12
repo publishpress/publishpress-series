@@ -12,13 +12,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-24T07:56:49+00:00\n"
-"PO-Revision-Date: 2026-10-26 18:31+0000\n"
+"PO-Revision-Date: 2026-11-12 15:44+0000\n"
 "X-Generator: Weblate 2026.6.1\n"
 "X-Domain: organize-series\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Language: th\n"
 
-#: orgSeries.php:3
+#: orgSeries.php:3, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Series Free"
 msgstr "PublishPress Series Free"
@@ -40,7 +40,8 @@ msgstr ""
 "หรือใครก็ตามที่เขียนโพสต์หลาย ๆ โพสต์ในหัวข้อเดียวกัน."
 
 #: orgSeries.php:7
-#: orgSeries-admin.php:178
+#: includes-core/Mcp/bootstrap.php:15
+#: orgSeries-admin.php:190
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
@@ -50,63 +51,78 @@ msgstr "PublishPress"
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: addons/grouping/legacy-includes.php:303
-#: addons/grouping/legacy-includes.php:862
-#: addons/grouping/legacy-includes.php:863
+#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:868
+#: addons/grouping/legacy-includes.php:869
 msgid "Search Series Categories"
 msgstr "ค้นหาหมวดหมู่ซีรีส์"
 
-#: addons/grouping/legacy-includes.php:304
+#: addons/grouping/legacy-includes.php:307
 msgid "Popular Series Categories"
 msgstr "หมวดหมู่ซีรีส์ยอดนิยม"
 
-#: addons/grouping/legacy-includes.php:305
-#: addons/grouping/legacy-includes.php:859
+#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:865
 msgid "All Series Categories"
 msgstr "หมวดหมู่ซีรีส์ทั้งหมด"
 
-#: addons/grouping/legacy-includes.php:306
+#: addons/grouping/legacy-includes.php:309
 msgid "Edit Series Category"
 msgstr "แก้ไขหมวดหมู่ซีรีส์"
 
-#: addons/grouping/legacy-includes.php:307
+#: addons/grouping/legacy-includes.php:310
 msgid "Update Series Category"
 msgstr "อัปเดตหมวดหมู่ซีรีส์"
 
-#: addons/grouping/legacy-includes.php:308
+#: addons/grouping/legacy-includes.php:311
 msgid "Add New Series Category"
 msgstr "เพิ่มหมวดหมู่ซีรีส์ใหม่"
 
-#: addons/grouping/legacy-includes.php:309
+#: addons/grouping/legacy-includes.php:312
 msgid "New Series Category"
 msgstr "หมวดหมู่ซีรีส์ใหม่"
 
-#: addons/grouping/legacy-includes.php:310
-#: addons/grouping/legacy-includes.php:584
-#: addons/grouping/legacy-includes.php:670
-#: addons/grouping/legacy-includes.php:785
-#: addons/grouping/legacy-includes.php:828
-#: addons/grouping/legacy-includes.php:850
-#: addons/grouping/legacy-includes.php:910
+#: addons/grouping/legacy-includes.php:313
+#: addons/grouping/legacy-includes.php:589
+#: addons/grouping/legacy-includes.php:675
+#: addons/grouping/legacy-includes.php:791
+#: addons/grouping/legacy-includes.php:834
+#: addons/grouping/legacy-includes.php:856
+#: addons/grouping/legacy-includes.php:873
+#: addons/grouping/legacy-includes.php:919
 #: assets/js/publishpress-series-blocks.js:183
 msgid "Series Categories"
 msgstr "หมวดหมู่ซีรีส์"
 
-#: addons/grouping/legacy-includes.php:676
+#: addons/grouping/legacy-includes.php:681
 msgid ""
 "Delete all \"Series Categories\" data from the database when deleting the "
 "plugin."
 msgstr "ลบข้อมูล \"หมวดหมู่ชุด\" ทั้งหมดจากฐานข้อมูลเมื่อทำการลบปลั๊กอิน."
 
-#: addons/grouping/legacy-includes.php:828
+#: addons/grouping/legacy-includes.php:746
+msgid "View all Series Categories"
+msgstr "ดูหมวดหมู่ซีรี่ส์ทั้งหมด"
+
+#: addons/grouping/legacy-includes.php:764
+msgid "Filter by Series Category"
+msgstr "กรองตามหมวดหมู่ซีรี่ส์"
+
+#: addons/grouping/legacy-includes.php:766
+#: addons/publisher/series-part-post-table.php:396
+#: addons/publisher/series-publish-post-table.php:196
+msgid "Filter"
+msgstr "กรอง"
+
+#: addons/grouping/legacy-includes.php:834
 msgid "Click to toggle"
 msgstr "คลิกเพื่อสลับ"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:39
+#: addons/grouping/theme/primary/taxonomy-series_group.php:44
 msgid "Series in this category"
 msgstr "ซีรีส์ในหมวดหมู่นี้"
 
-#: addons/grouping/theme/primary/taxonomy-series_group.php:119
+#: addons/grouping/theme/primary/taxonomy-series_group.php:129
 msgid "Sorry, no series were found in this category."
 msgstr "ขอโทษ, ไม่พบซีรีส์ในหมวดหมู่นี้."
 
@@ -133,8 +149,8 @@ msgstr "ส่วน %1$s ของ %2$s"
 
 #: addons/post-details/classes/SeriesPostDetailsRenderer.php:505
 #: addons/post-details/includes/class-utilities.php:325
-#: addons/post-navigation/includes/class-utilities.php:185
-#: includes-core/class-blocks.php:827
+#: addons/post-navigation/includes/class-utilities.php:210
+#: includes-core/class-blocks.php:843
 msgid "Sample Series"
 msgstr "ชุดตัวอย่าง"
 
@@ -162,7 +178,7 @@ msgstr "คำอธิบายชุดตัวอย่าง."
 #: addons/post-details/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-details.php:44
 #: includes-core/class-blocks.php:155
-#: orgSeries-utility.php:358
+#: orgSeries-utility.php:402
 #: assets/js/publishpress-series-blocks.js:37
 msgid "Post Details"
 msgstr "รายละเอียดโพสต์"
@@ -212,7 +228,7 @@ msgstr "โพสต์รายละเอียด shortcode"
 #: addons/post-list-box/includes/class-admin-ui.php:734
 #: addons/post-navigation/includes/class-admin-ui.php:447
 #: inc/settings/tab-post-types.php:63
-#: inc/settings/tab-pro-features.php:56
+#: inc/settings/tab-pro-features.php:51
 msgid "This feature is available in PublishPress Series Pro"
 msgstr "ฟีเจอร์นี้มีใน PublishPress Series Pro"
 
@@ -324,6 +340,7 @@ msgstr "เลือกตำแหน่งในการแสดงกล่
 #: addons/post-details/includes/class-fields.php:132
 #: inc/settings/tab-post-details.php:90
 #: inc/settings/tab-post-details.php:92
+#: includes-core/Mcp/Settings.php:104
 msgid "Hide on archive screens"
 msgstr "ซ่อนในหน้าสำหรับเก็บข้อมูล"
 
@@ -498,8 +515,8 @@ msgstr "รายละเอียดโพสต์ซีรีส์"
 
 #: addons/post-details/includes/class-post-type.php:28
 #: addons/post-navigation/includes/class-post-type.php:28
-#: orgSeries-admin.php:398
-#: orgSeries-setup.php:225
+#: orgSeries-admin.php:417
+#: orgSeries-setup.php:233
 msgid "Add New"
 msgstr "เพิ่มใหม่"
 
@@ -540,7 +557,7 @@ msgid "Create a series to preview the post details."
 msgstr "สร้างชุดเพื่อดูตัวอย่างรายละเอียดโพสต์"
 
 #: addons/post-details/includes/class-utilities.php:361
-#: includes-core/class-blocks.php:862
+#: includes-core/class-blocks.php:878
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Series Post %d"
@@ -635,7 +652,7 @@ msgid "Custom Box Title Text"
 msgstr "ข้อความชื่อกล่องที่กำหนดเอง"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:137
-#: addons/post-list-box/includes/class-utilities.php:177
+#: addons/post-list-box/includes/class-utilities.php:228
 msgid "Series Posts"
 msgstr "โพสต์ชุด"
 
@@ -913,7 +930,7 @@ msgid "Choose the layout style for the post list"
 msgstr "เลือกสไตล์การจัดเรียงสำหรับรายการโพสต์"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:539
-#: inc/settings/tab-legacy.php:97
+#: inc/settings/tab-legacy.php:104
 #: assets/js/publishpress-series-blocks.js:262
 msgid "Columns"
 msgstr "คอลัมน์"
@@ -943,6 +960,8 @@ msgid "Order By"
 msgstr "เรียงตาม"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:560
+#: addons/publisher/series-part-post-table.php:68
+#: addons/publisher/series-pending-post-table.php:70
 msgid "Date"
 msgstr "วันที่"
 
@@ -955,11 +974,11 @@ msgstr "ชื่อเรื่อง"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:562
 #: addons/publisher/series_im_admin_main.php:10
-#: addons/publisher/series_issue_manager.php:1043
-#: addons/publisher/series_issue_manager.php:1113
-#: orgSeries-admin.php:356
-#: orgSeries-manage.php:239
-#: orgSeries-manage.php:249
+#: addons/publisher/series_issue_manager.php:1120
+#: addons/publisher/series_issue_manager.php:1190
+#: orgSeries-admin.php:372
+#: orgSeries-manage.php:337
+#: orgSeries-manage.php:347
 msgid "Series Order"
 msgstr "ลำดับซีรีส์"
 
@@ -968,20 +987,21 @@ msgid "Choose the field used to sort posts"
 msgstr "เลือกฟิลด์ที่ใช้ในการจัดเรียงโพสต์"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:570
-#: orgSeries-manage.php:58
-#: orgSeries-manage.php:273
+#: orgSeries-manage.php:62
+#: orgSeries-manage.php:141
+#: orgSeries-manage.php:371
 msgid "Order"
 msgstr "ลำดับ"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:574
-#: inc/settings/tab-legacy.php:110
-#: orgSeries-widgets.php:343
+#: inc/settings/tab-legacy.php:122
+#: orgSeries-widgets.php:350
 msgid "Ascending"
 msgstr "เพิ่มขึ้น"
 
 #: addons/post-list-box/classes/PostListBoxFields.php:575
-#: inc/settings/tab-legacy.php:111
-#: orgSeries-widgets.php:342
+#: inc/settings/tab-legacy.php:123
+#: orgSeries-widgets.php:349
 msgid "Descending"
 msgstr "ลดลง"
 
@@ -1017,37 +1037,67 @@ msgstr ""
 "จำกัดจำนวนโพสต์ที่แสดงในรายการชุด ทิ้งว่างไว้เพื่อไม่ให้มีข้อจำกัด "
 "ตัวอย่างการดูของผู้ดูแลระบบจำกัดไว้ที่ 4 โพสต์."
 
-#: addons/post-list-box/classes/PostListBoxFields.php:628
+#: addons/post-list-box/classes/PostListBoxFields.php:617
+msgid "Items to show when limited"
+msgstr "รายการที่จะแสดงเมื่อจำกัด"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:621
+msgid "First posts in the series"
+msgstr "โพสต์แรกในซีรี่ส์"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:622
+msgid "Posts before and after the current post"
+msgstr "โพสต์ก่อนหน้าและหลังโพสต์ปัจจุบัน"
+
+#: addons/post-list-box/classes/PostListBoxFields.php:626
+msgid ""
+"Only used when \"Maximum number of items\" is set. Choose \"Posts before "
+"and after the current post\" to keep the post being viewed in the list, "
+"with the posts around it. On pages that are not part of the series, the "
+"first posts are shown. The admin preview uses a post from the middle of the "
+"series as the current post."
+msgstr ""
+"ใช้เฉพาะเมื่อ \"จำนวนรายการสูงสุด\" ถูกตั้งค่า เลือก "
+"\"โพสต์ก่อนหน้าและหลังโพสต์ปัจจุบัน\" เพื่อให้โพสต์ที่กำลังดูอยู่ในรายการ "
+"พร้อมกับโพสต์รอบข้าง ในหน้าที่ไม่เป็นส่วนหนึ่งของซีรี่ส์ โพสต์แรกจะแสดง "
+"ผู้ดูแลระบบใช้โพสต์จากกลางซีรี่ส์เป็นโพสต์ปัจจุบัน."
+
+#: addons/post-list-box/classes/PostListBoxFields.php:641
 msgid "Highlight Current Post"
 msgstr "ไฮไลต์โพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:633
+#: addons/post-list-box/classes/PostListBoxFields.php:646
 msgid "Highlight the current post when viewing a specific series post"
 msgstr "ไฮไลต์โพสต์ปัจจุบันเมื่อดูโพสต์ซีรีส์เฉพาะ"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:636
+#: addons/post-list-box/classes/PostListBoxFields.php:649
 msgid "Current Post Background Color"
 msgstr "สีพื้นหลังโพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:641
+#: addons/post-list-box/classes/PostListBoxFields.php:654
 msgid "Choose the background color for the current post"
 msgstr "เลือกสีพื้นหลังสำหรับโพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:644
+#: addons/post-list-box/classes/PostListBoxFields.php:657
 msgid "Current Post Border Color"
 msgstr "สีขอบโพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:649
+#: addons/post-list-box/classes/PostListBoxFields.php:662
 msgid "Choose the border color for the current post"
 msgstr "เลือกสีของขอบสำหรับโพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:652
+#: addons/post-list-box/classes/PostListBoxFields.php:665
 msgid "Current Post Text Color"
 msgstr "สีข้อความโพสต์ปัจจุบัน"
 
-#: addons/post-list-box/classes/PostListBoxFields.php:657
+#: addons/post-list-box/classes/PostListBoxFields.php:670
 msgid "Choose the text color for the current post"
 msgstr "เลือกสีของข้อความสำหรับโพสต์ปัจจุบัน"
+
+#: addons/post-list-box/classes/PostListBoxRenderer.php:437
+#: inc/utility-functions.php:783
+msgid "(current post)"
+msgstr "(โพสต์ปัจจุบัน)"
 
 #: addons/post-list-box/includes/class-admin-ui.php:57
 msgid "Default Post List Box"
@@ -1063,7 +1113,7 @@ msgstr "โพสต์รายการกล่อง shortcode"
 #: addons/post-list-box/includes/class-post-type.php:27
 #: inc/settings/tab-post-list-box.php:44
 #: includes-core/class-blocks.php:148
-#: orgSeries-utility.php:357
+#: orgSeries-utility.php:401
 #: assets/js/publishpress-series-blocks.js:30
 msgid "Post List Boxes"
 msgstr "กล่องรายการโพสต์"
@@ -1170,7 +1220,7 @@ msgstr "กล่องรายการโพสต์"
 
 #: addons/post-list-box/includes/class-admin-ui.php:709
 #: addons/post-navigation/includes/class-admin-ui.php:419
-#: orgSeries-manage.php:311
+#: orgSeries-manage.php:409
 msgid "Select Image"
 msgstr "เลือกภาพ"
 
@@ -1277,13 +1327,13 @@ msgstr "การนำทางรายการ %2$s"
 msgid "%2$s list"
 msgstr "รายการ %2$s"
 
-#: addons/post-list-box/includes/class-preview.php:131
+#: addons/post-list-box/includes/class-preview.php:167
 #. translators: %d: Sample post number.
 #, php-format
 msgid "Sample Post %d"
 msgstr "โพสต์ตัวอย่าง %d"
 
-#: addons/post-list-box/includes/class-preview.php:133
+#: addons/post-list-box/includes/class-preview.php:169
 #. translators: %d: Sample post number.
 #, php-format
 msgid ""
@@ -1295,13 +1345,13 @@ msgstr ""
 "consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et "
 "dolore magna aliqua."
 
-#: addons/post-list-box/includes/class-preview.php:135
+#: addons/post-list-box/includes/class-preview.php:171
 #. translators: %d: Sample post number.
 #, php-format
 msgid "This is a sample excerpt for post %d in the series."
 msgstr "นี่คือตัวอย่างบทความสำหรับโพสต์ %d ในชุดนี้"
 
-#: addons/post-list-box/includes/class-preview.php:560
+#: addons/post-list-box/includes/class-preview.php:603
 #: addons/publisher/series-part-post-table.php:64
 #: addons/publisher/series-pending-post-table.php:66
 #: addons/publisher/series-publish-post-table.php:74
@@ -1320,41 +1370,62 @@ msgstr "กล่องสไตล์กริด"
 msgid "Simple List Box"
 msgstr "กล่องรายการแบบง่าย"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:261
+#: addons/post-navigation/classes/PostNavigationRenderer.php:211
+#. translators: %s: Series name.
+#, php-format
+msgid "Series navigation: %s"
+msgstr "การนำทางซีรี่ส์: %s"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:273
 msgid "Navigation hidden (series has only one post)"
 msgstr "การนำทางซ่อน (ชุดนี้มีเพียงโพสต์เดียว)"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:315
-#: addons/post-navigation/classes/PostNavigationRenderer.php:346
-#: addons/post-navigation/classes/PostNavigationRenderer.php:377
-#: addons/post-navigation/classes/PostNavigationRenderer.php:461
-#: addons/post-navigation/classes/PostNavigationRenderer.php:513
-#: addons/post-navigation/classes/PostNavigationRenderer.php:567
-#: addons/post-navigation/includes/class-utilities.php:60
+#: addons/post-navigation/classes/PostNavigationRenderer.php:328
+#: addons/post-navigation/classes/PostNavigationRenderer.php:359
+#: addons/post-navigation/classes/PostNavigationRenderer.php:390
+#: addons/post-navigation/classes/PostNavigationRenderer.php:475
+#: addons/post-navigation/classes/PostNavigationRenderer.php:527
+#: addons/post-navigation/classes/PostNavigationRenderer.php:581
+#: addons/post-navigation/includes/class-utilities.php:85
 msgid "Series Home"
 msgstr "หน้าหลักของชุด"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:331
-#: addons/post-navigation/classes/PostNavigationRenderer.php:487
+#: addons/post-navigation/classes/PostNavigationRenderer.php:344
+#: addons/post-navigation/classes/PostNavigationRenderer.php:501
 #: addons/post-navigation/includes/class-fields.php:145
 #: addons/post-navigation/includes/class-fields.php:166
-#: addons/post-navigation/includes/class-utilities.php:38
+#: addons/post-navigation/includes/class-utilities.php:63
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: addons/post-navigation/classes/PostNavigationRenderer.php:362
-#: addons/post-navigation/classes/PostNavigationRenderer.php:541
+#: addons/post-navigation/classes/PostNavigationRenderer.php:375
+#: addons/post-navigation/classes/PostNavigationRenderer.php:555
 #: addons/post-navigation/includes/class-fields.php:260
 #: addons/post-navigation/includes/class-fields.php:281
-#: addons/post-navigation/includes/class-utilities.php:49
+#: addons/post-navigation/includes/class-utilities.php:74
 msgid "Next"
 msgstr "ถัดไป"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:835
+#: orgSeries-template-tags.php:612
+msgid "Previous post in series:"
+msgstr "โพสต์ก่อนหน้าในซีรี่ส์:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:836
+#: orgSeries-template-tags.php:614
+msgid "Next post in series:"
+msgstr "โพสต์ถัดไปในซีรี่ส์:"
+
+#: addons/post-navigation/classes/PostNavigationRenderer.php:837
+#: orgSeries-template-tags.php:616
+msgid "First post in series:"
+msgstr "โพสต์แรกในซีรี่ส์:"
 
 #: addons/post-navigation/includes/class-admin-ui.php:29
 #: addons/post-navigation/includes/class-admin-ui.php:30
 #: inc/settings/tab-post-navigation.php:44
 #: includes-core/class-blocks.php:162
-#: orgSeries-utility.php:359
+#: orgSeries-utility.php:403
 #: assets/js/publishpress-series-blocks.js:44
 msgid "Post Navigation"
 msgstr "การนำทางโพสต์"
@@ -1839,7 +1910,7 @@ msgstr "สร้างซีรีส์เพื่อดูตัวอย่
 msgid "Create posts in a series to preview the navigation."
 msgstr "สร้างโพสต์ในซีรีส์เพื่อดูตัวอย่างการนำทาง."
 
-#: addons/post-navigation/includes/class-utilities.php:187
+#: addons/post-navigation/includes/class-utilities.php:212
 msgid "Sample series for preview purposes"
 msgstr "ตัวอย่างซีรีส์สำหรับวัตถุประสงค์ในการดูตัวอย่าง"
 
@@ -1847,15 +1918,15 @@ msgstr "ตัวอย่างซีรีส์สำหรับวัตถ
 msgid "Error updating preview."
 msgstr "เกิดข้อผิดพลาดในการอัปเดตตัวอย่าง."
 
-#: addons/post-navigation/post-navigation.php:209
+#: addons/post-navigation/post-navigation.php:190
 msgid "Simple Navigation"
 msgstr "การนำทางแบบง่าย"
 
-#: addons/post-navigation/post-navigation.php:214
+#: addons/post-navigation/post-navigation.php:195
 msgid "Button Navigation"
 msgstr "การนำทางแบบปุ่ม"
 
-#: addons/post-navigation/post-navigation.php:219
+#: addons/post-navigation/post-navigation.php:200
 msgid "Image Navigation"
 msgstr "การนำทางภาพ"
 
@@ -1877,77 +1948,72 @@ msgstr "แท็ก"
 msgid "Status"
 msgstr "สถานะ"
 
-#: addons/publisher/series-part-post-table.php:68
-#: addons/publisher/series-pending-post-table.php:70
+#: addons/publisher/series-part-post-table.php:69
+#: addons/publisher/series-pending-post-table.php:71
 msgid "Current Part"
 msgstr "ส่วนปัจจุบัน"
 
-#: addons/publisher/series-part-post-table.php:162
-#: addons/publisher/series-pending-post-table.php:146
+#: addons/publisher/series-part-post-table.php:163
+#: addons/publisher/series-pending-post-table.php:147
 #: addons/publisher/series-publish-post-table.php:293
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: addons/publisher/series-part-post-table.php:168
+#: addons/publisher/series-part-post-table.php:169
 #: assets/js/publishpress-series-blocks.js:251
 msgid "View"
 msgstr "ดู"
 
-#: addons/publisher/series-part-post-table.php:185
-#: addons/publisher/series-pending-post-table.php:174
+#: addons/publisher/series-part-post-table.php:187
+#: addons/publisher/series-pending-post-table.php:176
 #: addons/publisher/series-publish-post-table.php:310
 msgid "Trash"
 msgstr "ถังขยะ"
 
-#: addons/publisher/series-part-post-table.php:212
+#: addons/publisher/series-part-post-table.php:214
 msgid "There are no published posts in this series."
 msgstr "ไม่มีโพสต์ที่เผยแพร่ในชุดนี้."
 
-#: addons/publisher/series-part-post-table.php:230
-#: addons/publisher/series-pending-post-table.php:219
+#: addons/publisher/series-part-post-table.php:232
+#: addons/publisher/series-pending-post-table.php:221
 #: addons/publisher/series-publish-post-table.php:345
 #. translators: %s: Post title.
 #, php-format
 msgid "Select %s"
 msgstr "เลือก %s"
 
-#: addons/publisher/series-part-post-table.php:341
+#: addons/publisher/series-part-post-table.php:355
 msgid "(Currently has no Part number)"
 msgstr "(ปัจจุบันไม่มีหมายเลขส่วน)"
 
-#: addons/publisher/series-part-post-table.php:376
+#: addons/publisher/series-part-post-table.php:390
 msgid "Filter by part number"
 msgstr "กรองตามหมายเลขชิ้นส่วน"
 
-#: addons/publisher/series-part-post-table.php:378
+#: addons/publisher/series-part-post-table.php:392
 msgid "All part numbers"
 msgstr "หมายเลขชิ้นส่วนทั้งหมด"
 
-#: addons/publisher/series-part-post-table.php:379
+#: addons/publisher/series-part-post-table.php:393
 msgid "Has part number"
 msgstr "มีหมายเลขชิ้นส่วน"
 
-#: addons/publisher/series-part-post-table.php:380
+#: addons/publisher/series-part-post-table.php:394
 msgid "Missing part number"
 msgstr "หมายเลขชิ้นส่วนที่ขาดหายไป"
 
-#: addons/publisher/series-part-post-table.php:382
-#: addons/publisher/series-publish-post-table.php:196
-msgid "Filter"
-msgstr "กรอง"
-
-#: addons/publisher/series-pending-post-table.php:157
+#: addons/publisher/series-pending-post-table.php:158
 #: addons/publisher/series-publish-post-table.php:78
 #: addons/publisher/series-publish-post-table.php:454
 msgid "Preview"
 msgstr "ตัวอย่าง"
 
-#: addons/publisher/series-pending-post-table.php:201
+#: addons/publisher/series-pending-post-table.php:203
 #: addons/publisher/series-publish-post-table.php:48
 msgid "There are no unpublished posts in this series."
 msgstr "ไม่มีโพสต์ที่ยังไม่ได้เผยแพร่ในชุดนี้."
 
-#: addons/publisher/series-pending-post-table.php:325
+#: addons/publisher/series-pending-post-table.php:339
 msgid "No Part Number"
 msgstr "ไม่มีหมายเลขส่วน"
 
@@ -1956,19 +2022,20 @@ msgid "All Categories"
 msgstr "หมวดหมู่ทั้งหมด"
 
 #: addons/publisher/series_im_admin_main.php:4
-#: addons/publisher/series_issue_manager.php:830
+#: addons/publisher/series_issue_manager.php:895
 #: inc/settings/settings-validation.php:96
 msgid "Manage Series"
 msgstr "จัดการชุด"
 
 #: addons/publisher/series_im_admin_main.php:9
+#: orgSeries-admin.php:431
 #: assets/js/publishpress-series-blocks.js:138
 msgid "Series"
 msgstr "ชุด"
 
 #: addons/publisher/series_im_admin_main.php:12
-#: addons/publisher/series_issue_manager.php:986
-#: addons/publisher/series_issue_manager.php:1033
+#: addons/publisher/series_issue_manager.php:1063
+#: addons/publisher/series_issue_manager.php:1110
 msgid "Publish Series"
 msgstr "เผยแพร่ชุด"
 
@@ -2002,11 +2069,11 @@ msgstr "คุณไม่มีซีรีส์ที่พร้อมใช
 msgid "Add new Series."
 msgstr "เพิ่มซีรีส์ใหม่."
 
-#: addons/publisher/series_issue_manager.php:332
+#: addons/publisher/series_issue_manager.php:344
 msgid "Create as unpublished:"
 msgstr "สร้างเป็นที่ยังไม่เผยแพร่:"
 
-#: addons/publisher/series_issue_manager.php:335
+#: addons/publisher/series_issue_manager.php:347
 msgid ""
 "When checked, all posts you assign to this series will remain unpublished "
 "until you publish the entire series."
@@ -2015,120 +2082,176 @@ msgstr ""
 "โพสต์ทั้งหมดที่คุณกำหนดให้กับชุดนี้จะยังไม่เผยแพร่จนกว่าคุณจะเผยแพร่ชุดทั้งห"
 "มด."
 
-#: addons/publisher/series_issue_manager.php:415
+#: addons/publisher/series_issue_manager.php:427
 msgid "The posts in your series were successfully unpublished."
 msgstr "บทความในซีรีส์ของคุณถูกยกเลิกการเผยแพร่เรียบร้อยแล้ว."
 
-#: addons/publisher/series_issue_manager.php:424
-#: addons/publisher/series_issue_manager.php:573
+#: addons/publisher/series_issue_manager.php:436
+#: addons/publisher/series_issue_manager.php:647
 msgid "Congratulations. Your series order was updated successfully."
 msgstr "ขอแสดงความยินดี ซีรีส์ของคุณได้รับการอัปเดตเรียบร้อยแล้ว."
 
-#: addons/publisher/series_issue_manager.php:432
-#: addons/publisher/series_issue_manager.php:450
+#: addons/publisher/series_issue_manager.php:444
+#: addons/publisher/series_issue_manager.php:462
 msgid "Congratulations. Your posts were published successfully."
 msgstr "ขอแสดงความยินดี บทความของคุณได้รับการเผยแพร่เรียบร้อยแล้ว."
 
-#: addons/publisher/series_issue_manager.php:441
+#: addons/publisher/series_issue_manager.php:453
 msgid "Post moved to the Trash."
 msgstr "บทความถูกย้ายไปที่ถังขยะ."
 
-#: addons/publisher/series_issue_manager.php:458
+#: addons/publisher/series_issue_manager.php:470
 msgid "Congratulations. Your posts were scheduled successfully."
 msgstr "ขอแสดงความยินดี บทความของคุณได้รับการกำหนดเวลาเรียบร้อยแล้ว."
 
-#: addons/publisher/series_issue_manager.php:495
+#: addons/publisher/series_issue_manager.php:514
+msgid "Published"
+msgstr "เผยแพร่แล้ว"
+
+#: addons/publisher/series_issue_manager.php:517
+msgid "Scheduled"
+msgstr "กำหนดการ"
+
+#: addons/publisher/series_issue_manager.php:520
+msgid "Last Modified"
+msgstr "แก้ไขล่าสุด"
+
+#: addons/publisher/series_issue_manager.php:538
+#. translators: 1: Post date, 2: Post time.
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s ที่ %2$s"
+
+#: addons/publisher/series_issue_manager.php:569
 msgid "Sorry, you are not allowed to perform this action."
 msgstr "ขออภัย คุณไม่ได้รับอนุญาตให้ดำเนินการนี้."
 
-#: addons/publisher/series_issue_manager.php:829
+#: addons/publisher/series_issue_manager.php:894
 msgid "Manage Series Issues"
 msgstr "จัดการปัญหาซีรีส์"
 
-#: addons/publisher/series_issue_manager.php:859
-#: addons/publisher/series_issue_manager.php:871
+#: addons/publisher/series_issue_manager.php:913
+#: orgSeries-manage.php:117
+msgid "Move up"
+msgstr "เลื่อนขึ้น"
+
+#: addons/publisher/series_issue_manager.php:914
+#: orgSeries-manage.php:118
+msgid "Move down"
+msgstr "เลื่อนลง"
+
+#: addons/publisher/series_issue_manager.php:916
+#: orgSeries-manage.php:120
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move up: %s"
+msgstr "เลื่อนขึ้น: %s"
+
+#: addons/publisher/series_issue_manager.php:918
+#: orgSeries-manage.php:122
+#. translators: %s: post title
+#. translators: %s: term name
+#, php-format
+msgid "Move down: %s"
+msgstr "เลื่อนลง: %s"
+
+#: addons/publisher/series_issue_manager.php:920
+#: orgSeries-manage.php:124
+#. translators: 1: post title, 2: new position, 3: total number of posts
+#. translators: 1: term name, 2: new position, 3: number of rows
+#, php-format
+msgid "%1$s moved to position %2$d of %3$d."
+msgstr "%1$s เลื่อนไปยังตำแหน่ง %2$d จาก %3$d."
+
+#: addons/publisher/series_issue_manager.php:921
+msgid "Order changed. Save to keep the new order."
+msgstr "เปลี่ยนลำดับแล้ว บันทึกเพื่อรักษาลำดับใหม่."
+
+#: addons/publisher/series_issue_manager.php:935
+#: addons/publisher/series_issue_manager.php:947
 msgid "Number of items per page"
 msgstr "จำนวนรายการต่อหน้า"
 
-#: addons/publisher/series_issue_manager.php:926
+#: addons/publisher/series_issue_manager.php:1003
 msgid "Publishing Series:"
 msgstr "การเผยแพร่ซีรีส์:"
 
-#: addons/publisher/series_issue_manager.php:933
+#: addons/publisher/series_issue_manager.php:1010
 #. translators: %s: search keywords
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "ผลการค้นหาสำหรับ &#8220;%s&#8221;"
 
-#: addons/publisher/series_issue_manager.php:948
+#: addons/publisher/series_issue_manager.php:1025
 msgid "Search"
 msgstr "ค้นหา"
 
-#: addons/publisher/series_issue_manager.php:1001
+#: addons/publisher/series_issue_manager.php:1078
 msgid "Publication Date/Time:"
 msgstr "วันที่/เวลาการเผยแพร่:"
 
-#: addons/publisher/series_issue_manager.php:1012
+#: addons/publisher/series_issue_manager.php:1089
 msgid "Month"
 msgstr "เดือน"
 
-#: addons/publisher/series_issue_manager.php:1021
+#: addons/publisher/series_issue_manager.php:1098
 msgid "Day"
 msgstr "วัน"
 
-#: addons/publisher/series_issue_manager.php:1022
+#: addons/publisher/series_issue_manager.php:1099
 msgid "Year"
 msgstr "ปี"
 
-#: addons/publisher/series_issue_manager.php:1023
+#: addons/publisher/series_issue_manager.php:1100
 msgid "Hour"
 msgstr "ชั่วโมง"
 
-#: addons/publisher/series_issue_manager.php:1024
+#: addons/publisher/series_issue_manager.php:1101
 msgid "Minute"
 msgstr "นาที"
 
-#: addons/publisher/series_issue_manager.php:1058
-#: addons/publisher/series_issue_manager.php:1128
-#: addons/publisher/series_issue_manager.php:1265
+#: addons/publisher/series_issue_manager.php:1135
+#: addons/publisher/series_issue_manager.php:1205
+#: addons/publisher/series_issue_manager.php:1342
 msgid "Update Order"
 msgstr "อัปเดตลำดับ"
 
-#: addons/publisher/series_issue_manager.php:1085
+#: addons/publisher/series_issue_manager.php:1162
 msgid "Series Order:"
 msgstr "ลำดับซีรีส์:"
 
-#: addons/publisher/series_issue_manager.php:1088
+#: addons/publisher/series_issue_manager.php:1165
 msgid ""
 "Drag the post names into the order you want them to be in the series, from "
 "the first part to the last part."
 msgstr "ลากชื่อโพสต์ไปยังลำดับที่คุณต้องการให้เป็นในชุด จากส่วนแรกไปยังส่วนสุดท้าย."
 
-#: addons/publisher/series_issue_manager.php:1100
+#: addons/publisher/series_issue_manager.php:1177
 msgid "Search Posts"
 msgstr "ค้นหาโพสต์"
 
-#: addons/publisher/series_issue_manager.php:1138
+#: addons/publisher/series_issue_manager.php:1215
 msgid "Order Tools"
 msgstr "สั่งซื้อเครื่องมือ"
 
-#: addons/publisher/series_issue_manager.php:1142
+#: addons/publisher/series_issue_manager.php:1219
 msgid "Automatically reorder this series by publication date."
 msgstr "จัดเรียงลำดับซีรีส์นี้โดยอัตโนมัติตามวันที่เผยแพร่."
 
-#: addons/publisher/series_issue_manager.php:1150
+#: addons/publisher/series_issue_manager.php:1227
 msgid "Order by publication date: Oldest first"
 msgstr "จัดเรียงตามวันที่เผยแพร่: เก่าสุดก่อน"
 
-#: addons/publisher/series_issue_manager.php:1160
+#: addons/publisher/series_issue_manager.php:1237
 msgid "Order by publication date: Newest first"
 msgstr "จัดเรียงตามวันที่เผยแพร่: ใหม่สุดก่อน"
 
-#: addons/publisher/series_issue_manager.php:1185
+#: addons/publisher/series_issue_manager.php:1262
 msgid "Unpublished posts in series:"
 msgstr "โพสต์ที่ยังไม่ได้เผยแพร่ในซีรีส์:"
 
-#: addons/publisher/series_issue_manager.php:1188
+#: addons/publisher/series_issue_manager.php:1265
 msgid ""
 "When these posts are published, they will be added after the last current "
 "post in the series."
@@ -2136,15 +2259,15 @@ msgstr ""
 "เมื่อโพสต์เหล่านี้ถูกเผยแพร่ "
 "พวกเขาจะถูกเพิ่มหลังจากโพสต์ปัจจุบันล่าสุดในชุด."
 
-#: addons/publisher/series_issue_manager.php:1225
+#: addons/publisher/series_issue_manager.php:1302
 msgid "Unpublished Posts"
 msgstr "โพสต์ที่ยังไม่ได้เผยแพร่"
 
-#: addons/publisher/series_issue_manager.php:1240
+#: addons/publisher/series_issue_manager.php:1317
 msgid "Publish Unpublished Posts"
 msgstr "เผยแพร่โพสต์ที่ยังไม่ได้เผยแพร่"
 
-#: addons/publisher/series_issue_manager.php:1250
+#: addons/publisher/series_issue_manager.php:1327
 msgid "Unpublished Series Order"
 msgstr "ลำดับซีรีส์ที่ยังไม่ได้เผยแพร่"
 
@@ -2183,15 +2306,40 @@ msgstr "ตัวเลือกปลั๊กอินซีรีส์ Publi
 msgid "Series settings"
 msgstr "การตั้งค่า Series"
 
-#: inc/settings/settings-page.php:57
+#: inc/settings/settings-page.php:71
+msgid "Update Options"
+msgstr "อัปเดตตัวเลือก"
+
+#: inc/settings/settings-page.php:76
+msgid "Reset Series settings"
+msgstr "รีเซ็ตการตั้งค่า Series"
+
+#: inc/settings/settings-page.php:77
+msgid ""
+"Clicking Yes will reset the options to the defaults and you will lose all "
+"customizations. Or you can click cancel and return."
+msgstr ""
+"การคลิก Yes "
+"จะรีเซ็ตตัวเลือกกลับไปยังค่าเริ่มต้นและคุณจะสูญเสียการปรับแต่งทั้งหมด "
+"หรือคุณสามารถคลิกยกเลิกและกลับ."
+
+#: inc/settings/settings-page.php:78
+msgid "No"
+msgstr "ไม่"
+
+#: inc/settings/settings-page.php:79
+msgid "Yes"
+msgstr "ใช่"
+
+#: inc/settings/settings-page.php:94
 msgid "Allowed Html"
 msgstr "อนุญาต Html"
 
-#: inc/settings/settings-page.php:66
+#: inc/settings/settings-page.php:102
 msgid "Overview"
 msgstr "ภาพรวม"
 
-#: inc/settings/settings-page.php:68
+#: inc/settings/settings-page.php:104
 msgid ""
 "The following is a legend of the tokens that are available for use in the "
 "custom template fields. These will be replaced with the appropriate values "
@@ -2200,11 +2348,11 @@ msgstr ""
 "ต่อไปนี้คือคำอธิบายของโทเค็นที่มีให้ใช้ในฟิลด์แม่แบบที่กำหนดเอง "
 "ซึ่งจะถูกแทนที่ด้วยค่าที่เหมาะสมเมื่อปลั๊กอินทำงาน."
 
-#: inc/settings/settings-page.php:73
+#: inc/settings/settings-page.php:109
 msgid "This will be replaced with the series featured image for a series."
 msgstr "จะถูกแทนที่ด้วยภาพเด่นของซีรีส์สำหรับซีรีส์"
 
-#: inc/settings/settings-page.php:81
+#: inc/settings/settings-page.php:117
 #. translators: %series_icon%: Template token for the series featured image.
 #, php-format
 msgid ""
@@ -2212,7 +2360,7 @@ msgid ""
 "to the series page"
 msgstr "เหมือนกับ %series_icon% ยกเว้นว่าภาพเด่นของซีรีส์จะเชื่อมโยงไปยังหน้าซีรีส์"
 
-#: inc/settings/settings-page.php:89
+#: inc/settings/settings-page.php:125
 msgid ""
 "This token is for use with the orgSeries widget only - it references where "
 "you want the list of series titles to be inserted and requires that the "
@@ -2222,23 +2370,23 @@ msgstr ""
 "มันอ้างถึงที่ที่คุณต้องการให้รายชื่อชื่อชุดถูกแทรกและต้องการให้แม่แบบสำหรับช"
 "ื่อชุดแต่ละชื่อถูกตั้งค่าไว้ด้วย."
 
-#: inc/settings/settings-page.php:97
+#: inc/settings/settings-page.php:133
 msgid "This will be replaced with the title of a series"
 msgstr "สิ่งนี้จะถูกแทนที่ด้วยชื่อของซีรีส์"
 
-#: inc/settings/settings-page.php:105
+#: inc/settings/settings-page.php:141
 #. translators: %series_title%: Template token for the series title.
 #, php-format
 msgid "Same as %series_title% except that it will also be linked to the series page"
 msgstr "เหมือนกับ %series_title% ยกเว้นว่า จะถูกเชื่อมโยงไปยังหน้าซีรีส์ด้วย"
 
-#: inc/settings/settings-page.php:113
+#: inc/settings/settings-page.php:149
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear."
 msgstr "เป็นโทเค็นตำแหน่งสำหรับที่ที่เนื้อหาของแม่แบบรายการโพสต์จะปรากฏ."
 
-#: inc/settings/settings-page.php:121
+#: inc/settings/settings-page.php:157
 msgid ""
 "Is the location token for where the contents of the post list post "
 "templates will appear and use provided widget post short title."
@@ -2246,27 +2394,27 @@ msgstr ""
 "เป็นโทเค็นตำแหน่งสำหรับที่ที่เนื้อหาของแม่แบบรายการโพสต์จะปรากฏและใช้ชื่อย่อ"
 "โพสต์ที่ให้ไว้ใน widget."
 
-#: inc/settings/settings-page.php:129
+#: inc/settings/settings-page.php:165
 msgid "Will be replaced with the post title of a post in the series"
 msgstr "จะถูกแทนที่ด้วยชื่อโพสต์ของโพสต์ในซีรีส์"
 
-#: inc/settings/settings-page.php:137
+#: inc/settings/settings-page.php:173
 msgid ""
 "Will be replaced with the post title of a post in the series linked to the "
 "page view of that post."
 msgstr "จะถูกแทนที่ด้วยชื่อโพสต์ของโพสต์ในชุดที่เชื่อมโยงกับการดูหน้านั้น."
 
-#: inc/settings/settings-page.php:145
+#: inc/settings/settings-page.php:181
 msgid "Will be replaced with the post title short of a post in the series"
 msgstr "จะถูกแทนที่ด้วยชื่อโพสต์สั้นของโพสต์ในซีรีส์"
 
-#: inc/settings/settings-page.php:153
+#: inc/settings/settings-page.php:189
 msgid ""
 "Will be replaced with the post title short of a post in the series linked "
 "to the page view of that post."
 msgstr "จะถูกแทนที่ด้วยชื่อโพสต์ย่อของโพสต์ในชุดที่เชื่อมโยงกับการดูหน้านั้น."
 
-#: inc/settings/settings-page.php:161
+#: inc/settings/settings-page.php:197
 msgid ""
 "Will be replaced by the navigation link for the previous post in a series. "
 "The text will be whatever is included in the 'Custom Previous Post "
@@ -2278,7 +2426,7 @@ msgstr ""
 "'ข้อความนำทางโพสต์ก่อนหน้าที่กำหนดเอง' หากฟิลด์นั้นว่างเปล่า "
 "ข้อความจะเป็นชื่อของโพสต์"
 
-#: inc/settings/settings-page.php:169
+#: inc/settings/settings-page.php:205
 msgid ""
 "Will be replaced by the navigation link for the next post in a series. The "
 "text will be whatever is included in the 'Custom Next Post Navigation Text' "
@@ -2288,7 +2436,7 @@ msgstr ""
 "ข้อความจะเป็นอะไรก็ตามที่รวมอยู่ในฟิลด์ 'ข้อความนำทางโพสต์ถัดไปที่กำหนดเอง' "
 "หากฟิลด์นั้นว่างเปล่า ข้อความจะเป็นชื่อของโพสต์"
 
-#: inc/settings/settings-page.php:177
+#: inc/settings/settings-page.php:213
 msgid ""
 "Will be replaced by the navigation link for the first post in a series. The "
 "text will be whatever is included in the 'Custom First Post Navigation "
@@ -2299,7 +2447,7 @@ msgstr ""
 "ข้อความจะเป็นอะไรก็ตามที่รวมอยู่ในฟิลด์ 'ข้อความนำทางโพสต์แรกที่กำหนดเอง' "
 "หากฟิลด์นั้นว่างเปล่า ข้อความจะเป็นชื่อของโพสต์"
 
-#: inc/settings/settings-page.php:184
+#: inc/settings/settings-page.php:220
 msgid ""
 "Use this tag either before or after the rest of the template code.  It will "
 "indicate where you want the content of a post to display."
@@ -2307,70 +2455,45 @@ msgstr ""
 "ใช้แท็กนี้ก่อนหรือหลังโค้ดแม่แบบที่เหลือ "
 "มันจะแสดงให้เห็นว่าคุณต้องการให้เนื้อหาของโพสต์แสดงที่ไหน."
 
-#: inc/settings/settings-page.php:192
+#: inc/settings/settings-page.php:228
 msgid "Will display what part of a series the post is"
 msgstr "จะแสดงว่าโพสต์อยู่ในส่วนใดของซีรีส์"
 
-#: inc/settings/settings-page.php:200
+#: inc/settings/settings-page.php:236
 msgid "Will display the total number of posts in a series"
 msgstr "จะแสดงจำนวนโพสต์ทั้งหมดในซีรีส์"
 
-#: inc/settings/settings-page.php:208
+#: inc/settings/settings-page.php:244
 msgid "Will display the description for the series"
 msgstr "จะแสดงคำอธิบายสำหรับซีรีส์"
 
-#: inc/settings/settings-page.php:220
+#: inc/settings/settings-page.php:254
 msgid "Will output the slug of the series"
 msgstr "จะแสดง slug ของซีรีส์"
 
-#: inc/settings/settings-page.php:230
+#: inc/settings/settings-page.php:264
 msgid "Will output the ID of the series"
 msgstr "จะแสดง ID ของซีรีส์"
 
-#: inc/settings/settings-page.php:240
+#: inc/settings/settings-page.php:274
 msgid "Will output the author of the post"
 msgstr "จะแสดงผู้เขียนของโพสต์"
 
-#: inc/settings/settings-page.php:250
+#: inc/settings/settings-page.php:284
 msgid "If the post has a feature-image then that image will be displayed"
 msgstr "หากโพสต์มีภาพฟีเจอร์ จะมีการแสดงภาพนั้น"
 
-#: inc/settings/settings-page.php:260
+#: inc/settings/settings-page.php:294
 msgid "The date that a post was published"
 msgstr "วันที่โพสต์ถูกเผยแพร่"
 
-#: inc/settings/settings-page.php:270
+#: inc/settings/settings-page.php:304
 msgid "Will be replaced with the unpublished post title of a post in the series"
 msgstr "จะถูกแทนที่ด้วยชื่อโพสต์ที่ยังไม่เผยแพร่ของโพสต์ในซีรีส์"
 
-#: inc/settings/settings-page.php:280
+#: inc/settings/settings-page.php:314
 msgid "Will display the total number of published and unpublished posts in a series"
 msgstr "จะแสดงจำนวนโพสต์ที่เผยแพร่และยังไม่เผยแพร่ทั้งหมดในซีรีส์"
-
-#: inc/settings/settings-page.php:323
-msgid "Update Options"
-msgstr "อัปเดตตัวเลือก"
-
-#: inc/settings/settings-page.php:328
-msgid "Reset Series settings"
-msgstr "รีเซ็ตการตั้งค่า Series"
-
-#: inc/settings/settings-page.php:329
-msgid ""
-"Clicking Yes will reset the options to the defaults and you will lose all "
-"customizations. Or you can click cancel and return."
-msgstr ""
-"การคลิก Yes "
-"จะรีเซ็ตตัวเลือกกลับไปยังค่าเริ่มต้นและคุณจะสูญเสียการปรับแต่งทั้งหมด "
-"หรือคุณสามารถคลิกยกเลิกและกลับ."
-
-#: inc/settings/settings-page.php:330
-msgid "No"
-msgstr "ไม่"
-
-#: inc/settings/settings-page.php:331
-msgid "Yes"
-msgstr "ใช่"
 
 #: inc/settings/settings-upgrade.php:26
 #: inc/settings/settings-upgrade.php:49
@@ -2397,50 +2520,50 @@ msgstr "อัปเดตข้อมูลซีรีส์"
 msgid "Series upgrade completed."
 msgstr "การอัปเกรดซีรีส์เสร็จสิ้น."
 
-#: inc/settings/settings-upgrade.php:183
+#: inc/settings/settings-upgrade.php:158
 #. translators: %d: Number of posts updated.
 #, php-format
 msgid "Series order sync completed. %d posts updated."
 msgstr "การซิงค์ลำดับซีรีส์เสร็จสิ้นแล้ว %d โพสต์ได้รับการอัปเดต."
 
 #: inc/settings/settings-validation.php:89
-#: orgSeries-setup.php:278
+#: orgSeries-setup.php:286
 msgid "Search Series"
 msgstr "ค้นหาซีรีส์"
 
 #: inc/settings/settings-validation.php:90
-#: orgSeries-setup.php:279
+#: orgSeries-setup.php:287
 msgid "Popular Series"
 msgstr "ซีรีส์ยอดนิยม"
 
 #: inc/settings/settings-validation.php:91
-#: orgSeries-setup.php:280
-#: orgSeries-setup.php:373
+#: orgSeries-setup.php:288
+#: orgSeries-setup.php:380
 msgid "All Series"
 msgstr "ซีรีส์ทั้งหมด"
 
 #: inc/settings/settings-validation.php:92
-#: orgSeries-setup.php:281
+#: orgSeries-setup.php:289
 msgid "Edit Series"
 msgstr "แก้ไขซีรีส์"
 
 #: inc/settings/settings-validation.php:93
-#: orgSeries-setup.php:282
+#: orgSeries-setup.php:290
 msgid "Update Series"
 msgstr "อัปเดตซีรีส์"
 
 #: inc/settings/settings-validation.php:94
-#: orgSeries-setup.php:283
+#: orgSeries-setup.php:291
 msgid "Add New Series"
 msgstr "เพิ่มซีรีส์ใหม่"
 
 #: inc/settings/settings-validation.php:95
-#: orgSeries-setup.php:284
+#: orgSeries-setup.php:292
 msgid "New Series Name"
 msgstr "ชื่อซีรีส์ใหม่"
 
 #: inc/settings/settings-validation.php:97
-#: orgSeries-setup.php:286
+#: orgSeries-setup.php:294
 msgid "No series found"
 msgstr "ไม่พบซีรีส์"
 
@@ -2539,7 +2662,7 @@ msgid "Reset options to default"
 msgstr "คืนค่าออปชันเป็นค่าเริ่มต้น"
 
 #: inc/settings/tab-layouts.php:13
-#: orgSeries-options.php:148
+#: orgSeries-options.php:151
 msgid "Layouts"
 msgstr "เลย์เอาต์"
 
@@ -2548,7 +2671,7 @@ msgid "Configure the layout displays shown on posts in a series."
 msgstr "กำหนดการแสดงผลเลย์เอาต์ที่แสดงบนโพสต์ในชุด."
 
 #: inc/settings/tab-legacy.php:14
-#: orgSeries-options.php:165, fuzzy
+#: orgSeries-options.php:168, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
@@ -2570,38 +2693,39 @@ msgid "Use PublishPress Series CSS styles?"
 msgstr "ใช้รูปแบบ CSS ของ PublishPress Series หรือไม่?"
 
 #: inc/settings/tab-legacy.php:48
+#: inc/settings/tab-legacy.php:51
 msgid "Style options"
 msgstr "ตัวเลือกสไตล์"
 
-#: inc/settings/tab-legacy.php:50
+#: inc/settings/tab-legacy.php:52
 msgid "Use default style"
 msgstr "ใช้สไตล์เริ่มต้น"
 
-#: inc/settings/tab-legacy.php:51
+#: inc/settings/tab-legacy.php:53
 msgid "Use box style"
 msgstr "ใช้สไตล์กล่อง"
 
-#: inc/settings/tab-legacy.php:52
+#: inc/settings/tab-legacy.php:54
 msgid "Use dark style"
 msgstr "ใช้สไตล์มืด"
 
-#: inc/settings/tab-legacy.php:53
+#: inc/settings/tab-legacy.php:55
 msgid "Use light style"
 msgstr "ใช้สไตล์สว่าง"
 
-#: inc/settings/tab-legacy.php:63
+#: inc/settings/tab-legacy.php:66
 msgid "Series Overview"
 msgstr "ภาพรวมซีรีส์"
 
-#: inc/settings/tab-legacy.php:65
+#: inc/settings/tab-legacy.php:68
 msgid "Choose the design for the taxonomy page where a single Series is displayed."
 msgstr "เลือกการออกแบบสำหรับหน้าภาษีที่มีการแสดงซีรีส์เดียว."
 
-#: inc/settings/tab-legacy.php:69
+#: inc/settings/tab-legacy.php:72
 msgid "Layout:"
 msgstr "เลย์เอาต์:"
 
-#: inc/settings/tab-legacy.php:86
+#: inc/settings/tab-legacy.php:92
 #. translators: %s: URL to the series archive template documentation.
 #, php-format
 msgid ""
@@ -2613,48 +2737,51 @@ msgstr ""
 "จากธีมของคุณถูกแทนที่ <a href=\"%s\" target=\"_blank\" rel=\"noopener "
 "noreferrer\">อ่านเอกสารสำหรับการปรับแต่งการออกแบบเหล่านี้</a>."
 
-#: inc/settings/tab-legacy.php:95
-#: inc/settings/tab-series-category.php:70
+#: inc/settings/tab-legacy.php:102
+#: inc/settings/tab-series-category.php:73
 msgid "Columns:"
 msgstr "คอลัมน์:"
 
-#: inc/settings/tab-legacy.php:101
+#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:111
 msgid "Order series by:"
 msgstr "เรียงลำดับซีรีส์โดย:"
 
-#: inc/settings/tab-legacy.php:103
+#: inc/settings/tab-legacy.php:112
 msgid "Series part"
 msgstr "ส่วนของซีรีส์"
 
-#: inc/settings/tab-legacy.php:104
+#: inc/settings/tab-legacy.php:113
 msgid "Order by date"
 msgstr "เรียงตามวันที่"
 
-#: inc/settings/tab-legacy.php:108
+#: inc/settings/tab-legacy.php:118
+#: inc/settings/tab-legacy.php:121
 msgid "Series order method"
 msgstr "วิธีการเรียงลำดับซีรีส์"
 
-#: inc/settings/tab-legacy.php:121
-#: inc/settings/tab-legacy.php:220
-#: inc/settings/tab-legacy.php:226
-#: orgSeries-setup.php:549
-#: orgSeries-widgets.php:123
+#: inc/settings/tab-legacy.php:134
+#: inc/settings/tab-legacy.php:233
+#: inc/settings/tab-legacy.php:239
+#: orgSeries-setup.php:562
+#: orgSeries-widgets.php:122
+#: seriestoc.php:34
 msgid "Series Table of Contents"
 msgstr "สารบัญซีรีส์"
 
-#: inc/settings/tab-legacy.php:126
+#: inc/settings/tab-legacy.php:139
 msgid "Series Table of Contents URL:"
 msgstr "URL สารบัญซีรีส์:"
 
-#: inc/settings/tab-legacy.php:128
+#: inc/settings/tab-legacy.php:141
 msgid "Series Table of Contents URL"
 msgstr "URL สารบัญซีรีส์"
 
-#: inc/settings/tab-legacy.php:129
+#: inc/settings/tab-legacy.php:142
 msgid "view page"
 msgstr "ดูหน้า"
 
-#: inc/settings/tab-legacy.php:139
+#: inc/settings/tab-legacy.php:152
 #. translators: 1: Opening link tag, 2: Closing link tag.
 #, php-format
 msgid ""
@@ -2664,88 +2791,88 @@ msgstr ""
 "คุณต้อง %1$s อัปเดตโครงสร้างลิงก์ถาวรของคุณ %2$s เป็นสิ่งอื่นที่ไม่ใช่ "
 "\"Plain\" เพื่อให้ URL ของสารบัญในชุดทำงาน."
 
-#: inc/settings/tab-legacy.php:159
+#: inc/settings/tab-legacy.php:172
 msgid "Series Per Page:"
 msgstr "ซีรีส์ต่อหน้า:"
 
-#: inc/settings/tab-legacy.php:160
+#: inc/settings/tab-legacy.php:173
 msgid "Series Per Page"
 msgstr "ซีรีส์ต่อหน้า"
 
-#: inc/settings/tab-legacy.php:163
+#: inc/settings/tab-legacy.php:176
 msgid "Series Table of Contents Title:"
 msgstr "ชื่อสารบัญซีรีส์:"
 
-#: inc/settings/tab-legacy.php:173
+#: inc/settings/tab-legacy.php:186
 msgid "Series Featured Images"
 msgstr "ภาพเด่นของซีรีส์"
 
-#: inc/settings/tab-legacy.php:178
+#: inc/settings/tab-legacy.php:191
 msgid "Width for featured image on series table of contents page (in pixels)"
 msgstr "ความกว้างสำหรับภาพเด่นในหน้าสารบัญซีรีส์ (เป็นพิกเซล)"
 
-#: inc/settings/tab-legacy.php:179
+#: inc/settings/tab-legacy.php:192
 msgid "Width for featured image on series table of contents page"
 msgstr "ความกว้างสำหรับภาพเด่นในหน้าสารบัญของซีรีส์"
 
-#: inc/settings/tab-legacy.php:182
+#: inc/settings/tab-legacy.php:195
 msgid "Width for featured image on a post page (in pixels)."
 msgstr "ความกว้างสำหรับภาพเด่นในหน้าบทความ (เป็นพิกเซล)"
 
-#: inc/settings/tab-legacy.php:183
+#: inc/settings/tab-legacy.php:196
 msgid "Width for featured image on a post page"
 msgstr "ความกว้างสำหรับภาพเด่นในหน้าโพสต์"
 
-#: inc/settings/tab-legacy.php:186
+#: inc/settings/tab-legacy.php:199
 msgid ""
 "Width for featured image if displayed via the latest series template (in "
 "pixels)."
 msgstr "ความกว้างสำหรับภาพเด่นหากแสดงผ่านแม่แบบซีรีส์ล่าสุด (เป็นพิกเซล)"
 
-#: inc/settings/tab-legacy.php:187
+#: inc/settings/tab-legacy.php:200
 msgid "Width for featured image if displayed via the latest series template"
 msgstr "ความกว้างสำหรับภาพเด่นหากแสดงผ่านเทมเพลตชุดล่าสุด"
 
-#: inc/settings/tab-legacy.php:196
+#: inc/settings/tab-legacy.php:209
 #: orgSeries-widgets.php:16
 msgid "Latest Series"
 msgstr "ซีรีส์ล่าสุด"
 
-#: inc/settings/tab-legacy.php:198
+#: inc/settings/tab-legacy.php:211
 msgid "This display is used by the \"Latest Series\" widget."
 msgstr "การแสดงนี้ใช้โดย widget \"ซีรีส์ล่าสุด\"."
 
-#: inc/settings/tab-legacy.php:202
+#: inc/settings/tab-legacy.php:215
 msgid "Latest Series (tags before):"
 msgstr "ซีรีส์ล่าสุด (แท็กก่อนหน้า):"
 
-#: inc/settings/tab-legacy.php:203
+#: inc/settings/tab-legacy.php:216
 msgid "Latest Series tags before"
 msgstr "แท็กชุดล่าสุดก่อน"
 
-#: inc/settings/tab-legacy.php:206
+#: inc/settings/tab-legacy.php:219
 msgid "Latest Series (inner tags):"
 msgstr "ซีรีส์ล่าสุด (แท็กภายใน):"
 
-#: inc/settings/tab-legacy.php:207
+#: inc/settings/tab-legacy.php:220
 msgid "Latest Series inner tags"
 msgstr "แท็กภายในชุดล่าสุด"
 
-#: inc/settings/tab-legacy.php:210
+#: inc/settings/tab-legacy.php:223
 msgid "Latest Series (tags after):"
 msgstr "ซีรีส์ล่าสุด (แท็กหลังจากนี้):"
 
-#: inc/settings/tab-legacy.php:211
+#: inc/settings/tab-legacy.php:224
 msgid "Latest Series tags after"
 msgstr "แท็กชุดล่าสุดหลัง"
 
-#: inc/settings/tab-legacy.php:222
+#: inc/settings/tab-legacy.php:235
 msgid ""
 "This display is used by the \"Series Table of Contents\" widget, shortcode, "
 "and URL."
 msgstr "การแสดงนี้ใช้โดย widget, shortcode, และ URL ของ \"ตารางเนื้อหาซีรีส์\"."
 
-#: inc/settings/tab-legacy.php:229
+#: inc/settings/tab-legacy.php:242
 msgid ""
 "This display is used by the \"Series Table of Contents\". To find the URL "
 "for this display, go the \"Display\" tab and then \"Series Table of "
@@ -2773,6 +2900,7 @@ msgid "Alphabetical Z-A"
 msgstr "ตัวอักษร Z-A"
 
 #: inc/settings/tab-metabox.php:38
+#: includes-core/Mcp/Settings.php:105
 msgid "Show \"Add New\""
 msgstr "แสดง \"เพิ่มใหม่\""
 
@@ -2781,6 +2909,7 @@ msgid "Show Add New"
 msgstr "แสดงเพิ่มใหม่"
 
 #: inc/settings/tab-metabox.php:42
+#: includes-core/Mcp/Settings.php:106
 msgid "Show \"Post title in widget\""
 msgstr "แสดง \"ชื่อโพสต์ใน widget\""
 
@@ -2810,15 +2939,19 @@ msgstr "ตามที่ในแม่แบบ"
 
 #: inc/settings/tab-post-details.php:50
 #: inc/settings/tab-post-details.php:51
+#: includes-core/Mcp/Settings.php:91
 msgid "Display Series Post Details?"
 msgstr "แสดงรายละเอียดโพสต์ซีรีส์?"
 
 #: inc/settings/tab-post-details.php:55
+#: includes-core/Mcp/Settings.php:93
 msgid "Post Details Selection"
 msgstr "การเลือกข้อมูลรายละเอียดโพสต์"
 
 #: inc/settings/tab-post-details.php:57
+#: inc/settings/tab-post-details.php:60
 #: inc/settings/tab-post-navigation.php:57
+#: inc/settings/tab-post-navigation.php:60
 msgid "Edit this layout"
 msgstr "แก้ไขเลย์เอาต์นี้"
 
@@ -2829,6 +2962,7 @@ msgid "Loading…"
 msgstr "กำลังโหลด…"
 
 #: inc/settings/tab-post-details.php:65
+#: includes-core/Mcp/Settings.php:96
 msgid "Post Details Position"
 msgstr "ตำแหน่งรายละเอียดโพสต์"
 
@@ -2863,14 +2997,17 @@ msgid "Display Post List Boxes?"
 msgstr "แสดงกล่องรายการโพสต์หรือไม่?"
 
 #: inc/settings/tab-post-list-box.php:55
+#: includes-core/Mcp/Settings.php:92
 msgid "Post List Boxes Selection"
 msgstr "การเลือกกล่องรายการโพสต์"
 
 #: inc/settings/tab-post-list-box.php:57
+#: inc/settings/tab-post-list-box.php:60
 msgid "Edit this box"
 msgstr "แก้ไขกล่องนี้"
 
 #: inc/settings/tab-post-list-box.php:65
+#: includes-core/Mcp/Settings.php:95
 msgid "Post List Box Position"
 msgstr "ตำแหน่งกล่องรายการโพสต์"
 
@@ -2905,14 +3042,17 @@ msgstr "กำหนดค่าการแสดงการนำทางข
 
 #: inc/settings/tab-post-navigation.php:50
 #: inc/settings/tab-post-navigation.php:51
+#: includes-core/Mcp/Settings.php:90
 msgid "Display Series Navigation?"
 msgstr "แสดงการนำทางของซีรีส์หรือไม่?"
 
 #: inc/settings/tab-post-navigation.php:55
+#: includes-core/Mcp/Settings.php:94
 msgid "Navigation Selection"
 msgstr "การเลือกการนำทาง"
 
 #: inc/settings/tab-post-navigation.php:65
+#: includes-core/Mcp/Settings.php:97
 msgid "Navigation Position"
 msgstr "ตำแหน่งการนำทาง"
 
@@ -2922,26 +3062,29 @@ msgstr "เทมเพลตการนำทาง"
 
 #: inc/settings/tab-post-navigation.php:85
 #: inc/settings/tab-post-navigation.php:86
+#: includes-core/Mcp/Settings.php:98
 msgid "Next Post Text"
 msgstr "ข้อความโพสต์ถัดไป"
 
 #: inc/settings/tab-post-navigation.php:90
 #: inc/settings/tab-post-navigation.php:91
+#: includes-core/Mcp/Settings.php:99
 msgid "Previous Post Text"
 msgstr "ข้อความโพสต์ก่อนหน้า"
 
 #: inc/settings/tab-post-navigation.php:95
 #: inc/settings/tab-post-navigation.php:96
+#: includes-core/Mcp/Settings.php:100
 msgid "First Post Text"
 msgstr "ข้อความโพสต์แรก"
 
 #: inc/settings/tab-post-types.php:12
-#: orgSeries-options.php:159, fuzzy
+#: orgSeries-options.php:162, fuzzy
 msgid "Post Types"
 msgstr "Post Types"
 
 #: inc/settings/tab-post-types.php:13
-#: inc/settings/tab-pro-features.php:31
+#: inc/utility-functions.php:883
 msgid "Custom Post Type Support"
 msgstr "การรองรับ Post Type ที่กำหนดเอง"
 
@@ -2951,7 +3094,7 @@ msgstr "เปิดใช้งาน PublishPress Series สำหรับ po
 
 #: inc/settings/tab-pro-features.php:12
 #: inc/settings/tab-pro-features.php:13
-#: orgSeries-options.php:168
+#: orgSeries-options.php:171
 msgid "Pro Features"
 msgstr "ฟีเจอร์ Pro"
 
@@ -2961,37 +3104,9 @@ msgid ""
 "Pro."
 msgstr "การตั้งค่าเหล่านี้ช่วยให้คุณเปิดหรือปิดฟีเจอร์ใน PublishPress Series Pro."
 
-#: inc/settings/tab-pro-features.php:31
-msgid "Allow custom post types to be used with PublishPress Series."
-msgstr "อนุญาตให้ใช้ post types ที่กำหนดเองกับ PublishPress Series."
-
-#: inc/settings/tab-pro-features.php:32, fuzzy
-msgid "Shortcodes"
-msgstr "Shortcodes"
-
-#: inc/settings/tab-pro-features.php:32
-msgid "Provides shortcodes to display series information."
-msgstr "ให้ shortcodes เพื่อแสดงข้อมูลซีรีส์."
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Extra Tokens"
-msgstr "โทเค็นพิเศษ"
-
-#: inc/settings/tab-pro-features.php:33
-msgid "Provides extra tokens to customize the output of series information."
-msgstr "ให้โทเค็นพิเศษเพื่อปรับแต่งผลลัพธ์ของข้อมูลซีรีส์."
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Multiple Series"
-msgstr "หลายซีรีส์"
-
-#: inc/settings/tab-pro-features.php:34
-msgid "Allows authors to add posts to more than one series."
-msgstr "อนุญาตให้ผู้เขียนเพิ่มโพสต์ไปยังหลายซีรีส์."
-
 #: inc/settings/tab-series-category.php:10
 #: inc/settings/tab-series-category.php:11
-#: orgSeries-options.php:163
+#: orgSeries-options.php:166
 msgid "Series Category"
 msgstr "หมวดหมู่ซีรีส์"
 
@@ -3000,6 +3115,7 @@ msgid "Settings for Series Categories archive URL and display behavior."
 msgstr "การตั้งค่าสำหรับ URL ของหมวดหมู่ซีรีส์และพฤติกรรมการแสดงผล."
 
 #: inc/settings/tab-series-category.php:30
+#: includes-core/Mcp/Settings.php:102
 msgid "Series Categories URL Base:"
 msgstr "พื้นฐาน URL ของหมวดหมู่ซีรีส์:"
 
@@ -3012,6 +3128,7 @@ msgstr ""
 "เก่าจะแ_redirect ไปยังฐานใหม่."
 
 #: inc/settings/tab-series-category.php:40
+#: includes-core/Mcp/Settings.php:103
 msgid "Series Categories Archive Template:"
 msgstr "เทมเพลตหมวดหมู่ซีรีส์:"
 
@@ -3034,18 +3151,19 @@ msgstr ""
 "เมื่อธีมของคุณไม่จัดเตรียม taxonomy-series_group.php."
 
 #: inc/settings/tab-series-category.php:53
+#: inc/settings/tab-series-category.php:56
 msgid "Plugin Template Display Options:"
 msgstr "ตัวเลือกการแสดงผลเทมเพลตปลั๊กอิน:"
 
-#: inc/settings/tab-series-category.php:57
+#: inc/settings/tab-series-category.php:59
 msgid "Show Series Featured Image"
 msgstr "แสดงภาพเด่นของซีรีส์"
 
-#: inc/settings/tab-series-category.php:62
+#: inc/settings/tab-series-category.php:64
 msgid "Show Series Description"
 msgstr "แสดงคำบรรยายซีรีส์"
 
-#: inc/settings/tab-series-category.php:67
+#: inc/settings/tab-series-category.php:69
 msgid "Show Posts in each Series as list items"
 msgstr "แสดงโพสต์ในแต่ละซีรีส์เป็นรายการในรายการ"
 
@@ -3059,6 +3177,7 @@ msgstr ""
 "เริ่มต้น."
 
 #: inc/settings/tab-taxonomy.php:32
+#: includes-core/Mcp/Settings.php:101
 msgid "Series Taxonomy Slug:"
 msgstr "ซีรีส์ Taxonomy Slug:"
 
@@ -3098,19 +3217,55 @@ msgstr ""
 "ใหม่เมื่อคุณเปลี่ยน slug ของ taxonomy หากไม่เลือก, จะมีการเปลี่ยนแค่ slug "
 "ของ taxonomy เท่านั้น."
 
-#: inc/templates/taxonomy-series.php:71
+#: inc/templates/taxonomy-series.php:75
 msgid "Sorry, no results found."
 msgstr "ขอโทษ, ไม่พบผลลัพธ์."
 
-#: inc/welcome/welcome-panel.php:141
+#: inc/utility-functions.php:850
+msgid "Series navigation"
+msgstr "การนำทางซีรี่ส์"
+
+#: inc/utility-functions.php:883
+msgid "Allow custom post types to be used with PublishPress Series."
+msgstr "อนุญาตให้ใช้ post types ที่กำหนดเองกับ PublishPress Series."
+
+#: inc/utility-functions.php:884, fuzzy
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: inc/utility-functions.php:884
+msgid "Provides shortcodes to display series information."
+msgstr "ให้ shortcodes เพื่อแสดงข้อมูลซีรีส์."
+
+#: inc/utility-functions.php:885
+msgid "Extra Tokens"
+msgstr "โทเค็นพิเศษ"
+
+#: inc/utility-functions.php:885
+msgid "Provides extra tokens to customize the output of series information."
+msgstr "ให้โทเค็นพิเศษเพื่อปรับแต่งผลลัพธ์ของข้อมูลซีรีส์."
+
+#: inc/utility-functions.php:886
+msgid "Multiple Series"
+msgstr "หลายซีรีส์"
+
+#: inc/utility-functions.php:886
+msgid "Allows authors to add posts to more than one series."
+msgstr "อนุญาตให้ผู้เขียนเพิ่มโพสต์ไปยังหลายซีรีส์."
+
+#: inc/welcome/welcome-panel.php:93
+msgid "Welcome panel dismissed."
+msgstr "แผงต้อนรับถูกปิดแล้ว."
+
+#: inc/welcome/welcome-panel.php:142
 msgid "Dismiss this panel"
 msgstr "ปฏิเสธแผงนี้"
 
-#: inc/welcome/welcome-panel.php:160
+#: inc/welcome/welcome-panel.php:161
 msgid "Welcome to PublishPress Series"
 msgstr "ยินดีต้อนรับสู่ PublishPress Series"
 
-#: inc/welcome/welcome-panel.php:163
+#: inc/welcome/welcome-panel.php:164
 msgid ""
 "A series groups your posts together and shows your readers the reading "
 "order. Create your first series with the form on this page, then add posts "
@@ -3119,23 +3274,15 @@ msgstr ""
 "ซีรีส์จะช่วยจัดกลุ่มโพสต์ของคุณและแสดงลำดับการอ่านให้กับผู้อ่าน "
 "สร้างซีรีส์แรกของคุณด้วยแบบฟอร์มในหน้านี้ จากนั้นเพิ่มโพสต์ลงในนั้น"
 
-#: inc/welcome/welcome-panel.php:168
+#: inc/welcome/welcome-panel.php:169
 msgid "Create a series"
 msgstr "สร้างซีรีส์"
 
-#: inc/welcome/welcome-panel.php:171
-msgid "View PublishPress Series documentation"
-msgstr "ดูเอกสาร PublishPress Series"
-
-#: inc/welcome/welcome-panel.php:172
+#: inc/welcome/welcome-panel.php:173
 msgid "View Documentation"
 msgstr "ดูเอกสาร"
 
-#: inc/welcome/welcome-panel.php:176
-msgid "Upgrade to PublishPress Series Pro"
-msgstr "อัปเกรดเป็น PublishPress Series Pro"
-
-#: inc/welcome/welcome-panel.php:177
+#: inc/welcome/welcome-panel.php:178
 #: includes-core/PPSeriesCoreAdmin.php:46
 msgid "Upgrade to Pro"
 msgstr "อัปเกรดเป็น Pro"
@@ -3160,7 +3307,7 @@ msgid "Display navigation links for posts in a Series."
 msgstr "แสดงลิงก์การนำทางสำหรับโพสต์ในชุด."
 
 #: includes-core/class-blocks.php:169
-#: orgSeries-setup.php:290
+#: orgSeries-setup.php:298
 #: assets/js/publishpress-series-blocks.js:51
 msgid "Series List"
 msgstr "รายการชุด"
@@ -3170,66 +3317,529 @@ msgstr "รายการชุด"
 msgid "Display a customizable list of Series or Series Categories."
 msgstr "แสดงรายการที่ปรับแต่งได้ของชุดหรือหมวดหมู่ชุด."
 
-#: includes-core/class-blocks.php:423
+#: includes-core/class-blocks.php:439
 #. translators: %s: Number of series.
 #, php-format
 msgid "%s series"
 msgid_plural "%s series"
 msgstr[0] "%s ชุด"
 
-#: includes-core/class-blocks.php:429
+#: includes-core/class-blocks.php:445
 #. translators: %s: Number of posts.
 #, php-format
 msgid "%s post"
 msgid_plural "%s posts"
 msgstr[0] "%s โพสต์"
 
-#: includes-core/class-blocks.php:481
+#: includes-core/class-blocks.php:497
 msgid "Editorial Series"
 msgstr "ชุดบรรณาธิการ"
 
-#: includes-core/class-blocks.php:483
-#: includes-core/class-blocks.php:491
 #: includes-core/class-blocks.php:499
+#: includes-core/class-blocks.php:507
+#: includes-core/class-blocks.php:515
 msgid "A sample Series Category description."
 msgstr "คำอธิบายหมวดหมู่ชุดตัวอย่าง"
 
-#: includes-core/class-blocks.php:489
+#: includes-core/class-blocks.php:505
 msgid "Magazine Issues"
 msgstr "ฉบับนิตยสาร"
 
-#: includes-core/class-blocks.php:497
+#: includes-core/class-blocks.php:513
 msgid "Tutorial Collections"
 msgstr "คอลเลกชันบทเรียน"
 
-#: includes-core/class-blocks.php:509
+#: includes-core/class-blocks.php:525
 msgid "Alpha Series"
 msgstr "ชุดอัลฟา"
 
-#: includes-core/class-blocks.php:511
-#: includes-core/class-blocks.php:519
 #: includes-core/class-blocks.php:527
+#: includes-core/class-blocks.php:535
+#: includes-core/class-blocks.php:543
 msgid "A sample description for this Series."
 msgstr "คำอธิบายสำหรับชุดนี้"
 
-#: includes-core/class-blocks.php:517
+#: includes-core/class-blocks.php:533
 msgid "Bravo Series"
 msgstr "ชุดบราวโว"
 
-#: includes-core/class-blocks.php:525
+#: includes-core/class-blocks.php:541
 msgid "Charlie Series"
 msgstr "ชุดชาร์ลี"
 
-#: includes-core/class-blocks.php:898
+#: includes-core/class-blocks.php:914
 #: assets/js/publishpress-series-blocks.js:60
 msgid "Default layout"
 msgstr "เค้าโครงเริ่มต้น"
 
-#: includes-core/class-blocks.php:931
-#: orgSeries-widgets.php:420
+#: includes-core/class-blocks.php:947
+#: orgSeries-widgets.php:427
 #: assets/js/publishpress-series-blocks.js:22
 msgid "Current series"
 msgstr "ชุดปัจจุบัน"
+
+#: includes-core/Mcp/bootstrap.php:15
+msgid "Actions provided by PublishPress plugins."
+msgstr "การดำเนินการที่จัดทำโดยปลั๊กอิน PublishPress."
+
+#: includes-core/Mcp/Content.php:21
+msgid "Discover Series features and identifiers"
+msgstr "ค้นพบฟีเจอร์และตัวระบุของซีรี่ส์"
+
+#: includes-core/Mcp/Content.php:21
+msgid ""
+"Discover the native series taxonomy, Series Categories, supported post "
+"types, publishing and active Pro addons. Layout discovery uses get-layout; "
+"settings use get-plugin-settings. Hub supplies generic post lookup."
+msgstr ""
+"ค้นพบ taxanomy ซีรี่ส์พื้นเมือง หมวดหมู่ซีรี่ส์ ประเภทโพสต์ที่รองรับ "
+"การเผยแพร่ และโปรแอดออนที่ใช้งานอยู่ การค้นพบเลย์เอาต์ใช้ get-layout; "
+"การตั้งค่าใช้ get-plugin-settings. Hub จัดหาการค้นหาโพสต์ทั่วไป."
+
+#: includes-core/Mcp/Content.php:22
+msgid "Find Series and Series Categories"
+msgstr "ค้นหาซีรี่ส์และหมวดหมู่ซีรี่ส์"
+
+#: includes-core/Mcp/Content.php:22
+msgid ""
+"Find native Series terms or Series Categories by name. Returns native term "
+"metadata and concurrency tokens without exposing post content."
+msgstr ""
+"ค้นหาคำศัพท์ซีรี่ส์พื้นเมืองหรือหมวดหมู่ซีรี่ส์ตามชื่อ "
+"ส่งคืนข้อมูลเมตาของคำศัพท์พื้นเมืองและโทเค็นการทำงานร่วมกันโดยไม่เปิดเผยเนื้"
+"อหาโพสต์."
+
+#: includes-core/Mcp/Content.php:23
+msgid "Read posts in a Series"
+msgstr "อ่านโพสต์ในซีรี่ส์"
+
+#: includes-core/Mcp/Content.php:23
+msgid ""
+"List readable posts with their native part numbers, pending order, status "
+"and date. Pagination filters unreadable objects first. Get-post-series "
+"supplies edit tokens for individual posts."
+msgstr ""
+"แสดงรายการโพสต์ที่อ่านได้พร้อมหมายเลขส่วนพื้นเมือง สถานะการสั่งซื้อ สถานะ "
+"และวันที่ การแบ่งหน้าจะกรองวัตถุที่อ่านไม่ได้ก่อน "
+"การจัดหาการโพสต์ซีรี่ส์จะจัดหาสำหรับการแก้ไขโพสต์แต่ละรายการ."
+
+#: includes-core/Mcp/Content.php:24
+msgid "Inspect a Series or category"
+msgstr "ตรวจสอบซีรี่ส์หรือหมวดหมู่"
+
+#: includes-core/Mcp/Content.php:24
+msgid ""
+"Read name, description, icon, order, category assignments and "
+"expected_hash. Series Categories use taxonomy=category. Parent IDs apply to "
+"hierarchical categories."
+msgstr ""
+"อ่านชื่อ คำอธิบาย ไอคอน ลำดับ การมอบหมายหมวดหมู่ และ expected_hash "
+"หมวดหมู่ซีรี่ส์ใช้ taxonomy=category. Parent IDs "
+"ใช้สำหรับหมวดหมู่แบบลำดับชั้น."
+
+#: includes-core/Mcp/Content.php:25
+msgid "Create or update a Series or category"
+msgstr "สร้างหรืออัปเดตซีรี่ส์หรือหมวดหมู่"
+
+#: includes-core/Mcp/Content.php:25
+msgid ""
+"Create with name, or patch an existing id and expected_hash. Omitted fields "
+"remain unchanged. icon_id is a readable image attachment; zero clears the "
+"Series icon. category_ids replace Series category assignments; [] clears "
+"them. dry_run previews."
+msgstr ""
+"สร้างด้วยชื่อ หรือปรับปรุง id ที่มีอยู่และ expected_hash. "
+"ฟิลด์ที่ถูกละเว้นยังคงไม่เปลี่ยนแปลง icon_id เป็นไฟล์แนบรูปภาพที่อ่านได้; "
+"ศูนย์ล้างไอคอนของซีรี่ส์ category_ids แทนที่การมอบหมายหมวดหมู่ซีรี่ส์; [] "
+"ล้างออก. dry_run แสดงตัวอย่าง."
+
+#: includes-core/Mcp/Content.php:26
+msgid "Delete a Series or category"
+msgstr "ลบซีรี่ส์หรือหมวดหมู่"
+
+#: includes-core/Mcp/Content.php:26
+msgid ""
+"Delete a native taxonomy term without deleting its posts. Requires the "
+"current term and membership token and permission to edit all affected "
+"posts. dry_run previews. Large collections remain in native administration."
+msgstr ""
+"ลบคำศัพท์ taxanomy พื้นเมืองโดยไม่ลบโพสต์ของมัน "
+"ต้องการโทเค็นคำศัพท์ปัจจุบันและโทเค็นการเป็นสมาชิกและสิทธิในการแก้ไขโพสต์ที่"
+"ได้รับผลกระทบทั้งหมด. dry_run แสดงตัวอย่าง. "
+"คอลเล็กชันขนาดใหญ่ยังคงอยู่ในการจัดการพื้นเมือง."
+
+#: includes-core/Mcp/Content.php:27
+msgid "Inspect a post’s Series and block assignments"
+msgstr "ตรวจสอบการมอบหมายซีรี่ส์และบล็อกของโพสต์"
+
+#: includes-core/Mcp/Content.php:27
+msgid ""
+"Read Series membership, part numbers, widget short title and Series "
+"Gutenberg block attributes for a readable editable supported post. Returns "
+"expected_hash covering affected Series order and content."
+msgstr ""
+"อ่านการเป็นสมาชิกของซีรี่ส์ หมายเลขส่วน ชื่อสั้นของวิดเจ็ต "
+"และคุณสมบัติของบล็อก Gutenberg "
+"ของซีรี่ส์สำหรับโพสต์ที่รองรับที่อ่านได้และแก้ไขได้ ส่งคืน expected_hash "
+"ที่ครอบคลุมลำดับและเนื้อหาของซีรี่ส์ที่ได้รับผลกระทบ."
+
+#: includes-core/Mcp/Content.php:28
+msgid "Set post Series, part numbers and widget title"
+msgstr "ตั้งค่าซีรี่ส์โพสต์ หมายเลขส่วน และชื่อวิดเจ็ต"
+
+#: includes-core/Mcp/Content.php:28
+msgid ""
+"Replace memberships with items; [] removes all. Omit items to update only "
+"short_title. Part zero uses native automatic placement. Multiple Series "
+"requires active Pro Multiple Series. All posts whose numbering can change "
+"require native read/edit permission. Read expected_hash from get-series "
+"before adding a new membership. dry_run previews."
+msgstr ""
+
+#: includes-core/Mcp/Content.php:31
+msgid "Update Series memberships for multiple posts"
+msgstr "อัปเดตการเป็นสมาชิก Series สำหรับหลายโพสต์"
+
+#: includes-core/Mcp/Content.php:31
+msgid ""
+"Validate every explicit post, Series token and native permission before "
+"updating up to 20 posts. Each row uses the same input as "
+"update-post-series. Omitted fields are preserved. dry_run previews all "
+"rows. Native numbering is not transactional; inspect complete, applied_ids "
+"and failed_id before retrying a partial result."
+msgstr ""
+"ตรวจสอบโพสต์ที่ชัดเจนทุกโพสต์, โทเคน Series "
+"และสิทธิ์พื้นฐานก่อนที่จะอัปเดตสูงสุด 20 โพสต์ แต่ละแถวใช้ข้อมูลเดียวกันกับ "
+"update-post-series ฟิลด์ที่ข้ามจะถูกเก็บรักษาไว้ dry_run "
+"จะแสดงตัวอย่างทุกแถว หมายเลขพื้นฐานไม่ใช่ธุรกรรม; ตรวจสอบ complete, "
+"applied_ids และ failed_id ก่อนที่จะลองใหม่ด้วยผลลัพธ์บางส่วน."
+
+#: includes-core/Mcp/Content.php:32
+msgid "Order, publish, schedule or unpublish Series posts"
+msgstr "สั่งซื้อ, เผยแพร่, กำหนดเวลา หรือยกเลิกการเผยแพร่โพสต์ Series"
+
+#: includes-core/Mcp/Content.php:32
+msgid ""
+"Native Series Order and Publish Series workflows. Get expected_hash from "
+"get-series. order requires the complete counted post set and never "
+"publishes drafts. pending-order requires complete unpublished set. publish "
+"accepts selected pending/draft posts; date is optional site-local "
+"YYYY-MM-DD HH:MM for scheduling. unpublish affects the entire Series. trash "
+"requires explicit post_ids and native deletion capabilities. mark-published "
+"changes only the Series marker. date-asc/date-desc reuse native "
+"publication-date ordering. Cross-Series status transitions require "
+"series_tokens from get-series for the other memberships. sync-menu-order "
+"copies part numbers to WordPress menu order. All affected objects are "
+"preflighted; native multi-step operations are not transactional. dry_run "
+"previews."
+msgstr ""
+"การสั่งซื้อ Series พื้นฐานและการเผยแพร่เวิร์กโฟลว์ Series รับ expected_hash "
+"จาก get-series การสั่งซื้อต้องการชุดโพสต์ที่นับรวมทั้งหมดและไม่เผยแพร่ร่าง "
+"pending-order ต้องการชุดที่ยังไม่ได้เผยแพร่ทั้งหมด publish "
+"ยอมรับโพสต์ที่เลือกในสถานะรอดำเนินการ/ร่าง; วันที่เป็นตัวเลือกในรูปแบบ "
+"YYYY-MM-DD HH:MM สำหรับการกำหนดเวลา การยกเลิกการเผยแพร่ส่งผลต่อทั้ง Series "
+"trash ต้องการ post_ids ที่ชัดเจนและความสามารถในการลบพื้นฐาน mark-published "
+"เปลี่ยนเฉพาะเครื่องหมายของ Series date-asc/date-desc "
+"ใช้ลำดับวันที่เผยแพร่พื้นฐาน การเปลี่ยนสถานะข้าม Series ต้องการ "
+"series_tokens จาก get-series สำหรับการเป็นสมาชิกอื่น sync-menu-order "
+"คัดลอกหมายเลขส่วนไปยังลำดับเมนู WordPress "
+"ทุกวัตถุที่ได้รับผลกระทบจะได้รับการตรวจสอบล่วงหน้า; "
+"การดำเนินการหลายขั้นตอนพื้นฐานไม่ใช่ธุรกรรม dry_run จะแสดงตัวอย่าง."
+
+#: includes-core/Mcp/Content.php:33
+msgid "Add or configure a Series Gutenberg block"
+msgstr "เพิ่มหรือกำหนดค่าบล็อก Series Gutenberg"
+
+#: includes-core/Mcp/Content.php:33
+msgid ""
+"Append a native Series block or update one using its zero-based path from "
+"get-post-series. Only registered Series block attributes are accepted, with "
+"native editor availability and layout access checks. No arbitrary HTML or "
+"other block edits. dry_run previews."
+msgstr ""
+"เพิ่มบล็อก Series พื้นฐานหรืออัปเดตโดยใช้เส้นทางที่เริ่มต้นจากศูนย์จาก "
+"get-post-series เท่านั้นที่ยอมรับแอตทริบิวต์บล็อก Series ที่ลงทะเบียนแล้ว "
+"โดยมีการตรวจสอบความพร้อมใช้งานของโปรแกรมแก้ไขพื้นฐานและการเข้าถึงเลย์เอาต์ "
+"ไม่มีการแก้ไข HTML หรือบล็อกที่ไม่เป็นไปตามข้อกำหนด dry_run จะแสดงตัวอย่าง."
+
+#: includes-core/Mcp/Content.php:64
+msgid "This Series term does not exist."
+msgstr "คำศัพท์ Series นี้ไม่มีอยู่."
+
+#: includes-core/Mcp/Content.php:72
+msgid "Series membership could not be read."
+msgstr "ไม่สามารถอ่านการเป็นสมาชิก Series ได้."
+
+#: includes-core/Mcp/Content.php:78
+#: includes-core/Mcp/Content.php:103
+msgid "Use native administration for more than 1,000 affected records."
+msgstr "ใช้การบริหารจัดการพื้นฐานสำหรับบันทึกที่ได้รับผลกระทบมากกว่า 1,000 รายการ."
+
+#: includes-core/Mcp/Content.php:119
+#: includes-core/Mcp/Content.php:329
+msgid "Use native administration for this category hierarchy."
+msgstr "ใช้การบริหารจัดการพื้นฐานสำหรับลำดับหมวดหมู่นี้."
+
+#: includes-core/Mcp/Content.php:201
+#: includes-core/Mcp/Content.php:523
+msgid "Use native administration for more than 1,000 affected posts."
+msgstr "ใช้การบริหารจัดการพื้นฐานสำหรับโพสต์ที่ได้รับผลกระทบมากกว่า 1,000 รายการ."
+
+#: includes-core/Mcp/Content.php:233
+msgid "Supply a Series or category name."
+msgstr "ระบุชื่อ Series หรือหมวดหมู่."
+
+#: includes-core/Mcp/Content.php:236
+msgid "These fields apply only to Series, not Series Categories."
+msgstr "ฟิลด์เหล่านี้ใช้เฉพาะกับ Series เท่านั้น ไม่ใช่หมวดหมู่ Series."
+
+#: includes-core/Mcp/Content.php:239
+msgid "Use an existing category parent without a cycle."
+msgstr "ใช้ผู้ปกครองหมวดหมู่ที่มีอยู่โดยไม่มีวงจร."
+
+#: includes-core/Mcp/Content.php:258
+msgid "Unknown Series Category."
+msgstr "หมวดหมู่ Series ที่ไม่รู้จัก."
+
+#: includes-core/Mcp/Content.php:413
+msgid ""
+"Multiple membership requires the active Pro Multiple Series feature; "
+"duplicate Series IDs are invalid."
+msgstr ""
+"การเป็นสมาชิกหลายรายการต้องการฟีเจอร์ Pro Multiple Series ที่เปิดใช้งาน; ID "
+"Series ที่ซ้ำกันไม่ถูกต้อง."
+
+#: includes-core/Mcp/Content.php:417
+#: includes-core/Mcp/Content.php:666
+msgid "Supply one token per Series."
+msgstr "ระบุโทเคนหนึ่งตัวต่อ Series."
+
+#: includes-core/Mcp/Content.php:422
+#: includes-core/Mcp/Content.php:794
+msgid "Unknown Series."
+msgstr "Series ที่ไม่รู้จัก."
+
+#: includes-core/Mcp/Content.php:497
+msgid "A target Series no longer exists."
+msgstr "Series เป้าหมายไม่มีอยู่แล้ว."
+
+#: includes-core/Mcp/Content.php:513
+msgid "Each bulk post target must appear only once."
+msgstr "แต่ละเป้าหมายโพสต์แบบกลุ่มต้องปรากฏเพียงครั้งเดียวเท่านั้น."
+
+#: includes-core/Mcp/Content.php:539
+msgid "The batch changed. Read every affected object before retrying."
+msgstr "ชุดเปลี่ยนแปลงแล้ว อ่านวัตถุที่ได้รับผลกระทบทั้งหมดก่อนที่จะลองใหม่."
+
+#: includes-core/Mcp/Content.php:551
+msgid ""
+"A native bulk update could not be fully confirmed. Read affected objects "
+"before retrying."
+msgstr ""
+"ไม่สามารถยืนยันการอัปเดตแบบกลุ่มพื้นฐานได้อย่างสมบูรณ์ "
+"อ่านวัตถุที่ได้รับผลกระทบก่อนที่จะลองใหม่."
+
+#: includes-core/Mcp/Content.php:555
+msgid ""
+"Post content changed during the native batch. Read affected posts before "
+"retrying."
+msgstr ""
+"เนื้อหาโพสต์เปลี่ยนแปลงระหว่างการทำงานแบบกลุ่มพื้นฐาน "
+"อ่านโพสต์ที่ได้รับผลกระทบก่อนที่จะลองใหม่."
+
+#: includes-core/Mcp/Content.php:581
+msgid "Every target must belong to this Series."
+msgstr "เป้าหมายแต่ละรายการจะต้องเป็นของ Series นี้."
+
+#: includes-core/Mcp/Content.php:588
+msgid "This operation applies to the Series; omit post_ids."
+msgstr "การดำเนินการนี้ใช้กับ Series; ข้าม post_ids."
+
+#: includes-core/Mcp/Content.php:591
+msgid "Publication dates apply only to publish operations."
+msgstr "วันที่เผยแพร่ใช้เฉพาะกับการดำเนินการเผยแพร่."
+
+#: includes-core/Mcp/Content.php:594
+msgid "Supply explicit post_ids for this operation."
+msgstr "ระบุ post_ids ที่ชัดเจนสำหรับการดำเนินการนี้."
+
+#: includes-core/Mcp/Content.php:600
+msgid "Native menu-order targets could not be read."
+msgstr "ไม่สามารถอ่านเป้าหมายเมนู-ลำดับพื้นฐานได้."
+
+#: includes-core/Mcp/Content.php:607
+msgid "Menu-order sync accepts only native published, numbered posts."
+msgstr "การซิงค์เมนู-ลำดับยอมรับเฉพาะโพสต์ที่เผยแพร่แล้ว และมีหมายเลขพื้นฐาน."
+
+#: includes-core/Mcp/Content.php:614
+msgid "Supply the complete native ordered post set; no hidden targets are changed."
+msgstr ""
+"ระบุชุดโพสต์ที่ถูกต้องตามลำดับพื้นฐานทั้งหมด; "
+"ไม่มีเป้าหมายที่ซ่อนอยู่ถูกเปลี่ยนแปลง."
+
+#: includes-core/Mcp/Content.php:676
+msgid "Use a valid site-local publication date."
+msgstr "ใช้วันที่เผยแพร่ที่ถูกต้องในระดับไซต์."
+
+#: includes-core/Mcp/Content.php:811
+msgid "Read the current Series block path before editing."
+msgstr "อ่านเส้นทางบล็อก Series ปัจจุบันก่อนแก้ไข."
+
+#: includes-core/Mcp/Layouts.php:79
+msgid "Read Series layout fields and settings"
+msgstr "อ่านฟิลด์และการตั้งค่าเลย์เอาต์ของ Series"
+
+#: includes-core/Mcp/Layouts.php:79
+msgid ""
+"Inspect a Post List Box, Post Details or Post Navigation layout. Omit id to "
+"discover native fields/defaults for a new layout. Includes exact JSON "
+"schema, native labels and edition locks. Use list-layouts to find IDs."
+msgstr ""
+"ตรวจสอบกล่องรายชื่อโพสต์, รายละเอียดโพสต์ หรือเลย์เอาต์การนำทางโพสต์ ข้าม "
+"id เพื่อค้นหาฟิลด์/ค่าเริ่มต้นพื้นฐานสำหรับเลย์เอาต์ใหม่ รวมถึงสคีม่า JSON "
+"ที่แน่นอน, ป้ายกำกับพื้นฐานและการล็อคการแก้ไข ใช้ list-layouts เพื่อค้นหา "
+"IDs."
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "Find Series layouts"
+msgstr "ค้นหาเลย์เอาต์ของ Series"
+
+#: includes-core/Mcp/Layouts.php:80
+msgid "List readable native Series layouts, including trash when requested."
+msgstr "รายชื่อเลย์เอาต์ Series พื้นฐานที่อ่านได้ รวมถึงถังขยะเมื่อร้องขอ."
+
+#: includes-core/Mcp/Layouts.php:88
+msgid "Create or update a Series layout"
+msgstr "สร้างหรืออัปเดตเลย์เอาต์ Series"
+
+#: includes-core/Mcp/Layouts.php:88
+msgid ""
+"Create a published layout or patch one by id and expected_hash. Use "
+"get-layout for exact per-module field types and locks. JSON booleans for "
+"checkboxes, integers for sizes and image IDs, strings for select choices. "
+"Omitted fields and unrelated metadata remain unchanged. dry_run previews."
+msgstr ""
+"สร้างเลย์เอาต์ที่เผยแพร่หรือแพตช์หนึ่งโดย id และ expected_hash ใช้ "
+"get-layout สำหรับประเภทฟิลด์ตามโมดูลที่แน่นอนและล็อค JSON boolean สำหรับ "
+"checkbox, จำนวนเต็มสำหรับขนาดและ ID ของภาพ, สตริงสำหรับตัวเลือกที่เลือก "
+"ฟิลด์ที่ข้ามและข้อมูลเมตาที่ไม่เกี่ยวข้องจะยังคงไม่เปลี่ยนแปลง dry_run "
+"จะแสดงตัวอย่าง."
+
+#: includes-core/Mcp/Layouts.php:89
+msgid "Trash, restore or delete a Series layout"
+msgstr "ถังขยะ, คืนสถานะ หรือ ลบเลย์เอาต์ Series"
+
+#: includes-core/Mcp/Layouts.php:89
+msgid ""
+"Native layout lifecycle. Read id and expected_hash first. Permanent "
+"deletion requires prior trash and native delete permission. dry_run "
+"previews."
+msgstr ""
+"วงจรชีวิตเลย์เอาต์พื้นฐาน อ่าน id และ expected_hash ก่อน "
+"การลบถาวรต้องการการอนุญาตในการถังขยะและการลบพื้นฐานก่อน dry_run "
+"จะแสดงตัวอย่าง."
+
+#: includes-core/Mcp/Layouts.php:124
+msgid "Use native administration for more than 1,000 layouts."
+msgstr "ใช้การจัดการแบบเนทีฟสำหรับเลย์เอาต์มากกว่า 1,000 รายการ."
+
+#: includes-core/Mcp/Layouts.php:148
+msgid "Supply a title for the new layout."
+msgstr "กรุณาใส่ชื่อสำหรับเลย์เอาต์ใหม่."
+
+#: includes-core/Mcp/Layouts.php:154
+msgid "Restore the layout before editing."
+msgstr "กู้คืนเลย์เอาต์ก่อนทำการแก้ไข."
+
+#: includes-core/Mcp/Layouts.php:167
+msgid "This layout field requires an active Pro feature."
+msgstr "ฟิลด์เลย์เอาต์นี้ต้องการฟีเจอร์ Pro ที่เปิดใช้งาน."
+
+#: includes-core/Mcp/Layouts.php:205
+msgid ""
+"The layout exists but its settings were not fully confirmed. Read before "
+"retrying."
+msgstr ""
+"เลย์เอาต์มีอยู่แต่การตั้งค่าของมันยังไม่ได้รับการยืนยันอย่างเต็มที่ "
+"อ่านก่อนที่จะลองใหม่."
+
+#: includes-core/Mcp/Layouts.php:223
+msgid "This lifecycle operation does not match the current layout state."
+msgstr "การดำเนินการในวงจรชีวิตนี้ไม่ตรงกับสถานะเลย์เอาต์ปัจจุบัน."
+
+#: includes-core/Mcp/Registry.php:47
+msgid "Use the exact fields, types and choices returned by discovery."
+msgstr "ใช้ฟิลด์, ประเภท และตัวเลือกที่ถูกต้องตามที่ค้นพบ."
+
+#: includes-core/Mcp/Registry.php:52
+msgid "You do not have permission to use this Series operation."
+msgstr "คุณไม่มีสิทธิ์ในการใช้การดำเนินการ Series นี้."
+
+#: includes-core/Mcp/Registry.php:94
+#, php-format
+msgid "Invalid JSON type at %s."
+msgstr "ประเภท JSON ไม่ถูกต้องที่ %s."
+
+#: includes-core/Mcp/Registry.php:168
+msgid ""
+"Series could not complete this operation. Inspect the current state before "
+"retrying; some changes may have been saved."
+msgstr ""
+"Series ไม่สามารถทำการดำเนินการนี้ให้เสร็จสิ้นได้ "
+"ตรวจสอบสถานะปัจจุบันก่อนที่จะลองใหม่; "
+"การเปลี่ยนแปลงบางอย่างอาจถูกบันทึกไว้แล้ว."
+
+#: includes-core/Mcp/Registry.php:200
+msgid "This object changed. Read it again before saving."
+msgstr "วัตถุนี้มีการเปลี่ยนแปลง อ่านอีกครั้งก่อนบันทึก."
+
+#: includes-core/Mcp/Registry.php:205
+msgid ""
+"The operation could not be fully confirmed. Read the object before "
+"retrying; some changes may have been saved."
+msgstr ""
+"ไม่สามารถยืนยันการดำเนินการนี้ได้อย่างเต็มที่ อ่านวัตถุก่อนที่จะลองใหม่; "
+"การเปลี่ยนแปลงบางอย่างอาจถูกบันทึกไว้แล้ว."
+
+#: includes-core/Mcp/Settings.php:79
+msgid "Read Series settings and choices"
+msgstr "อ่านการตั้งค่าและตัวเลือกของ Series"
+
+#: includes-core/Mcp/Settings.php:79
+msgid ""
+"Discover native Series Settings: automatic displays, layouts, legacy "
+"templates, category archives, metabox, sorting, uninstall policy and active "
+"Pro features. Booleans use JSON true/false; layout IDs are integers. No "
+"license or account credentials are returned."
+msgstr ""
+"ค้นพบการตั้งค่า Series แบบเนทีฟ: การแสดงผลอัตโนมัติ, เลย์เอาต์, "
+"เทมเพลตเก่า, หมวดหมู่, เมตาบ็อกซ์, การจัดเรียง, นโยบายการถอนการติดตั้ง "
+"และฟีเจอร์ Pro ที่เปิดใช้งาน Boolean ใช้ JSON true/false; "
+"รหัสเลย์เอาต์เป็นจำนวนเต็ม ไม่มีใบอนุญาตหรือข้อมูลรับรองบัญชีถูกส่งกลับ."
+
+#: includes-core/Mcp/Settings.php:80
+msgid "Update Series settings"
+msgstr "อัปเดตการตั้งค่า Series"
+
+#: includes-core/Mcp/Settings.php:80
+msgid ""
+"Patch the exact keys discovered by get-plugin-settings. Preserve omitted "
+"settings. Read expected_hash first. dry_run previews without saving. Pro "
+"addon and post-type changes take effect on the next request. Taxonomy "
+"identity migrations remain in native administration."
+msgstr ""
+"ปรับปรุงคีย์ที่ค้นพบโดย get-plugin-settings เก็บการตั้งค่าที่ถูกละเว้น อ่าน "
+"expected_hash ก่อน dry_run แสดงตัวอย่างโดยไม่บันทึก การเปลี่ยนแปลง Pro "
+"addon และ post-type จะมีผลในคำขอถัดไป การย้ายอัตลักษณ์ taxonomy "
+"ยังคงอยู่ในการจัดการแบบเนทีฟ."
+
+#: includes-core/Mcp/Settings.php:89
+msgid "Display Series Post List Boxes?"
+msgstr "แสดงกล่องรายการโพสต์ของ Series หรือไม่?"
+
+#: includes-core/Mcp/Settings.php:154
+msgid "This text requires unfiltered_html. Use safe post HTML."
+msgstr "ข้อความนี้ต้องการ unfiltered_html ใช้ HTML โพสต์ที่ปลอดภัย."
 
 #: includes-core/PPSeriesCoreAdmin.php:18
 #. translators: 1: Opening link tag, 2: Closing link tag.
@@ -3249,10 +3859,6 @@ msgstr "ต้องการการสนับสนุน PublishPress Seri
 msgid "If you need help or have a new feature request, let us know."
 msgstr "หากคุณต้องการความช่วยเหลือหรือต้องการขอฟีเจอร์ใหม่ แจ้งให้เราทราบ."
 
-#: includes-core/PPSeriesCoreAdmin.php:77
-msgid "Request PublishPress Series support"
-msgstr "ขอรับการสนับสนุนจาก PublishPress Series"
-
 #: includes-core/PPSeriesCoreAdmin.php:78
 msgid "Request Support"
 msgstr "ขอรับการสนับสนุน"
@@ -3260,10 +3866,6 @@ msgstr "ขอรับการสนับสนุน"
 #: includes-core/PPSeriesCoreAdmin.php:87
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "เอกสารรายละเอียดยังมีอยู่บนเว็บไซต์ปลั๊กอิน."
-
-#: includes-core/PPSeriesCoreAdmin.php:88
-msgid "View PublishPress Series knowledge base"
-msgstr "ดูฐานความรู้ของ PublishPress Series"
 
 #: includes-core/PPSeriesCoreAdmin.php:89
 msgid "View Knowledge Base"
@@ -3279,101 +3881,136 @@ msgstr "เกิดข้อผิดพลาด"
 msgid "%1$s series migrated to new taxonomy"
 msgstr "%1$s ซีรีส์ถูกย้ายไปยัง taxonomy ใหม่"
 
-#: orgSeries-admin.php:134
+#: orgSeries-admin.php:103
+msgid "No series found."
+msgstr "ไม่พบ series."
+
+#: orgSeries-admin.php:104
+msgid "1 series found."
+msgstr "พบ 1 series."
+
+#: orgSeries-admin.php:106
+#. translators: %d: number of series matching the search
+#, php-format
+msgid "%d series found."
+msgstr "%d series ถูกพบ."
+
+#: orgSeries-admin.php:107
+msgid "Enter a name for the new series."
+msgstr "กรุณาใส่ชื่อสำหรับ series ใหม่."
+
+#: orgSeries-admin.php:143
 msgid "Custom Template"
 msgstr "แม่แบบที่กำหนดเอง"
 
-#: orgSeries-admin.php:152
-msgid "Leave a five-star review for PublishPress Series"
-msgstr "ให้คะแนนรีวิวห้าดาวสำหรับ PublishPress Series"
+#: orgSeries-admin.php:144
+msgid "Layout options loaded."
+msgstr "ตัวเลือกเลย์เอาต์โหลดแล้ว."
 
-#: orgSeries-admin.php:157
+#: orgSeries-admin.php:145
+msgid "Layout options could not be loaded. Reload the page to try again."
+msgstr "ไม่สามารถโหลดตัวเลือกเลย์เอาต์ได้ โหลดหน้าใหม่เพื่อลองอีกครั้ง."
+
+#: orgSeries-admin.php:168
 #. translators: 1: Plugin name wrapped in a strong tag, 2: Five star icons.
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
 msgstr "ถ้าคุณชอบ %1$s กรุณาให้คะแนนเรา %2$s ขอบคุณ!"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:170
+msgid "five-star"
+msgstr "ห้าดาว"
+
+#: orgSeries-admin.php:180
 msgid "About PublishPress Series"
 msgstr "เกี่ยวกับ PublishPress Series"
 
-#: orgSeries-admin.php:168
+#: orgSeries-admin.php:180
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "PublishPress Series Documentation"
 msgstr "เอกสาร PublishPress Series"
 
-#: orgSeries-admin.php:169
+#: orgSeries-admin.php:181
 msgid "Documentation"
 msgstr "เอกสาร"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact the PublishPress team"
 msgstr "ติดต่อทีม PublishPress"
 
-#: orgSeries-admin.php:170
+#: orgSeries-admin.php:182
 msgid "Contact"
 msgstr "ติดต่อ"
 
-#: orgSeries-admin.php:171
+#: orgSeries-admin.php:183
 msgid "Follow PublishPress on Twitter"
 msgstr "ติดตาม PublishPress บน Twitter"
 
-#: orgSeries-admin.php:172
+#: orgSeries-admin.php:184
 msgid "Follow PublishPress on Facebook"
 msgstr "ติดตาม PublishPress บน Facebook"
 
-#: orgSeries-admin.php:177
-msgid "Visit PublishPress"
-msgstr "เยี่ยมชม PublishPress"
+#: orgSeries-admin.php:206
+msgid "Select Media"
+msgstr "เลือกสื่อ"
 
-#: orgSeries-admin.php:201
+#: orgSeries-admin.php:207
+msgid "Selected Image:"
+msgstr "ภาพที่เลือก:"
+
+#: orgSeries-admin.php:217
 msgid "Sorry but you don't have permission to add series"
 msgstr "ขอโทษ แต่คุณไม่มีสิทธิ์ในการเพิ่มซีรีส์"
 
-#: orgSeries-admin.php:213
+#: orgSeries-admin.php:221
+msgid "Sorry but security check failed"
+msgstr "ขอโทษค่ะ แต่การตรวจสอบความปลอดภัยล้มเหลว"
+
+#: orgSeries-admin.php:229
 msgid "The name you picked isn't sanitizing correctly. Try something different."
 msgstr "ชื่อที่คุณเลือกไม่ถูกต้อง ลองใช้ชื่ออื่น"
 
-#: orgSeries-admin.php:220
+#: orgSeries-admin.php:236
 msgid ""
 "Hmm... it looks like there is already a series with that name. Try "
 "something else"
 msgstr "อืม... ดูเหมือนว่าจะมีซีรีส์ที่มีชื่อนั้นอยู่แล้ว ลองใช้ชื่ออื่นดู"
 
-#: orgSeries-admin.php:231
-#: orgSeries-manage.php:161
+#: orgSeries-admin.php:247
+#: orgSeries-manage.php:257
 msgid "Series added."
 msgstr "เพิ่มซีรีส์แล้ว"
 
-#: orgSeries-admin.php:345
+#: orgSeries-admin.php:361
+#: orgSeries-taxonomy.php:1053
 msgid "Not part of a series"
 msgstr "ไม่เป็นส่วนหนึ่งของซีรีส์"
 
-#: orgSeries-admin.php:398
+#: orgSeries-admin.php:417
 msgid "New series name"
 msgstr "ชื่อชุดใหม่"
 
-#: orgSeries-admin.php:405
+#: orgSeries-admin.php:425
 msgid "Search series"
 msgstr "ค้นหาซีรีส์"
 
-#: orgSeries-admin.php:420
+#: orgSeries-admin.php:443
 msgid "Series Part:"
 msgstr "ส่วนของซีรีส์:"
 
-#: orgSeries-admin.php:421
-#: orgSeries-taxonomy.php:1094
+#: orgSeries-admin.php:444
+#: orgSeries-taxonomy.php:1018
 msgid "Series Part"
 msgstr "ส่วนชุด"
 
-#: orgSeries-admin.php:427
+#: orgSeries-admin.php:450
 msgid "Post title in widget:"
 msgstr "ชื่อโพสต์ใน widget:"
 
-#: orgSeries-admin.php:429
+#: orgSeries-admin.php:452
 msgid ""
 "A short title of this post that will be used in the Series widget. Leave "
 "blank to use the full title."
@@ -3381,38 +4018,44 @@ msgstr ""
 "ชื่อเรื่องสั้นของโพสต์นี้ที่จะถูกใช้ใน widget ซีรีส์. "
 "ทิ้งว่างไว้เพื่อใช้ชื่อเต็ม."
 
-#: orgSeries-admin.php:431
+#: orgSeries-admin.php:454
 msgid "Post title in widget"
 msgstr "ชื่อโพสต์ใน widget"
 
-#: orgSeries-admin.php:518
+#: orgSeries-admin.php:541
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (No part number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a> (ไม่มีหมายเลขส่วน)"
 
-#: orgSeries-admin.php:521
+#: orgSeries-admin.php:544
 #. translators: 1: Part number, 2: Total posts, 3: Series edit URL, 4: Series name for the link title, 5: Series name.
 #, php-format
 msgid "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (Part %1$s of %2$s)"
 msgstr "<a href=\"%3$s\" title=\"%4$s\">%5$s</a> (ส่วน %1$s ของ %2$s)"
 
-#: orgSeries-admin.php:526
+#: orgSeries-admin.php:549
 #. translators: 1: Series edit URL, 2: Series name for the link title, 3: Series name.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (No Part Number)"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>  (ไม่มีหมายเลขชิ้นส่วน)"
 
-#: orgSeries-admin.php:532
-#: orgSeries-setup.php:289
+#: orgSeries-admin.php:555
+#: orgSeries-setup.php:297
+#: orgSeries-taxonomy.php:1012
+#: orgSeries-taxonomy.php:1075
 msgid "No Series"
 msgstr "ไม่มีซีรีส์"
 
-#: orgSeries-admin.php:556
+#: orgSeries-admin.php:580
 msgid "View all series"
 msgstr "ดูซีรีส์ทั้งหมด"
 
-#: orgSeries-admin.php:565
+#: orgSeries-admin.php:584
+msgid "Filter by series"
+msgstr "กรองตาม series"
+
+#: orgSeries-admin.php:594
 msgid "Manage All Series"
 msgstr "จัดการซีรีส์ทั้งหมด"
 
@@ -3430,11 +4073,19 @@ msgstr ""
 msgid "Database error: %s"
 msgstr "ข้อผิดพลาดของฐานข้อมูล: %s"
 
-#: orgSeries-manage.php:74
+#: orgSeries-manage.php:125
+msgid "Order saved."
+msgstr "บันทึกคำสั่งเรียบร้อย."
+
+#: orgSeries-manage.php:126
+msgid "The new order could not be saved. Reload the page and try again."
+msgstr "ไม่สามารถบันทึกคำสั่งใหม่ได้ โหลดหน้าใหม่และลองอีกครั้ง."
+
+#: orgSeries-manage.php:158
 msgid "Term Order"
 msgstr "ลำดับคำศัพท์"
 
-#: orgSeries-manage.php:75
+#: orgSeries-manage.php:159
 msgid ""
 "To reposition an item, drag and drop the row by \"clicking and holding\" it "
 "anywhere and moving it to its new position."
@@ -3442,32 +4093,40 @@ msgstr ""
 "ในการจัดตำแหน่งรายการใหม่ ให้ลากและวางแถวโดย \"คลิกและกด\" "
 "มันที่ใดก็ได้และย้ายไปยังตำแหน่งใหม่ของมัน."
 
-#: orgSeries-manage.php:162
-#: orgSeries-manage.php:166
+#: orgSeries-manage.php:160
+msgid ""
+"You can also use the \"Move up\" and \"Move down\" buttons in each row. "
+"They work with the keyboard and save the new order straight away."
+msgstr ""
+"คุณยังสามารถใช้ปุ่ม \"เลื่อนขึ้น\" และ \"เลื่อนลง\" ในแต่ละแถวได้ "
+"พวกมันทำงานร่วมกับแป้นพิมพ์และบันทึกคำสั่งใหม่ทันที."
+
+#: orgSeries-manage.php:258
+#: orgSeries-manage.php:262
 msgid "Series deleted."
 msgstr "ลบซีรีส์แล้ว"
 
-#: orgSeries-manage.php:163
+#: orgSeries-manage.php:259
 msgid "Series updated."
 msgstr "อัปเดตซีรีส์แล้ว"
 
-#: orgSeries-manage.php:164
+#: orgSeries-manage.php:260
 msgid "Series not added."
 msgstr "ไม่สามารถเพิ่มซีรีส์ได้"
 
-#: orgSeries-manage.php:165
+#: orgSeries-manage.php:261
 msgid "Series not updated."
 msgstr "ไม่สามารถอัปเดตซีรีส์ได้"
 
-#: orgSeries-manage.php:238
+#: orgSeries-manage.php:336
 msgid "Posts"
 msgstr "โพสต์"
 
-#: orgSeries-manage.php:240, fuzzy
+#: orgSeries-manage.php:338, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#: orgSeries-manage.php:279
+#: orgSeries-manage.php:377
 msgid ""
 "Terms are usually ordered alphabetically, but you can choose your own order "
 "by entering a number (1 for first, etc.) in this field."
@@ -3476,52 +4135,58 @@ msgstr ""
 "แต่คุณสามารถเลือกลำดับของคุณเองได้โดยการป้อนหมายเลข (1 สำหรับแรก ฯลฯ) "
 "ในช่องนี้."
 
-#: orgSeries-manage.php:286
+#: orgSeries-manage.php:384
 msgid "Current series featured image:"
 msgstr "ภาพเด่นของซีรีส์ปัจจุบัน:"
 
-#: orgSeries-manage.php:293
+#: orgSeries-manage.php:391
 msgid "No featured image currently"
 msgstr "ขณะนี้ไม่มีภาพเด่น"
 
-#: orgSeries-manage.php:303
+#: orgSeries-manage.php:401
 msgid ""
 "Delete image? (note: there will not be an image associated with this series "
 "if you select this)"
 msgstr "ลบภาพหรือไม่? (หมายเหตุ: จะไม่มีภาพที่เกี่ยวข้องกับชุดนี้หากคุณเลือกสิ่งนี้)"
 
-#: orgSeries-manage.php:308
+#: orgSeries-manage.php:406
 msgid "Series featured image upload:"
 msgstr "อัปโหลดภาพเด่นของซีรีส์:"
 
-#: orgSeries-manage.php:312
+#: orgSeries-manage.php:410
 msgid "Upload a featured image for the series."
 msgstr "อัปโหลดภาพเด่นสำหรับซีรีส์"
 
-#: orgSeries-manage.php:327
+#: orgSeries-manage.php:425
 msgid "Invalid form data"
 msgstr "ข้อมูลฟอร์มไม่ถูกต้อง"
 
-#: orgSeries-manage.php:337
+#: orgSeries-manage.php:435
 msgid "Invalid nonce, reload and try again"
 msgstr "nonce ไม่ถูกต้อง, กรุณารีโหลดและลองอีกครั้ง"
 
-#: orgSeries-manage.php:346
+#: orgSeries-manage.php:444
 msgid "Invalid taxonomy"
 msgstr "taxonomy ไม่ถูกต้อง"
 
-#: orgSeries-manage.php:352
+#: orgSeries-manage.php:450
 msgid "Not enough permission"
 msgstr "สิทธิ์ไม่เพียงพอ"
 
-#: orgSeries-manage.php:356
+#: orgSeries-manage.php:455
 msgid "Updated successfully"
 msgstr "อัปเดตสำเร็จ"
+
+#: orgSeries-manage.php:546
+msgid "Series order metadata could not be read. No cleanup was authorized."
+msgstr ""
+"ข้อมูลเมตาของลำดับ Series ไม่สามารถอ่านได้ "
+"ไม่มีการทำความสะอาดที่ได้รับอนุญาต."
 
 #: orgSeries-options.php:48
 #: orgSeries-options.php:70
 #: orgSeries-options.php:71
-#: orgSeries-setup.php:1009
+#: orgSeries-setup.php:1087
 msgid "Settings"
 msgstr "การตั้งค่า"
 
@@ -3529,80 +4194,96 @@ msgstr "การตั้งค่า"
 msgid "PublishPress Series Options"
 msgstr "ตัวเลือกซีรีส์ PublishPress"
 
-#: orgSeries-options.php:162
+#: orgSeries-options.php:112
+msgid "Are you sure you want to Reset?"
+msgstr "คุณแน่ใจหรือว่าต้องการรีเซ็ต?"
+
+#: orgSeries-options.php:165
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: orgSeries-options.php:164, fuzzy
+#: orgSeries-options.php:167, fuzzy
 msgid "Metabox"
 msgstr "Metabox"
 
-#: orgSeries-options.php:171, fuzzy
+#: orgSeries-options.php:174, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: orgSeries-setup.php:226
+#: orgSeries-setup.php:234
 msgid "Select \"Not part of a series\" to remove any series data from post"
 msgstr "เลือก \"ไม่ใช่ส่วนหนึ่งของชุด\" เพื่อลบข้อมูลชุดใด ๆ จากโพสต์"
 
-#: orgSeries-setup.php:287
+#: orgSeries-setup.php:295
 msgid "&larr; Go to Series"
 msgstr "&larr; ไปที่ชุด"
 
-#: orgSeries-setup.php:288
+#: orgSeries-setup.php:296
 msgid "View Series"
 msgstr "ดูชุด"
 
-#: orgSeries-setup.php:291
+#: orgSeries-setup.php:299
 msgid "Series Link"
 msgstr "ลิงก์ชุด"
 
-#: orgSeries-setup.php:292
+#: orgSeries-setup.php:300
 msgid "A link to a Series"
 msgstr "ลิงก์ไปยังชุด"
 
-#: orgSeries-setup.php:387
+#: orgSeries-setup.php:394
 msgid "Series Navigation"
 msgstr "การนำทางชุด"
 
-#: orgSeries-setup.php:991
+#: orgSeries-setup.php:1069
 msgid "Series: "
 msgstr "ชุด: "
 
-#: orgSeries-setup.php:993
+#: orgSeries-setup.php:1071
 msgid "Posts from the series: "
 msgstr "โพสต์จากชุด: "
 
-#: orgSeries-taxonomy.php:1091
-#: orgSeries-taxonomy.php:1120
+#: orgSeries-taxonomy.php:1005
+#: orgSeries-taxonomy.php:1045
 msgid "Series:"
 msgstr "ชุด:"
 
-#: orgSeries-taxonomy.php:1093
+#: orgSeries-taxonomy.php:1017
 msgid "Part:"
 msgstr "ส่วน:"
 
-#: orgSeries-template-tags.php:270
+#: orgSeries-taxonomy.php:1052
+msgid "&mdash; No Change &mdash;"
+msgstr "&mdash; ไม่มีการเปลี่ยนแปลง &mdash;"
+
+#: orgSeries-template-tags.php:273
 msgid "All the Series I've Written"
 msgstr "ชุดทั้งหมดที่ฉันเขียน"
 
-#: orgSeries-template-tags.php:274
-#: orgSeries-template-tags.php:283
+#: orgSeries-template-tags.php:277
+#: orgSeries-template-tags.php:286
 #. translators: 1: Series table of contents URL, 2: Link title.
 #, php-format
 msgid "<a href=\"%1$s\" title=\"%2$s\">Series</a>"
 msgstr "<a href=\"%1$s\" title=\"%2$s\">ชุด</a>"
 
-#: orgSeries-template-tags.php:1290
+#: orgSeries-template-tags.php:1319
 msgid "Series featured image"
 msgstr "ภาพเด่นชุด"
 
-#: orgSeries-template-tags.php:1296
+#: orgSeries-template-tags.php:1325
 #, php-format
 msgid "View series: %s"
 msgstr "ดูชุด: %s"
 
-#: orgSeries-utility.php:462
+#: orgSeries-utility.php:22
+msgid "(opens in a new tab)"
+msgstr "(เปิดในแท็บใหม่)"
+
+#: orgSeries-utility.php:52
+msgid "Available in PublishPress Series Pro"
+msgstr "มีให้ใน PublishPress Series Pro"
+
+#: orgSeries-utility.php:508
 msgid "Auto/None"
 msgstr "อัตโนมัติ/ไม่มี"
 
@@ -3614,12 +4295,12 @@ msgstr "ใช้สิ่งนี้เพื่อควบคุมผลล
 msgid "Most Recent Series"
 msgstr "ชุดล่าสุด"
 
-#: orgSeries-widgets.php:82
-#: orgSeries-widgets.php:292
+#: orgSeries-widgets.php:81
+#: orgSeries-widgets.php:299
 msgid "Title:"
 msgstr "ชื่อ:"
 
-#: orgSeries-widgets.php:88
+#: orgSeries-widgets.php:87
 #. translators: %s: URL to the Latest Series settings.
 #, php-format
 msgid ""
@@ -3629,125 +4310,126 @@ msgstr ""
 "เลย์เอาต์และเนื้อหาของ widget นี้สามารถปรับแต่งได้ผ่านพื้นที่ <a "
 "href=\"%s\">ชุดล่าสุด</a>."
 
+#: orgSeries-widgets.php:91
 #: orgSeries-widgets.php:92
-#: orgSeries-widgets.php:93
 msgid "Hide series with no posts?"
 msgstr "ซ่อนซีรีส์ที่ไม่มีโพสต์หรือไม่?"
 
-#: orgSeries-widgets.php:95
-#: orgSeries-widgets.php:318
+#: orgSeries-widgets.php:94
+#: orgSeries-widgets.php:325
 msgid "Order by:"
 msgstr "จัดเรียงตาม:"
 
-#: orgSeries-widgets.php:97
+#: orgSeries-widgets.php:96
 msgid "Number of posts in Series"
 msgstr "จำนวนโพสต์ในซีรีส์"
 
-#: orgSeries-widgets.php:98
+#: orgSeries-widgets.php:97
 msgid "Name of Series"
 msgstr "ชื่อของซีรีส์"
 
-#: orgSeries-widgets.php:99
+#: orgSeries-widgets.php:98
 msgid "Series Slug"
 msgstr "ซีรีส์ Slug"
 
-#: orgSeries-widgets.php:100
+#: orgSeries-widgets.php:99
 msgid "When Series was Created"
 msgstr "เมื่อสร้างซีรีส์"
 
-#: orgSeries-widgets.php:101
+#: orgSeries-widgets.php:100
 msgid "Random"
 msgstr "สุ่ม"
 
-#: orgSeries-widgets.php:105
+#: orgSeries-widgets.php:104
 msgid "Number of series to display:"
 msgstr "จำนวนซีรีส์ที่จะแสดง:"
 
-#: orgSeries-widgets.php:109
+#: orgSeries-widgets.php:108
 msgid "Display Order: "
 msgstr "ลำดับการแสดง: "
 
-#: orgSeries-widgets.php:110, fuzzy
+#: orgSeries-widgets.php:109, fuzzy
 msgid "ASC: "
 msgstr "ASC: "
 
-#: orgSeries-widgets.php:111, fuzzy
+#: orgSeries-widgets.php:110, fuzzy
 msgid "DESC: "
 msgstr "DESC: "
 
-#: orgSeries-widgets.php:122
+#: orgSeries-widgets.php:121
 msgid "Use this to display the Series Table of contents"
 msgstr "ใช้เพื่อแสดงสารบัญของ Series"
 
-#: orgSeries-widgets.php:194
+#: orgSeries-widgets.php:193
+#: orgSeries-widgets.php:200
 msgid "Select Series"
 msgstr "เลือกซีรีส์"
 
-#: orgSeries-widgets.php:257
+#: orgSeries-widgets.php:264
 msgid "Other posts in series:"
 msgstr "โพสต์อื่นๆ ในซีรีส์:"
 
-#: orgSeries-widgets.php:297
+#: orgSeries-widgets.php:304
 msgid "Show Series Table Of Content"
 msgstr "แสดงสารบัญของซีรีส์"
 
-#: orgSeries-widgets.php:302
+#: orgSeries-widgets.php:309
 msgid "Show Series Table Of Content as:"
 msgstr "แสดงสารบัญของซีรีส์เป็น:"
 
-#: orgSeries-widgets.php:303
+#: orgSeries-widgets.php:310
 msgid "Dropdown:"
 msgstr "แบบเลื่อนลง:"
 
-#: orgSeries-widgets.php:304
+#: orgSeries-widgets.php:311
 msgid "List:"
 msgstr "รายการ:"
 
-#: orgSeries-widgets.php:308
+#: orgSeries-widgets.php:315
 msgid "Show post count:"
 msgstr "แสดงจำนวนโพสต์:"
 
-#: orgSeries-widgets.php:313
+#: orgSeries-widgets.php:320
 msgid "Hide empty series:"
 msgstr "ซ่อนชุดว่าง:"
 
-#: orgSeries-widgets.php:322, fuzzy
+#: orgSeries-widgets.php:329, fuzzy
 msgid "name"
 msgstr "name"
 
-#: orgSeries-widgets.php:323, fuzzy
+#: orgSeries-widgets.php:330, fuzzy
 msgid "count"
 msgstr "count"
 
-#: orgSeries-widgets.php:324, fuzzy
+#: orgSeries-widgets.php:331, fuzzy
 msgid "slug"
 msgstr "slug"
 
-#: orgSeries-widgets.php:325, fuzzy
+#: orgSeries-widgets.php:332, fuzzy
 msgid "series id"
 msgstr "series id"
 
-#: orgSeries-widgets.php:338
+#: orgSeries-widgets.php:345
 msgid "Order:"
 msgstr "เรียงลำดับ:"
 
-#: orgSeries-widgets.php:356
+#: orgSeries-widgets.php:363
 msgid "Exclude series:"
 msgstr "ไม่รวมชุด:"
 
-#: orgSeries-widgets.php:371
+#: orgSeries-widgets.php:378
 msgid "Include series:"
 msgstr "รวมชุด:"
 
-#: orgSeries-widgets.php:386
+#: orgSeries-widgets.php:393
 msgid "Number of Series:"
 msgstr "จำนวนชุด:"
 
-#: orgSeries-widgets.php:391
+#: orgSeries-widgets.php:398
 msgid "Offset:"
 msgstr "ออฟเซ็ต:"
 
-#: orgSeries-widgets.php:393
+#: orgSeries-widgets.php:400
 msgid ""
 "You can select the offset for the number of series (useful for paging).  No "
 "offset if left blank"
@@ -3755,25 +4437,25 @@ msgstr ""
 "คุณสามารถเลือกการเลื่อนสำหรับจำนวนชุด (มีประโยชน์สำหรับการแบ่งหน้า) "
 "ไม่มีการเลื่อนหากเว้นว่าง"
 
-#: orgSeries-widgets.php:397
+#: orgSeries-widgets.php:404
 msgid "Search:"
 msgstr "ค้นหา:"
 
-#: orgSeries-widgets.php:399
+#: orgSeries-widgets.php:406
 msgid ""
 "You can return any series that match this search string (matched against "
 "series names)"
 msgstr "คุณสามารถคืนค่าชุดใด ๆ ที่ตรงกับสตริงการค้นหานี้ (ตรงกับชื่อชุด)"
 
-#: orgSeries-widgets.php:403
+#: orgSeries-widgets.php:410
 msgid "Show other posts in the current series:"
 msgstr "แสดงโพสต์อื่นในชุดปัจจุบัน:"
 
-#: orgSeries-widgets.php:438
+#: orgSeries-widgets.php:445
 msgid "Series widget title:"
 msgstr "ชื่อวิดเจ็ตชุด:"
 
-#: orgSeries-widgets.php:440
+#: orgSeries-widgets.php:447
 msgid "This text will display above other posts in this series."
 msgstr "ข้อความนี้จะแสดงอยู่เหนือโพสต์อื่นในชุดนี้."
 
@@ -3927,9 +4609,9 @@ msgstr "ใบอนุญาตสำหรับ %1$s"
 msgid "Enter your license key: "
 msgstr "กรุณาใส่รหัสใบอนุญาตของคุณ: "
 
-#: src/views/admin/templates/license_key_form.template.php:24
-msgid "License key"
-msgstr "รหัสใบอนุญาต"
+#: src/views/admin/templates/license_key_form.template.php:28
+msgid "Expires:"
+msgstr "หมดอายุ:"
 
 #: assets/js/publishpress-series-blocks.js:126
 msgid "Block settings"
@@ -4019,44 +4701,44 @@ msgstr "แสดงจำนวนซีรีส์"
 msgid "Show post count"
 msgstr "แสดงจำนวนโพสต์"
 
-#: addons/grouping/legacy-includes.php:301
+#: addons/grouping/legacy-includes.php:304
 msgctxt "taxonomy general name"
 msgid "Series Categories"
 msgstr "หมวดหมู่ชุด"
 
 #: inc/settings/settings-validation.php:87
-#: orgSeries-setup.php:276
+#: orgSeries-setup.php:284
 msgctxt "taxonomy general name"
 msgid "Series"
 msgstr "ชุด"
 
-#: addons/grouping/legacy-includes.php:302
+#: addons/grouping/legacy-includes.php:305
 msgctxt "taxonomy singular name"
 msgid "Series Category"
 msgstr "หมวดหมู่ชุด"
 
 #: inc/settings/settings-validation.php:88
-#: orgSeries-setup.php:277
+#: orgSeries-setup.php:285
 msgctxt "taxonomy singular name"
 msgid "Series"
 msgstr "ชุด"
 
-#: addons/grouping/legacy-includes.php:725
+#: addons/grouping/legacy-includes.php:730
 msgctxt "series grouping column header"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-admin.php:464
+#: orgSeries-admin.php:487
 msgctxt "series meta box title"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-admin.php:489
+#: orgSeries-admin.php:512
 msgctxt "posts list column header"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-admin.php:575
+#: orgSeries-admin.php:604
 msgctxt "dashboard count label"
 msgid "Series"
 msgid_plural "Series"
@@ -4067,30 +4749,30 @@ msgctxt "top-level admin menu label"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-setup.php:285
+#: orgSeries-setup.php:293
 msgctxt "taxonomy menu name"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-setup.php:380
-#: orgSeries-setup.php:382
+#: orgSeries-setup.php:387
+#: orgSeries-setup.php:389
 #. translators: %series_part%: Current part number, %total_posts_in_series%: Total number of posts in the series. Leave both tokens unchanged.
 #, php-format
 msgctxt "leave the %tokens% as is when translating"
 msgid "This entry is part %series_part% of %total_posts_in_series% in the series "
 msgstr "รายการนี้เป็นส่วนที่ %series_part% จาก %total_posts_in_series% ในชุด "
 
-#: orgSeries-taxonomy.php:750
+#: orgSeries-taxonomy.php:768
 msgctxt "series list title"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-widgets.php:256
+#: orgSeries-widgets.php:263
 msgctxt "widget title default"
 msgid "Series"
 msgstr "ชุด"
 
-#: orgSeries-widgets.php:409
+#: orgSeries-widgets.php:416
 msgctxt "widget section label"
 msgid "Series"
 msgstr "ชุด"

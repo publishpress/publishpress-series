@@ -9,10 +9,14 @@
 
 defined('ABSPATH') || exit;
 
+// Only claim the main landmark when the plugin prints the whole page (block theme
+// without header.php). Classic themes usually print their own <main>.
+$pps_prints_page = false;
 if (pp_series_locate_template(['header.php'])) {
     get_header();
 } elseif (pp_series_is_block_theme()) {
     pp_series_format_block_theme_header();
+    $pps_prints_page = true;
 }
 $description = get_the_archive_description();
 
@@ -23,7 +27,7 @@ $series_layout_class .= isset($series_options['series_overview_page_layout']) ? 
 $series_layout_class .= isset($series_options['series_overview_page_columns']) ? ' pps-columns-' . $series_options['series_overview_page_columns'] : '';
 ?>
 <section id="series-primary" class="site-content">
-    <div id="series-content" role="main">
+    <div id="series-content"<?php echo $pps_prints_page ? ' role="main"' : ''; ?>>
 
         <header class="page-header">
             <?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>

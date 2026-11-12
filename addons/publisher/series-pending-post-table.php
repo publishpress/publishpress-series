@@ -67,6 +67,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
             'categories' => esc_html__('Categories', 'organize-series'),
             'tags' => esc_html__('Tags', 'organize-series'),
             'post_status' => esc_html__('Status', 'organize-series'),
+            'date' => esc_html__('Date', 'organize-series'),
             'part'        => esc_html__('Current Part', 'organize-series'),
         ];
 
@@ -83,7 +84,7 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
 
         if ($series_id) {
             $arg = array(
-                'post_status' => array('draft', 'future', 'pending'),
+                'post_status' => ppseries_publisher_pending_statuses(),
                 'post_type' => apply_filters('orgseries_posttype_support', array('post')),
                 'posts_per_page' => -1,
                 'no_found_rows' => true,
@@ -152,9 +153,10 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         }
 
         $actions['view'] = sprintf(
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',
             esc_url($preview_link),
-            esc_html__('Preview', 'organize-series')
+            esc_html__('Preview', 'organize-series'),
+            ppseries_new_tab_text()
         );
 
         $actions = array_merge($actions, [
@@ -299,6 +301,18 @@ class PPS_Publisher_Post_Pending_Table extends WP_List_Table
         }
 
         return $term_html;
+    }
+
+    /**
+     * Handles the post date column output.
+     *
+     * @param WP_Post $item
+     *
+     * @return string
+     */
+    protected function column_date($item)
+    {
+        return ppseries_publisher_post_date_column($item);
     }
 
     /**

@@ -27,12 +27,7 @@ function ppseries_addon_section()
  */
 function series_addon_settings_display()
 {
-    $series_addons = [
-        'cpt' => ['name' => __('Custom Post Type Support', 'organize-series'), 'description' => __('Allow custom post types to be used with PublishPress Series.', 'organize-series')],
-        'shortcodes' => ['name' => __('Shortcodes', 'organize-series'), 'description' => __('Provides shortcodes to display series information.', 'organize-series')],
-        'extra-tokens' => ['name' => __('Extra Tokens', 'organize-series'), 'description' => __('Provides extra tokens to customize the output of series information.', 'organize-series')],
-        'multiples' => ['name' => __('Multiple Series', 'organize-series'), 'description' => __('Allows authors to add posts to more than one series.', 'organize-series')]
-    ];
+    $series_addons = ppseries_get_pro_feature_definitions();
     ?>
     <div class="ppseries-pro-feature">
         <table class="form-table ppseries-settings-table">
@@ -47,17 +42,16 @@ function series_addon_settings_display()
                     </label>
                 </th>
                 <td>
-                    <label>
-                    <input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" />
-                        <span class="description"><?php echo $series_addon_option['description']; ?></span>
+                    <?php $pro_tooltip_id = ppseries_pro_tooltip_id(); ?>
+                    <input type="checkbox" value="<?php echo $series_addon; ?>" id="ppseries-enable-<?php echo $series_addon; ?>" disabled="disabled" aria-describedby="ppseries-enable-<?php echo esc_attr($series_addon); ?>-description" />
+                        <span class="description" id="ppseries-enable-<?php echo esc_attr($series_addon); ?>-description"><?php echo $series_addon_option['description']; ?></span>
                     <div class="ppseries-pro-lock">
-                        <a class="ppseries-pro-badge" href="<?php echo esc_url('https://publishpress.com/links/series-banner'); ?>" target="_blank" rel="noopener noreferrer">PRO</a>
-                        <span class="tooltip-text">
+                        <?php echo ppseries_pro_badge_link($pro_tooltip_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                        <span class="tooltip-text" id="<?php echo esc_attr($pro_tooltip_id); ?>" role="tooltip">
                             <span><?php esc_html_e('This feature is available in PublishPress Series Pro', 'organize-series'); ?></span>
                             <i></i>
                         </span>
                     </div>
-                    </label>
                 </td>
             </tr>
                 <?php

@@ -77,6 +77,25 @@ if (!function_exists('pp_series_upgrade_function')) {
             update_option('pp_series_2_7_1_upgraded', true);
         }
 
+        /**
+         * Grant manage_publishpress_series to editors once.
+         *
+         * Editors were meant to get this capability on install, but the old install
+         * routine was never run on activation. This runs once (fresh installs and
+         * existing sites); it is not re-added on later loads, so sites that remove it
+         * from editors afterwards keep their setting. A capability explicitly denied
+         * on the role (stored as false, e.g. by a role editor plugin) is left alone.
+         */
+        if (!get_option('pp_series_3_2_0_editor_cap_upgraded')) {
+            if (function_exists('get_role')) {
+                $role = get_role('editor');
+                if (null !== $role && !isset($role->capabilities['manage_publishpress_series'])) {
+                    $role->add_cap('manage_publishpress_series');
+                }
+            }
+            update_option('pp_series_3_2_0_editor_cap_upgraded', true);
+        }
+
         if (!get_option('pp_series_2_8_0_upgraded')) {
             $settings = get_option('org_series_options');
             $settings = apply_filters('org_series_settings', $settings);
@@ -129,6 +148,56 @@ if (!function_exists('pp_series_upgrade_function')) {
             if ($table_exists) {
                 update_option('pp_series_2_11_1_upgraded', true);
             }
+        }
+
+        /**
+         * Repair zero dates on hidden series_grouping posts.
+         *
+         * These posts were created as drafts without a GMT date, so their
+         * post_date_gmt and post_modified_gmt were 0000-00-00 00:00:00, which SEO
+         * plugins turned into invalid sitemap lastmod values. The GMT dates are
+         * rebuilt from the local dates; zero local dates fall back to now.
+         */
+        if (!get_option('pp_series_3_2_0_group_dates_upgraded')) {
+            $zero_date = '0000-00-00 00:00:00';
+            $group_posts = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, post_date, post_date_gmt, post_modified, post_modified_gmt FROM $wpdb->posts WHERE post_type = %s AND (post_date_gmt = %s OR post_modified_gmt = %s OR post_date = %s OR post_modified = %s)",
+                    'series_grouping',
+                    $zero_date,
+                    $zero_date,
+                    $zero_date,
+                    $zero_date
+                )
+            );
+
+            if (!empty($group_posts)) {
+                $now = current_time('mysql');
+                $now_gmt = current_time('mysql', true);
+
+                foreach ($group_posts as $group_post) {
+                    $post_date = ($group_post->post_date !== $zero_date) ? $group_post->post_date : $now;
+                    $post_date_gmt = ($group_post->post_date !== $zero_date) ? get_gmt_from_date($post_date) : $now_gmt;
+                    $post_modified = ($group_post->post_modified !== $zero_date) ? $group_post->post_modified : $post_date;
+                    $post_modified_gmt = ($group_post->post_modified !== $zero_date) ? get_gmt_from_date($post_modified) : $post_date_gmt;
+
+                    $wpdb->update(
+                        $wpdb->posts,
+                        array(
+                            'post_date' => $post_date,
+                            'post_date_gmt' => ($group_post->post_date_gmt !== $zero_date) ? $group_post->post_date_gmt : $post_date_gmt,
+                            'post_modified' => $post_modified,
+                            'post_modified_gmt' => ($group_post->post_modified_gmt !== $zero_date) ? $group_post->post_modified_gmt : $post_modified_gmt,
+                        ),
+                        array('ID' => (int) $group_post->ID),
+                        array('%s', '%s', '%s', '%s'),
+                        array('%d')
+                    );
+                    clean_post_cache((int) $group_post->ID);
+                }
+            }
+
+            update_option('pp_series_3_2_0_group_dates_upgraded', true);
         }
 
         /**
@@ -334,6 +403,11 @@ if (!function_exists('pp_series_format_block_theme_header')) {
         <html <?php language_attributes(); ?>>
             <head>
                 <meta charset="<?php bloginfo('charset'); ?>">
+                <?php
+                // Core adds the viewport tag only when it renders a block template itself.
+                if (!has_action('wp_head', '_block_template_viewport_meta_tag')) : ?>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <?php endif; ?>
                 <?php wp_head(); ?>
             </head>
             <body <?php body_class(); ?>>
@@ -499,5 +573,427 @@ if (! function_exists('pps_sanitize_optional_absint')) {
         }
 
         return absint($value);
+    }
+}
+
+/*
+ * Front-end accessibility helpers.
+ *
+ * These only add screen-reader text or ARIA attributes. They do not change how
+ * existing templates look.
+ */
+
+if (! function_exists('ppseries_sr_only_style')) {
+    /**
+     * Inline clip styles for hidden text, used in case the theme and the plugin CSS
+     * do not define .screen-reader-text.
+     *
+     * @return string
+     */
+    function ppseries_sr_only_style()
+    {
+        return 'border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal;';
+    }
+}
+
+if (! function_exists('ppseries_is_plain_text_context')) {
+    /**
+     * Whether output is being built for a context that strips tags (auto-excerpts, REST),
+     * where visually hidden text would show up as plain words.
+     *
+     * @return bool
+     */
+    function ppseries_is_plain_text_context()
+    {
+        return doing_filter('get_the_excerpt') || (function_exists('wp_is_json_request') && wp_is_json_request());
+    }
+}
+
+if (! function_exists('ppseries_sr_text')) {
+    /**
+     * Build a visually hidden span for screen readers.
+     *
+     * @param string $text Plain text. It is escaped here.
+     *
+     * @return string
+     */
+    function ppseries_sr_text($text)
+    {
+        if ('' === (string) $text || ppseries_is_plain_text_context()) {
+            return '';
+        }
+
+        return '<span class="screen-reader-text" style="' . esc_attr(ppseries_sr_only_style()) . '">' . esc_html($text) . '</span>';
+    }
+}
+
+if (! function_exists('ppseries_heading_level')) {
+    /**
+     * Heading level for a hard-coded heading in a front-end output.
+     *
+     * Filter: ppseries_heading_level( int $level, string $context ).
+     * Contexts: 'widget_post_list', 'block_series', 'post_list_box', 'post_navigation',
+     * 'series_group'.
+     *
+     * @param int    $default Level used before this filter existed.
+     * @param string $context Where the heading is printed.
+     *
+     * @return int A level from 1 to 6.
+     */
+    function ppseries_heading_level($default, $context = '')
+    {
+        $level = (int) apply_filters('ppseries_heading_level', (int) $default, (string) $context);
+
+        if ($level < 1 || $level > 6) {
+            $level = (int) $default;
+        }
+
+        return $level;
+    }
+}
+
+if (! function_exists('ppseries_hide_nav_arrows')) {
+    /**
+     * Wrap decorative arrow text (<<, >>, «, ») in aria-hidden spans.
+     *
+     * Only text between tags is changed, so attributes and markup in custom
+     * templates are left alone. Arrows that are already wrapped are skipped.
+     *
+     * @param string $html Navigation HTML.
+     *
+     * @return string
+     */
+    function ppseries_hide_nav_arrows($html)
+    {
+        $html = (string) $html;
+
+        if ('' === $html) {
+            return $html;
+        }
+
+        $arrow_pattern = '/(?:&lt;&lt;|&gt;&gt;|<<|>>|&laquo;|&raquo;|&#0*171;|&#0*187;|&#x0*ab;|&#x0*bb;|\x{00AB}|\x{00BB})+/iu';
+
+        // Quick exit when there is no arrow at all.
+        if (!preg_match($arrow_pattern, $html)) {
+            return $html;
+        }
+
+        // Split on real tags only: "<" followed by a letter, "/" or "!". A literal "<<" is text.
+        // Quoted attribute values may contain ">".
+        $parts = preg_split('/(<[a-zA-Z\/!](?:[^>"\']|"[^"]*"|\'[^\']*\')*>)/u', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+        if (!is_array($parts)) {
+            return $html;
+        }
+
+        $raw_text_tag = '';
+        $marker       = 'ppseries-nav-arrow';
+
+        foreach ($parts as $index => $part) {
+            if ($index % 2 === 1) {
+                // A tag. Track <script>/<style> so their contents are never touched.
+                if (preg_match('/^<(script|style)\b/i', $part, $m)) {
+                    $raw_text_tag = strtolower($m[1]);
+                } elseif ($raw_text_tag && preg_match('/^<\/' . $raw_text_tag . '\b/i', $part)) {
+                    $raw_text_tag = '';
+                }
+                continue;
+            }
+
+            if ('' === $part || $raw_text_tag) {
+                continue;
+            }
+
+            // Already wrapped by an earlier pass.
+            if ($index > 0 && false !== strpos($parts[$index - 1], $marker)) {
+                continue;
+            }
+
+            $replaced = preg_replace_callback(
+                $arrow_pattern,
+                function ($match) use ($marker) {
+                    $arrow = str_replace(array('<', '>'), array('&lt;', '&gt;'), $match[0]);
+                    return '<span class="' . $marker . '" aria-hidden="true">' . $arrow . '</span>';
+                },
+                $part
+            );
+
+            if (null !== $replaced) {
+                $parts[$index] = $replaced;
+            }
+        }
+
+        return implode('', $parts);
+    }
+}
+
+if (! function_exists('ppseries_mark_current_post')) {
+    /**
+     * Mark the current post in a series post list.
+     *
+     * Adds aria-current="page" to the link that points to the current post. When the
+     * current post is plain text, adds hidden "(current post)" text inside the item.
+     *
+     * @param string $html    The rendered list item.
+     * @param int    $post_id The current post ID.
+     *
+     * @return string
+     */
+    function ppseries_mark_current_post($html, $post_id)
+    {
+        $html = (string) $html;
+
+        if ('' === trim($html) || false !== stripos($html, 'aria-current=') || false !== strpos($html, 'ppseries-current-label')) {
+            return $html;
+        }
+
+        $permalink = $post_id ? get_permalink($post_id) : '';
+
+        if ($permalink) {
+            $target  = untrailingslashit($permalink);
+            $matched = false;
+            $marked  = preg_replace_callback(
+                '/<a\b((?:[^>"\']|"[^"]*"|\'[^\']*\')*)>/i',
+                function ($m) use ($target, &$matched) {
+                    if ($matched) {
+                        return $m[0];
+                    }
+                    if (
+                        preg_match('/\bhref\s*=\s*(["\'])(.*?)\1/i', $m[1], $href)
+                        && untrailingslashit(html_entity_decode($href[2], ENT_QUOTES)) === $target
+                    ) {
+                        $matched = true;
+                        return '<a aria-current="page"' . $m[1] . '>';
+                    }
+                    return $m[0];
+                },
+                $html
+            );
+
+            if ($matched && null !== $marked) {
+                return $marked;
+            }
+        }
+
+        if (ppseries_is_plain_text_context()) {
+            return $html;
+        }
+
+        $label = '<span class="screen-reader-text ppseries-current-label" style="' . esc_attr(ppseries_sr_only_style()) . '"> '
+            . esc_html__('(current post)', 'organize-series') . '</span>';
+
+        $pos = strripos($html, '</li>');
+        if (false !== $pos) {
+            return substr_replace($html, $label, $pos, 0);
+        }
+
+        return $html . $label;
+    }
+}
+
+if (! function_exists('ppseries_html_is_balanced')) {
+    /**
+     * Whether every element opened in an HTML fragment is also closed in it.
+     *
+     * @param string $html
+     *
+     * @return bool
+     */
+    function ppseries_html_is_balanced($html)
+    {
+        $void  = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
+        $stack = [];
+
+        if (! preg_match_all('#<(/?)([a-z][a-z0-9-]*)\b[^>]*?(/?)>#i', (string) $html, $matches, PREG_SET_ORDER)) {
+            return true;
+        }
+
+        foreach ($matches as $tag) {
+            $name = strtolower($tag[2]);
+
+            if ('/' === $tag[3] || in_array($name, $void, true)) {
+                continue;
+            }
+
+            if ('' === $tag[1]) {
+                $stack[] = $name;
+            } elseif (empty($stack) || array_pop($stack) !== $name) {
+                return false;
+            }
+        }
+
+        return empty($stack);
+    }
+}
+
+if (! function_exists('ppseries_wrap_nav_landmark')) {
+    /**
+     * Wrap series navigation HTML in a navigation landmark.
+     *
+     * Uses a plain div with role="navigation" so theme styles for <nav> do not apply.
+     * The %postcontent% token is kept outside the wrapper.
+     *
+     * @param string $html  Navigation HTML, may contain %postcontent%.
+     * @param string $label Optional accessible name. Defaults to "Series navigation".
+     *
+     * @return string
+     */
+    function ppseries_wrap_nav_landmark($html, $label = '')
+    {
+        $html = (string) $html;
+
+        if ('' === trim($html) || false !== strpos($html, 'ppseries-nav-landmark')) {
+            return $html;
+        }
+
+        if ('' === (string) $label) {
+            $label = __('Series navigation', 'organize-series');
+        }
+        $open     = '<div class="ppseries-nav-landmark" role="navigation" aria-label="' . esc_attr($label) . '">';
+        $segments = explode('%postcontent%', $html);
+
+        // A template can open an element before %postcontent% and close it after. Wrapping the
+        // pieces separately would then break the markup, so leave such templates untouched.
+        foreach ($segments as $segment) {
+            if (! ppseries_html_is_balanced($segment)) {
+                return $html;
+            }
+        }
+
+        foreach ($segments as $i => $segment) {
+            if ('' !== trim(wp_strip_all_tags($segment, true)) || preg_match('/<(img|svg|a)\b/i', $segment)) {
+                $segments[$i] = $open . $segment . '</div>';
+            }
+        }
+
+        return implode('%postcontent%', $segments);
+    }
+}
+
+if (!function_exists('pps_sanitize_transparent_color')) {
+    /** Native transparent color controls share the same validator as layout imports. */
+    function pps_sanitize_transparent_color($value)
+    {
+        return pps_sanitize_css_color($value, true);
+    }
+}
+
+if (!function_exists('ppseries_get_pro_feature_definitions')) {
+    /** Native optional Series Pro controls shared by discovery and both settings screens. */
+    function ppseries_get_pro_feature_definitions()
+    {
+        return [
+            'cpt' => ['name' => __('Custom Post Type Support', 'organize-series'), 'description' => __('Allow custom post types to be used with PublishPress Series.', 'organize-series')],
+            'shortcodes' => ['name' => __('Shortcodes', 'organize-series'), 'description' => __('Provides shortcodes to display series information.', 'organize-series')],
+            'extra-tokens' => ['name' => __('Extra Tokens', 'organize-series'), 'description' => __('Provides extra tokens to customize the output of series information.', 'organize-series')],
+            'multiples' => ['name' => __('Multiple Series', 'organize-series'), 'description' => __('Allows authors to add posts to more than one series.', 'organize-series')],
+        ];
+    }
+}
+
+/*
+ * The helpers below are shared by Free and the copy of Free bundled in Pro.
+ * When both plugins are active, each copy's classes and files can come from
+ * different versions, so new shared helpers live here behind function_exists().
+ */
+if (!function_exists('ppseries_new_tab_text')) {
+    /**
+     * Screen-reader-only notice for links that open in a new tab.
+     *
+     * @return string Safe HTML.
+     */
+    function ppseries_new_tab_text()
+    {
+        return '<span class="screen-reader-text"> ' . esc_html__('(opens in a new tab)', 'organize-series') . '</span>';
+    }
+}
+
+if (!function_exists('ppseries_get_post_navigation_pro_locked_fields')) {
+    /**
+     * Post Navigation fields that are locked unless Series Pro is active.
+     *
+     * @return array
+     */
+    function ppseries_get_post_navigation_pro_locked_fields()
+    {
+        $fields = [
+            'previous_custom_arrow_image',
+            'next_custom_arrow_image',
+            'previous_show_featured_image',
+            'next_show_featured_image',
+            'first_show_featured_image',
+            'previous_image_position',
+            'next_image_position',
+            'first_image_position',
+            'previous_image_width',
+            'previous_image_height',
+            'next_image_width',
+            'next_image_height',
+            'first_image_width',
+            'first_image_height',
+            'gap_between_links',
+            'alignment',
+            'separator_text',
+        ];
+        return apply_filters('pps_series_post_navigation_pro_locked_fields', $fields, []);
+    }
+}
+
+if (!function_exists('ppseries_get_series_list_block_attributes')) {
+    /**
+     * Attribute definitions of the Series List block.
+     *
+     * @return array
+     */
+    function ppseries_get_series_list_block_attributes()
+    {
+        return [
+            'contentType' => [
+                'type'    => 'string',
+                'default' => 'series',
+                'enum' => ['series', 'series_group'],
+            ],
+            'view' => [
+                'type'    => 'string',
+                'default' => 'grid',
+                'enum' => ['grid', 'list'],
+            ],
+            'columns' => [
+                'type'    => 'integer',
+                'default' => 3,
+                'minimum' => 1, 'maximum' => 4,
+            ],
+            'numberOfItems' => [
+                'type'    => 'integer',
+                'default' => 6,
+                'minimum' => 1, 'maximum' => 50,
+            ],
+            'orderBy' => [
+                'type'    => 'string',
+                'default' => 'name',
+                'enum' => ['name', 'count', 'term_id'],
+            ],
+            'order' => [
+                'type'    => 'string',
+                'default' => 'asc',
+                'enum' => ['asc', 'desc'],
+            ],
+            'hideEmpty' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showIcon' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showDescription' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+            'showPostCount' => [
+                'type'    => 'boolean',
+                'default' => true,
+            ],
+        ];
     }
 }

@@ -59,6 +59,9 @@ add_action('template_redirect', 'pp_series_group_redirect_legacy_base');
 
 add_action('pp_series_advanced_tab_top', 'series_grouping_delete_output');
 
+// All in One SEO: give Series Categories a real sitemap lastmod (#876).
+add_filter('aioseo_sitemap_term', 'pp_series_group_aioseo_sitemap_term', 10, 3);
+
 add_shortcode('publishpress_series_categories', 'publishpress_series_groups');
 
 function pp_series_group_get_current_base()
@@ -431,9 +434,10 @@ function pp_series_group_theme_archive_get_series_id_from_grouping_post($post)
     return (int) str_replace('series_grouping_', '', (string) $post->post_name);
 }
 
-function pp_series_group_theme_archive_title($title, $post_id)
+function pp_series_group_theme_archive_title($title, $post_id = null)
 {
-    if (is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
+    // Some plugins and themes apply 'the_title' with only the title argument.
+    if (empty($post_id) || is_admin() || pp_series_group_get_render_mode() !== 'theme' || !is_tax('series_group')) {
         return $title;
     }
 
@@ -569,6 +573,8 @@ function orgseries_grouping_import_existing_series()
         foreach ($series as $this_series) {
             $post_args = array(
                 'post_type' => 'series_grouping',
+                'post_status' => 'draft',
+                'post_date_gmt' => current_time('mysql', true),
                 'to_ping' => 0,
                 'post_title' => 'series_grouping_' . $this_series,
                 'post_name' => 'series_grouping_' . $this_series
@@ -738,7 +744,7 @@ function select_series_group_filter($taxonomy)
     // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen selection or display filter; no request-driven mutation.
     $group_id = !empty($_GET['ser_grp']) ? absint($_GET['ser_grp']) : 0;
     $dropdown_args = array(
-        'show_option_all' => 'View all Series Categories',
+        'show_option_all' => __('View all Series Categories', 'organize-series'),
         'selected' => $group_id,
         'taxonomy' => 'series_group',
         'name' => 'ser_grp',
@@ -756,8 +762,9 @@ function select_series_group_filter($taxonomy)
     <div style="display:none;">
         <form id="series_group_filter" style="float:right" action method="get">
             <input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy); ?>" />
+            <label for="ser_grp" class="screen-reader-text"><?php esc_html_e('Filter by Series Category', 'organize-series'); ?></label>
             <?php echo $dropdown; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-            <input type="submit" name="group_filter" id="filter-query-submit" class="button-secondary" value="Filter">
+            <input type="submit" name="group_filter" id="filter-query-submit" class="button-secondary" value="<?php esc_attr_e('Filter', 'organize-series'); ?>">
         </form>
     </div>
     <?php
@@ -847,7 +854,7 @@ function edit_orgseries_group_fields($series, $taxonomy)
 
     ?>
     <tr class="form-field term-groups-wrap">
-            <th scope="row"><label for="groups"><h3 class='hndle'><span><?php esc_html_e('Series Categories', 'organize-series'); ?></span></h3></label></th>
+            <th scope="row"><h3 class='hndle' id="pp-series-categories-heading"><span><?php esc_html_e('Series Categories', 'organize-series'); ?></span></h3></th>
             <td>
         <div class="metabox-holder">
             <div id="side-info-column" class="">
@@ -863,9 +870,12 @@ function edit_orgseries_group_fields($series, $taxonomy)
                                     <input type="search" id="pp-series-category-search" class="widefat" placeholder="<?php esc_attr_e('Search Series Categories', 'organize-series'); ?>" />
                                 </p>
                                 <div id="category-all" class="tabs-panel">
+                                    <fieldset class="ppseries-fieldset">
+                                    <legend class="screen-reader-text"><?php esc_html_e('Series Categories', 'organize-series'); ?></legend>
                                     <ul id="categorychecklist" class="list:category categorychecklist form-no-clear">
                                         <?php wp_terms_checklist($groupID, array('selected_cats' => $groups, 'taxonomy' => 'series_group' )); ?>
                                     </ul>
+                                    </fieldset>
                                 </div>
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function() {
@@ -930,8 +940,13 @@ function wp_insert_series_group($series_id, $taxonomy_id)
         $terms = os_stringarray_to_intarray($tax_input['series_group']);
     }
 
+    // Grouping posts stay drafts so they are never public. Drafts get a zero
+    // post_date_gmt/post_modified_gmt unless one is passed, which breaks sitemap
+    // lastmod values built from these posts (e.g. All in One SEO), so pass it.
     $post_arr = array(
         'post_type' => 'series_grouping',
+        'post_status' => 'draft',
+        'post_date_gmt' => current_time('mysql', true),
         'to_ping' => 0,
         'post_title' => 'series_grouping_' . $series_id,
         'post_name' => 'series_grouping_' . $series_id
@@ -947,7 +962,10 @@ function wp_update_series_group($series_id, $taxonomy_id)
 {
     global $_POST;
 
-    $tax_input = isset($_POST['tax_input']) && is_array($_POST['tax_input']) ? map_deep(wp_unslash($_POST['tax_input']), 'absint') : array();
+    if (!isset($_POST['tax_input']['series_group'])) {
+        return orgseries_group_id($series_id, false);
+    }
+    $tax_input = map_deep(wp_unslash($_POST['tax_input']), 'absint');
 
     $tax_input['series_group'] = !isset($tax_input['series_group']) ? array() : $tax_input['series_group'];
 
@@ -966,14 +984,14 @@ function wp_delete_series_group($series_id, $taxonomy_id)
     //TODO check, do we need wp_delete_post_term_relationship here?
 }
 
-function orgseries_group_id($series_id)
+function orgseries_group_id($series_id, $create = true)
 {
     $post_title = 'series_grouping_' . $series_id;
     $query = array( 'post_status' => array( 'draft', 'publish' ), 'name' => $post_title, 'post_type' => 'series_grouping');
     $series_posts = get_posts($query);
     $series_post = reset($series_posts);
     $group_id = $series_post instanceof WP_Post ? $series_post->ID : 0;
-    if ($series_id && ! $group_id) {
+    if ($create && $series_id && ! $group_id) {
         //looks like the series didn't get added as a custom post for some reason.  Let's fix that
         return wp_insert_series_group($series_id, '');
     }
@@ -998,14 +1016,7 @@ require_once(plugin_dir_path(__FILE__) . '/orgseries-grouping-template-tags.php'
 //helper functions
 function os_stringarray_to_intarray($array)
 {
-    function to_int(&$val, $key)
-    {
-        $val = (int) $val;
-    }
-
-    array_walk($array, 'to_int');
-
-    return $array;
+    return array_map('intval', (array) $array);
 }
 
 
@@ -1027,4 +1038,61 @@ function publishpress_series_groups($atts)
     $args = shortcode_atts($default_atts, $atts);
 
     return get_series_group_list($args['category_ids'], $args, false);
+}
+
+/**
+ * Set the All in One SEO sitemap lastmod of a Series Category.
+ *
+ * Series Category terms are attached to hidden draft series_grouping posts, and AIOSEO
+ * only reads published posts, so it falls back to 1970-01-01. Use the latest modified
+ * date of the published posts in the category's series instead.
+ *
+ * @param array  $entry    Sitemap entry.
+ * @param int    $term_id  Term ID.
+ * @param string $taxonomy Taxonomy name.
+ *
+ * @return array
+ */
+function pp_series_group_aioseo_sitemap_term($entry, $term_id = 0, $taxonomy = '')
+{
+    global $wpdb;
+
+    if ('series_group' !== $taxonomy || !is_array($entry)) {
+        return $entry;
+    }
+
+    $series_ids = get_series_in_group((int) $term_id);
+    if (empty($series_ids) || !is_array($series_ids)) {
+        return $entry;
+    }
+
+    $series_ids = array_values(array_filter(array_map('intval', $series_ids)));
+    if (empty($series_ids)) {
+        return $entry;
+    }
+
+    $placeholders = implode(',', array_fill(0, count($series_ids), '%d'));
+    $args = array_merge(array(ppseries_get_series_slug()), $series_ids);
+
+    // $placeholders only holds %d placeholders.
+    // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    $last_modified = $wpdb->get_var($wpdb->prepare(
+        "SELECT MAX(p.post_modified_gmt) FROM $wpdb->posts p
+        INNER JOIN $wpdb->term_relationships tr ON tr.object_id = p.ID
+        INNER JOIN $wpdb->term_taxonomy tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+        WHERE p.post_status = 'publish' AND tt.taxonomy = %s AND tt.term_id IN ($placeholders)",
+        $args
+    ));
+    // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
+    if (empty($last_modified) || '0000-00-00 00:00:00' === $last_modified) {
+        return $entry;
+    }
+
+    $timestamp = strtotime($last_modified . ' UTC');
+    if ($timestamp) {
+        $entry['lastmod'] = gmdate('c', $timestamp);
+    }
+
+    return $entry;
 }

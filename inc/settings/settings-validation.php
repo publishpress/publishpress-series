@@ -208,7 +208,7 @@ function ppseries_updated_notice()
  * @param array $input Raw form input.
  * @return array Sanitized options.
  */
-function orgseries_validate($input)
+function orgseries_validate($input, $persist = true)
 {
     global $orgseries, $wp_rewrite;
 
@@ -361,7 +361,7 @@ function orgseries_validate($input)
     /* Advanced */
     if (is_multisite()) {
         // Network-wide and Super Admin-only on multisite; never persist a per-site copy.
-        if (is_super_admin() && ($is_form_submission || isset($input['kill_on_delete']))) {
+        if ($persist && is_super_admin() && ($is_form_submission || isset($input['kill_on_delete']))) {
             update_site_option('pp_series_kill_on_delete', ppseries_sanitize_checkbox($input, 'kill_on_delete'));
         }
     } else {
@@ -370,7 +370,7 @@ function orgseries_validate($input)
     $newinput['orgseries_api'] = isset($input['orgseries_api']) ? trim($input['orgseries_api']) : '';
 
     /* Finalize */
-    if ($is_form_submission || isset($input['series_taxonomy_slug'])) {
+    if ($persist && ($is_form_submission || isset($input['series_taxonomy_slug']))) {
         update_option('pp_series_taxonomy_slug', $newinput['series_taxonomy_slug']);
     }
 
@@ -388,7 +388,9 @@ function orgseries_validate($input)
             [ 'last_modified' => $newinput['last_modified'] ]
         );
     }
-    $wp_rewrite->flush_rules();
+    if ($persist) {
+        $wp_rewrite->flush_rules();
+    }
 
     return $return_input;
 }

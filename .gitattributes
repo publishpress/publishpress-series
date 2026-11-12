@@ -29,6 +29,8 @@
 /dist export-ignore
 /screenshot-*.png export-ignore
 /tests export-ignore
+/.agents export-ignore
+/docs export-ignore
 Gruntfile.js export-ignore
 Gruntfile.js export-ignore
 README.md export-ignore

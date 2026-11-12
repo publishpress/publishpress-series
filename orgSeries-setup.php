@@ -21,8 +21,9 @@ if (!class_exists('orgSeries')) {
         {
             $this->register_textdomain();
 
-            //install OrgSeries
-            add_action('activate_' . PPSERIES_BASE_NAME . '', array($this, 'org_series_install'));
+            // Activation and capability setup run through pp_series_core_activation() and
+            // pp_series_upgrade_function(). An 'activate_' hook registered here would never
+            // fire, because this class is created during 'plugins_loaded'.
             add_action('admin_init', array($this, 'pp_series_upgrade_version_upgrade'));
 
             //add support for capabilities tab in PublishPress Capabilities
@@ -146,6 +147,13 @@ if (!class_exists('orgSeries')) {
             delete_option('pp_series_flush_rewrite_rules');
         }
 
+        /**
+         * Legacy install routine.
+         *
+         * No longer hooked to plugin activation: the 'activate_' hook was registered
+         * during 'plugins_loaded', too late for the activation request. Roles are now
+         * set up by pp_series_upgrade_function(). Kept for backward compatibility.
+         */
         function org_series_install()
         {
             global $wpdb, $wp_rewrite;
@@ -351,11 +359,10 @@ if (!class_exists('orgSeries')) {
             return wp_kses_data($description);
         }
 
-        function add_settings($reset = false)
+        /** Native defaults shared by installation, reset and discovery. */
+        public function get_default_settings()
         {
-            $url = wp_parse_url(get_bloginfo('url'));
-            if (!($this->settings = get_option('org_series_options')) || $reset == true) {
-                $this->settings = array(
+            $defaults = array(
                 //main settings
                 'custom_css' => 1,
                 'metabox_show_add_new' => 0,
@@ -409,8 +416,14 @@ if (!class_exists('orgSeries')) {
                 'series_group_plugin_columns' => 3,
                 'metabox_series_order' => 'default',
                 );
+            return apply_filters('org_series_settings', $defaults);
+        }
 
-                $this->settings = apply_filters('org_series_settings', $this->settings);
+        function add_settings($reset = false)
+        {
+            $url = wp_parse_url(get_bloginfo('url'));
+            if (!($this->settings = get_option('org_series_options')) || $reset == true) {
+                $this->settings = $this->get_default_settings();
                 update_option('org_series_options', $this->settings);
                 return true;
             }
@@ -602,34 +615,62 @@ if (!class_exists('orgSeries')) {
             $settings = $this->settings;
             $series_custom_base = $settings['series_custom_base'];
             if ($wp_rewrite instanceof WP_Rewrite && !($wp_rewrite->using_permalinks())) {
-                ?>
+                $series_base_url = get_option('home') . '/?' . SERIES_QUERYVAR . '=';
+            } else {
+                $series_base_url = get_option('home') . '/' . $series_custom_base . '/';
+            }
+            /*
+             * Accessibility (WCAG 3.2.2): do not navigate while a keyboard user moves
+             * through the options with the arrow keys. Navigate on a mouse or touch
+             * selection, or when the user presses Enter.
+             */
+            ?>
             <script type='text/javascript'><!--
             var seriesdropdown = document.getElementById("orgseries_dropdown");
             if (seriesdropdown) {
+                var seriesDropdownKeyboard = false;
                 function onSeriesChange() {
-                    if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-                        location.href = "<?php echo esc_attr(get_option('home')); ?>/?<?php echo esc_attr(SERIES_QUERYVAR); ?>="+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                    var seriesValue = seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                    if ( seriesValue !== '' && seriesValue != 0 && seriesValue != -1 ) {
+                        location.href = "<?php echo esc_js($series_base_url); ?>" + seriesValue;
                     }
                 }
-                seriesdropdown.onchange = onSeriesChange;
-            }
-            --></script>
-                <?php
-            } else {
-                ?>
-                <script type='text/javascript'><!--
-            var seriesdropdown = document.getElementById("orgseries_dropdown");
-            if (seriesdropdown) {
-             function onSeriesChange() {
-                    if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
-                        location.href = "<?php echo esc_attr(get_option('home')); ?>/<?php echo esc_attr($series_custom_base); ?>/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+                seriesdropdown.addEventListener('keydown', function (event) {
+                    var key = event.key || event.keyCode;
+                    if (key === 'Enter' || key === 13) {
+                        event.preventDefault();
+                        seriesDropdownKeyboard = false;
+                        onSeriesChange();
+                    } else if (key !== 'Tab' && key !== 9) {
+                        // Only a change fired straight after this key press came from arrowing
+                        // through the closed select; picks made in the native popup still navigate.
+                        seriesDropdownKeyboard = true;
+                        setTimeout(function () {
+                            seriesDropdownKeyboard = false;
+                        }, 100);
                     }
-                }
-                seriesdropdown.onchange = onSeriesChange;
+                });
+                seriesdropdown.addEventListener('click', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.addEventListener('mousedown', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.addEventListener('touchstart', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.addEventListener('blur', function () {
+                    seriesDropdownKeyboard = false;
+                });
+                seriesdropdown.onchange = function () {
+                    if (seriesDropdownKeyboard) {
+                        return;
+                    }
+                    onSeriesChange();
+                };
             }
             --></script>
-                <?php
-            }
+            <?php
         }
 
         //joins and wheres etc.
@@ -835,6 +876,43 @@ if (!class_exists('orgSeries')) {
             return $content;
         }
 
+        /**
+         * Whether the content being filtered is the main post's content.
+         *
+         * Shortcodes and blocks that embed another post (e.g. Post Content Shortcodes) run
+         * 'the_content' again inside the main post's content, with or without setting up the
+         * embedded post as the global post. Series boxes belong to the main post only (#745):
+         * - a 'the_content' call nested inside another one is embedded content;
+         * - on a singular view, content of any post other than the queried one is skipped.
+         *
+         * Archives keep their current behaviour: each post in the loop is checked on its own.
+         * The block theme core/post-content block applies 'the_content' once, from the template
+         * and with the queried post set up, so the main post still gets its boxes.
+         *
+         * @return bool
+         */
+        private function is_main_series_content()
+        {
+            global $wp_current_filter;
+
+            $is_main_content = true;
+
+            if (is_array($wp_current_filter) && count(array_keys($wp_current_filter, 'the_content', true)) > 1) {
+                $is_main_content = false;
+            } elseif (is_singular()) {
+                $queried_id = (int) get_queried_object_id();
+                $is_main_content = $queried_id < 1 || (int) get_the_ID() === $queried_id;
+            }
+
+            /**
+             * Filter whether Series boxes are added to the content being filtered.
+             *
+             * @param bool $is_main_content Whether this is the main post's content.
+             * @param int  $post_id         ID of the post the content is filtered for.
+             */
+            return (bool) apply_filters('pp_series_is_main_post_content', $is_main_content, (int) get_the_ID());
+        }
+
         //add series post-list box to a post in that series (on single.php view)
         public function add_series_post_list_box($content)
         {
@@ -844,7 +922,7 @@ if (!class_exists('orgSeries')) {
             */
             $add_series_content = apply_filters('pp_series_add_series_content', true);
 
-            if ($add_series_content && $this->settings['auto_tag_toggle']) {
+            if ($add_series_content && $this->settings['auto_tag_toggle'] && $this->is_main_series_content()) {
                 if (( is_single() || is_page() ) && $postlist = wp_postlist_display()) {
                     // Get position from the selected post list box
                     $position = 'top'; // fallback value
@@ -895,7 +973,7 @@ if (!class_exists('orgSeries')) {
                 return $content;
             }
 
-            if ($add_series_content && $this->settings['auto_tag_seriesmeta_toggle']) {
+            if ($add_series_content && $this->settings['auto_tag_seriesmeta_toggle'] && $this->is_main_series_content()) {
                 if ($series_meta = wp_seriesmeta_write()) {
                     $position = isset($this->settings['series_metabox_position']) ? $this->settings['series_metabox_position'] : 'default';
                     if ($layout_settings && isset($layout_settings['metabox_position'])) {
@@ -972,7 +1050,7 @@ if (!class_exists('orgSeries')) {
                 */
                 $add_series_content = apply_filters('pp_series_add_series_content', true);
 
-                if ($add_series_content && $this->settings['auto_tag_nav_toggle'] && $series_nav = wp_assemble_series_nav()) {
+                if ($add_series_content && $this->settings['auto_tag_nav_toggle'] && $this->is_main_series_content() && $series_nav = wp_assemble_series_nav()) {
                     $position = isset($this->settings['series_navigation_box_position']) ? $this->settings['series_navigation_box_position'] : 'default';
                     $content = $this->add_deferred_series_output($series_nav, $content, $position);
                 }
