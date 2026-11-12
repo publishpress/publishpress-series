@@ -77,6 +77,25 @@ if (!function_exists('pp_series_upgrade_function')) {
             update_option('pp_series_2_7_1_upgraded', true);
         }
 
+        /**
+         * Grant manage_publishpress_series to editors once.
+         *
+         * Editors were meant to get this capability on install, but the old install
+         * routine was never run on activation. This runs once (fresh installs and
+         * existing sites); it is not re-added on later loads, so sites that remove it
+         * from editors afterwards keep their setting. A capability explicitly denied
+         * on the role (stored as false, e.g. by a role editor plugin) is left alone.
+         */
+        if (!get_option('pp_series_3_2_0_editor_cap_upgraded')) {
+            if (function_exists('get_role')) {
+                $role = get_role('editor');
+                if (null !== $role && !isset($role->capabilities['manage_publishpress_series'])) {
+                    $role->add_cap('manage_publishpress_series');
+                }
+            }
+            update_option('pp_series_3_2_0_editor_cap_upgraded', true);
+        }
+
         if (!get_option('pp_series_2_8_0_upgraded')) {
             $settings = get_option('org_series_options');
             $settings = apply_filters('org_series_settings', $settings);
