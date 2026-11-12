@@ -56,7 +56,7 @@ function series_cpt_settings_display()
                                 <td>
                                     <input id="<?php echo $post_type; ?>" type="checkbox" <?php echo ($post_type === 'post') ? 'checked="checked"' : 'disabled="disabled"'; ?> />
                                     <?php if ($post_type !== 'post') : ?>
-                                    <?php $pro_tooltip_id = ppseries_pro_tooltip_id(); ?>
+                                        <?php $pro_tooltip_id = ppseries_pro_tooltip_id(); ?>
                                     <div class="ppseries-pro-lock">
                                         <?php echo ppseries_pro_badge_link($pro_tooltip_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                         <span class="tooltip-text" id="<?php echo esc_attr($pro_tooltip_id); ?>" role="tooltip">

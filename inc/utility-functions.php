@@ -758,7 +758,8 @@ if (! function_exists('ppseries_mark_current_post')) {
                     if ($matched) {
                         return $m[0];
                     }
-                    if (preg_match('/\bhref\s*=\s*(["\'])(.*?)\1/i', $m[1], $href)
+                    if (
+                        preg_match('/\bhref\s*=\s*(["\'])(.*?)\1/i', $m[1], $href)
                         && untrailingslashit(html_entity_decode($href[2], ENT_QUOTES)) === $target
                     ) {
                         $matched = true;

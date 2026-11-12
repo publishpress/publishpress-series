@@ -254,8 +254,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('Will output the slug of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%series_id%</strong>
@@ -263,8 +264,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('Will output the ID of the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_author%</strong>
@@ -272,8 +274,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('Will output the author of the post', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_thumbnail%</strong>
@@ -281,8 +284,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('If the post has a feature-image then that image will be displayed', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%post_date%</strong>
@@ -290,8 +294,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('The date that a post was published', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%unpublished_post_title%</strong>
@@ -299,8 +304,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('Will be replaced with the unpublished post title of a post in the series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <span class="pp-tooltips-library" data-toggle="tooltip" data-placement="left">
                             <strong>%total_posts_in_series_with_unpub%</strong>
@@ -308,8 +314,9 @@ function orgseries_option_page()
                                 <span><?php esc_html_e('Will display the total number of published and unpublished posts in a series', 'organize-series'); ?></span>
                                 <i></i>
                             </span>
-                        </span><?php if (!pp_series_is_pro_active()) { echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                        } ?><br /><br />
+                        </span><?php if (!pp_series_is_pro_active()) {
+                            echo ' ' . ppseries_pro_badge_link(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                               } ?><br /><br />
 
                         <?php do_action('orgseries_token_description'); ?>
                             <?php do_action('ppseries_licence_key_form'); ?>

@@ -42,6 +42,21 @@ add_filter('manage_edit-series_group_columns', 'pp_series_term_order_column', 20
 add_filter('manage_' . ppseries_get_series_slug() . '_custom_column', 'pp_series_term_order_column_value', 20, 3);
 add_filter('manage_series_group_custom_column', 'pp_series_term_order_column_value', 20, 3);
 
+/*
+ * Hide the Order column by default so it doesn't squeeze the Name column; users can show it
+ * under Screen Options. Hidden columns are still rendered, so Quick Edit keeps working.
+ */
+add_filter('default_hidden_columns', 'pp_series_term_order_default_hidden', 10, 2);
+
+function pp_series_term_order_default_hidden($hidden, $screen)
+{
+    if ($screen && in_array($screen->id, ['edit-' . ppseries_get_series_slug(), 'edit-series_group'], true)) {
+        $hidden[] = 'order';
+    }
+
+    return $hidden;
+}
+
 function pp_series_term_order_column($columns)
 {
     $columns['order'] = __('Order', 'organize-series');
