@@ -3,6 +3,26 @@
 <div class="wrap">
   <h2><?php esc_html_e('Manage Series', 'organize-series'); ?></h2>
 
+  <form method="get" action="<?php echo esc_url(admin_url('edit.php')); ?>">
+    <input type="hidden" name="page" value="manage-issues" />
+    <div class="ppseries-manage-controls">
+      <p class="ppseries-manage-search">
+        <label class="screen-reader-text" for="ppseries-series-search-input"><?php esc_html_e('Search Series', 'organize-series'); ?></label>
+        <input type="search" id="ppseries-series-search-input" name="s" value="<?php echo esc_attr($series_search); ?>" />
+        <?php submit_button(__('Search Series', 'organize-series'), '', 'submit', false); ?>
+      </p>
+      <div class="ppseries-manage-filter">
+        <label class="screen-reader-text" for="ppseries-series-post-count"><?php esc_html_e('Filter by post count', 'organize-series'); ?></label>
+        <select name="series_post_count" id="ppseries-series-post-count">
+          <option value="all" <?php selected($series_post_count, 'all'); ?>><?php esc_html_e('All series', 'organize-series'); ?></option>
+          <option value="with-posts" <?php selected($series_post_count, 'with-posts'); ?>><?php esc_html_e('Series with posts', 'organize-series'); ?></option>
+          <option value="empty" <?php selected($series_post_count, 'empty'); ?>><?php esc_html_e('Empty series', 'organize-series'); ?></option>
+        </select>
+        <?php submit_button(__('Filter', 'organize-series'), '', 'filter_action', false); ?>
+      </div>
+    </div>
+  </form>
+
   <table class="widefat im_category_list wp-list-table fixed">
     <thead>
       <tr>
@@ -37,7 +57,13 @@
   </table>
 
   <?php if (count($series) === 0) { ?>
-    <div class="ppseries-warning"><?php esc_html_e('You have no series available.', 'organize-series'); ?> <a href="<?php echo esc_url(admin_url('/edit-tags.php?taxonomy=' . ppseries_get_series_slug() . '')); ?>"><?php esc_html_e('Add new Series.', 'organize-series'); ?></a></div>
+    <div class="ppseries-warning">
+        <?php if ($series_search !== '' || $series_post_count !== 'all') { ?>
+            <?php esc_html_e('No series found.', 'organize-series'); ?>
+        <?php } else { ?>
+            <?php esc_html_e('You have no series available.', 'organize-series'); ?> <a href="<?php echo esc_url(admin_url('/edit-tags.php?taxonomy=' . ppseries_get_series_slug() . '')); ?>"><?php esc_html_e('Add new Series.', 'organize-series'); ?></a>
+        <?php } ?>
+    </div>
   <?php }
     ?>
 </div>
