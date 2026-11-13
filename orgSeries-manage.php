@@ -114,6 +114,7 @@ function pp_series_term_enqueue_scripts()
 
     wp_localize_script('pp-series-term-order-reorder', 'orderL10n', array(
         'nonce'         => wp_create_nonce('series-order-nonce'),
+        'showMoveButtons' => get_current_screen()->taxonomy !== ppseries_get_series_slug(),
         'moveUp'        => __('Move up', 'organize-series'),
         'moveDown'      => __('Move down', 'organize-series'),
         /* translators: %s: term name */
@@ -152,12 +153,17 @@ function pp_series_quick_edit_term_order($column_name = '', $screen = '', $name 
 
 function pp_series_term_help_tab()
 {
+    $screen  = get_current_screen();
+    $content = '<p>' . __('To reposition an item, drag and drop the row by "clicking and holding" it anywhere and moving it to its new position.', 'organize-series') . '</p>';
 
-    get_current_screen()->add_help_tab(array(
+    if ($screen->taxonomy !== ppseries_get_series_slug()) {
+        $content .= '<p>' . __('You can also use the "Move up" and "Move down" buttons in each row. They work with the keyboard and save the new order straight away.', 'organize-series') . '</p>';
+    }
+
+    $screen->add_help_tab(array(
         'id'      => 'wp_term_order_help_tab',
         'title'   => __('Term Order', 'organize-series'),
-        'content' => '<p>' . __('To reposition an item, drag and drop the row by "clicking and holding" it anywhere and moving it to its new position.', 'organize-series') . '</p>'
-            . '<p>' . __('You can also use the "Move up" and "Move down" buttons in each row. They work with the keyboard and save the new order straight away.', 'organize-series') . '</p>',
+        'content' => $content,
     ));
 }
 

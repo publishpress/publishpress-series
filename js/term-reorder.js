@@ -5,6 +5,7 @@ var sortable_terms_table = jQuery( '.wp-list-table tbody' ),
 	term_order_saving    = false;
 
 var term_order_i18n = jQuery.extend( {
+	showMoveButtons: true,
 	moveUp:        'Move up',
 	moveDown:      'Move down',
 	moveUpLabel:   'Move up: %s',
@@ -58,6 +59,10 @@ function term_order_refresh_buttons() {
  * Add Move up / Move down buttons to each term row (idempotent).
  */
 function term_order_add_buttons() {
+	if ( ! term_order_i18n.showMoveButtons ) {
+		return;
+	}
+
 	var $rows = term_order_rows();
 
 	if ( $rows.length < 2 ) {
