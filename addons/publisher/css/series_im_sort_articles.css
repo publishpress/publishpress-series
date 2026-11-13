@@ -56,3 +56,10 @@
         width: 100%;
     }
 }
+
+/* Manage Series table: no checkbox column, so let every hidden column take a full row when expanded on small screens. */
+@media screen and (max-width: 782px) {
+    .im_category_list.wp-list-table tr td.column-primary ~ td {
+        flex: 0 1 100%;
+    }
+}
