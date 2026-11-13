@@ -59,6 +59,14 @@
 
 /* Manage Series table: no checkbox column, so let every hidden column take a full row when expanded on small screens. */
 @media screen and (max-width: 782px) {
+    .im_category_list.wp-list-table thead tr {
+        display: table-row;
+    }
+
+    .im_category_list.wp-list-table th.column-primary ~ th {
+        display: table-cell;
+    }
+
     .im_category_list.wp-list-table tr td.column-primary ~ td {
         flex: 0 1 100%;
     }
