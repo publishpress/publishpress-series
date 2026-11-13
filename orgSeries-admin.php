@@ -529,7 +529,7 @@ function series_edit_meta_box()
             <?php if (!is_wp_error($series_page)) : ?>
                 <div class="editor-series-search">
                     <label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
-                    <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="search" autocomplete="off" aria-controls="serieschecklist">
+                    <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="search" autocomplete="off" aria-controls="serieschecklist" aria-describedby="ppseries-search-status">
                 </div>
             <?php endif; ?>
 

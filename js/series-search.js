@@ -44,6 +44,7 @@ jQuery(function ($) {
     function search(page) {
         var current = ++sequence;
         var query = $input.val();
+        var focusNewResult = page > 0 && document.activeElement === $button[0];
 
         if (request) {
             request.abort();
@@ -69,6 +70,7 @@ jQuery(function ($) {
             var items;
             var selectedId;
             var count;
+            var $firstNew = $();
 
             if (current !== sequence || !response.success) {
                 if (current === sequence) {
@@ -88,7 +90,11 @@ jQuery(function ($) {
             selectedId = parseInt($list.find('input[name="post_series"]:checked').val(), 10);
             $.each(items, function (index, item) {
                 if (item.id !== selectedId && !document.getElementById('series-' + item.id)) {
-                    $list.append(renderItem(item));
+                    var $item = renderItem(item);
+                    if (!$firstNew.length) {
+                        $firstNew = $item.find('input[name="post_series"]');
+                    }
+                    $list.append($item);
                 }
             });
 
@@ -96,6 +102,15 @@ jQuery(function ($) {
             $button.prop('hidden', !response.data.hasMore);
             count = items.length;
             $status.text(count === 0 ? config.noResults : (count === 1 ? config.oneResult : config.results.replace('%d', count)));
+            if (focusNewResult) {
+                if ($firstNew.length) {
+                    $firstNew.trigger('focus');
+                } else if (response.data.hasMore) {
+                    $button.trigger('focus');
+                } else {
+                    $input.trigger('focus');
+                }
+            }
         }).fail(function (xhr, state) {
             if (state !== 'abort' && current === sequence) {
                 $status.text(config.error);
@@ -115,6 +130,17 @@ jQuery(function ($) {
         timer = setTimeout(function () {
             search(0);
         }, 250);
+    });
+
+    $input.on('keydown', function (event) {
+        if ((event.originalEvent && event.originalEvent.isComposing) || event.keyCode === 229) {
+            return;
+        }
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            event.preventDefault();
+            clearTimeout(timer);
+            search(0);
+        }
     });
 
     $button.on('click', function () {
