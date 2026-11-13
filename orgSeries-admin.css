@@ -185,6 +185,13 @@ ul#serieschecklist {
     padding-bottom: 10px;
     padding-inline-start: 4px;
 }
+#ppseries-load-more[hidden],
+#ppseries-search-status:empty {
+    display: none;
+}
+#ppseries-load-more {
+    margin-bottom: 8px;
+}
 ul#serieschecklist li span.li-series-name {
     padding-left: 0;
 }

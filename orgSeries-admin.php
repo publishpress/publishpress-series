@@ -25,6 +25,7 @@ add_action('admin_print_scripts-edit-tags.php', 'orgSeries_manage_script');
 
 //add ajax for on-the-fly series adds
 add_action('wp_ajax_add_series', 'admin_ajax_series');
+add_action('wp_ajax_ppseries_search_metabox_series', 'ppseries_search_metabox_series');
 //add_action('wp_ajax_inline-series', 'admin_inline_series_ajax');
 add_action('admin_init', 'orgseries_load_custom_column_actions', 10);
 add_action('admin_init', 'orgseries_load_custom_column_filters', 10);
@@ -100,12 +101,97 @@ function orgSeries_post_script()
     wp_enqueue_script('wp-a11y');
     wp_enqueue_script('ajaxseries');
     wp_localize_script('ajaxseries', 'ppSeriesMetabox', [
-        'noResults' => __('No series found.', 'organize-series'),
-        'oneResult' => __('1 series found.', 'organize-series'),
-        /* translators: %d: number of series matching the search */
-        'results'   => __('%d series found.', 'organize-series'),
         'emptyName' => __('Enter a name for the new series.', 'organize-series'),
     ]);
+
+    wp_enqueue_script(
+        'ppseries-series-search',
+        SERIES_PATH_URL . 'js/series-search.js',
+        ['jquery', 'wp-a11y', 'ajaxseries'],
+        ORG_SERIES_VERSION,
+        true
+    );
+    wp_localize_script('ppseries-series-search', 'ppSeriesSearch', [
+        'ajaxUrl'    => admin_url('admin-ajax.php'),
+        'nonce'      => wp_create_nonce('ppseries_search_metabox_series'),
+        'loading'    => __('Searching series…', 'organize-series'),
+        'error'      => __('Could not search series. Please try again.', 'organize-series'),
+        'noResults'  => __('No series found.', 'organize-series'),
+        'oneResult'  => __('1 series loaded.', 'organize-series'),
+        /* translators: %d: number of series in the current result page */
+        'results'    => __('%d series loaded.', 'organize-series'),
+        'orderLabel' => __('Series Order', 'organize-series'),
+        'orderUrl'   => admin_url('edit.php?page=manage-issues&action=part&series_ID='),
+        'newTab'     => __('Opens in a new tab', 'organize-series'),
+    ]);
+}
+
+/** Fetch a bounded page of series for the Classic Editor metabox. */
+function ppseries_get_metabox_series_page($search = '', $page = 0)
+{
+    global $orgseries;
+
+    $order_setting = isset($orgseries->settings['metabox_series_order']) ? $orgseries->settings['metabox_series_order'] : 'default';
+    $orderby = in_array($order_setting, ['a-z', 'z-a'], true) ? 'name' : 'term_order';
+    $order = ('z-a' === $order_setting) ? 'DESC' : 'ASC';
+    $terms = get_terms([
+        'taxonomy'   => ppseries_get_series_slug(),
+        'hide_empty' => false,
+        'search'     => $search,
+        'orderby'    => $orderby,
+        'order'      => $order,
+        'number'     => 21,
+        'offset'     => $page * 20,
+    ]);
+
+    if (is_wp_error($terms)) {
+        return $terms;
+    }
+
+    $has_more = count($terms) > 20;
+    $terms = array_slice($terms, 0, 20);
+
+    return ['terms' => $terms, 'has_more' => $has_more];
+}
+
+/** Search only from a post editor where the current user can edit that post type. */
+function ppseries_search_metabox_series()
+{
+    check_ajax_referer('ppseries_search_metabox_series', 'nonce');
+
+    $post_id = isset($_POST['post_id']) ? absint($_POST['post_id']) : 0;
+    $post_type = isset($_POST['post_type']) && is_string($_POST['post_type']) ? sanitize_key(wp_unslash($_POST['post_type'])) : '';
+    $supported_types = (array) apply_filters('orgseries_posttype_support', ['post']);
+    $post_type_object = get_post_type_object($post_type);
+
+    if (!in_array($post_type, $supported_types, true) || !$post_type_object) {
+        wp_send_json_error(['message' => __('Invalid post type.', 'organize-series')], 400);
+    }
+
+    if ($post_id) {
+        $post = get_post($post_id);
+        if (!$post || $post->post_type !== $post_type || !current_user_can('edit_post', $post_id)) {
+            wp_send_json_error(['message' => __('You cannot edit this post.', 'organize-series')], 403);
+        }
+    } elseif (!current_user_can($post_type_object->cap->edit_posts)) {
+        wp_send_json_error(['message' => __('You cannot edit this post type.', 'organize-series')], 403);
+    }
+
+    $search = isset($_POST['search']) && is_string($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
+    $search = function_exists('mb_substr') ? mb_substr($search, 0, 100) : substr($search, 0, 100);
+    $page = isset($_POST['page']) ? min(1000, absint($_POST['page'])) : 0;
+    $result = ppseries_get_metabox_series_page($search, $page);
+
+    if (is_wp_error($result)) {
+        wp_send_json_error(['message' => __('Could not search series.', 'organize-series')], 500);
+    }
+
+    $items = [];
+    foreach ($result['terms'] as $term) {
+        $items[] = ['id' => (int) $term->term_id, 'name' => $term->name];
+    }
+
+    wp_send_json_success(['items' => $items, 'hasMore' => $result['has_more']]);
 }
 function orgSeries_admin_script()
 {
@@ -406,8 +492,28 @@ function series_edit_meta_box()
 
     $metabox_show_post_title_in_widget = isset($org_opt['metabox_show_post_title_in_widget']) ? (int) $org_opt['metabox_show_post_title_in_widget'] : 0;
     $metabox_show_add_new = isset($org_opt['metabox_show_add_new']) ? (int) $org_opt['metabox_show_add_new'] : 0;
-    $series_list = get_series_list(0);
-    // Users without the manage capability get series-restricted.js, which has no Add New or search handlers.
+    $series_page = ppseries_get_metabox_series_page();
+    $series_list = [];
+    if (!is_wp_error($series_page)) {
+        foreach ($series_page['terms'] as $term) {
+            $series_list[$term->term_id] = [
+                'series_ID' => (int) $term->term_id,
+                'ser_name'  => $term->name,
+                'checked'   => (int) $term->term_id === (int) $seriesid,
+            ];
+        }
+    }
+    // Keep the current selection in the form even when it falls outside the first page.
+    if ($seriesid && !isset($series_list[$seriesid])) {
+        $selected_term = get_term($seriesid, ppseries_get_series_slug());
+        if ($selected_term && !is_wp_error($selected_term)) {
+            $series_list[$seriesid] = [
+                'series_ID' => (int) $selected_term->term_id,
+                'ser_name'  => $selected_term->name,
+                'checked'   => true,
+            ];
+        }
+    }
     $can_manage_series = current_user_can('manage_publishpress_series');
     ?>
     <div class="series-metadiv">
@@ -420,10 +526,10 @@ function series_edit_meta_box()
             </p>
             <?php endif; ?>
 
-            <?php if ($can_manage_series && is_array($series_list) && count($series_list) > 1) : ?>
+            <?php if (!is_wp_error($series_page)) : ?>
                 <div class="editor-series-search">
                     <label for="editor-series-search-input"><?php esc_html_e('Search series', 'organize-series'); ?></label>
-                    <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="text">
+                    <input class="editor-series-search-input components-text-control__input" id="editor-series-search-input" type="search" autocomplete="off" aria-controls="serieschecklist" aria-describedby="ppseries-search-status">
                 </div>
             <?php endif; ?>
 
@@ -433,6 +539,13 @@ function series_edit_meta_box()
                 <?php write_series_list($series_list); ?>
             </ul>
             </fieldset>
+
+            <?php if (!is_wp_error($series_page)) : ?>
+                <p id="ppseries-search-status" role="status" aria-live="polite"></p>
+                <button type="button" id="ppseries-load-more" class="button" <?php echo $series_page['has_more'] ? '' : 'hidden'; ?>><?php esc_html_e('Load more series', 'organize-series'); ?></button>
+                <input type="hidden" id="ppseries-search-post-id" value="<?php echo esc_attr($id); ?>">
+                <input type="hidden" id="ppseries-search-post-type" value="<?php echo esc_attr(get_post_type($id)); ?>">
+            <?php endif; ?>
 
             <div class="series-part-wrap" style="display: none">
                 <?php
