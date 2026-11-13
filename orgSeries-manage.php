@@ -41,6 +41,15 @@ add_filter('manage_edit-' . ppseries_get_series_slug() . '_columns', 'pp_series_
 add_filter('manage_edit-series_group_columns', 'pp_series_term_order_column', 20);
 add_filter('manage_' . ppseries_get_series_slug() . '_custom_column', 'pp_series_term_order_column_value', 20, 3);
 add_filter('manage_series_group_custom_column', 'pp_series_term_order_column_value', 20, 3);
+add_filter('manage_edit-' . ppseries_get_series_slug() . '_columns', 'pp_series_term_move_column', 1000);
+
+function pp_series_term_move_column($columns)
+{
+    // Append after other plugin columns so controls stay at the right edge.
+    unset($columns['series_move']);
+    $columns['series_move'] = __('Move', 'organize-series');
+    return $columns;
+}
 
 /*
  * Hide the Order column by default so it doesn't squeeze the Name column; users can show it
@@ -114,6 +123,7 @@ function pp_series_term_enqueue_scripts()
 
     wp_localize_script('pp-series-term-order-reorder', 'orderL10n', array(
         'nonce'         => wp_create_nonce('series-order-nonce'),
+        'moveColumn'    => get_current_screen()->taxonomy === ppseries_get_series_slug() ? 'series_move' : '',
         'moveUp'        => __('Move up', 'organize-series'),
         'moveDown'      => __('Move down', 'organize-series'),
         /* translators: %s: term name */
@@ -152,7 +162,6 @@ function pp_series_quick_edit_term_order($column_name = '', $screen = '', $name 
 
 function pp_series_term_help_tab()
 {
-
     get_current_screen()->add_help_tab(array(
         'id'      => 'wp_term_order_help_tab',
         'title'   => __('Term Order', 'organize-series'),
@@ -184,6 +193,23 @@ function pp_series_term_admin_head()
 
         .pp-series-term-move-buttons .button {
             cursor: pointer;
+        }
+
+        .taxonomy-<?php echo esc_attr(ppseries_get_series_slug()); ?> .wp-list-table .column-series_move {
+            width: 94px;
+        }
+
+        .taxonomy-<?php echo esc_attr(ppseries_get_series_slug()); ?> .wp-list-table td.column-series_move .pp-series-term-move-buttons {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 0;
+        }
+
+        @media screen and (max-width: 782px) {
+            .taxonomy-<?php echo esc_attr(ppseries_get_series_slug()); ?> .wp-list-table th.column-series_move,
+            .taxonomy-<?php echo esc_attr(ppseries_get_series_slug()); ?> .wp-list-table td.column-series_move {
+                display: table-cell !important;
+            }
         }
 
         .striped.dragging > tbody > .ui-sortable-helper ~ tr:nth-child(even) {
