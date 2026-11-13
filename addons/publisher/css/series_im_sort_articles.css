@@ -57,17 +57,38 @@
     }
 }
 
-/* Manage Series table: no checkbox column, so let every hidden column take a full row when expanded on small screens. */
+/* Keep the Manage Series headers visible and its expanded rows full-width on small screens. */
 @media screen and (max-width: 782px) {
+    .im_category_list.wp-list-table,
+    .im_category_list.wp-list-table thead,
+    .im_category_list.wp-list-table tbody {
+        display: block;
+        width: 100%;
+    }
+
     .im_category_list.wp-list-table thead tr {
-        display: table-row;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
     }
 
-    .im_category_list.wp-list-table th.column-primary ~ th {
-        display: table-cell;
+    .im_category_list.wp-list-table thead th {
+        box-sizing: border-box;
+        display: block;
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
     }
 
-    .im_category_list.wp-list-table tr td.column-primary ~ td {
-        flex: 0 1 100%;
+    .im_category_list.wp-list-table tbody tr {
+        width: 100%;
+    }
+
+    .im_category_list.wp-list-table tbody td.column-primary,
+    .im_category_list.wp-list-table tbody td.column-primary ~ td {
+        box-sizing: border-box;
+        flex: 0 0 100%;
+        min-width: 0;
+        width: 100%;
     }
 }
