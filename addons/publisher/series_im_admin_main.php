@@ -5,8 +5,13 @@
 
   <form method="get" action="<?php echo esc_url(admin_url('edit.php')); ?>">
     <input type="hidden" name="page" value="manage-issues" />
-    <div class="tablenav top">
-      <div class="alignleft actions">
+    <div class="ppseries-manage-controls">
+      <p class="ppseries-manage-search">
+        <label class="screen-reader-text" for="ppseries-series-search-input"><?php esc_html_e('Search Series', 'organize-series'); ?></label>
+        <input type="search" id="ppseries-series-search-input" name="s" value="<?php echo esc_attr($series_search); ?>" />
+        <?php submit_button(__('Search Series', 'organize-series'), '', 'submit', false); ?>
+      </p>
+      <div class="ppseries-manage-filter">
         <label class="screen-reader-text" for="ppseries-series-post-count"><?php esc_html_e('Filter by post count', 'organize-series'); ?></label>
         <select name="series_post_count" id="ppseries-series-post-count">
           <option value="all" <?php selected($series_post_count, 'all'); ?>><?php esc_html_e('All series', 'organize-series'); ?></option>
@@ -15,11 +20,6 @@
         </select>
         <?php submit_button(__('Filter', 'organize-series'), '', 'filter_action', false); ?>
       </div>
-      <p class="search-box">
-        <label class="screen-reader-text" for="ppseries-series-search-input"><?php esc_html_e('Search Series', 'organize-series'); ?></label>
-        <input type="search" id="ppseries-series-search-input" name="s" value="<?php echo esc_attr($series_search); ?>" />
-        <?php submit_button(__('Search Series', 'organize-series'), '', 'submit', false); ?>
-      </p>
     </div>
   </form>
 
