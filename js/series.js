@@ -2,67 +2,10 @@ jQuery(document).ready( function($) {
 	var myConfirm = function() { return '' !== $('#newseries').val(); };
 
 	var l10n = $.extend( {
-		noResults: 'No series found.',
-		oneResult: '1 series found.',
-		results: '%d series found.',
 		emptyName: 'Enter a name for the new series.'
 	}, window.ppSeriesMetabox || {} );
 
-	function speak( message, politeness ) {
-		if ( window.wp && wp.a11y && typeof wp.a11y.speak === 'function' ) {
-			wp.a11y.speak( message, politeness || 'polite' );
-		}
-	}
-
 	/*$('#serieschecklist').wpList( { alt: '', response: 'series-ajax-response', confirm: myConfirm } ); /**/
-
-  var searchTimer = null,
-      lastSearch = null;
-
-  $('.editor-series-search-input').bind('keydown keypress keyup change', function () {
-
-    // Declare variables
-    var input, filter, ul, li, a, i, txtValue, span, visible = 0;
-    input = document.getElementById('editor-series-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("serieschecklist");
-    li = ul.getElementsByTagName('li');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      span = li[i].getElementsByTagName("span")[0];
-      txtValue = span ? (span.textContent || span.innerText) : '';
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-        if (i > 0) {
-          visible++;
-        }
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-    li[0].style.display = "";
-
-    // Announce the result count once typing pauses (first item, "Not part of a series", is always shown).
-    if (filter === lastSearch) {
-      return;
-    }
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(function () {
-      lastSearch = filter;
-      if (filter === '') {
-        return;
-      }
-      if (visible === 0) {
-        speak(l10n.noResults);
-      } else if (visible === 1) {
-        speak(l10n.oneResult);
-      } else {
-        speak(l10n.results.replace('%d', visible));
-      }
-    }, 500);
-
-  });
 
 	function clearNewSeriesError() {
 		$('#newseries').removeAttr('aria-invalid aria-describedby');
