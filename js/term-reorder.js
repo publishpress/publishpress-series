@@ -5,7 +5,7 @@ var sortable_terms_table = jQuery( '.wp-list-table tbody' ),
 	term_order_saving    = false;
 
 var term_order_i18n = jQuery.extend( {
-	showMoveButtons: true,
+	moveColumn:    '',
 	moveUp:        'Move up',
 	moveDown:      'Move down',
 	moveUpLabel:   'Move up: %s',
@@ -59,10 +59,6 @@ function term_order_refresh_buttons() {
  * Add Move up / Move down buttons to each term row (idempotent).
  */
 function term_order_add_buttons() {
-	if ( ! term_order_i18n.showMoveButtons ) {
-		return;
-	}
-
 	var $rows = term_order_rows();
 
 	if ( $rows.length < 2 ) {
@@ -79,9 +75,12 @@ function term_order_add_buttons() {
 		}
 
 		name  = term_order_row_name( $row );
-		$cell = $row.find( 'td.column-name, td.column-primary' ).first();
-		if ( ! $cell.length ) {
+		$cell = term_order_i18n.moveColumn ? $row.find( 'td.column-' + term_order_i18n.moveColumn ).first() : $row.find( 'td.column-name, td.column-primary' ).first();
+		if ( ! $cell.length && ! term_order_i18n.moveColumn ) {
 			$cell = $row.children( 'td' ).first();
+		}
+		if ( ! $cell.length ) {
+			return;
 		}
 
 		$wrap = jQuery( '<div class="pp-series-term-move-buttons"></div>' );
@@ -94,7 +93,7 @@ function term_order_add_buttons() {
 			.attr( 'aria-label', term_order_format( term_order_i18n.moveDownLabel, name ) )
 			.appendTo( $wrap );
 
-		// Place after row actions so the buttons stay visible.
+		// Series uses its dedicated Move column; Series Categories keep row actions placement.
 		var $actions = $cell.children( '.row-actions' ).first();
 		if ( $actions.length ) {
 			$wrap.insertAfter( $actions );
