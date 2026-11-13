@@ -961,7 +961,34 @@ class PPS_Publisher_Admin
     {
         $published = get_option('im_published_series');
         $unpublished = get_option('im_unpublished_series');
-        $series = get_series('orderby=name&hide_empty=0');
+
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list filtering; no request-driven mutation.
+        $series_search = isset($_GET['s']) ? sanitize_text_field(wp_unslash($_GET['s'])) : '';
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only list filtering; no request-driven mutation.
+        $series_post_count = isset($_GET['series_post_count']) ? sanitize_key(wp_unslash($_GET['series_post_count'])) : 'all';
+        if (!in_array($series_post_count, ['all', 'with-posts', 'empty'], true)) {
+            $series_post_count = 'all';
+        }
+
+        $series_query_args = [
+            'orderby'    => 'name',
+            'hide_empty' => $series_post_count === 'with-posts',
+        ];
+        if ($series_search !== '') {
+            $series_query_args['search'] = $series_search;
+        }
+
+        $series = get_series($series_query_args);
+        if ($series_post_count === 'empty') {
+            $series = array_values(
+                array_filter(
+                    $series,
+                    static function ($series_term) {
+                        return isset($series_term->count) && (int) $series_term->count === 0;
+                    }
+                )
+            );
+        }
 
         // Make sure the options exist
         if ($published === false) {
