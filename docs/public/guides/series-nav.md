@@ -2,6 +2,7 @@
 title: "The Post Navigation Shortcode"
 order: 13
 doc_category: series
+section: Series Shortcodes
 ---
 
 # The Post Navigation Shortcode

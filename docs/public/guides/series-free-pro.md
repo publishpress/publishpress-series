@@ -2,6 +2,7 @@
 title: "Differences Between Series Free and Pro"
 order: 11
 doc_category: series
+section: Getting Started
 ---
 
 # Differences Between Series Free and Pro

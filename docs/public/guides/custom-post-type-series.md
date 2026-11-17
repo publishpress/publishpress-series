@@ -2,6 +2,7 @@
 title: "Custom Post Types (Pro)"
 order: 3
 doc_category: series
+section: Using Publishpress Series
 ---
 
 # Custom Post Types (Pro)

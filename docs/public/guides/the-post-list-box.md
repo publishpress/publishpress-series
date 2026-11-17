@@ -2,6 +2,7 @@
 title: "Series Post List Boxes"
 order: 25
 doc_category: series
+section: Showing Series on Posts
 ---
 
 # Series Post List Boxes

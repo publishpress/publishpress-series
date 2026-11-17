@@ -2,6 +2,7 @@
 title: "Adding Posts to Multiple Series (Pro)"
 order: 9
 doc_category: series
+section: Using Publishpress Series
 ---
 
 # Adding Posts to Multiple Series (Pro)

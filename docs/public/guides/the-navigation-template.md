@@ -2,6 +2,7 @@
 title: "The Series Post Navigation Template"
 order: 24
 doc_category: series
+section: Series Templates
 ---
 
 # The Series Post Navigation Template

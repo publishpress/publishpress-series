@@ -2,6 +2,7 @@
 title: "The Shortcode for Series Categories"
 order: 20
 doc_category: series
+section: Series Shortcodes
 ---
 
 # The Shortcode for Series Categories

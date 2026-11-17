@@ -2,6 +2,7 @@
 title: "Where is PublishPress Series Data Stored?"
 order: 10
 doc_category: series
+section: Series for Developers
 ---
 
 # Where is PublishPress Series Data Stored?

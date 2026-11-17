@@ -2,6 +2,7 @@
 title: "The Series Post Details Template"
 order: 26
 doc_category: series
+section: Series Templates
 ---
 
 # The Series Post Details Template

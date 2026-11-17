@@ -2,6 +2,7 @@
 title: "The Post List Box Shortcode"
 order: 15
 doc_category: series
+section: Series Shortcodes
 ---
 
 # The Post List Box Shortcode

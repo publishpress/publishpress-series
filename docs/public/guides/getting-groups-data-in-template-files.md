@@ -2,6 +2,7 @@
 title: "Getting Groups Data in Template Files"
 order: 4
 doc_category: series
+section: Series for Developers
 ---
 
 # Getting Groups Data in Template Files

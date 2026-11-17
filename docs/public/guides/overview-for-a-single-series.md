@@ -2,6 +2,7 @@
 title: "Display for a Single Series"
 order: 5
 doc_category: series
+section: Series Display
 ---
 
 # Display for a Single Series

@@ -2,6 +2,7 @@
 title: "The Manage Series Screen"
 order: 27
 doc_category: series
+section: Using Publishpress Series
 ---
 
 # The Manage Series Screen

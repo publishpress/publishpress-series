@@ -2,6 +2,7 @@
 title: "Series Table of Content Widget"
 order: 19
 doc_category: series
+section: Series Widget
 ---
 
 # Series Table of Content Widget

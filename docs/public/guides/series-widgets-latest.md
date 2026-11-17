@@ -2,6 +2,7 @@
 title: "Latest Series Widget"
 order: 18
 doc_category: series
+section: Series Widget
 ---
 
 # Latest Series Widget

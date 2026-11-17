@@ -2,6 +2,7 @@
 title: "Display on a Single Post in a Series"
 order: 21
 doc_category: series
+section: Series Display
 ---
 
 # Display on a Single Post in a Series
