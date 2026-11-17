@@ -5,6 +5,12 @@
 if (!defined('REST_REQUEST')) {
     define('REST_REQUEST', true);
 }
+// Set PUBLISHPRESS_MCP_EARLY_REGISTRY=1 to exercise the registered schema before native blocks load.
+if (getenv('PUBLISHPRESS_MCP_EARLY_REGISTRY') === '1') {
+    $GLOBALS['wp_filter']['init'][0][] = ['function' => static function () {
+        wp_get_abilities();
+    }, 'accepted_args' => 0];
+}
 require $argv[1];
 if (strpos(DB_NAME, 'series_mcp_') !== 0) {
     throw new RuntimeException('An isolated Series database is required.');
@@ -34,6 +40,8 @@ function success($value, $message)
     return $value;
 }
 $choices = success(callSeries('get-content-choices'), 'Feature discovery');
+$blockInput = wp_get_ability('publishpress-series/update-series-block')->get_input_schema()['properties']['block_name'];
+check(!array_key_exists('enum', $blockInput) || !empty($blockInput['enum']), 'Early registration exported an empty block choice list');
 check($choices['pro'] === (getenv('SERIES_MCP_MODE') === 'pro'), 'Edition mismatch');
 $settings = success(callSeries('get-plugin-settings'), 'Settings discovery');
 foreach ((array) $settings['fields'] as $key => $field) {
