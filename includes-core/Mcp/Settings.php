@@ -76,8 +76,13 @@ class Settings
     public static function register(): void
     {
         $output = ['type' => 'object'];
+        $fields = self::fields();
+        // Native post types remain authoritative when update() validates the patch.
+        if (isset($fields['post_types_for_series'])) {
+            unset($fields['post_types_for_series']['items']['enum']);
+        }
         Registry::add('get-plugin-settings', __('Read Series settings and choices', 'organize-series'), __('Discover native Series Settings: automatic displays, layouts, legacy templates, category archives, metabox, sorting, uninstall policy and active Pro features. Booleans use JSON true/false; layout IDs are integers. No license or account credentials are returned.', 'organize-series'), Registry::object(), [self::class, 'read'], [self::class, 'canRead'], false, false, $output);
-        Registry::add('update-plugin-settings', __('Update Series settings', 'organize-series'), __('Patch the exact keys discovered by get-plugin-settings. Preserve omitted settings. Read expected_hash first. dry_run previews without saving. Pro addon and post-type changes take effect on the next request. Taxonomy identity migrations remain in native administration.', 'organize-series'), Registry::object(['settings' => Registry::object(self::fields()), 'expected_hash' => Registry::revision(), 'dry_run' => ['type' => 'boolean']], ['settings', 'expected_hash']), [self::class, 'update'], [self::class, 'allowed'], true, true, $output);
+        Registry::add('update-plugin-settings', __('Update Series settings', 'organize-series'), __('Patch the exact keys discovered by get-plugin-settings. Preserve omitted settings. Read expected_hash first. dry_run previews without saving. Pro addon and post-type changes take effect on the next request. Taxonomy identity migrations remain in native administration.', 'organize-series'), Registry::object(['settings' => Registry::object($fields), 'expected_hash' => Registry::revision(), 'dry_run' => ['type' => 'boolean']], ['settings', 'expected_hash']), [self::class, 'update'], [self::class, 'allowed'], true, true, $output);
     }
 
     public static function read(array $input = []): array
