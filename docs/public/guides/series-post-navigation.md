@@ -2,6 +2,7 @@
 title: "Series Post Navigation"
 order: 17
 doc_category: series
+section: Showing Series on Posts
 ---
 
 # Series Post Navigation

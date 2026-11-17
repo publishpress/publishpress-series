@@ -2,6 +2,7 @@
 title: "Custom Templates and Tokens"
 order: 8
 doc_category: series
+section: Series Templates
 ---
 
 # Custom Templates and Tokens

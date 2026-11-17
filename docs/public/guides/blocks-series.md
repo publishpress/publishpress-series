@@ -2,6 +2,7 @@
 title: "PublishPress Series and the Block Editor"
 order: 1
 doc_category: series
+section: Series Display
 ---
 
 # PublishPress Series and the Block Editor

@@ -2,6 +2,7 @@
 title: "Series Post Details"
 order: 14
 doc_category: series
+section: Showing Series on Posts
 ---
 
 # Series Post Details

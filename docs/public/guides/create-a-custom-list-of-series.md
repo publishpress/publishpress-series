@@ -2,6 +2,7 @@
 title: "Create a Custom List of Series"
 order: 2
 doc_category: series
+section: Series for Developers
 ---
 
 # Create a Custom List of Series

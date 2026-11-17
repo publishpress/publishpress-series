@@ -2,6 +2,7 @@
 title: "Series Categories"
 order: 6
 doc_category: series
+section: Using Publishpress Series
 ---
 
 # Series Categories

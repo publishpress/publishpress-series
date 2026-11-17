@@ -2,6 +2,7 @@
 title: "Getting Started With PublishPress Series"
 order: 22
 doc_category: series
+section: Getting Started
 ---
 
 # Getting Started With PublishPress Series

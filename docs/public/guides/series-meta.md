@@ -2,6 +2,7 @@
 title: "The Post Details Shortcode"
 order: 12
 doc_category: series
+section: Series Shortcodes
 ---
 
 # The Post Details Shortcode

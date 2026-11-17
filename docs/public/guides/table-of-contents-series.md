@@ -2,6 +2,7 @@
 title: "Create a Table of Contents for Categories"
 order: 23
 doc_category: series
+section: Series for Developers
 ---
 
 # Create a Table of Contents for Categories

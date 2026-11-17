@@ -2,6 +2,7 @@
 title: "Overview of Series Shortcodes (Pro)"
 order: 7
 doc_category: series
+section: Series Shortcodes
 ---
 
 # Overview of Series Shortcodes (Pro)

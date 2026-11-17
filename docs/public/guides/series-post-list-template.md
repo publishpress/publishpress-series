@@ -2,6 +2,7 @@
 title: "The Post List Box Template"
 order: 16
 doc_category: series
+section: Series Templates
 ---
 
 # The Post List Box Template
