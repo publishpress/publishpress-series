@@ -248,8 +248,9 @@ class orgSeries_widget_seriestoc extends WP_Widget
         $instance['os_order'] = isset($new_instance['os_order']) && in_array($new_instance['os_order'], $allowed_order, true) ? $new_instance['os_order'] : 'DESC';
         $instance['os_exclude'] = isset($new_instance['os_exclude']) ? array_map('absint', (array)$new_instance['os_exclude']) : [];
         $instance['os_include'] = isset($new_instance['os_include']) ? array_map('absint', (array)$new_instance['os_include']) : [];
-        $instance['os_number'] = isset($new_instance['os_number']) ? absint($new_instance['os_number']) : '';
-        $instance['os_offset'] = isset($new_instance['os_offset']) ? absint($new_instance['os_offset']) : '';
+        // Keep empty when not set: the form field has min="1", so a stored 0 makes the form invalid and blocks the next save.
+        $instance['os_number'] = (isset($new_instance['os_number']) && absint($new_instance['os_number']) > 0) ? absint($new_instance['os_number']) : '';
+        $instance['os_offset'] = (isset($new_instance['os_offset']) && absint($new_instance['os_offset']) > 0) ? absint($new_instance['os_offset']) : '';
         $instance['os_search'] = isset($new_instance['os_search']) ? sanitize_text_field($new_instance['os_search']) : '';
 
         return $instance;
@@ -290,8 +291,8 @@ class orgSeries_widget_seriestoc extends WP_Widget
         $os_order = $instance['os_order'];
         $os_exclude = (array)$instance['os_exclude'];
         $os_include = (array)$instance['os_include'];
-        $os_number = $instance['os_number'];
-        $os_offset = $instance['os_offset'];
+        $os_number = (int) $instance['os_number'] > 0 ? (int) $instance['os_number'] : '';
+        $os_offset = (int) $instance['os_offset'] > 0 ? (int) $instance['os_offset'] : '';
         $os_search = $instance['os_search'];
         $series_array_list = ppseries_get_series_list();
         ?>
