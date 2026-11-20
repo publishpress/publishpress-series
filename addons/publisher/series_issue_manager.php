@@ -897,7 +897,7 @@ class PPS_Publisher_Admin
             'manage-issues',
             [$this, 'series_issue_manager_admin']
         );
-        add_action("admin_print_scripts-$page", [$this, 'series_issue_manager_scripts']);
+        add_action("admin_print_styles-$page", [$this, 'series_issue_manager_scripts']);
 
         add_action("load-$page", [$this, 'screen_option']);
     }
