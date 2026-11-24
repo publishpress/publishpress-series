@@ -41,7 +41,7 @@ function term_order_rows() {
 
 function term_order_row_name( $row ) {
 	var name = jQuery.trim( $row.find( '.row-title' ).first().text() );
-	return name || jQuery.trim( $row.find( 'td.column-name, td.name' ).first().text() );
+	return name || jQuery.trim( $row.find( '.column-name, .name' ).filter( 'td, th' ).first().text() );
 }
 
 function term_order_refresh_buttons() {
@@ -74,7 +74,8 @@ function term_order_add_buttons() {
 		}
 
 		name  = term_order_row_name( $row );
-		$cell = $row.find( 'td.column-name, td.column-primary' ).first();
+		// WordPress renders the primary (Name) cell as a <th>, so match both cell types.
+		$cell = $row.find( '.column-name, .column-primary' ).filter( 'td, th' ).first();
 		if ( ! $cell.length ) {
 			$cell = $row.children( 'td' ).first();
 		}
