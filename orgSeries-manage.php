@@ -454,12 +454,77 @@ function ajax_pp_series_reordering_terms()
     $return_data->status = 'success';
     $return_data->message = __('Updated successfully', 'organize-series');
 
-    foreach ($terms as $key => $term_id) {
+    $terms = array_values(array_filter(array_map('absint', $terms)));
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified above.
+    $paged = isset($_POST['paged']) ? max(1, absint($_POST['paged'])) : 1;
+    // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified above.
+    $search = isset($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
+
+    $ordered_ids = pp_series_reorder_full_list($tax->name, $terms, $paged, $search);
+
+    $return_data->orders = [];
+    foreach ($ordered_ids as $key => $term_id) {
         ppseries_set_term_order((int) $term_id, $key + 1);
+        if (in_array($term_id, $terms, true)) {
+            $return_data->orders[$term_id] = $key + 1;
+        }
     }
-    clean_term_cache($terms);
+    clean_term_cache($ordered_ids, $tax->name);
 
     die(wp_json_encode($return_data));
+}
+
+/**
+ * Merge the new order of the rows shown on one list page into the order of every term
+ * in the taxonomy, so a reorder on page 2+ doesn't reuse the numbers of page 1.
+ *
+ * @param string $taxonomy Taxonomy name.
+ * @param int[]  $page_ids Term IDs of the page's rows, in their new order.
+ * @param int    $paged    List page the rows came from.
+ * @param string $search   Search term the list was filtered by, if any.
+ * @return int[] Every term ID of the taxonomy, in its new order.
+ */
+function pp_series_reorder_full_list($taxonomy, $page_ids, $paged, $search = '')
+{
+    global $wpdb;
+
+    // Same order as the list (term_order), with term_id to break ties so every request agrees.
+    $all_ids = array_map('intval', $wpdb->get_col($wpdb->prepare(
+        "SELECT t.term_id FROM {$wpdb->terms} AS t
+        INNER JOIN {$wpdb->term_taxonomy} AS tt ON t.term_id = tt.term_id
+        WHERE tt.taxonomy = %s
+        ORDER BY t.term_order ASC, t.term_id ASC",
+        $taxonomy
+    )));
+
+    $page_ids = array_values(array_intersect($page_ids, $all_ids));
+    if (empty($page_ids)) {
+        return [];
+    }
+
+    if ('' !== $search) {
+        // A filtered page doesn't map to a block of positions: keep the slots its rows held.
+        $slots = array_keys(array_intersect($all_ids, $page_ids));
+        foreach ($slots as $index => $slot) {
+            $all_ids[$slot] = $page_ids[$index];
+        }
+
+        return $all_ids;
+    }
+
+    $per_page = (int) get_user_option("edit_{$taxonomy}_per_page");
+    if ($per_page < 1) {
+        $per_page = 20;
+    }
+    /** This filter is documented in wp-admin/includes/class-wp-list-table.php */
+    $per_page = (int) apply_filters("edit_{$taxonomy}_per_page", $per_page);
+    $offset   = max(0, ($paged - 1) * max(1, $per_page));
+
+    $rest   = array_values(array_diff($all_ids, $page_ids));
+    $offset = min($offset, count($rest));
+    array_splice($rest, $offset, 0, $page_ids);
+
+    return $rest;
 }
 
 function pp_series_terms_clauses($clauses, $taxonomies, $args)
