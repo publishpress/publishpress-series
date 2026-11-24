@@ -143,7 +143,9 @@ function term_order_save( $item, announcement ) {
 		action: 'pp_series_reordering_terms',
 		terms: terms,
 		nonce: term_order_i18n.nonce,
-		tax:    taxonomy
+		tax:    taxonomy,
+		paged:  parseInt( jQuery( 'input[name="paged"]' ).first().val(), 10 ) || 1,
+		search: jQuery( 'input[name="s"]' ).first().val() || ''
 	} )
 		.done( function ( response ) {
 			term_order_update_callback( response, announcement );
@@ -253,12 +255,12 @@ function term_order_update_callback( response, announcement ) {
 
 	if ( response && response.status === 'success' ) {
 		jQuery( '.pp-series-term-order-notice' ).remove();
-		// The server renumbers the rows in page order; keep the Order column (read by Quick Edit) in step.
-		var position = 0;
+		// Keep the Order column (read by Quick Edit) in step with the orders the server saved.
+		var orders = response.orders || {};
 		term_order_rows().each( function () {
-			if ( jQuery( this ).attr( 'id' ) ) {
-				position++;
-				jQuery( this ).find( '.pp-series-term-order' ).attr( 'data-order', position ).removeData( 'order' ).text( position );
+			var term_id = String( jQuery( this ).attr( 'id' ) || '' ).replace( /\D/g, '' );
+			if ( term_id && typeof orders[ term_id ] !== 'undefined' ) {
+				jQuery( this ).find( '.pp-series-term-order' ).attr( 'data-order', orders[ term_id ] ).removeData( 'order' ).text( orders[ term_id ] );
 			}
 		} );
 		term_order_speak( ( announcement ? announcement + ' ' : '' ) + term_order_i18n.saved );
